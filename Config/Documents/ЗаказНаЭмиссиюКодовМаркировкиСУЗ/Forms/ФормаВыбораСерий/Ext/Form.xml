@@ -9,25 +9,8 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Right</HorizontalAlign>
-		<ChildItems>
-			<Button name="Готово" id="17">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Готово</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="18"/>
-			</Button>
-			<Button name="Отмена" id="23">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="24"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -36,9 +19,6 @@
 		<LabelField name="ПоясняющийТекст" id="31">
 			<DataPath>ПоясняющийТекст</DataPath>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="ПоясняющийТекстКонтекстноеМеню" id="32"/>
 			<ExtendedTooltip name="ПоясняющийТекстРасширеннаяПодсказка" id="33"/>
 		</LabelField>
@@ -92,22 +72,31 @@
 							<v8:content>N</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СерийныеНомераНомерСтрокиКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="СерийныеНомераНомерСтрокиРасширеннаяПодсказка" id="30"/>
 				</InputField>
 				<InputField name="СерийныеНомераСерийныйНомер" id="14">
 					<DataPath>СерийныеНомера.СерийныйНомер</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="СерийныеНомераСерийныйНомерКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="СерийныеНомераСерийныйНомерРасширеннаяПодсказка" id="16"/>
 				</InputField>
 			</ChildItems>
 		</Table>
+		<LabelDecoration name="НадписьПравилаУказанияСерийногоНомера" id="34">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>true</HorizontalStretch>
+			<TextColor>style:ПоясняющийТекстГосИС</TextColor>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Первый символ серийного номера, представляющий код страны, не указывается</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="НадписьПравилаУказанияСерийногоНомераКонтекстноеМеню" id="35"/>
+			<ExtendedTooltip name="НадписьПравилаУказанияСерийногоНомераРасширеннаяПодсказка" id="36"/>
+		</LabelDecoration>
 		<CommandBar name="ГруппаПодвал" id="19">
 			<Title>
 				<v8:item>
@@ -117,32 +106,21 @@
 			</Title>
 			<HorizontalLocation>Right</HorizontalLocation>
 			<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="20"/>
-		</CommandBar>
-		<UsualGroup name="ГруппаПравилаУказанияСерийногоНомера" id="42">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа правила указания серийного номера</v8:content>
-				</v8:item>
-			</Title>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПравилаУказанияСерийногоНомераРасширеннаяПодсказка" id="43"/>
 			<ChildItems>
-				<LabelDecoration name="НадписьПравилаУказанияСерийногоНомера" id="34">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<HorizontalStretch>true</HorizontalStretch>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Первый символ серийного номера, представляющий код страны, не указывается</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="НадписьПравилаУказанияСерийногоНомераКонтекстноеМеню" id="35"/>
-					<ExtendedTooltip name="НадписьПравилаУказанияСерийногоНомераРасширеннаяПодсказка" id="36"/>
-				</LabelDecoration>
+				<Button name="Готово" id="17">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Готово</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="18"/>
+				</Button>
+				<Button name="Отмена" id="23">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Отмена</CommandName>
+					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="24"/>
+				</Button>
 			</ChildItems>
-		</UsualGroup>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="СерийныеНомера" id="1">
@@ -230,7 +208,7 @@
 			<Type>
 				<v8:Type>xs:decimal</v8:Type>
 				<v8:NumberQualifiers>
-					<v8:Digits>50</v8:Digits>
+					<v8:Digits>32</v8:Digits>
 					<v8:FractionDigits>0</v8:FractionDigits>
 					<v8:AllowedSign>Any</v8:AllowedSign>
 				</v8:NumberQualifiers>
@@ -302,7 +280,6 @@
 				</v8:item>
 			</Title>
 			<Action>Готово</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>
@@ -312,14 +289,32 @@
 				</v8:item>
 			</Title>
 			<Action>Отмена</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>
+		<Parameter name="Номенклатура">
+			<Type/>
+		</Parameter>
+		<Parameter name="Характеристика">
+			<Type/>
+		</Parameter>
+		<Parameter name="ТребуемоеКоличествоНомеров">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>32</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Parameter>
 		<Parameter name="Шаблон">
 			<Type>
 				<v8:Type>cfg:CatalogRef.ШаблоныКодовМаркировкиСУЗ</v8:Type>
 			</Type>
+		</Parameter>
+		<Parameter name="СерийныеНомера">
+			<Type/>
 		</Parameter>
 	</Parameters>
 </Form>

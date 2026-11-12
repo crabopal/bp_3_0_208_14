@@ -1,6 +1,7 @@
 ﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://v8.1c.ru/edi/edi_stnd/109" elementFormQualified="true" attributeFormQualified="false">
 	<property xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd/109" name="СчетаПК" type="d2p1:СчетПК"/>
 	<valueType name="БИК" base="xs:string" variety="Atomic" length="9"/>
+	<valueType name="ИНН" base="xs:string" variety="Atomic" length="12"/>
 	<valueType name="КодВалюты" base="xs:string" variety="Atomic" length="3"/>
 	<valueType name="НомерКарты" base="xs:string" variety="Atomic" maxLength="20"/>
 	<valueType name="НомерТелефона" base="xs:string" variety="Atomic" length="10"/>
@@ -112,9 +113,11 @@
 			<typeDef xmlns:d4p1="http://v8.1c.ru/edi/edi_stnd/109" xsi:type="ObjectType" base="d4p1:Сотрудник" ordered="false" sequenced="true">
 				<property name="ИдентификаторПлатежа" type="d4p1:УникальныйИдентификатор" lowerBound="0"/>
 				<property name="ЛицевойСчет" type="d4p1:Счет" lowerBound="0"/>
+				<property name="ЛицевойСчетЦР" type="d4p1:Счет" lowerBound="0"/>
 				<property name="НомерКарты" type="d4p1:НомерКарты" lowerBound="0"/>
 				<property name="СНИЛС" type="d4p1:СНИЛС" lowerBound="0"/>
 				<property name="НомерТелефона" type="d4p1:НомерТелефона" lowerBound="0"/>
+				<property name="ИНН" type="d4p1:ИНН" lowerBound="0"/>
 				<property name="Сумма" type="d4p1:Сумма" lowerBound="0"/>
 				<property name="КодВалюты" type="d4p1:КодВалюты" lowerBound="0"/>
 				<property name="ОбщаяСуммаУдержаний" type="d4p1:Сумма" lowerBound="0"/>
@@ -258,6 +261,8 @@
 					</typeDef>
 				</property>
 				<property name="СНИЛС" type="d4p1:СНИЛС" lowerBound="0"/>
+				<property name="ИНН" type="d4p1:ИНН" lowerBound="0"/>
+				<property name="БИК" type="d4p1:БИК" lowerBound="0"/>
 			</typeDef>
 		</property>
 	</objectType>
@@ -265,7 +270,8 @@
 		<property name="Сотрудник" upperBound="-1">
 			<typeDef xmlns:d4p1="http://v8.1c.ru/edi/edi_stnd/109" xsi:type="ObjectType" base="d4p1:Сотрудник">
 				<property name="ИдентификаторПлатежа" type="d4p1:УникальныйИдентификатор" lowerBound="0"/>
-				<property name="ЛицевойСчет" type="d4p1:Счет"/>
+				<property name="ЛицевойСчет" type="d4p1:Счет" lowerBound="0"/>
+				<property name="ЛицевойСчетЦР" type="d4p1:Счет" lowerBound="0"/>
 				<property name="Сумма" type="d4p1:Сумма"/>
 				<property name="Комиссия" type="d4p1:Сумма" lowerBound="0"/>
 				<property name="КодВалюты" type="d4p1:КодВалюты" lowerBound="0"/>
@@ -294,10 +300,10 @@
 					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000"/>
 				</property>
 				<property name="НомерКарты" type="d4p1:НомерКарты" lowerBound="0"/>
-				<property name="ТабельныйНомер" lowerBound="0" nillable="true">
+				<property name="БИК" type="d4p1:БИК" lowerBound="0"/>
+				<property name="ТабельныйНомер" lowerBound="0">
 					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
 				</property>
-				<property name="БИК" type="d4p1:БИК" lowerBound="0"/>
 			</typeDef>
 		</property>
 	</objectType>
@@ -321,6 +327,15 @@
 			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
 		</property>
 	</objectType>
+	<objectType name="СписокСчетов">
+		<property name="Сотрудник" upperBound="-1">
+			<typeDef xmlns:d4p1="http://v8.1c.ru/edi/edi_stnd/109" xsi:type="ObjectType" base="d4p1:Сотрудник">
+				<property name="ЛицевойСчет" type="d4p1:Счет" lowerBound="0"/>
+				<property name="УдостоверениеЛичности" type="d4p1:УдостоверениеЛичности"/>
+				<property name="БИК" type="d4p1:БИК" lowerBound="0"/>
+			</typeDef>
+		</property>
+	</objectType>
 	<objectType name="СписокУвольнений">
 		<property name="Сотрудник" upperBound="-1">
 			<typeDef xmlns:d4p1="http://v8.1c.ru/edi/edi_stnd/109" xsi:type="ObjectType" base="d4p1:Сотрудник">
@@ -332,7 +347,7 @@
 	</objectType>
 	<objectType name="СчетПК" ordered="false" sequenced="true">
 		<property name="ДатаФормирования" type="xs:date" lowerBound="1" form="Attribute"/>
-		<property name="НомерДоговора" lowerBound="1" form="Attribute">
+		<property name="НомерДоговора" lowerBound="0" form="Attribute">
 			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="40"/>
 		</property>
 		<property name="ДатаДоговора" type="xs:date" lowerBound="0" form="Attribute"/>
@@ -358,6 +373,7 @@
 		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/109" name="ЗачислениеЗарплаты" type="d3p1:ЗачислениеЗарплаты" lowerBound="0"/>
 		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/109" name="РезультатЗачисленияЗарплаты" type="d3p1:РезультатЗачисленияЗарплаты" lowerBound="0"/>
 		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/109" name="СписокУвольнений" type="d3p1:СписокУвольнений" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/109" name="СписокСчетов" type="d3p1:СписокСчетов" lowerBound="0"/>
 		<property name="ВидЗачисления" lowerBound="0">
 			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="2"/>
 		</property>
@@ -370,6 +386,7 @@
 				<pattern>5</pattern>
 			</typeDef>
 		</property>
+		<property name="ПериодВыплаты" type="xs:date" lowerBound="0" form="Attribute"/>
 		<property name="ПлатежноеПоручение" lowerBound="0">
 			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="6"/>
 		</property>

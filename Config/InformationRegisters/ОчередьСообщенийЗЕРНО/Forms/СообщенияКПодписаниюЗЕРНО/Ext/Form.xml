@@ -2,8 +2,9 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -37,7 +38,6 @@
 							<v8:content>Страницы отбора по организации (Оформлено)</v8:content>
 						</v8:item>
 					</ToolTip>
-					<GroupVerticalAlign>Bottom</GroupVerticalAlign>
 					<PagesRepresentation>None</PagesRepresentation>
 					<ExtendedTooltip name="СтраницыОтборОрганизацияРасширеннаяПодсказка" id="60"/>
 					<ChildItems>
@@ -55,7 +55,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОформленоОрганизацииРасширеннаяПодсказка" id="62"/>
 							<ChildItems>
@@ -68,10 +67,10 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
+									<ChoiceButton>true</ChoiceButton>
 									<ClearButton>true</ClearButton>
 									<QuickChoice>false</QuickChoice>
 									<ChooseType>false</ChooseType>
@@ -116,7 +115,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОформленоОрганизацияРасширеннаяПодсказка" id="67"/>
 							<ChildItems>
@@ -129,9 +127,10 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
+									<ChoiceButton>true</ChoiceButton>
 									<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 									<ClearButton>true</ClearButton>
 									<OpenButton>false</OpenButton>
@@ -165,6 +164,20 @@
 						</Page>
 					</ChildItems>
 				</Pages>
+				<Button name="Подписать" id="3">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Подписать</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ПодписатьРасширеннаяПодсказка" id="4"/>
+				</Button>
+				<Button name="Обновить" id="1">
+					<Type>UsualButton</Type>
+					<Width>3</Width>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<CommandName>Form.Command.Обновить</CommandName>
+					<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="2"/>
+				</Button>
 				<PictureDecoration name="ОтступНапоминание" id="84">
 					<Width>3</Width>
 					<Height>1</Height>
@@ -207,8 +220,6 @@
 									<v8:content>Время, через которое нужно напомнить</v8:content>
 								</v8:item>
 							</ToolTip>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>15</Width>
 							<HorizontalStretch>false</HorizontalStretch>
 							<DropListButton>true</DropListButton>
@@ -259,42 +270,73 @@
 						</Button>
 					</ChildItems>
 				</UsualGroup>
+				<CommandBar name="ГруппаЕще" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ещё</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаЕщеРасширеннаяПодсказка" id="20"/>
+					<ChildItems>
+						<ButtonGroup name="КомандыТаблицы" id="27">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды таблицы</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSource>Item.СообщенияКПодписанию</CommandSource>
+							<ExtendedTooltip name="КомандыТаблицыРасширеннаяПодсказка" id="28"/>
+						</ButtonGroup>
+						<ButtonGroup name="КомандыФормы" id="29">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды формы</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSource>Form</CommandSource>
+							<ExtendedTooltip name="КомандыФормыРасширеннаяПодсказка" id="30"/>
+						</ButtonGroup>
+						<Button name="Добавить" id="53">
+							<Type>CommandBarButton</Type>
+							<Visible>false</Visible>
+							<CommandName>Form.Item.СообщенияКПодписанию.StandardCommand.Add</CommandName>
+							<ExtendedTooltip name="ДобавитьРасширеннаяПодсказка" id="54"/>
+						</Button>
+						<Button name="Удалить" id="55">
+							<Type>CommandBarButton</Type>
+							<Visible>false</Visible>
+							<CommandName>Form.Item.СообщенияКПодписанию.StandardCommand.Delete</CommandName>
+							<ExtendedTooltip name="УдалитьРасширеннаяПодсказка" id="56"/>
+						</Button>
+						<Button name="ПереместитьВверх" id="87">
+							<Type>CommandBarButton</Type>
+							<Visible>false</Visible>
+							<CommandName>Form.Item.СообщенияКПодписанию.StandardCommand.MoveUp</CommandName>
+							<ExtendedTooltip name="ПереместитьВверхРасширеннаяПодсказка" id="88"/>
+						</Button>
+						<Button name="ПереместитьВниз" id="89">
+							<Type>CommandBarButton</Type>
+							<Visible>false</Visible>
+							<CommandName>Form.Item.СообщенияКПодписанию.StandardCommand.MoveDown</CommandName>
+							<ExtendedTooltip name="ПереместитьВнизРасширеннаяПодсказка" id="90"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<Table name="СообщенияКПодписанию" id="31">
 			<Representation>List</Representation>
 			<ReadOnly>true</ReadOnly>
-			<ChangeRowSet>false</ChangeRowSet>
-			<ChangeRowOrder>false</ChangeRowOrder>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<DataPath>СообщенияКПодписанию</DataPath>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="СообщенияКПодписаниюКонтекстноеМеню" id="33"/>
 			<AutoCommandBar name="СообщенияКПодписаниюКоманднаяПанель" id="32">
-				<ChildItems>
-					<Button name="Подписать" id="3" DisplayImportance="High">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.Подписать</CommandName>
-						<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ПодписатьРасширеннаяПодсказка" id="4"/>
-					</Button>
-					<Button name="Обновить" id="1">
-						<Type>CommandBarButton</Type>
-						<Width>3</Width>
-						<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-						<CommandName>Form.Command.Обновить</CommandName>
-						<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="2"/>
-					</Button>
-					<Button name="СообщенияКПодписаниюПодписатьВсе" id="111">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ПодписатьВсе</CommandName>
-						<ExtendedTooltip name="СообщенияКПодписаниюПодписатьВсеРасширеннаяПодсказка" id="112"/>
-					</Button>
-				</ChildItems>
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СообщенияКПодписаниюРасширеннаяПодсказка" id="34"/>
 			<SearchStringAddition name="СообщенияКПодписаниюСтрокаПоиска" id="35">
@@ -327,8 +369,6 @@
 			<ChildItems>
 				<InputField name="СообщенияКПодписаниюОрганизация" id="44">
 					<DataPath>СообщенияКПодписанию.Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="СообщенияКПодписаниюОрганизацияКонтекстноеМеню" id="45"/>
@@ -336,29 +376,21 @@
 				</InputField>
 				<InputField name="СообщенияКПодписаниюПредставлениеОперации" id="47">
 					<DataPath>СообщенияКПодписанию.ПредставлениеОперации</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СообщенияКПодписаниюПредставлениеОперацииКонтекстноеМеню" id="48"/>
 					<ExtendedTooltip name="СообщенияКПодписаниюПредставлениеОперацииРасширеннаяПодсказка" id="49"/>
 				</InputField>
 				<InputField name="СообщенияКПодписаниюПодразделение" id="97">
 					<DataPath>СообщенияКПодписанию.Подразделение</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СообщенияКПодписаниюПодразделениеКонтекстноеМеню" id="98"/>
 					<ExtendedTooltip name="СообщенияКПодписаниюПодразделениеРасширеннаяПодсказка" id="99"/>
 				</InputField>
 				<InputField name="СообщенияКПодписаниюСсылкаНаОбъект" id="94">
 					<DataPath>СообщенияКПодписанию.СсылкаНаОбъект</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СообщенияКПодписаниюСсылкаНаОбъектКонтекстноеМеню" id="95"/>
 					<ExtendedTooltip name="СообщенияКПодписаниюСсылкаНаОбъектРасширеннаяПодсказка" id="96"/>
 				</InputField>
 				<InputField name="СообщенияКПодписаниюДатаСоздания" id="79">
 					<DataPath>СообщенияКПодписанию.ДатаСоздания</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="СообщенияКПодписаниюДатаСозданияКонтекстноеМеню" id="80"/>
 					<ExtendedTooltip name="СообщенияКПодписаниюДатаСозданияРасширеннаяПодсказка" id="81"/>
@@ -368,8 +400,6 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="СообщенияКПодписаниюРазделУчетаКонтекстноеМеню" id="92"/>
 					<ExtendedTooltip name="СообщенияКПодписаниюРазделУчетаРасширеннаяПодсказка" id="93"/>
@@ -617,9 +647,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Обновить</Action>
-			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<Representation>Picture</Representation>
 		</Command>
 		<Command name="Подписать" id="2">
 			<Title>
@@ -628,15 +656,7 @@
 					<v8:content>Подписать</v8:content>
 				</v8:item>
 			</Title>
-			<Picture>
-				<xr:Ref>StdPicture.ExecuteTask</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>Подписать</Action>
-			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">СообщенияКПодписанию</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ОтложитьВсе" id="3">
 			<Title>
@@ -653,26 +673,6 @@
 			</ToolTip>
 			<Action>ОтложитьВсе</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="ПодписатьВсе" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подписать все</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подписать все</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.ExecuteTask</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>ПодписатьВсе</Action>
-			<Representation>TextPicture</Representation>
 		</Command>
 	</Commands>
 	<Parameters>

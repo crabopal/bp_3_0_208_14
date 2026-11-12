@@ -9,42 +9,10 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<VerticalSpacing>Half</VerticalSpacing>
 	<CommandBarLocation>Top</CommandBarLocation>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<ButtonGroup name="КнопкиОсновные" id="168">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Кнопки основные</v8:content>
-					</v8:item>
-				</Title>
-				<ToolTip>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Кнопки основные</v8:content>
-					</v8:item>
-				</ToolTip>
-				<ExtendedTooltip name="КнопкиОсновныеРасширеннаяПодсказка" id="169"/>
-				<ChildItems>
-					<Button name="Отправить" id="136">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.Отправить</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ОтправитьРасширеннаяПодсказка" id="137"/>
-					</Button>
-					<Button name="ПроверитьВИнтернете" id="291">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ПроверитьВИнтернете</CommandName>
-						<ExtendedTooltip name="ПроверитьВИнтернетеРасширеннаяПодсказка" id="292"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -52,6 +20,35 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<CommandBar name="КнопкиОсновные" id="168">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопки основные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопки основные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="КнопкиОсновныеРасширеннаяПодсказка" id="169"/>
+			<ChildItems>
+				<Button name="Отправить" id="136">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Отправить</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ОтправитьРасширеннаяПодсказка" id="137"/>
+				</Button>
+				<Button name="ПроверитьВИнтернете" id="291">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.ПроверитьВИнтернете</CommandName>
+					<ExtendedTooltip name="ПроверитьВИнтернетеРасширеннаяПодсказка" id="292"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 		<Pages name="СтраницыШапки" id="170">
 			<Title>
 				<v8:item>
@@ -65,7 +62,7 @@
 					<v8:content>Страницы шапки</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Height>5</Height>
+			<Height>4</Height>
 			<HorizontalStretch>true</HorizontalStretch>
 			<VerticalStretch>false</VerticalStretch>
 			<PagesRepresentation>None</PagesRepresentation>
@@ -84,6 +81,7 @@
 							<v8:content>Страница счетчик</v8:content>
 						</v8:item>
 					</ToolTip>
+					<Height>4</Height>
 					<HorizontalStretch>true</HorizontalStretch>
 					<VerticalStretch>true</VerticalStretch>
 					<Group>Vertical</Group>
@@ -92,23 +90,14 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаСчетчикРасширеннаяПодсказка" id="173"/>
 					<ChildItems>
-						<UsualGroup name="Группа1" id="315">
-							<VerticalStretch>true</VerticalStretch>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<BackColor>style:ЦветФонаНеначавшейсяОтправки</BackColor>
-							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="316"/>
-							<ChildItems>
-								<LabelField name="Счетчик" id="293">
-									<DataPath>Счетчик</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<VerticalStretch>true</VerticalStretch>
-									<ContextMenu name="СчетчикКонтекстноеМеню" id="294"/>
-									<ExtendedTooltip name="СчетчикРасширеннаяПодсказка" id="295"/>
-								</LabelField>
-							</ChildItems>
-						</UsualGroup>
+						<LabelField name="Счетчик" id="293">
+							<DataPath>Счетчик</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>3</Height>
+							<ContextMenu name="СчетчикКонтекстноеМеню" id="294"/>
+							<ExtendedTooltip name="СчетчикРасширеннаяПодсказка" id="295"/>
+						</LabelField>
 					</ChildItems>
 				</Page>
 				<Page name="СтраницаОсновногоДействия" id="174">
@@ -146,13 +135,11 @@
 									<v8:content>Прогресс</v8:content>
 								</v8:item>
 							</ToolTip>
-							<HorizontalStretch>true</HorizontalStretch>
 							<Group>AlwaysHorizontal</Group>
 							<VerticalAlign>Center</VerticalAlign>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<BackColor>style:ЦветФонаНеначавшейсяОтправки</BackColor>
 							<ExtendedTooltip name="ПрогрессРасширеннаяПодсказка" id="183"/>
 							<ChildItems>
 								<PictureDecoration name="Бублик" id="176">
@@ -164,7 +151,7 @@
 									</Title>
 									<Picture>
 										<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<ContextMenu name="БубликКонтекстноеМеню" id="177"/>
 									<ExtendedTooltip name="БубликРасширеннаяПодсказка" id="178"/>
@@ -182,18 +169,18 @@
 									<ContextMenu name="СостояниеКонтекстноеМеню" id="180"/>
 									<ExtendedTooltip name="СостояниеРасширеннаяПодсказка" id="181"/>
 								</LabelDecoration>
-								<LabelDecoration name="Отступ3" id="278">
-									<Width>3</Width>
-									<ContextMenu name="Отступ3КонтекстноеМеню" id="279"/>
-									<ExtendedTooltip name="Отступ3РасширеннаяПодсказка" id="280"/>
-								</LabelDecoration>
-								<Button name="ПрерватьДействие" id="184">
-									<Type>UsualButton</Type>
-									<CommandName>Form.Command.ПрерватьДействие</CommandName>
-									<ExtendedTooltip name="ПрерватьДействиеРасширеннаяПодсказка" id="185"/>
-								</Button>
 							</ChildItems>
 						</UsualGroup>
+						<LabelDecoration name="Отступ3" id="278">
+							<Width>3</Width>
+							<ContextMenu name="Отступ3КонтекстноеМеню" id="279"/>
+							<ExtendedTooltip name="Отступ3РасширеннаяПодсказка" id="280"/>
+						</LabelDecoration>
+						<Button name="ПрерватьДействие" id="184">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ПрерватьДействие</CommandName>
+							<ExtendedTooltip name="ПрерватьДействиеРасширеннаяПодсказка" id="185"/>
+						</Button>
 					</ChildItems>
 				</Page>
 				<Page name="СтраницаОжидание" id="281">
@@ -229,7 +216,6 @@
 									<v8:content>Подождите</v8:content>
 								</v8:item>
 							</ToolTip>
-							<VerticalStretch>true</VerticalStretch>
 							<Group>HorizontalIfPossible</Group>
 							<VerticalAlign>Center</VerticalAlign>
 							<Behavior>Usual</Behavior>
@@ -246,7 +232,7 @@
 									</Title>
 									<Picture>
 										<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<ContextMenu name="БольшойБублик1КонтекстноеМеню" id="286"/>
 									<ExtendedTooltip name="БольшойБублик1РасширеннаяПодсказка" id="287"/>
@@ -303,7 +289,7 @@
 							<DataPath>Организация</DataPath>
 							<SkipOnInput>true</SkipOnInput>
 							<TitleLocation>None</TitleLocation>
-							<Width>20</Width>
+							<Width>25</Width>
 							<HorizontalStretch>false</HorizontalStretch>
 							<ClearButton>true</ClearButton>
 							<OpenButton>false</OpenButton>
@@ -324,7 +310,7 @@
 							<DataPath>ВидОтчета</DataPath>
 							<SkipOnInput>true</SkipOnInput>
 							<TitleLocation>None</TitleLocation>
-							<Width>16</Width>
+							<Width>20</Width>
 							<HorizontalStretch>false</HorizontalStretch>
 							<Wrap>false</Wrap>
 							<ClearButton>true</ClearButton>
@@ -373,7 +359,7 @@
 					<DataPath>Статус</DataPath>
 					<SkipOnInput>true</SkipOnInput>
 					<TitleLocation>None</TitleLocation>
-					<Width>12</Width>
+					<Width>15</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ChoiceButton>true</ChoiceButton>
 					<ClearButton>true</ClearButton>
@@ -396,7 +382,7 @@
 					<DataPath>ПредставлениеКонтролирующегоОргана</DataPath>
 					<SkipOnInput>true</SkipOnInput>
 					<TitleLocation>None</TitleLocation>
-					<Width>12</Width>
+					<Width>10</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<Wrap>false</Wrap>
 					<ChoiceButton>true</ChoiceButton>
@@ -418,9 +404,163 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
+		<UsualGroup name="КнопкиТаблицы" id="146">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопки таблицы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопки таблицы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>HorizontalIfPossible</Group>
+			<VerticalAlign>Center</VerticalAlign>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="КнопкиТаблицыРасширеннаяПодсказка" id="147"/>
+			<ChildItems>
+				<CommandBar name="ЖурналГруппаФлажки" id="105">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Журнал группа флажки</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Журнал группа флажки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>8</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ExtendedTooltip name="ЖурналГруппаФлажкиРасширеннаяПодсказка" id="106"/>
+					<ChildItems>
+						<Button name="УстановитьФлажки" id="79">
+							<Type>CommandBarButton</Type>
+							<Representation>Picture</Representation>
+							<CommandName>Form.Command.УстановитьФлажки</CommandName>
+							<Picture>
+								<xr:Ref>StdPicture.CheckAll</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="УстановитьФлажкиРасширеннаяПодсказка" id="80"/>
+						</Button>
+						<Button name="СнятьФлажки" id="84">
+							<Type>CommandBarButton</Type>
+							<Representation>Picture</Representation>
+							<CommandName>Form.Command.СнятьФлажки</CommandName>
+							<Picture>
+								<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="СнятьФлажкиРасширеннаяПодсказка" id="85"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+				<CommandBar name="ЖурналГруппаПереместить" id="107">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Журнал группа переместить</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Журнал группа переместить</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>8</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ExtendedTooltip name="ЖурналГруппаПереместитьРасширеннаяПодсказка" id="108"/>
+					<ChildItems>
+						<Button name="ПереместитьВверх" id="109">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Item.ОтчетыПредставление.StandardCommand.MoveUp</CommandName>
+							<ExtendedTooltip name="ПереместитьВверхРасширеннаяПодсказка" id="110"/>
+						</Button>
+						<Button name="ПереместитьВниз" id="111">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Item.ОтчетыПредставление.StandardCommand.MoveDown</CommandName>
+							<ExtendedTooltip name="ПереместитьВнизРасширеннаяПодсказка" id="112"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+				<CommandBar name="ЖурналГруппаСортировка" id="113">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Журнал группа сортировка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Журнал группа сортировка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>8</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ExtendedTooltip name="ЖурналГруппаСортировкаРасширеннаяПодсказка" id="114"/>
+					<ChildItems>
+						<Button name="СортироватьСписокПоВозрастанию" id="117">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Item.ОтчетыПредставление.StandardCommand.SortListAsc</CommandName>
+							<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="СортироватьСписокПоВозрастаниюРасширеннаяПодсказка" id="118"/>
+						</Button>
+						<Button name="СортироватьСписокПоУбыванию" id="119">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Item.ОтчетыПредставление.StandardCommand.SortListDesc</CommandName>
+							<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="СортироватьСписокПоУбываниюРасширеннаяПодсказка" id="120"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+				<LabelDecoration name="Отступ" id="186">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="ОтступКонтекстноеМеню" id="187"/>
+					<ExtendedTooltip name="ОтступРасширеннаяПодсказка" id="188"/>
+				</LabelDecoration>
+				<CommandBar name="ГруппаЕще" id="259">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа еще</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа еще</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>8</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<HorizontalLocation>Right</HorizontalLocation>
+					<ExtendedTooltip name="ГруппаЕщеРасширеннаяПодсказка" id="260"/>
+					<ChildItems>
+						<Button name="ОбновитьДанные" id="257" DisplayImportance="Low">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.ОбновитьДанные</CommandName>
+							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="ОбновитьДанныеРасширеннаяПодсказка" id="258"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
 		<Table name="ОтчетыПредставление" id="1">
 			<Representation>List</Representation>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -434,6 +574,8 @@
 				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
 				<ExcludedCommand>Delete</ExcludedCommand>
 				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 			</CommandSet>
 			<SearchStringLocation>CommandBar</SearchStringLocation>
@@ -456,126 +598,6 @@
 			</ContextMenu>
 			<AutoCommandBar name="ОтчетыПредставлениеКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
-				<ChildItems>
-					<ButtonGroup name="ЖурналГруппаФлажки" id="105">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Журнал группа флажки</v8:content>
-							</v8:item>
-						</Title>
-						<ToolTip>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Журнал группа флажки</v8:content>
-							</v8:item>
-						</ToolTip>
-						<HorizontalStretch>false</HorizontalStretch>
-						<ExtendedTooltip name="ЖурналГруппаФлажкиРасширеннаяПодсказка" id="106"/>
-						<ChildItems>
-							<Button name="УстановитьФлажки" id="79">
-								<Type>CommandBarButton</Type>
-								<Representation>PictureAndText</Representation>
-								<CommandName>Form.Command.УстановитьФлажки</CommandName>
-								<Picture>
-									<xr:Ref>StdPicture.CheckAll</xr:Ref>
-									<xr:LoadTransparent>true</xr:LoadTransparent>
-								</Picture>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Выбрать все</v8:content>
-									</v8:item>
-								</Title>
-								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-								<ExtendedTooltip name="УстановитьФлажкиРасширеннаяПодсказка" id="80"/>
-							</Button>
-							<Button name="СнятьФлажки" id="84">
-								<Type>CommandBarButton</Type>
-								<Representation>Picture</Representation>
-								<CommandName>Form.Command.СнятьФлажки</CommandName>
-								<Picture>
-									<xr:Ref>StdPicture.UncheckAll</xr:Ref>
-									<xr:LoadTransparent>true</xr:LoadTransparent>
-								</Picture>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Убрать все</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="СнятьФлажкиРасширеннаяПодсказка" id="85"/>
-							</Button>
-						</ChildItems>
-					</ButtonGroup>
-					<ButtonGroup name="ЖурналГруппаПереместить" id="107">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Журнал группа переместить</v8:content>
-							</v8:item>
-						</Title>
-						<ToolTip>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Журнал группа переместить</v8:content>
-							</v8:item>
-						</ToolTip>
-						<Width>9</Width>
-						<HorizontalStretch>false</HorizontalStretch>
-						<ExtendedTooltip name="ЖурналГруппаПереместитьРасширеннаяПодсказка" id="108"/>
-						<ChildItems>
-							<Button name="ПереместитьВверх" id="109">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Item.ОтчетыПредставление.StandardCommand.MoveUp</CommandName>
-								<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-								<ExtendedTooltip name="ПереместитьВверхРасширеннаяПодсказка" id="110"/>
-							</Button>
-							<Button name="ПереместитьВниз" id="111">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Item.ОтчетыПредставление.StandardCommand.MoveDown</CommandName>
-								<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-								<ExtendedTooltip name="ПереместитьВнизРасширеннаяПодсказка" id="112"/>
-							</Button>
-						</ChildItems>
-					</ButtonGroup>
-					<ButtonGroup name="ЖурналГруппаСортировка" id="113">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Журнал группа сортировка</v8:content>
-							</v8:item>
-						</Title>
-						<ToolTip>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Журнал группа сортировка</v8:content>
-							</v8:item>
-						</ToolTip>
-						<HorizontalStretch>false</HorizontalStretch>
-						<ExtendedTooltip name="ЖурналГруппаСортировкаРасширеннаяПодсказка" id="114"/>
-						<ChildItems>
-							<Button name="СортироватьСписокПоВозрастанию" id="117">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Item.ОтчетыПредставление.StandardCommand.SortListAsc</CommandName>
-								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-								<ExtendedTooltip name="СортироватьСписокПоВозрастаниюРасширеннаяПодсказка" id="118"/>
-							</Button>
-							<Button name="СортироватьСписокПоУбыванию" id="119">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Item.ОтчетыПредставление.StandardCommand.SortListDesc</CommandName>
-								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-								<ExtendedTooltip name="СортироватьСписокПоУбываниюРасширеннаяПодсказка" id="120"/>
-							</Button>
-						</ChildItems>
-					</ButtonGroup>
-					<Button name="ОбновитьДанные" id="257" DisplayImportance="Low">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ОбновитьДанные</CommandName>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ОбновитьДанныеРасширеннаяПодсказка" id="258"/>
-					</Button>
-				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ОтчетыПредставлениеРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="ОтчетыПредставлениеСтрокаПоиска" id="5">
@@ -610,8 +632,6 @@
 					<DataPath>ВсеОтчеты.Пометка</DataPath>
 					<TitleLocation>None</TitleLocation>
 					<EditMode>Directly</EditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
-					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="ОтчетыПометкаКонтекстноеМеню" id="247"/>
 					<ExtendedTooltip name="ОтчетыПометкаРасширеннаяПодсказка" id="248"/>
 					<Events>
@@ -641,11 +661,10 @@
 							<ShowInHeader>false</ShowInHeader>
 							<ShowInFooter>false</ShowInFooter>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>ByData</AutoWidthInTable>
 							<Width>1</Width>
 							<ValuesPicture>
 								<xr:Ref>CommonPicture.ПиктограммыРеглОтчетов</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
 							</ValuesPicture>
 							<ContextMenu name="ОтчетыИндексКартинкиКонтекстноеМеню" id="241"/>
 							<ExtendedTooltip name="ОтчетыИндексКартинкиРасширеннаяПодсказка" id="242"/>
@@ -655,7 +674,6 @@
 							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>ByData</AutoWidthInTable>
 							<Width>20</Width>
 							<ContextMenu name="ОтчетыНаименованиеКонтекстноеМеню" id="199"/>
 							<ExtendedTooltip name="ОтчетыНаименованиеРасширеннаяПодсказка" id="200"/>
@@ -675,7 +693,6 @@
 					<EditMode>EnterOnInput</EditMode>
 					<ShowInFooter>false</ShowInFooter>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>ByData</AutoWidthInTable>
 					<Width>12</Width>
 					<ContextMenu name="ОтчетыПорядокКонтекстноеМеню" id="255"/>
 					<ExtendedTooltip name="ОтчетыПорядокРасширеннаяПодсказка" id="256"/>
@@ -685,7 +702,6 @@
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>ByData</AutoWidthInTable>
 					<Width>1</Width>
 					<ContextMenu name="ОтчетыВидКонтекстноеМеню" id="208"/>
 					<ExtendedTooltip name="ОтчетыВидРасширеннаяПодсказка" id="209"/>
@@ -695,10 +711,18 @@
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>ByData</AutoWidthInTable>
 					<Width>20</Width>
 					<ContextMenu name="ОтчетыОрганизацияКонтекстноеМеню" id="190"/>
 					<ExtendedTooltip name="ОтчетыОрганизацияРасширеннаяПодсказка" id="191"/>
+				</InputField>
+				<InputField name="ОтчетыКомментарий" id="231">
+					<DataPath>ВсеОтчеты.Комментарий</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>10</Width>
+					<ContextMenu name="ОтчетыКомментарийКонтекстноеМеню" id="232"/>
+					<ExtendedTooltip name="ОтчетыКомментарийРасширеннаяПодсказка" id="233"/>
 				</InputField>
 				<ColumnGroup name="ГруппаСтатус" id="156">
 					<Title>
@@ -713,25 +737,8 @@
 							<v8:content>Группа статус</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Group>Horizontal</Group>
 					<ExtendedTooltip name="ГруппаСтатусРасширеннаяПодсказка" id="157"/>
 					<ChildItems>
-						<InputField name="ОтчетыГосОрган" id="228">
-							<DataPath>ВсеОтчеты.ПредставлениеГосОргана</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Гос. орган</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>ByData</AutoWidthInTable>
-							<Width>10</Width>
-							<ContextMenu name="ОтчетыГосОрганКонтекстноеМеню" id="229"/>
-							<ExtendedTooltip name="ОтчетыГосОрганРасширеннаяПодсказка" id="230"/>
-						</InputField>
 						<InputField name="ОтчетыСтатус" id="195">
 							<DataPath>ВсеОтчеты.Статус</DataPath>
 							<ReadOnly>true</ReadOnly>
@@ -744,24 +751,30 @@
 							<EditMode>EnterOnInput</EditMode>
 							<CellHyperlink>true</CellHyperlink>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>ByData</AutoWidthInTable>
 							<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 							<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 							<Width>10</Width>
 							<ContextMenu name="ОтчетыСтатусКонтекстноеМеню" id="196"/>
 							<ExtendedTooltip name="ОтчетыСтатусРасширеннаяПодсказка" id="197"/>
 						</InputField>
+						<InputField name="ОтчетыГосОрган" id="228">
+							<DataPath>ВсеОтчеты.ПредставлениеГосОргана</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гос. орган</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ShowInHeader>false</ShowInHeader>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>10</Width>
+							<ContextMenu name="ОтчетыГосОрганКонтекстноеМеню" id="229"/>
+							<ExtendedTooltip name="ОтчетыГосОрганРасширеннаяПодсказка" id="230"/>
+						</InputField>
 					</ChildItems>
 				</ColumnGroup>
-				<InputField name="ОтчетыКомментарий" id="231">
-					<DataPath>ВсеОтчеты.Комментарий</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<Width>10</Width>
-					<ContextMenu name="ОтчетыКомментарийКонтекстноеМеню" id="232"/>
-					<ExtendedTooltip name="ОтчетыКомментарийРасширеннаяПодсказка" id="233"/>
-				</InputField>
 				<ColumnGroup name="ГруппаРезультат" id="166">
 					<Title>
 						<v8:item>
@@ -786,7 +799,6 @@
 							<ShowInHeader>false</ShowInHeader>
 							<ShowInFooter>false</ShowInFooter>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>ByData</AutoWidthInTable>
 							<Width>10</Width>
 							<ContextMenu name="РезультатСтрокойКонтекстноеМеню" id="244"/>
 							<ExtendedTooltip name="РезультатСтрокойРасширеннаяПодсказка" id="245"/>
@@ -799,7 +811,6 @@
 							<ShowInHeader>false</ShowInHeader>
 							<ShowInFooter>false</ShowInFooter>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>ByData</AutoWidthInTable>
 							<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 							<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 							<Width>10</Width>
@@ -1519,7 +1530,6 @@
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
-			<Settings xsi:type="v8:TypeDescription"/>
 		</Attribute>
 		<Attribute name="ПредыдущаяСтраница" id="23">
 			<Title>
@@ -1665,55 +1675,6 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<ConditionalAppearance>
-			<dcsset:item>
-				<dcsset:use>false</dcsset:use>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>РезультатГипессылкой</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">ВсеОтчеты.РезультатГипессылкой</dcsset:left>
-						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>Видимость</dcscor:parameter>
-						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-			<dcsset:item>
-				<dcsset:use>false</dcsset:use>
-				<dcsset:selection>
-					<dcsset:item>
-						<dcsset:field>РезультатСтрокой</dcsset:field>
-					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemGroup">
-						<dcsset:groupType>AndGroup</dcsset:groupType>
-						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:left xsi:type="dcscor:Field">ВсеОтчеты.РезультатСтрокой</dcsset:left>
-							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
-						</dcsset:item>
-						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:left xsi:type="dcscor:Field">ВсеОтчеты.РезультатГипессылкой</dcsset:left>
-							<dcsset:comparisonType>Filled</dcsset:comparisonType>
-						</dcsset:item>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>Видимость</dcscor:parameter>
-						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-			</dcsset:item>
-		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
 		<Command name="УстановитьФлажки" id="1">
@@ -1761,7 +1722,6 @@
 			</ToolTip>
 			<Action>Отправить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПрерватьДействие" id="5">
 			<Title>
@@ -1807,7 +1767,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПроверитьВИнтернете</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

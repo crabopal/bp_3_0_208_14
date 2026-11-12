@@ -3,28 +3,8 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<Customizable>false</Customizable>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ОК" id="21">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-				<CommandName>Form.Command.ОтправитьЗаявление</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="22"/>
-			</Button>
-			<Button name="Отмена" id="24">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="25"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -76,7 +56,6 @@
 							<AutoMaxHeight>false</AutoMaxHeight>
 							<HorizontalStretch>true</HorizontalStretch>
 							<VerticalStretch>true</VerticalStretch>
-							<Font ref="style:TextLevel3" height="0" kind="StyleItem"/>
 							<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="13"/>
 							<ExtendedTooltip name="ДекорацияИнформацияРасширеннаяПодсказка" id="14"/>
 						</LabelDecoration>
@@ -100,8 +79,6 @@
 								<CheckBoxField name="РежимПодтверждения" id="15">
 									<DataPath>Подтверждение</DataPath>
 									<TitleLocation>Right</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="РежимПодтвержденияКонтекстноеМеню" id="16"/>
 									<ExtendedTooltip name="РежимПодтвержденияРасширеннаяПодсказка" id="17"/>
 									<Events>
@@ -121,13 +98,20 @@
 					<v8:content>Команды</v8:content>
 				</v8:item>
 			</Title>
-			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<GroupHorizontalAlign>Center</GroupHorizontalAlign>
 			<Group>AlwaysHorizontal</Group>
-			<HorizontalAlign>Right</HorizontalAlign>
+			<HorizontalAlign>Center</HorizontalAlign>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКомандРасширеннаяПодсказка" id="8"/>
+			<ChildItems>
+				<Button name="ОК" id="21">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ОК</CommandName>
+					<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="22"/>
+				</Button>
+			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
 	<Attributes>
@@ -172,38 +156,14 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ОтправитьЗаявление" id="1">
+		<Command name="ОК" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Записать</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отправить заявление</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Action>ОК</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ЗакрытьФорму</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

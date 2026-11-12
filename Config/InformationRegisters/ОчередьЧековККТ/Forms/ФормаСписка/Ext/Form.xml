@@ -5,17 +5,6 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаОбновить" id="89">
-				<Type>CommandBarButton</Type>
-				<Representation>Picture</Representation>
-				<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
-				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="90"/>
-			</Button>
-			<Button name="ФормаОстановить" id="70">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Остановить</CommandName>
-				<ExtendedTooltip name="ФормаОстановитьРасширеннаяПодсказка" id="71"/>
-			</Button>
 			<Button name="ФормаПробитьЧекиНаККТ" id="58">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ФискализироватьЧекНаККТ</CommandName>
@@ -25,6 +14,16 @@
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ФискализироватьВсеЧекиНаККТ</CommandName>
 				<ExtendedTooltip name="ФормаПробитьВсеЧекиНаККТРасширеннаяПодсказка" id="64"/>
+			</Button>
+			<Button name="ФормаОстановить" id="70">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Остановить</CommandName>
+				<ExtendedTooltip name="ФормаОстановитьРасширеннаяПодсказка" id="71"/>
+			</Button>
+			<Button name="Обновить" id="72">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Обновить</CommandName>
+				<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="73"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -54,7 +53,6 @@
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>false</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -124,6 +122,11 @@
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="56"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="57"/>
 				</LabelField>
+				<LabelField name="ДокументОснование" id="46">
+					<DataPath>Список.ДокументОснование</DataPath>
+					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="48"/>
+				</LabelField>
 				<LabelField name="Дата" id="16">
 					<DataPath>Список.Дата</DataPath>
 					<DefaultItem>true</DefaultItem>
@@ -131,10 +134,13 @@
 					<ContextMenu name="ДатаКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="18"/>
 				</LabelField>
-				<LabelField name="Сумма" id="49">
-					<DataPath>Список.Сумма</DataPath>
-					<ContextMenu name="СуммаКонтекстноеМеню" id="50"/>
-					<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="51"/>
+				<LabelField name="ТипДокумента" id="40">
+					<DataPath>Список.ТипДокумента</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Width>25</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ТипДокументаКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ТипДокументаРасширеннаяПодсказка" id="42"/>
 				</LabelField>
 				<LabelField name="ТипРасчета" id="25">
 					<DataPath>Список.ТипРасчета</DataPath>
@@ -145,18 +151,10 @@
 					<ContextMenu name="ТипРасчетаКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ТипРасчетаРасширеннаяПодсказка" id="27"/>
 				</LabelField>
-				<LabelField name="ТипДокумента" id="40">
-					<DataPath>Список.ТипДокумента</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<Width>25</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<ContextMenu name="ТипДокументаКонтекстноеМеню" id="41"/>
-					<ExtendedTooltip name="ТипДокументаРасширеннаяПодсказка" id="42"/>
-				</LabelField>
-				<LabelField name="ДокументОснование" id="46">
-					<DataPath>Список.ДокументОснование</DataPath>
-					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="47"/>
-					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="48"/>
+				<LabelField name="Сумма" id="49">
+					<DataPath>Список.Сумма</DataPath>
+					<ContextMenu name="СуммаКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="51"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -335,7 +333,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ФискализироватьЧекНаККТ</Action>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 		<Command name="ФискализироватьВсеЧекиНаККТ" id="2">
 			<Title>
@@ -365,10 +362,6 @@
 					<v8:content>Остановить</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Stop</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>Остановить</Action>
 		</Command>
 		<Command name="Обновить" id="4">

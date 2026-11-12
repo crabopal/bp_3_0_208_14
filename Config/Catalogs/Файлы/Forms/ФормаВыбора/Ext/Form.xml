@@ -10,11 +10,16 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Top</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+	</CommandSet>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="Выбрать" id="35">
+			<Button name="Выбрать" id="35" DisplayImportance="VeryLow">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
 				<SkipOnInput>false</SkipOnInput>
@@ -53,7 +58,7 @@
 			</Button>
 			<Button name="Обновить" id="81" DisplayImportance="VeryLow">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
+				<CommandName>Form.StandardCommand.Refresh</CommandName>
 				<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="82"/>
 			</Button>
 			<Button name="Справка" id="30" DisplayImportance="VeryLow">
@@ -90,7 +95,7 @@
 					<v8:content>Списки</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AutoScreenTypeSensitive</Group>
+			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -101,14 +106,14 @@
 					<CommandBarLocation>None</CommandBarLocation>
 					<ReadOnly>true</ReadOnly>
 					<SkipOnInput>false</SkipOnInput>
-					<Width>30</Width>
+					<Width>23</Width>
 					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Row</RowSelectionMode>
 					<Header>false</Header>
+					<HorizontalScrollBar>DontUse</HorizontalScrollBar>
 					<HorizontalLinesBWA>false</HorizontalLinesBWA>
 					<VerticalLinesBWA>false</VerticalLinesBWA>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-					<InitialRowActivation>Activate</InitialRowActivation>
 					<EnableStartDrag>true</EnableStartDrag>
 					<EnableDrag>true</EnableDrag>
 					<FileDragMode>AsFile</FileDragMode>
@@ -187,8 +192,6 @@
 											<v8:content>Индекс картинки</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ValuesPicture>
 										<xr:Ref>CommonPicture.Папки</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -205,11 +208,10 @@
 											<v8:content>Папка</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
 									<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>10</Width>
 									<Wrap>false</Wrap>
+									<BorderColor>style:BorderColor</BorderColor>
 									<ContextMenu name="ПапкиНаименованиеКонтекстноеМеню" id="15"/>
 									<ExtendedTooltip name="ПапкиНаименованиеРасширеннаяПодсказка" id="53"/>
 								</InputField>
@@ -220,8 +222,6 @@
 							<UserVisible>
 								<xr:Common>false</xr:Common>
 							</UserVisible>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>1</Width>
 							<ContextMenu name="ПапкиСсылкаКонтекстноеМеню" id="67"/>
 							<ExtendedTooltip name="ПапкиСсылкаРасширеннаяПодсказка" id="68"/>
@@ -232,7 +232,7 @@
 					<CommandBarLocation>None</CommandBarLocation>
 					<SkipOnInput>false</SkipOnInput>
 					<DefaultItem>true</DefaultItem>
-					<Width>70</Width>
+					<Width>67</Width>
 					<ChoiceMode>true</ChoiceMode>
 					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Row</RowSelectionMode>
@@ -255,7 +255,6 @@
 					<SearchStringLocation>Top</SearchStringLocation>
 					<ViewStatusLocation>None</ViewStatusLocation>
 					<SearchControlLocation>None</SearchControlLocation>
-					<ShowCommandBar>false</ShowCommandBar>
 					<AutoRefresh>false</AutoRefresh>
 					<AutoRefreshPeriod>60</AutoRefreshPeriod>
 					<Period>
@@ -348,12 +347,10 @@
 									<v8:content>Наличие электронной подписи или шифрования</v8:content>
 								</v8:item>
 							</ToolTip>
-							<EditMode>EnterOnInput</EditMode>
 							<HeaderPicture>
 								<xr:Ref>CommonPicture.ПодписанЗашифрованЗаголовок</xr:Ref>
 								<xr:LoadTransparent>false</xr:LoadTransparent>
 							</HeaderPicture>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>2</Width>
 							<ValuesPicture>
 								<xr:Ref>CommonPicture.ПодписанЗашифрованСостояния</xr:Ref>
@@ -376,9 +373,7 @@
 								<PictureField name="СписокИндексКартинки" id="25">
 									<DataPath>Список.ИндексКартинки</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
 									<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>2</Width>
 									<Height>1</Height>
 									<ValuesPicture>
@@ -401,21 +396,18 @@
 											<v8:content>Наименование</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
 									<AutoCellHeight>true</AutoCellHeight>
 									<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<Wrap>false</Wrap>
+									<BorderColor>style:BorderColor</BorderColor>
 									<ContextMenu name="СписокНаименованиеКонтекстноеМеню" id="6"/>
 									<ExtendedTooltip name="СписокНаименованиеРасширеннаяПодсказка" id="59"/>
 								</InputField>
 								<InputField name="СписокОписание" id="31">
 									<DataPath>Список.Описание</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
 									<AutoCellHeight>true</AutoCellHeight>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<Height>1</Height>
 									<Wrap>false</Wrap>
@@ -427,23 +419,21 @@
 						</ColumnGroup>
 						<InputField name="СписокАвтор" id="21" DisplayImportance="Usual">
 							<DataPath>Список.Автор</DataPath>
-							<EditMode>EnterOnInput</EditMode>
 							<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>15</Width>
 							<HorizontalStretch>false</HorizontalStretch>
 							<Wrap>false</Wrap>
+							<BorderColor>style:BorderColor</BorderColor>
 							<ContextMenu name="СписокАвторКонтекстноеМеню" id="22"/>
 							<ExtendedTooltip name="СписокАвторРасширеннаяПодсказка" id="61"/>
 						</InputField>
 						<InputField name="СписокДатаСоздания" id="23" DisplayImportance="Usual">
 							<DataPath>Список.ДатаСоздания</DataPath>
-							<EditMode>EnterOnInput</EditMode>
 							<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>15</Width>
 							<HorizontalStretch>false</HorizontalStretch>
 							<Wrap>false</Wrap>
+							<BorderColor>style:BorderColor</BorderColor>
 							<ContextMenu name="СписокДатаСозданияКонтекстноеМеню" id="24"/>
 							<ExtendedTooltip name="СписокДатаСозданияРасширеннаяПодсказка" id="62"/>
 						</InputField>
@@ -452,8 +442,6 @@
 							<UserVisible>
 								<xr:Common>false</xr:Common>
 							</UserVisible>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>1</Width>
 							<ContextMenu name="СписокСсылкаКонтекстноеМеню" id="40"/>
 							<ExtendedTooltip name="СписокСсылкаРасширеннаяПодсказка" id="63"/>

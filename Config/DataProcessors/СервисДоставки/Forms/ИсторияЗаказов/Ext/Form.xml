@@ -30,59 +30,21 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаОтборыРасширеннаяПодсказка" id="200"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаОтборПериода" id="715">
-					<Title>
+				<LabelDecoration name="ДекорацияПериод" id="660">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>50</MaxWidth>
+					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа отбор периода</v8:content>
+							<v8:content>Заказы за период: &lt;link Ссылка&gt;все время&lt;/&gt;</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаОтборПериодаРасширеннаяПодсказка" id="716"/>
-					<ChildItems>
-						<InputField name="ОтборПериодДатаНачала" id="702">
-							<DataPath>ОтборПериод.StartDate</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Заказы за</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>Left</TitleLocation>
-							<HorizontalStretch>false</HorizontalStretch>
-							<ClearButton>true</ClearButton>
-							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-							<ContextMenu name="ОтборПериодДатаНачалаКонтекстноеМеню" id="703"/>
-							<ExtendedTooltip name="ОтборПериодДатаНачалаРасширеннаяПодсказка" id="704"/>
-						</InputField>
-						<LabelDecoration name="ДекорацияНадпись" id="710">
-							<HorizontalStretch>false</HorizontalStretch>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>–</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ДекорацияНадписьКонтекстноеМеню" id="711"/>
-							<ExtendedTooltip name="ДекорацияНадписьРасширеннаяПодсказка" id="712"/>
-						</LabelDecoration>
-						<InputField name="ОтборПериодДатаОкончания" id="706">
-							<DataPath>ОтборПериод.EndDate</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<HorizontalStretch>false</HorizontalStretch>
-							<ClearButton>true</ClearButton>
-							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-							<ContextMenu name="ОтборПериодДатаОкончанияКонтекстноеМеню" id="707"/>
-							<ExtendedTooltip name="ОтборПериодДатаОкончанияРасширеннаяПодсказка" id="708"/>
-						</InputField>
-						<Button name="ВыбратьПериод" id="713">
-							<Type>UsualButton</Type>
-							<CommandName>Form.Command.ВыбратьПериод</CommandName>
-							<ExtendedTooltip name="ВыбратьПериодРасширеннаяПодсказка" id="714"/>
-						</Button>
-					</ChildItems>
-				</UsualGroup>
+					<ContextMenu name="ДекорацияПериодКонтекстноеМеню" id="661"/>
+					<ExtendedTooltip name="ДекорацияПериодРасширеннаяПодсказка" id="662"/>
+					<Events>
+						<Event name="URLProcessing">ДекорацияПериодОбработкаНавигационнойСсылки</Event>
+					</Events>
+				</LabelDecoration>
 				<InputField name="ОтборНомерЗаказа" id="668">
 					<DataPath>ОтборНомерЗаказа</DataPath>
 					<Title>
@@ -91,7 +53,6 @@
 							<v8:content>Поиск по номеру</v8:content>
 						</v8:item>
 					</Title>
-					<TitleLocation>Left</TitleLocation>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>17</MaxWidth>
 					<ClearButton>true</ClearButton>
@@ -157,11 +118,10 @@
 		<Table name="Список" id="422">
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
+			<Footer>true</Footer>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
-			<RowActionsShowType>DontShow</RowActionsShowType>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -179,6 +139,8 @@
 				<ExcludedCommand>EndEdit</ExcludedCommand>
 				<ExcludedCommand>MoveDown</ExcludedCommand>
 				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
@@ -239,6 +201,8 @@
 				<InputField name="СписокНомерЗаказа" id="546">
 					<DataPath>Список.НомерЗаказа</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокНомерЗаказаКонтекстноеМеню" id="547"/>
@@ -247,6 +211,8 @@
 				<InputField name="СписокДатаЗаказа" id="549">
 					<DataPath>Список.ДатаЗаказа</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокДатаЗаказаКонтекстноеМеню" id="550"/>
@@ -263,13 +229,17 @@
 				<CheckBoxField name="СписокОплачен" id="558">
 					<DataPath>Список.Оплачен</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
 					<ShowInFooter>false</ShowInFooter>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокОплаченКонтекстноеМеню" id="559"/>
 					<ExtendedTooltip name="СписокОплаченРасширеннаяПодсказка" id="560"/>
 				</CheckBoxField>
 				<InputField name="СписокСостояние" id="552">
 					<DataPath>Список.Состояние</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>20</Width>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
@@ -279,6 +249,8 @@
 				<InputField name="СписокСумма" id="555">
 					<DataPath>Список.Сумма</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокСуммаКонтекстноеМеню" id="556"/>
@@ -288,6 +260,8 @@
 					<DataPath>Список.ТрекНомер</DataPath>
 					<Visible>false</Visible>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокТрекНомерКонтекстноеМеню" id="562"/>
@@ -296,6 +270,8 @@
 				<InputField name="СписокОтправительНаименование" id="564">
 					<DataPath>Список.ОтправительНаименование</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокОтправительНаименованиеКонтекстноеМеню" id="565"/>
@@ -304,6 +280,8 @@
 				<InputField name="СписокПолучательНаименование" id="567">
 					<DataPath>Список.ПолучательНаименование</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокПолучательНаименованиеКонтекстноеМеню" id="568"/>
@@ -312,6 +290,8 @@
 				<InputField name="СписокВариантОтгрузки" id="582">
 					<DataPath>Список.ВариантОтгрузки</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокВариантОтгрузкиКонтекстноеМеню" id="583"/>
@@ -320,6 +300,8 @@
 				<InputField name="СписокАдресОтгрузкиПредставление" id="570">
 					<DataPath>Список.АдресОтгрузкиПредставление</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокАдресОтгрузкиПредставлениеКонтекстноеМеню" id="571"/>
@@ -328,6 +310,8 @@
 				<InputField name="СписокДатаОтгрузки" id="576">
 					<DataPath>Список.ДатаОтгрузки</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокДатаОтгрузкиКонтекстноеМеню" id="577"/>
@@ -336,6 +320,8 @@
 				<InputField name="СписокВариантДоставки" id="585">
 					<DataPath>Список.ВариантДоставки</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокВариантДоставкиКонтекстноеМеню" id="586"/>
@@ -344,6 +330,8 @@
 				<InputField name="СписокАдресДоставкиПредставление" id="573">
 					<DataPath>Список.АдресДоставкиПредставление</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокАдресДоставкиПредставлениеКонтекстноеМеню" id="574"/>
@@ -352,6 +340,8 @@
 				<InputField name="СписокДатаДоставки" id="579">
 					<DataPath>Список.ДатаДоставки</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокДатаДоставкиКонтекстноеМеню" id="580"/>
@@ -359,6 +349,8 @@
 				</InputField>
 				<InputField name="СписокПлательщикНаименование" id="631">
 					<DataPath>Список.ПлательщикНаименование</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Height>1</Height>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокПлательщикНаименованиеКонтекстноеМеню" id="632"/>
@@ -1600,7 +1592,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Обновить</v8:content>
+					<v8:content>Обновить журнал заказов</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -1614,7 +1606,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ОбновитьСписокЗаказов</Action>
-			<Representation>TextPicture</Representation>
+			<Representation>Picture</Representation>
 		</Command>
 		<Command name="ПредыдущаяСтраница" id="2">
 			<Title>
@@ -1694,26 +1686,6 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ПоследняяСтраница</Action>
-			<Representation>Picture</Representation>
-		</Command>
-		<Command name="ВыбратьПериод" id="6">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>...</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать период</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.SetDateInterval</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>ВыбратьПериод</Action>
 			<Representation>Picture</Representation>
 		</Command>
 	</Commands>

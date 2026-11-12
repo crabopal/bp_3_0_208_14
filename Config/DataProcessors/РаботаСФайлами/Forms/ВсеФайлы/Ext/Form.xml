@@ -11,9 +11,172 @@
 	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
 	<CommandSet>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
 		<ExcludedCommand>Create</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
 	</CommandSet>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаИзменить" id="118">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОткрытьСвойстваФайла</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Открыть карточку</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаИзменитьРасширеннаяПодсказка" id="119"/>
+			</Button>
+			<ButtonGroup name="ФормаГруппаКомандОсновные" id="67">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма группа команд основные</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаГруппаКомандОсновныеРасширеннаяПодсказка" id="91"/>
+				<ChildItems>
+					<Button name="ФормаПросмотреть" id="69">
+						<Type>CommandBarButton</Type>
+						<Representation>Text</Representation>
+						<SkipOnInput>false</SkipOnInput>
+						<CommandName>Form.Command.Просмотреть</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Просмотреть</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаПросмотретьРасширеннаяПодсказка" id="92"/>
+					</Button>
+					<Button name="ФормаОсвободить" id="82">
+						<Type>CommandBarButton</Type>
+						<Representation>Text</Representation>
+						<SkipOnInput>false</SkipOnInput>
+						<CommandName>Form.Command.Освободить</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отменить редактирование</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаОсвободитьРасширеннаяПодсказка" id="93"/>
+					</Button>
+					<Button name="ФормаСохранитьКак" id="59">
+						<Type>CommandBarButton</Type>
+						<SkipOnInput>false</SkipOnInput>
+						<CommandName>Form.Command.СохранитьКак</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сохранить как...</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ФормаСохранитьКакРасширеннаяПодсказка" id="94"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+			<ButtonGroup name="ФормаГлобальныеКоманды" id="122">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма глобальные команды</v8:content>
+					</v8:item>
+				</Title>
+				<CommandSource>FormCommandPanelGlobalCommands</CommandSource>
+				<ExtendedTooltip name="ФормаГлобальныеКомандыРасширеннаяПодсказка" id="123"/>
+			</ButtonGroup>
+			<ButtonGroup name="ФормаГруппаКомандДополнительные" id="132">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма группа команд дополнительные</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаГруппаКомандДополнительныеРасширеннаяПодсказка" id="133"/>
+				<ChildItems>
+					<Button name="ФормаУстановитьПометкуУдаления" id="128">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПометитьНаУдаление</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Пометить на удаление / Снять пометку</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ФормаУстановитьПометкуУдаленияРасширеннаяПодсказка" id="129"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+			<ButtonGroup name="ФормаСтандартныеКоманды" id="68">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма стандартные команды</v8:content>
+					</v8:item>
+				</Title>
+				<CommandSource>Form</CommandSource>
+				<ExtendedTooltip name="ФормаСтандартныеКомандыРасширеннаяПодсказка" id="95"/>
+				<ChildItems>
+					<Button name="Обновить" id="151">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
+						<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="152"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+			<Button name="ПоказыватьПомеченныеФайлы" id="159">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПоказыватьПомеченныеФайлы</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Показывать помеченные файлы</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ПоказыватьПомеченныеФайлыРасширеннаяПодсказка" id="160"/>
+			</Button>
+			<Button name="ПоказыватьСлужебныеФайлы" id="155">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПоказыватьСлужебныеФайлы</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Показывать служебные файлы</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ПоказыватьСлужебныеФайлыРасширеннаяПодсказка" id="156"/>
+			</Button>
+			<Button name="ФормаСправка" id="90">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="96"/>
+			</Button>
+			<SearchStringAddition name="СтрокаПоиска" id="163">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Поиск</v8:content>
+					</v8:item>
+				</Title>
+				<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="164"/>
+				<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="165"/>
+			</SearchStringAddition>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -34,6 +197,7 @@
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="139"/>
 		</UsualGroup>
 		<Table name="Список" id="10">
+			<CommandBarLocation>None</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<Height>10</Height>
@@ -53,9 +217,9 @@
 				<ExcludedCommand>Create</ExcludedCommand>
 				<ExcludedCommand>Delete</ExcludedCommand>
 			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -167,129 +331,7 @@
 				</ChildItems>
 			</ContextMenu>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="12">
-				<ChildItems>
-					<ButtonGroup name="ФормаГлобальныеКоманды" id="122">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Форма глобальные команды</v8:content>
-							</v8:item>
-						</Title>
-						<CommandSource>FormCommandPanelGlobalCommands</CommandSource>
-						<ExtendedTooltip name="ФормаГлобальныеКомандыРасширеннаяПодсказка" id="123"/>
-					</ButtonGroup>
-					<Button name="ФормаИзменить" id="118">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ОткрытьСвойстваФайла</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Открыть карточку</v8:content>
-							</v8:item>
-						</Title>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ФормаИзменитьРасширеннаяПодсказка" id="119"/>
-					</Button>
-					<ButtonGroup name="ФормаГруппаКомандОсновные" id="67">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Форма группа команд основные</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ФормаГруппаКомандОсновныеРасширеннаяПодсказка" id="91"/>
-						<ChildItems>
-							<Button name="ФормаПросмотреть" id="69">
-								<Type>CommandBarButton</Type>
-								<Representation>Text</Representation>
-								<SkipOnInput>false</SkipOnInput>
-								<CommandName>Form.Command.Просмотреть</CommandName>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Просмотреть</v8:content>
-									</v8:item>
-								</Title>
-								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-								<ExtendedTooltip name="ФормаПросмотретьРасширеннаяПодсказка" id="92"/>
-							</Button>
-							<Button name="ФормаОсвободить" id="82">
-								<Type>CommandBarButton</Type>
-								<Representation>Text</Representation>
-								<SkipOnInput>false</SkipOnInput>
-								<CommandName>Form.Command.Освободить</CommandName>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Отменить редактирование</v8:content>
-									</v8:item>
-								</Title>
-								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-								<ExtendedTooltip name="ФормаОсвободитьРасширеннаяПодсказка" id="93"/>
-							</Button>
-							<Button name="ФормаСохранитьКак" id="59">
-								<Type>CommandBarButton</Type>
-								<SkipOnInput>false</SkipOnInput>
-								<CommandName>Form.Command.СохранитьКак</CommandName>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Сохранить как...</v8:content>
-									</v8:item>
-								</Title>
-								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-								<ExtendedTooltip name="ФормаСохранитьКакРасширеннаяПодсказка" id="94"/>
-							</Button>
-						</ChildItems>
-					</ButtonGroup>
-					<ButtonGroup name="ФормаГруппаКомандДополнительные" id="132">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Форма группа команд дополнительные</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ФормаГруппаКомандДополнительныеРасширеннаяПодсказка" id="133"/>
-						<ChildItems>
-							<Button name="ФормаУстановитьПометкуУдаления" id="128">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.ПометитьНаУдаление</CommandName>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Пометить на удаление / Снять пометку</v8:content>
-									</v8:item>
-								</Title>
-								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-								<ExtendedTooltip name="ФормаУстановитьПометкуУдаленияРасширеннаяПодсказка" id="129"/>
-							</Button>
-						</ChildItems>
-					</ButtonGroup>
-					<Button name="ПоказыватьПомеченныеФайлы" id="159">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ПоказыватьПомеченныеФайлы</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Показывать помеченные файлы</v8:content>
-							</v8:item>
-						</Title>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ПоказыватьПомеченныеФайлыРасширеннаяПодсказка" id="160"/>
-					</Button>
-					<Button name="ПоказыватьСлужебныеФайлы" id="155">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ПоказыватьСлужебныеФайлы</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Показывать служебные файлы</v8:content>
-							</v8:item>
-						</Title>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ПоказыватьСлужебныеФайлыРасширеннаяПодсказка" id="156"/>
-					</Button>
-				</ChildItems>
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="100"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="142">
@@ -326,6 +368,12 @@
 			<ChildItems>
 				<PictureField name="СписокНомерКартинкиПодписанЗашифрован" id="86">
 					<DataPath>Список.НомерКартинкиПодписанЗашифрован</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Зашифровано</v8:content>
+						</v8:item>
+					</Title>
 					<TitleLocation>None</TitleLocation>
 					<ToolTip>
 						<v8:item>
@@ -333,12 +381,10 @@
 							<v8:content>Наличие электронной подписи или шифрования</v8:content>
 						</v8:item>
 					</ToolTip>
-					<EditMode>EnterOnInput</EditMode>
 					<HeaderPicture>
 						<xr:Ref>CommonPicture.ПодписанЗашифрованЗаголовок</xr:Ref>
 						<xr:LoadTransparent>false</xr:LoadTransparent>
 					</HeaderPicture>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>2</Width>
 					<ValuesPicture>
 						<xr:Ref>CommonPicture.ПодписанЗашифрованСостояния</xr:Ref>
@@ -348,16 +394,22 @@
 					<ContextMenu name="СписокНомерКартинкиПодписанЗашифрованКонтекстноеМеню" id="87"/>
 					<ExtendedTooltip name="СписокНомерКартинкиПодписанЗашифрованРасширеннаяПодсказка" id="101"/>
 				</PictureField>
-				<PictureField name="СписокНомерКартинкиЭтоАрхив" id="185">
+				<PictureField name="СписокНомерКартинкиЭтоАрхив" id="166">
 					<DataPath>Список.НомерКартинкиЭтоАрхив</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Это архив</v8:content>
+							<v8:content>В архиве</v8:content>
 						</v8:item>
 					</Title>
 					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Файл перенесен в архив</v8:content>
+						</v8:item>
+					</ToolTip>
 					<HeaderPicture>
 						<xr:Ref>CommonPicture.ФайловыйАрхив</xr:Ref>
 						<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -367,8 +419,8 @@
 						<xr:Ref>CommonPicture.ФайловыйАрхив</xr:Ref>
 						<xr:LoadTransparent>false</xr:LoadTransparent>
 					</ValuesPicture>
-					<ContextMenu name="СписокНомерКартинкиЭтоАрхивКонтекстноеМеню" id="186"/>
-					<ExtendedTooltip name="СписокНомерКартинкиЭтоАрхивРасширеннаяПодсказка" id="187"/>
+					<ContextMenu name="СписокНомерКартинкиЭтоАрхивКонтекстноеМеню" id="167"/>
+					<ExtendedTooltip name="СписокНомерКартинкиЭтоАрхивРасширеннаяПодсказка" id="168"/>
 				</PictureField>
 				<ColumnGroup name="СписокКартинкаИНаименование" id="45">
 					<Title>
@@ -390,9 +442,7 @@
 							</Title>
 							<TitleLocation>None</TitleLocation>
 							<ToolTipRepresentation>None</ToolTipRepresentation>
-							<EditMode>EnterOnInput</EditMode>
 							<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>2</Width>
 							<Height>1</Height>
 							<ValuesPicture>
@@ -414,9 +464,7 @@
 									<v8:content>Наименование</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
 							<AutoCellHeight>true</AutoCellHeight>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>20</Width>
 							<Wrap>false</Wrap>
 							<ContextMenu name="СписокНаименованиеКонтекстноеМеню" id="18"/>
@@ -428,9 +476,7 @@
 								<xr:Common>false</xr:Common>
 							</UserVisible>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
 							<AutoCellHeight>true</AutoCellHeight>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>15</Width>
 							<Wrap>false</Wrap>
 							<ContextMenu name="СписокОписаниеКонтекстноеМеню" id="28"/>
@@ -440,15 +486,11 @@
 				</ColumnGroup>
 				<LabelField name="СписокВладелецФайла" id="70">
 					<DataPath>Список.ВладелецФайла</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокВладелецФайлаКонтекстноеМеню" id="71"/>
 					<ExtendedTooltip name="СписокВладелецФайлаРасширеннаяПодсказка" id="106"/>
 				</LabelField>
 				<InputField name="СписокАвтор" id="21">
 					<DataPath>Список.Автор</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="СписокАвторКонтекстноеМеню" id="22"/>
 					<ExtendedTooltip name="СписокАвторРасширеннаяПодсказка" id="107"/>
@@ -461,8 +503,6 @@
 							<v8:content>Дата создания</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="СписокДатаСозданияКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="СписокДатаСозданияРасширеннаяПодсказка" id="108"/>
@@ -481,8 +521,6 @@
 							<v8:content>Размер файла в килобайтах</v8:content>
 						</v8:item>
 					</ToolTip>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>10</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<Wrap>false</Wrap>
@@ -512,8 +550,6 @@
 							<v8:content>Расширение</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокРасширениеКонтекстноеМеню" id="73"/>
 					<ExtendedTooltip name="СписокРасширениеРасширеннаяПодсказка" id="109"/>
 				</LabelField>
@@ -523,8 +559,6 @@
 						<xr:Common>false</xr:Common>
 					</UserVisible>
 					<HorizontalAlign>Center</HorizontalAlign>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Wrap>false</Wrap>
 					<ContextMenu name="СписокРедактируетКонтекстноеМеню" id="30"/>
 					<ExtendedTooltip name="СписокРедактируетРасширеннаяПодсказка" id="111"/>
@@ -540,8 +574,6 @@
 							<v8:content>Ссылка</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>1</Width>
 					<ContextMenu name="СписокСсылкаКонтекстноеМеню" id="85"/>
 					<ExtendedTooltip name="СписокСсылкаРасширеннаяПодсказка" id="117"/>
@@ -592,7 +624,7 @@
 	ВЫБОР
 		КОГДА ЕСТЬNULL(ВЫБОР
 					КОГДА СведенияОФайлах.Файл ССЫЛКА Справочник.Файлы
-						ТОГДА СведенияОФайлах.Файл.ТекущаяВерсия.ДатаПереносаВАрхив
+						ТОГДА ФайлыДляСоединения.ТекущаяВерсия.ДатаПереносаВАрхив
 					ИНАЧЕ СведенияОФайлах.ДатаПереносаВАрхив
 				КОНЕЦ, ДАТАВРЕМЯ(1, 1, 1)) = ДАТАВРЕМЯ(1, 1, 1)
 			ТОГДА -1
@@ -600,6 +632,8 @@
 	КОНЕЦ КАК НомерКартинкиЭтоАрхив
 ИЗ
 	РегистрСведений.СведенияОФайлах КАК СведенияОФайлах
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.Файлы КАК ФайлыДляСоединения
+		ПО (СведенияОФайлах.Файл = ФайлыДляСоединения.Ссылка)
 ГДЕ
 	НЕ СведенияОФайлах.Файл ЕСТЬ NULL</QueryText>
 				<Field xsi:type="dcssch:DataSetFieldField">
@@ -621,14 +655,6 @@
 					<dcssch:field>ХранитьВерсии</dcssch:field>
 				</Field>
 				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Файл</dcssch:dataPath>
-					<dcssch:field>Файл</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ТипХраненияФайла</dcssch:dataPath>
-					<dcssch:field>ТипХраненияФайла</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
 					<dcssch:dataPath>Размер</dcssch:dataPath>
 					<dcssch:field>Размер</dcssch:field>
 					<dcssch:title xsi:type="v8:LocalStringType">
@@ -643,16 +669,8 @@
 					<dcssch:field>Описание</dcssch:field>
 				</Field>
 				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ДатаПереносаВАрхив</dcssch:dataPath>
-					<dcssch:field>ДатаПереносаВАрхив</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
 					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
 					<dcssch:field>ПометкаУдаления</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>УсловноПеренесенВАрхив</dcssch:dataPath>
-					<dcssch:field>УсловноПеренесенВАрхив</dcssch:field>
 				</Field>
 				<Field xsi:type="dcssch:DataSetFieldField">
 					<dcssch:dataPath>Редактирует</dcssch:dataPath>
@@ -712,6 +730,37 @@
 						</v8:item>
 					</dcssch:title>
 				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Файл</dcssch:dataPath>
+					<dcssch:field>Файл</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТипХраненияФайла</dcssch:dataPath>
+					<dcssch:field>ТипХраненияФайла</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаПереносаВАрхив</dcssch:dataPath>
+					<dcssch:field>ДатаПереносаВАрхив</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УсловноПеренесенВАрхив</dcssch:dataPath>
+					<dcssch:field>УсловноПеренесенВАрхив</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>ТекущийПользователь</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущий пользователь</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:CatalogRef.УчетныеЗаписиСинхронизацииФайлов</v8:Type>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
 				<MainTable>InformationRegister.СведенияОФайлах</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -752,9 +801,7 @@
 			</Picture>
 			<Action>Просмотреть</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="СохранитьКак" id="2">
 			<Title>
@@ -775,9 +822,7 @@
 			</Picture>
 			<Action>СохранитьКак</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="Освободить" id="3">
 			<Title>
@@ -798,9 +843,7 @@
 			</Picture>
 			<Action>Освободить</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="Обновить" id="4">
 			<Title>
@@ -842,9 +885,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ОткрытьСвойстваФайла</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ПометитьНаУдаление" id="6">
 			<Title>
@@ -858,9 +899,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>УстановитьПометкуУдаления</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ПоказыватьСлужебныеФайлы" id="7">
 			<Title>

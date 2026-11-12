@@ -6,34 +6,14 @@
 			<v8:content>Загрузка приостановлена</v8:content>
 		</v8:item>
 	</Title>
-	<Width>90</Width>
+	<Width>60</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<SaveWindowSettings>false</SaveWindowSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Продолжить" id="31" DisplayImportance="Usual">
-				<Type>CommandBarButton</Type>
-				<Height>2</Height>
-				<CommandName>Form.Command.ПродолжитьЗагрузку</CommandName>
-				<TextColor>style:РезультатУспехЦвет</TextColor>
-				<Font ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
-				<ExtendedTooltip name="ПродолжитьРасширеннаяПодсказка" id="32"/>
-			</Button>
-			<Button name="Отменить" id="29">
-				<Type>CommandBarButton</Type>
-				<Height>2</Height>
-				<CommandName>Form.Command.Отменить</CommandName>
-				<TextColor>style:ВажныеДанныеЦветБЭД</TextColor>
-				<Font ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
-				<ExtendedTooltip name="ОтменитьРасширеннаяПодсказка" id="30"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -54,8 +34,7 @@
 			<CommandBarLocation>None</CommandBarLocation>
 			<ReadOnly>true</ReadOnly>
 			<AutoMaxWidth>false</AutoMaxWidth>
-			<AutoMaxRowsCount>false</AutoMaxRowsCount>
-			<SelectionMode>SingleRow</SelectionMode>
+			<HeightControlVariant>UseContentHeight</HeightControlVariant>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<DataPath>ТаблицаСравнения</DataPath>
@@ -101,8 +80,10 @@
 				</InputField>
 				<InputField name="ТаблицаСравненияВИсходномДокументе" id="38">
 					<DataPath>ТаблицаСравнения.ВИсходномДокументе</DataPath>
-					<CellMark>ShapeUnderTextOval</CellMark>
+					<Width>15</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>15</MaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
 					<BackColor>style:ПравоПросмотраФон</BackColor>
 					<ContextMenu name="ТаблицаСравненияВИсходномДокументеКонтекстноеМеню" id="39"/>
 					<ExtendedTooltip name="ТаблицаСравненияВИсходномДокументеРасширеннаяПодсказка" id="40">
@@ -113,8 +94,10 @@
 				</InputField>
 				<InputField name="ТаблицаСравненияВЗагружаемомДокументе" id="41">
 					<DataPath>ТаблицаСравнения.ВЗагружаемомДокументе</DataPath>
-					<CellMark>ShapeUnderTextOval</CellMark>
 					<Width>15</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>15</MaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
 					<BackColor>style:ЦветФонаПоясненияОшибкиБИП</BackColor>
 					<ContextMenu name="ТаблицаСравненияВЗагружаемомДокументеКонтекстноеМеню" id="42"/>
 					<ExtendedTooltip name="ТаблицаСравненияВЗагружаемомДокументеРасширеннаяПодсказка" id="43">
@@ -123,6 +106,37 @@
 				</InputField>
 			</ChildItems>
 		</Table>
+		<UsualGroup name="ГруппаКоманд" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа команд</v8:content>
+				</v8:item>
+			</Title>
+			<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомандРасширеннаяПодсказка" id="34"/>
+			<ChildItems>
+				<Button name="Продолжить" id="31">
+					<Type>UsualButton</Type>
+					<Height>2</Height>
+					<CommandName>Form.Command.ПродолжитьЗагрузку</CommandName>
+					<TextColor>style:РезультатУспехЦвет</TextColor>
+					<Font ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
+					<ExtendedTooltip name="ПродолжитьРасширеннаяПодсказка" id="32"/>
+				</Button>
+				<Button name="Отменить" id="29">
+					<Type>UsualButton</Type>
+					<Height>2</Height>
+					<CommandName>Form.Command.Отменить</CommandName>
+					<TextColor>style:ВажныеДанныеЦветБЭД</TextColor>
+					<Font ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
+					<ExtendedTooltip name="ОтменитьРасширеннаяПодсказка" id="30"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ТаблицаСравнения" id="1">
@@ -209,7 +223,6 @@
 				</v8:item>
 			</Title>
 			<Action>ПродолжитьЗагрузку</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отменить" id="2">
 			<Title>
@@ -219,7 +232,6 @@
 				</v8:item>
 			</Title>
 			<Action>ОтменитьЗагрузку</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

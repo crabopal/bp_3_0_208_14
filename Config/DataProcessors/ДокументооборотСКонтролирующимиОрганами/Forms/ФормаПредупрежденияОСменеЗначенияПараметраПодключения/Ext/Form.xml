@@ -11,27 +11,9 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<VerticalSpacing>Double</VerticalSpacing>
-	<CommandBarLocation>Bottom</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Center</HorizontalAlign>
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ОтправитьЗаявление" id="10">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<DefaultItem>true</DefaultItem>
-				<CommandName>Form.Command.ОтправитьЗаявление</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОтправитьЗаявлениеРасширеннаяПодсказка" id="21"/>
-			</Button>
-			<Button name="НапомнитьПозже" id="11">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.НапомнитьПозже</CommandName>
-				<ExtendedTooltip name="НапомнитьПозжеРасширеннаяПодсказка" id="22"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -39,26 +21,23 @@
 	</Events>
 	<ChildItems>
 		<PictureDecoration name="Логотип1СОтчетность" id="1">
-			<Width>25</Width>
-			<Height>2</Height>
 			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Логотип 1С-Отчетность</v8:content>
 				</v8:item>
 			</Title>
-			<PictureSize>Proportionally</PictureSize>
 			<Picture>
-				<xr:Ref>CommonPicture.ОтчетностиЛоготип</xr:Ref>
+				<xr:Abs>Picture.png</xr:Abs>
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<FileDragMode>AsFile</FileDragMode>
 			<ContextMenu name="Логотип1СОтчетностьКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="Логотип1СОтчетностьРасширеннаяПодсказка" id="15"/>
+			<ExtendedTooltip name="Логотип1СОтчетностьExtendedTooltip" id="15"/>
 		</PictureDecoration>
 		<LabelDecoration name="ПредупреждениеОбИзмененииПараметров" id="3">
 			<AutoMaxWidth>false</AutoMaxWidth>
-			<Font ref="style:TitleLevel3" kind="StyleItem"/>
+			<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -66,7 +45,7 @@
 				</v8:item>
 			</Title>
 			<ContextMenu name="ПредупреждениеОбИзмененииПараметровКонтекстноеМеню" id="4"/>
-			<ExtendedTooltip name="ПредупреждениеОбИзмененииПараметровРасширеннаяПодсказка" id="16"/>
+			<ExtendedTooltip name="ПредупреждениеОбИзмененииПараметровExtendedTooltip" id="16"/>
 		</LabelDecoration>
 		<LabelDecoration name="ИнформацияПользователю" id="5">
 			<AutoMaxWidth>false</AutoMaxWidth>
@@ -79,8 +58,43 @@
 				</v8:item>
 			</Title>
 			<ContextMenu name="ИнформацияПользователюКонтекстноеМеню" id="6"/>
-			<ExtendedTooltip name="ИнформацияПользователюРасширеннаяПодсказка" id="18"/>
+			<ExtendedTooltip name="ИнформацияПользователюExtendedTooltip" id="18"/>
 		</LabelDecoration>
+		<UsualGroup name="ГруппаКнопок" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопок</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКнопокExtendedTooltip" id="19"/>
+			<ChildItems>
+				<Button name="ОтправитьЗаявление" id="10">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<DefaultItem>true</DefaultItem>
+					<CommandName>Form.Command.ОтправитьЗаявление</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ОтправитьЗаявлениеExtendedTooltip" id="21"/>
+				</Button>
+				<Button name="НапомнитьПозже" id="11">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.НапомнитьПозже</CommandName>
+					<ExtendedTooltip name="НапомнитьПозжеExtendedTooltip" id="22"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -204,7 +218,6 @@
 			</ToolTip>
 			<Action>ОтправитьЗаявление</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="НапомнитьПозже" id="2">
 			<Title>
@@ -221,7 +234,6 @@
 			</ToolTip>
 			<Action>НапомнитьПозже</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

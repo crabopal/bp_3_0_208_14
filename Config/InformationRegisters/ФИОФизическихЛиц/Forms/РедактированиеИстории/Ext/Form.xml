@@ -35,7 +35,12 @@
 				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.КомандаОК</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаКомандаОКРасширеннаяПодсказка" id="21"/>
+				<ExtendedTooltip name="ФормаКомандаОКExtendedTooltip" id="21"/>
+			</Button>
+			<Button name="ФормаКомандаОтмена" id="20">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаОтмена</CommandName>
+				<ExtendedTooltip name="ФормаКомандаОтменаExtendedTooltip" id="22"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -70,7 +75,7 @@
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="НаборЗаписейКонтекстноеМеню" id="7"/>
 			<AutoCommandBar name="НаборЗаписейКоманднаяПанель" id="8"/>
-			<ExtendedTooltip name="НаборЗаписейРасширеннаяПодсказка" id="23"/>
+			<ExtendedTooltip name="НаборЗаписейExtendedTooltip" id="23"/>
 			<SearchStringAddition name="НаборЗаписейСтрокаПоиска" id="28">
 				<AdditionSource>
 					<Item>НаборЗаписей</Item>
@@ -107,7 +112,7 @@
 					<AutoEditMode>true</AutoEditMode>
 					<Width>30</Width>
 					<ContextMenu name="НаборЗаписейФамилияКонтекстноеМеню" id="14"/>
-					<ExtendedTooltip name="НаборЗаписейФамилияРасширеннаяПодсказка" id="24"/>
+					<ExtendedTooltip name="НаборЗаписейФамилияExtendedTooltip" id="24"/>
 					<Events>
 						<Event name="AutoComplete">НаборЗаписейФамилияАвтоПодбор</Event>
 					</Events>
@@ -118,7 +123,7 @@
 					<AutoEditMode>true</AutoEditMode>
 					<Width>30</Width>
 					<ContextMenu name="НаборЗаписейИмяКонтекстноеМеню" id="16"/>
-					<ExtendedTooltip name="НаборЗаписейИмяРасширеннаяПодсказка" id="25"/>
+					<ExtendedTooltip name="НаборЗаписейИмяExtendedTooltip" id="25"/>
 					<Events>
 						<Event name="OnChange">НаборЗаписейИмяПриИзменении</Event>
 						<Event name="AutoComplete">НаборЗаписейИмяАвтоПодбор</Event>
@@ -130,7 +135,7 @@
 					<AutoEditMode>true</AutoEditMode>
 					<Width>30</Width>
 					<ContextMenu name="НаборЗаписейОтчествоКонтекстноеМеню" id="18"/>
-					<ExtendedTooltip name="НаборЗаписейОтчествоРасширеннаяПодсказка" id="26"/>
+					<ExtendedTooltip name="НаборЗаписейОтчествоExtendedTooltip" id="26"/>
 					<Events>
 						<Event name="OnChange">НаборЗаписейОтчествоПриИзменении</Event>
 						<Event name="AutoComplete">НаборЗаписейОтчествоАвтоПодбор</Event>
@@ -158,11 +163,12 @@
 						</v8:item>
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
+					<MarkRequiredComplete>false</MarkRequiredComplete>
 					<AutoEditMode>true</AutoEditMode>
 					<HorizontalStretch>false</HorizontalStretch>
 					<AutoMarkIncomplete>false</AutoMarkIncomplete>
 					<ContextMenu name="НаборЗаписейПериодКонтекстноеМеню" id="10"/>
-					<ExtendedTooltip name="НаборЗаписейПериодРасширеннаяПодсказка" id="27"/>
+					<ExtendedTooltip name="НаборЗаписейПериодExtendedTooltip" id="27"/>
 				</InputField>
 			</ChildItems>
 		</Table>
@@ -240,7 +246,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Записать</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -256,7 +262,22 @@
 			</Use>
 			<Action>КомандаОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="КомандаОтмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить изменения и закрыть форму</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 	<Parameters>

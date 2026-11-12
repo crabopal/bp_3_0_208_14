@@ -2,73 +2,88 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="Готово" id="3">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<Width>10</Width>
-				<CommandName>Form.Command.Готово</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="4"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
-		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаШапкаКоличество" id="1">
+		<UsualGroup name="ГруппаШапкаСтрока1" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа шапка количество</v8:content>
+					<v8:content>Группа шапка строка1</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа шапка количество</v8:content>
-				</v8:item>
-			</ToolTip>
-			<HorizontalStretch>false</HorizontalStretch>
 			<Group>AlwaysHorizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаШапкаКоличествоРасширеннаяПодсказка" id="2"/>
+			<ExtendedTooltip name="ГруппаШапкаСтрока1РасширеннаяПодсказка" id="2"/>
 			<ChildItems>
+				<Button name="Готово" id="3">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<Width>10</Width>
+					<CommandName>Form.Command.Готово</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="4"/>
+				</Button>
 				<InputField name="КоличествоКУпаковке" id="5">
 					<DataPath>КоличествоКУпаковке</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<Width>20</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="КоличествоКУпаковкеКонтекстноеМеню" id="6"/>
 					<ExtendedTooltip name="КоличествоКУпаковкеРасширеннаяПодсказка" id="7"/>
 				</InputField>
 				<InputField name="КоличествоВУпаковках" id="8">
 					<DataPath>КоличествоВУпаковках</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<Width>20</Width>
-					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="КоличествоВУпаковкахКонтекстноеМеню" id="9"/>
 					<ExtendedTooltip name="КоличествоВУпаковкахРасширеннаяПодсказка" id="10"/>
 					<Events>
 						<Event name="OnChange">КоличествоВУпаковкахПриИзменении</Event>
 					</Events>
 				</InputField>
+				<Button name="ДобавитьУпаковку" id="26">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Item.ДеревоУпаковок.StandardCommand.Add</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Добавить упаковку (Ins)</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ДобавитьУпаковкуРасширеннаяПодсказка" id="27"/>
+				</Button>
+				<CommandBar name="КоманднаяПанельФормы" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель формы</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="КоманднаяПанельФормыРасширеннаяПодсказка" id="12"/>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаШапкаСтрока2" id="53">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка строка2</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаСтрока2РасширеннаяПодсказка" id="54"/>
+			<ChildItems>
 				<CheckBoxField name="ФормироватьТолькоВложенныеЕдиницы" id="55">
 					<DataPath>ФормироватьТолькоВложенныеЕдиницы</DataPath>
 					<TitleLocation>Right</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<CheckBoxType>Switcher</CheckBoxType>
 					<ContextMenu name="ФормироватьТолькоВложенныеЕдиницыКонтекстноеМеню" id="56"/>
 					<ExtendedTooltip name="ФормироватьТолькоВложенныеЕдиницыРасширеннаяПодсказка" id="57"/>
 					<Events>
@@ -88,19 +103,6 @@
 			<ContextMenu name="ДеревоУпаковокКонтекстноеМеню" id="15"/>
 			<AutoCommandBar name="ДеревоУпаковокКоманднаяПанель" id="14">
 				<Autofill>false</Autofill>
-				<ChildItems>
-					<Button name="ДобавитьУпаковку" id="26">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.ДеревоУпаковок.StandardCommand.Add</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Добавить упаковку (Ins)</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ДобавитьУпаковкуРасширеннаяПодсказка" id="27"/>
-					</Button>
-				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ДеревоУпаковокРасширеннаяПодсказка" id="16"/>
 			<SearchStringAddition name="ДеревоУпаковокСтрокаПоиска" id="17">
@@ -142,8 +144,6 @@
 							<v8:content>Упаковка</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>15</Width>
 					<ContextMenu name="ДеревоУпаковокНаименованиеКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ДеревоУпаковокНаименованиеРасширеннаяПодсказка" id="30"/>
@@ -157,16 +157,13 @@
 						</v8:item>
 					</Title>
 					<Group>Horizontal</Group>
-					<ShowTitle>true</ShowTitle>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="ДеревоУпаковокГруппаСостоитИзРасширеннаяПодсказка" id="43"/>
 					<ChildItems>
 						<InputField name="ДеревоУпаковокКоличествоСоставляющей" id="31">
 							<DataPath>ДеревоУпаковок.КоличествоСоставляющей</DataPath>
 							<ReadOnly>true</ReadOnly>
-							<EditMode>EnterOnInput</EditMode>
 							<ShowInHeader>false</ShowInHeader>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>5</Width>
 							<ContextMenu name="ДеревоУпаковокКоличествоСоставляющейКонтекстноеМеню" id="32"/>
 							<ExtendedTooltip name="ДеревоУпаковокКоличествоСоставляющейРасширеннаяПодсказка" id="33"/>
@@ -174,9 +171,7 @@
 						<InputField name="ДеревоУпаковокЕдиницаИзмеренияСоставляющей" id="34">
 							<DataPath>ДеревоУпаковок.ЕдиницаИзмеренияСоставляющей</DataPath>
 							<ReadOnly>true</ReadOnly>
-							<EditMode>EnterOnInput</EditMode>
 							<ShowInHeader>false</ShowInHeader>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>5</Width>
 							<ContextMenu name="ДеревоУпаковокЕдиницаИзмеренияСоставляющейКонтекстноеМеню" id="35"/>
 							<ExtendedTooltip name="ДеревоУпаковокЕдиницаИзмеренияСоставляющейРасширеннаяПодсказка" id="36"/>
@@ -191,8 +186,6 @@
 							<v8:content>Количество</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДеревоУпаковокКоличествоУпаковокВУпаковкахКонтекстноеМеню" id="38"/>
 					<ExtendedTooltip name="ДеревоУпаковокКоличествоУпаковокВУпаковкахРасширеннаяПодсказка" id="39"/>
 					<Events>
@@ -201,8 +194,6 @@
 				</InputField>
 				<InputField name="ДеревоУпаковокПараметрыГенерацииШтрихкодов" id="44">
 					<DataPath>ДеревоУпаковок.ПараметрыГенерацииШтрихкодов</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>25</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>50</MaxWidth>
@@ -218,24 +209,18 @@
 				<CheckBoxField name="ДеревоУпаковокВерхнийУровень" id="47">
 					<DataPath>ДеревоУпаковок.ВерхнийУровень</DataPath>
 					<Visible>false</Visible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДеревоУпаковокВерхнийУровеньКонтекстноеМеню" id="48"/>
 					<ExtendedTooltip name="ДеревоУпаковокВерхнийУровеньРасширеннаяПодсказка" id="49"/>
 				</CheckBoxField>
 				<CheckBoxField name="ДеревоУпаковокТолькоПросмотр" id="61">
 					<DataPath>ДеревоУпаковок.ТолькоПросмотр</DataPath>
 					<Visible>false</Visible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДеревоУпаковокТолькоПросмотрКонтекстноеМеню" id="62"/>
 					<ExtendedTooltip name="ДеревоУпаковокТолькоПросмотрРасширеннаяПодсказка" id="63"/>
 				</CheckBoxField>
 				<CheckBoxField name="ДеревоУпаковокТребуетсяУказаниеПараметровГенерацииШтрихкодов" id="64">
 					<DataPath>ДеревоУпаковок.ТребуетсяУказаниеПараметровГенерацииШтрихкодов</DataPath>
 					<Visible>false</Visible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДеревоУпаковокТребуетсяУказаниеПараметровГенерацииШтрихкодовКонтекстноеМеню" id="65"/>
 					<ExtendedTooltip name="ДеревоУпаковокТребуетсяУказаниеПараметровГенерацииШтрихкодовРасширеннаяПодсказка" id="66"/>
 				</CheckBoxField>
@@ -741,11 +726,10 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить</v8:content>
+					<v8:content>Готово</v8:content>
 				</v8:item>
 			</Title>
 			<Action>Готово</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

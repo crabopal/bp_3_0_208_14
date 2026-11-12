@@ -27,7 +27,6 @@
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<BackColor>style:ЦветНавигацииСервисДоставки</BackColor>
-			<ShowAsCard>true</ShowAsCard>
 			<ExtendedTooltip name="ГруппаПодпискаНаСервисРасширеннаяПодсказка" id="90"/>
 			<ChildItems>
 				<LabelDecoration name="ДекорацияПолучениеИнформацииПоОпции" id="110">
@@ -50,7 +49,6 @@
 							<v8:content>Декорация картинка состояние опция курьерика</v8:content>
 						</v8:item>
 					</Title>
-					<GroupVerticalAlign>Center</GroupVerticalAlign>
 					<Picture>
 						<xr:Ref>CommonPicture.ЗеленыйШарБЭД</xr:Ref>
 						<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -92,6 +90,7 @@
 				<PictureDecoration name="Логотип" id="47">
 					<Width>7</Width>
 					<Height>3</Height>
+					<TextColor>style:BorderColor</TextColor>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -105,6 +104,7 @@
 						<xr:LoadTransparent>false</xr:LoadTransparent>
 					</Picture>
 					<FileDragMode>AsFile</FileDragMode>
+					<PictureColor>style:BorderColor</PictureColor>
 					<ContextMenu name="ЛоготипКонтекстноеМеню" id="48"/>
 					<ExtendedTooltip name="ЛоготипРасширеннаяПодсказка" id="49"/>
 				</PictureDecoration>
@@ -177,11 +177,9 @@
 						<Table name="Перевозчики" id="1">
 							<Representation>List</Representation>
 							<ReadOnly>true</ReadOnly>
-							<SelectionMode>SingleRow</SelectionMode>
-							<RowSelectionMode>Row</RowSelectionMode>
+							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
-							<RowActionsShowType>DontShow</RowActionsShowType>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>Перевозчики</DataPath>
@@ -229,12 +227,16 @@
 											<DataPath>Перевозчики.Использовать</DataPath>
 											<Visible>false</Visible>
 											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ПеревозчикИспользоватьКонтекстноеМеню" id="15"/>
 											<ExtendedTooltip name="ПеревозчикИспользоватьРасширеннаяПодсказка" id="16"/>
 										</CheckBoxField>
 										<CheckBoxField name="ПеревозчикиДанныеАвторизацииВведены" id="34">
 											<DataPath>Перевозчики.ДанныеАвторизацииВведены</DataPath>
 											<Visible>false</Visible>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ПеревозчикиДанныеАвторизацииВведеныКонтекстноеМеню" id="35"/>
 											<ExtendedTooltip name="ПеревозчикиДанныеАвторизацииВведеныРасширеннаяПодсказка" id="36"/>
 										</CheckBoxField>
@@ -249,7 +251,9 @@
 								<InputField name="Перевозчик" id="17">
 									<DataPath>Перевозчики.Перевозчик</DataPath>
 									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
 									<CellHyperlink>true</CellHyperlink>
+									<AutoEditMode>true</AutoEditMode>
 									<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 									<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 									<Width>20</Width>
@@ -296,6 +300,8 @@
 									<DataPath>Перевозчики.Описание</DataPath>
 									<Visible>false</Visible>
 									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ОписаниеКонтекстноеМеню" id="30"/>
 									<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="31"/>
 								</InputField>

@@ -5,36 +5,31 @@
 	<CommandSet>
 		<ExcludedCommand>Create</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<Table name="Список" id="1">
 			<Representation>Tree</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
 			<DefaultItem>true</DefaultItem>
 			<ChoiceMode>true</ChoiceMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
+			<Header>false</Header>
+			<HorizontalLinesBWA>false</HorizontalLinesBWA>
+			<VerticalLinesBWA>false</VerticalLinesBWA>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
-			<InitialRowActivation>Activate</InitialRowActivation>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Список</v8:content>
-				</v8:item>
-			</Title>
 			<CommandSet>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
-			<SearchStringLocation>CommandBar</SearchStringLocation>
-			<ViewStatusLocation>Top</ViewStatusLocation>
-			<SearchControlLocation>CommandBar</SearchControlLocation>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -50,83 +45,46 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="8"/>
-			<SearchStringAddition name="СписокСтрокаПоиска" id="9">
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="6"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="8">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchStringRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="10"/>
-				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="11"/>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="10"/>
 			</SearchStringAddition>
-			<ViewStatusAddition name="СписокСостояниеПросмотра" id="12">
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="11">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>ViewStatusRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="13"/>
-				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="14"/>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="13"/>
 			</ViewStatusAddition>
-			<SearchControlAddition name="СписокУправлениеПоиском" id="15">
+			<SearchControlAddition name="СписокУправлениеПоиском" id="14">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchControl</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="16"/>
-				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="17"/>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="16"/>
 			</SearchControlAddition>
 			<ChildItems>
 				<LabelField name="Наименование" id="4">
 					<DataPath>Список.Description</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Наименование</v8:content>
-						</v8:item>
-					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<DefaultItem>true</DefaultItem>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="18"/>
-				</LabelField>
-				<LabelField name="Код" id="6">
-					<DataPath>Список.Code</DataPath>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Код</v8:content>
-						</v8:item>
-					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="КодКонтекстноеМеню" id="7"/>
-					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="19"/>
-				</LabelField>
-				<LabelField name="Ссылка" id="24">
-					<DataPath>Список.Ref</DataPath>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="СсылкаКонтекстноеМеню" id="25"/>
-					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="26"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="7"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
 	<Attributes>
-		<Attribute name="Список" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Список</v8:content>
-				</v8:item>
-			</Title>
+		<Attribute name="Список" id="1">
 			<Type>
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
@@ -165,186 +123,19 @@
 	<CommandInterface>
 		<CommandBar>
 			<Item>
-				<Command>Catalog.ВнешниеПользователи.Command.ВнешнийДоступ</Command>
+				<Command>Catalog.Контрагенты.Command.ВебВерсияСПАРК</Command>
 				<Type>Auto</Type>
 				<CommandGroup>FormCommandBarImportant</CommandGroup>
-				<Index>2</Index>
 				<DefaultVisible>false</DefaultVisible>
 				<Visible>
 					<xr:Common>false</xr:Common>
 				</Visible>
 			</Item>
 			<Item>
-				<Command>CommonCommand.ДополнительныеСведенияКоманднаяПанель</Command>
+				<Command>Report.ДосьеКонтрагента.Command.Досье</Command>
 				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>CommonCommand.Напомнить</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>DataProcessor.БизнесСеть.Command.ОткрытьПрофильУчастника</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>Document.АктВыполненныхРабот.StandardCommand.CreateBasedOn</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>Document.ЗаказПокупателя.StandardCommand.CreateBasedOn</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>Document.ЗаказПоставщику.StandardCommand.CreateBasedOn</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>Catalog.Контрагенты.Command.КомандаЗаказНарядСоздатьНаОсновании</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>Document.ОтчетКомитенту.StandardCommand.CreateBasedOn</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>Document.ПриемИПередачаВРемонт.StandardCommand.CreateBasedOn</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>Document.ПриходнаяНакладная.StandardCommand.CreateBasedOn</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>Document.РасходнаяНакладная.StandardCommand.CreateBasedOn</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>Document.Событие.StandardCommand.CreateBasedOn</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>CommonCommand.СозданиеСвязанныхОбъектов</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>Document.СчетНаОплату.StandardCommand.CreateBasedOn</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>CommonCommand.ОтправитьSMS</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>CommonCommand.ОтправитьПисьмо</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>CommonCommand.ИнтеграцияС1СДокументооборотНачатьОбработку</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>CommonCommand.ИнтеграцияС1СДокументооборотСоздатьБизнесПроцесс</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>CommonCommand.ИнтеграцияС1СДокументооборотСоздатьПисьмо</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>Document.ЗаказПокупателя.Command.СоздатьИзКонтрагентаЗаказНаряд</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>CommonCommand.ЗагрузитьПерезаполнитьОбъектИзФайла</Command>
-				<Type>Auto</Type>
-				<DefaultVisible>false</DefaultVisible>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
-				<Command>CommonCommand.ИсторияИзменений</Command>
-				<Type>Auto</Type>
+				<CommandGroup>FormCommandBarImportant</CommandGroup>
+				<Index>1</Index>
 				<DefaultVisible>false</DefaultVisible>
 				<Visible>
 					<xr:Common>false</xr:Common>
@@ -353,6 +144,8 @@
 			<Item>
 				<Command>DataProcessor.ПроверкаКонтрагента.Command.ПроверкаКонтрагента</Command>
 				<Type>Auto</Type>
+				<CommandGroup>FormCommandBarImportant</CommandGroup>
+				<Index>2</Index>
 				<DefaultVisible>false</DefaultVisible>
 				<Visible>
 					<xr:Common>false</xr:Common>

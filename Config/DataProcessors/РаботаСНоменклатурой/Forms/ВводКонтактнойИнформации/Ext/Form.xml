@@ -3,9 +3,10 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Контактная информация</v8:content>
+			<v8:content>Ввод контактной информации</v8:content>
 		</v8:item>
 	</Title>
+	<Width>40</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
@@ -25,15 +26,27 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="11"/>
 			</Button>
+			<Button name="Отмена" id="20">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отмена</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="21"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<InputField name="КонтактноеЛицо" id="4">
 			<DataPath>КонтактноеЛицо</DataPath>
-			<AutoMaxWidth>false</AutoMaxWidth>
+			<MarkRequiredComplete>true</MarkRequiredComplete>
 			<AutoMarkIncomplete>true</AutoMarkIncomplete>
 			<InputHint>
 				<v8:item>
@@ -41,10 +54,6 @@
 					<v8:content>Контактное лицо</v8:content>
 				</v8:item>
 			</InputHint>
-			<Picture>
-				<xr:Ref>StdPicture.User</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<ContextMenu name="КонтактноеЛицоКонтекстноеМеню" id="5"/>
 			<ExtendedTooltip name="КонтактноеЛицоРасширеннаяПодсказка" id="6"/>
 			<Events>
@@ -53,7 +62,7 @@
 		</InputField>
 		<InputField name="Должность" id="1">
 			<DataPath>Должность</DataPath>
-			<AutoMaxWidth>false</AutoMaxWidth>
+			<MarkRequiredComplete>true</MarkRequiredComplete>
 			<AutoMarkIncomplete>true</AutoMarkIncomplete>
 			<InputHint>
 				<v8:item>
@@ -61,29 +70,27 @@
 					<v8:content>Должность</v8:content>
 				</v8:item>
 			</InputHint>
-			<Picture>
-				<xr:Ref>StdPicture.Document</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<ContextMenu name="ДолжностьКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="ДолжностьРасширеннаяПодсказка" id="3"/>
 		</InputField>
-		<InputField name="Email" id="24">
+		<InputField name="Email" id="7">
 			<DataPath>Email</DataPath>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+			<MarkRequiredComplete>true</MarkRequiredComplete>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
 			<InputHint>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Email</v8:content>
 				</v8:item>
 			</InputHint>
-			<Picture>
-				<xr:Ref>StdPicture.CollaborationSystemExternalUser</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<ContextMenu name="EmailКонтекстноеМеню" id="25"/>
-			<ExtendedTooltip name="EmailРасширеннаяПодсказка" id="26"/>
+			<ContextMenu name="EmailКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="EmailРасширеннаяПодсказка" id="9">
+				<TextColor>style:ПоясняющийОшибкуТекст</TextColor>
+			</ExtendedTooltip>
+			<Events>
+				<Event name="OnChange">EmailПриИзменении</Event>
+			</Events>
 		</InputField>
 	</ChildItems>
 	<Attributes>
@@ -107,7 +114,6 @@
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
-			<FillCheck>ShowError</FillCheck>
 		</Attribute>
 		<Attribute name="КонтактноеЛицо" id="3">
 			<Title>
@@ -119,7 +125,6 @@
 			<Type>
 				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
 			</Type>
-			<FillCheck>ShowError</FillCheck>
 		</Attribute>
 		<Attribute name="Email" id="4">
 			<Title>
@@ -135,7 +140,6 @@
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
-			<FillCheck>ShowError</FillCheck>
 		</Attribute>
 	</Attributes>
 	<Commands>
@@ -143,12 +147,16 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Action>ОК</Action>
-			<ModifiesSavedData>true</ModifiesSavedData>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

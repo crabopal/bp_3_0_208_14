@@ -3,17 +3,8 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="Готово" id="50">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Готово</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="51"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -45,13 +36,12 @@
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<BackColor>pal:Red</BackColor>
 					<ExtendedTooltip name="ГруппаИнформацияРасширеннаяПодсказка" id="66"/>
 					<ChildItems>
 						<PictureDecoration name="КартинкаИнформация" id="67">
 							<Picture>
-								<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
-								<xr:LoadTransparent>true</xr:LoadTransparent>
+								<xr:Ref>CommonPicture.ИнформацияПоНедоступнымПолям</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
 							</Picture>
 							<ContextMenu name="КартинкаИнформацияКонтекстноеМеню" id="68"/>
 							<ExtendedTooltip name="КартинкаИнформацияРасширеннаяПодсказка" id="69"/>
@@ -93,9 +83,6 @@
 					<TitleLocation>Top</TitleLocation>
 					<ChangeRowSet>false</ChangeRowSet>
 					<ChangeRowOrder>false</ChangeRowOrder>
-					<ChoiceMode>true</ChoiceMode>
-					<MultipleChoice>true</MultipleChoice>
-					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<Header>false</Header>
 					<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -197,9 +184,7 @@
 					<TitleLocation>Top</TitleLocation>
 					<ChangeRowSet>false</ChangeRowSet>
 					<ChangeRowOrder>false</ChangeRowOrder>
-					<ChoiceMode>true</ChoiceMode>
-					<MultipleChoice>true</MultipleChoice>
-					<SelectionMode>SingleRow</SelectionMode>
+					<RowSelectionMode>Cell</RowSelectionMode>
 					<Header>false</Header>
 					<HorizontalLinesBWA>false</HorizontalLinesBWA>
 					<VerticalLinesBWA>false</VerticalLinesBWA>
@@ -252,6 +237,36 @@
 				</Table>
 			</ChildItems>
 		</UsualGroup>
+		<CommandBar name="ГруппаКомандыФормы" id="48">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа команды формы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа команды формы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="ГруппаКомандыФормыРасширеннаяПодсказка" id="49"/>
+			<ChildItems>
+				<Button name="Готово" id="50">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Готово</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="51"/>
+				</Button>
+				<Button name="Отмена" id="52">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Отмена</CommandName>
+					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="53"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ДоступныеЗначения" id="2">
@@ -296,7 +311,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Добавить</v8:content>
+					<v8:content>Добавить &gt;</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -305,18 +320,13 @@
 					<v8:content>Добавить элемент</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.GoForward</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ДобавитьЭлемент</Action>
-			<Representation>TextPicture</Representation>
 		</Command>
 		<Command name="ДобавитьВсеЭлементы" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Добавить все</v8:content>
+					<v8:content>Добавить все &gt;&gt;</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -325,18 +335,13 @@
 					<v8:content>Добавить все элементы</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.GoToEnd</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ДобавитьВсеЭлементы</Action>
-			<Representation>TextPicture</Representation>
 		</Command>
 		<Command name="УдалитьЭлемент" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить</v8:content>
+					<v8:content>&lt; Удалить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -345,18 +350,13 @@
 					<v8:content>Удалить элемент</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.GoBack</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>УдалитьЭлемент</Action>
-			<Representation>TextPicture</Representation>
 		</Command>
 		<Command name="УдалитьВсеЭлементы" id="4">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Удалить все</v8:content>
+					<v8:content>&lt;&lt; Удалить все</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -365,12 +365,7 @@
 					<v8:content>Удалить все элементы</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.GoToBegin</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>УдалитьВсеЭлементы</Action>
-			<Representation>TextPicture</Representation>
 		</Command>
 		<Command name="Готово" id="5">
 			<Title>
@@ -386,7 +381,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Готово</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="6">
 			<Title>
@@ -402,7 +396,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Отмена</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

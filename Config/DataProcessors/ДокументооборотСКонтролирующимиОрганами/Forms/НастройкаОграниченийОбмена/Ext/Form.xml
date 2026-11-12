@@ -6,11 +6,10 @@
 			<v8:content>Проверьте состав организаций</v8:content>
 		</v8:item>
 	</Title>
-	<Width>75</Width>
+	<Width>70</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<VerticalSpacing>Half</VerticalSpacing>
 	<Customizable>false</Customizable>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -42,8 +41,8 @@
 						</v8:item>
 					</Title>
 					<Picture>
-						<xr:Ref>CommonPicture.ВниманиеЖелтоБелое</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
+						<xr:Ref>CommonPicture.Внимание48</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</Picture>
 					<ContextMenu name="ДекорацияПредупреждениеКонтекстноеМеню" id="85"/>
 					<ExtendedTooltip name="ДекорацияПредупреждениеРасширеннаяПодсказка" id="86"/>
@@ -58,7 +57,7 @@
 			</ChildItems>
 		</UsualGroup>
 		<LabelDecoration name="ДекорацияПустая" id="68">
-			<Font ref="style:TextLevel3" height="6" kind="StyleItem" scale="100"/>
+			<Font ref="style:NormalTextFont" height="6" kind="StyleItem"/>
 			<ContextMenu name="ДекорацияПустаяКонтекстноеМеню" id="69"/>
 			<ExtendedTooltip name="ДекорацияПустаяРасширеннаяПодсказка" id="70"/>
 		</LabelDecoration>
@@ -88,6 +87,39 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаИтогиРасширеннаяПодсказка" id="77"/>
 					<ChildItems>
+						<CommandBar name="ГруппаКомандыТаблицы" id="87">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды таблицы</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ГруппаКомандыТаблицыРасширеннаяПодсказка" id="88"/>
+							<ChildItems>
+								<ButtonGroup name="ГруппаПометки" id="89">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Пометки</v8:content>
+										</v8:item>
+									</Title>
+									<Representation>Compact</Representation>
+									<ExtendedTooltip name="ГруппаПометкиРасширеннаяПодсказка" id="90"/>
+									<ChildItems>
+										<Button name="ВыбратьВсе" id="78">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ВыбратьВсе</CommandName>
+											<ExtendedTooltip name="ВыбратьВсеРасширеннаяПодсказка" id="79"/>
+										</Button>
+										<Button name="ИсключитьВсе" id="80">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ИсключитьВсе</CommandName>
+											<ExtendedTooltip name="ИсключитьВсеРасширеннаяПодсказка" id="81"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
+							</ChildItems>
+						</CommandBar>
 						<LabelDecoration name="ДекорацияВсего" id="60">
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<HorizontalStretch>true</HorizontalStretch>
@@ -108,7 +140,6 @@
 					<Representation>List</Representation>
 					<ChangeRowSet>false</ChangeRowSet>
 					<ChangeRowOrder>false</ChangeRowOrder>
-					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Row</RowSelectionMode>
 					<Header>false</Header>
 					<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -122,32 +153,6 @@
 					<ContextMenu name="ТаблицаВыбораКонтекстноеМеню" id="35"/>
 					<AutoCommandBar name="ТаблицаВыбораКоманднаяПанель" id="36">
 						<Autofill>false</Autofill>
-						<ChildItems>
-							<Button name="ВыбратьВсе" id="78">
-								<Type>CommandBarButton</Type>
-								<Representation>PictureAndText</Representation>
-								<CommandName>Form.Command.ВыбратьВсе</CommandName>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Выбрать все</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="ВыбратьВсеРасширеннаяПодсказка" id="79"/>
-							</Button>
-							<Button name="ИсключитьВсе" id="80">
-								<Type>CommandBarButton</Type>
-								<Representation>Picture</Representation>
-								<CommandName>Form.Command.ИсключитьВсе</CommandName>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Снять все</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="ИсключитьВсеРасширеннаяПодсказка" id="81"/>
-							</Button>
-						</ChildItems>
 					</AutoCommandBar>
 					<ExtendedTooltip name="ТаблицаВыбораРасширеннаяПодсказка" id="37"/>
 					<SearchStringAddition name="ТаблицаВыбораСтрокаПоиска" id="38">
@@ -183,7 +188,6 @@
 							<DataPath>ТаблицаВыбора.Пометка</DataPath>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>CheckBox</CheckBoxType>
 							<ThreeState>true</ThreeState>
 							<ContextMenu name="ТаблицаВыбораПометкаКонтекстноеМеню" id="54"/>
 							<ExtendedTooltip name="ТаблицаВыбораПометкаРасширеннаяПодсказка" id="55"/>
@@ -312,6 +316,11 @@
 					<Type>UsualButton</Type>
 					<CommandName>Form.Command.Пропустить</CommandName>
 					<ExtendedTooltip name="ПродолжитьРасширеннаяПодсказка" id="25"/>
+				</Button>
+				<Button name="Отмена" id="71">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Отмена</CommandName>
+					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="72"/>
 				</Button>
 			</ChildItems>
 		</UsualGroup>
@@ -538,6 +547,21 @@
 			</Picture>
 			<Action>ВыбратьВсе</Action>
 			<Representation>Picture</Representation>
+		</Command>
+		<Command name="Отмена" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
 		</Command>
 		<Command name="ИсключитьВсе" id="5">
 			<Title>

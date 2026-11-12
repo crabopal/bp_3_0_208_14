@@ -1,9 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<Width>100</Width>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаСопоставить" id="62">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Сопоставить</CommandName>
+				<ExtendedTooltip name="ФормаСопоставитьРасширеннаяПодсказка" id="63"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -12,7 +21,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа пользовательских настроек</v8:content>
+					<v8:content>User settings group</v8:content>
 				</v8:item>
 			</Title>
 			<VerticalStretch>false</VerticalStretch>
@@ -36,7 +45,6 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -54,13 +62,7 @@
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<ChildItems>
-					<Button name="ФормаСопоставить" id="62">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Сопоставить</CommandName>
-						<ExtendedTooltip name="ФормаСопоставитьРасширеннаяПодсказка" id="63"/>
-					</Button>
-				</ChildItems>
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
@@ -91,6 +93,7 @@
 				<LabelField name="Владелец" id="16">
 					<DataPath>Список.Владелец</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<Width>5</Width>
 					<MaxWidth>10</MaxWidth>
 					<ContextMenu name="ВладелецКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="18"/>
@@ -102,6 +105,7 @@
 							<v8:content>Данные контрагента</v8:content>
 						</v8:item>
 					</Title>
+					<Width>95</Width>
 					<Group>Horizontal</Group>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="ГруппаНоменклатураКонтрагентаРасширеннаяПодсказка" id="57"/>
@@ -113,11 +117,13 @@
 									<v8:content>Представление</v8:content>
 								</v8:item>
 							</Title>
+							<Width>35</Width>
 							<Group>InCell</Group>
 							<ExtendedTooltip name="ГруппаПредставлениеРасширеннаяПодсказка" id="55"/>
 							<ChildItems>
 								<LabelField name="Наименование" id="22">
 									<DataPath>Список.Наименование</DataPath>
+									<Width>15</Width>
 									<MaxWidth>10</MaxWidth>
 									<ContextMenu name="НаименованиеКонтекстноеМеню" id="23"/>
 									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="24"/>
@@ -130,6 +136,7 @@
 											<v8:content>Характеристика</v8:content>
 										</v8:item>
 									</Title>
+									<Width>15</Width>
 									<MaxWidth>10</MaxWidth>
 									<ContextMenu name="НаименованиеХарактеристикиКонтекстноеМеню" id="26"/>
 									<ExtendedTooltip name="НаименованиеХарактеристикиРасширеннаяПодсказка" id="27"/>
@@ -142,6 +149,7 @@
 											<v8:content>Упаковка</v8:content>
 										</v8:item>
 									</Title>
+									<Width>10</Width>
 									<ContextMenu name="НаименованиеУпаковкиКонтекстноеМеню" id="89"/>
 									<ExtendedTooltip name="НаименованиеУпаковкиРасширеннаяПодсказка" id="90"/>
 								</InputField>
@@ -153,6 +161,7 @@
 											<v8:content>Ед. изм.</v8:content>
 										</v8:item>
 									</Title>
+									<Width>5</Width>
 									<MaxWidth>10</MaxWidth>
 									<ContextMenu name="ЕдиницаИзмеренияКонтекстноеМеню" id="29"/>
 									<ExtendedTooltip name="ЕдиницаИзмеренияРасширеннаяПодсказка" id="30"/>
@@ -175,18 +184,16 @@
 						</ColumnGroup>
 						<LabelField name="Артикул" id="31">
 							<DataPath>Список.Артикул</DataPath>
-							<UserVisible>
-								<xr:Common>false</xr:Common>
-							</UserVisible>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>10</MaxWidth>
 							<ContextMenu name="АртикулКонтекстноеМеню" id="32"/>
 							<ExtendedTooltip name="АртикулРасширеннаяПодсказка" id="33"/>
 						</LabelField>
 						<LabelField name="СтавкаНДС" id="67">
 							<DataPath>Список.СтавкаНДС</DataPath>
-							<UserVisible>
-								<xr:Common>false</xr:Common>
-							</UserVisible>
+							<Width>11</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>10</MaxWidth>
 							<ContextMenu name="СтавкаНДСКонтекстноеМеню" id="68"/>
 							<ExtendedTooltip name="СтавкаНДСРасширеннаяПодсказка" id="69"/>
@@ -194,38 +201,33 @@
 						<LabelField name="Штрихкод" id="34">
 							<DataPath>Список.Штрихкод</DataPath>
 							<Visible>false</Visible>
-							<UserVisible>
-								<xr:Common>false</xr:Common>
-							</UserVisible>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>10</MaxWidth>
 							<ContextMenu name="ШтрихкодКонтекстноеМеню" id="35"/>
 							<ExtendedTooltip name="ШтрихкодРасширеннаяПодсказка" id="36"/>
 						</LabelField>
 						<LabelField name="ШтрихкодКомбинации" id="82">
 							<DataPath>Список.ШтрихкодКомбинации</DataPath>
-							<UserVisible>
-								<xr:Common>false</xr:Common>
-							</UserVisible>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Штрихкод позиции документа</v8:content>
 								</v8:item>
 							</Title>
+							<Width>10</Width>
 							<ContextMenu name="ШтрихкодКомбинацииКонтекстноеМеню" id="83"/>
 							<ExtendedTooltip name="ШтрихкодКомбинацииРасширеннаяПодсказка" id="84"/>
 						</LabelField>
 						<LabelField name="ШтрихкодыНоменклатуры" id="85">
 							<DataPath>Список.ШтрихкодыНоменклатуры</DataPath>
-							<UserVisible>
-								<xr:Common>false</xr:Common>
-							</UserVisible>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Другие штрихкоды номенклатуры</v8:content>
 								</v8:item>
 							</Title>
+							<Width>10</Width>
 							<ContextMenu name="ШтрихкодыНоменклатурыКонтекстноеМеню" id="86"/>
 							<ExtendedTooltip name="ШтрихкодыНоменклатурыРасширеннаяПодсказка" id="87"/>
 						</LabelField>
@@ -300,6 +302,7 @@
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>15</MaxWidth>
 									<ContextMenu name="ИдентификаторКонтекстноеМеню" id="20"/>
 									<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="21"/>
@@ -316,6 +319,7 @@
 										</v8:item>
 									</Title>
 									<Width>10</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>10</MaxWidth>
 									<ContextMenu name="ИдентификаторНоменклатурыСервисаКонтекстноеМеню" id="38"/>
 									<ExtendedTooltip name="ИдентификаторНоменклатурыСервисаРасширеннаяПодсказка" id="39"/>
@@ -332,6 +336,7 @@
 										</v8:item>
 									</Title>
 									<Width>10</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>10</MaxWidth>
 									<ContextMenu name="ИдентификаторХарактеристикиСервисаКонтекстноеМеню" id="41"/>
 									<ExtendedTooltip name="ИдентификаторХарактеристикиСервисаРасширеннаяПодсказка" id="42"/>
@@ -341,6 +346,7 @@
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>15</MaxWidth>
 									<ContextMenu name="ИдентификаторНоменклатурыКонтекстноеМеню" id="71"/>
 									<ExtendedTooltip name="ИдентификаторНоменклатурыРасширеннаяПодсказка" id="72"/>
@@ -350,6 +356,7 @@
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>15</MaxWidth>
 									<ContextMenu name="ИдентификаторХарактеристикиКонтекстноеМеню" id="77"/>
 									<ExtendedTooltip name="ИдентификаторХарактеристикиРасширеннаяПодсказка" id="78"/>
@@ -359,6 +366,7 @@
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>15</MaxWidth>
 									<ContextMenu name="ИдентификаторУпаковкиКонтекстноеМеню" id="74"/>
 									<ExtendedTooltip name="ИдентификаторУпаковкиРасширеннаяПодсказка" id="75"/>
@@ -382,6 +390,7 @@
 							<v8:content>Соответствие номенклатуре</v8:content>
 						</v8:item>
 					</Title>
+					<Width>45</Width>
 					<Group>Horizontal</Group>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="ГруппаНоменклатураИБРасширеннаяПодсказка" id="59"/>
@@ -394,7 +403,10 @@
 									<v8:content>Номенклатура</v8:content>
 								</v8:item>
 							</Title>
+							<Width>15</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>15</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
 							<ContextMenu name="НоменклатураКонтекстноеМеню" id="44"/>
 							<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="45"/>
 						</LabelField>
@@ -406,7 +418,10 @@
 									<v8:content>Характеристика</v8:content>
 								</v8:item>
 							</Title>
+							<Width>15</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>15</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
 							<ContextMenu name="ХарактеристикаКонтекстноеМеню" id="47"/>
 							<ExtendedTooltip name="ХарактеристикаРасширеннаяПодсказка" id="48"/>
 						</LabelField>
@@ -418,7 +433,10 @@
 									<v8:content>Упаковка</v8:content>
 								</v8:item>
 							</Title>
+							<Width>15</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>15</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
 							<ContextMenu name="УпаковкаКонтекстноеМеню" id="50"/>
 							<ExtendedTooltip name="УпаковкаРасширеннаяПодсказка" id="51"/>
 						</LabelField>
@@ -468,7 +486,6 @@
 			<Representation>Text</Representation>
 			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 			<CommandName>InformationRegister.ПравилаПоискаПоЧастиНаименованияБЭД.Command.ПравилаПоискаПоЧастиНаименования</CommandName>
-			<RepresentationInContextMenu>None</RepresentationInContextMenu>
 			<ExtendedTooltip name="ПравилаПоискаПоЧастиНаименованияРасширеннаяПодсказка" id="113"/>
 		</Button>
 	</ChildItems>
@@ -520,7 +537,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Сопоставить</Action>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

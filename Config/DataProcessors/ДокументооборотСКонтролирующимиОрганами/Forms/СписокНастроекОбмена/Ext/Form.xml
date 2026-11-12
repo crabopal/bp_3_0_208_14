@@ -9,9 +9,56 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="НастройкиОбменаОткрыть" id="51">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.НастройкиОбменаОткрыть</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Открыть</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="НастройкиОбменаОткрытьРасширеннаяПодсказка" id="52"/>
+			</Button>
+			<Button name="НастройкиОбменаНайти" id="49">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.НастройкиОбмена.StandardCommand.Find</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="НастройкиОбменаНайтиРасширеннаяПодсказка" id="50"/>
+			</Button>
+			<Button name="НастройкиОбменаОтменитьПоиск" id="53">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.НастройкиОбмена.StandardCommand.CancelSearch</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="НастройкиОбменаОтменитьПоискРасширеннаяПодсказка" id="54"/>
+			</Button>
+			<Button name="ФормаКнопкаВывестиСписок" id="55">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.НастройкиОбмена.StandardCommand.OutputList</CommandName>
+				<ExtendedTooltip name="ФормаКнопкаВывестиСписокРасширеннаяПодсказка" id="56"/>
+			</Button>
+			<Button name="НастройкиОбменаОбновить" id="186">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.НастройкиОбменаОбновить</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.Refresh</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+				<ExtendedTooltip name="НастройкиОбменаОбновитьРасширеннаяПодсказка" id="187"/>
+			</Button>
+			<Button name="НастройкиОбменаОтображатьУдаленные" id="356">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.НастройкиОбменаОтображатьУдаленные</CommandName>
+				<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="НастройкиОбменаОтображатьУдаленныеРасширеннаяПодсказка" id="357"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -19,7 +66,6 @@
 	<ChildItems>
 		<Table name="НастройкиОбмена" id="1">
 			<Representation>List</Representation>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -86,7 +132,7 @@
 							</Button>
 							<Button name="НастройкиОбменаКнопкаВыделитьВсе" id="335">
 								<Type>CommandBarButton</Type>
-								<CommandName>0</CommandName>
+								<CommandName>Form.Item.НастройкиОбмена.StandardCommand.SelectAll</CommandName>
 								<ExtendedTooltip name="НастройкиОбменаКнопкаВыделитьВсеРасширеннаяПодсказка" id="336"/>
 							</Button>
 						</ChildItems>
@@ -95,54 +141,6 @@
 			</ContextMenu>
 			<AutoCommandBar name="НастройкиОбменаКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
-				<ChildItems>
-					<Button name="НастройкиОбменаОткрыть" id="51">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.НастройкиОбменаОткрыть</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Открыть</v8:content>
-							</v8:item>
-						</Title>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="НастройкиОбменаОткрытьРасширеннаяПодсказка" id="52"/>
-					</Button>
-					<Button name="НастройкиОбменаНайти" id="49">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.НастройкиОбмена.StandardCommand.Find</CommandName>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="НастройкиОбменаНайтиРасширеннаяПодсказка" id="50"/>
-					</Button>
-					<Button name="НастройкиОбменаОтменитьПоиск" id="53">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.НастройкиОбмена.StandardCommand.CancelSearch</CommandName>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="НастройкиОбменаОтменитьПоискРасширеннаяПодсказка" id="54"/>
-					</Button>
-					<Button name="ФормаКнопкаВывестиСписок" id="55">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.НастройкиОбмена.StandardCommand.OutputList</CommandName>
-						<ExtendedTooltip name="ФормаКнопкаВывестиСписокРасширеннаяПодсказка" id="56"/>
-					</Button>
-					<Button name="НастройкиОбменаОбновить" id="186">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.НастройкиОбменаОбновить</CommandName>
-						<Picture>
-							<xr:Ref>StdPicture.Refresh</xr:Ref>
-							<xr:LoadTransparent>true</xr:LoadTransparent>
-						</Picture>
-						<ToolTipRepresentation>Balloon</ToolTipRepresentation>
-						<ExtendedTooltip name="НастройкиОбменаОбновитьРасширеннаяПодсказка" id="187"/>
-					</Button>
-					<Button name="НастройкиОбменаОтображатьУдаленные" id="356">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.НастройкиОбменаОтображатьУдаленные</CommandName>
-						<ToolTipRepresentation>Balloon</ToolTipRepresentation>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="НастройкиОбменаОтображатьУдаленныеРасширеннаяПодсказка" id="357"/>
-					</Button>
-				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="НастройкиОбменаРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="НастройкиОбменаСтрокаПоиска" id="5">
@@ -189,7 +187,6 @@
 					<DataPath>НастройкиОбмена.Направления</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<Width>15</Width>
 					<ContextMenu name="НастройкиОбменаНаправленияКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="НастройкиОбменаНаправленияРасширеннаяПодсказка" id="22"/>
@@ -198,7 +195,6 @@
 					<DataPath>НастройкиОбмена.Пользователи</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<Width>10</Width>
 					<ContextMenu name="НастройкиОбменаПользователиКонтекстноеМеню" id="45"/>
 					<ExtendedTooltip name="НастройкиОбменаПользователиРасширеннаяПодсказка" id="46"/>
@@ -223,7 +219,6 @@
 							<EditMode>EnterOnInput</EditMode>
 							<CellHyperlink>true</CellHyperlink>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>None</AutoWidthInTable>
 							<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 							<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 							<Width>15</Width>
@@ -236,7 +231,6 @@
 							<DataPath>НастройкиОбмена.Заявление</DataPath>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="НастройкиОбменаЗаявлениеТекстКонтекстноеМеню" id="364"/>
 							<ExtendedTooltip name="НастройкиОбменаЗаявлениеТекстРасширеннаяПодсказка" id="365"/>
 						</InputField>
@@ -251,7 +245,6 @@
 					<EditMode>EnterOnInput</EditMode>
 					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="НастройкиОбменаДатаПодключенияКонтекстноеМеню" id="184"/>
 					<ExtendedTooltip name="НастройкиОбменаДатаПодключенияРасширеннаяПодсказка" id="185"/>
 				</InputField>
@@ -269,7 +262,6 @@
 					<EditMode>EnterOnInput</EditMode>
 					<CellHyperlink>true</CellHyperlink>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<TextColor>style:ЦветГиперссылкиБРО</TextColor>
@@ -290,7 +282,6 @@
 					<EditMode>EnterOnInput</EditMode>
 					<CellHyperlink>true</CellHyperlink>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<TextColor>style:ЦветГиперссылкиБРО</TextColor>
@@ -311,7 +302,6 @@
 					<EditMode>EnterOnInput</EditMode>
 					<CellHyperlink>true</CellHyperlink>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<TextColor>style:ЦветГиперссылкиБРО</TextColor>
@@ -332,7 +322,6 @@
 					<EditMode>EnterOnInput</EditMode>
 					<CellHyperlink>true</CellHyperlink>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<TextColor>style:ЦветШрифтаНенаступившегоЭтапа</TextColor>
@@ -349,7 +338,6 @@
 					<CellHyperlink>true</CellHyperlink>
 					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<Width>19</Width>
@@ -367,7 +355,6 @@
 					<CellHyperlink>true</CellHyperlink>
 					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<Width>19</Width>
@@ -385,7 +372,6 @@
 					<CellHyperlink>true</CellHyperlink>
 					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<Width>19</Width>
@@ -403,7 +389,6 @@
 					<CellHyperlink>true</CellHyperlink>
 					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<Width>19</Width>
@@ -421,7 +406,6 @@
 					<CellHyperlink>true</CellHyperlink>
 					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<Width>19</Width>
@@ -439,7 +423,6 @@
 					<CellHyperlink>true</CellHyperlink>
 					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<Width>19</Width>
@@ -457,7 +440,6 @@
 					<CellHyperlink>true</CellHyperlink>
 					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<TextColor>style:ЦветШрифтаНенаступившегоЭтапа</TextColor>
@@ -474,7 +456,6 @@
 					<CellHyperlink>true</CellHyperlink>
 					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<Width>19</Width>
@@ -490,7 +471,6 @@
 					<EditMode>EnterOnInput</EditMode>
 					<CellHyperlink>true</CellHyperlink>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<Width>19</Width>
@@ -1544,8 +1524,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>НастройкиОбменаОткрыть</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">НастройкиОбмена</AssociatedTableElementId>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="НастройкиОбменаОтображатьУдаленные" id="4">
 			<Title>

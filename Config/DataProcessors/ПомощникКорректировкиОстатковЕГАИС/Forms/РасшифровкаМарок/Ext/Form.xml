@@ -9,7 +9,6 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаГотово" id="35">
@@ -18,6 +17,16 @@
 				<CommandName>Form.Command.Готово</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаГотовоРасширеннаяПодсказка" id="36"/>
+			</Button>
+			<Button name="ФормаВыбратьВсе" id="42">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ВыбратьВсе</CommandName>
+				<ExtendedTooltip name="ФормаВыбратьВсеРасширеннаяПодсказка" id="43"/>
+			</Button>
+			<Button name="ФормаПерепроверить" id="37">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Перепроверить</CommandName>
+				<ExtendedTooltip name="ФормаПерепроверитьРасширеннаяПодсказка" id="38"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -28,10 +37,9 @@
 	<ChildItems>
 		<Table name="Марки" id="1">
 			<Representation>List</Representation>
-			<SelectionMode>SingleRow</SelectionMode>
+			<CommandBarLocation>None</CommandBarLocation>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-			<InitialRowActivation>Activate</InitialRowActivation>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Марки</DataPath>
 			<CommandSet>
@@ -40,23 +48,9 @@
 				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>Delete</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="МаркиКонтекстноеМеню" id="3"/>
-			<AutoCommandBar name="МаркиКоманднаяПанель" id="2">
-				<ChildItems>
-					<Button name="МаркиВыбратьВсе" id="42">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ВыбратьВсе</CommandName>
-						<ExtendedTooltip name="МаркиВыбратьВсеРасширеннаяПодсказка" id="43"/>
-					</Button>
-					<Button name="МаркиПерепроверить" id="37">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Перепроверить</CommandName>
-						<ExtendedTooltip name="МаркиПерепроверитьРасширеннаяПодсказка" id="38"/>
-					</Button>
-				</ChildItems>
-			</AutoCommandBar>
+			<AutoCommandBar name="МаркиКоманднаяПанель" id="2"/>
 			<ExtendedTooltip name="МаркиРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="МаркиСтрокаПоиска" id="5">
 				<AdditionSource>
@@ -84,36 +78,26 @@
 				<ExtendedTooltip name="МаркиУправлениеПоискомРасширеннаяПодсказка" id="10"/>
 			</SearchControlAddition>
 			<ChildItems>
-				<CheckBoxField name="МаркиФакт" id="17">
-					<DataPath>Марки.Факт</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
-					<ContextMenu name="МаркиФактКонтекстноеМеню" id="18"/>
-					<ExtendedTooltip name="МаркиФактРасширеннаяПодсказка" id="19"/>
-				</CheckBoxField>
 				<InputField name="МаркиСправка2" id="39">
 					<DataPath>Марки.Справка2</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="МаркиСправка2КонтекстноеМеню" id="40"/>
 					<ExtendedTooltip name="МаркиСправка2РасширеннаяПодсказка" id="41"/>
 				</InputField>
 				<InputField name="МаркиАкцизнаяМарка" id="14">
 					<DataPath>Марки.АкцизнаяМарка</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="МаркиАкцизнаяМаркаКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="МаркиАкцизнаяМаркаРасширеннаяПодсказка" id="16"/>
 				</InputField>
+				<CheckBoxField name="МаркиФакт" id="17">
+					<DataPath>Марки.Факт</DataPath>
+					<ContextMenu name="МаркиФактКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="МаркиФактРасширеннаяПодсказка" id="19"/>
+				</CheckBoxField>
 				<CheckBoxField name="МаркиРегистр3" id="20">
 					<DataPath>Марки.Регистр3</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="МаркиРегистр3КонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="МаркиРегистр3РасширеннаяПодсказка" id="22"/>
 				</CheckBoxField>
@@ -126,17 +110,12 @@
 							<v8:content>Есть в УТМ</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="МаркиУТМКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="МаркиУТМРасширеннаяПодсказка" id="25"/>
 				</CheckBoxField>
 				<InputField name="МаркиСтатус" id="26">
 					<DataPath>Марки.Статус</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="МаркиСтатусКонтекстноеМеню" id="27"/>
 					<ExtendedTooltip name="МаркиСтатусРасширеннаяПодсказка" id="28"/>
 				</InputField>
@@ -271,11 +250,10 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить</v8:content>
+					<v8:content>Готово</v8:content>
 				</v8:item>
 			</Title>
 			<Action>Готово</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВыбратьВсе" id="3">
 			<Title>

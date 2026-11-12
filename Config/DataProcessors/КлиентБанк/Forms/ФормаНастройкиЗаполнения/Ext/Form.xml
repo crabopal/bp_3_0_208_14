@@ -10,7 +10,6 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 		<ChildItems>
@@ -19,7 +18,7 @@
 				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.СохранитьИЗакрыть</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаЗакрытьИСохранитьРасширеннаяПодсказка" id="74"/>
+				<ExtendedTooltip name="ФормаЗакрытьИСохранитьExtendedTooltip" id="74"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -38,32 +37,23 @@
 			</Title>
 			<HorizontalStretch>false</HorizontalStretch>
 			<VerticalStretch>false</VerticalStretch>
-			<Group>AutoScreenTypeSensitive</Group>
-			<HorizontalSpacing>Double</HorizontalSpacing>
+			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаНастройкаРасширеннаяПодсказка" id="127"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаЛеваяКолонка" id="202">
+				<Pages name="ГруппаВидыОбмена" id="65">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа левая колонка</v8:content>
+							<v8:content>Виды обмена</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа левая колонка</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>Vertical</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаЛеваяКолонкаРасширеннаяПодсказка" id="203"/>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаВидыОбменаExtendedTooltip" id="76"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаОбменЧерезФайл" id="66">
+						<Page name="ГруппаОбменЧерезФайл" id="66">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -71,128 +61,136 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
-							<Representation>StrongSeparation</Representation>
-							<ShowTitle>true</ShowTitle>
-							<ExtendedTooltip name="ГруппаОбменЧерезФайлРасширеннаяПодсказка" id="77"/>
+							<ShowTitle>false</ShowTitle>
+							<ScrollOnCompress>false</ScrollOnCompress>
+							<ExtendedTooltip name="ГруппаОбменЧерезФайлExtendedTooltip" id="77"/>
 							<ChildItems>
-								<InputField name="Организация" id="115">
-									<DataPath>Организация</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="116"/>
-									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="117"/>
-									<Events>
-										<Event name="OnChange">ОрганизацияПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="Настр_БанковскийСчет" id="4">
-									<DataPath>Настр_БанковскийСчет</DataPath>
-									<SkipOnInput>true</SkipOnInput>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>20</Width>
-									<ChoiceParameterLinks>
-										<xr:Link>
-											<xr:Name>Отбор.Владелец</xr:Name>
-											<xr:DataPath xsi:type="xs:string">Организация</xr:DataPath>
-											<xr:ValueChange>Clear</xr:ValueChange>
-										</xr:Link>
-									</ChoiceParameterLinks>
-									<TypeLink>
-										<xr:DataPath>Организация</xr:DataPath>
-										<xr:LinkItem>1</xr:LinkItem>
-									</TypeLink>
-									<ContextMenu name="Настр_БанковскийСчетКонтекстноеМеню" id="5"/>
-									<ExtendedTooltip name="Настр_БанковскийСчетРасширеннаяПодсказка" id="75"/>
-									<Events>
-										<Event name="OnChange">Настр_БанковскийСчетПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="Настр_Программа" id="6">
-									<DataPath>Настр_Программа</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>20</Width>
-									<ChoiceButton>true</ChoiceButton>
-									<ChooseType>false</ChooseType>
-									<ContextMenu name="Настр_ПрограммаКонтекстноеМеню" id="7"/>
-									<ExtendedTooltip name="Настр_ПрограммаРасширеннаяПодсказка" id="78"/>
-									<Events>
-										<Event name="StartChoice">Настр_ПрограммаНачалоВыбора</Event>
-									</Events>
-								</InputField>
-								<InputField name="Настр_ФайлВыгрузки" id="20">
-									<DataPath>Настр_ФайлВыгрузки</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>20</Width>
-									<ChoiceButton>true</ChoiceButton>
-									<OpenButton>true</OpenButton>
-									<ContextMenu name="Настр_ФайлВыгрузкиКонтекстноеМеню" id="21"/>
-									<ExtendedTooltip name="Настр_ФайлВыгрузкиРасширеннаяПодсказка" id="79"/>
-									<Events>
-										<Event name="StartChoice">Настр_ФайлВыгрузкиНачалоВыбора</Event>
-										<Event name="Opening">Настр_ФайлВыгрузкиОткрытие</Event>
-									</Events>
-								</InputField>
-								<InputField name="Настр_ФайлЗагрузки" id="18">
-									<DataPath>Настр_ФайлЗагрузки</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>20</Width>
-									<ChoiceButton>true</ChoiceButton>
-									<OpenButton>true</OpenButton>
-									<ContextMenu name="Настр_ФайлЗагрузкиКонтекстноеМеню" id="19"/>
-									<ExtendedTooltip name="Настр_ФайлЗагрузкиРасширеннаяПодсказка" id="80"/>
-									<Events>
-										<Event name="StartChoice">Настр_ФайлЗагрузкиНачалоВыбора</Event>
-										<Event name="Opening">Настр_ФайлЗагрузкиОткрытие</Event>
-										<Event name="TextEditEnd">Настр_ФайлЗагрузкиОкончаниеВводаТекста</Event>
-									</Events>
-								</InputField>
-								<RadioButtonField name="Настр_Кодировка" id="22">
-									<DataPath>Настр_Кодировка</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<RadioButtonType>Tumbler</RadioButtonType>
-									<EqualColumnsWidth>false</EqualColumnsWidth>
-									<ChoiceList>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Windows</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:string">Нет</Value>
-											</xr:Value>
-										</xr:Item>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>DOS</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:string">Да</Value>
-											</xr:Value>
-										</xr:Item>
-									</ChoiceList>
-									<ContextMenu name="Настр_КодировкаКонтекстноеМеню" id="23"/>
-									<ExtendedTooltip name="Настр_КодировкаРасширеннаяПодсказка" id="81"/>
-									<Events>
-										<Event name="OnChange">Настр_КодировкаПриИзменении</Event>
-									</Events>
-								</RadioButtonField>
+								<UsualGroup name="ГруппаЧерезФайл" id="138">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Обмен через файл</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа через файл</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>WeakSeparation</Representation>
+									<ExtendedTooltip name="ГруппаЧерезФайлРасширеннаяПодсказка" id="139"/>
+									<ChildItems>
+										<InputField name="Организация" id="115">
+											<DataPath>Организация</DataPath>
+											<ContextMenu name="ОрганизацияКонтекстноеМеню" id="116"/>
+											<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="117"/>
+											<Events>
+												<Event name="OnChange">ОрганизацияПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="Настр_БанковскийСчет" id="4">
+											<DataPath>Настр_БанковскийСчет</DataPath>
+											<SkipOnInput>true</SkipOnInput>
+											<Width>20</Width>
+											<ChoiceParameterLinks>
+												<xr:Link>
+													<xr:Name>Отбор.Владелец</xr:Name>
+													<xr:DataPath xsi:type="xs:string">Организация</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+											</ChoiceParameterLinks>
+											<TypeLink>
+												<xr:DataPath>Организация</xr:DataPath>
+												<xr:LinkItem>1</xr:LinkItem>
+											</TypeLink>
+											<ContextMenu name="Настр_БанковскийСчетКонтекстноеМеню" id="5"/>
+											<ExtendedTooltip name="Настр_БанковскийСчетExtendedTooltip" id="75"/>
+											<Events>
+												<Event name="OnChange">Настр_БанковскийСчетПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="Настр_Программа" id="6">
+											<DataPath>Настр_Программа</DataPath>
+											<Width>20</Width>
+											<ChoiceButton>true</ChoiceButton>
+											<ChooseType>false</ChooseType>
+											<ContextMenu name="Настр_ПрограммаКонтекстноеМеню" id="7"/>
+											<ExtendedTooltip name="Настр_ПрограммаExtendedTooltip" id="78"/>
+											<Events>
+												<Event name="StartChoice">Настр_ПрограммаНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="Настр_ФайлВыгрузки" id="20">
+											<DataPath>Настр_ФайлВыгрузки</DataPath>
+											<Width>20</Width>
+											<ChoiceButton>true</ChoiceButton>
+											<OpenButton>true</OpenButton>
+											<ContextMenu name="Настр_ФайлВыгрузкиКонтекстноеМеню" id="21"/>
+											<ExtendedTooltip name="Настр_ФайлВыгрузкиExtendedTooltip" id="79"/>
+											<Events>
+												<Event name="StartChoice">Настр_ФайлВыгрузкиНачалоВыбора</Event>
+												<Event name="Opening">Настр_ФайлВыгрузкиОткрытие</Event>
+											</Events>
+										</InputField>
+										<InputField name="Настр_ФайлЗагрузки" id="18">
+											<DataPath>Настр_ФайлЗагрузки</DataPath>
+											<Width>20</Width>
+											<ChoiceButton>true</ChoiceButton>
+											<OpenButton>true</OpenButton>
+											<ContextMenu name="Настр_ФайлЗагрузкиКонтекстноеМеню" id="19"/>
+											<ExtendedTooltip name="Настр_ФайлЗагрузкиExtendedTooltip" id="80"/>
+											<Events>
+												<Event name="StartChoice">Настр_ФайлЗагрузкиНачалоВыбора</Event>
+												<Event name="Opening">Настр_ФайлЗагрузкиОткрытие</Event>
+												<Event name="TextEditEnd">Настр_ФайлЗагрузкиОкончаниеВводаТекста</Event>
+											</Events>
+										</InputField>
+										<RadioButtonField name="Настр_Кодировка" id="22">
+											<DataPath>Настр_Кодировка</DataPath>
+											<TitleLocation>Left</TitleLocation>
+											<RadioButtonType>Tumbler</RadioButtonType>
+											<EqualColumnsWidth>false</EqualColumnsWidth>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Windows</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">Нет</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>DOS</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">Да</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="Настр_КодировкаКонтекстноеМеню" id="23"/>
+											<ExtendedTooltip name="Настр_КодировкаExtendedTooltip" id="81"/>
+											<Events>
+												<Event name="OnChange">Настр_КодировкаПриИзменении</Event>
+											</Events>
+										</RadioButtonField>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаПрямойОбмен" id="67">
+						</Page>
+						<Page name="ГруппаПрямойОбмен" id="67">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -200,257 +198,232 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
-							<Representation>StrongSeparation</Representation>
-							<ShowTitle>true</ShowTitle>
-							<ExtendedTooltip name="ГруппаПрямойОбменРасширеннаяПодсказка" id="82"/>
+							<ScrollOnCompress>false</ScrollOnCompress>
+							<ExtendedTooltip name="ГруппаПрямойОбменExtendedTooltip" id="82"/>
 							<ChildItems>
-								<LabelField name="Настр_СоглашениеПрямогоОбменаСБанками" id="70">
-									<DataPath>Настр_СоглашениеПрямогоОбменаСБанками</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Hiperlink>true</Hiperlink>
-									<ContextMenu name="Настр_СоглашениеПрямогоОбменаСБанкамиКонтекстноеМеню" id="71"/>
-									<ExtendedTooltip name="Настр_СоглашениеПрямогоОбменаСБанкамиРасширеннаяПодсказка" id="84"/>
-								</LabelField>
-								<CheckBoxField name="Настр_ЗагружатьВыпискуПоВсемСчетамБанка" id="228">
-									<DataPath>Настр_ЗагружатьВыпискуПоВсемСчетамБанка</DataPath>
-									<TitleLocation>Right</TitleLocation>
-									<ContextMenu name="Настр_ЗагружатьВыпискуПоВсемСчетамБанкаКонтекстноеМеню" id="229"/>
-									<ExtendedTooltip name="Настр_ЗагружатьВыпискуПоВсемСчетамБанкаРасширеннаяПодсказка" id="230"/>
-								</CheckBoxField>
-								<LabelField name="СообщениеПрямогоОбмена" id="72">
-									<DataPath>СообщениеПрямогоОбмена</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Height>2</Height>
-									<TextColor>style:ТекстИнформационнойНадписи</TextColor>
-									<ContextMenu name="СообщениеПрямогоОбменаКонтекстноеМеню" id="73"/>
-									<ExtendedTooltip name="СообщениеПрямогоОбменаРасширеннаяПодсказка" id="83"/>
-								</LabelField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаРеквизитыДляПодстановкиПоУмолчанию" id="108">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Реквизиты для подстановки по умолчанию</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>StrongSeparation</Representation>
-							<ShowTitle>true</ShowTitle>
-							<ExtendedTooltip name="ГруппаРеквизитыДляПодстановкиПоУмолчаниюРасширеннаяПодсказка" id="109"/>
-							<ChildItems>
-								<InputField name="ГруппаДляНовыхКонтрагентов" id="33">
-									<DataPath>Настр_ГруппаДляНовыхКонтрагентов</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ChoiceFoldersAndItems>Folders</ChoiceFoldersAndItems>
-									<ChooseType>false</ChooseType>
-									<ContextMenu name="ГруппаДляНовыхКонтрагентовКонтекстноеМеню" id="34"/>
-									<ExtendedTooltip name="ГруппаДляНовыхКонтрагентовРасширеннаяПодсказка" id="100"/>
-								</InputField>
-								<UsualGroup name="ГруппаСтатьиДДСПоУмолчанию" id="159">
+								<UsualGroup name="ГруппаДиректБанк" id="136">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Группа статьи ДДС по-умолчанию</v8:content>
+											<v8:content>1С:ДиректБанк</v8:content>
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаСтатьиДДСПоУмолчаниюРасширеннаяПодсказка" id="160"/>
+									<Representation>WeakSeparation</Representation>
+									<ExtendedTooltip name="ГруппаДиректБанкРасширеннаяПодсказка" id="137"/>
 									<ChildItems>
-										<InputField name="СтатьяДДСВходящий" id="164">
-											<DataPath>Настр_СтатьяДДСВходящий</DataPath>
+										<LabelField name="Настр_СоглашениеПрямогоОбменаСБанками" id="70">
+											<DataPath>Настр_СоглашениеПрямогоОбменаСБанками</DataPath>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Статья ДДС (приход)</v8:content>
+													<v8:content>Настройка обмена</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Wrap>false</Wrap>
-											<ContextMenu name="СтатьяДДСВходящийКонтекстноеМеню" id="165"/>
-											<ExtendedTooltip name="СтатьяДДСВходящийРасширеннаяПодсказка" id="166"/>
-										</InputField>
-										<InputField name="СтатьяДДСИсходящий" id="161">
-											<DataPath>Настр_СтатьяДДСИсходящий</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Статья ДДС (расход)</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Wrap>false</Wrap>
-											<ContextMenu name="СтатьяДДСИсходящийКонтекстноеМеню" id="162"/>
-											<ExtendedTooltip name="СтатьяДДСИсходящийРасширеннаяПодсказка" id="163"/>
-										</InputField>
+											<Hiperlink>true</Hiperlink>
+											<ContextMenu name="Настр_СоглашениеПрямогоОбменаСБанкамиКонтекстноеМеню" id="71"/>
+											<ExtendedTooltip name="Настр_СоглашениеПрямогоОбменаСБанкамиExtendedTooltip" id="84"/>
+										</LabelField>
+										<CheckBoxField name="Настр_ЗагружатьВыпискуПоВсемСчетамБанка" id="133">
+											<DataPath>Настр_ЗагружатьВыпискуПоВсемСчетамБанка</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<ContextMenu name="Настр_ЗагружатьВыпискуПоВсемСчетамБанкаКонтекстноеМеню" id="134"/>
+											<ExtendedTooltip name="Настр_ЗагружатьВыпискуПоВсемСчетамБанкаРасширеннаяПодсказка" id="135"/>
+										</CheckBoxField>
+										<LabelField name="СообщениеПрямогоОбмена" id="72">
+											<DataPath>СообщениеПрямогоОбмена</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>50</Width>
+											<Height>3</Height>
+											<HorizontalStretch>false</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<TextColor>style:ТекстИнформационнойНадписи</TextColor>
+											<ContextMenu name="СообщениеПрямогоОбменаКонтекстноеМеню" id="73"/>
+											<ExtendedTooltip name="СообщениеПрямогоОбменаExtendedTooltip" id="83"/>
+										</LabelField>
 									</ChildItems>
 								</UsualGroup>
-								<UsualGroup name="НастройкаСтатейДДС" id="278">
-									<Visible>false</Visible>
-									<Title>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+				<UsualGroup name="ГруппаРеквизитыДляПодстановкиПоУмолчанию" id="108">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты для подстановки по умолчанию:</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>WeakSeparation</Representation>
+					<ExtendedTooltip name="ГруппаРеквизитыДляПодстановкиПоУмолчаниюРасширеннаяПодсказка" id="109"/>
+					<ChildItems>
+						<InputField name="ГруппаДляНовыхКонтрагентов" id="33">
+							<DataPath>Настр_ГруппаДляНовыхКонтрагентов</DataPath>
+							<ChoiceFoldersAndItems>Folders</ChoiceFoldersAndItems>
+							<ChooseType>false</ChooseType>
+							<ContextMenu name="ГруппаДляНовыхКонтрагентовКонтекстноеМеню" id="34"/>
+							<ExtendedTooltip name="ГруппаДляНовыхКонтрагентовExtendedTooltip" id="100"/>
+						</InputField>
+						<UsualGroup name="НастройкаСтатейДДС" id="121">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройка статей ДДС</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройка статей ДДС</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="НастройкаСтатейДДСРасширеннаяПодсказка" id="122"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияПодсказкаСтатьиДДС" id="123">
+									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Настройка статей ДДС</v8:content>
+											<v8:content>Статьи ДДС по умолчанию настраиваются в справочнике</v8:content>
 										</v8:item>
 									</Title>
-									<ToolTip>
+									<ContextMenu name="ДекорацияПодсказкаСтатьиДДСКонтекстноеМеню" id="124"/>
+									<ExtendedTooltip name="ДекорацияПодсказкаСтатьиДДСРасширеннаяПодсказка" id="125"/>
+								</LabelDecoration>
+								<LabelDecoration name="ДекорацияНастройкаСтатейДДС" id="118">
+									<Height>1</Height>
+									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Настройка статей ДДС</v8:content>
+											<v8:content>Статьи движения денежных средств</v8:content>
 										</v8:item>
-									</ToolTip>
-									<Group>Horizontal</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="НастройкаСтатейДДСРасширеннаяПодсказка" id="279"/>
-									<ChildItems>
-										<LabelDecoration name="ДекорацияПодсказкаСтатьиДДС" id="280">
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Статьи ДДС по умолчанию настраиваются в справочнике</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ДекорацияПодсказкаСтатьиДДСКонтекстноеМеню" id="281"/>
-											<ExtendedTooltip name="ДекорацияПодсказкаСтатьиДДСРасширеннаяПодсказка" id="282"/>
-										</LabelDecoration>
-										<LabelDecoration name="ДекорацияНастройкаСтатейДДС" id="283">
-											<Height>1</Height>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Статьи движения денежных средств</v8:content>
-												</v8:item>
-											</Title>
-											<Hyperlink>true</Hyperlink>
-											<ContextMenu name="ДекорацияНастройкаСтатейДДСКонтекстноеМеню" id="284"/>
-											<ExtendedTooltip name="ДекорацияНастройкаСтатейДДСРасширеннаяПодсказка" id="285"/>
-											<Events>
-												<Event name="Click">ДекорацияНастройкаСтатейДДСНажатие</Event>
-											</Events>
-										</LabelDecoration>
-									</ChildItems>
-								</UsualGroup>
+									</Title>
+									<Hyperlink>true</Hyperlink>
+									<ContextMenu name="ДекорацияНастройкаСтатейДДСКонтекстноеМеню" id="119"/>
+									<ExtendedTooltip name="ДекорацияНастройкаСтатейДДСРасширеннаяПодсказка" id="120"/>
+									<Events>
+										<Event name="Click">ДекорацияНастройкаСтатейДДСНажатие</Event>
+									</Events>
+								</LabelDecoration>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ГруппаПраваяКолонка" id="204">
+				<UsualGroup name="ГруппаВыгрузкаЗагрузка" id="110">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа правая колонка</v8:content>
+							<v8:content>Управление выгрузкой и загрузкой</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<Representation>None</Representation>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>NormalSeparation</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПраваяКолонкаРасширеннаяПодсказка" id="205"/>
+					<ExtendedTooltip name="ГруппаВыгрузкаЗагрузкаРасширеннаяПодсказка" id="111"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаВыгрузкаЗагрузка" id="110">
+						<UsualGroup name="ГруппаПараметрыВыгрузки" id="8">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Управление выгрузкой и загрузкой</v8:content>
+									<v8:content>Выгрузка</v8:content>
 								</v8:item>
 							</Title>
+							<HorizontalStretch>true</HorizontalStretch>
+							<GroupHorizontalAlign>Left</GroupHorizontalAlign>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>StrongSeparation</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаВыгрузкаЗагрузкаРасширеннаяПодсказка" id="111"/>
+							<ExtendedTooltip name="ГруппаПараметрыВыгрузкиРасширеннаяПодсказка" id="86"/>
 							<ChildItems>
-								<UsualGroup name="ГруппаПараметрыВыгрузки" id="8">
+								<UsualGroup name="ГруппаВидыВыгружаемыхДокументов" id="48">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Выгрузка</v8:content>
+											<v8:content>Выгружать</v8:content>
 										</v8:item>
 									</Title>
-									<GroupHorizontalAlign>Left</GroupHorizontalAlign>
 									<Group>Vertical</Group>
-									<VerticalSpacing>Single</VerticalSpacing>
 									<Behavior>Usual</Behavior>
-									<Representation>StrongSeparation</Representation>
-									<ShowTitle>true</ShowTitle>
-									<ExtendedTooltip name="ГруппаПараметрыВыгрузкиРасширеннаяПодсказка" id="86"/>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаВидыВыгружаемыхДокументовExtendedTooltip" id="87"/>
 									<ChildItems>
-										<UsualGroup name="ГруппаВидыВыгружаемыхДокументов" id="48">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Выгружать</v8:content>
-												</v8:item>
-											</Title>
-											<Group>Vertical</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаВидыВыгружаемыхДокументовРасширеннаяПодсказка" id="87"/>
-											<ChildItems>
-												<CheckBoxField name="ПлатежноеПоручение" id="49">
-													<DataPath>Настр_ПлатежноеПоручение</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<ContextMenu name="ПлатежноеПоручениеКонтекстноеМеню" id="50"/>
-													<ExtendedTooltip name="ПлатежноеПоручениеРасширеннаяПодсказка" id="88"/>
-												</CheckBoxField>
-												<CheckBoxField name="ПлатежноеТребование" id="51">
-													<DataPath>Настр_ПлатежноеТребование</DataPath>
-													<Visible>false</Visible>
-													<TitleLocation>Right</TitleLocation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<ContextMenu name="ПлатежноеТребованиеКонтекстноеМеню" id="52"/>
-													<ExtendedTooltip name="ПлатежноеТребованиеРасширеннаяПодсказка" id="89"/>
-												</CheckBoxField>
-											</ChildItems>
-										</UsualGroup>
-										<UsualGroup name="ГруппаНастройки" id="42">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>При выгрузке контролировать:</v8:content>
-												</v8:item>
-											</Title>
-											<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
-											<Group>Vertical</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>NormalSeparation</Representation>
-											<ShowTitle>true</ShowTitle>
-											<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="90"/>
-											<ChildItems>
-												<CheckBoxField name="Настр_КонтролироватьНекорректныеСимволыВНомере" id="45">
-													<DataPath>Настр_КонтролироватьНекорректныеСимволыВНомере</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Контролировать некорректные символы в номере</v8:content>
-														</v8:item>
-													</ToolTip>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<ContextMenu name="Настр_КонтролироватьНекорректныеСимволыВНомереКонтекстноеМеню" id="46"/>
-													<ExtendedTooltip name="Настр_КонтролироватьНекорректныеСимволыВНомереРасширеннаяПодсказка" id="92"/>
-												</CheckBoxField>
-											</ChildItems>
-										</UsualGroup>
+										<CheckBoxField name="ПлатежноеПоручение" id="49">
+											<DataPath>Настр_ПлатежноеПоручение</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<ContextMenu name="ПлатежноеПоручениеКонтекстноеМеню" id="50"/>
+											<ExtendedTooltip name="ПлатежноеПоручениеExtendedTooltip" id="88"/>
+										</CheckBoxField>
+										<CheckBoxField name="ПлатежноеТребование" id="51">
+											<DataPath>Настр_ПлатежноеТребование</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<ContextMenu name="ПлатежноеТребованиеКонтекстноеМеню" id="52"/>
+											<ExtendedTooltip name="ПлатежноеТребованиеExtendedTooltip" id="89"/>
+										</CheckBoxField>
 									</ChildItems>
 								</UsualGroup>
-								<UsualGroup name="ГруппаЗагрузка" id="128">
+								<UsualGroup name="ГруппаНастройки" id="42">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>При выгрузке контролировать:</v8:content>
+										</v8:item>
+									</Title>
+									<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ExtendedTooltip name="ГруппаНастройкиExtendedTooltip" id="90"/>
+									<ChildItems>
+										<CheckBoxField name="Настр_КонтролироватьНекорректныеСимволыВНомере" id="45">
+											<DataPath>Настр_КонтролироватьНекорректныеСимволыВНомере</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<ContextMenu name="Настр_КонтролироватьНекорректныеСимволыВНомереКонтекстноеМеню" id="46"/>
+											<ExtendedTooltip name="Настр_КонтролироватьНекорректныеСимволыВНомереExtendedTooltip" id="92"/>
+										</CheckBoxField>
+										<CheckBoxField name="Настр_КонтролироватьБезопасностьОбменаСБанком" id="130">
+											<DataPath>Настр_КонтролироватьБезопасностьОбменаСБанком</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>После выгрузки программа
+будет следить за файлом и
+сообщит пользователю, если вирус изменит
+платежные реквизиты.</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<ContextMenu name="Настр_КонтролироватьБезопасностьОбменаСБанкомКонтекстноеМеню" id="131"/>
+											<ExtendedTooltip name="Настр_КонтролироватьБезопасностьОбменаСБанкомРасширеннаяПодсказка" id="132"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаЗагрузка" id="128">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Загрузка</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>Vertical</Group>
+							<HorizontalAlign>Right</HorizontalAlign>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЗагрузкаРасширеннаяПодсказка" id="129"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаПараметрыЗагрузки" id="53">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -458,109 +431,59 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<VerticalSpacing>Single</VerticalSpacing>
+									<HorizontalAlign>Left</HorizontalAlign>
 									<Behavior>Usual</Behavior>
 									<Representation>StrongSeparation</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаЗагрузкаРасширеннаяПодсказка" id="129"/>
+									<ExtendedTooltip name="ГруппаПараметрыЗагрузкиExtendedTooltip" id="93"/>
 									<ChildItems>
-										<UsualGroup name="ГруппаПараметрыЗагрузки" id="53">
+										<CheckBoxField name="Настр_АвтоматическоеСозданиеНенайденныхЭлементов" id="101">
+											<DataPath>Настр_АвтоматическоеСозданиеНенайденныхЭлементов</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<TitleHeight>2</TitleHeight>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Отключить механизм автоматического создания ненайденных элементов (контрагентов, р/с...)</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ContextMenu name="Настр_АвтоматическоеСозданиеНенайденныхЭлементовКонтекстноеМеню" id="102"/>
+											<ExtendedTooltip name="Настр_АвтоматическоеСозданиеНенайденныхЭлементовРасширеннаяПодсказка" id="103"/>
+											<Events>
+												<Event name="OnChange">Настр_АвтоматическоеСозданиеНенайденныхЭлементовПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<CheckBoxField name="Настр_ПередЗагрузкойПоказыватьФормуОбменаСБанком" id="112">
+											<DataPath>Настр_ПередЗагрузкойПоказыватьФормуОбменаСБанком</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<TitleHeight>2</TitleHeight>
+											<ContextMenu name="Настр_ПередЗагрузкойПоказыватьФормуОбменаСБанкомКонтекстноеМеню" id="113"/>
+											<ExtendedTooltip name="Настр_ПередЗагрузкойПоказыватьФормуОбменаСБанкомРасширеннаяПодсказка" id="114"/>
+										</CheckBoxField>
+										<UsualGroup name="ГруппаПослеЗагрузкиАвтоматическиПроводить" id="54">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Загрузка</v8:content>
+													<v8:content>После загрузки автоматически проводить:</v8:content>
 												</v8:item>
 											</Title>
+											<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
 											<Group>Vertical</Group>
-											<HorizontalAlign>Left</HorizontalAlign>
 											<Behavior>Usual</Behavior>
-											<Representation>StrongSeparation</Representation>
-											<ShowTitle>true</ShowTitle>
-											<ExtendedTooltip name="ГруппаПараметрыЗагрузкиРасширеннаяПодсказка" id="93"/>
+											<Representation>None</Representation>
+											<ExtendedTooltip name="ГруппаПослеЗагрузкиАвтоматическиПроводитьExtendedTooltip" id="95"/>
 											<ChildItems>
-												<UsualGroup name="ГруппаВыбораСпособаСозданияНеНайденныхЭлементов" id="157">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Выбора способа создания не найденных элементов</v8:content>
-														</v8:item>
-													</Title>
-													<Width>30</Width>
-													<Group>Vertical</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаВыбораСпособаСозданияНеНайденныхЭлементовРасширеннаяПодсказка" id="158"/>
-													<ChildItems>
-														<CheckBoxField name="Настр_АвтоматическоеСозданиеНенайденныхЭлементов" id="101">
-															<DataPath>Настр_АвтоматическоеСозданиеНенайденныхЭлементов</DataPath>
-															<TitleLocation>Right</TitleLocation>
-															<ToolTip>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Автоматическое создание ненайденных элементов (контрагентов, р/с и договоров)</v8:content>
-																</v8:item>
-															</ToolTip>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
-															<ContextMenu name="Настр_АвтоматическоеСозданиеНенайденныхЭлементовКонтекстноеМеню" id="102"/>
-															<ExtendedTooltip name="Настр_АвтоматическоеСозданиеНенайденныхЭлементовРасширеннаяПодсказка" id="103"/>
-															<Events>
-																<Event name="OnChange">Настр_АвтоматическоеСозданиеНенайденныхЭлементовПриИзменении</Event>
-															</Events>
-														</CheckBoxField>
-													</ChildItems>
-												</UsualGroup>
-												<CheckBoxField name="Настр_ПередЗагрузкойПоказыватьФормуОбменаСБанком" id="112">
-													<DataPath>Настр_ПередЗагрузкойПоказыватьФормуОбменаСБанком</DataPath>
-													<Visible>false</Visible>
+												<CheckBoxField name="ПроводитьПриЗагрузкеПоступлениеНаРасчетныйСчет" id="55">
+													<DataPath>Настр_ПроводитьПриЗагрузкеПоступлениеНаРасчетныйСчет</DataPath>
 													<TitleLocation>Right</TitleLocation>
-													<TitleHeight>2</TitleHeight>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<ContextMenu name="Настр_ПередЗагрузкойПоказыватьФормуОбменаСБанкомКонтекстноеМеню" id="113"/>
-													<ExtendedTooltip name="Настр_ПередЗагрузкойПоказыватьФормуОбменаСБанкомРасширеннаяПодсказка" id="114"/>
+													<ContextMenu name="ПроводитьПриЗагрузкеПоступлениеНаРасчетныйСчетКонтекстноеМеню" id="56"/>
+													<ExtendedTooltip name="ПроводитьПриЗагрузкеПоступлениеНаРасчетныйСчетExtendedTooltip" id="96"/>
 												</CheckBoxField>
-												<CheckBoxField name="НеУдалятьДокументыКоторыхНетВВыписке" id="175">
-													<DataPath>Настр_НеУдалятьДокументыКоторыхНетВВыписке</DataPath>
+												<CheckBoxField name="ПроводитьПриЗагрузкеСписаниеСРасчетногоСчета" id="57">
+													<DataPath>Настр_ПроводитьПриЗагрузкеСписаниеСРасчетногоСчета</DataPath>
 													<TitleLocation>Right</TitleLocation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<ContextMenu name="НеУдалятьДокументыКоторыхНетВВыпискеКонтекстноеМеню" id="176"/>
-													<ExtendedTooltip name="НеУдалятьДокументыКоторыхНетВВыпискеРасширеннаяПодсказка" id="177"/>
+													<ContextMenu name="ПроводитьПриЗагрузкеСписаниеСРасчетногоСчетаКонтекстноеМеню" id="58"/>
+													<ExtendedTooltip name="ПроводитьПриЗагрузкеСписаниеСРасчетногоСчетаExtendedTooltip" id="97"/>
 												</CheckBoxField>
-												<UsualGroup name="ГруппаПослеЗагрузкиАвтоматическиПроводить" id="54">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>После загрузки автоматически проводить:</v8:content>
-														</v8:item>
-													</Title>
-													<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
-													<Group>Vertical</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>NormalSeparation</Representation>
-													<ShowTitle>true</ShowTitle>
-													<ExtendedTooltip name="ГруппаПослеЗагрузкиАвтоматическиПроводитьРасширеннаяПодсказка" id="95"/>
-													<ChildItems>
-														<CheckBoxField name="ПроводитьПриЗагрузкеПоступлениеНаРасчетныйСчет" id="55">
-															<DataPath>Настр_ПроводитьПриЗагрузкеПоступлениеНаРасчетныйСчет</DataPath>
-															<TitleLocation>Right</TitleLocation>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
-															<ContextMenu name="ПроводитьПриЗагрузкеПоступлениеНаРасчетныйСчетКонтекстноеМеню" id="56"/>
-															<ExtendedTooltip name="ПроводитьПриЗагрузкеПоступлениеНаРасчетныйСчетРасширеннаяПодсказка" id="96"/>
-														</CheckBoxField>
-														<CheckBoxField name="ПроводитьПриЗагрузкеСписаниеСРасчетногоСчета" id="57">
-															<DataPath>Настр_ПроводитьПриЗагрузкеСписаниеСРасчетногоСчета</DataPath>
-															<TitleLocation>Right</TitleLocation>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
-															<ContextMenu name="ПроводитьПриЗагрузкеСписаниеСРасчетногоСчетаКонтекстноеМеню" id="58"/>
-															<ExtendedTooltip name="ПроводитьПриЗагрузкеСписаниеСРасчетногоСчетаРасширеннаяПодсказка" id="97"/>
-														</CheckBoxField>
-													</ChildItems>
-												</UsualGroup>
 											</ChildItems>
 										</UsualGroup>
 									</ChildItems>
@@ -569,98 +492,6 @@
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаНастроекЗаполнения" id="133">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Настройки заполнения колонок</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>StrongSeparation</Representation>
-			<ShowTitle>true</ShowTitle>
-			<ExtendedTooltip name="ГруппаНастроекЗаполненияРасширеннаяПодсказка" id="134"/>
-			<ChildItems>
-				<CheckBoxField name="АнализироватьИсториюВыбораЗначенийРеквизитов" id="148">
-					<DataPath>Настр_АнализироватьИсториюВыбораЗначенийРеквизитов</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Заполнять предыдущими значениями договор, операцию, статью ДДС.</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>Right</TitleLocation>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Если флаг установлен, то будут автоматически определяться: договор, вид операции, статья ДДС и корреспондирующий счет учета. Будут подставлены значения, которые использовались при загрузке не менее чем в 50% случаев для указанного контрагента.</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ToolTipRepresentation>Button</ToolTipRepresentation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="АнализироватьИсториюВыбораЗначенийРеквизитовКонтекстноеМеню" id="149"/>
-					<ExtendedTooltip name="АнализироватьИсториюВыбораЗначенийРеквизитовРасширеннаяПодсказка" id="150"/>
-					<Events>
-						<Event name="OnChange">Настр_АнализироватьИсториюВыбораЗначенийРеквизитовПриИзменении</Event>
-					</Events>
-				</CheckBoxField>
-				<Button name="ОткрытьСписокПоследнихВыбранныхЗначений" id="138">
-					<Type>Hyperlink</Type>
-					<CommandName>Form.Command.ОткрытьСписокПоследнихВыбранныхЗначений</CommandName>
-					<ExtendedTooltip name="ОткрытьСписокПоследнихВыбранныхЗначенийРасширеннаяПодсказка" id="139"/>
-				</Button>
-				<CheckBoxField name="АвтоматическиПодставлятьДокументы" id="140">
-					<DataPath>Настр_АвтоматическиПодставлятьДокументы</DataPath>
-					<TitleLocation>Right</TitleLocation>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Если флаг установлен, то для каждого платежа, для которого найден контрагент, будет выполнен поиск подходящего заказа, счета на оплату и документа расчетов.
-Установить флаг можно, если сброшен флаг "Заполнять долги автоматически".</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ToolTipRepresentation>Button</ToolTipRepresentation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="АвтоматическиПодставлятьДокументыКонтекстноеМеню" id="141"/>
-					<ExtendedTooltip name="АвтоматическиПодставлятьДокументыРасширеннаяПодсказка" id="142"/>
-					<Events>
-						<Event name="OnChange">Настр_АвтоматическиПодставлятьДокументыПриИзменении</Event>
-					</Events>
-				</CheckBoxField>
-				<Button name="ОткрытьСправочникСоответствийНазначенийПлатежаИРеквизитовДокументов" id="143">
-					<Type>Hyperlink</Type>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<CommandName>Form.Command.ОткрытьСправочникСоответствийНазначенийПлатежаИРеквизитовДокументов</CommandName>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Настроить соответствия назначений платежа и реквизитов документов</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="ОткрытьСправочникСоответствийНазначенийПлатежаИРеквизитовДокументовРасширеннаяПодсказка" id="144"/>
-				</Button>
-				<InputField name="СпособЗачета" id="145">
-					<DataPath>Настр_СпособЗачета</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ClearButton>true</ClearButton>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>&lt;по умолчанию&gt;</v8:content>
-						</v8:item>
-					</InputHint>
-					<ContextMenu name="СпособЗачетаКонтекстноеМеню" id="146"/>
-					<ExtendedTooltip name="СпособЗачетаРасширеннаяПодсказка" id="147"/>
-					<Events>
-						<Event name="OnChange">Настр_СпособЗачетаПриИзменении</Event>
-					</Events>
-				</InputField>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -676,7 +507,6 @@
 				<v8:Type>cfg:CatalogRef.БанковскиеСчета</v8:Type>
 			</Type>
 			<SavedData>true</SavedData>
-			<FillCheck>ShowError</FillCheck>
 		</Attribute>
 		<Attribute name="Настр_ГруппаДляНовыхКонтрагентов" id="3">
 			<Title>
@@ -691,6 +521,12 @@
 			<SavedData>true</SavedData>
 		</Attribute>
 		<Attribute name="Настр_Дос" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настр дос</v8:content>
+				</v8:item>
+			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
@@ -729,12 +565,24 @@
 			<SavedData>true</SavedData>
 		</Attribute>
 		<Attribute name="Настр_ТаблицаДокументов" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды выгружаемых платежных документов</v8:content>
+				</v8:item>
+			</Title>
 			<Type>
 				<v8:Type>v8:ValueTable</v8:Type>
 			</Type>
 			<SavedData>true</SavedData>
 			<Columns>
 				<Column name="Документ" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ</v8:content>
+						</v8:item>
+					</Title>
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -744,6 +592,12 @@
 					</Type>
 				</Column>
 				<Column name="Пометка" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>_</v8:content>
+						</v8:item>
+					</Title>
 					<Type>
 						<v8:Type>xs:boolean</v8:Type>
 					</Type>
@@ -751,12 +605,24 @@
 			</Columns>
 		</Attribute>
 		<Attribute name="Настр_ТаблицаНастроекПриЗагрузке" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настр таблица настроек при загрузке</v8:content>
+				</v8:item>
+			</Title>
 			<Type>
 				<v8:Type>v8:ValueTable</v8:Type>
 			</Type>
 			<SavedData>true</SavedData>
 			<Columns>
 				<Column name="Документ" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид документа</v8:content>
+						</v8:item>
+					</Title>
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -766,11 +632,23 @@
 					</Type>
 				</Column>
 				<Column name="Проводить" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проводить при загрузке</v8:content>
+						</v8:item>
+					</Title>
 					<Type>
 						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
 				<Column name="СтатьяДДС" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статья ДДС для новых документов</v8:content>
+						</v8:item>
+					</Title>
 					<Type>
 						<v8:Type>cfg:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
 					</Type>
@@ -810,12 +688,14 @@
 			<SavedData>true</SavedData>
 		</Attribute>
 		<Attribute name="ПрограммаКБ" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Программа КБ</v8:content>
+				</v8:item>
+			</Title>
 			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
+				<v8:Type>cfg:InformationRegisterRecordManager.НастройкиОбменаСКлиентомБанка</v8:Type>
 			</Type>
 			<SavedData>true</SavedData>
 		</Attribute>
@@ -832,6 +712,12 @@
 			<FillCheck>ShowError</FillCheck>
 		</Attribute>
 		<Attribute name="ВозможностьВыбораФайлов" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возможность выбора файлов</v8:content>
+				</v8:item>
+			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
@@ -852,7 +738,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Поступление на счет</v8:content>
+					<v8:content>Поступление на расчетный счет</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -864,7 +750,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Расход со счета</v8:content>
+					<v8:content>Списание с расчетного счета</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -895,8 +781,17 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 			<SavedData>true</SavedData>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьПлатежныеТребования</Item>
+			</FunctionalOptions>
 		</Attribute>
 		<Attribute name="КритическоеИзменение" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Критическое изменение</v8:content>
+				</v8:item>
+			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
@@ -911,7 +806,6 @@
 			<Type>
 				<v8:Type>cfg:CatalogRef.НастройкиОбменСБанками</v8:Type>
 			</Type>
-			<SavedData>true</SavedData>
 		</Attribute>
 		<Attribute name="СообщениеПрямогоОбмена" id="26">
 			<Title>
@@ -953,131 +847,17 @@
 			<SavedData>true</SavedData>
 		</Attribute>
 		<Attribute name="ВалютаРегламентированногоУчета" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта регламентированного учета</v8:content>
+				</v8:item>
+			</Title>
 			<Type>
 				<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="Настр_СпособЗачета" id="14">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Способ разнесения платежей</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>cfg:EnumRef.СпособыЗачетаИРаспределенияПлатежей</v8:Type>
-			</Type>
-			<SavedData>true</SavedData>
-		</Attribute>
-		<Attribute name="Настр_АвтоматическиПодставлятьДокументы" id="15">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Автоматически подставлять заказ, счет и документ расчетов</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-			<SavedData>true</SavedData>
-		</Attribute>
-		<Attribute name="Настр_АнализироватьИсториюВыбораЗначенийРеквизитов" id="17">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Анализировать историю выбора значений реквизитов</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-			<SavedData>true</SavedData>
-		</Attribute>
-		<Attribute name="ОтборКонтрагент" id="18">
-			<Type>
-				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="ОтборДоговор" id="23">
-			<Type>
-				<v8:Type>cfg:CatalogRef.ДоговорыКонтрагентов</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="ОтборБанковскийСчетКонтрагента" id="30">
-			<Type>
-				<v8:Type>cfg:CatalogRef.БанковскиеСчета</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="ОтборБанковскийСчетОрганизации" id="31">
-			<Type>
-				<v8:Type>cfg:CatalogRef.БанковскиеСчета</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="ОтборИсходящий" id="32">
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="Настр_СтатьяДДСВходящий" id="34">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Статья ДДС входящий</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>cfg:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
-			</Type>
-			<SavedData>true</SavedData>
-		</Attribute>
-		<Attribute name="Настр_СтатьяДДСИсходящий" id="35">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Статья ДДС иходящий</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>cfg:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
-			</Type>
-			<SavedData>true</SavedData>
-		</Attribute>
-		<Attribute name="Настр_НеУдалятьДокументыКоторыхНетВВыписке" id="37">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Не удалять документы, которых нет в выписке</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-			<SavedData>true</SavedData>
-		</Attribute>
-		<Attribute name="ЦифровойСчет" id="29">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Цифровой счет</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="Настр_ЗагружатьВыпискуПоВсемСчетамБанка" id="33">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Загружать выписку по всем счетам в банке</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-			<SavedData>true</SavedData>
-		</Attribute>
-		<Attribute name="Настр_КонтролироватьБезопасностьОбменаСБанком" id="36">
+		<Attribute name="Настр_КонтролироватьБезопасностьОбменаСБанком" id="29">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1089,13 +869,36 @@
 			</Type>
 			<SavedData>true</SavedData>
 		</Attribute>
+		<Attribute name="Настр_ЗагружатьВыпискуПоВсемСчетамБанка" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загружать выписку по всем счетам в банке</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ЦифровойСчет" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цифровой счет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="СохранитьИЗакрыть" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить</v8:content>
+					<v8:content>Сохранить и закрыть</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -1105,39 +908,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СохранитьИЗакрыть</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
-		</Command>
-		<Command name="ОткрытьСправочникСоответствийНазначенийПлатежаИРеквизитовДокументов" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть справочник соответствий назначений платежа и реквизитов документов</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть справочник соответствий назначений платежа и реквизитов документов</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОткрытьСправочникСоответствийНазначенийПлатежаИРеквизитовДокументов</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="ОткрытьСписокПоследнихВыбранныхЗначений" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть список предыдущих значений</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть список последних выбранных значений</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОткрытьСписокПоследнихВыбранныхЗначений</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>

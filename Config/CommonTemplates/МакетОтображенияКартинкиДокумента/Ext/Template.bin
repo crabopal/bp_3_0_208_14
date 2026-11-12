@@ -171,11 +171,58 @@ var fabric=fabric||{version:"4.2.0"};if("undefined"!=typeof exports?exports.fabr
 				 margin: 0;
 				 scrollbar-width: none;
 				 padding: 0; } ::-webkit-scrollbar { display: none; }
+				 
+	 #selectionModeBanner {
+            position: fixed; /* Фиксированное положение в верхней части окна */
+            top: 0;
+            left: 0;
+			right: 0;
+			margin: auto;
+            width: 100%;
+            background-color: rgba(0, 123, 255, 0.8); /* Синий фон с небольшой прозрачностью */
+            color: white;
+            padding: 10px 20px; /* Внутренние отступы */
+            text-align: center; /* Выравнивание текста по центру */
+            z-index: 1000;
+			pointer-events: none;
+            display: none; /* Изначально скрываем плашку */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Небольшая тень */
+            box-sizing: border-box; /* Включаем padding в общую ширину */
+            font-family: sans-serif; /* Шрифт */
+        }
+
+        #selectionModeBanner button {
+            margin-left: 20px; /* Отступ слева от текста */
+            padding: 5px 15px;
+            background-color: white;
+            color: #007bff; /* Цвет текста кнопки соответствует фону плашки */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+			pointer-events: auto;
+        }
+
+        #selectionModeBanner button:hover {
+            background-color: #e2e6ea; /* Немного темнее при наведении */
+        }
+
+        #selectionModeBanner span {
+            vertical-align: middle; /* Выравнивание текста и кнопки по вертикали */
+        }
+
 
 
 </style>
 <body style="margin: 0px">
 
+ <div id="selectionModeBanner">
+        <span id="selectionModeMessage">Выберите фрагмент изображения для распознавания в поле "Склад"</span>
+        <button id="exitSelectionModeButton" onclick="app.changeCropMode()">Отменить</button>
+    </div>
+
+<input id="cropMode" value=false style="display: none;">
 
 <div style="display:none" onclick="image_setter_from_1c()" id="image_setter"></div>
 
@@ -197,8 +244,11 @@ var fabric=fabric||{version:"4.2.0"};if("undefined"!=typeof exports?exports.fabr
             Убрать из дублей
         </button>
     </div>
-
-    <div id = "imageButtons" style="position: absolute; right: 10px; top: 5px; z-index: 999; width: 22px;">
+	
+	<div id="cropData" data-x0="" data-y0="" data-x1="" data-y1="" style="display: none;"> 
+	</div>
+	
+    <div id = "imageButtons" style="position: absolute; right: 10px; top: 55px; z-index: 999; width: 22px;">
         <button onclick="app.zoom(null, -1)" class="btn">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 48 48">
                 <path data-color="color-2" d="M36.268,32.732a2.5,2.5,0,0,0-3.536,3.536l9,9a2.5,2.5,0,0,0,3.536-3.536Z" fill="#444"/>
@@ -274,8 +324,8 @@ var fabric=fabric||{version:"4.2.0"};if("undefined"!=typeof exports?exports.fabr
             </svg>
         </button>
 
-        <!--
-        <button v-on:click="changeCropMode" v-bind:class="{ pressed : cropMode }">
+        
+        <button id='btn-cropmode' v-on:click="changeCropMode" v-bind:class="{ pressed : cropMode }"style="display: none;">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  width="16px" height="16px" viewBox="0 0 48 48">
                 <path data-color="color-2" fill="#444444"
@@ -287,7 +337,7 @@ var fabric=fabric||{version:"4.2.0"};if("undefined"!=typeof exports?exports.fabr
                       d="M18,31c-0.256,0-0.512-0.098-0.707-0.293c-0.391-0.391-0.391-1.023,0-1.414l12-12 c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414l-12,12C18.512,30.902,18.256,31,18,31z"></path>
             </svg>
         </button>
-        -->
+        
         <div 
             // style="display: none"
             >{{ refresh }}</div>
@@ -432,11 +482,55 @@ var fabric=fabric||{version:"4.2.0"};if("undefined"!=typeof exports?exports.fabr
             },
             changeCropMode: function () {
                 this.cropMode = !this.cropMode;
+				
+				let cropMode = document.getElementById('cropMode');
+				cropMode.setAttribute('value', this.cropMode);
+				
                 if (!this.cropMode) {
+					fabric.defaultCursor = 'move';
+					fabric.hoverCursor = 'move';
+					fabric.activeCursor = 'move';
+					app.image.defaultCursor = 'move';
+					app.image.hoverCursor = 'move';
+					app.image.activeCursor = 'move';
+					
+					if (app.bbox) {
+						app.bbox.defaultCursor = 'move';
+						app.bbox.hoverCursor = 'move';
+						app.bbox.activeCursor = 'move';
+					}
+
+					if (selectionModeBanner) {
+						selectionModeBanner.style.display = 'none';
+					}
+					
                     this.removeCrop();
                 } else {
-
+					fabric.defaultCursor = 'crosshair';
+					fabric.hoverCursor = 'crosshair';
+					fabric.activeCursor = 'crosshair';
+					app.image.defaultCursor = 'crosshair';
+					app.image.hoverCursor = 'crosshair';
+					app.image.activeCursor = 'crosshair';
+					
+					if (app.bbox) {
+						app.bbox.defaultCursor = 'crosshair';
+						app.bbox.hoverCursor = 'crosshair';
+						app.bbox.activeCursor = 'crosshair';
+					}
+					
+					cropData = document.getElementById('cropData');
+					cropData.dataset.x0 = "";
+					cropData.dataset.y0 = "";
+					cropData.dataset.x1 = "";
+					cropData.dataset.y1 = "";					
+					
+					if (selectionModeBanner) {
+						selectionModeBanner.style.display = 'block';
+					}				
+					
                 }
+				main.canvas.renderAll();
             },
             changeLockMode: function () {
                 this.lockMode = !this.lockMode;
@@ -533,7 +627,7 @@ var fabric=fabric||{version:"4.2.0"};if("undefined"!=typeof exports?exports.fabr
                 }
                 main.prevent_going_out();
                 if (main.bbox) {
-                    zoom_to_bbox(main.bbox.x0, main.bbox.y0, main.bbox.x1, main.bbox.y1, 0, null, 0, true);
+                    zoom_to_bbox(main.bbox.x0, main.bbox.y0, main.bbox.x1, main.bbox.y1, 0, main.bbox.stroke, 0, true);
                 }
                 main.canvas.renderAll();
             },
@@ -652,30 +746,24 @@ var fabric=fabric||{version:"4.2.0"};if("undefined"!=typeof exports?exports.fabr
                 main.canvas.setHeight(height)
                 main.canvas.setWidth(width);
                 main.canvas_back = new fabric.Canvas('c_back')
-
+				main.canvas.fireRightClick = true;
+				
                 main.canvas.on('mouse:down', function (opt) {
                     let evt = opt.e;
 
                     this.lastPosX = evt.clientX;
                     this.lastPosY = evt.clientY;
-                    // return;
-                    if (main.cropMode) {
+					
+                    if (main.cropMode && opt.e.button === 0) {
                         main.removeCrop();
                         main.mainRect.visible = true;
                         main.cropStarted = true;
-
-                        let circle = new fabric.Circle({
-                            radius: 50,
-                            fill: 'white',
-                            backgroundColor: 'blue',
-                            left: opt.e.clientX,
-                            top: opt.e.clientY
-                        });
-
-                        // Render the circle in canvas
-                        // main.canvas.add(circle);
-
-                        main.mainRect.left = opt.e.clientX;
+						
+						if (selectionModeBanner) {
+							selectionModeBanner.style.display = 'none';
+						}						
+												
+						main.mainRect.left = opt.e.clientX;
                         main.mainRect.top = opt.e.clientY;
                     } else {
                         console.log("mouse:down");
@@ -689,7 +777,7 @@ var fabric=fabric||{version:"4.2.0"};if("undefined"!=typeof exports?exports.fabr
                 });
 
                 main.canvas.on('mouse:move', function (opt) {
-                    if (this.isDragging && !main.cropStarted) {
+                    if (this.isDragging && (!main.cropStarted || opt.e.button === 2)) {
                         let e = opt.e;
                         this.viewportTransform[4] += e.clientX - this.lastPosX;
                         this.viewportTransform[5] += e.clientY - this.lastPosY;
@@ -721,47 +809,66 @@ var fabric=fabric||{version:"4.2.0"};if("undefined"!=typeof exports?exports.fabr
                     // console.log(opt.e.clientX, opt.e.clientY);
 
                     if (main.cropStarted) {
-                        // main.mainRect.visible = false;
-                        let mouseY = opt.e.clientY;
-                        let mouseX = opt.e.clientX;
-                        // console.log('clientX', opt.e.clientX);
-                        let matrix = this.viewportTransform;
-                        let left = (main.mainRect.left - matrix[4]) / matrix[0];
-                        let top = (main.mainRect.top - matrix[5]) / matrix[0];
-                        // let left = main.mainRect.left
-                        //let top = main.mainRect.top
-                        let right = (mouseX - matrix[4]) / matrix[0];
-                        let bottom = (mouseY - matrix[5]) / matrix[3];
+ 						
+						
+						let canvasViewportX0 = (main.mainRect.left < opt.e.clientX) ? main.mainRect.left : opt.e.clientX; //main.mainRect.left;
+						let canvasViewportY0 = (main.mainRect.top < opt.e.clientY) ? main.mainRect.top : opt.e.clientY; //main.mainRect.top;		
+						let canvasViewportX1 = (main.mainRect.left < opt.e.clientX) ? opt.e.clientX : main.mainRect.left; //opt.e.clientX;
+						let canvasViewportY1 = (main.mainRect.top < opt.e.clientY) ? opt.e.clientY : main.mainRect.top; //opt.e.clientY;
+												
+						let inverseViewportTransform = fabric.util.invertTransform(main.canvas.viewportTransform);
+						let objectSpaceCoords0 = fabric.util.transformPoint( { x: canvasViewportX0, y: canvasViewportY0 }, inverseViewportTransform);
+						let objectSpaceX0 = objectSpaceCoords0.x;
+						let objectSpaceY0 = objectSpaceCoords0.y;
+						let objectSpaceCoords1 = fabric.util.transformPoint( { x: canvasViewportX1, y: canvasViewportY1 }, inverseViewportTransform);
+						let objectSpaceX1 = objectSpaceCoords1.x;
+						let objectSpaceY1 = objectSpaceCoords1.y;
+						
+						let relativeToScaledImageX0 = objectSpaceX0 - app.image.left;
+						let relativeToScaledImageY0 = objectSpaceY0 - app.image.top;
+						let relativeToScaledImageX1 = objectSpaceX1 - app.image.left;
+						let relativeToScaledImageY1 = objectSpaceY1 - app.image.top;
+						
+						let originalImageX0 = relativeToScaledImageX0 / app.image.scaleX;
+						let originalImageY0 = relativeToScaledImageY0 / app.image.scaleY;
+						let originalImageX1 = relativeToScaledImageX1 / app.image.scaleX;
+						let originalImageY1 = relativeToScaledImageY1 / app.image.scaleY;
+						
+						originalImageX0 = (originalImageX0 < 0) ? 0 : originalImageX0;
+						originalImageY0 = (originalImageY0 < 0) ? 0 : originalImageY0;		
+						originalImageX1 = (originalImageX1 < 0) ? 0 : originalImageX1;
+						originalImageY1 = (originalImageY1 < 0) ? 0 : originalImageY1;
+					
                         let top_index = 0;
                         main.cropStarted = false;
                         let r = main.mainRect;
-                        let width = Math.abs(left - right);
-                        let height = Math.abs(top - bottom);
-                        r.left = (left > right) ? right : left;
-                        r.top = (top > bottom) ? bottom : top;
+                        let width = Math.abs(canvasViewportX0 - canvasViewportX1);
+                        let height = Math.abs(canvasViewportY0 - canvasViewportY1);
+                        r.left = (canvasViewportX0 > canvasViewportX1) ? canvasViewportX1 : canvasViewportX0;
+                        r.top = (canvasViewportY0 > canvasViewportY1) ? canvasViewportY1 : canvasViewportY0;
+						
+						//////////////////////////////////////////////////////////////////
 
 
-                        let rect = new fabric.Rect({
-                            top: main.mainRect.top,
-                            left: main.mainRect.left,
-                            width: width,
-                            height: height,
-                            fill: 'rgba(255,0,0,0.1)',
-                            stroke: '#AA0000',
-                            strokeWidth: 1,
-                            lockMovementX: true,
-                            lockMovementY: true,
-                            selectable: false
-                        });
-                        main.canvas.add(rect);
-                        if (main.bbox) {
-                            main.canvas.remove(main.bbox);
-                            main.bbox = null;
-                        }
-                        main.cropRect = rect;
-                        main.canvas.renderAll();
-                        main.canvas.requestRenderAll();
-
+						////////////////////////////////////////////////////////////
+						
+						
+						//alert(originalImageX + " " + originalImageY + " mousex" + mouseX + " app.image.scaleX" + app.image.scaleX + " app.image.scaleY" + app.image.scaleY + " appimagetop" + app.image.top); // + " " + right + " " + bottom + " !L" + absoluteLeft + " !T" + absoluteTop + " app.image.left " + app.image.left + " app.image.left " + app.image.top);					
+						
+						cropData = document.getElementById('cropData');
+						cropData.dataset.x0 = originalImageX0;
+						cropData.dataset.y0 = originalImageY0;
+						cropData.dataset.x1 = originalImageX1;
+						cropData.dataset.y1 = originalImageY1;
+						
+						zoom_to_bbox(originalImageX0, originalImageY0, originalImageX1, originalImageY1, 0, 'rgba(0, 123, 255, 0.8)', 0, true);
+						
+						//alert(originalImageX0 + " " + originalImageY0 + " " + originalImageX1 + " " + originalImageY1);
+						
+						app.changeCropMode();
+						
+						app.canvas.requestRenderAll();
+						app.canvas.renderAll();
 
                     } else {
                         this.isDragging = false;
@@ -770,7 +877,6 @@ var fabric=fabric||{version:"4.2.0"};if("undefined"!=typeof exports?exports.fabr
                 });
                 main.canvas.on('mouse:wheel', main.zoom);
 
-
                 return;
 
             },
@@ -778,21 +884,37 @@ var fabric=fabric||{version:"4.2.0"};if("undefined"!=typeof exports?exports.fabr
                 return new Promise(resolve => setTimeout(resolve, ms));
             },
 
-            resizeWindow: function () {
-                let main = this;
-                let bbox_x0;
-                let bbox_x1;
-                let bbox_y0;
-                let bbox_y1;
-                let bbox;
-                main.set_all_images()
-                main.prevent_going_out()
-                if (main.bbox) {
-                    zoom_to_bbox(main.bbox.x0, main.bbox.y0, main.bbox.x1, main.bbox.y1, 0, null, 0, true);
-                }
-                main.canvas.renderAll()
+			resizeWindow: function () {
+				let main = this;
 
-            },
+				if (main.resizeTimer) {
+					clearTimeout(main.resizeTimer);
+				}
+
+				main.resizeTimer = setTimeout(function () {
+					main.resizeTimer = null;
+
+					if (main.lastWidth === window.innerWidth && main.lastHeight === window.innerHeight) {
+						return;
+					}
+
+					main.lastWidth = window.innerWidth;
+					main.lastHeight = window.innerHeight;
+
+					let bbox_x0;
+					let bbox_x1;
+					let bbox_y0;
+					let bbox_y1;
+					let bbox;
+
+					main.set_all_images();
+					main.prevent_going_out();
+					if (main.bbox) {
+						zoom_to_bbox(main.bbox.x0, main.bbox.y0, main.bbox.x1, main.bbox.y1, 0, main.bbox.stroke, 0, true);
+					}
+					main.canvas.renderAll();
+				}, 200);
+			},
             add_image: function (image_src) {
                 let main = this;
                 // console.log('src', image_src)
@@ -866,7 +988,7 @@ var fabric=fabric||{version:"4.2.0"};if("undefined"!=typeof exports?exports.fabr
 
     function set_image() {
         toDataURL(
-            'http://localhost/scan.jpg',
+			'http://localhost/scan.jpg',
             function (dataUrl) {
                 // console.log('RESULT:', dataUrl)
                 app.add_image(dataUrl);
@@ -937,7 +1059,79 @@ var fabric=fabric||{version:"4.2.0"};if("undefined"!=typeof exports?exports.fabr
         app.canvas.renderAll();
     }
 
+	function zoom_to_bbox_fullscreen(x0, y0, x1, y1, num_of_lines, color, image_index, ignore_zoom) {
+		if (!app.image) {
+			return;
+		}
+		
+		image_index = (image_index) ? image_index : 0
+		color = (color) ? color : 'red'
+		let scale = app.image.scaleX;
+		let add_y = 0
+		for (let i = 0; i < image_index; i++) {
+			add_y += app.images[i].height
+		}
+		y0 += add_y
+		y1 += add_y
 
+		// Создание прямоугольника до изменения viewport для корректных координат    
+		let strokeWidthDefault = 2 * window.innerWidth / 1165;
+		let rect = new fabric.Rect({
+			top: -strokeWidthDefault + y0 * scale,
+			left: -strokeWidthDefault + x0 * scale + app.image.left,
+			width: strokeWidthDefault + Math.abs(x1 - x0) * scale,        
+			height: strokeWidthDefault + Math.abs(y1 - y0) * scale,
+			fill: null,
+			stroke: color,
+			strokeWidth: strokeWidthDefault,
+			lockMovementX: true,
+			lockMovementY: true,
+			selectable: false,
+			x0: x0,
+			x1: x1,
+			y0: y0,
+			y1: y1
+		});
+		if (app.bbox) {
+			app.canvas.remove(app.bbox);
+		}
+		app.bbox = rect;
+		app.canvas.add(rect)
+
+		if (!ignore_zoom) {        // Вычисление размеров прямоугольника в пикселях на экране
+			let rectWidth = Math.abs(x1 - x0) * scale;
+			let rectHeight = Math.abs(y1 - y0) * scale;
+
+			// Определение коэффициентов масштабирования для заполнения 90% экрана
+			let zoomX = (window.innerWidth * 0.9) / rectWidth;
+			let zoomY = (window.innerHeight * 0.9) / rectHeight;
+
+			// Использование меньшего масштаба для полного отображения прямоугольника
+			let dest_zoom = Math.min(zoomX, zoomY);
+
+			// Ограничение диапазона зума        
+			dest_zoom = Math.max(1, Math.min(dest_zoom, 6.5));
+
+			// Центрирование прямоугольника
+			let centerX = ((x0 + x1) / 2) * scale;
+			let centerY = ((y0 + y1) / 2) * scale;
+
+			app.canvas.viewportTransform[4] = -centerX * dest_zoom + window.innerWidth / 2;
+			app.canvas.viewportTransform[5] = -centerY * dest_zoom + window.innerHeight / 2;
+			app.canvas.viewportTransform[0] = dest_zoom;
+			app.canvas.viewportTransform[3] = dest_zoom;
+
+			app.prevent_going_out();
+			app.canvas.requestRenderAll();
+		}
+		return;
+	}
+	
+	function hide_buttons() {
+		imageButtons = document.getElementById("imageButtons");
+		imageButtons.style.display = 'none';
+		}
+	
     function zoom_to_bbox(x0, y0, x1, y1, num_of_lines, color, image_index, ignore_zoom) {
         if(!app.image) {
             return;

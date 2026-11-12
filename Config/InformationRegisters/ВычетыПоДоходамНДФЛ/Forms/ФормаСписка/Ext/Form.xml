@@ -10,14 +10,7 @@
 		<ExcludedCommand>Delete</ExcludedCommand>
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаВосстановитьНачальныеЗначения" id="26">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ВосстановитьНачальныеЗначения</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаВосстановитьНачальныеЗначенияРасширеннаяПодсказка" id="27"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -48,8 +41,27 @@
 			<Representation>None</Representation>
 			<ExtendedTooltip name="СписокНастройкиОтбораРасширеннаяПодсказка" id="31"/>
 		</UsualGroup>
+		<CommandBar name="КоманднаяПанельФормы" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель формы</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="КоманднаяПанельФормыРасширеннаяПодсказка" id="33"/>
+			<ChildItems>
+				<Button name="ФормаВосстановитьНачальныеЗначения" id="26">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.ВосстановитьНачальныеЗначения</CommandName>
+					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="ФормаВосстановитьНачальныеЗначенияРасширеннаяПодсказка" id="27"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -68,7 +80,6 @@
 				<ExcludedCommand>Create</ExcludedCommand>
 				<ExcludedCommand>Delete</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -85,8 +96,10 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="12"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="12"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="17">
 				<AdditionSource>
 					<Item>Список</Item>
@@ -121,26 +134,30 @@
 				<LabelField name="Период" id="4">
 					<DataPath>Список.Period</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<Width>10</Width>
 					<ContextMenu name="ПериодКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="13"/>
+					<ExtendedTooltip name="ПериодExtendedTooltip" id="13"/>
 				</LabelField>
 				<LabelField name="КодДохода" id="6">
 					<DataPath>Список.КодДохода</DataPath>
+					<Width>15</Width>
 					<HorizontalStretch>true</HorizontalStretch>
 					<ContextMenu name="КодДоходаКонтекстноеМеню" id="7"/>
-					<ExtendedTooltip name="КодДоходаРасширеннаяПодсказка" id="14"/>
+					<ExtendedTooltip name="КодДоходаExtendedTooltip" id="14"/>
 				</LabelField>
 				<LabelField name="ГодовойВычет" id="8">
 					<DataPath>Список.ГодовойВычет</DataPath>
+					<Width>15</Width>
 					<HorizontalStretch>true</HorizontalStretch>
 					<ContextMenu name="ГодовойВычетКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="ГодовойВычетРасширеннаяПодсказка" id="15"/>
+					<ExtendedTooltip name="ГодовойВычетExtendedTooltip" id="15"/>
 				</LabelField>
 				<LabelField name="НормативЗатрат" id="10">
 					<DataPath>Список.НормативЗатрат</DataPath>
+					<Width>15</Width>
 					<HorizontalStretch>true</HorizontalStretch>
 					<ContextMenu name="НормативЗатратКонтекстноеМеню" id="11"/>
-					<ExtendedTooltip name="НормативЗатратРасширеннаяПодсказка" id="16"/>
+					<ExtendedTooltip name="НормативЗатратExtendedTooltip" id="16"/>
 				</LabelField>
 			</ChildItems>
 		</Table>

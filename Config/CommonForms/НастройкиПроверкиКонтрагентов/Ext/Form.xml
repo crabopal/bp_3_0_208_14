@@ -6,9 +6,9 @@
 			<v8:content>Настройки проверки контрагентов</v8:content>
 		</v8:item>
 	</Title>
-	<WindowOpeningMode>LockOwner</WindowOpeningMode>
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
-	<Group>AlwaysHorizontal</Group>
+	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -17,35 +17,81 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<CheckBoxField name="ИспользоватьАвтоматическуюПроверкуКонтрагентов" id="156">
-			<DataPath>ПроверкаКонтрагентовВключена</DataPath>
+		<UsualGroup name="ПерваяГруппаНастроек" id="133">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Автоматически проверять контрагентов по ЕГРН</v8:content>
+					<v8:content>Первая группа настроек</v8:content>
 				</v8:item>
 			</Title>
-			<TitleLocation>Right</TitleLocation>
-			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-			<ContextMenu name="ИспользоватьАвтоматическуюПроверкуКонтрагентовКонтекстноеМеню" id="157"/>
-			<ExtendedTooltip name="ИспользоватьАвтоматическуюПроверкуКонтрагентовРасширеннаяПодсказка" id="158">
-				<Title formatted="true">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>&lt;color #807a59&gt;Включение автоматической проверки может замедлить открытие документов на медленных компьютерах. Для таких компьютеров рекомендуется использовать ручную проверку по кнопке.&lt;/&gt;
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ПерваяГруппаНастроекРасширеннаяПодсказка" id="134"/>
+			<ChildItems>
+				<UsualGroup name="ЛеваяКолонкаПервойГруппы" id="129">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Левая колонка первой группы</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ЛеваяКолонкаПервойГруппыРасширеннаяПодсказка" id="130"/>
+					<ChildItems>
+						<CheckBoxField name="ИспользоватьАвтоматическуюПроверкуКонтрагентов" id="156">
+							<DataPath>ПроверкаКонтрагентовВключена</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Автоматически проверять контрагентов по ЕГРН</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<ContextMenu name="ИспользоватьАвтоматическуюПроверкуКонтрагентовКонтекстноеМеню" id="157"/>
+							<ExtendedTooltip name="ИспользоватьАвтоматическуюПроверкуКонтрагентовРасширеннаяПодсказка" id="158">
+								<Title formatted="true">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>&lt;color #807a59&gt;Включение автоматической проверки может замедлить открытие документов на медленных компьютерах. Для таких компьютеров рекомендуется использовать ручную проверку по кнопке в подменю Еще.&lt;/&gt;
 &lt;link e1cib/app/Обработка.ИнструкцияПоИспользованиюПроверкиКонтрагента&gt;Подробнее о сервисе&lt;/&gt;</v8:content>
-					</v8:item>
-				</Title>
-			</ExtendedTooltip>
-			<Events>
-				<Event name="OnChange">ИспользоватьАвтоматическуюПроверкуКонтрагентов</Event>
-			</Events>
-		</CheckBoxField>
-		<Button name="ПроверитьДоступКСервису" id="135">
-			<Type>UsualButton</Type>
-			<CommandName>Form.Command.ПроверитьДоступКСервису</CommandName>
-			<ExtendedTooltip name="ПроверитьДоступКСервисуРасширеннаяПодсказка" id="136"/>
-		</Button>
+									</v8:item>
+								</Title>
+							</ExtendedTooltip>
+							<Events>
+								<Event name="OnChange">ИспользоватьАвтоматическуюПроверкуКонтрагентов</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ПраваяКолонкаПервойГруппы" id="131">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Правая колонка первой группы</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ПраваяКолонкаПервойГруппыРасширеннаяПодсказка" id="132"/>
+					<ChildItems>
+						<Button name="ПроверитьДоступКСервису" id="135">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ПроверитьДоступКСервису</CommandName>
+							<ExtendedTooltip name="ПроверитьДоступКСервисуРасширеннаяПодсказка" id="136"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ПроверкаКонтрагентовВключена" id="2">

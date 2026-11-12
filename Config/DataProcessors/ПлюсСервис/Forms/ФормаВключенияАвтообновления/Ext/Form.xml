@@ -9,59 +9,65 @@
 	<WindowOpeningMode>LockWholeInterface</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ВключитьАвтообновление" id="4">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ВключитьАвтообновление</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Восстановить и включить автообновление</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ВключитьАвтообновлениеРасширеннаяПодсказка" id="5"/>
-			</Button>
-			<Button name="Закрыть" id="8">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отмена</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="9"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<LabelDecoration name="ДекорацияНадпись" id="1">
-			<Title formatted="true">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Версия расширения, используемая в текущем приложении, была изменена. Чтобы не потерять сделанные изменения, автообновление было отключено.
+					<v8:content>Версия расширения, используемая в вашем приложении, была изменена.
+Чтобы не потерять сделанные изменения, автообновление было отключено.
 
-Чтобы включить автообновление, необходимо  восстановить оригинальную версию расширения из сервиса 1С:Плюс.
-Предварительно рекомендуется &lt;link сохранить&gt;сохранить используемую версию расширения&lt;/&gt;.</v8:content>
+Вы можете восстановить оригинальную версию расширения из сервиса 1С:Плюс,
+тогда автообновление включится.
+
+Предварительно рекомендуем сохранить используемую версию расширения.</v8:content>
 				</v8:item>
 			</Title>
 			<ContextMenu name="ДекорацияНадписьКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="ДекорацияНадписьРасширеннаяПодсказка" id="3"/>
-			<Events>
-				<Event name="URLProcessing">ДекорацияНадписьОбработкаНавигационнойСсылки</Event>
-			</Events>
 		</LabelDecoration>
+		<Button name="СохранитьИзмененнуюВерсиюРасширения" id="6">
+			<Type>Hyperlink</Type>
+			<CommandName>Form.Command.СохранитьТекущуюВерсиюРасширенияНаПК</CommandName>
+			<ExtendedTooltip name="СохранитьИзмененнуюВерсиюРасширенияРасширеннаяПодсказка" id="7"/>
+		</Button>
+		<UsualGroup name="ГруппировкаКнопок" id="10">
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппировкаКнопокРасширеннаяПодсказка" id="11"/>
+			<ChildItems>
+				<Button name="ВключитьАвтообновление" id="4">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ВключитьАвтообновление</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Восстановить и включить автообновление</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ВключитьАвтообновлениеРасширеннаяПодсказка" id="5"/>
+				</Button>
+				<Button name="Закрыть" id="8">
+					<Type>UsualButton</Type>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отмена</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="9"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ИзмененнаяВерсияСохранена" id="1">
@@ -126,7 +132,15 @@
 				</v8:item>
 			</Title>
 			<Action>ВключитьАвтообновление</Action>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="СохранитьТекущуюВерсиюРасширенияНаПК" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить используемую версию расширения</v8:content>
+				</v8:item>
+			</Title>
+			<Action>СохранитьТекущуюВерсиюРасширенияНаПК</Action>
 		</Command>
 	</Commands>
 </Form>

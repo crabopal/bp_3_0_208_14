@@ -5,22 +5,39 @@
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>CancelSearch</ExcludedCommand>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Create</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>DynamicListStandardSettings</ExcludedCommand>
+		<ExcludedCommand>Find</ExcludedCommand>
+		<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
 		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>ListSettings</ExcludedCommand>
+		<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
 		<ExcludedCommand>No</ExcludedCommand>
 		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>OutputList</ExcludedCommand>
+		<ExcludedCommand>Post</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
 		<ExcludedCommand>RestoreValues</ExcludedCommand>
 		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
 		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>SetDateInterval</ExcludedCommand>
+		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+		<ExcludedCommand>UndoPosting</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<Table name="Список" id="3">
-			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -28,7 +45,6 @@
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -155,6 +171,22 @@
 						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
 						<ExtendedTooltip name="СписокИзменитьФормуРасширеннаяПодсказка" id="45"/>
 					</Button>
+					<ButtonGroup name="ГруппаКомандыФормы" id="46">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Form</CommandSource>
+						<ExtendedTooltip name="ГруппаКомандыФормыРасширеннаяПодсказка" id="47"/>
+					</ButtonGroup>
 					<Button name="СписокСправка" id="48">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.StandardCommand.Help</CommandName>
@@ -164,7 +196,6 @@
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
-				<Enabled>false</Enabled>
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchStringRepresentation</Type>
@@ -173,7 +204,6 @@
 				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>
 			</SearchStringAddition>
 			<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">
-				<Enabled>false</Enabled>
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>ViewStatusRepresentation</Type>
@@ -183,7 +213,6 @@
 				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
 			</ViewStatusAddition>
 			<SearchControlAddition name="СписокУправлениеПоиском" id="13">
-				<Enabled>false</Enabled>
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchControl</Type>
@@ -193,35 +222,26 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
-				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="Номер" id="16">
 					<DataPath>Список.Number</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НомерКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="Дата" id="19">
 					<DataPath>Список.Date</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Организация" id="22">
 					<DataPath>Список.Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="Операция" id="67">
 					<DataPath>Список.Операция</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОперацияКонтекстноеМеню" id="68"/>
 					<ExtendedTooltip name="ОперацияРасширеннаяПодсказка" id="69"/>
 				</LabelField>
@@ -230,7 +250,6 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="71"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="72"/>
 				</InputField>
@@ -283,23 +302,4 @@
 			</Settings>
 		</Attribute>
 	</Attributes>
-	<Commands>
-		<Command name="ИзменитьВыделенные" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Изменить выделенные...</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Изменить выделенные объекты</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ИзменитьВыделенные</Action>
-			<ModifiesSavedData>true</ModifiesSavedData>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-		</Command>
-	</Commands>
 </Form>

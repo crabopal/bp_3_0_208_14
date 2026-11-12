@@ -7,30 +7,10 @@
 		</v8:item>
 	</Title>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
-	<EnterKeyBehavior>DefaultButton</EnterKeyBehavior>
 	<AutoTitle>false</AutoTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1" DisplayImportance="VeryHigh">
+	<Group>Vertical</Group>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="КнопкаВыбрать" id="14">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КнопкаВыбрать</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="КнопкаВыбратьРасширеннаяПодсказка" id="15"/>
-			</Button>
-			<Button name="Справка" id="33">
-				<Type>CommandBarHyperlink</Type>
-				<Representation>Picture</Representation>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<Picture>
-					<xr:Ref>StdPicture.FormHelp</xr:Ref>
-					<xr:LoadTransparent>true</xr:LoadTransparent>
-				</Picture>
-				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="34"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -44,9 +24,7 @@
 					<v8:content>Группа выбора</v8:content>
 				</v8:item>
 			</Title>
-			<VerticalStretch>false</VerticalStretch>
 			<Group>Horizontal</Group>
-			<VerticalAlign>Center</VerticalAlign>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -59,6 +37,7 @@
 							<v8:content>Группа режима выбора</v8:content>
 						</v8:item>
 					</Title>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -67,7 +46,7 @@
 						<RadioButtonField name="РегионРежимОтбора" id="1">
 							<DataPath>РегионРежимОтбора</DataPath>
 							<TitleLocation>None</TitleLocation>
-							<RadioButtonType>RadioButtons</RadioButtonType>
+							<RadioButtonType>Auto</RadioButtonType>
 							<ColumnsCount>1</ColumnsCount>
 							<ChoiceList>
 								<xr:Item>
@@ -77,7 +56,7 @@
 										<Presentation>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>Все регионы</v8:content>
+												<v8:content>Без отбора по регионам</v8:content>
 											</v8:item>
 										</Presentation>
 										<Value xsi:type="xs:decimal">0</Value>
@@ -90,7 +69,7 @@
 										<Presentation>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>Регионы организаций</v8:content>
+												<v8:content>Регионы организаций:</v8:content>
 											</v8:item>
 										</Presentation>
 										<Value xsi:type="xs:decimal">1</Value>
@@ -103,7 +82,7 @@
 										<Presentation>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>Выбор региона</v8:content>
+												<v8:content>Выбор региона:</v8:content>
 											</v8:item>
 										</Presentation>
 										<Value xsi:type="xs:decimal">2</Value>
@@ -159,21 +138,16 @@
 			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаВводаРегионаРасширеннаяПодсказка" id="5"/>
 			<ChildItems>
 				<InputField name="РегионПредставление" id="9">
 					<DataPath>РегионПредставление</DataPath>
-					<TitleLocation>None</TitleLocation>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<ChoiceButton>true</ChoiceButton>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<TextEdit>false</TextEdit>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Регион</v8:content>
-						</v8:item>
-					</InputHint>
 					<ContextMenu name="РегионПредставлениеКонтекстноеМеню" id="10"/>
 					<ExtendedTooltip name="РегионПредставлениеРасширеннаяПодсказка" id="11"/>
 					<Events>
@@ -182,6 +156,36 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
+		<CommandBar name="ГруппаКоманд" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа команд</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>false</HorizontalStretch>
+			<ExtendedTooltip name="ГруппаКомандРасширеннаяПодсказка" id="13"/>
+			<ChildItems>
+				<Button name="КнопкаОК" id="14">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.КнопкаОК</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="КнопкаОКРасширеннаяПодсказка" id="15"/>
+				</Button>
+				<Button name="КнопкаЗакрыть" id="16">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<ExtendedTooltip name="КнопкаЗакрытьРасширеннаяПодсказка" id="17"/>
+				</Button>
+				<Button name="КнопкаСправка" id="18">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="КнопкаСправкаРасширеннаяПодсказка" id="19"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -275,21 +279,21 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="КнопкаВыбрать" id="1">
+		<Command name="КнопкаОК" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Кнопка выбрать</v8:content>
+					<v8:content>Кнопка ОК</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>КнопкаВыбрать</Action>
-			<ActionPurpose>Finish</ActionPurpose>
+			<Action>КнопкаОК</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 </Form>

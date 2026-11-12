@@ -18,14 +18,7 @@
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаВосстановитьНачальныеЗначения" id="32">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ВосстановитьНачальныеЗначения</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаВосстановитьНачальныеЗначенияРасширеннаяПодсказка" id="33"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -56,8 +49,27 @@
 			<Representation>None</Representation>
 			<ExtendedTooltip name="СписокНастройкиОтбораРасширеннаяПодсказка" id="39"/>
 		</UsualGroup>
+		<CommandBar name="КоманднаяПанель" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="41"/>
+			<ChildItems>
+				<Button name="ФормаВосстановитьНачальныеЗначения" id="32">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.ВосстановитьНачальныеЗначения</CommandName>
+					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="ФормаВосстановитьНачальныеЗначенияРасширеннаяПодсказка" id="33"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -77,7 +89,6 @@
 				<ExcludedCommand>Delete</ExcludedCommand>
 				<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -94,8 +105,10 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="15"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="15"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="23">
 				<AdditionSource>
 					<Item>Список</Item>
@@ -131,7 +144,7 @@
 					<DataPath>Список.Description</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="16"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="16"/>
 				</LabelField>
 				<ColumnGroup name="С2017" id="52">
 					<Title>
@@ -152,6 +165,7 @@
 									<v8:content>Код</v8:content>
 								</v8:item>
 							</Title>
+							<Width>8</Width>
 							<ContextMenu name="КодФНСКонтекстноеМеню" id="47"/>
 							<ExtendedTooltip name="КодФНСРасширеннаяПодсказка" id="48"/>
 						</LabelField>
@@ -197,11 +211,13 @@
 					<ChildItems>
 						<LabelField name="КодПФР2012" id="17">
 							<DataPath>Список.КодПФР2012</DataPath>
+							<Width>8</Width>
 							<ContextMenu name="КодПФР2012КонтекстноеМеню" id="18"/>
 							<ExtendedTooltip name="КодПФР2012РасширеннаяПодсказка" id="19"/>
 						</LabelField>
 						<LabelField name="КодФСС2012" id="20">
 							<DataPath>Список.КодФСС2012</DataPath>
+							<Width>8</Width>
 							<ContextMenu name="КодФСС2012КонтекстноеМеню" id="21"/>
 							<ExtendedTooltip name="КодФСС2012РасширеннаяПодсказка" id="22"/>
 						</LabelField>

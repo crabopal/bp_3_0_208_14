@@ -6,26 +6,18 @@
 			<v8:content>Номенклатура контрагента</v8:content>
 		</v8:item>
 	</Title>
+	<Width>100</Width>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandSet>
-		<ExcludedCommand>Copy</ExcludedCommand>
-	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаВыбрать" id="52">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<Enabled>false</Enabled>
 				<CommandName>Form.Command.Выбрать</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="53"/>
-			</Button>
-			<Button name="ФормаСоздать" id="104">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Create</CommandName>
-				<ExtendedTooltip name="ФормаСоздатьРасширеннаяПодсказка" id="105"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -48,8 +40,9 @@
 			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
 		</UsualGroup>
 		<Table name="Список" id="3">
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<SelectionMode>SingleRow</SelectionMode>
+			<ChangeRowSet>false</ChangeRowSet>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
@@ -62,10 +55,6 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
-			<CommandSet>
-				<ExcludedCommand>Copy</ExcludedCommand>
-			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -82,7 +71,9 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -110,7 +101,6 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="Selection">СписокВыбор</Event>
-				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
 			</Events>
 			<ChildItems>
 				<ColumnGroup name="ГруппаНоменклатураКонтрагента" id="56">
@@ -120,6 +110,7 @@
 							<v8:content>Данные контрагента</v8:content>
 						</v8:item>
 					</Title>
+					<Width>95</Width>
 					<Group>Horizontal</Group>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="ГруппаНоменклатураКонтрагентаРасширеннаяПодсказка" id="57"/>
@@ -130,6 +121,7 @@
 								<xr:Common>false</xr:Common>
 							</UserVisible>
 							<DefaultItem>true</DefaultItem>
+							<Width>5</Width>
 							<MaxWidth>10</MaxWidth>
 							<ContextMenu name="ВладелецКонтекстноеМеню" id="17"/>
 							<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="18"/>
@@ -139,21 +131,20 @@
 							<UserVisible>
 								<xr:Common>false</xr:Common>
 							</UserVisible>
+							<Width>15</Width>
 							<MaxWidth>10</MaxWidth>
 							<ContextMenu name="ИдентификаторКонтекстноеМеню" id="20"/>
 							<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="21"/>
 						</LabelField>
 						<LabelField name="ШтрихкодыНоменклатуры" id="69">
 							<DataPath>Список.ШтрихкодыНоменклатуры</DataPath>
-							<UserVisible>
-								<xr:Common>false</xr:Common>
-							</UserVisible>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Другие штрихкоды номенклатуры</v8:content>
 								</v8:item>
 							</Title>
+							<Width>10</Width>
 							<ContextMenu name="ШтрихкодыНоменклатурыКонтекстноеМеню" id="70"/>
 							<ExtendedTooltip name="ШтрихкодыНоменклатурыРасширеннаяПодсказка" id="71"/>
 						</LabelField>
@@ -164,11 +155,13 @@
 									<v8:content>Группа представление</v8:content>
 								</v8:item>
 							</Title>
+							<Width>35</Width>
 							<Group>InCell</Group>
 							<ExtendedTooltip name="ГруппаПредставлениеРасширеннаяПодсказка" id="55"/>
 							<ChildItems>
 								<LabelField name="Наименование" id="22">
 									<DataPath>Список.Наименование</DataPath>
+									<Width>15</Width>
 									<MaxWidth>10</MaxWidth>
 									<ContextMenu name="НаименованиеКонтекстноеМеню" id="23"/>
 									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="24"/>
@@ -181,6 +174,7 @@
 											<v8:content>Характеристика</v8:content>
 										</v8:item>
 									</Title>
+									<Width>15</Width>
 									<MaxWidth>10</MaxWidth>
 									<ContextMenu name="НаименованиеХарактеристикиКонтекстноеМеню" id="26"/>
 									<ExtendedTooltip name="НаименованиеХарактеристикиРасширеннаяПодсказка" id="27"/>
@@ -204,6 +198,7 @@
 											<v8:content>Ед. изм.</v8:content>
 										</v8:item>
 									</Title>
+									<Width>5</Width>
 									<MaxWidth>10</MaxWidth>
 									<ContextMenu name="ЕдиницаИзмеренияКонтекстноеМеню" id="29"/>
 									<ExtendedTooltip name="ЕдиницаИзмеренияРасширеннаяПодсказка" id="30"/>
@@ -226,9 +221,7 @@
 						</ColumnGroup>
 						<LabelField name="Артикул" id="31">
 							<DataPath>Список.Артикул</DataPath>
-							<UserVisible>
-								<xr:Common>false</xr:Common>
-							</UserVisible>
+							<Width>10</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>10</MaxWidth>
 							<ContextMenu name="АртикулКонтекстноеМеню" id="32"/>
@@ -236,9 +229,7 @@
 						</LabelField>
 						<LabelField name="СтавкаНДС" id="63">
 							<DataPath>Список.СтавкаНДС</DataPath>
-							<UserVisible>
-								<xr:Common>false</xr:Common>
-							</UserVisible>
+							<Width>11</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>10</MaxWidth>
 							<ContextMenu name="СтавкаНДСКонтекстноеМеню" id="64"/>
@@ -247,23 +238,19 @@
 						<LabelField name="Штрихкод" id="72">
 							<DataPath>Список.Штрихкод</DataPath>
 							<Visible>false</Visible>
-							<UserVisible>
-								<xr:Common>false</xr:Common>
-							</UserVisible>
+							<Width>10</Width>
 							<ContextMenu name="ШтрихкодКонтекстноеМеню" id="73"/>
 							<ExtendedTooltip name="ШтрихкодРасширеннаяПодсказка" id="74"/>
 						</LabelField>
 						<LabelField name="ШтрихкодКомбинации" id="66">
 							<DataPath>Список.ШтрихкодКомбинации</DataPath>
-							<UserVisible>
-								<xr:Common>false</xr:Common>
-							</UserVisible>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Штрихкод позиции документа</v8:content>
 								</v8:item>
 							</Title>
+							<Width>10</Width>
 							<ContextMenu name="ШтрихкодКомбинацииКонтекстноеМеню" id="67"/>
 							<ExtendedTooltip name="ШтрихкодКомбинацииРасширеннаяПодсказка" id="68"/>
 						</LabelField>
@@ -272,6 +259,7 @@
 							<UserVisible>
 								<xr:Common>false</xr:Common>
 							</UserVisible>
+							<Width>10</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>10</MaxWidth>
 							<ContextMenu name="ИдентификаторНоменклатурыСервисаКонтекстноеМеню" id="38"/>
@@ -282,6 +270,7 @@
 							<UserVisible>
 								<xr:Common>false</xr:Common>
 							</UserVisible>
+							<Width>10</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>10</MaxWidth>
 							<ContextMenu name="ИдентификаторХарактеристикиСервисаКонтекстноеМеню" id="41"/>
@@ -296,6 +285,7 @@
 							<v8:content>Соответствие номенклатуре</v8:content>
 						</v8:item>
 					</Title>
+					<Width>45</Width>
 					<Group>Horizontal</Group>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="ГруппаНоменклатураИБРасширеннаяПодсказка" id="59"/>
@@ -308,6 +298,7 @@
 									<v8:content>Номенклатура</v8:content>
 								</v8:item>
 							</Title>
+							<Width>15</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>15</MaxWidth>
 							<HorizontalStretch>false</HorizontalStretch>
@@ -322,6 +313,7 @@
 									<v8:content>Характеристика</v8:content>
 								</v8:item>
 							</Title>
+							<Width>15</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>15</MaxWidth>
 							<HorizontalStretch>false</HorizontalStretch>
@@ -336,6 +328,7 @@
 									<v8:content>Упаковка</v8:content>
 								</v8:item>
 							</Title>
+							<Width>15</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>15</MaxWidth>
 							<HorizontalStretch>false</HorizontalStretch>
@@ -385,7 +378,6 @@
 				</v8:item>
 			</Title>
 			<Action>Выбрать</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

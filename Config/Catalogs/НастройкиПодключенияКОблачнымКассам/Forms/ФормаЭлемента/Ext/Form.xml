@@ -21,20 +21,27 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="146"/>
 			</Button>
+			<Button name="ФормаПроверить" id="147">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Проверить</CommandName>
+				<ExtendedTooltip name="ФормаПроверитьРасширеннаяПодсказка" id="148"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
-		<Event name="AfterWrite">ПослеЗаписи</Event>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
-		<Event name="BeforeWrite">ПередЗаписью</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
-		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
 		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<Pages name="ГруппаСтраницы" id="209">
+		<LabelDecoration name="ДекорацияОтступ" id="209">
+			<Height>1</Height>
+			<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="210"/>
+			<ExtendedTooltip name="ДекорацияОтступРасширеннаяПодсказка" id="211"/>
+		</LabelDecoration>
+		<Pages name="ГруппаСтраницы" id="201">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -42,9 +49,9 @@
 				</v8:item>
 			</Title>
 			<PagesRepresentation>None</PagesRepresentation>
-			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="210"/>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="202"/>
 			<ChildItems>
-				<Page name="СтраницаДлительныеОперации" id="211">
+				<Page name="СтраницаДлительныеОперации" id="203">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -52,9 +59,10 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ExtendedTooltip name="СтраницаДлительныеОперацииРасширеннаяПодсказка" id="212"/>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаДлительныеОперацииРасширеннаяПодсказка" id="204"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаЗагрузкаКасс" id="213">
+						<UsualGroup name="ГруппаЗагрузкаКасс" id="175">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -64,24 +72,23 @@
 							<Group>AlwaysHorizontal</Group>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаЗагрузкаКассРасширеннаяПодсказка" id="214"/>
+							<ExtendedTooltip name="ГруппаЗагрузкаКассРасширеннаяПодсказка" id="176"/>
 							<ChildItems>
-								<PictureDecoration name="КартинкаЗагрузка" id="215">
+								<PictureDecoration name="КартинкаЗагрузка" id="177">
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
 											<v8:content>Картинка загрузка</v8:content>
 										</v8:item>
 									</Title>
-									<PictureSize>Proportionally</PictureSize>
 									<Picture>
 										<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</Picture>
-									<ContextMenu name="КартинкаЗагрузкаКонтекстноеМеню" id="216"/>
-									<ExtendedTooltip name="КартинкаЗагрузкаРасширеннаяПодсказка" id="217"/>
+									<ContextMenu name="КартинкаЗагрузкаКонтекстноеМеню" id="178"/>
+									<ExtendedTooltip name="КартинкаЗагрузкаРасширеннаяПодсказка" id="179"/>
 								</PictureDecoration>
-								<LabelDecoration name="СостояниеЗагрузка" id="218">
+								<LabelDecoration name="СостояниеЗагрузка" id="180">
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -89,12 +96,12 @@
 										</v8:item>
 									</Title>
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
-									<ContextMenu name="СостояниеЗагрузкаКонтекстноеМеню" id="219"/>
-									<ExtendedTooltip name="СостояниеЗагрузкаРасширеннаяПодсказка" id="220"/>
+									<ContextMenu name="СостояниеЗагрузкаКонтекстноеМеню" id="181"/>
+									<ExtendedTooltip name="СостояниеЗагрузкаРасширеннаяПодсказка" id="182"/>
 								</LabelDecoration>
 							</ChildItems>
 						</UsualGroup>
-						<UsualGroup name="ГруппаОшибкаЗагрузки" id="221">
+						<UsualGroup name="ГруппаОшибкаЗагрузки" id="188">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -104,12 +111,11 @@
 							<Group>AlwaysHorizontal</Group>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<BackColor>pal:Yellow</BackColor>
-							<ShowAsCard>true</ShowAsCard>
-							<ExtendedTooltip name="ГруппаОшибкаЗагрузкиРасширеннаяПодсказка" id="222"/>
+							<ExtendedTooltip name="ГруппаОшибкаЗагрузкиРасширеннаяПодсказка" id="189"/>
 							<ChildItems>
-								<PictureDecoration name="КартинкаОшибка" id="223">
-									<TextColor>pal:Yellow</TextColor>
+								<PictureDecoration name="КартинкаОшибка" id="190">
+									<Width>5</Width>
+									<Height>2</Height>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -117,69 +123,31 @@
 										</v8:item>
 									</Title>
 									<Picture>
-										<xr:Ref>CommonPicture.ВажноеСообщениеПредупреждение</xr:Ref>
+										<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</Picture>
-									<PictureColor>pal:Yellow</PictureColor>
-									<ContextMenu name="КартинкаОшибкаКонтекстноеМеню" id="224"/>
-									<ExtendedTooltip name="КартинкаОшибкаРасширеннаяПодсказка" id="225"/>
+									<ContextMenu name="КартинкаОшибкаКонтекстноеМеню" id="191"/>
+									<ExtendedTooltip name="КартинкаОшибкаРасширеннаяПодсказка" id="192"/>
 								</PictureDecoration>
-								<UsualGroup name="ГруппаОшибкаЗагрузкиСообщение" id="235">
-									<Title>
+								<LabelDecoration name="СостояниеОшибка" id="193">
+									<Title formatted="true">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Группа ошибка загрузки сообщение</v8:content>
+											<v8:content>Ошибка загрузки списка доступных облачных касс. &lt;link retry&gt;Повторить&lt;/&gt;.</v8:content>
 										</v8:item>
 									</Title>
-									<HorizontalStretch>true</HorizontalStretch>
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
-									<Group>Vertical</Group>
-									<VerticalSpacing>Half</VerticalSpacing>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаОшибкаЗагрузкиСообщениеРасширеннаяПодсказка" id="236"/>
-									<ChildItems>
-										<LabelDecoration name="СостояниеОшибка" id="226">
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Ошибка загрузки списка доступных облачных касс.</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="СостояниеОшибкаКонтекстноеМеню" id="227"/>
-											<ExtendedTooltip name="СостояниеОшибкаРасширеннаяПодсказка" id="228"/>
-										</LabelDecoration>
-										<LabelDecoration name="СостояниеОшибкаПояснение" id="239">
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<Font ref="style:TextLevel3" kind="StyleItem"/>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>&lt;Сообщение об ошибке&gt;</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="СостояниеОшибкаПояснениеКонтекстноеМеню" id="240"/>
-											<ExtendedTooltip name="СостояниеОшибкаПояснениеРасширеннаяПодсказка" id="241"/>
-										</LabelDecoration>
-										<Button name="ЗагрузитьДоступныеОблачныеКассы" id="237">
-											<Type>Hyperlink</Type>
-											<CommandName>Form.Command.ЗагрузитьДоступныеОблачныеКассы</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Повторить</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ЗагрузитьДоступныеОблачныеКассыРасширеннаяПодсказка" id="238"/>
-										</Button>
-									</ChildItems>
-								</UsualGroup>
+									<ContextMenu name="СостояниеОшибкаКонтекстноеМеню" id="194"/>
+									<ExtendedTooltip name="СостояниеОшибкаРасширеннаяПодсказка" id="195"/>
+									<Events>
+										<Event name="URLProcessing">СостояниеОшибкаОбработкаНавигационнойСсылки</Event>
+									</Events>
+								</LabelDecoration>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
 				</Page>
-				<Page name="СтраницаОсновная" id="229">
+				<Page name="СтраницаОсновная" id="205">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -187,29 +155,60 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ExtendedTooltip name="СтраницаОсновнаяРасширеннаяПодсказка" id="230"/>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаОсновнаяРасширеннаяПодсказка" id="206"/>
 					<ChildItems>
-						<InputField name="Идентификатор" id="102">
-							<DataPath>Объект.Идентификатор</DataPath>
+						<UsualGroup name="ИдентификаторИСостояние" id="156">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Облачная касса</v8:content>
+									<v8:content>Идентификатор и состояние</v8:content>
 								</v8:item>
 							</Title>
-							<ListChoiceMode>true</ListChoiceMode>
-							<ContextMenu name="ИдентификаторКонтекстноеМеню" id="103"/>
-							<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="104"/>
-							<Events>
-								<Event name="OnChange">ИдентификаторПриИзменении</Event>
-								<Event name="ChoiceProcessing">ИдентификаторОбработкаВыбора</Event>
-							</Events>
-						</InputField>
-						<InputField name="Наименование" id="231">
+							<Group>AlwaysHorizontal</Group>
+							<HorizontalSpacing>Half</HorizontalSpacing>
+							<VerticalSpacing>Half</VerticalSpacing>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ИдентификаторИСостояниеРасширеннаяПодсказка" id="157"/>
+							<ChildItems>
+								<UsualGroup name="ИдентификаторИСостояниеВертикальная" id="149">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа1</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ИдентификаторИСостояниеВертикальнаяРасширеннаяПодсказка" id="150"/>
+									<ChildItems>
+										<InputField name="Идентификатор" id="102">
+											<DataPath>Объект.Идентификатор</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Облачная касса</v8:content>
+												</v8:item>
+											</Title>
+											<ListChoiceMode>true</ListChoiceMode>
+											<ContextMenu name="ИдентификаторКонтекстноеМеню" id="103"/>
+											<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="104"/>
+											<Events>
+												<Event name="OnChange">ИдентификаторПриИзменении</Event>
+												<Event name="ChoiceProcessing">ИдентификаторОбработкаВыбора</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="Наименование" id="196">
 							<DataPath>Объект.Description</DataPath>
 							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-							<ContextMenu name="НаименованиеКонтекстноеМеню" id="232"/>
-							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="233"/>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="197"/>
+							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="198"/>
 						</InputField>
 						<Pages name="СтраницыПараметровПодключения" id="131">
 							<Title>
@@ -228,6 +227,7 @@
 											<v8:content>Группа1</v8:content>
 										</v8:item>
 									</Title>
+									<Group>Vertical</Group>
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="СтраницаПустаяРасширеннаяПодсказка" id="134"/>
 									<ChildItems>
@@ -244,30 +244,31 @@
 											<v8:content>Страница параметров подключения</v8:content>
 										</v8:item>
 									</Title>
+									<Group>Vertical</Group>
+									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="СтраницаПараметровПодключенияРасширеннаяПодсказка" id="136"/>
 									<ChildItems>
 										<UsualGroup name="ПараметрыПодключения" id="100">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Настройки подключения</v8:content>
+													<v8:content>Параметры подключения</v8:content>
 												</v8:item>
 											</Title>
 											<Group>Vertical</Group>
-											<ShowAsCard>true</ShowAsCard>
+											<Representation>WeakSeparation</Representation>
 											<ExtendedTooltip name="ПараметрыПодключенияРасширеннаяПодсказка" id="101"/>
 											<ChildItems>
 												<LabelDecoration name="ИнформацияОПодключении" id="19">
-													<AutoMaxWidth>false</AutoMaxWidth>
+													<Width>50</Width>
+													<MaxWidth>60</MaxWidth>
 													<MaxHeight>8</MaxHeight>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Для подключения к Облачной кассе заполните настройки.
-Получить данные для настройки можно в &lt;Имя облачной кассы&gt;.</v8:content>
+															<v8:content>Для подключения к Облачной кассе заполните настройки. Получить данные для настройки можно в &lt;Имя облачной кассы&gt;.</v8:content>
 														</v8:item>
 													</Title>
-													<TitleHeight>2</TitleHeight>
 													<ContextMenu name="ИнформацияОПодключенииКонтекстноеМеню" id="20"/>
 													<ExtendedTooltip name="ИнформацияОПодключенииРасширеннаяПодсказка" id="21"/>
 												</LabelDecoration>
@@ -289,31 +290,19 @@
 																</v8:item>
 															</Title>
 															<Group>Vertical</Group>
+															<ScrollOnCompress>false</ScrollOnCompress>
 															<ExtendedTooltip name="АутентификацияBasicРасширеннаяПодсказка" id="112"/>
 															<ChildItems>
 																<InputField name="Логин" id="120">
 																	<DataPath>Логин</DataPath>
 																	<ContextMenu name="ЛогинКонтекстноеМеню" id="121"/>
 																	<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="122"/>
-																	<Events>
-																		<Event name="OnChange">ЛогинПриИзменении</Event>
-																	</Events>
 																</InputField>
 																<InputField name="Пароль" id="123">
 																	<DataPath>Пароль</DataPath>
-																	<PasswordMode>true</PasswordMode>
 																	<ContextMenu name="ПарольКонтекстноеМеню" id="124"/>
 																	<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="125"/>
-																	<Events>
-																		<Event name="OnChange">ПарольПриИзменении</Event>
-																		<Event name="StartChoice">ПарольНачалоВыбора</Event>
-																	</Events>
 																</InputField>
-																<Button name="ПроверитьПодключениеBasic" id="203">
-																	<Type>UsualButton</Type>
-																	<CommandName>Form.Command.Проверить</CommandName>
-																	<ExtendedTooltip name="ПроверитьПодключениеBasicРасширеннаяПодсказка" id="204"/>
-																</Button>
 															</ChildItems>
 														</Page>
 														<Page name="АутентификацияBearer" id="113">
@@ -324,6 +313,7 @@
 																</v8:item>
 															</Title>
 															<Group>Vertical</Group>
+															<ScrollOnCompress>false</ScrollOnCompress>
 															<ExtendedTooltip name="АутентификацияBearerРасширеннаяПодсказка" id="114"/>
 															<ChildItems>
 																<InputField name="Токен" id="117">
@@ -331,16 +321,7 @@
 																	<PasswordMode>true</PasswordMode>
 																	<ContextMenu name="ТокенКонтекстноеМеню" id="118"/>
 																	<ExtendedTooltip name="ТокенРасширеннаяПодсказка" id="119"/>
-																	<Events>
-																		<Event name="OnChange">ТокенПриИзменении</Event>
-																		<Event name="StartChoice">ТокенНачалоВыбора</Event>
-																	</Events>
 																</InputField>
-																<Button name="ПроверитьПодключениеBearer" id="205">
-																	<Type>UsualButton</Type>
-																	<CommandName>Form.Command.Проверить</CommandName>
-																	<ExtendedTooltip name="ПроверитьПодключениеBearerРасширеннаяПодсказка" id="206"/>
-																</Button>
 															</ChildItems>
 														</Page>
 														<Page name="АутентификацияSalesRegisterGroup" id="115">
@@ -351,42 +332,31 @@
 																</v8:item>
 															</Title>
 															<Group>Vertical</Group>
+															<ScrollOnCompress>false</ScrollOnCompress>
 															<ExtendedTooltip name="АутентификацияSalesRegisterGroupРасширеннаяПодсказка" id="116"/>
 															<ChildItems>
 																<InputField name="ИдентификаторМагазина" id="11">
 																	<DataPath>ИдентификаторМагазина</DataPath>
+																	<MarkRequiredComplete>true</MarkRequiredComplete>
 																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
 																	<ContextMenu name="ИдентификаторМагазинаКонтекстноеМеню" id="12"/>
 																	<ExtendedTooltip name="ИдентификаторМагазинаРасширеннаяПодсказка" id="13"/>
-																	<Events>
-																		<Event name="OnChange">ИдентификаторМагазинаПриИзменении</Event>
-																	</Events>
 																</InputField>
 																<InputField name="СекретныйКлючМагазина" id="8">
 																	<DataPath>СекретныйКлючМагазина</DataPath>
+																	<MarkRequiredComplete>true</MarkRequiredComplete>
 																	<PasswordMode>true</PasswordMode>
 																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
 																	<ContextMenu name="СекретныйКлючМагазинаКонтекстноеМеню" id="9"/>
 																	<ExtendedTooltip name="СекретныйКлючМагазинаРасширеннаяПодсказка" id="10"/>
-																	<Events>
-																		<Event name="OnChange">СекретныйКлючМагазинаПриИзменении</Event>
-																		<Event name="StartChoice">СекретныйКлючМагазинаНачалоВыбора</Event>
-																	</Events>
 																</InputField>
 																<InputField name="ИдентификаторГруппыКасс" id="14">
 																	<DataPath>ИдентификаторГруппыКасс</DataPath>
+																	<MarkRequiredComplete>true</MarkRequiredComplete>
 																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
 																	<ContextMenu name="ИдентификаторГруппыКассКонтекстноеМеню" id="15"/>
 																	<ExtendedTooltip name="ИдентификаторГруппыКассРасширеннаяПодсказка" id="16"/>
-																	<Events>
-																		<Event name="OnChange">ИдентификаторГруппыКассПриИзменении</Event>
-																	</Events>
 																</InputField>
-																<Button name="ПроверитьПодключениеSalesRegisterGroup" id="207">
-																	<Type>UsualButton</Type>
-																	<CommandName>Form.Command.Проверить</CommandName>
-																	<ExtendedTooltip name="ПроверитьПодключениеSalesRegisterGroupРасширеннаяПодсказка" id="208"/>
-																</Button>
 															</ChildItems>
 														</Page>
 													</ChildItems>
@@ -644,7 +614,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Проверить" id="4">
 			<Title>
@@ -653,28 +622,7 @@
 					<v8:content>Проверить</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Проверить</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Action>Проверить</Action>
-		</Command>
-		<Command name="ЗагрузитьДоступныеОблачныеКассы" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Загрузить доступные облачные кассы</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Загрузить доступные облачные кассы</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ЗагрузитьДоступныеОблачныеКассы</Action>
 		</Command>
 	</Commands>
 	<Parameters>
@@ -684,13 +632,13 @@
 			</Type>
 			<KeyParameter>true</KeyParameter>
 		</Parameter>
-		<Parameter name="ПараметрыСозданияКассы">
-			<Type/>
-		</Parameter>
 		<Parameter name="ЭтоРежимСозданияНастройки">
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
+		</Parameter>
+		<Parameter name="ПараметрыСозданияКассы">
+			<Type/>
 		</Parameter>
 	</Parameters>
 </Form>

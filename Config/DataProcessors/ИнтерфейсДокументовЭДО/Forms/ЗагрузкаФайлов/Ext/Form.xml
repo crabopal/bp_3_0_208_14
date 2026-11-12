@@ -9,25 +9,9 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ЗагрузитьФайлы" id="4">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ЗагрузитьФайлы</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ЗагрузитьФайлыРасширеннаяПодсказка" id="5"/>
-			</Button>
-			<Button name="Отмена" id="6">
-				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="7"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -47,9 +31,10 @@
 					<ChildItems>
 						<InputField name="Отправитель" id="140">
 							<DataPath>Отправитель</DataPath>
-							<AutoMaxWidth>false</AutoMaxWidth>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<AutoMaxHeight>false</AutoMaxHeight>
 							<MaxHeight>2</MaxHeight>
+							<MultiLine>true</MultiLine>
 							<DropListButton>true</DropListButton>
 							<ChoiceButton>true</ChoiceButton>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -72,14 +57,36 @@
 									<ContextMenu name="ДекорацияЗаголовокКонтекстноеМеню" id="144"/>
 									<ExtendedTooltip name="ДекорацияЗаголовокРасширеннаяПодсказка" id="145"/>
 								</LabelDecoration>
+								<Button name="ДобавитьФайл" id="117">
+									<Type>UsualButton</Type>
+									<Representation>Picture</Representation>
+									<CommandName>Form.Command.ДобавитьФайл</CommandName>
+									<Picture>
+										<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ShapeRepresentation>None</ShapeRepresentation>
+									<ButtonImportance>Supplementary</ButtonImportance>
+									<ExtendedTooltip name="ДобавитьФайлРасширеннаяПодсказка" id="118"/>
+								</Button>
+								<Button name="ДобавитьПолучателя" id="115">
+									<Type>UsualButton</Type>
+									<Representation>Picture</Representation>
+									<CommandName>Form.Command.ДобавитьПолучателя</CommandName>
+									<Picture>
+										<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ShapeRepresentation>None</ShapeRepresentation>
+									<ButtonImportance>Supplementary</ButtonImportance>
+									<ExtendedTooltip name="ДобавитьПолучателяРасширеннаяПодсказка" id="116"/>
+								</Button>
 							</ChildItems>
 						</UsualGroup>
 						<Table name="Файлы" id="16">
 							<Representation>List</Representation>
-							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-							<InitialRowActivation>Activate</InitialRowActivation>
 							<DataPath>Файлы</DataPath>
 							<CommandSet>
 								<ExcludedCommand>CancelSearch</ExcludedCommand>
@@ -92,6 +99,8 @@
 								<ExcludedCommand>OutputList</ExcludedCommand>
 								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
 								<ExcludedCommand>SearchHistory</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
+								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 								<ExcludedCommand>SortListAsc</ExcludedCommand>
 								<ExcludedCommand>SortListDesc</ExcludedCommand>
@@ -100,32 +109,6 @@
 							<ContextMenu name="ФайлыКонтекстноеМеню" id="18"/>
 							<AutoCommandBar name="ФайлыКоманднаяПанель" id="17">
 								<Autofill>false</Autofill>
-								<ChildItems>
-									<Button name="ДобавитьФайл" id="117">
-										<Type>CommandBarButton</Type>
-										<Representation>Picture</Representation>
-										<CommandName>Form.Command.ДобавитьФайл</CommandName>
-										<Picture>
-											<xr:Ref>StdPicture.CreateListItem</xr:Ref>
-											<xr:LoadTransparent>true</xr:LoadTransparent>
-										</Picture>
-										<ShapeRepresentation>None</ShapeRepresentation>
-										<ButtonImportance>Supplementary</ButtonImportance>
-										<ExtendedTooltip name="ДобавитьФайлРасширеннаяПодсказка" id="118"/>
-									</Button>
-									<Button name="ДобавитьПолучателя" id="115">
-										<Type>CommandBarButton</Type>
-										<Representation>Picture</Representation>
-										<CommandName>Form.Command.ДобавитьПолучателя</CommandName>
-										<Picture>
-											<xr:Ref>StdPicture.CreateListItem</xr:Ref>
-											<xr:LoadTransparent>true</xr:LoadTransparent>
-										</Picture>
-										<ShapeRepresentation>None</ShapeRepresentation>
-										<ButtonImportance>Supplementary</ButtonImportance>
-										<ExtendedTooltip name="ДобавитьПолучателяРасширеннаяПодсказка" id="116"/>
-									</Button>
-								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ФайлыРасширеннаяПодсказка" id="19"/>
 							<SearchStringAddition name="ФайлыСтрокаПоиска" id="20">
@@ -167,6 +150,7 @@
 								</InputField>
 								<InputField name="ФайлыПредставлениеПолучателя" id="137">
 									<DataPath>Файлы.ПредставлениеПолучателя</DataPath>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<ChoiceButton>true</ChoiceButton>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="ФайлыПредставлениеПолучателяКонтекстноеМеню" id="138"/>
@@ -186,7 +170,6 @@
 					<Group>Vertical</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ShowAsCard>true</ShowAsCard>
 					<ExtendedTooltip name="ГруппаРаботаСФайломРасширеннаяПодсказка" id="13"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаПредставлениеФайла" id="38">
@@ -218,7 +201,8 @@
 								<PictureField name="КартинкаФайла" id="43">
 									<DataPath>КартинкаФайла</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<GroupVerticalAlign>Center</GroupVerticalAlign>
+									<Width>2</Width>
+									<Height>1</Height>
 									<HorizontalStretch>false</HorizontalStretch>
 									<VerticalStretch>false</VerticalStretch>
 									<ValuesPicture>
@@ -252,11 +236,12 @@
 							<ChildItems>
 								<LabelDecoration name="НадписьТранслитерация" id="67">
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>true</HorizontalStretch>
+									<TextColor>style:ЦветТекстаКонтрагентаПрекратившегоДеятельность</TextColor>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Имя файла автоматически преобразуется в транслит для возможности переноса между различными операционными системами.</v8:content>
+											<v8:content>Имя присоединяемого файла автоматически преобразуется в транслит
+для возможности переноса между различными операционными системами.</v8:content>
 										</v8:item>
 									</Title>
 									<ContextMenu name="НадписьТранслитерацияКонтекстноеМеню" id="68"/>
@@ -367,12 +352,10 @@
 						<UsualGroup name="ГруппаПредставлениеДокумента" id="124">
 							<Visible>false</Visible>
 							<Group>Vertical</Group>
-							<VerticalSpacing>None</VerticalSpacing>
 							<Representation>None</Representation>
 							<ExtendedTooltip name="ГруппаПредставлениеДокументаРасширеннаяПодсказка" id="125"/>
 							<ChildItems>
 								<LabelDecoration name="ДекорацияОтступ" id="156">
-									<Visible>false</Visible>
 									<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="157"/>
 									<ExtendedTooltip name="ДекорацияОтступРасширеннаяПодсказка" id="158"/>
 								</LabelDecoration>
@@ -394,12 +377,10 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<VerticalSpacing>None</VerticalSpacing>
 							<Representation>None</Representation>
 							<ExtendedTooltip name="ГруппаПредставлениеPDFРасширеннаяПодсказка" id="166"/>
 							<ChildItems>
 								<LabelDecoration name="ДекорацияОтступ1" id="167">
-									<Visible>false</Visible>
 									<ContextMenu name="ДекорацияОтступ1КонтекстноеМеню" id="168"/>
 									<ExtendedTooltip name="ДекорацияОтступ1РасширеннаяПодсказка" id="169"/>
 								</LabelDecoration>
@@ -428,6 +409,20 @@
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКомандФормыРасширеннаяПодсказка" id="9"/>
+			<ChildItems>
+				<Button name="ЗагрузитьФайлы" id="4">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.ЗагрузитьФайлы</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ЗагрузитьФайлыРасширеннаяПодсказка" id="5"/>
+				</Button>
+				<Button name="Отмена" id="6">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Отмена</CommandName>
+					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="7"/>
+				</Button>
+			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
 	<Attributes>
@@ -1129,7 +1124,6 @@
 				</v8:item>
 			</Title>
 			<Action>ЗагрузитьФайлы</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>

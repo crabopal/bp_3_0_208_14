@@ -11,7 +11,6 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>None</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>false</ShowCommandBar>
 	<ReportFormType>Main</ReportFormType>
 	<AutoShowState>Auto</AutoShowState>
@@ -25,122 +24,92 @@
 		<Event name="BeforeLoadDataFromSettingsAtServer">ПередЗагрузкойДанныхИзНастроекНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаОтборы" id="45">
+		<UsualGroup name="ПанельОтборов" id="32">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа отборы</v8:content>
+					<v8:content>Панель отборов</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа отборы</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Group>Vertical</Group>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаОтборыРасширеннаяПодсказка" id="46"/>
+			<ExtendedTooltip name="ПанельОтборовРасширеннаяПодсказка" id="33"/>
 			<ChildItems>
-				<UsualGroup name="ПанельОтборов" id="32">
+				<InputField name="Организация" id="34">
+					<DataPath>Отчет.ОтборОрганизация</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Панель отборов</v8:content>
+							<v8:content>Организация</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AutoScreenTypeSensitive</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ThroughAlign>Use</ThroughAlign>
-					<ExtendedTooltip name="ПанельОтборовРасширеннаяПодсказка" id="33"/>
-					<ChildItems>
-						<InputField name="Организация" id="34">
-							<DataPath>Отчет.ОтборОрганизация</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Организация</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ClearButton>true</ClearButton>
-							<OpenButton>false</OpenButton>
-							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="35"/>
-							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="36"/>
-							<Events>
-								<Event name="OnChange">ОрганизацияПриИзменении</Event>
-							</Events>
-						</InputField>
-						<InputField name="Контрагент" id="37">
-							<DataPath>Отчет.ОтборКонтрагент</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Контрагент</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ClearButton>true</ClearButton>
-							<OpenButton>false</OpenButton>
-							<ContextMenu name="КонтрагентКонтекстноеМеню" id="38"/>
-							<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="39"/>
-							<Events>
-								<Event name="OnChange">КонтрагентПриИзменении</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ПанельОтборовПоВидуОтчета" id="1">
+					<Width>23</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ClearButton>true</ClearButton>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="36"/>
+					<Events>
+						<Event name="OnChange">ОрганизацияПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Контрагент" id="37">
+					<DataPath>Отчет.ОтборКонтрагент</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Панель отборов по виду отчета</v8:content>
+							<v8:content>Контрагент</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AutoScreenTypeSensitive</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ThroughAlign>Use</ThroughAlign>
-					<ExtendedTooltip name="ПанельОтборовПоВидуОтчетаРасширеннаяПодсказка" id="2"/>
-					<ChildItems>
-						<CheckBoxField name="ПоступленияЗаказанныхКиЗ" id="3">
-							<DataPath>Отчет.ПоступленияЗаказанныхКиЗ</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Поступления заказанных КиЗ</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>Right</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="ПоступленияЗаказанныхКиЗКонтекстноеМеню" id="4"/>
-							<ExtendedTooltip name="ПоступленияЗаказанныхКиЗРасширеннаяПодсказка" id="5"/>
-							<Events>
-								<Event name="OnChange">ПоступленияЗаказанныхКиЗПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-						<CheckBoxField name="ПоступленияМаркированныхТоваров" id="6">
-							<DataPath>Отчет.ПоступленияМаркированныхТоваров</DataPath>
-							<TitleLocation>Right</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="ПоступленияМаркированныхТоваровКонтекстноеМеню" id="7"/>
-							<ExtendedTooltip name="ПоступленияМаркированныхТоваровРасширеннаяПодсказка" id="8"/>
-							<Events>
-								<Event name="OnChange">ПоступленияМаркированныхТоваровПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-					</ChildItems>
-				</UsualGroup>
+					<Width>23</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ClearButton>true</ClearButton>
+					<ContextMenu name="КонтрагентКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="39"/>
+					<Events>
+						<Event name="OnChange">КонтрагентПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ПанельОтборовПоВидуОтчета" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Панель отборов по виду отчета</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ПанельОтборовПоВидуОтчетаРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<CheckBoxField name="ПоступленияЗаказанныхКиЗ" id="3">
+					<DataPath>Отчет.ПоступленияЗаказанныхКиЗ</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поступления заказанных КиЗ</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<ContextMenu name="ПоступленияЗаказанныхКиЗКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ПоступленияЗаказанныхКиЗРасширеннаяПодсказка" id="5"/>
+					<Events>
+						<Event name="OnChange">ПоступленияЗаказанныхКиЗПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ПоступленияМаркированныхТоваров" id="6">
+					<DataPath>Отчет.ПоступленияМаркированныхТоваров</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ContextMenu name="ПоступленияМаркированныхТоваровКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="ПоступленияМаркированныхТоваровРасширеннаяПодсказка" id="8"/>
+					<Events>
+						<Event name="OnChange">ПоступленияМаркированныхТоваровПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
 		<CommandBar name="ГруппаКоманднаяПанель" id="12">
@@ -204,7 +173,7 @@
 				<Button name="Справка" id="28">
 					<Type>CommandBarButton</Type>
 					<CommandName>Form.StandardCommand.Help</CommandName>
-					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="29"/>
 				</Button>
 				<Button name="ОтправитьПоЭлектроннойПочте" id="30">
@@ -219,8 +188,6 @@
 		<SpreadSheetDocumentField name="Результат" id="9">
 			<DataPath>Результат</DataPath>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<VerticalScrollBar>true</VerticalScrollBar>
 			<HorizontalScrollBar>true</HorizontalScrollBar>
 			<ContextMenu name="РезультатКонтекстноеМеню" id="10"/>

@@ -6,11 +6,10 @@
 			<v8:content>Настройки обмена с Росалкогольтабакконтролем</v8:content>
 		</v8:item>
 	</Title>
-	<Width>99</Width>
+	<Width>90</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<VerticalSpacing>Half</VerticalSpacing>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<CommandSet>
 		<ExcludedCommand>Copy</ExcludedCommand>
@@ -31,7 +30,6 @@
 					<v8:content>Группа организация</v8:content>
 				</v8:item>
 			</Title>
-			<Height>3</Height>
 			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>NormalSeparation</Representation>
@@ -41,7 +39,6 @@
 				<LabelDecoration name="НадписьОрганизация" id="35">
 					<Width>27</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<Font bold="true" kind="AutoFont"/>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -54,6 +51,7 @@
 				<InputField name="Организация" id="15">
 					<DataPath>Запись.Организация</DataPath>
 					<TitleLocation>None</TitleLocation>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -73,7 +71,6 @@
 				</v8:item>
 			</Title>
 			<Group>Vertical</Group>
-			<VerticalSpacing>Half</VerticalSpacing>
 			<Behavior>Usual</Behavior>
 			<Representation>NormalSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -127,7 +124,7 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
-							<Width>1</Width>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<ChoiceButton>true</ChoiceButton>
 							<ClearButton>true</ClearButton>
@@ -168,7 +165,6 @@
 						</v8:item>
 					</Title>
 					<Group>Horizontal</Group>
-					<VerticalAlign>Center</VerticalAlign>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -194,6 +190,7 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<ChoiceButton>true</ChoiceButton>
 							<ClearButton>true</ClearButton>
@@ -244,6 +241,7 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<MarkRequiredComplete>false</MarkRequiredComplete>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<ChoiceButton>true</ChoiceButton>
 							<ClearButton>true</ClearButton>
@@ -368,6 +366,7 @@
 			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
 			<ExtendedTooltip name="ГруппаПараметрыУТМРасширеннаяПодсказка" id="80"/>
 			<ChildItems>
 				<LabelDecoration name="ДекорацияИнформацияУТМ" id="81">
@@ -375,7 +374,8 @@
 					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Настройка &lt;link https://its.1c.ru/db/egais&gt;ЕГАИС УТМ&lt;/&gt; необходима при отправке алкогольных деклараций в случае использования сертификата физического лица. В УТМ должна быть загружена &lt;link #МашиночитаемыеДоверенности&gt;машиночитаемая доверенность (единый формат)&lt;/&gt; на представителя с сертификатом физического лица.</v8:content>
+							<v8:content>Настройка &lt;link https://its.1c.ru/db/egais&gt;ЕГАИС УТМ&lt;/&gt; необходима при отправке алкогольных деклараций в случае использования сертификата физического лица.
+В УТМ должна быть загружена &lt;link #МашиночитаемыеДоверенности&gt;машиночитаемая доверенность (единый формат)&lt;/&gt; на представителя с сертификатом физического лица.</v8:content>
 						</v8:item>
 					</Title>
 					<ContextMenu name="ДекорацияИнформацияУТМКонтекстноеМеню" id="82"/>
@@ -423,8 +423,6 @@
 									<v8:content>Порт</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Left</TitleLocation>
-							<HorizontalStretch>false</HorizontalStretch>
 							<EditFormat>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -442,8 +440,6 @@
 									<v8:content>Таймаут</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Left</TitleLocation>
-							<HorizontalStretch>false</HorizontalStretch>
 							<ContextMenu name="ТаймаутУТМКонтекстноеМеню" id="96"/>
 							<ExtendedTooltip name="ТаймаутУТМРасширеннаяПодсказка" id="97"/>
 						</InputField>
@@ -529,82 +525,63 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаИнформация1СОтчетностьНеИспользуетсяРасширеннаяПодсказка" id="62"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаИнформация1СОтчетность" id="130">
+				<PictureDecoration name="ДекорацияИнформация" id="63">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Декорация информация</v8:content>
+						</v8:item>
+					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<Picture>
+						<xr:Ref>CommonPicture.ИнформацияПоДлительнойОтправке</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="64"/>
+					<ExtendedTooltip name="ДекорацияИнформацияРасширеннаяПодсказка" id="65"/>
+				</PictureDecoration>
+				<LabelDecoration name="ДекорацияРазделительИнформации" id="66">
+					<ContextMenu name="ДекорацияРазделительИнформацииКонтекстноеМеню" id="67"/>
+					<ExtendedTooltip name="ДекорацияРазделительИнформацииРасширеннаяПодсказка" id="68"/>
+				</LabelDecoration>
+				<UsualGroup name="ГруппаПредложениеПодключения" id="69">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа информация1 с отчетность</v8:content>
+							<v8:content>Группа предложение подключения</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа информация1 с отчетность</v8:content>
-						</v8:item>
-					</ToolTip>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаИнформация1СОтчетностьРасширеннаяПодсказка" id="131"/>
+					<ExtendedTooltip name="ГруппаПредложениеПодключенияРасширеннаяПодсказка" id="70"/>
 					<ChildItems>
-						<PictureDecoration name="ДекорацияИнформация" id="63">
+						<LabelDecoration name="НадписьПредложениеПодключения" id="71">
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Декорация информация</v8:content>
+									<v8:content>В случае подключения 1С-Отчетности по организации, настройка и последующее обновление
+сертификатов Росалкогольтабакконтроля будут производиться автоматически, без участия пользователя.</v8:content>
 								</v8:item>
 							</Title>
-							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<Picture>
-								<xr:Ref>CommonPicture.ИнформацияПоДлительнойОтправке</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</Picture>
-							<FileDragMode>AsFile</FileDragMode>
-							<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="64"/>
-							<ExtendedTooltip name="ДекорацияИнформацияРасширеннаяПодсказка" id="65"/>
-						</PictureDecoration>
-						<LabelDecoration name="ДекорацияРазделительИнформации" id="66">
-							<ContextMenu name="ДекорацияРазделительИнформацииКонтекстноеМеню" id="67"/>
-							<ExtendedTooltip name="ДекорацияРазделительИнформацииРасширеннаяПодсказка" id="68"/>
+							<ContextMenu name="НадписьПредложениеПодключенияКонтекстноеМеню" id="72"/>
+							<ExtendedTooltip name="НадписьПредложениеПодключенияРасширеннаяПодсказка" id="73"/>
 						</LabelDecoration>
-						<UsualGroup name="ГруппаПредложениеПодключения" id="69">
+						<Button name="КнопкаПодключиться" id="74">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ПодключитьсяК1СОтчетности</CommandName>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа предложение подключения</v8:content>
+									<v8:content>Подключиться к 1С-Отчетности сейчас</v8:content>
 								</v8:item>
 							</Title>
-							<HorizontalStretch>false</HorizontalStretch>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаПредложениеПодключенияРасширеннаяПодсказка" id="70"/>
-							<ChildItems>
-								<LabelDecoration name="НадписьПредложениеПодключения" id="71">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>В случае подключения 1С-Отчетности по организации, настройка и последующее обновление
-сертификатов Росалкогольтабакконтроля будут производиться автоматически, без участия пользователя.</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="НадписьПредложениеПодключенияКонтекстноеМеню" id="72"/>
-									<ExtendedTooltip name="НадписьПредложениеПодключенияРасширеннаяПодсказка" id="73"/>
-								</LabelDecoration>
-								<Button name="КнопкаПодключиться" id="74">
-									<Type>UsualButton</Type>
-									<CommandName>Form.Command.ПодключитьсяК1СОтчетности</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Подключиться к 1С-Отчетности сейчас</v8:content>
-										</v8:item>
-									</Title>
-									<ExtendedTooltip name="КнопкаПодключитьсяРасширеннаяПодсказка" id="75"/>
-								</Button>
-							</ChildItems>
-						</UsualGroup>
+							<ExtendedTooltip name="КнопкаПодключитьсяРасширеннаяПодсказка" id="75"/>
+						</Button>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -731,7 +708,6 @@
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
-			<Settings xsi:type="v8:TypeDescription"/>
 		</Attribute>
 		<Attribute name="ОбменСУТМНаСервере" id="11">
 			<Title>
@@ -759,7 +735,6 @@
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
-			<Settings xsi:type="v8:TypeDescription"/>
 		</Attribute>
 	</Attributes>
 	<Commands>

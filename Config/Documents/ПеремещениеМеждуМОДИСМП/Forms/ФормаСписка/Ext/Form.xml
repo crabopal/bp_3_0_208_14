@@ -1,19 +1,38 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>CancelSearch</ExcludedCommand>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Create</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>DynamicListStandardSettings</ExcludedCommand>
+		<ExcludedCommand>Find</ExcludedCommand>
+		<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
 		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>ListSettings</ExcludedCommand>
+		<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
 		<ExcludedCommand>No</ExcludedCommand>
 		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>OutputList</ExcludedCommand>
+		<ExcludedCommand>Post</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
 		<ExcludedCommand>RestoreValues</ExcludedCommand>
 		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
 		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>SetDateInterval</ExcludedCommand>
+		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+		<ExcludedCommand>UndoPosting</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -68,7 +87,7 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
+							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацииРасширеннаяПодсказка" id="55"/>
 							<ChildItems>
 								<InputField name="ОтборОрганизации" id="56">
@@ -80,14 +99,11 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
 									<ChoiceButton>true</ChoiceButton>
 									<ClearButton>true</ClearButton>
-									<OpenButton>false</OpenButton>
 									<QuickChoice>false</QuickChoice>
 									<ChooseType>false</ChooseType>
 									<TextEdit>false</TextEdit>
@@ -131,7 +147,7 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
+							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацияРасширеннаяПодсказка" id="60"/>
 							<ChildItems>
 								<InputField name="ОтборОрганизация" id="61">
@@ -143,8 +159,7 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
 									<ChoiceButton>true</ChoiceButton>
@@ -164,7 +179,7 @@
 									<InputHint>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Организация</v8:content>
+											<v8:content>Грузоотправитель</v8:content>
 										</v8:item>
 									</InputHint>
 									<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
@@ -184,11 +199,9 @@
 				<InputField name="ОтветственныйОтбор" id="64">
 					<DataPath>Ответственный</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>28</MaxWidth>
 					<ClearButton>true</ClearButton>
-					<OpenButton>false</OpenButton>
 					<InputHint>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -224,7 +237,6 @@
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="2"/>
 		</UsualGroup>
 		<Table name="Список" id="3">
-			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -232,8 +244,6 @@
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>true</ShowCommandBar>
-			<AutoMaxCardHeight>false</AutoMaxCardHeight>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -270,7 +280,6 @@
 							<xr:LoadTransparent>true</xr:LoadTransparent>
 						</Picture>
 						<Representation>Picture</Representation>
-						<Importance>Main</Importance>
 						<ExtendedTooltip name="ПодменюСоздатьНаОснованииРасширеннаяПодсказка" id="29"/>
 					</Popup>
 					<ButtonGroup name="ГруппаГлобальныеКоманды" id="30">
@@ -306,7 +315,6 @@
 							<xr:Ref>StdPicture.Print</xr:Ref>
 							<xr:LoadTransparent>true</xr:LoadTransparent>
 						</Picture>
-						<Importance>Main</Importance>
 						<ExtendedTooltip name="ПодменюПечатьРасширеннаяПодсказка" id="33"/>
 					</Popup>
 					<Popup name="ПодменюОтчеты" id="34">
@@ -327,7 +335,6 @@
 							<xr:LoadTransparent>false</xr:LoadTransparent>
 						</Picture>
 						<Representation>Picture</Representation>
-						<Importance>Main</Importance>
 						<ExtendedTooltip name="ПодменюОтчетыРасширеннаяПодсказка" id="35"/>
 						<ChildItems>
 							<ButtonGroup name="ПодменюОтчетыВажное" id="36">
@@ -361,24 +368,34 @@
 					</Popup>
 					<Button name="СписокИзменитьВыделенные" id="42">
 						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
 						<CommandName>Form.Command.ИзменитьВыделенные</CommandName>
 						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ButtonImportance>Main</ButtonImportance>
 						<ExtendedTooltip name="СписокИзменитьВыделенныеРасширеннаяПодсказка" id="43"/>
 					</Button>
 					<Button name="СписокИзменитьФорму" id="44">
 						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
 						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
 						<ExtendedTooltip name="СписокИзменитьФормуРасширеннаяПодсказка" id="45"/>
 					</Button>
+					<ButtonGroup name="ГруппаКомандыФормы" id="46">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Form</CommandSource>
+						<ExtendedTooltip name="ГруппаКомандыФормыРасширеннаяПодсказка" id="47"/>
+					</ButtonGroup>
 					<Button name="СписокСправка" id="48">
 						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
 						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
 						<ExtendedTooltip name="СписокСправкаРасширеннаяПодсказка" id="49"/>
 					</Button>
 				</ChildItems>
@@ -413,22 +430,16 @@
 				<LabelField name="Номер" id="16">
 					<DataPath>Список.Number</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НомерКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="Дата" id="19">
 					<DataPath>Список.Date</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Организация" id="22">
 					<DataPath>Список.Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="24"/>
 				</LabelField>
@@ -440,9 +451,6 @@
 							<v8:content>Отправитель</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="ОтправительОбъектКонтекстноеМеню" id="71"/>
 					<ExtendedTooltip name="ОтправительОбъектРасширеннаяПодсказка" id="72"/>
 				</InputField>
@@ -454,9 +462,6 @@
 							<v8:content>Получатель</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="ПолучательОбъектКонтекстноеМеню" id="68"/>
 					<ExtendedTooltip name="ПолучательОбъектРасширеннаяПодсказка" id="69"/>
 				</InputField>
@@ -468,9 +473,6 @@
 							<v8:content>Подразделение-отправитель</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="ОтправительКонтекстноеМеню" id="74"/>
 					<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="75"/>
 				</InputField>
@@ -482,9 +484,6 @@
 							<v8:content>Подразделение-получатель</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="ПолучательКонтекстноеМеню" id="77"/>
 					<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="78"/>
 				</InputField>
@@ -493,9 +492,6 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="80"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="81"/>
 				</InputField>
@@ -613,8 +609,7 @@
 			</ToolTip>
 			<Action>ИзменитьВыделенные</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 </Form>

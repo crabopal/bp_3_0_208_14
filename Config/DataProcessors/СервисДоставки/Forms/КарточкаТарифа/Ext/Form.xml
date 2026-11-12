@@ -10,40 +10,8 @@
 	<AutoTitle>false</AutoTitle>
 	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ФормаЗаписатьИЗакрыть" id="277">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="278"/>
-			</Button>
-			<Button name="ФормаЗаписать" id="299">
-				<Type>CommandBarButton</Type>
-				<Representation>PictureAndText</Representation>
-				<CommandName>Form.Command.Записать</CommandName>
-				<Picture>
-					<xr:Ref>StdPicture.Write</xr:Ref>
-					<xr:LoadTransparent>true</xr:LoadTransparent>
-				</Picture>
-				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="300"/>
-			</Button>
-			<Button name="ФормаУстановитьТарифПоУмолчанию" id="100">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.УстановитьТарифПоУмолчанию</CommandName>
-				<ExtendedTooltip name="ФормаУстановитьТарифПоУмолчаниюРасширеннаяПодсказка" id="101"/>
-			</Button>
-			<Button name="ФормаСправка" id="57">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="58"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -69,16 +37,47 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="2"/>
 					<ChildItems>
-						<CommandBar name="УдалитьГруппаКоманднаяПанель" id="345">
+						<CommandBar name="ГруппаКоманднаяПанель" id="345">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Удалить группа командная панель</v8:content>
+									<v8:content>Группа командная панель</v8:content>
 								</v8:item>
 							</Title>
-							<ExtendedTooltip name="УдалитьГруппаКоманднаяПанельРасширеннаяПодсказка" id="346"/>
+							<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="346"/>
+							<ChildItems>
+								<Button name="ФормаЗаписатьИЗакрыть" id="277">
+									<Type>CommandBarButton</Type>
+									<DefaultButton>true</DefaultButton>
+									<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+									<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
+									<ButtonImportance>Main</ButtonImportance>
+									<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="278"/>
+								</Button>
+								<Button name="ФормаЗаписать" id="299">
+									<Type>CommandBarButton</Type>
+									<Representation>Picture</Representation>
+									<CommandName>Form.Command.Записать</CommandName>
+									<Picture>
+										<xr:Ref>StdPicture.Write</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="300"/>
+								</Button>
+								<Button name="ФормаУстановитьТарифПоУмолчанию" id="100">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.УстановитьТарифПоУмолчанию</CommandName>
+									<ExtendedTooltip name="ФормаУстановитьТарифПоУмолчаниюРасширеннаяПодсказка" id="101"/>
+								</Button>
+								<Button name="ФормаСправка" id="57">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.StandardCommand.Help</CommandName>
+									<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="58"/>
+								</Button>
+							</ChildItems>
 						</CommandBar>
 						<Pages name="ГруппаОсновнаяСтраницы" id="94">
 							<Title>
@@ -97,13 +96,12 @@
 											<v8:content>Основная</v8:content>
 										</v8:item>
 									</Title>
-									<VerticalStretch>false</VerticalStretch>
-									<ScrollOnCompress>true</ScrollOnCompress>
+									<Group>AlwaysHorizontal</Group>
+									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="ГруппаКарточкаРасширеннаяПодсказка" id="97"/>
 									<ChildItems>
-										<SpreadSheetDocumentField name="УдалитьКарточкаТарифа" id="54">
+										<SpreadSheetDocumentField name="КарточкаТарифа" id="54">
 											<DataPath>КарточкаТарифа</DataPath>
-											<Visible>false</Visible>
 											<ReadOnly>true</ReadOnly>
 											<TitleLocation>None</TitleLocation>
 											<VerticalScrollBar>true</VerticalScrollBar>
@@ -113,160 +111,9 @@
 											<EnableStartDrag>false</EnableStartDrag>
 											<EnableDrag>false</EnableDrag>
 											<BorderColor>style:FormBackColor</BorderColor>
-											<ContextMenu name="УдалитьКарточкаТарифаКонтекстноеМеню" id="55"/>
-											<ExtendedTooltip name="УдалитьКарточкаТарифаРасширеннаяПодсказка" id="56"/>
+											<ContextMenu name="КарточкаТарифаКонтекстноеМеню" id="55"/>
+											<ExtendedTooltip name="КарточкаТарифаРасширеннаяПодсказка" id="56"/>
 										</SpreadSheetDocumentField>
-										<UsualGroup name="ГруппаДанныеКарточки" id="372">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа данные карточки</v8:content>
-												</v8:item>
-											</Title>
-											<Group>Vertical</Group>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаДанныеКарточкиРасширеннаяПодсказка" id="373"/>
-											<ChildItems>
-												<UsualGroup name="ГруппаОграничения" id="374">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Группа ограничения</v8:content>
-														</v8:item>
-													</Title>
-													<TitleTextColor>style:FormTextColor</TitleTextColor>
-													<Group>Vertical</Group>
-													<ExtendedTooltip name="ГруппаОграниченияРасширеннаяПодсказка" id="375"/>
-													<ChildItems>
-														<LabelField name="МаксВес" id="376">
-															<DataPath>МаксВес</DataPath>
-															<TitleLocation>Left</TitleLocation>
-															<Format>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч кг'</v8:content>
-																</v8:item>
-															</Format>
-															<ContextMenu name="МаксВесКонтекстноеМеню" id="377"/>
-															<ExtendedTooltip name="МаксВесРасширеннаяПодсказка" id="378"/>
-														</LabelField>
-														<LabelField name="МаксОбъем" id="380">
-															<DataPath>МаксОбъем</DataPath>
-															<TitleLocation>Left</TitleLocation>
-															<Format>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч м³'</v8:content>
-																</v8:item>
-															</Format>
-															<ContextMenu name="МаксОбъемКонтекстноеМеню" id="381"/>
-															<ExtendedTooltip name="МаксОбъемРасширеннаяПодсказка" id="382"/>
-														</LabelField>
-														<LabelField name="МаксДлина" id="384">
-															<DataPath>МаксДлина</DataPath>
-															<TitleLocation>Left</TitleLocation>
-															<Format>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч см'</v8:content>
-																</v8:item>
-															</Format>
-															<ContextMenu name="МаксДлинаКонтекстноеМеню" id="385"/>
-															<ExtendedTooltip name="МаксДлинаРасширеннаяПодсказка" id="386"/>
-														</LabelField>
-													</ChildItems>
-												</UsualGroup>
-												<UsualGroup name="ГруппаОграниченияНегабарит" id="388">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Ограничения по негабариту</v8:content>
-														</v8:item>
-													</Title>
-													<TitleTextColor>style:FormTextColor</TitleTextColor>
-													<Group>Vertical</Group>
-													<ExtendedTooltip name="ГруппаОграниченияНегабаритРасширеннаяПодсказка" id="389"/>
-													<ChildItems>
-														<LabelField name="НегабаритныйВес" id="390">
-															<DataPath>НегабаритныйВес</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Максимальный вес</v8:content>
-																</v8:item>
-															</Title>
-															<TitleLocation>Left</TitleLocation>
-															<Format>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч кг'</v8:content>
-																</v8:item>
-															</Format>
-															<ContextMenu name="НегабаритныйВесКонтекстноеМеню" id="391"/>
-															<ExtendedTooltip name="НегабаритныйВесРасширеннаяПодсказка" id="392"/>
-														</LabelField>
-														<LabelField name="НегабаритныйОбъем" id="394">
-															<DataPath>НегабаритныйОбъем</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Максимальный объем</v8:content>
-																</v8:item>
-															</Title>
-															<TitleLocation>Left</TitleLocation>
-															<Format>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч  м³'</v8:content>
-																</v8:item>
-															</Format>
-															<ContextMenu name="НегабаритныйОбъемКонтекстноеМеню" id="395"/>
-															<ExtendedTooltip name="НегабаритныйОбъемРасширеннаяПодсказка" id="396"/>
-														</LabelField>
-														<LabelField name="НегабаритнаяДлина" id="398">
-															<DataPath>НегабаритнаяДлина</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Максимальная длина</v8:content>
-																</v8:item>
-															</Title>
-															<TitleLocation>Left</TitleLocation>
-															<Format>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч см'</v8:content>
-																</v8:item>
-															</Format>
-															<ContextMenu name="НегабаритнаяДлинаКонтекстноеМеню" id="399"/>
-															<ExtendedTooltip name="НегабаритнаяДлинаРасширеннаяПодсказка" id="400"/>
-														</LabelField>
-													</ChildItems>
-												</UsualGroup>
-												<UsualGroup name="ГруппаОписание" id="406">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Информация</v8:content>
-														</v8:item>
-													</Title>
-													<TitleTextColor>style:FormTextColor</TitleTextColor>
-													<ExtendedTooltip name="ГруппаОписаниеРасширеннаяПодсказка" id="407"/>
-													<ChildItems>
-														<LabelField name="Описание" id="402">
-															<DataPath>Описание</DataPath>
-															<TitleLocation>None</TitleLocation>
-															<VerticalAlign>Top</VerticalAlign>
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<VerticalStretch>true</VerticalStretch>
-															<ContextMenu name="ОписаниеКонтекстноеМеню" id="403"/>
-															<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="404"/>
-														</LabelField>
-													</ChildItems>
-												</UsualGroup>
-											</ChildItems>
-										</UsualGroup>
 									</ChildItems>
 								</Page>
 								<Page name="ГруппаУслуги" id="98">
@@ -277,11 +124,12 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<ScrollOnCompress>true</ScrollOnCompress>
+									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="ГруппаУслугиРасширеннаяПодсказка" id="99"/>
 									<ChildItems>
 										<LabelDecoration name="УслугиПоУмолчаниюПояснение" id="301">
 											<AutoMaxWidth>false</AutoMaxWidth>
+											<TextColor>style:ПоясняющийТекст</TextColor>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -299,7 +147,6 @@
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<AutoMaxHeight>false</AutoMaxHeight>
 											<AutoMaxRowsCount>false</AutoMaxRowsCount>
-											<SelectionMode>SingleRow</SelectionMode>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<Header>false</Header>
 											<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -349,12 +196,16 @@
 												<CheckBoxField name="УслугиПоУмолчаниюТребуетсяЗначение" id="279">
 													<DataPath>УслугиПоУмолчанию.ТребуетсяЗначение</DataPath>
 													<Visible>false</Visible>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="УслугиПоУмолчаниюТребуетсяЗначениеКонтекстноеМеню" id="280"/>
 													<ExtendedTooltip name="УслугиПоУмолчаниюТребуетсяЗначениеРасширеннаяПодсказка" id="281"/>
 												</CheckBoxField>
 												<InputField name="УслугиПоУмолчаниюИдентификатор" id="282">
 													<DataPath>УслугиПоУмолчанию.Идентификатор</DataPath>
 													<Visible>false</Visible>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="УслугиПоУмолчаниюИдентификаторКонтекстноеМеню" id="283"/>
 													<ExtendedTooltip name="УслугиПоУмолчаниюИдентификаторРасширеннаяПодсказка" id="284"/>
 												</InputField>
@@ -380,7 +231,8 @@
 															<ChildItems>
 																<CheckBoxField name="УслугиПоУмолчаниюИспользовать" id="285">
 																	<DataPath>УслугиПоУмолчанию.Использовать</DataPath>
-																	<CheckBoxType>CheckBox</CheckBoxType>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
 																	<ContextMenu name="УслугиПоУмолчаниюИспользоватьКонтекстноеМеню" id="286"/>
 																	<ExtendedTooltip name="УслугиПоУмолчаниюИспользоватьРасширеннаяПодсказка" id="287"/>
 																	<Events>
@@ -390,6 +242,8 @@
 																<InputField name="УслугиПоУмолчаниюНаименование" id="288">
 																	<DataPath>УслугиПоУмолчанию.Представление</DataPath>
 																	<ReadOnly>true</ReadOnly>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
 																	<ContextMenu name="УслугиПоУмолчаниюНаименованиеКонтекстноеМеню" id="289"/>
 																	<ExtendedTooltip name="УслугиПоУмолчаниюНаименованиеРасширеннаяПодсказка" id="290"/>
 																</InputField>
@@ -397,6 +251,8 @@
 														</ColumnGroup>
 														<InputField name="УслугиПоУмолчаниюЗначение" id="291">
 															<DataPath>УслугиПоУмолчанию.Значение</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<AutoMaxWidth>false</AutoMaxWidth>
 															<MaxWidth>10</MaxWidth>
 															<HorizontalStretch>false</HorizontalStretch>
@@ -412,6 +268,8 @@
 														<InputField name="УслугиПоУмолчаниюЕдиницаИзмерения" id="294">
 															<DataPath>УслугиПоУмолчанию.ЕдиницаИзмерения</DataPath>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<AutoMaxWidth>false</AutoMaxWidth>
 															<MaxWidth>10</MaxWidth>
 															<HorizontalStretch>false</HorizontalStretch>
@@ -426,8 +284,8 @@
 													<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 													<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 													<ValuesPicture>
-														<xr:Ref>StdPicture.Information</xr:Ref>
-														<xr:LoadTransparent>true</xr:LoadTransparent>
+														<xr:Ref>CommonPicture.УдалитьИнформация</xr:Ref>
+														<xr:LoadTransparent>false</xr:LoadTransparent>
 													</ValuesPicture>
 													<ContextMenu name="УслугиПоУмолчаниюПоказыватьИнформациюКонтекстноеМеню" id="341"/>
 													<ExtendedTooltip name="УслугиПоУмолчаниюПоказыватьИнформациюРасширеннаяПодсказка" id="342"/>
@@ -444,7 +302,7 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<ScrollOnCompress>true</ScrollOnCompress>
+									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="ГруппаПараметрыТарифаРасширеннаяПодсказка" id="103"/>
 									<ChildItems>
 										<UsualGroup name="ГруппаПараметрыТарифаОсновная" id="104">
@@ -483,8 +341,8 @@
 															</Title>
 															<Group>Vertical</Group>
 															<Behavior>Usual</Behavior>
+															<Representation>None</Representation>
 															<United>false</United>
-															<ShowTitle>false</ShowTitle>
 															<ExtendedTooltip name="ГруппаОплатаРасширеннаяПодсказка" id="111"/>
 															<ChildItems>
 																<InputField name="ФормаОплаты" id="112">
@@ -508,11 +366,13 @@
 													</Title>
 													<Group>Vertical</Group>
 													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
 													<ExtendedTooltip name="ГруппаТерминалыПоУмолчаниюРасширеннаяПодсказка" id="336"/>
 													<ChildItems>
 														<LabelDecoration name="ТерминалыПоУмолчаниюПояснение" id="337">
 															<AutoMaxWidth>false</AutoMaxWidth>
 															<HorizontalStretch>true</HorizontalStretch>
+															<TextColor>style:ПоясняющийТекст</TextColor>
 															<Title formatted="false">
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -525,7 +385,6 @@
 														</LabelDecoration>
 														<Table name="ТерминалыПоУмолчанию" id="304">
 															<Representation>List</Representation>
-															<SelectionMode>SingleRow</SelectionMode>
 															<RowSelectionMode>Cell</RowSelectionMode>
 															<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 															<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -564,13 +423,18 @@
 																<InputField name="ТерминалыПоУмолчаниюАдресЗначение" id="317">
 																	<DataPath>ТерминалыПоУмолчанию.АдресЗначение</DataPath>
 																	<Visible>false</Visible>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
 																	<ContextMenu name="ТерминалыПоУмолчаниюАдресЗначениеКонтекстноеМеню" id="318"/>
 																	<ExtendedTooltip name="ТерминалыПоУмолчаниюАдресЗначениеРасширеннаяПодсказка" id="319"/>
 																</InputField>
 																<InputField name="ТерминалыПоУмолчаниюНаправление" id="326">
 																	<DataPath>ТерминалыПоУмолчанию.НаправлениеПредставление</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
 																	<MarkRequiredComplete>true</MarkRequiredComplete>
-																	<MaxWidth>5</MaxWidth>
+																	<AutoEditMode>true</AutoEditMode>
+																	<Width>5</Width>
+																	<HorizontalStretch>false</HorizontalStretch>
 																	<DropListButton>true</DropListButton>
 																	<ClearButton>false</ClearButton>
 																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -584,10 +448,11 @@
 																</InputField>
 																<InputField name="ТерминалыПоУмолчаниюАдресПредставление" id="320">
 																	<DataPath>ТерминалыПоУмолчанию.АдресПредставление</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
 																	<MarkRequiredComplete>true</MarkRequiredComplete>
-																	<AutoWidthInTable>None</AutoWidthInTable>
+																	<AutoEditMode>true</AutoEditMode>
 																	<DropListButton>false</DropListButton>
-																	<ChoiceButton>true</ChoiceButton>
+																	<ChoiceButton>false</ChoiceButton>
 																	<ClearButton>false</ClearButton>
 																	<OpenButton>true</OpenButton>
 																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -595,7 +460,6 @@
 																	<ContextMenu name="ТерминалыПоУмолчаниюАдресПредставлениеКонтекстноеМеню" id="321"/>
 																	<ExtendedTooltip name="ТерминалыПоУмолчаниюАдресПредставлениеРасширеннаяПодсказка" id="322"/>
 																	<Events>
-																		<Event name="StartChoice">ТерминалыПоУмолчаниюАдресПредставлениеНачалоВыбора</Event>
 																		<Event name="Opening">ТерминалыПоУмолчаниюАдресПредставлениеОткрытие</Event>
 																		<Event name="Clearing">ТерминалыПоУмолчаниюАдресПредставлениеОчистка</Event>
 																	</Events>
@@ -603,18 +467,24 @@
 																<InputField name="ТерминалыПоУмолчаниюАдресВладелец" id="323">
 																	<DataPath>ТерминалыПоУмолчанию.АдресВладелец</DataPath>
 																	<Visible>false</Visible>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
 																	<ContextMenu name="ТерминалыПоУмолчаниюАдресВладелецКонтекстноеМеню" id="324"/>
 																	<ExtendedTooltip name="ТерминалыПоУмолчаниюАдресВладелецРасширеннаяПодсказка" id="325"/>
 																</InputField>
 																<InputField name="ТерминалыПоУмолчаниюТерминалИдентификатор" id="329">
 																	<DataPath>ТерминалыПоУмолчанию.Идентификатор</DataPath>
 																	<Visible>false</Visible>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
 																	<ContextMenu name="ТерминалыПоУмолчаниюТерминалИдентификаторКонтекстноеМеню" id="330"/>
 																	<ExtendedTooltip name="ТерминалыПоУмолчаниюТерминалИдентификаторРасширеннаяПодсказка" id="331"/>
 																</InputField>
 																<InputField name="ТерминалыПоУмолчаниюТерминалНаименование" id="332">
 																	<DataPath>ТерминалыПоУмолчанию.Наименование</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
 																	<MarkRequiredComplete>true</MarkRequiredComplete>
+																	<AutoEditMode>true</AutoEditMode>
 																	<ChoiceButton>true</ChoiceButton>
 																	<OpenButton>true</OpenButton>
 																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -648,7 +518,7 @@
 					<Group>Vertical</Group>
 					<HorizontalAlign>Center</HorizontalAlign>
 					<VerticalAlign>Center</VerticalAlign>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаОжиданиеЗагрузкиРасширеннаяПодсказка" id="50"/>
 					<ChildItems>
 						<PictureDecoration name="ДекорацияОжиданиеЗагрузкиЗаказа" id="51">
@@ -679,7 +549,7 @@
 					</Title>
 					<Shortcut>Ctrl+S</Shortcut>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаОшибкаПолученияДанныхРасширеннаяПодсказка" id="90"/>
 					<ChildItems>
 						<LabelDecoration name="ТекстОшибки" id="91">
@@ -858,7 +728,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Максимальный вес</v8:content>
+					<v8:content>Макс вес</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -874,7 +744,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Максимальная длина</v8:content>
+					<v8:content>Макс длина</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -890,7 +760,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Максимальный объем</v8:content>
+					<v8:content>Макс объем</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1487,7 +1357,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Записать" id="4">
 			<Title>
@@ -1503,7 +1372,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Записать</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

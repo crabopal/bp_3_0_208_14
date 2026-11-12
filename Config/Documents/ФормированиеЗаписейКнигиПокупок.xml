@@ -46,15 +46,15 @@
 						<xr:KeyField>Catalog.НаборыДополнительныхРеквизитовИСведений.TabularSection.ДополнительныеСведения.Attribute.Свойство</xr:KeyField>
 						<xr:TypesFilterField>Catalog.НаборыДополнительныхРеквизитовИСведений.TabularSection.ДополнительныеСведения.Attribute.ИмяПредопределенногоНабора</xr:TypesFilterField>
 						<xr:TypesFilterValue xsi:type="xs:string">Документ_ФормированиеЗаписейКнигиПокупок</xr:TypesFilterValue>
-						<xr:DataPathField>0</xr:DataPathField>
-						<xr:MultipleValuesUseField>0</xr:MultipleValuesUseField>
+						<xr:DataPathField>-1</xr:DataPathField>
+						<xr:MultipleValuesUseField>-1</xr:MultipleValuesUseField>
 					</xr:CharacteristicTypes>
 					<xr:CharacteristicValues from="InformationRegister.ДополнительныеСведения">
 						<xr:ObjectField>InformationRegister.ДополнительныеСведения.Dimension.Объект</xr:ObjectField>
 						<xr:TypeField>InformationRegister.ДополнительныеСведения.Dimension.Свойство</xr:TypeField>
 						<xr:ValueField>InformationRegister.ДополнительныеСведения.Resource.Значение</xr:ValueField>
-						<xr:MultipleValuesKeyField>0</xr:MultipleValuesKeyField>
-						<xr:MultipleValuesOrderField>0</xr:MultipleValuesOrderField>
+						<xr:MultipleValuesKeyField>-1</xr:MultipleValuesKeyField>
+						<xr:MultipleValuesOrderField>-1</xr:MultipleValuesOrderField>
 					</xr:CharacteristicValues>
 				</xr:Characteristic>
 			</Characteristics>
@@ -78,8 +78,9 @@
 			<RegisterRecordsWritingOnPost>WriteSelected</RegisterRecordsWritingOnPost>
 			<SequenceFilling>AutoFillOff</SequenceFilling>
 			<RegisterRecords>
+				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.НДСсАвансов</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.НДСПредъявленный</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.НДСАвансыПолученные</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">AccountingRegister.Хозрасчетный</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.НДСПредъявленныйРеализация0</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">AccumulationRegister.НДСЗаписиКнигиПокупок</xr:Item>
 			</RegisterRecords>
@@ -89,12 +90,7 @@
 			<DataLockFields/>
 			<DataLockControlMode>Automatic</DataLockControlMode>
 			<FullTextSearch>Use</FullTextSearch>
-			<ObjectPresentation>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Формирование записей книги покупок</v8:content>
-				</v8:item>
-			</ObjectPresentation>
+			<ObjectPresentation/>
 			<ExtendedObjectPresentation/>
 			<ListPresentation/>
 			<ExtendedListPresentation/>
@@ -382,14 +378,17 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:DocumentRef.ПередачаВА</v8:Type>
-								<v8:Type>cfg:DocumentRef.РасходнаяНакладная</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетКомиссионера</v8:Type>
-								<v8:Type>cfg:DocumentRef.СчетФактура</v8:Type>
-								<v8:Type>cfg:DocumentRef.ЗаказПокупателя</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПередачаОС</v8:Type>
+								<v8:Type>cfg:DocumentRef.СчетФактураВыданный</v8:Type>
+								<v8:Type>cfg:DocumentRef.ДокументРасчетовСКонтрагентом</v8:Type>
+								<v8:Type>cfg:DocumentRef.АктОбОказанииПроизводственныхУслуг</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтчетКомиссионераОПродажах</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтчетКомитентуОПродажах</v8:Type>
 								<v8:Type>cfg:DocumentRef.ОтчетОРозничныхПродажах</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетПереработчика</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетКомитенту</v8:Type>
+								<v8:Type>cfg:DocumentRef.РеализацияУслугПоПереработке</v8:Type>
+								<v8:Type>cfg:DocumentRef.РеализацияТоваровУслуг</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтражениеНачисленияНДС</v8:Type>
+								<v8:Type>cfg:DocumentRef.РеализацияОтгруженныхТоваров</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -543,20 +542,27 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:DocumentRef.РасходнаяНакладная</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетКомиссионера</v8:Type>
-								<v8:Type>cfg:DocumentRef.ПриходнаяНакладная</v8:Type>
-								<v8:Type>cfg:DocumentRef.СчетФактураПолученный</v8:Type>
-								<v8:Type>cfg:DocumentRef.ЧекККМВозврат</v8:Type>
-								<v8:Type>cfg:DocumentRef.ЧекККМ</v8:Type>
-								<v8:Type>cfg:DocumentRef.ПринятиеКУчетуВА</v8:Type>
 								<v8:Type>cfg:DocumentRef.АвансовыйОтчет</v8:Type>
+								<v8:Type>cfg:DocumentRef.ГТДИмпорт</v8:Type>
 								<v8:Type>cfg:DocumentRef.КорректировкаПоступления</v8:Type>
+								<v8:Type>cfg:DocumentRef.ВыкупПредметовЛизинга</v8:Type>
+								<v8:Type>cfg:DocumentRef.ДокументРасчетовСКонтрагентом</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПринятиеКУчетуОС</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеНМА</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеТоваровУслуг</v8:Type>
+								<v8:Type>cfg:DocumentRef.МодернизацияОС</v8:Type>
+								<v8:Type>cfg:DocumentRef.ВозвратТоваровОтПокупателя</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтчетКомиссионераОПродажах</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтчетКомитентуОПродажах</v8:Type>
+								<v8:Type>cfg:DocumentRef.СчетФактураПолученный</v8:Type>
 								<v8:Type>cfg:DocumentRef.ОтчетОРозничныхПродажах</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеИзПереработки</v8:Type>
 								<v8:Type>cfg:DocumentRef.ЗаявлениеОВвозеТоваров</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетПереработчика</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетКомитенту</v8:Type>
-								<v8:Type>cfg:DocumentRef.РасходыПриИмпорте</v8:Type>
+								<v8:Type>cfg:DocumentRef.РеализацияТоваровУслуг</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтражениеНачисленияНДС</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтражениеНДСКВычету</v8:Type>
+								<v8:Type>cfg:DocumentRef.НачислениеНДСпоСМРхозспособом</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеДопРасходов</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -725,13 +731,18 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:DocumentRef.ОтчетКомиссионера</v8:Type>
-								<v8:Type>cfg:DocumentRef.ПриходнаяНакладная</v8:Type>
-								<v8:Type>cfg:DocumentRef.РасходСоСчета</v8:Type>
-								<v8:Type>cfg:DocumentRef.ПринятиеКУчетуВА</v8:Type>
+								<v8:Type>cfg:DocumentRef.СписаниеСРасчетногоСчета</v8:Type>
 								<v8:Type>cfg:DocumentRef.АвансовыйОтчет</v8:Type>
-								<v8:Type>cfg:DocumentRef.КорректировкаПоступления</v8:Type>
-								<v8:Type>cfg:DocumentRef.РасходИзКассы</v8:Type>
+								<v8:Type>cfg:DocumentRef.ГТДИмпорт</v8:Type>
+								<v8:Type>cfg:DocumentRef.ВыкупПредметовЛизинга</v8:Type>
+								<v8:Type>cfg:DocumentRef.ДокументРасчетовСКонтрагентом</v8:Type>
+								<v8:Type>cfg:DocumentRef.РасходныйКассовыйОрдер</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОперацияБух</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеНМА</v8:Type>
+								<v8:Type>cfg:DocumentRef.КорректировкаДолга</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеТоваровУслуг</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтчетКомиссионераОПродажах</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеДопРасходов</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -819,7 +830,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:ChartOfAccountsRef.Управленческий</v8:Type>
+								<v8:Type>cfg:ChartOfAccountsRef.Хозрасчетный</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -836,7 +847,7 @@
 							<ExtendedEdit>false</ExtendedEdit>
 							<MinValue xsi:nil="true"/>
 							<MaxValue xsi:nil="true"/>
-							<FillChecking>DontCheck</FillChecking>
+							<FillChecking>ShowError</FillChecking>
 							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 							<ChoiceParameterLinks/>
 							<ChoiceParameters>
@@ -947,8 +958,8 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:DocumentRef.СчетФактураПолученный</v8:Type>
 								<v8:Type>cfg:DocumentRef.КорректировкаПоступления</v8:Type>
+								<v8:Type>cfg:DocumentRef.СчетФактураПолученный</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -996,12 +1007,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:DocumentRef.РасходСоСчета</v8:Type>
-								<v8:Type>xs:string</v8:Type>
-								<v8:StringQualifiers>
-									<v8:Length>50</v8:Length>
-									<v8:AllowedLength>Variable</v8:AllowedLength>
-								</v8:StringQualifiers>
+								<v8:TypeSet>cfg:DefinedType.НомерДокументаОплаты</v8:TypeSet>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -1359,14 +1365,13 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:DocumentRef.ПередачаВА</v8:Type>
-								<v8:Type>cfg:DocumentRef.РасходнаяНакладная</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетКомиссионера</v8:Type>
-								<v8:Type>cfg:DocumentRef.РасходСоСчета</v8:Type>
-								<v8:Type>cfg:DocumentRef.ЧекККМ</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетОРозничныхПродажах</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетКомитенту</v8:Type>
-								<v8:Type>cfg:DocumentRef.РасходИзКассы</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПередачаОС</v8:Type>
+								<v8:Type>cfg:DocumentRef.ДокументРасчетовСКонтрагентом</v8:Type>
+								<v8:Type>cfg:DocumentRef.АктОбОказанииПроизводственныхУслуг</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтчетКомиссионераОПродажах</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтчетКомитентуОПродажах</v8:Type>
+								<v8:Type>cfg:DocumentRef.РеализацияТоваровУслуг</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтражениеНачисленияНДС</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -1456,18 +1461,18 @@
 							</Synonym>
 							<Comment/>
 							<Type>
+								<v8:Type>cfg:DocumentRef.СписаниеСРасчетногоСчета</v8:Type>
+								<v8:Type>cfg:DocumentRef.СчетФактураВыданный</v8:Type>
+								<v8:Type>cfg:DocumentRef.ДокументРасчетовСКонтрагентом</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеНаРасчетныйСчет</v8:Type>
 								<v8:Type>cfg:DocumentRef.КорректировкаРеализации</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетКомиссионера</v8:Type>
-								<v8:Type>cfg:DocumentRef.ПриходнаяНакладная</v8:Type>
-								<v8:Type>cfg:DocumentRef.РасходСоСчета</v8:Type>
-								<v8:Type>cfg:DocumentRef.ЧекККМ</v8:Type>
-								<v8:Type>cfg:DocumentRef.СчетФактура</v8:Type>
-								<v8:Type>cfg:DocumentRef.ПоступлениеВКассу</v8:Type>
+								<v8:Type>cfg:DocumentRef.РасходныйКассовыйОрдер</v8:Type>
+								<v8:Type>cfg:DocumentRef.КорректировкаДолга</v8:Type>
+								<v8:Type>cfg:DocumentRef.ВозвратТоваровОтПокупателя</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОплатаПлатежнойКартой</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтчетКомиссионераОПродажах</v8:Type>
 								<v8:Type>cfg:DocumentRef.ОтчетОРозничныхПродажах</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетКомитенту</v8:Type>
-								<v8:Type>cfg:DocumentRef.РасходИзКассы</v8:Type>
-								<v8:Type>cfg:DocumentRef.ПоступлениеНаСчет</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОперацияПоПлатежнымКартам</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПриходныйКассовыйОрдер</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -1842,7 +1847,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:DocumentRef.СчетФактура</v8:Type>
+								<v8:Type>cfg:DocumentRef.СчетФактураВыданный</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -1942,11 +1947,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>xs:string</v8:Type>
-								<v8:StringQualifiers>
-									<v8:Length>50</v8:Length>
-									<v8:AllowedLength>Variable</v8:AllowedLength>
-								</v8:StringQualifiers>
+								<v8:TypeSet>cfg:DefinedType.НомерДокументаОплаты</v8:TypeSet>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -2186,6 +2187,382 @@
 					</Attribute>
 				</ChildObjects>
 			</TabularSection>
+			<TabularSection uuid="a4bc2a9a-c381-4332-b922-e38f7c72df61">
+				<InternalInfo>
+					<xr:GeneratedType name="DocumentTabularSection.ФормированиеЗаписейКнигиПокупок.НДСсАвансовВыданных" category="TabularSection">
+						<xr:TypeId>168ecdb5-229d-4eaa-8913-13fdf94f5478</xr:TypeId>
+						<xr:ValueId>06481e82-2b2e-45aa-a586-6b9597601d04</xr:ValueId>
+					</xr:GeneratedType>
+					<xr:GeneratedType name="DocumentTabularSectionRow.ФормированиеЗаписейКнигиПокупок.НДСсАвансовВыданных" category="TabularSectionRow">
+						<xr:TypeId>57b2fe0e-f7f0-4fb1-9140-9c5fb71fd444</xr:TypeId>
+						<xr:ValueId>9c6dcf3c-53a0-4aad-8b3f-12cfd996a6f3</xr:ValueId>
+					</xr:GeneratedType>
+				</InternalInfo>
+				<Properties>
+					<Name>НДСсАвансовВыданных</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выданные авансы</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<ToolTip/>
+					<FillChecking>DontCheck</FillChecking>
+					<LineNumberLength>5</LineNumberLength>
+				</Properties>
+				<ChildObjects>
+					<Attribute uuid="8905fc24-25ae-4ebe-9350-1e0c217c0698">
+						<Properties>
+							<Name>Поставщик</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Поставщик</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>ShowError</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+							<DataHistory>Use</DataHistory>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="164e32d5-e2e2-427a-8646-8e1a2930f60b">
+						<Properties>
+							<Name>ДоговорКонтрагента</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Договор</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>cfg:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.Владелец</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Document.ФормированиеЗаписейКнигиПокупок.TabularSection.НДСсАвансовВыданных.Attribute.Поставщик</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+								<xr:Link>
+									<xr:Name>Отбор.Организация</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Document.ФормированиеЗаписейКнигиПокупок.Attribute.Организация</xr:DataPath>
+									<xr:ValueChange>DontChange</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+							<DataHistory>Use</DataHistory>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="4384464d-bb82-4614-8fae-555a3b9f6db3">
+						<Properties>
+							<Name>СчетФактура</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Счет-фактура</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>cfg:DocumentRef.СписаниеСРасчетногоСчета</v8:Type>
+								<v8:Type>cfg:DocumentRef.АвансовыйОтчет</v8:Type>
+								<v8:Type>cfg:DocumentRef.КорректировкаПоступления</v8:Type>
+								<v8:Type>cfg:DocumentRef.ДокументРасчетовСКонтрагентом</v8:Type>
+								<v8:Type>cfg:DocumentRef.РасходныйКассовыйОрдер</v8:Type>
+								<v8:Type>cfg:DocumentRef.КорректировкаДолга</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОплатаПлатежнойКартой</v8:Type>
+								<v8:Type>cfg:DocumentRef.СчетФактураПолученный</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтражениеНДСКВычету</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>ShowError</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.ДоговорКонтрагента</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Document.ФормированиеЗаписейКнигиПокупок.TabularSection.НДСсАвансовВыданных.Attribute.ДоговорКонтрагента</xr:DataPath>
+									<xr:ValueChange>DontChange</xr:ValueChange>
+								</xr:Link>
+								<xr:Link>
+									<xr:Name>Отбор.Контрагент</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Document.ФормированиеЗаписейКнигиПокупок.TabularSection.НДСсАвансовВыданных.Attribute.Поставщик</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+								<xr:Link>
+									<xr:Name>Отбор.Организация</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Document.ФормированиеЗаписейКнигиПокупок.Attribute.Организация</xr:DataPath>
+									<xr:ValueChange>DontChange</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+							<DataHistory>Use</DataHistory>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="5bb953c1-a57e-419d-8ae5-f19128731c6f">
+						<Properties>
+							<Name>СтавкаНДС</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Ставка НДС</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>cfg:EnumRef.СтавкиНДС</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>ShowError</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+							<DataHistory>Use</DataHistory>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="261e9d01-537a-4b68-bf99-c539a5fea6f0">
+						<Properties>
+							<Name>СуммаБезНДС</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сумма без НДС</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>xs:decimal</v8:Type>
+								<v8:NumberQualifiers>
+									<v8:Digits>15</v8:Digits>
+									<v8:FractionDigits>2</v8:FractionDigits>
+									<v8:AllowedSign>Any</v8:AllowedSign>
+								</v8:NumberQualifiers>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+							<DataHistory>Use</DataHistory>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="72e29dbe-fd17-43c7-815a-f6601e6a8aed">
+						<Properties>
+							<Name>НДС</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>НДС</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>xs:decimal</v8:Type>
+								<v8:NumberQualifiers>
+									<v8:Digits>15</v8:Digits>
+									<v8:FractionDigits>2</v8:FractionDigits>
+									<v8:AllowedSign>Any</v8:AllowedSign>
+								</v8:NumberQualifiers>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+							<DataHistory>Use</DataHistory>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="fbd930d3-c6d8-4ed9-bda8-7f9c2a3bec46">
+						<Properties>
+							<Name>ЗаписьДополнительногоЛиста</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Запись доп. листа</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>xs:boolean</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Запись дополнительного листа</v8:content>
+								</v8:item>
+							</ToolTip>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+							<DataHistory>Use</DataHistory>
+						</Properties>
+					</Attribute>
+					<Attribute uuid="1c5bc3f7-5a9f-452f-ba0f-33ab7f23488d">
+						<Properties>
+							<Name>КорректируемыйПериод</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Корректируемый период</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>xs:dateTime</v8:Type>
+								<v8:DateQualifiers>
+									<v8:DateFractions>Date</v8:DateFractions>
+								</v8:DateQualifiers>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>DontCheck</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+							<DataHistory>Use</DataHistory>
+						</Properties>
+					</Attribute>
+				</ChildObjects>
+			</TabularSection>
 			<TabularSection uuid="0afffd15-1db9-4079-9ddf-a5c43bc1db9e">
 				<InternalInfo>
 					<xr:GeneratedType name="DocumentTabularSection.ФормированиеЗаписейКнигиПокупок.ВычетНДСПоНалоговомуАгенту" category="TabularSection">
@@ -2251,11 +2628,14 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:DocumentRef.ПередачаВА</v8:Type>
-								<v8:Type>cfg:DocumentRef.РасходнаяНакладная</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетКомиссионера</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетОПереработке</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетКомитенту</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПередачаОС</v8:Type>
+								<v8:Type>cfg:DocumentRef.ДокументРасчетовСКонтрагентом</v8:Type>
+								<v8:Type>cfg:DocumentRef.АктОбОказанииПроизводственныхУслуг</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтчетКомиссионераОПродажах</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтчетКомитентуОПродажах</v8:Type>
+								<v8:Type>cfg:DocumentRef.РеализацияУслугПоПереработке</v8:Type>
+								<v8:Type>cfg:DocumentRef.РеализацияТоваровУслуг</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтражениеНачисленияНДС</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -2361,6 +2741,43 @@
 							<DataHistory>Use</DataHistory>
 						</Properties>
 					</Attribute>
+					<Attribute uuid="49a10013-4e51-435a-8eb3-77ca1a65133b">
+						<Properties>
+							<Name>Поставщик</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Поставщик</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<Type>
+								<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+							</Type>
+							<PasswordMode>false</PasswordMode>
+							<Format/>
+							<EditFormat/>
+							<ToolTip/>
+							<MarkNegatives>false</MarkNegatives>
+							<Mask/>
+							<MultiLine>false</MultiLine>
+							<ExtendedEdit>false</ExtendedEdit>
+							<MinValue xsi:nil="true"/>
+							<MaxValue xsi:nil="true"/>
+							<FillChecking>ShowError</FillChecking>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ChoiceParameterLinks/>
+							<ChoiceParameters/>
+							<QuickChoice>Auto</QuickChoice>
+							<CreateOnInput>Auto</CreateOnInput>
+							<ChoiceForm/>
+							<LinkByType/>
+							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+							<Indexing>DontIndex</Indexing>
+							<FullTextSearch>Use</FullTextSearch>
+							<DataHistory>Use</DataHistory>
+						</Properties>
+					</Attribute>
 					<Attribute uuid="89040beb-26c3-4bcf-994f-e3770bda8ac9">
 						<Properties>
 							<Name>ДоговорКонтрагента</Name>
@@ -2409,43 +2826,6 @@
 							<DataHistory>Use</DataHistory>
 						</Properties>
 					</Attribute>
-					<Attribute uuid="49a10013-4e51-435a-8eb3-77ca1a65133b">
-						<Properties>
-							<Name>Поставщик</Name>
-							<Synonym>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Поставщик</v8:content>
-								</v8:item>
-							</Synonym>
-							<Comment/>
-							<Type>
-								<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
-							</Type>
-							<PasswordMode>false</PasswordMode>
-							<Format/>
-							<EditFormat/>
-							<ToolTip/>
-							<MarkNegatives>false</MarkNegatives>
-							<Mask/>
-							<MultiLine>false</MultiLine>
-							<ExtendedEdit>false</ExtendedEdit>
-							<MinValue xsi:nil="true"/>
-							<MaxValue xsi:nil="true"/>
-							<FillChecking>ShowError</FillChecking>
-							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-							<ChoiceParameterLinks/>
-							<ChoiceParameters/>
-							<QuickChoice>Auto</QuickChoice>
-							<CreateOnInput>Auto</CreateOnInput>
-							<ChoiceForm/>
-							<LinkByType/>
-							<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
-							<Indexing>DontIndex</Indexing>
-							<FullTextSearch>Use</FullTextSearch>
-							<DataHistory>Use</DataHistory>
-						</Properties>
-					</Attribute>
 					<Attribute uuid="9cb9036c-1971-4639-b9fb-1dec53eab901">
 						<Properties>
 							<Name>СчетФактура</Name>
@@ -2457,15 +2837,24 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:DocumentRef.РасходнаяНакладная</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетКомиссионера</v8:Type>
-								<v8:Type>cfg:DocumentRef.ПриходнаяНакладная</v8:Type>
-								<v8:Type>cfg:DocumentRef.СчетФактураПолученный</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетОПереработке</v8:Type>
-								<v8:Type>cfg:DocumentRef.ПринятиеКУчетуВА</v8:Type>
 								<v8:Type>cfg:DocumentRef.АвансовыйОтчет</v8:Type>
+								<v8:Type>cfg:DocumentRef.ГТДИмпорт</v8:Type>
+								<v8:Type>cfg:DocumentRef.ВыкупПредметовЛизинга</v8:Type>
+								<v8:Type>cfg:DocumentRef.ДокументРасчетовСКонтрагентом</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПринятиеКУчетуОС</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеНМА</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеТоваровУслуг</v8:Type>
+								<v8:Type>cfg:DocumentRef.МодернизацияОС</v8:Type>
+								<v8:Type>cfg:DocumentRef.ВозвратТоваровОтПокупателя</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтчетКомиссионераОПродажах</v8:Type>
+								<v8:Type>cfg:DocumentRef.СчетФактураПолученный</v8:Type>
 								<v8:Type>cfg:DocumentRef.ОтчетОРозничныхПродажах</v8:Type>
-								<v8:Type>cfg:DocumentRef.ОтчетКомитенту</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеИзПереработки</v8:Type>
+								<v8:Type>cfg:DocumentRef.РеализацияТоваровУслуг</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтражениеНачисленияНДС</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтражениеНДСКВычету</v8:Type>
+								<v8:Type>cfg:DocumentRef.НачислениеНДСпоСМРхозспособом</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеДопРасходов</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -2634,7 +3023,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:ChartOfAccountsRef.Управленческий</v8:Type>
+								<v8:Type>cfg:ChartOfAccountsRef.Хозрасчетный</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -2651,7 +3040,7 @@
 							<ExtendedEdit>false</ExtendedEdit>
 							<MinValue xsi:nil="true"/>
 							<MaxValue xsi:nil="true"/>
-							<FillChecking>DontCheck</FillChecking>
+							<FillChecking>ShowError</FillChecking>
 							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 							<ChoiceParameterLinks/>
 							<ChoiceParameters>
@@ -2680,11 +3069,18 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:DocumentRef.РасходСоСчета</v8:Type>
-								<v8:Type>cfg:DocumentRef.ПринятиеКУчетуВА</v8:Type>
+								<v8:Type>cfg:DocumentRef.СписаниеСРасчетногоСчета</v8:Type>
 								<v8:Type>cfg:DocumentRef.АвансовыйОтчет</v8:Type>
-								<v8:Type>cfg:DocumentRef.КорректировкаПоступления</v8:Type>
-								<v8:Type>cfg:DocumentRef.РасходИзКассы</v8:Type>
+								<v8:Type>cfg:DocumentRef.ГТДИмпорт</v8:Type>
+								<v8:Type>cfg:DocumentRef.ВыкупПредметовЛизинга</v8:Type>
+								<v8:Type>cfg:DocumentRef.ДокументРасчетовСКонтрагентом</v8:Type>
+								<v8:Type>cfg:DocumentRef.РасходныйКассовыйОрдер</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОперацияБух</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеНМА</v8:Type>
+								<v8:Type>cfg:DocumentRef.КорректировкаДолга</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеТоваровУслуг</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОтчетКомиссионераОПродажах</v8:Type>
+								<v8:Type>cfg:DocumentRef.ПоступлениеДопРасходов</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -2854,7 +3250,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:DocumentRef.СчетФактура</v8:Type>
+								<v8:Type>cfg:DocumentRef.СчетФактураВыданный</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -2902,9 +3298,11 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:DocumentRef.РасходСоСчета</v8:Type>
-								<v8:Type>cfg:DocumentRef.КорректировкаПоступления</v8:Type>
-								<v8:Type>cfg:DocumentRef.РасходИзКассы</v8:Type>
+								<v8:Type>cfg:DocumentRef.СписаниеСРасчетногоСчета</v8:Type>
+								<v8:Type>cfg:DocumentRef.ДокументРасчетовСКонтрагентом</v8:Type>
+								<v8:Type>cfg:DocumentRef.РасходныйКассовыйОрдер</v8:Type>
+								<v8:Type>cfg:DocumentRef.ОперацияБух</v8:Type>
+								<v8:Type>cfg:DocumentRef.КорректировкаДолга</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -3293,7 +3691,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
-								<v8:Type>cfg:ChartOfAccountsRef.Управленческий</v8:Type>
+								<v8:Type>cfg:ChartOfAccountsRef.Хозрасчетный</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
 							<Format/>
@@ -3310,7 +3708,7 @@
 							<ExtendedEdit>false</ExtendedEdit>
 							<MinValue xsi:nil="true"/>
 							<MaxValue xsi:nil="true"/>
-							<FillChecking>DontCheck</FillChecking>
+							<FillChecking>ShowError</FillChecking>
 							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 							<ChoiceParameterLinks/>
 							<ChoiceParameters>

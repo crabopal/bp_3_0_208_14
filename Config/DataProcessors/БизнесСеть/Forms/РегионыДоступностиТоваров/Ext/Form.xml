@@ -11,6 +11,12 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
+			<Button name="ФормаОбновить" id="240">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Перечитать</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="241"/>
+			</Button>
 			<Button name="ФормаЗаписатьЗакрыть" id="60">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
@@ -30,39 +36,6 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаПояснение" id="324">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа пояснение</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа пояснение</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Group>AlwaysHorizontal</Group>
-			<HorizontalSpacing>Half</HorizontalSpacing>
-			<VerticalAlign>Top</VerticalAlign>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПояснениеРасширеннаяПодсказка" id="325"/>
-			<ChildItems>
-				<LabelDecoration name="ДекорацияПояснение" id="299">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Для возможности поиска по регионам, ввод контактной информации необходимо производить только с использованием адресного классификатора, не используя свободный режим ввода.</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ДекорацияПояснениеКонтекстноеМеню" id="300"/>
-					<ExtendedTooltip name="ДекорацияПояснениеРасширеннаяПодсказка" id="301"/>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
 		<UsualGroup name="ГруппаРегионыПродажи" id="257">
 			<Title>
 				<v8:item>
@@ -72,6 +45,7 @@
 			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
 			<ExtendedTooltip name="ГруппаРегионыПродажиРасширеннаяПодсказка" id="258"/>
 			<ChildItems>
 				<CheckBoxField name="ИспользоватьРегионы" id="310">
@@ -92,9 +66,7 @@
 				<Table name="РегионыПродажи" id="5">
 					<Representation>List</Representation>
 					<HeightInTableRows>1</HeightInTableRows>
-					<SelectionMode>SingleRow</SelectionMode>
-					<RowSelectionMode>Row</RowSelectionMode>
-					<Header>false</Header>
+					<RowSelectionMode>Cell</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
 					<EnableStartDrag>true</EnableStartDrag>
@@ -107,30 +79,10 @@
 							<v8:content>Регионы продаж и поставок</v8:content>
 						</v8:item>
 					</Title>
-					<CommandSet>
-						<ExcludedCommand>CancelSearch</ExcludedCommand>
-						<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
-						<ExcludedCommand>Copy</ExcludedCommand>
-						<ExcludedCommand>Find</ExcludedCommand>
-						<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
-						<ExcludedCommand>MoveDown</ExcludedCommand>
-						<ExcludedCommand>MoveUp</ExcludedCommand>
-						<ExcludedCommand>SearchEverywhere</ExcludedCommand>
-						<ExcludedCommand>SearchHistory</ExcludedCommand>
-						<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
-						<ExcludedCommand>SortListAsc</ExcludedCommand>
-						<ExcludedCommand>SortListDesc</ExcludedCommand>
-					</CommandSet>
 					<RowFilter xsi:nil="true"/>
 					<ContextMenu name="РегионыПродажиКонтекстноеМеню" id="6"/>
 					<AutoCommandBar name="РегионыПродажиКоманднаяПанель" id="7">
 						<ChildItems>
-							<Button name="ФормаОбновитьКПДоставка" id="240">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.Перечитать</CommandName>
-								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-								<ExtendedTooltip name="ФормаОбновитьКПДоставкаРасширеннаяПодсказка" id="241"/>
-							</Button>
 							<Button name="РегионыАбонентаПродажиЗаполнить" id="62">
 								<Type>CommandBarButton</Type>
 								<CommandName>Form.Command.ЗаполнитьРегионыПродажи</CommandName>
@@ -178,7 +130,6 @@
 									<v8:content>Регион</v8:content>
 								</v8:item>
 							</Title>
-							<AutoWidthInTable>None</AutoWidthInTable>
 							<ChoiceButton>true</ChoiceButton>
 							<TextEdit>false</TextEdit>
 							<ContextMenu name="РегионыПродажиПредставлениеКонтекстноеМеню" id="19"/>
@@ -200,9 +151,8 @@
 			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<ExtendedTooltip name="ГруппаАдресаПродажиРасширеннаяПодсказка" id="260">
-				<AutoMaxWidth>false</AutoMaxWidth>
-			</ExtendedTooltip>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="ГруппаАдресаПродажиРасширеннаяПодсказка" id="260"/>
 			<ChildItems>
 				<CheckBoxField name="ИспользоватьАдреса" id="313">
 					<DataPath>ИспользоватьАдреса</DataPath>
@@ -222,9 +172,7 @@
 				<Table name="АдресаПродажи" id="213">
 					<Representation>List</Representation>
 					<HeightInTableRows>1</HeightInTableRows>
-					<SelectionMode>SingleRow</SelectionMode>
-					<RowSelectionMode>Row</RowSelectionMode>
-					<Header>false</Header>
+					<RowSelectionMode>Cell</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
 					<EnableStartDrag>true</EnableStartDrag>
@@ -237,30 +185,10 @@
 							<v8:content>Адреса магазинов и складов</v8:content>
 						</v8:item>
 					</Title>
-					<CommandSet>
-						<ExcludedCommand>CancelSearch</ExcludedCommand>
-						<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
-						<ExcludedCommand>Copy</ExcludedCommand>
-						<ExcludedCommand>Find</ExcludedCommand>
-						<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
-						<ExcludedCommand>MoveDown</ExcludedCommand>
-						<ExcludedCommand>MoveUp</ExcludedCommand>
-						<ExcludedCommand>SearchEverywhere</ExcludedCommand>
-						<ExcludedCommand>SearchHistory</ExcludedCommand>
-						<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
-						<ExcludedCommand>SortListAsc</ExcludedCommand>
-						<ExcludedCommand>SortListDesc</ExcludedCommand>
-					</CommandSet>
 					<RowFilter xsi:nil="true"/>
 					<ContextMenu name="АдресаПродажиКонтекстноеМеню" id="214"/>
 					<AutoCommandBar name="АдресаПродажиКоманднаяПанель" id="215">
 						<ChildItems>
-							<Button name="ФормаОбновитьКПСамовывоз" id="337">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.Перечитать</CommandName>
-								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-								<ExtendedTooltip name="ФормаОбновитьКПСамовывозРасширеннаяПодсказка" id="338"/>
-							</Button>
 							<Button name="АдресаАбонентаПродажиЗаполнить" id="238">
 								<Type>CommandBarButton</Type>
 								<CommandName>Form.Command.ЗаполнитьАдресаПродажи</CommandName>
@@ -308,7 +236,6 @@
 									<v8:content>Адрес</v8:content>
 								</v8:item>
 							</Title>
-							<AutoWidthInTable>None</AutoWidthInTable>
 							<ChoiceButton>true</ChoiceButton>
 							<TextEdit>false</TextEdit>
 							<ContextMenu name="АдресаПродажиПредставлениеКонтекстноеМеню" id="227"/>
@@ -321,6 +248,18 @@
 				</Table>
 			</ChildItems>
 		</UsualGroup>
+		<LabelDecoration name="ДекорацияПояснение" id="299">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<TextColor>style:ПоясняющийТекст</TextColor>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Для возможности поиска по регионам, ввод контактной информации необходимо производить только с использованием адресного классификатора, не используя свободный режим ввода.</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ДекорацияПояснениеКонтекстноеМеню" id="300"/>
+			<ExtendedTooltip name="ДекорацияПояснениеРасширеннаяПодсказка" id="301"/>
+		</LabelDecoration>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="РегионыПродажи" id="2">
@@ -533,12 +472,11 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Записать и закрыть</v8:content>
+					<v8:content>Записать закрыть</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаписатьЗакрыть</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЗаполнитьРегионыПродажи" id="2">
 			<Title>
@@ -603,17 +541,11 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Записать</v8:content>
+					<v8:content>Записать закрыть</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Write</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>Записать</Action>
-			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

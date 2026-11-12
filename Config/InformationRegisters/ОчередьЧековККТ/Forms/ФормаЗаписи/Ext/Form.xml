@@ -20,7 +20,16 @@
 		<ExcludedCommand>WriteAndClose</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗакрыть" id="37">
+				<Type>CommandBarButton</Type>
+				<DefaultItem>true</DefaultItem>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="38"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -34,8 +43,8 @@
 				<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
 			</Border>
 			<BorderColor>style:SpecialTextColor</BorderColor>
-			<TextColor>style:NegativeTextColor</TextColor>
-			<BackColor>pal:FirstBrand</BackColor>
+			<TextColor>style:SpecialTextColor</TextColor>
+			<BackColor>style:ImportantColor</BackColor>
 			<ContextMenu name="ТекстОшибкиКонтекстноеМеню" id="107"/>
 			<ExtendedTooltip name="ТекстОшибкиРасширеннаяПодсказка" id="108"/>
 		</LabelField>
@@ -52,22 +61,38 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ДанныеРасширеннаяПодсказка" id="95"/>
 			<ChildItems>
-				<UsualGroup name="Группа2" id="137">
-					<Group>HorizontalIfPossible</Group>
-					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="138"/>
+				<UsualGroup name="Реквизиты" id="96">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>WeakSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РеквизитыРасширеннаяПодсказка" id="97"/>
 					<ChildItems>
-						<UsualGroup name="Реквизиты" id="96">
+						<InputField name="ДокументОснование" id="1">
+							<DataPath>Запись.ДокументОснование</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="3"/>
+						</InputField>
+						<UsualGroup name="Группа" id="104">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Реквизиты</v8:content>
+									<v8:content>Группа</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
+							<Group>AlwaysHorizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>WeakSeparation</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="РеквизитыРасширеннаяПодсказка" id="97"/>
+							<ExtendedTooltip name="ГруппаРасширеннаяПодсказка" id="105"/>
 							<ChildItems>
 								<InputField name="СтатусЧека" id="101">
 									<DataPath>Запись.СтатусЧека</DataPath>
@@ -75,81 +100,67 @@
 									<ContextMenu name="СтатусЧекаКонтекстноеМеню" id="102"/>
 									<ExtendedTooltip name="СтатусЧекаРасширеннаяПодсказка" id="103"/>
 								</InputField>
-								<InputField name="ДокументОснование" id="1">
-									<DataPath>Запись.ДокументОснование</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="2"/>
-									<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="3"/>
-								</InputField>
-								<InputField name="Организация" id="85">
-									<DataPath>Запись.Организация</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>true</HorizontalStretch>
-									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="86"/>
-									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="87"/>
-								</InputField>
-								<InputField name="ОрганизацияИНН" id="112">
-									<DataPath>Запись.ОрганизацияИНН</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<ContextMenu name="ОрганизацияИННКонтекстноеМеню" id="113"/>
-									<ExtendedTooltip name="ОрганизацияИННРасширеннаяПодсказка" id="114"/>
-								</InputField>
-								<InputField name="ТорговыйОбъект" id="88">
-									<DataPath>Запись.ТорговыйОбъект</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>true</HorizontalStretch>
-									<ContextMenu name="ТорговыйОбъектКонтекстноеМеню" id="89"/>
-									<ExtendedTooltip name="ТорговыйОбъектРасширеннаяПодсказка" id="90"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="Группа1" id="135">
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="136"/>
-							<ChildItems>
 								<InputField name="Дата" id="4">
 									<DataPath>Запись.Дата</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
 									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
 								</InputField>
-								<InputField name="СистемаНалогообложения" id="109">
-									<DataPath>Запись.СистемаНалогообложения</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<ContextMenu name="СистемаНалогообложенияКонтекстноеМеню" id="110"/>
-									<ExtendedTooltip name="СистемаНалогообложенияРасширеннаяПодсказка" id="111"/>
-								</InputField>
-								<InputField name="ТипДокумента" id="51">
-									<DataPath>Запись.ТипДокумента</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>true</HorizontalStretch>
-									<ContextMenu name="ТипДокументаКонтекстноеМеню" id="52"/>
-									<ExtendedTooltip name="ТипДокументаРасширеннаяПодсказка" id="53"/>
-								</InputField>
-								<InputField name="ТипРасчета" id="13">
-									<DataPath>Запись.ТипРасчета</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>true</HorizontalStretch>
-									<ContextMenu name="ТипРасчетаКонтекстноеМеню" id="14"/>
-									<ExtendedTooltip name="ТипРасчетаРасширеннаяПодсказка" id="15"/>
-								</InputField>
-								<InputField name="Сумма" id="22">
-									<DataPath>Запись.Сумма</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<HorizontalAlign>Right</HorizontalAlign>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<ContextMenu name="СуммаКонтекстноеМеню" id="23"/>
-									<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="24"/>
-								</InputField>
 							</ChildItems>
 						</UsualGroup>
+						<InputField name="СистемаНалогообложения" id="109">
+							<DataPath>Запись.СистемаНалогообложения</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="СистемаНалогообложенияКонтекстноеМеню" id="110"/>
+							<ExtendedTooltip name="СистемаНалогообложенияРасширеннаяПодсказка" id="111"/>
+						</InputField>
+						<InputField name="ТипДокумента" id="51">
+							<DataPath>Запись.ТипДокумента</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="ТипДокументаКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="ТипДокументаРасширеннаяПодсказка" id="53"/>
+						</InputField>
+						<InputField name="ТипРасчета" id="13">
+							<DataPath>Запись.ТипРасчета</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="ТипРасчетаКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ТипРасчетаРасширеннаяПодсказка" id="15"/>
+						</InputField>
+						<InputField name="Организация" id="85">
+							<DataPath>Запись.Организация</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="86"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="87"/>
+						</InputField>
+						<InputField name="ОрганизацияИНН" id="112">
+							<DataPath>Запись.ОрганизацияИНН</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ОрганизацияИННКонтекстноеМеню" id="113"/>
+							<ExtendedTooltip name="ОрганизацияИННРасширеннаяПодсказка" id="114"/>
+						</InputField>
+						<InputField name="ТорговыйОбъект" id="88">
+							<DataPath>Запись.ТорговыйОбъект</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="ТорговыйОбъектКонтекстноеМеню" id="89"/>
+							<ExtendedTooltip name="ТорговыйОбъектРасширеннаяПодсказка" id="90"/>
+						</InputField>
+						<InputField name="Сумма" id="22">
+							<DataPath>Запись.Сумма</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="СуммаКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="24"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="Представление" id="118">

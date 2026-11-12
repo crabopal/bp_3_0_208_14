@@ -9,12 +9,8 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandSet>
-		<ExcludedCommand>ChangeHistory</ExcludedCommand>
-		<ExcludedCommand>Write</ExcludedCommand>
-		<ExcludedCommand>WriteAndClose</ExcludedCommand>
-	</CommandSet>
-	<ShowTitle>true</ShowTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -32,12 +28,12 @@
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<BackColor>style:ЦветФонаВнимание</BackColor>
 			<ExtendedTooltip name="ГруппаЗавершениеФункциональностиРасширеннаяПодсказка" id="50"/>
 			<ChildItems>
 				<LabelDecoration name="РаботаСГИСМЗавершается" id="54">
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<AutoMaxHeight>false</AutoMaxHeight>
+					<Height>3</Height>
+					<HorizontalStretch>true</HorizontalStretch>
 					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -45,6 +41,7 @@
 </v8:content>
 						</v8:item>
 					</Title>
+					<BackColor>style:ЦветФонаВнимание</BackColor>
 					<ContextMenu name="РаботаСГИСМЗавершаетсяКонтекстноеМеню" id="55"/>
 					<ExtendedTooltip name="РаботаСГИСМЗавершаетсяРасширеннаяПодсказка" id="56"/>
 					<Events>
@@ -52,8 +49,10 @@
 					</Events>
 				</LabelDecoration>
 				<LabelDecoration name="РаботаСГИСМЗавершена" id="51">
+					<Visible>false</Visible>
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<AutoMaxHeight>false</AutoMaxHeight>
+					<Height>3</Height>
+					<HorizontalStretch>true</HorizontalStretch>
 					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -61,12 +60,48 @@
 </v8:content>
 						</v8:item>
 					</Title>
+					<BackColor>style:ЦветФонаВнимание</BackColor>
 					<ContextMenu name="РаботаСГИСМЗавершенаКонтекстноеМеню" id="52"/>
 					<ExtendedTooltip name="РаботаСГИСМЗавершенаРасширеннаяПодсказка" id="53"/>
 					<Events>
 						<Event name="URLProcessing">РаботаСГИСМЗавершенаОбработкаНавигационнойСсылки</Event>
 					</Events>
 				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаЗаголовок" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЗаголовокРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<LabelDecoration name="ОписаниеРаздела" id="3">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройка интеграции с ГИСМ (система мониторинга движения изделий из меха)</v8:content>
+						</v8:item>
+					</Title>
+					<VerticalAlign>Top</VerticalAlign>
+					<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ОписаниеРазделаРасширеннаяПодсказка" id="5"/>
+				</LabelDecoration>
+				<Button name="Справка" id="11">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="12"/>
+				</Button>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаГИСМ" id="13">
@@ -82,7 +117,7 @@
 					<v8:content>Группа горизонтальная</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Group>AutoScreenTypeSensitive</Group>
+			<Group>Vertical</Group>
 			<Behavior>Collapsible</Behavior>
 			<ControlRepresentation>Button</ControlRepresentation>
 			<Representation>None</Representation>
@@ -112,9 +147,6 @@
 							</Title>
 							<TitleLocation>Right</TitleLocation>
 							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ВестиУчетМаркировкиПродукцииВГИСМКонтекстноеМеню" id="18"/>
 							<ExtendedTooltip name="ВестиУчетМаркировкиПродукцииВГИСМРасширеннаяПодсказка" id="19">
 								<AutoMaxWidth>false</AutoMaxWidth>
@@ -130,6 +162,11 @@
 								<Event name="OnChange">ВестиУчетМаркировкиПродукцииВГИСМ</Event>
 							</Events>
 						</CheckBoxField>
+						<Button name="НастройкаОрганизацииДляОбменаГИСМ" id="47">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.НастройкаОрганизацииДляОбменаГИСМ</CommandName>
+							<ExtendedTooltip name="НастройкаОрганизацииДляОбменаГИСМРасширеннаяПодсказка" id="48"/>
+						</Button>
 						<UsualGroup name="ГруппаВерсияСхемОбменаГИСМ" id="20">
 							<Title>
 								<v8:item>
@@ -137,7 +174,7 @@
 									<v8:content>Версия схем обмена ГИСМ</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AutoScreenTypeSensitive</Group>
+							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -147,16 +184,15 @@
 									<DataPath>ТекстСообщенияОВерсии</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<TitleHeight>2</TitleHeight>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>58</Width>
+									<Width>60</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="ТекстСообщенияОВерсииКонтекстноеМеню" id="23"/>
 									<ExtendedTooltip name="ТекстСообщенияОВерсииРасширеннаяПодсказка" id="24"/>
 								</LabelField>
 								<Button name="ПроверитьВерсию" id="25">
-									<Type>Hyperlink</Type>
+									<Type>UsualButton</Type>
 									<CommandName>Form.Command.ПроверитьВерсию</CommandName>
-									<ButtonImportance>Supplementary</ButtonImportance>
 									<ExtendedTooltip name="ПроверитьВерсиюРасширеннаяПодсказка" id="26"/>
 								</Button>
 							</ChildItems>
@@ -177,80 +213,65 @@
 						</LabelDecoration>
 					</ChildItems>
 				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
-		<Button name="НастройкаОрганизацииДляОбменаГИСМ" id="47">
-			<Type>Hyperlink</Type>
-			<CommandName>Form.Command.НастройкаОрганизацииДляОбменаГИСМ</CommandName>
-			<ExtendedTooltip name="НастройкаОрганизацииДляОбменаГИСМРасширеннаяПодсказка" id="48">
-				<Title formatted="false">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Организации для обмена ГИСМ</v8:content>
-					</v8:item>
-				</Title>
-			</ExtendedTooltip>
-		</Button>
-		<UsualGroup name="ГруппаГИСМНастройкиОбщая" id="30">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа ГИСМ настройки</v8:content>
-				</v8:item>
-			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ChildItemsWidth>Equal</ChildItemsWidth>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаГИСМНастройкиОбщаяРасширеннаяПодсказка" id="31"/>
-			<ChildItems>
-				<UsualGroup name="ГруппаГИСМНастройкиРегламентныхЗаданий" id="34">
+				<UsualGroup name="ГруппаГИСМНастройкиОбщая" id="30">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ГИСМ настройки регламентных заданий</v8:content>
+							<v8:content>Группа ГИСМ настройки</v8:content>
 						</v8:item>
 					</Title>
+					<HorizontalStretch>true</HorizontalStretch>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
+					<ChildItemsWidth>Equal</ChildItemsWidth>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаГИСМНастройкиРегламентныхЗаданийРасширеннаяПодсказка" id="35"/>
+					<ExtendedTooltip name="ГруппаГИСМНастройкиОбщаяРасширеннаяПодсказка" id="31"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаГИСМНастройкиРегламентныхЗаданийЛево" id="36">
+						<UsualGroup name="ГруппаГИСМНастройкиРегламентныхЗаданий" id="34">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>ГИСМ настройки регламентных заданий лево</v8:content>
+									<v8:content>ГИСМ настройки регламентных заданий</v8:content>
 								</v8:item>
 							</Title>
-							<HorizontalStretch>false</HorizontalStretch>
-							<Group>AlwaysHorizontal</Group>
+							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаГИСМНастройкиРегламентныхЗаданийЛевоРасширеннаяПодсказка" id="37"/>
+							<ExtendedTooltip name="ГруппаГИСМНастройкиРегламентныхЗаданийРасширеннаяПодсказка" id="35"/>
 							<ChildItems>
-								<CheckBoxField name="ИспользоватьАвтоматическуюОтправкуПолучениеДанныхГИСМ" id="38">
-									<DataPath>НаборКонстант.ИспользоватьАвтоматическуюОтправкуПолучениеДанныхГИСМ</DataPath>
+								<UsualGroup name="ГруппаГИСМНастройкиРегламентныхЗаданийЛево" id="36">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Автоматически обмениваться с ГИСМ</v8:content>
+											<v8:content>ГИСМ настройки регламентных заданий лево</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Right</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<CheckBoxType>Switcher</CheckBoxType>
-									<ContextMenu name="ИспользоватьАвтоматическуюОтправкуПолучениеДанныхГИСМКонтекстноеМеню" id="39"/>
-									<ExtendedTooltip name="ИспользоватьАвтоматическуюОтправкуПолучениеДанныхГИСМРасширеннаяПодсказка" id="40"/>
-									<Events>
-										<Event name="OnChange">ИспользоватьАвтоматическуюОтправкуПолучениеДанныхГИСМПриИзменении</Event>
-									</Events>
-								</CheckBoxField>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаГИСМНастройкиРегламентныхЗаданийЛевоРасширеннаяПодсказка" id="37"/>
+									<ChildItems>
+										<CheckBoxField name="ИспользоватьАвтоматическуюОтправкуПолучениеДанныхГИСМ" id="38">
+											<DataPath>НаборКонстант.ИспользоватьАвтоматическуюОтправкуПолучениеДанныхГИСМ</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Автоматически обмениваться с ГИСМ</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>Right</TitleLocation>
+											<ContextMenu name="ИспользоватьАвтоматическуюОтправкуПолучениеДанныхГИСМКонтекстноеМеню" id="39"/>
+											<ExtendedTooltip name="ИспользоватьАвтоматическуюОтправкуПолучениеДанныхГИСМРасширеннаяПодсказка" id="40"/>
+											<Events>
+												<Event name="OnChange">ИспользоватьАвтоматическуюОтправкуПолучениеДанныхГИСМПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
 								<UsualGroup name="ГруппаГИСМНастройкиРегламентныхЗаданийПраво" id="41">
 									<Title>
 										<v8:item>
@@ -267,8 +288,6 @@
 									<ChildItems>
 										<Button name="ОтправкаПолучениеДанныхГИСМ" id="43">
 											<Type>Hyperlink</Type>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<HorizontalStretch>true</HorizontalStretch>
 											<CommandName>Form.Command.НастроитьОтправкуПолучениеГИСМ</CommandName>
 											<Title>
 												<v8:item>
@@ -305,6 +324,14 @@
 				<v8:Type>cfg:ConstantsSet</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>НаборКонстант.ВалютаРегламентированногоУчета</Field>
+				<Field>НаборКонстант.ОтключитьКонтрольОтрицательныхОстатков</Field>
+				<Field>НаборКонстант.СрокОплатыПокупателей</Field>
+				<Field>НаборКонстант.СрокОплатыПоставщикам</Field>
+				<Field>НаборКонстант.ТипЦенПлановойСебестоимостиНоменклатуры</Field>
+				<Field>НаборКонстант.УдалитьНастройкиКолонтитулов</Field>
+			</UseAlways>
 		</Attribute>
 		<Attribute name="РасписаниеОтправкиПолученияГИСМ" id="1">
 			<Title>

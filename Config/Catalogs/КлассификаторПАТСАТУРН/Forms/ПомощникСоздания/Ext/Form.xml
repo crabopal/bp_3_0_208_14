@@ -17,11 +17,15 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<ChildItems>
+			<Button name="Назад" id="1">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Назад</CommandName>
+				<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="2"/>
+			</Button>
 			<Button name="Далее" id="3">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
@@ -29,10 +33,21 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ДалееРасширеннаяПодсказка" id="4"/>
 			</Button>
-			<Button name="Назад" id="1">
+			<Button name="Закрыть" id="5">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Назад</CommandName>
-				<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="2"/>
+				<CommandName>Form.Command.ЗакрытьФорму</CommandName>
+				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="6"/>
+			</Button>
+			<Button name="ФормаИзменитьФорму" id="209">
+				<Type>CommandBarButton</Type>
+				<CommandName>0</CommandName>
+				<ExtendedTooltip name="ФормаИзменитьФормуРасширеннаяПодсказка" id="210"/>
+			</Button>
+			<Button name="ФормаСправка" id="191">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="192"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -67,8 +82,7 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаПАТРасширеннаяПодсказка" id="10"/>
 					<ChildItems>
 						<UsualGroup name="ОсновныеДанные" id="253">
@@ -80,20 +94,54 @@
 							</Title>
 							<TitleFont ref="style:NormalTextFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 							<Group>Vertical</Group>
+							<Behavior>Collapsible</Behavior>
 							<ControlRepresentation>Button</ControlRepresentation>
-							<ShowTitle>true</ShowTitle>
+							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ОсновныеДанныеРасширеннаяПодсказка" id="254"/>
 							<ChildItems>
-								<LabelField name="ПАТ" id="263">
+								<InputField name="ПАТ" id="263">
 									<DataPath>ПАТ</DataPath>
 									<ReadOnly>true</ReadOnly>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<UseCopy>true</UseCopy>
 									<ContextMenu name="ПАТКонтекстноеМеню" id="264"/>
 									<ExtendedTooltip name="ПАТРасширеннаяПодсказка" id="265"/>
-								</LabelField>
+								</InputField>
+								<InputField name="ВидПродукции" id="222">
+									<DataPath>ВидПродукции</DataPath>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>В системе ФГИС Сатурн разрешено добавление/изменение только тукосмесей.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВидыПродукцииСАТУРН.EnumValue.Тукосмесь</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВидыПродукцииСАТУРН.EnumValue.Комбипак</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+									<ContextMenu name="ВидПродукцииКонтекстноеМеню" id="223"/>
+									<ExtendedTooltip name="ВидПродукцииРасширеннаяПодсказка" id="224"/>
+									<Events>
+										<Event name="OnChange">ВидПродукцииПриИзменении</Event>
+									</Events>
+								</InputField>
 								<UsualGroup name="ГруппаШапка" id="261">
 									<Group>AlwaysHorizontal</Group>
 									<Behavior>Usual</Behavior>
@@ -101,102 +149,31 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="262"/>
 									<ChildItems>
-										<UsualGroup name="ОсновныеДанныеЛево" id="448">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Основные данные лево</v8:content>
-												</v8:item>
-											</Title>
-											<Group>Vertical</Group>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ОсновныеДанныеЛевоРасширеннаяПодсказка" id="449"/>
-											<ChildItems>
-												<InputField name="ВидПродукции" id="222">
-													<DataPath>ВидПродукции</DataPath>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>В системе ФГИС Сатурн разрешено добавление/изменение только тукосмесей.</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ToolTipRepresentation>Button</ToolTipRepresentation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<ListChoiceMode>true</ListChoiceMode>
-													<ChoiceList>
-														<xr:Item>
-															<xr:Presentation/>
-															<xr:CheckState>0</xr:CheckState>
-															<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																<Presentation/>
-																<Value xsi:type="xr:DesignTimeRef">Enum.ВидыПродукцииСАТУРН.EnumValue.Тукосмесь</Value>
-															</xr:Value>
-														</xr:Item>
-														<xr:Item>
-															<xr:Presentation/>
-															<xr:CheckState>0</xr:CheckState>
-															<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																<Presentation/>
-																<Value xsi:type="xr:DesignTimeRef">Enum.ВидыПродукцииСАТУРН.EnumValue.Комбипак</Value>
-															</xr:Value>
-														</xr:Item>
-													</ChoiceList>
-													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-													<ContextMenu name="ВидПродукцииКонтекстноеМеню" id="223"/>
-													<ExtendedTooltip name="ВидПродукцииРасширеннаяПодсказка" id="224"/>
-													<Events>
-														<Event name="OnChange">ВидПродукцииПриИзменении</Event>
-													</Events>
-												</InputField>
-												<InputField name="НаименованиеПАТ" id="250">
-													<DataPath>Наименование</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<ContextMenu name="НаименованиеПАТКонтекстноеМеню" id="251"/>
-													<ExtendedTooltip name="НаименованиеПАТРасширеннаяПодсказка" id="252"/>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
-										<UsualGroup name="ОсновныеДанныеПраво" id="450">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Основные данные право</v8:content>
-												</v8:item>
-											</Title>
-											<Group>Vertical</Group>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ОсновныеДанныеПравоРасширеннаяПодсказка" id="451"/>
-											<ChildItems>
-												<InputField name="Статус" id="374">
-													<DataPath>Статус</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<ListChoiceMode>true</ListChoiceMode>
-													<ContextMenu name="СтатусКонтекстноеМеню" id="375"/>
-													<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="376"/>
-												</InputField>
-												<InputField name="ОКПД2" id="258">
-													<DataPath>ОКПД2</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<ChoiceButton>true</ChoiceButton>
-													<ContextMenu name="ОКПД2КонтекстноеМеню" id="259"/>
-													<ExtendedTooltip name="ОКПД2РасширеннаяПодсказка" id="260"/>
-													<Events>
-														<Event name="OnChange">ОКПД2ПриИзменении</Event>
-														<Event name="AutoComplete">ОКПД2АвтоПодбор</Event>
-														<Event name="StartChoice">ОКПД2НачалоВыбора</Event>
-														<Event name="ChoiceProcessing">ОКПД2ОбработкаВыбора</Event>
-													</Events>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
+										<InputField name="НаименованиеПАТ" id="250">
+											<DataPath>Наименование</DataPath>
+											<ContextMenu name="НаименованиеПАТКонтекстноеМеню" id="251"/>
+											<ExtendedTooltip name="НаименованиеПАТРасширеннаяПодсказка" id="252"/>
+										</InputField>
+										<InputField name="ОКПД2" id="258">
+											<DataPath>ОКПД2</DataPath>
+											<ChoiceButton>true</ChoiceButton>
+											<ContextMenu name="ОКПД2КонтекстноеМеню" id="259"/>
+											<ExtendedTooltip name="ОКПД2РасширеннаяПодсказка" id="260"/>
+											<Events>
+												<Event name="OnChange">ОКПД2ПриИзменении</Event>
+												<Event name="AutoComplete">ОКПД2АвтоПодбор</Event>
+												<Event name="StartChoice">ОКПД2НачалоВыбора</Event>
+												<Event name="ChoiceProcessing">ОКПД2ОбработкаВыбора</Event>
+											</Events>
+										</InputField>
 									</ChildItems>
 								</UsualGroup>
+								<InputField name="Статус" id="374">
+									<DataPath>Статус</DataPath>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ContextMenu name="СтатусКонтекстноеМеню" id="375"/>
+									<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="376"/>
+								</InputField>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ДанныеПАТ" id="309">
@@ -208,8 +185,9 @@
 							</Title>
 							<TitleFont ref="style:NormalTextFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 							<Group>Vertical</Group>
+							<Behavior>Collapsible</Behavior>
 							<ControlRepresentation>Button</ControlRepresentation>
-							<ShowTitle>true</ShowTitle>
+							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ДанныеПАТРасширеннаяПодсказка" id="310"/>
 							<ChildItems>
 								<InputField name="Производитель" id="306">
@@ -264,8 +242,7 @@
 									<ChildItems>
 										<InputField name="СоставТукосмесиПА" id="396">
 											<DataPath>СоставТукосмеси.ПА</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ChoiceParameters>
 												<app:item name="Отбор.ВидПродукции">
@@ -293,8 +270,6 @@
 										</InputField>
 										<InputField name="СоставТукосмесиКоличество" id="399">
 											<DataPath>СоставТукосмеси.Количество</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="СоставТукосмесиКоличествоКонтекстноеМеню" id="400"/>
 											<ExtendedTooltip name="СоставТукосмесиКоличествоРасширеннаяПодсказка" id="401"/>
 										</InputField>
@@ -311,8 +286,9 @@
 							</Title>
 							<TitleFont ref="style:NormalTextFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 							<Group>Vertical</Group>
+							<Behavior>Collapsible</Behavior>
 							<ControlRepresentation>Button</ControlRepresentation>
-							<ShowTitle>true</ShowTitle>
+							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ДанныеКобмипакаРасширеннаяПодсказка" id="428"/>
 							<ChildItems>
 								<Table name="СоставКомбипака" id="402">
@@ -351,8 +327,6 @@
 									<ChildItems>
 										<InputField name="СоставКомбипакаПА" id="415">
 											<DataPath>СоставКомбипака.ПА</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="СоставКомбипакаПАКонтекстноеМеню" id="416"/>
 											<ExtendedTooltip name="СоставКомбипакаПАРасширеннаяПодсказка" id="417"/>
 											<Events>
@@ -361,8 +335,6 @@
 										</InputField>
 										<InputField name="СоставКомбипакаКоличество" id="418">
 											<DataPath>СоставКомбипака.Количество</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="СоставКомбипакаКоличествоКонтекстноеМеню" id="419"/>
 											<ExtendedTooltip name="СоставКомбипакаКоличествоРасширеннаяПодсказка" id="420"/>
 										</InputField>
@@ -387,8 +359,7 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаЗапросОшибкаРасширеннаяПодсказка" id="85"/>
 					<ChildItems>
 						<UsualGroup name="ЗапросОшибка" id="86">
@@ -411,6 +382,8 @@
 							<ExtendedTooltip name="ЗапросОшибкаРасширеннаяПодсказка" id="87"/>
 							<ChildItems>
 								<PictureDecoration name="ЗапросОшибкаКартинка" id="88">
+									<Width>2</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -418,8 +391,8 @@
 										</v8:item>
 									</Title>
 									<Picture>
-										<xr:Ref>StdPicture.DialogStop</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
+										<xr:Ref>CommonPicture.ОтказГосИС</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="ЗапросОшибкаКартинкаКонтекстноеМеню" id="89"/>
@@ -428,10 +401,7 @@
 								<LabelField name="ТекстОшибка" id="91">
 									<DataPath>ТекстОшибка</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>60</Width>
-									<AutoMaxWidth>false</AutoMaxWidth>
 									<Height>4</Height>
 									<ContextMenu name="ТекстОшибкаКонтекстноеМеню" id="92"/>
 									<ExtendedTooltip name="ТекстОшибкаРасширеннаяПодсказка" id="93"/>
@@ -455,8 +425,7 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаЗапросРезультатРасширеннаяПодсказка" id="95"/>
 					<ChildItems>
 						<UsualGroup name="ЗапросРезультат" id="96">
@@ -473,6 +442,8 @@
 							<ExtendedTooltip name="ЗапросРезультатРасширеннаяПодсказка" id="97"/>
 							<ChildItems>
 								<PictureDecoration name="ЗапросРезультатКартинка" id="98">
+									<Width>2</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -490,12 +461,8 @@
 								<LabelField name="ТекстРезультат" id="101">
 									<DataPath>ТекстРезультат</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>60</Width>
-									<AutoMaxWidth>false</AutoMaxWidth>
 									<Height>4</Height>
-									<HorizontalStretch>true</HorizontalStretch>
 									<ContextMenu name="ТекстРезультатКонтекстноеМеню" id="102"/>
 									<ExtendedTooltip name="ТекстРезультатРасширеннаяПодсказка" id="103"/>
 									<Events>
@@ -514,8 +481,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаИнформацияРасширеннаяПодсказка" id="362"/>
 					<ChildItems>
 						<UsualGroup name="Информация" id="369">
@@ -533,8 +499,8 @@
 										</v8:item>
 									</Title>
 									<Picture>
-										<xr:Ref>StdPicture.DialogInformation</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
+										<xr:Ref>CommonPicture.ИнформацияГосИС</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</Picture>
 									<ContextMenu name="ЗапросИнформацияКартинкаКонтекстноеМеню" id="364"/>
 									<ExtendedTooltip name="ЗапросИнформацияКартинкаРасширеннаяПодсказка" id="365"/>
@@ -542,11 +508,9 @@
 								<LabelField name="ТекстИнформация" id="366">
 									<DataPath>ТекстИнформация</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>60</Width>
-									<AutoMaxWidth>false</AutoMaxWidth>
 									<Height>4</Height>
+									<AutoMaxHeight>false</AutoMaxHeight>
 									<ContextMenu name="ТекстИнформацияКонтекстноеМеню" id="367"/>
 									<ExtendedTooltip name="ТекстИнформацияРасширеннаяПодсказка" id="368"/>
 								</LabelField>
@@ -1033,7 +997,6 @@
 			</ToolTip>
 			<Action>Назад</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Далее" id="2">
 			<Title>
@@ -1050,7 +1013,22 @@
 			</ToolTip>
 			<Action>Далее</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="ЗакрытьФорму" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть форму</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗакрытьФорму</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 	<Parameters>

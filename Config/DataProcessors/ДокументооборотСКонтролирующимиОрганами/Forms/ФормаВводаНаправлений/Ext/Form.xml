@@ -12,21 +12,6 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ОсновныеДействияФормыДобавить" id="8">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ОсновныеДействияФормыДобавить</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Сохранить</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОсновныеДействияФормыДобавитьРасширеннаяПодсказка" id="14"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -35,7 +20,7 @@
 	<ChildItems>
 		<InputField name="ТипПолучателя" id="1">
 			<DataPath>ТипПолучателя</DataPath>
-			<TitleLocation>Left</TitleLocation>
+			<MarkRequiredComplete>true</MarkRequiredComplete>
 			<ListChoiceMode>true</ListChoiceMode>
 			<AutoMarkIncomplete>true</AutoMarkIncomplete>
 			<ChooseType>false</ChooseType>
@@ -95,7 +80,7 @@
 				</xr:Item>
 			</ChoiceList>
 			<ContextMenu name="ТипПолучателяКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="ТипПолучателяРасширеннаяПодсказка" id="10"/>
+			<ExtendedTooltip name="ТипПолучателяExtendedTooltip" id="10"/>
 			<Events>
 				<Event name="OnChange">ТипПолучателяПриИзменении</Event>
 				<Event name="Clearing">ТипПолучателяОчистка</Event>
@@ -103,10 +88,10 @@
 		</InputField>
 		<InputField name="КодПолучателя" id="3">
 			<DataPath>КодПолучателя</DataPath>
-			<TitleLocation>Left</TitleLocation>
+			<MarkRequiredComplete>true</MarkRequiredComplete>
 			<AutoMarkIncomplete>true</AutoMarkIncomplete>
 			<ContextMenu name="КодПолучателяКонтекстноеМеню" id="4"/>
-			<ExtendedTooltip name="КодПолучателяРасширеннаяПодсказка" id="11"/>
+			<ExtendedTooltip name="КодПолучателяExtendedTooltip" id="11"/>
 		</InputField>
 		<InputField name="КПП" id="5">
 			<DataPath>КПП</DataPath>
@@ -116,17 +101,28 @@
 					<v8:content>КПП (только для ФНС)</v8:content>
 				</v8:item>
 			</Title>
-			<TitleLocation>Left</TitleLocation>
 			<ContextMenu name="КППКонтекстноеМеню" id="6"/>
-			<ExtendedTooltip name="КППРасширеннаяПодсказка" id="12"/>
+			<ExtendedTooltip name="КППExtendedTooltip" id="12"/>
 		</InputField>
 		<CommandBar name="Группа1" id="7">
 			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="13"/>
+			<ExtendedTooltip name="Группа1ExtendedTooltip" id="13"/>
 			<ChildItems>
+				<Button name="ОсновныеДействияФормыДобавить" id="8">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.ОсновныеДействияФормыДобавить</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ОК</v8:content>
+						</v8:item>
+					</Title>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ОсновныеДействияФормыДобавитьExtendedTooltip" id="14"/>
+				</Button>
 				<Button name="ОсновныеДействияФормыЗакрыть" id="9">
 					<Type>CommandBarButton</Type>
-					<Visible>false</Visible>
 					<Representation>Text</Representation>
 					<CommandName>Form.StandardCommand.Close</CommandName>
 					<Title>
@@ -135,7 +131,7 @@
 							<v8:content>Отмена</v8:content>
 						</v8:item>
 					</Title>
-					<ExtendedTooltip name="ОсновныеДействияФормыЗакрытьРасширеннаяПодсказка" id="15"/>
+					<ExtendedTooltip name="ОсновныеДействияФормыЗакрытьExtendedTooltip" id="15"/>
 				</Button>
 			</ChildItems>
 		</CommandBar>
@@ -438,7 +434,6 @@
 			</ToolTip>
 			<Action>ОсновныеДействияФормыДобавить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

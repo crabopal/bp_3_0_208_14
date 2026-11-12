@@ -8,9 +8,26 @@
 	</Title>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<CommandBarLocation>None</CommandBarLocation>
-	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ПодборКонтрагентовДляМониторинга" id="22">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПодборКонтрагентовДляМониторинга</CommandName>
+				<ExtendedTooltip name="ПодборКонтрагентовДляМониторингаРасширеннаяПодсказка" id="23"/>
+			</Button>
+			<Button name="СнятьСМониторинга" id="24">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.СнятьСМониторинга</CommandName>
+				<ExtendedTooltip name="СнятьСМониторингаРасширеннаяПодсказка" id="25"/>
+			</Button>
+			<Button name="ФормаОткрытьКарточкуКонтрагента" id="43">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОткрытьКарточкуКонтрагента</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОткрытьКарточкуКонтрагентаРасширеннаяПодсказка" id="44"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -18,7 +35,7 @@
 	<ChildItems>
 		<RadioButtonField name="ОтборПостановкаНаМониторинг" id="40">
 			<DataPath>ОтборПостановкаНаМониторинг</DataPath>
-			<RadioButtonType>Tumbler</RadioButtonType>
+			<RadioButtonType>Auto</RadioButtonType>
 			<ChoiceList>
 				<xr:Item>
 					<xr:Presentation/>
@@ -81,7 +98,8 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<ReadOnly>true</ReadOnly>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -95,7 +113,6 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -111,21 +128,16 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
-			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+			<ContextMenu name="СписокКонтекстноеМеню" id="4">
 				<ChildItems>
-					<Button name="СнятьСМониторинга" id="24" DisplayImportance="VeryHigh">
+					<Button name="СписокКонтекстноеМенюОткрытьКарточкуКонтрагента" id="28">
 						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.СнятьСМониторинга</CommandName>
-						<ExtendedTooltip name="СнятьСМониторингаРасширеннаяПодсказка" id="25"/>
-					</Button>
-					<Button name="ПодборКонтрагентовДляМониторинга" id="22">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ПодборКонтрагентовДляМониторинга</CommandName>
-						<ExtendedTooltip name="ПодборКонтрагентовДляМониторингаРасширеннаяПодсказка" id="23"/>
+						<CommandName>Form.Command.ОткрытьКарточкуКонтрагента</CommandName>
+						<ExtendedTooltip name="СписокКонтекстноеМенюОткрытьКарточкуКонтрагентаРасширеннаяПодсказка" id="29"/>
 					</Button>
 				</ChildItems>
-			</AutoCommandBar>
+			</ContextMenu>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -161,18 +173,17 @@
 					<ContextMenu name="КонтрагентКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="18"/>
 				</LabelField>
-				<InputField name="ПоставленВручную" id="30">
-					<DataPath>Список.Поставлен</DataPath>
+				<CheckBoxField name="ПоставленВручную" id="30">
+					<DataPath>Список.ПоставленВручную</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Поставлен</v8:content>
+							<v8:content>Поставлен вручную</v8:content>
 						</v8:item>
 					</Title>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="ПоставленВручнуюКонтекстноеМеню" id="31"/>
 					<ExtendedTooltip name="ПоставленВручнуюРасширеннаяПодсказка" id="32"/>
-				</InputField>
+				</CheckBoxField>
 				<LabelField name="Пользователь" id="19">
 					<DataPath>Список.Пользователь</DataPath>
 					<DefaultItem>true</DefaultItem>
@@ -206,34 +217,14 @@
 				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
-	РегистрСведенийКонтрагентыНаМониторингеСПАРКРиски.Контрагент КАК Контрагент,
-	ВЫБОР
-		КОГДА РегистрСведенийКонтрагентыНаМониторингеСПАРКРиски.РучноеДобавление
-			ТОГДА "Вручную"
-		ИНАЧЕ "Автоматически"
-	КОНЕЦ КАК Поставлен,
-	РегистрСведенийКонтрагентыНаМониторингеСПАРКРиски.Пользователь КАК Пользователь,
-	РегистрСведенийКонтрагентыНаМониторингеСПАРКРиски.ДатаДобавления КАК ДатаДобавления
+	РегистрСведенийКонтрагентыНаМониторингеСПАРКРиски.Контрагент,
+	РегистрСведенийКонтрагентыНаМониторингеСПАРКРиски.РучноеДобавление КАК ПоставленВручную,
+	РегистрСведенийКонтрагентыНаМониторингеСПАРКРиски.Пользователь,
+	РегистрСведенийКонтрагентыНаМониторингеСПАРКРиски.ДатаДобавления
 ИЗ
 	РегистрСведений.КонтрагентыНаМониторингеСПАРКРиски КАК РегистрСведенийКонтрагентыНаМониторингеСПАРКРиски</QueryText>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Контрагент</dcssch:dataPath>
-					<dcssch:field>Контрагент</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Пользователь</dcssch:dataPath>
-					<dcssch:field>Пользователь</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ДатаДобавления</dcssch:dataPath>
-					<dcssch:field>ДатаДобавления</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Поставлен</dcssch:dataPath>
-					<dcssch:field>Поставлен</dcssch:field>
-				</Field>
 				<KeyField>Контрагент</KeyField>
-				<KeyField>Поставлен</KeyField>
+				<KeyField>ПоставленВручную</KeyField>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
@@ -304,8 +295,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СнятьСМониторинга</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОткрытьКарточкуКонтрагента" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть карточку контрагента</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.Change</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОткрытьКарточкуКонтрагента</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 </Form>

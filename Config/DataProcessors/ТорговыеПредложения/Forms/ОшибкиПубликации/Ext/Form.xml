@@ -10,31 +10,23 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandSet>
-		<ExcludedCommand>Abort</ExcludedCommand>
-		<ExcludedCommand>Cancel</ExcludedCommand>
-		<ExcludedCommand>Close</ExcludedCommand>
-		<ExcludedCommand>CustomizeForm</ExcludedCommand>
-		<ExcludedCommand>Help</ExcludedCommand>
-		<ExcludedCommand>Ignore</ExcludedCommand>
-		<ExcludedCommand>No</ExcludedCommand>
-		<ExcludedCommand>OK</ExcludedCommand>
-		<ExcludedCommand>OpenFromMainServer</ExcludedCommand>
-		<ExcludedCommand>OpenFromStandaloneServer</ExcludedCommand>
-		<ExcludedCommand>RestoreValues</ExcludedCommand>
-		<ExcludedCommand>Retry</ExcludedCommand>
-		<ExcludedCommand>SaveValues</ExcludedCommand>
-		<ExcludedCommand>Yes</ExcludedCommand>
-	</CommandSet>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ФормаПовторитьПроверку" id="79">
 				<Type>CommandBarButton</Type>
-				<DefaultItem>true</DefaultItem>
 				<CommandName>Form.Command.ПовторитьПроверку</CommandName>
 				<ExtendedTooltip name="ФормаПовторитьПроверкуРасширеннаяПодсказка" id="80"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="81">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="82"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -66,98 +58,207 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаДанныеРасширеннаяПодсказка" id="4"/>
 					<ChildItems>
-						<RadioButtonField name="Раздел" id="184">
-							<DataPath>Раздел</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<RadioButtonType>Tumbler</RadioButtonType>
-							<Orientation>HorizontalIfPossible</Orientation>
-							<ChoiceList>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Все</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string"/>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Сведения о товаре</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">СведенияОТоваре</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Контактная информация</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">КонтактнаяИнформация</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Учетные данные</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">УчетныеДанные</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Ошибки публикации</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">ОшибкаПубликацииСервиса</Value>
-									</xr:Value>
-								</xr:Item>
-							</ChoiceList>
-							<ContextMenu name="РазделКонтекстноеМеню" id="185"/>
-							<ExtendedTooltip name="РазделРасширеннаяПодсказка" id="186"/>
-							<Events>
-								<Event name="OnChange">РазделПриИзменении</Event>
-							</Events>
-						</RadioButtonField>
+						<LabelDecoration name="ДекорацияПояснение" id="38">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>При проверке торговых предложений были выявлены позиции, которые не могут быть опубликованы в 1С:Бизнес-сеть или публикация данных позиций не дает полной информации о товаре, продавце. Для публикации исчерпывающей информации о товаре заполните информацию об указанных ниже объектах.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияПояснениеКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ДекорацияПояснениеРасширеннаяПодсказка" id="40"/>
+						</LabelDecoration>
+						<LabelDecoration name="ДекорацияПояснениеГиперссылки" id="134">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Для просмотра проблем нажмите на гиперссылку.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияПояснениеГиперссылкиКонтекстноеМеню" id="135"/>
+							<ExtendedTooltip name="ДекорацияПояснениеГиперссылкиРасширеннаяПодсказка" id="136"/>
+						</LabelDecoration>
+						<UsualGroup name="ГруппаРазделы" id="41">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Разделы</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаРазделыРасширеннаяПодсказка" id="42"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаРазделВсе" id="43">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Раздел "Все"</v8:content>
+										</v8:item>
+									</Title>
+									<Group>HorizontalIfPossible</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<BackColor>style:TableHeaderBackColor</BackColor>
+									<ExtendedTooltip name="ГруппаРазделВсеРасширеннаяПодсказка" id="44"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияВсе" id="51">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Все</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ДекорацияВсеКонтекстноеМеню" id="52"/>
+											<ExtendedTooltip name="ДекорацияВсеРасширеннаяПодсказка" id="53"/>
+											<Events>
+												<Event name="Click">ДекорацияВсеНажатие</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаРазделСведенияОТоваре" id="45">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Раздел "Сведения о товаре"</v8:content>
+										</v8:item>
+									</Title>
+									<Group>HorizontalIfPossible</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<BackColor>style:FormBackColor</BackColor>
+									<ExtendedTooltip name="ГруппаРазделСведенияОТовареРасширеннаяПодсказка" id="46"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияСведенияОТоваре" id="54">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сведения о товаре</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ДекорацияСведенияОТовареКонтекстноеМеню" id="55"/>
+											<ExtendedTooltip name="ДекорацияСведенияОТовареРасширеннаяПодсказка" id="56"/>
+											<Events>
+												<Event name="Click">ДекорацияСведенияОТовареНажатие</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаРазделКонтактнаяИнформация" id="47">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Раздел "Контактная информация"</v8:content>
+										</v8:item>
+									</Title>
+									<Group>HorizontalIfPossible</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<BackColor>style:FormBackColor</BackColor>
+									<ExtendedTooltip name="ГруппаРазделКонтактнаяИнформацияРасширеннаяПодсказка" id="48"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияКонтактнаяИнформация" id="57">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Контактная информация</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ДекорацияКонтактнаяИнформацияКонтекстноеМеню" id="58"/>
+											<ExtendedTooltip name="ДекорацияКонтактнаяИнформацияРасширеннаяПодсказка" id="59"/>
+											<Events>
+												<Event name="Click">ДекорацияКонтактнаяИнформацияНажатие</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаРазделУчетныеДанные" id="49">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Раздел "Учетные данные"</v8:content>
+										</v8:item>
+									</Title>
+									<Group>HorizontalIfPossible</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<BackColor>style:FormBackColor</BackColor>
+									<ExtendedTooltip name="ГруппаРазделУчетныеДанныеРасширеннаяПодсказка" id="50"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияУчетныеДанные" id="60">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Учетные данные</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ДекорацияУчетныеДанныеКонтекстноеМеню" id="61"/>
+											<ExtendedTooltip name="ДекорацияУчетныеДанныеРасширеннаяПодсказка" id="62"/>
+											<Events>
+												<Event name="Click">ДекорацияУчетныеДанныеНажатие</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаРазделОшибкиПубликации" id="121">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Раздел "Ошибки публикации"</v8:content>
+										</v8:item>
+									</Title>
+									<Group>HorizontalIfPossible</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<BackColor>style:FormBackColor</BackColor>
+									<ExtendedTooltip name="ГруппаРазделОшибкиПубликацииРасширеннаяПодсказка" id="122"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияОшибкиПубликации" id="123">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Ошибки публикации</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ДекорацияОшибкиПубликацииКонтекстноеМеню" id="124"/>
+											<ExtendedTooltip name="ДекорацияОшибкиПубликацииРасширеннаяПодсказка" id="125"/>
+											<Events>
+												<Event name="Click">ДекорацияОшибкиПубликацииНажатие</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
 						<Table name="ДеревоОбъектов" id="13">
 							<Representation>Tree</Representation>
 							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<MaxHeight>15</MaxHeight>
-							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Row</RowSelectionMode>
 							<Header>false</Header>
 							<HorizontalLinesBWA>false</HorizontalLinesBWA>
 							<VerticalLinesBWA>false</VerticalLinesBWA>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
-							<InitialTreeView>ExpandAllLevels</InitialTreeView>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>ДеревоОбъектов</DataPath>
@@ -222,6 +323,8 @@
 											<ChildItems>
 												<PictureField name="ДеревоОбъектовИндексКартинкиГиперссылка" id="63">
 													<DataPath>ДеревоОбъектов.ИндексКартинки</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ValuesPicture>
 														<xr:Ref>CommonPicture.ОблачныеКлассификаторыДерево</xr:Ref>
 														<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -232,10 +335,13 @@
 												</PictureField>
 												<InputField name="ДеревоОбъектовПредставлениеГиперссылка" id="29">
 													<DataPath>ДеревоОбъектов.ПредставлениеСсылки</DataPath>
+													<EditMode>EnterOnInput</EditMode>
 													<CellHyperlink>true</CellHyperlink>
+													<AutoEditMode>true</AutoEditMode>
 													<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 													<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 													<TextColor>style:ЦветГиперссылкиБЭД</TextColor>
+													<BorderColor>style:FormBackColor</BorderColor>
 													<ContextMenu name="ДеревоОбъектовПредставлениеГиперссылкаКонтекстноеМеню" id="30"/>
 													<ExtendedTooltip name="ДеревоОбъектовПредставлениеГиперссылкаРасширеннаяПодсказка" id="31"/>
 												</InputField>
@@ -253,6 +359,8 @@
 											<ChildItems>
 												<PictureField name="ДеревоОбъектовИндексКартинкиБезГиперссылки" id="66">
 													<DataPath>ДеревоОбъектов.ИндексКартинки</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ValuesPicture>
 														<xr:Ref>CommonPicture.ОблачныеКлассификаторыДерево</xr:Ref>
 														<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -263,6 +371,9 @@
 												</PictureField>
 												<InputField name="ДеревоОбъектовПредставлениеБезГиперссылки" id="26">
 													<DataPath>ДеревоОбъектов.Представление</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<BorderColor>style:FormBackColor</BorderColor>
 													<ContextMenu name="ДеревоОбъектовПредставлениеБезГиперссылкиКонтекстноеМеню" id="27"/>
 													<ExtendedTooltip name="ДеревоОбъектовПредставлениеБезГиперссылкиРасширеннаяПодсказка" id="28"/>
 												</InputField>
@@ -277,6 +388,8 @@
 											<v8:content>Дерево объектов группа ошибки и предупреждения</v8:content>
 										</v8:item>
 									</Title>
+									<Width>1</Width>
+									<HorizontalStretch>false</HorizontalStretch>
 									<Group>Horizontal</Group>
 									<FixingInTable>Right</FixingInTable>
 									<ExtendedTooltip name="ДеревоОбъектовГруппаОшибкиИПредупрежденияРасширеннаяПодсказка" id="100"/>
@@ -297,31 +410,46 @@
 															<v8:content>Дерево объектов группа ошибки левая</v8:content>
 														</v8:item>
 													</Title>
+													<Width>1</Width>
+													<HorizontalStretch>false</HorizontalStretch>
 													<Group>InCell</Group>
 													<ExtendedTooltip name="ДеревоОбъектовГруппаОшибкиЛеваяРасширеннаяПодсказка" id="92"/>
 													<ChildItems>
 														<PictureField name="ДеревоОбъектовНомерКартинкиОшибки" id="93">
 															<DataPath>ДеревоОбъектов.НомерКартинкиОшибки</DataPath>
+															<HorizontalAlign>Right</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
 															<ShowInHeader>false</ShowInHeader>
+															<HeaderHorizontalAlign>Right</HeaderHorizontalAlign>
 															<ShowInFooter>false</ShowInFooter>
+															<FooterHorizontalAlign>Right</FooterHorizontalAlign>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>2</Width>
 															<MaxWidth>2</MaxWidth>
+															<HorizontalStretch>false</HorizontalStretch>
 															<ValuesPicture>
-																<xr:Ref>StdPicture.Stop</xr:Ref>
-																<xr:LoadTransparent>true</xr:LoadTransparent>
+																<xr:Ref>CommonPicture.ПредупреждениеКрасноеБЭД16</xr:Ref>
+																<xr:LoadTransparent>false</xr:LoadTransparent>
 															</ValuesPicture>
-															<TextColor>pal:Red</TextColor>
 															<Border width="1">
 																<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
 															</Border>
-															<PictureColor>pal:Red</PictureColor>
 															<ContextMenu name="ДеревоОбъектовНомерКартинкиОшибкиКонтекстноеМеню" id="94"/>
 															<ExtendedTooltip name="ДеревоОбъектовНомерКартинкиОшибкиРасширеннаяПодсказка" id="95"/>
 														</PictureField>
 														<InputField name="ДеревоОбъектовКоличествоОшибок" id="96">
 															<DataPath>ДеревоОбъектов.КоличествоОшибок</DataPath>
+															<HorizontalAlign>Left</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
 															<ShowInHeader>false</ShowInHeader>
+															<HeaderHorizontalAlign>Right</HeaderHorizontalAlign>
 															<ShowInFooter>false</ShowInFooter>
+															<FooterHorizontalAlign>Right</FooterHorizontalAlign>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>2</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
 															<MaxWidth>1</MaxWidth>
+															<HorizontalStretch>false</HorizontalStretch>
 															<Font ref="style:ОченьМелкийШрифтБЭД" kind="StyleItem"/>
 															<ContextMenu name="ДеревоОбъектовКоличествоОшибокКонтекстноеМеню" id="97"/>
 															<ExtendedTooltip name="ДеревоОбъектовКоличествоОшибокРасширеннаяПодсказка" id="98"/>
@@ -340,9 +468,16 @@
 													<ChildItems>
 														<PictureField name="ДеревоОбъектовКоличествоОшибокПустая" id="115">
 															<DataPath>ДеревоОбъектов.КоличествоОшибок</DataPath>
+															<HorizontalAlign>Right</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
 															<ShowInHeader>false</ShowInHeader>
+															<HeaderHorizontalAlign>Right</HeaderHorizontalAlign>
 															<ShowInFooter>false</ShowInFooter>
+															<FooterHorizontalAlign>Right</FooterHorizontalAlign>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>2</Width>
 															<MaxWidth>2</MaxWidth>
+															<HorizontalStretch>false</HorizontalStretch>
 															<ValuesPicture>
 																<xr:Ref>CommonPicture.Пустая</xr:Ref>
 																<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -356,9 +491,16 @@
 														<InputField name="ДеревоОбъектовПустоеКоличество" id="118">
 															<DataPath>ДеревоОбъектов.ПустоеКоличество</DataPath>
 															<ReadOnly>true</ReadOnly>
+															<HorizontalAlign>Left</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
 															<ShowInHeader>false</ShowInHeader>
 															<ShowInFooter>false</ShowInFooter>
+															<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>2</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
 															<MaxWidth>1</MaxWidth>
+															<HorizontalStretch>false</HorizontalStretch>
 															<Font ref="style:ОченьМелкийШрифтБЭД" kind="StyleItem"/>
 															<ContextMenu name="ДеревоОбъектовПустоеКоличествоКонтекстноеМеню" id="119"/>
 															<ExtendedTooltip name="ДеревоОбъектовПустоеКоличествоРасширеннаяПодсказка" id="120"/>
@@ -383,32 +525,47 @@
 															<v8:content>Дерево объектов группа предупреждение правая</v8:content>
 														</v8:item>
 													</Title>
+													<Width>1</Width>
+													<HorizontalStretch>false</HorizontalStretch>
 													<Group>InCell</Group>
 													<ExtendedTooltip name="ДеревоОбъектовГруппаПредупреждениеПраваяРасширеннаяПодсказка" id="84"/>
 													<ChildItems>
 														<PictureField name="ДеревоОбъектовНомерКартинкиПредупреждения" id="85">
 															<DataPath>ДеревоОбъектов.НомерКартинкиПредупреждения</DataPath>
+															<HorizontalAlign>Right</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
 															<ShowInHeader>false</ShowInHeader>
+															<HeaderHorizontalAlign>Right</HeaderHorizontalAlign>
 															<ShowInFooter>false</ShowInFooter>
+															<FooterHorizontalAlign>Right</FooterHorizontalAlign>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>2</Width>
 															<MaxWidth>2</MaxWidth>
+															<HorizontalStretch>false</HorizontalStretch>
 															<ValuesPicture>
 																<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
 																<xr:LoadTransparent>false</xr:LoadTransparent>
 															</ValuesPicture>
-															<TextColor>pal:Yellow</TextColor>
 															<Border width="1">
 																<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
 															</Border>
-															<PictureColor>pal:Yellow</PictureColor>
 															<ContextMenu name="ДеревоОбъектовНомерКартинкиПредупрежденияКонтекстноеМеню" id="86"/>
 															<ExtendedTooltip name="ДеревоОбъектовНомерКартинкиПредупрежденияРасширеннаяПодсказка" id="87"/>
 														</PictureField>
 														<InputField name="ДеревоОбъектовКоличествоПредупреждений" id="88">
 															<DataPath>ДеревоОбъектов.КоличествоПредупреждений</DataPath>
 															<ReadOnly>true</ReadOnly>
+															<HorizontalAlign>Left</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
 															<ShowInHeader>false</ShowInHeader>
+															<HeaderHorizontalAlign>Right</HeaderHorizontalAlign>
 															<ShowInFooter>false</ShowInFooter>
+															<FooterHorizontalAlign>Right</FooterHorizontalAlign>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>2</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
 															<MaxWidth>1</MaxWidth>
+															<HorizontalStretch>false</HorizontalStretch>
 															<Font ref="style:ОченьМелкийШрифтБЭД" kind="StyleItem"/>
 															<ContextMenu name="ДеревоОбъектовКоличествоПредупрежденийКонтекстноеМеню" id="89"/>
 															<ExtendedTooltip name="ДеревоОбъектовКоличествоПредупрежденийРасширеннаяПодсказка" id="90"/>
@@ -427,27 +584,39 @@
 													<ChildItems>
 														<PictureField name="ДеревоОбъектовНомерКартинкиОшибкиПравая" id="107">
 															<DataPath>ДеревоОбъектов.НомерКартинкиОшибки</DataPath>
+															<HorizontalAlign>Right</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
 															<ShowInHeader>false</ShowInHeader>
+															<HeaderHorizontalAlign>Right</HeaderHorizontalAlign>
 															<ShowInFooter>false</ShowInFooter>
+															<FooterHorizontalAlign>Right</FooterHorizontalAlign>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>2</Width>
 															<MaxWidth>2</MaxWidth>
+															<HorizontalStretch>false</HorizontalStretch>
 															<ValuesPicture>
-																<xr:Ref>StdPicture.Stop</xr:Ref>
-																<xr:LoadTransparent>true</xr:LoadTransparent>
+																<xr:Ref>CommonPicture.ПредупреждениеКрасноеБЭД16</xr:Ref>
+																<xr:LoadTransparent>false</xr:LoadTransparent>
 															</ValuesPicture>
-															<TextColor>pal:Red</TextColor>
 															<Border width="1">
 																<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
 															</Border>
-															<PictureColor>pal:Red</PictureColor>
 															<ContextMenu name="ДеревоОбъектовНомерКартинкиОшибкиПраваяКонтекстноеМеню" id="108"/>
 															<ExtendedTooltip name="ДеревоОбъектовНомерКартинкиОшибкиПраваяРасширеннаяПодсказка" id="109"/>
 														</PictureField>
 														<InputField name="ДеревоОбъектовКоличествоОшибокПравая" id="110">
 															<DataPath>ДеревоОбъектов.КоличествоОшибок</DataPath>
 															<ReadOnly>true</ReadOnly>
+															<HorizontalAlign>Left</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
 															<ShowInHeader>false</ShowInHeader>
 															<ShowInFooter>false</ShowInFooter>
+															<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>2</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
 															<MaxWidth>1</MaxWidth>
+															<HorizontalStretch>false</HorizontalStretch>
 															<Font ref="style:ОченьМелкийШрифтБЭД" kind="StyleItem"/>
 															<ContextMenu name="ДеревоОбъектовКоличествоОшибокПраваяКонтекстноеМеню" id="111"/>
 															<ExtendedTooltip name="ДеревоОбъектовКоличествоОшибокПраваяРасширеннаяПодсказка" id="112"/>
@@ -466,8 +635,15 @@
 													<ChildItems>
 														<PictureField name="ДеревоОбъектовКоличествоОшибокПустаяПравая" id="128">
 															<DataPath>ДеревоОбъектов.КоличествоОшибок</DataPath>
+															<HorizontalAlign>Right</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
 															<ShowInHeader>false</ShowInHeader>
+															<HeaderHorizontalAlign>Right</HeaderHorizontalAlign>
 															<ShowInFooter>false</ShowInFooter>
+															<FooterHorizontalAlign>Right</FooterHorizontalAlign>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>2</Width>
+															<HorizontalStretch>false</HorizontalStretch>
 															<ValuesPicture>
 																<xr:Ref>CommonPicture.Пустая</xr:Ref>
 																<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -481,8 +657,14 @@
 														<InputField name="ДеревоОбъектовПустоеКоличествоПраво" id="131">
 															<DataPath>ДеревоОбъектов.ПустоеКоличество</DataPath>
 															<ReadOnly>true</ReadOnly>
+															<HorizontalAlign>Left</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
 															<ShowInHeader>false</ShowInHeader>
 															<ShowInFooter>false</ShowInFooter>
+															<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>2</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
 															<MaxWidth>1</MaxWidth>
 															<Font ref="style:ОченьМелкийШрифтБЭД" kind="StyleItem"/>
 															<ContextMenu name="ДеревоОбъектовПустоеКоличествоПравоКонтекстноеМеню" id="132"/>
@@ -528,6 +710,7 @@
 							<ExtendedTooltip name="ДекорацияКартинкаОбновлениеДанныхРасширеннаяПодсказка" id="9"/>
 						</PictureDecoration>
 						<LabelDecoration name="ДекорацияНадписьОбновлениеДанных" id="10">
+							<TextColor>style:ПоясняющийТекст</TextColor>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -548,8 +731,7 @@
 					</Title>
 					<HorizontalStretch>true</HorizontalStretch>
 					<VerticalStretch>true</VerticalStretch>
-					<Group>AutoScreenTypeSensitive</Group>
-					<HorizontalSpacing>Half</HorizontalSpacing>
+					<Group>Vertical</Group>
 					<HorizontalAlign>Center</HorizontalAlign>
 					<VerticalAlign>Center</VerticalAlign>
 					<ScrollOnCompress>false</ScrollOnCompress>
@@ -562,15 +744,15 @@
 									<v8:content>Декорация картинка данные заполнены корректно</v8:content>
 								</v8:item>
 							</Title>
-							<PictureSize>Stretch</PictureSize>
 							<Picture>
-								<xr:Ref>CommonPicture.Успешно</xr:Ref>
+								<xr:Ref>CommonPicture.Успешно32</xr:Ref>
 								<xr:LoadTransparent>false</xr:LoadTransparent>
 							</Picture>
 							<ContextMenu name="ДекорацияКартинкаДанныеЗаполненыКорректноКонтекстноеМеню" id="75"/>
 							<ExtendedTooltip name="ДекорацияКартинкаДанныеЗаполненыКорректноРасширеннаяПодсказка" id="76"/>
 						</PictureDecoration>
 						<LabelDecoration name="ДекорацияНадписьДанныеЗаполненыКорректно" id="71">
+							<TextColor>style:ПоясняющийТекст</TextColor>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -584,12 +766,6 @@
 				</Page>
 			</ChildItems>
 		</Pages>
-		<Button name="ПовторитьПроверку" id="188">
-			<Type>UsualButton</Type>
-			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-			<CommandName>Form.Command.ПовторитьПроверку</CommandName>
-			<ExtendedTooltip name="ПовторитьПроверкуРасширеннаяПодсказка" id="189"/>
-		</Button>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -873,6 +1049,21 @@
 			</Title>
 			<Type/>
 		</Attribute>
+		<Attribute name="Раздел" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Раздел</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
 		<Attribute name="ЦветФонаФормы" id="7">
 			<Title>
 				<v8:item>
@@ -921,32 +1112,6 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="Раздел" id="11">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Раздел</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="ТребуетсяВыполнитьПроверкуДанных" id="17">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Требуется выполнить проверку данных</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="ПовторитьПроверку" id="1">
@@ -956,7 +1121,12 @@
 					<v8:content>Повторить проверку</v8:content>
 				</v8:item>
 			</Title>
-			<Shortcut>F5</Shortcut>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Повторить проверку</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Picture>
 				<xr:Ref>StdPicture.Refresh</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>

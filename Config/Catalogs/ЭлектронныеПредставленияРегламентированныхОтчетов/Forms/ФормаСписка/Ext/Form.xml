@@ -9,9 +9,7 @@
 		<ChildItems>
 			<Button name="СписокКнопкаВыбрать" id="157">
 				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.КомандаСписокВыбрать</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="СписокКнопкаВыбратьExtendedTooltip" id="505"/>
 			</Button>
 			<Button name="СписокКнопкаСоздать" id="158">
@@ -33,6 +31,16 @@
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Item.Список.StandardCommand.SetDeletionMark</CommandName>
 				<ExtendedTooltip name="СписокКнопкаУстановитьПометкуУдаленияExtendedTooltip" id="509"/>
+			</Button>
+			<Button name="СписокКнопкаНайти" id="162">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.Список.StandardCommand.Find</CommandName>
+				<ExtendedTooltip name="СписокКнопкаНайтиExtendedTooltip" id="510"/>
+			</Button>
+			<Button name="СписокКнопкаОтменитьПоиск" id="163">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.Список.StandardCommand.CancelSearch</CommandName>
+				<ExtendedTooltip name="СписокКнопкаОтменитьПоискExtendedTooltip" id="511"/>
 			</Button>
 			<Button name="СписокКнопкаОтображатьПанельОбмена" id="195">
 				<Type>CommandBarButton</Type>
@@ -276,6 +284,7 @@
 								<InputField name="Год" id="41">
 									<DataPath>Год</DataPath>
 									<TitleLocation>Left</TitleLocation>
+									<HorizontalAlign>Right</HorizontalAlign>
 									<Width>12</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ChoiceButton>false</ChoiceButton>
@@ -621,7 +630,6 @@
 			<ExtendedTooltip name="ГруппаСправочникСписокExtendedTooltip" id="551"/>
 			<ChildItems>
 				<Table name="Список" id="13">
-					<CommandBarLocation>Top</CommandBarLocation>
 					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<EnableStartDrag>true</EnableStartDrag>
@@ -631,7 +639,6 @@
 					<SearchStringLocation>None</SearchStringLocation>
 					<ViewStatusLocation>None</ViewStatusLocation>
 					<SearchControlLocation>None</SearchControlLocation>
-					<ShowCommandBar>true</ShowCommandBar>
 					<AutoRefresh>false</AutoRefresh>
 					<AutoRefreshPeriod>60</AutoRefreshPeriod>
 					<Period>
@@ -649,18 +656,6 @@
 					<ContextMenu name="СписокКонтекстноеМеню" id="14"/>
 					<AutoCommandBar name="СписокКоманднаяПанель" id="15">
 						<Autofill>false</Autofill>
-						<ChildItems>
-							<Button name="СписокКнопкаНайти" id="162">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Item.Список.StandardCommand.Find</CommandName>
-								<ExtendedTooltip name="СписокКнопкаНайтиExtendedTooltip" id="510"/>
-							</Button>
-							<Button name="СписокКнопкаОтменитьПоиск" id="163">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Item.Список.StandardCommand.CancelSearch</CommandName>
-								<ExtendedTooltip name="СписокКнопкаОтменитьПоискExtendedTooltip" id="511"/>
-							</Button>
-						</ChildItems>
 					</AutoCommandBar>
 					<ExtendedTooltip name="СписокExtendedTooltip" id="552"/>
 					<SearchStringAddition name="СписокСтрокаПоиска" id="767">
@@ -802,7 +797,6 @@
 							<ChildItems>
 								<Table name="ЦиклыОбменаФНС" id="198">
 									<CommandBarLocation>None</CommandBarLocation>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<EnableStartDrag>true</EnableStartDrag>
 									<FileDragMode>AsFile</FileDragMode>
@@ -896,8 +890,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="5" y="3"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФНСКолонка1КонтекстноеМеню" id="370"/>
@@ -917,8 +912,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="3" y="4"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФНСКолонка2КонтекстноеМеню" id="372"/>
@@ -938,8 +934,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="3" y="4"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФНСКолонка3КонтекстноеМеню" id="374"/>
@@ -959,8 +956,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="2" y="3"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФНСКолонка4КонтекстноеМеню" id="376"/>
@@ -980,8 +978,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="2" y="3"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФНСКолонка5КонтекстноеМеню" id="378"/>
@@ -1001,8 +1000,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="4" y="2"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФНСКолонка6КонтекстноеМеню" id="380"/>
@@ -1022,8 +1022,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="5" y="5"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФНСКолонка7КонтекстноеМеню" id="382"/>
@@ -1043,8 +1044,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="3" y="1"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФНСКолонка8КонтекстноеМеню" id="384"/>
@@ -1061,7 +1063,6 @@
 							<ChildItems>
 								<Table name="ЦиклыОбменаЗаявление" id="238">
 									<CommandBarLocation>None</CommandBarLocation>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<EnableStartDrag>true</EnableStartDrag>
 									<FileDragMode>AsFile</FileDragMode>
@@ -1154,8 +1155,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="5" y="4"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаЗаявлениеКолонка1КонтекстноеМеню" id="402"/>
@@ -1174,8 +1176,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="3" y="5"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаЗаявлениеКолонка2КонтекстноеМеню" id="406"/>
@@ -1194,8 +1197,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="4" y="6"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаЗаявлениеКолонка3КонтекстноеМеню" id="408"/>
@@ -1214,8 +1218,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="5" y="4"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаЗаявлениеКолонка4КонтекстноеМеню" id="410"/>
@@ -1234,8 +1239,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="3" y="5"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаЗаявлениеКолонка5КонтекстноеМеню" id="412"/>
@@ -1254,8 +1260,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="4" y="6"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаЗаявлениеКолонка6КонтекстноеМеню" id="414"/>
@@ -1274,8 +1281,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="6" y="5"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаЗаявлениеКолонка7КонтекстноеМеню" id="416"/>
@@ -1294,8 +1302,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="4" y="3"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаЗаявлениеКолонка8КонтекстноеМеню" id="418"/>
@@ -1315,8 +1324,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="2" y="2"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаЗаявлениеКолонка9КонтекстноеМеню" id="420"/>
@@ -1336,8 +1346,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="2" y="6"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаЗаявлениеКолонка10КонтекстноеМеню" id="404"/>
@@ -1366,7 +1377,6 @@
 							<ChildItems>
 								<Table name="ЦиклыОбменаПФР" id="278">
 									<CommandBarLocation>None</CommandBarLocation>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<EnableStartDrag>true</EnableStartDrag>
 									<FileDragMode>AsFile</FileDragMode>
@@ -1459,8 +1469,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="2" y="4"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаПФРКолонка1КонтекстноеМеню" id="438"/>
@@ -1479,8 +1490,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="4" y="4"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаПФРКолонка4КонтекстноеМеню" id="440"/>
@@ -1499,8 +1511,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="5" y="5"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаПФРКолонка5КонтекстноеМеню" id="442"/>
@@ -1519,8 +1532,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="5" y="3"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаПФРКолонка6КонтекстноеМеню" id="444"/>
@@ -1549,7 +1563,6 @@
 							<ChildItems>
 								<Table name="ОтправкиФСС" id="304">
 									<CommandBarLocation>None</CommandBarLocation>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<EnableStartDrag>true</EnableStartDrag>
 									<FileDragMode>AsFile</FileDragMode>
@@ -1636,8 +1649,9 @@
 												<xr:LoadTransparent>false</xr:LoadTransparent>
 											</HeaderPicture>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="3" y="6"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ОтправкиФССПервичноеСообщениеКонтекстноеМеню" id="460"/>
@@ -1652,8 +1666,9 @@
 												<xr:LoadTransparent>false</xr:LoadTransparent>
 											</HeaderPicture>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="6" y="5"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ОтправкиФССРезультатКонтекстноеМеню" id="462"/>
@@ -1670,7 +1685,6 @@
 							<ChildItems>
 								<Table name="ОтправкиФСРАР" id="318">
 									<CommandBarLocation>None</CommandBarLocation>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<EnableStartDrag>true</EnableStartDrag>
 									<FileDragMode>AsFile</FileDragMode>
@@ -1757,8 +1771,9 @@
 												<xr:LoadTransparent>false</xr:LoadTransparent>
 											</HeaderPicture>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="3" y="4"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ОтправкиФСРАРПервичноеСообщениеКонтекстноеМеню" id="476"/>
@@ -1773,8 +1788,9 @@
 												<xr:LoadTransparent>false</xr:LoadTransparent>
 											</HeaderPicture>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="4" y="3"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ОтправкиФСРАРРезультатКонтекстноеМеню" id="478"/>
@@ -1803,7 +1819,6 @@
 							<ChildItems>
 								<Table name="ЦиклыОбменаФСГС" id="332">
 									<CommandBarLocation>None</CommandBarLocation>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<EnableStartDrag>true</EnableStartDrag>
 									<FileDragMode>AsFile</FileDragMode>
@@ -1892,8 +1907,9 @@
 											</HeaderPicture>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="3" y="7"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФСГСКолонка1КонтекстноеМеню" id="494"/>
@@ -1908,8 +1924,9 @@
 											</HeaderPicture>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="6" y="4"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФСГСКолонка2КонтекстноеМеню" id="496"/>
@@ -1924,8 +1941,9 @@
 											</HeaderPicture>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="2" y="3"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФСГСКолонка3КонтекстноеМеню" id="498"/>
@@ -1940,8 +1958,9 @@
 											</HeaderPicture>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="3" y="6"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФСГСКолонка4КонтекстноеМеню" id="500"/>
@@ -1956,8 +1975,9 @@
 											</HeaderPicture>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="3" y="3"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФСГСКолонка5КонтекстноеМеню" id="502"/>
@@ -1972,8 +1992,9 @@
 											</HeaderPicture>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="4" y="5"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ЦиклыОбменаФСГСКолонка6КонтекстноеМеню" id="504"/>
@@ -1990,7 +2011,6 @@
 							<ChildItems>
 								<Table name="ОтправкиРПН" id="628">
 									<CommandBarLocation>None</CommandBarLocation>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<EnableStartDrag>true</EnableStartDrag>
 									<FileDragMode>AsFile</FileDragMode>
@@ -2075,11 +2095,12 @@
 											<FixingInTable>Left</FixingInTable>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.СписокЦикловОбменаКолонка1</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="3" y="1"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ОтправкиРПНПервичноеСообщениеКонтекстноеМеню" id="642"/>
@@ -2091,11 +2112,12 @@
 											<FixingInTable>Left</FixingInTable>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.ПисьмоПодтверждениеПолучено</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="1" y="1"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ОтправкиРПНРезультатКонтекстноеМеню" id="645"/>
@@ -2112,7 +2134,6 @@
 							<ChildItems>
 								<Table name="ОтправкиФТС" id="850">
 									<CommandBarLocation>None</CommandBarLocation>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<EnableStartDrag>true</EnableStartDrag>
 									<FileDragMode>AsFile</FileDragMode>
@@ -2196,11 +2217,12 @@
 											<FixingInTable>Left</FixingInTable>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.СписокЦикловОбменаКолонка1</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="2" y="1"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ОтправкиФТСПервичноеСообщениеКонтекстноеМеню" id="879"/>
@@ -2212,11 +2234,12 @@
 											<FixingInTable>Left</FixingInTable>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.ПисьмоПодтверждениеПолучено</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="4" y="1"/>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ОтправкиФТСРезультатКонтекстноеМеню" id="882"/>
@@ -2239,7 +2262,6 @@
 							<ChildItems>
 								<Table name="ЦиклыОбменаПредставление" id="721">
 									<CommandBarLocation>None</CommandBarLocation>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<EnableStartDrag>true</EnableStartDrag>
 									<FileDragMode>AsFile</FileDragMode>
@@ -2329,7 +2351,7 @@
 											<CellHyperlink>true</CellHyperlink>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.СписокЦикловОбменаКолонка1</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
@@ -2337,7 +2359,7 @@
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
 												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ТаблицаЦиклыОбменаПредставленияКолонка1КонтекстноеМеню" id="750"/>
@@ -2350,7 +2372,7 @@
 											<CellHyperlink>true</CellHyperlink>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.СписокЦикловОбменаКолонка2</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
@@ -2358,7 +2380,7 @@
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
 												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ТаблицаЦиклыОбменаПредставленияКолонка2КонтекстноеМеню" id="753"/>
@@ -2371,7 +2393,7 @@
 											<CellHyperlink>true</CellHyperlink>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.СписокЦикловОбменаКолонка3</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
@@ -2379,7 +2401,7 @@
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
 												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ТаблицаЦиклыОбменаПредставленияКолонка3КонтекстноеМеню" id="756"/>
@@ -2392,7 +2414,7 @@
 											<CellHyperlink>true</CellHyperlink>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.СписокЦикловОбменаКолонка4</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
@@ -2400,7 +2422,7 @@
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
 												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ТаблицаЦиклыОбменаПредставленияКолонка4КонтекстноеМеню" id="759"/>
@@ -2413,7 +2435,7 @@
 											<CellHyperlink>true</CellHyperlink>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.СписокЦикловОбменаКолонка5</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
@@ -2421,7 +2443,7 @@
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
 												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ТаблицаЦиклыОбменаПредставленияКолонка5КонтекстноеМеню" id="762"/>
@@ -2434,7 +2456,7 @@
 											<CellHyperlink>true</CellHyperlink>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.СписокЦикловОбменаКолонка6</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
@@ -2442,7 +2464,7 @@
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
 												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</ValuesPicture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ТаблицаЦиклыОбменаПредставленияКолонка6КонтекстноеМеню" id="765"/>
@@ -2471,7 +2493,6 @@
 							<ChildItems>
 								<Table name="ЦиклыОбменаЦБ" id="886">
 									<CommandBarLocation>None</CommandBarLocation>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<EnableStartDrag>true</EnableStartDrag>
 									<FileDragMode>AsFile</FileDragMode>
@@ -2557,7 +2578,7 @@
 											<CellHyperlink>true</CellHyperlink>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.СписокЦикловОбменаКолонка1</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
@@ -2565,8 +2586,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="11" y="4"/>
 											</ValuesPicture>
 											<ContextMenu name="ЦиклыОбменаЦБКолонка1КонтекстноеМеню" id="909"/>
 											<ExtendedTooltip name="ЦиклыОбменаЦБКолонка1РасширеннаяПодсказка" id="910"/>
@@ -2577,7 +2599,7 @@
 											<CellHyperlink>true</CellHyperlink>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.СписокЦикловОбменаКолонка2</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
@@ -2585,8 +2607,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="11" y="4"/>
 											</ValuesPicture>
 											<ContextMenu name="ЦиклыОбменаЦБКолонка2КонтекстноеМеню" id="912"/>
 											<ExtendedTooltip name="ЦиклыОбменаЦБКолонка2РасширеннаяПодсказка" id="913"/>
@@ -2597,7 +2620,7 @@
 											<CellHyperlink>true</CellHyperlink>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.СписокЦикловОбменаКолонка5</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
@@ -2605,8 +2628,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="7" y="3"/>
 											</ValuesPicture>
 											<ContextMenu name="ЦиклыОбменаЦБКолонка3КонтекстноеМеню" id="915"/>
 											<ExtendedTooltip name="ЦиклыОбменаЦБКолонка3РасширеннаяПодсказка" id="916"/>
@@ -2617,7 +2641,7 @@
 											<CellHyperlink>true</CellHyperlink>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.СписокЦикловОбменаКолонка7</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
@@ -2625,8 +2649,9 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<Hyperlink>true</Hyperlink>
 											<ValuesPicture>
-												<xr:Ref>CommonPicture.СтатусЦикловОбмена</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:Abs>ValuesPicture.bmp</xr:Abs>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+												<xr:TransparentPixel x="11" y="4"/>
 											</ValuesPicture>
 											<ContextMenu name="ЦиклыОбменаЦБКолонка4КонтекстноеМеню" id="918"/>
 											<ExtendedTooltip name="ЦиклыОбменаЦБКолонка4РасширеннаяПодсказка" id="919"/>
@@ -6075,10 +6100,13 @@
 					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>КомандаСписокВыбрать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КомандаЖурналОбмена" id="1">
 			<Title>

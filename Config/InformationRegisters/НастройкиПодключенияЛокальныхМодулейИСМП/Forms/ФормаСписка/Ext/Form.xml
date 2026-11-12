@@ -2,8 +2,36 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<CommandSet>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Create</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаСоздать" id="48">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаСоздатьРасширеннаяПодсказка" id="49"/>
+			</Button>
+			<Button name="ФормаСкопировать" id="50">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Item.Список.StandardCommand.Copy</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Скопировать настройки</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаСкопироватьРасширеннаяПодсказка" id="51"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -23,6 +51,7 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -30,7 +59,6 @@
 			<EnableDrag>true</EnableDrag>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -47,7 +75,9 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -77,26 +107,20 @@
 				<LabelField name="Организация" id="16">
 					<DataPath>Список.Организация</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="РабочееМесто" id="19">
 					<DataPath>Список.РабочееМесто</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="РабочееМестоКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="РабочееМестоРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="АдресПодключенияЛМ" id="22">
 					<DataPath>Список.АдресПодключенияЛМ</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="АдресПодключенияЛМКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="АдресПодключенияЛМРасширеннаяПодсказка" id="24"/>
 				</LabelField>
-				<LabelField name="ТокенПМСР" id="33">
+				<LabelField name="ТокенПМСР" id="52">
 					<DataPath>Список.ТокенПМСР</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
@@ -109,11 +133,10 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<PasswordMode>true</PasswordMode>
-					<ContextMenu name="ТокенПМСРКонтекстноеМеню" id="34"/>
-					<ExtendedTooltip name="ТокенПМСРРасширеннаяПодсказка" id="35"/>
+					<ContextMenu name="ТокенПМСРКонтекстноеМеню" id="53"/>
+					<ExtendedTooltip name="ТокенПМСРРасширеннаяПодсказка" id="54"/>
 				</LabelField>
-				<LabelField name="ДатаДействияТокенаПМСР" id="36">
+				<LabelField name="ДатаДействияТокенаПМСР" id="55">
 					<DataPath>Список.ДатаДействияТокенаПМСР</DataPath>
 					<Title>
 						<v8:item>
@@ -123,10 +146,10 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ДатаДействияТокенаПМСРКонтекстноеМеню" id="37"/>
-					<ExtendedTooltip name="ДатаДействияТокенаПМСРРасширеннаяПодсказка" id="38"/>
+					<ContextMenu name="ДатаДействияТокенаПМСРКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="ДатаДействияТокенаПМСРРасширеннаяПодсказка" id="57"/>
 				</LabelField>
-				<LabelField name="ТаймаутОжиданияОтветаДоПереходаВЛМ" id="39">
+				<LabelField name="ТаймаутОжиданияОтветаДоПереходаВЛМ" id="58">
 					<DataPath>Список.ТаймаутОжиданияОтветаДоПереходаВЛМ</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
@@ -139,10 +162,10 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ТаймаутОжиданияОтветаДоПереходаВЛМКонтекстноеМеню" id="40"/>
-					<ExtendedTooltip name="ТаймаутОжиданияОтветаДоПереходаВЛМРасширеннаяПодсказка" id="41"/>
+					<ContextMenu name="ТаймаутОжиданияОтветаДоПереходаВЛМКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="ТаймаутОжиданияОтветаДоПереходаВЛМРасширеннаяПодсказка" id="60"/>
 				</LabelField>
-				<LabelField name="СреднееВремяОтветаТСПИоТ" id="42">
+				<LabelField name="СреднееВремяОтветаТСПИоТ" id="61">
 					<DataPath>Список.СреднееВремяОтветаТСПИоТ</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
@@ -155,8 +178,8 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="СреднееВремяОтветаТСПИоТКонтекстноеМеню" id="43"/>
-					<ExtendedTooltip name="СреднееВремяОтветаТСПИоТРасширеннаяПодсказка" id="44"/>
+					<ContextMenu name="СреднееВремяОтветаТСПИоТКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="СреднееВремяОтветаТСПИоТРасширеннаяПодсказка" id="63"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -183,11 +206,6 @@
 						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 							<dcscor:parameter>Формат</dcscor:parameter>
 							<dcscor:value xsi:type="xs:string">БЛ=; БИ='Синхронизировано с ТС ПИоТ'</dcscor:value>
-						</dcscor:item>
-						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-							<dcscor:use>false</dcscor:use>
-							<dcscor:parameter>ВыводитьКартинку</dcscor:parameter>
-							<dcscor:value xsi:type="dcsset:DataCompositionPictureOutputType">OutputByValue</dcscor:value>
 						</dcscor:item>
 					</dcssch:appearance>
 				</CalculatedField>

@@ -3,10 +3,8 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandSet>
-		<ExcludedCommand>Copy</ExcludedCommand>
 		<ExcludedCommand>Create</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -21,11 +19,12 @@
 			</Title>
 			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
-			<ShowTitle>true</ShowTitle>
+			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="38"/>
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -40,10 +39,8 @@
 				</v8:item>
 			</Title>
 			<CommandSet>
-				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -58,9 +55,11 @@
 			<AllowRootChoice>false</AllowRootChoice>
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>
-			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<AllowGettingCurrentRowURL>false</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -89,7 +88,6 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
-				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="Номер" id="19">
@@ -100,8 +98,6 @@
 							<v8:content>Номер</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>10</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="НомерКонтекстноеМеню" id="20"/>
@@ -110,16 +106,12 @@
 				<LabelField name="Дата" id="16">
 					<DataPath>Список.Date</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>9</Width>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="НомерГИСМ" id="31">
 					<DataPath>Список.НомерГИСМ</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>11</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="НомерГИСМКонтекстноеМеню" id="32"/>
@@ -127,16 +119,12 @@
 				</LabelField>
 				<LabelField name="Организация" id="28">
 					<DataPath>Список.Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>15</Width>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<LabelField name="Контрагент" id="25">
 					<DataPath>Список.Контрагент</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КонтрагентКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="27"/>
 				</LabelField>
@@ -145,8 +133,6 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="35"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="36"/>
 				</LabelField>

@@ -1,41 +1,27 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<Width>57</Width>
+	<Height>8</Height>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Далее" id="50">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Далее</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ДалееРасширеннаяПодсказка" id="51"/>
-			</Button>
-			<Button name="ФормаЗакрыть" id="62">
-				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="63"/>
-			</Button>
-			<Button name="ФормаСправка" id="64">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="65"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<Pages name="СтраницыПомощника" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы помощника</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыПомощникаРасширеннаяПодсказка" id="2"/>
+		</Pages>
 		<UsualGroup name="УказаниеДанных" id="3">
 			<Title>
 				<v8:item>
@@ -51,18 +37,20 @@
 			<ChildItems>
 				<LabelField name="ХозяйствующийСубъект" id="10">
 					<DataPath>ХозяйствующийСубъект</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<Width>40</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>false</HorizontalStretch>
 					<Hiperlink>true</Hiperlink>
-					<UseCopy>true</UseCopy>
 					<ContextMenu name="ХозяйствующийСубъектКонтекстноеМеню" id="11"/>
 					<ExtendedTooltip name="ХозяйствующийСубъектРасширеннаяПодсказка" id="12"/>
 				</LabelField>
 				<InputField name="Предприятие" id="7">
 					<DataPath>Предприятие</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<Width>40</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>false</HorizontalStretch>
+					<DropListButton>false</DropListButton>
+					<ChoiceButton>true</ChoiceButton>
 					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 					<ChoiceForm>Catalog.ПредприятияВЕТИС.Form.ФормаСписка</ChoiceForm>
 					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="8"/>
@@ -73,8 +61,9 @@
 				</InputField>
 				<InputField name="GLN" id="13">
 					<DataPath>GLN</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<Width>13</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="GLNКонтекстноеМеню" id="14"/>
 					<ExtendedTooltip name="GLNРасширеннаяПодсказка" id="15"/>
 				</InputField>
@@ -105,7 +94,6 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаЗапросОжиданиеРасширеннаяПодсказка" id="19"/>
 					<ChildItems>
@@ -123,6 +111,9 @@
 							<ExtendedTooltip name="ЗапросОжиданиеРасширеннаяПодсказка" id="21"/>
 							<ChildItems>
 								<PictureDecoration name="ЗапросОжиданиеКартинка" id="22">
+									<Width>2</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Height>1</Height>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -140,11 +131,9 @@
 								<LabelField name="ТекстОжидание" id="25">
 									<DataPath>ТекстОжидание</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>7</Height>
-									<UseCopy>false</UseCopy>
+									<Width>60</Width>
+									<Height>5</Height>
+									<VerticalStretch>false</VerticalStretch>
 									<ContextMenu name="ТекстОжиданиеКонтекстноеМеню" id="26"/>
 									<ExtendedTooltip name="ТекстОжиданиеРасширеннаяПодсказка" id="27"/>
 									<Events>
@@ -169,7 +158,6 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаЗапросОшибкаРасширеннаяПодсказка" id="29"/>
 					<ChildItems>
@@ -193,6 +181,8 @@
 							<ExtendedTooltip name="ЗапросОшибкаРасширеннаяПодсказка" id="31"/>
 							<ChildItems>
 								<PictureDecoration name="ЗапросОшибкаКартинка" id="32">
+									<Width>2</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -210,11 +200,9 @@
 								<LabelField name="ТекстОшибка" id="35">
 									<DataPath>ТекстОшибка</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoMaxWidth>false</AutoMaxWidth>
+									<Width>60</Width>
 									<Height>7</Height>
-									<UseCopy>false</UseCopy>
+									<VerticalStretch>false</VerticalStretch>
 									<ContextMenu name="ТекстОшибкаКонтекстноеМеню" id="36"/>
 									<ExtendedTooltip name="ТекстОшибкаРасширеннаяПодсказка" id="37"/>
 									<Events>
@@ -239,7 +227,6 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаЗапросРезультатРасширеннаяПодсказка" id="39"/>
 					<ChildItems>
@@ -263,6 +250,8 @@
 							<ExtendedTooltip name="ЗапросРезультатРасширеннаяПодсказка" id="41"/>
 							<ChildItems>
 								<PictureDecoration name="ЗапросРезультатКартинка" id="42">
+									<Width>2</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -280,11 +269,9 @@
 								<LabelField name="ТекстРезультат" id="45">
 									<DataPath>ТекстРезультат</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>7</Height>
-									<UseCopy>false</UseCopy>
+									<Width>60</Width>
+									<Height>5</Height>
+									<VerticalStretch>false</VerticalStretch>
 									<ContextMenu name="ТекстРезультатКонтекстноеМеню" id="46"/>
 									<ExtendedTooltip name="ТекстРезультатРасширеннаяПодсказка" id="47"/>
 									<Events>
@@ -297,6 +284,42 @@
 				</Page>
 			</ChildItems>
 		</Pages>
+		<CommandBar name="Подвал" id="48">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подвал</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подвал</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="ПодвалРасширеннаяПодсказка" id="49"/>
+			<ChildItems>
+				<Button name="Далее" id="50">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Далее</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ДалееРасширеннаяПодсказка" id="51"/>
+				</Button>
+				<Button name="Отмена" id="52">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Cancel</CommandName>
+					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="53"/>
+				</Button>
+				<Button name="Справка" id="54">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="55"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -484,7 +507,6 @@
 			</ToolTip>
 			<Action>Далее</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

@@ -9,18 +9,58 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandSet>
-		<ExcludedCommand>ChangeHistory</ExcludedCommand>
-		<ExcludedCommand>Write</ExcludedCommand>
-		<ExcludedCommand>WriteAndClose</ExcludedCommand>
-	</CommandSet>
-	<ShowTitle>true</ShowTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 		<Event name="OnClose">ПриЗакрытии</Event>
 	</Events>
 	<ChildItems>
+		<UsualGroup name="ГруппаЗаголовок" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<Group>Horizontal</Group>
+			<HorizontalAlign>Right</HorizontalAlign>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЗаголовокРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<LabelDecoration name="ОписаниеРаздела" id="3">
+					<Visible>false</Visible>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки интеграции с ЕГАИС</v8:content>
+						</v8:item>
+					</Title>
+					<VerticalAlign>Top</VerticalAlign>
+					<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ОписаниеРазделаРасширеннаяПодсказка" id="5"/>
+				</LabelDecoration>
+				<Button name="ИзменитьФорму" id="195">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+					<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="196"/>
+				</Button>
+				<Button name="Справка" id="11">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="12"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 		<Pages name="СтраницыНастройки" id="153">
 			<Title>
 				<v8:item>
@@ -40,8 +80,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаОсновноеРасширеннаяПодсказка" id="156"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаЕГАИС" id="13">
@@ -65,11 +104,11 @@
 											<v8:content>Левая панель</v8:content>
 										</v8:item>
 									</Title>
+									<Width>45</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
-									<United>false</United>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаНастройкиЛеваяПанельРасширеннаяПодсказка" id="58"/>
 									<ChildItems>
@@ -90,13 +129,11 @@
 													<v8:content>Отключать ведение сведений по алкогольной (спиртосодержащей) продукции после начала работы с системой не рекомендуется</v8:content>
 												</v8:item>
 											</WarningOnEdit>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<CheckBoxType>Switcher</CheckBoxType>
 											<ContextMenu name="ВестиУчетСведенийПоАлкогольнойПродукцииЕГАИСКонтекстноеМеню" id="18"/>
 											<ExtendedTooltip name="ВестиУчетСведенийПоАлкогольнойПродукцииЕГАИСРасширеннаяПодсказка" id="19">
+												<AutoMaxWidth>false</AutoMaxWidth>
 												<MaxWidth>46</MaxWidth>
-												<Height>3</Height>
+												<Height>4</Height>
 												<Title formatted="false">
 													<v8:item>
 														<v8:lang>ru</v8:lang>
@@ -110,6 +147,7 @@
 										</CheckBoxField>
 										<Button name="ПараметрыПодключенияЕГАИС" id="49">
 											<Type>Hyperlink</Type>
+											<Width>64</Width>
 											<HorizontalStretch>true</HorizontalStretch>
 											<CommandName>Form.Command.ПараметрыПодключенияЕГАИС</CommandName>
 											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
@@ -123,26 +161,42 @@
 												</Title>
 											</ExtendedTooltip>
 										</Button>
-										<InputField name="УдалятьКвитанцииУТМДляАСИиУ" id="137">
-											<DataPath>НаборКонстант.УдалятьКвитанцииУТМДляАСИиУ</DataPath>
+										<UsualGroup name="НастройкиКвитанцииАСИиУ" id="140">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Удалять квитанции УТМ для АСИиУ старше</v8:content>
+													<v8:content>Группа1</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<HorizontalStretch>false</HorizontalStretch>
-											<EditFormat>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>ЧФ='Ч дней'</v8:content>
-												</v8:item>
-											</EditFormat>
-											<ContextMenu name="УдалятьКвитанцииУТМДляАСИиУКонтекстноеМеню" id="138"/>
-											<ExtendedTooltip name="УдалятьКвитанцииУТМДляАСИиУРасширеннаяПодсказка" id="139"/>
-										</InputField>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="НастройкиКвитанцииАСИиУРасширеннаяПодсказка" id="141"/>
+											<ChildItems>
+												<InputField name="УдалятьКвитанцииУТМДляАСИиУ" id="137">
+													<DataPath>НаборКонстант.УдалятьКвитанцииУТМДляАСИиУ</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Удалять квитанции УТМ для АСИиУ старше</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="УдалятьКвитанцииУТМДляАСИиУКонтекстноеМеню" id="138"/>
+													<ExtendedTooltip name="УдалятьКвитанцииУТМДляАСИиУРасширеннаяПодсказка" id="139"/>
+												</InputField>
+												<LabelDecoration name="УдалятьКвитанцииОписание" id="145">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>дней</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="УдалятьКвитанцииОписаниеКонтекстноеМеню" id="146"/>
+													<ExtendedTooltip name="УдалятьКвитанцииОписаниеРасширеннаяПодсказка" id="147"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
 								<UsualGroup name="ГруппаНастройкиПраваяПанель" id="59">
@@ -155,7 +209,6 @@
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
-									<United>false</United>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаНастройкиПраваяПанельРасширеннаяПодсказка" id="60"/>
 									<ChildItems>
@@ -163,7 +216,6 @@
 											<Group>Vertical</Group>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
-											<United>false</United>
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаДатыРасширеннаяПодсказка" id="132"/>
 											<ChildItems>
@@ -177,13 +229,10 @@
 													</Title>
 													<TitleLocation>Top</TitleLocation>
 													<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<Width>12</Width>
-													<AutoMaxWidth>false</AutoMaxWidth>
-													<HorizontalStretch>false</HorizontalStretch>
 													<ContextMenu name="ДатаНачалаРегистрацииРозничныхПродажВЕГАИСКонтекстноеМеню" id="124"/>
 													<ExtendedTooltip name="ДатаНачалаРегистрацииРозничныхПродажВЕГАИСРасширеннаяПодсказка" id="125">
+														<AutoMaxWidth>false</AutoMaxWidth>
+														<MaxWidth>46</MaxWidth>
 														<Title formatted="false">
 															<v8:item>
 																<v8:lang>ru</v8:lang>
@@ -205,13 +254,11 @@
 													</Title>
 													<TitleLocation>Top</TitleLocation>
 													<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<Width>12</Width>
 													<MaxWidth>14</MaxWidth>
-													<HorizontalStretch>false</HorizontalStretch>
 													<ContextMenu name="ДатаНачалаРегистрацииРозничныхПродажВЕГАИСВСельскойМестностиКонтекстноеМеню" id="129"/>
 													<ExtendedTooltip name="ДатаНачалаРегистрацииРозничныхПродажВЕГАИСВСельскойМестностиРасширеннаяПодсказка" id="130">
+														<AutoMaxWidth>false</AutoMaxWidth>
+														<MaxWidth>46</MaxWidth>
 														<Title formatted="false">
 															<v8:item>
 																<v8:lang>ru</v8:lang>
@@ -329,8 +376,7 @@
 						</v8:item>
 					</Title>
 					<Group>AlwaysHorizontal</Group>
-					<ShowTitle>true</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаСправочникиРасширеннаяПодсказка" id="158"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаНастройкиЛево" id="167">
@@ -350,7 +396,6 @@
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
-							<United>false</United>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаНастройкиЛевоРасширеннаяПодсказка" id="168"/>
 							<ChildItems>
@@ -359,7 +404,7 @@
 									<CommandName>Form.Command.КлассификаторАлкогольнойПродукцииЕГАИС</CommandName>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 									<ExtendedTooltip name="КлассификаторАлкогольнойПродукцииЕГАИСРасширеннаяПодсказка" id="170">
-										<Height>1</Height>
+										<Height>2</Height>
 									</ExtendedTooltip>
 								</Button>
 								<Button name="КлассификаторОрганизацийЕГАИС" id="171">
@@ -383,6 +428,7 @@
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаЕдиницаИзмеренияЛитрРасширеннаяПодсказка" id="149">
+										<AutoMaxWidth>false</AutoMaxWidth>
 										<MaxWidth>60</MaxWidth>
 										<Title formatted="false">
 											<v8:item>
@@ -400,10 +446,8 @@
 													<v8:content>Литр</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<AutoMaxWidth>false</AutoMaxWidth>
-											<MaxWidth>14</MaxWidth>
+											<MaxWidth>8</MaxWidth>
 											<ContextMenu name="ЕдиницаИзмеренияЛитрИСКонтекстноеМеню" id="151"/>
 											<ExtendedTooltip name="ЕдиницаИзмеренияЛитрИСРасширеннаяПодсказка" id="152"/>
 											<Events>
@@ -420,16 +464,6 @@
 									<ExtendedTooltip name="ОткрытьПротоколОбменаЕГАИСРасширеннаяПодсказка" id="180">
 										<Height>2</Height>
 									</ExtendedTooltip>
-								</Button>
-								<Button name="ШтрихкодыУпаковок" id="177">
-									<Type>Hyperlink</Type>
-									<Visible>false</Visible>
-									<UserVisible>
-										<xr:Common>false</xr:Common>
-									</UserVisible>
-									<CommandName>Form.Command.ШтрихкодыУпаковок</CommandName>
-									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-									<ExtendedTooltip name="ШтрихкодыУпаковокРасширеннаяПодсказка" id="178"/>
 								</Button>
 							</ChildItems>
 						</UsualGroup>
@@ -450,7 +484,6 @@
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
-							<United>false</United>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаНастройкиПравоРасширеннаяПодсказка" id="164"/>
 							<ChildItems>
@@ -459,7 +492,7 @@
 									<CommandName>Form.Command.ВидыАлкогольнойПродукции</CommandName>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 									<ExtendedTooltip name="ВидыАлкогольнойПродукцииРасширеннаяПодсказка" id="166">
-										<Height>1</Height>
+										<Height>2</Height>
 									</ExtendedTooltip>
 								</Button>
 								<Button name="Справки1ЕГАИС" id="173">
@@ -478,6 +511,13 @@
 										<Height>2</Height>
 									</ExtendedTooltip>
 								</Button>
+								<Button name="ШтрихкодыУпаковок" id="177">
+									<Type>Hyperlink</Type>
+									<Visible>false</Visible>
+									<CommandName>Form.Command.ШтрихкодыУпаковок</CommandName>
+									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<ExtendedTooltip name="ШтрихкодыУпаковокРасширеннаяПодсказка" id="178"/>
+								</Button>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
@@ -490,8 +530,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаРегламентныеЗаданияРасширеннаяПодсказка" id="160"/>
 					<ChildItems>
 						<UsualGroup name="НастройкиРегламентныхЗаданий" id="30">
@@ -545,9 +584,6 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>Right</TitleLocation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<CheckBoxType>Switcher</CheckBoxType>
 													<ContextMenu name="ИспользоватьАвтоматическуюОтправкуПолучениеДанныхЕГАИСКонтекстноеМеню" id="39"/>
 													<ExtendedTooltip name="ИспользоватьАвтоматическуюОтправкуПолучениеДанныхЕГАИСРасширеннаяПодсказка" id="40"/>
 													<Events>
@@ -607,9 +643,6 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>Right</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<CheckBoxType>Switcher</CheckBoxType>
 											<ContextMenu name="ИспользоватьСверткуРегистраСоответствиеНоменклатурыЕГАИСКонтекстноеМеню" id="93"/>
 											<ExtendedTooltip name="ИспользоватьСверткуРегистраСоответствиеНоменклатурыЕГАИСРасширеннаяПодсказка" id="94"/>
 											<Events>
@@ -649,9 +682,15 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
+				<Field>НаборКонстант.ВалютаРегламентированногоУчета</Field>
 				<Field>НаборКонстант.ВестиСведенияДляДекларацийПоАлкогольнойПродукции</Field>
 				<Field>НаборКонстант.ЕдиницаИзмеренияЛитрИС</Field>
 				<Field>НаборКонстант.ИспользоватьАвтоматическуюОтправкуПолучениеДанныхВЕТИС</Field>
+				<Field>НаборКонстант.ОтключитьКонтрольОтрицательныхОстатков</Field>
+				<Field>НаборКонстант.СрокОплатыПокупателей</Field>
+				<Field>НаборКонстант.СрокОплатыПоставщикам</Field>
+				<Field>НаборКонстант.ТипЦенПлановойСебестоимостиНоменклатуры</Field>
+				<Field>НаборКонстант.УдалитьНастройкиКолонтитулов</Field>
 				<Field>НаборКонстант.УдалятьКвитанцииУТМДляАСИиУ</Field>
 			</UseAlways>
 		</Attribute>

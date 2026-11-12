@@ -153,13 +153,12 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="65"/>
 			<ChildItems>
-				<InputField name="Страхователь" id="13">
-					<DataPath>Объект.Страхователь</DataPath>
+				<InputField name="Организация" id="237">
+					<DataPath>Объект.Организация</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="СтраховательКонтекстноеМеню" id="14"/>
-					<ExtendedTooltip name="СтраховательРасширеннаяПодсказка" id="15"/>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="238"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="239"/>
 				</InputField>
 				<UsualGroup name="Группа2" id="66">
 					<Group>AlwaysHorizontal</Group>
@@ -168,12 +167,21 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="67"/>
 					<ChildItems>
+						<InputField name="ДатаСообщения" id="143">
+							<DataPath>Объект.ДатаСообщения</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>12</MaxWidth>
+							<ContextMenu name="ДатаСообщенияКонтекстноеМеню" id="144"/>
+							<ExtendedTooltip name="ДатаСообщенияРасширеннаяПодсказка" id="145"/>
+						</InputField>
 						<InputField name="Дата" id="4">
 							<DataPath>Объект.Date</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Width>12</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>8</MaxWidth>
 							<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
 							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
 						</InputField>
@@ -216,16 +224,6 @@
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаРеквизитыИзвещенияФССРасширеннаяПодсказка" id="142"/>
-					<ChildItems>
-						<InputField name="ДатаСообщения" id="143">
-							<DataPath>Объект.ДатаСообщения</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>14</MaxWidth>
-							<ContextMenu name="ДатаСообщенияКонтекстноеМеню" id="144"/>
-							<ExtendedTooltip name="ДатаСообщенияРасширеннаяПодсказка" id="145"/>
-						</InputField>
-					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаТребуетсяПолучить" id="148">
 					<Title>
@@ -258,10 +256,10 @@
 							<ContextMenu name="НадписьТребуетсяПолучитьКонтекстноеМеню" id="151"/>
 							<ExtendedTooltip name="НадписьТребуетсяПолучитьРасширеннаяПодсказка" id="152"/>
 						</LabelDecoration>
-						<Button name="ПолучитьИзФСС" id="153">
+						<Button name="ПолучитьНовыеСообщенияСЭДОФСС" id="240">
 							<Type>Hyperlink</Type>
-							<CommandName>Form.Command.ПолучитьИзФСС</CommandName>
-							<ExtendedTooltip name="ПолучитьИзФССРасширеннаяПодсказка" id="154"/>
+							<CommandName>DataProcessor.ОбщиеФормыСЭДОФСС.Command.ПолучитьНовыеСообщенияСЭДОФСС</CommandName>
+							<ExtendedTooltip name="ПолучитьНовыеСообщенияСЭДОФССРасширеннаяПодсказка" id="241"/>
 						</Button>
 					</ChildItems>
 				</UsualGroup>
@@ -567,6 +565,18 @@
 				</Table>
 			</ChildItems>
 		</UsualGroup>
+		<UsualGroup name="ГруппаДополнительныеРеквизиты" id="245">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дополнительные реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>HorizontalIfPossible</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДополнительныеРеквизитыРасширеннаяПодсказка" id="246"/>
+		</UsualGroup>
 		<UsualGroup name="ГруппаОтветственныйКомментарий" id="157">
 			<Title>
 				<v8:item>
@@ -653,6 +663,14 @@
 					<ContextMenu name="ГоловнаяОрганизацияКонтекстноеМеню" id="8"/>
 					<ExtendedTooltip name="ГоловнаяОрганизацияРасширеннаяПодсказка" id="9"/>
 				</InputField>
+				<InputField name="Страхователь" id="13">
+					<DataPath>Объект.Страхователь</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СтраховательКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="СтраховательРасширеннаяПодсказка" id="15"/>
+				</InputField>
 				<UsualGroup name="Группа3" id="70">
 					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
@@ -678,6 +696,12 @@
 							<ContextMenu name="ДатаСозданияКонтекстноеМеню" id="23"/>
 							<ExtendedTooltip name="ДатаСозданияРасширеннаяПодсказка" id="24"/>
 						</InputField>
+						<InputField name="ТипСообщения" id="242">
+							<DataPath>Объект.ТипСообщения</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ТипСообщенияКонтекстноеМеню" id="243"/>
+							<ExtendedTooltip name="ТипСообщенияРасширеннаяПодсказка" id="244"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -699,20 +723,6 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ПолучитьИзФСС" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Получить из ФСС</v8:content>
-				</v8:item>
-			</Title>
-			<Picture>
-				<xr:Ref>CommonPicture.ВКонвертПодписатьИОтправить</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
-			<Action>ПолучитьИзФСС</Action>
-			<Representation>TextPicture</Representation>
-		</Command>
 		<Command name="ВключитьВозможностьРедактирования" id="2">
 			<Title>
 				<v8:item>
@@ -738,7 +748,7 @@
 			</ToolTip>
 			<Picture>
 				<xr:Ref>CommonPicture.ЗначокСообщениеВТехподдержку16</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ВопросВПоддержку</Action>
 		</Command>

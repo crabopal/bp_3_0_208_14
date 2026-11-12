@@ -426,7 +426,7 @@
 									<DataPath>Объект.Ref</DataPath>
 									<Picture>
 										<xr:Ref>CommonPicture.ОрганФСС</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<Title>
 										<v8:item>
@@ -1262,18 +1262,36 @@
 			<Representation>None</Representation>
 			<ExtendedTooltip name="ИсходящиеДокументыГруппаРасширеннаяПодсказка" id="415"/>
 			<ChildItems>
-				<LabelField name="ИсходящийПервичныйДокумент" id="419">
-					<DataPath>ИсходящийПервичныйДокумент</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Больничный</v8:content>
-						</v8:item>
-					</Title>
-					<Hiperlink>true</Hiperlink>
-					<ContextMenu name="ИсходящийПервичныйДокументКонтекстноеМеню" id="420"/>
-					<ExtendedTooltip name="ИсходящийПервичныйДокументРасширеннаяПодсказка" id="421"/>
-				</LabelField>
+				<UsualGroup name="ИсходящиеДокументыГруппа1" id="765">
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ИсходящиеДокументыГруппа1РасширеннаяПодсказка" id="766"/>
+					<ChildItems>
+						<LabelField name="ИсходящийПервичныйДокумент" id="419">
+							<DataPath>ИсходящийПервичныйДокумент</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Больничный</v8:content>
+								</v8:item>
+							</Title>
+							<Hiperlink>true</Hiperlink>
+							<ContextMenu name="ИсходящийПервичныйДокументКонтекстноеМеню" id="420"/>
+							<ExtendedTooltip name="ИсходящийПервичныйДокументРасширеннаяПодсказка" id="421"/>
+						</LabelField>
+						<LabelField name="ИсходящееСообщениеОСтраховомСлучае" id="762">
+							<DataPath>ИсходящееСообщениеОСтраховомСлучае</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Hiperlink>true</Hiperlink>
+							<ContextMenu name="ИсходящееСообщениеОСтраховомСлучаеКонтекстноеМеню" id="763"/>
+							<ExtendedTooltip name="ИсходящееСообщениеОСтраховомСлучаеРасширеннаяПодсказка" id="764"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
 				<UsualGroup name="ГруппаИсходящийЗапросОтвет" id="750">
 					<Title>
 						<v8:item>
@@ -1577,6 +1595,18 @@
 							</Events>
 						</LabelField>
 					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаДополнительныеРеквизиты" id="767">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дополнительные реквизиты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>HorizontalIfPossible</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДополнительныеРеквизитыРасширеннаяПодсказка" id="768"/>
 				</UsualGroup>
 				<UsualGroup name="Группа8" id="719">
 					<Group>HorizontalIfPossible</Group>
@@ -1939,7 +1969,6 @@
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
-			<Settings xsi:type="v8:TypeDescription"/>
 		</Attribute>
 		<Attribute name="ПравоИзменения" id="13">
 			<Title>
@@ -1980,6 +2009,17 @@
 				</v8:item>
 			</Title>
 			<Type/>
+		</Attribute>
+		<Attribute name="ИсходящееСообщениеОСтраховомСлучае" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исходящее сообщение о страховом случае</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.ИсходящееСообщениеОСтраховомСлучаеФСС</v8:Type>
+			</Type>
 		</Attribute>
 	</Attributes>
 	<Commands>
@@ -2029,7 +2069,7 @@
 			</ToolTip>
 			<Picture>
 				<xr:Ref>CommonPicture.ОтменитьИзменения</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ОтменитьИсправления</Action>
 			<Representation>Picture</Representation>
@@ -2066,7 +2106,7 @@
 			</ToolTip>
 			<Picture>
 				<xr:Ref>CommonPicture.ЗначокСообщениеВТехподдержку16</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ВопросВПоддержку</Action>
 		</Command>

@@ -10,7 +10,6 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
@@ -27,6 +26,25 @@
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаНайтиРасширеннаяПодсказка" id="20"/>
+			</Button>
+			<Button name="ФормаОтмена" id="23">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="24"/>
+			</Button>
+			<Button name="ФормаИзменитьФорму" id="76">
+				<Type>CommandBarButton</Type>
+				<Representation>Picture</Representation>
+				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаИзменитьФормуРасширеннаяПодсказка" id="77"/>
+			</Button>
+			<Button name="ФормаСправка" id="21">
+				<Type>CommandBarButton</Type>
+				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="22"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -46,7 +64,6 @@
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>NormalSeparation</Representation>
-			<ShowTitle>true</ShowTitle>
 			<ExtendedTooltip name="ГруппаПоискПоТочномуСоответствиюРасширеннаяПодсказка" id="70"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаИдентификаторОрганизация" id="81">
@@ -64,8 +81,7 @@
 					<ChildItems>
 						<InputField name="Идентификатор" id="58">
 							<DataPath>Идентификатор</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
+							<MarkRequiredComplete>false</MarkRequiredComplete>
 							<AutoMarkIncomplete>false</AutoMarkIncomplete>
 							<InputHint>
 								<v8:item>
@@ -90,8 +106,6 @@
 									<v8:content>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX</v8:content>
 								</v8:item>
 							</ToolTip>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<InputHint>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -106,8 +120,6 @@
 						</InputField>
 						<InputField name="Организация" id="96">
 							<DataPath>Организация</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<CreateButton>false</CreateButton>
 							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="97"/>
 							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="98"/>
@@ -117,8 +129,6 @@
 						</InputField>
 						<InputField name="Статус" id="113">
 							<DataPath>Статус</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СтатусКонтекстноеМеню" id="114"/>
 							<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="115"/>
 							<Events>
@@ -138,15 +148,11 @@
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ГруппаТипМестаХраненияРасширеннаяПодсказка" id="103"/>
 					<ChildItems>
 						<CheckBoxField name="БезПодтипов" id="116">
 							<DataPath>БезПодтипов</DataPath>
 							<TitleLocation>Right</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="БезПодтиповКонтекстноеМеню" id="117"/>
 							<ExtendedTooltip name="БезПодтиповРасширеннаяПодсказка" id="118"/>
 							<Events>
@@ -163,8 +169,6 @@
 								<CheckBoxField name="ЭтоПроизводственнаяПлощадка" id="104">
 									<DataPath>ЭтоПроизводственнаяПлощадка</DataPath>
 									<TitleLocation>Right</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ЭтоПроизводственнаяПлощадкаКонтекстноеМеню" id="105"/>
 									<ExtendedTooltip name="ЭтоПроизводственнаяПлощадкаРасширеннаяПодсказка" id="106"/>
 									<Events>
@@ -174,8 +178,6 @@
 								<CheckBoxField name="ЭтоСкладВременногоХранения" id="121">
 									<DataPath>ЭтоСкладВременногоХранения</DataPath>
 									<TitleLocation>Right</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ЭтоСкладВременногоХраненияКонтекстноеМеню" id="122"/>
 									<ExtendedTooltip name="ЭтоСкладВременногоХраненияРасширеннаяПодсказка" id="123"/>
 									<Events>
@@ -198,7 +200,7 @@
 			<TitleFont ref="style:NormalTextFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<ShowTitle>true</ShowTitle>
+			<Representation>None</Representation>
 			<ExtendedTooltip name="ГруппаПоискПоПодстрокеРасширеннаяПодсказка" id="72"/>
 			<ChildItems>
 				<InputField name="ПолноеНаименование" id="10">
@@ -210,8 +212,8 @@
 						</v8:item>
 					</Title>
 					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<Width>38</Width>
+					<HorizontalStretch>false</HorizontalStretch>
 					<InputHint>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -236,7 +238,7 @@
 			<TitleFont ref="style:NormalTextFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<ShowTitle>true</ShowTitle>
+			<Representation>NormalSeparation</Representation>
 			<ExtendedTooltip name="ГруппаПоискПоАдресуРасширеннаяПодсказка" id="84"/>
 			<ChildItems>
 				<InputField name="ПредставлениеАдреса" id="91">
@@ -247,20 +249,14 @@
 							<v8:content>Адрес</v8:content>
 						</v8:item>
 					</Title>
-					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<TitleLocation>Left</TitleLocation>
+					<Width>50</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>50</MaxWidth>
+					<HorizontalStretch>false</HorizontalStretch>
 					<MultiLine>true</MultiLine>
 					<ChoiceButton>true</ChoiceButton>
-					<ContextMenu name="ПредставлениеАдресаКонтекстноеМеню" id="92">
-						<ChildItems>
-							<Button name="ВыбратьПредставлениеАдреса" id="134">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.ВыбратьПредставлениеАдреса</CommandName>
-								<ExtendedTooltip name="ВыбратьПредставлениеАдресаРасширеннаяПодсказка" id="133"/>
-							</Button>
-						</ChildItems>
-					</ContextMenu>
+					<ContextMenu name="ПредставлениеАдресаКонтекстноеМеню" id="92"/>
 					<ExtendedTooltip name="ПредставлениеАдресаРасширеннаяПодсказка" id="93"/>
 					<Events>
 						<Event name="OnChange">ПредставлениеАдресаПриИзменении</Event>
@@ -436,10 +432,6 @@
 			</ToolTip>
 			<Action>ВыполнитьПоиск</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
-		</Command>
-		<Command name="ВыбратьПредставлениеАдреса" id="2">
-			<Action>ВыбратьПредставлениеАдреса</Action>
 		</Command>
 	</Commands>
 	<Parameters>

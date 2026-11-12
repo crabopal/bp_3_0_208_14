@@ -11,21 +11,16 @@
 	<Group>Vertical</Group>
 	<CommandBarLocation>None</CommandBarLocation>
 	<ShowCommandBar>false</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаПрименить" id="57">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Применить</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаПрименитьРасширеннаяПодсказка" id="58"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<Button name="Добавить" id="49">
+			<Type>UsualButton</Type>
+			<CommandName>Form.Item.ВариантыЗаполненияЗначений.StandardCommand.Add</CommandName>
+			<ExtendedTooltip name="ДобавитьРасширеннаяПодсказка" id="50"/>
+		</Button>
 		<UsualGroup name="ГруппаСписокВариантов" id="22">
 			<Title>
 				<v8:item>
@@ -41,7 +36,6 @@
 			<ChildItems>
 				<Table name="ВариантыЗаполненияЗначений" id="30">
 					<Representation>List</Representation>
-					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -57,7 +51,9 @@
 					</Title>
 					<RowFilter xsi:nil="true"/>
 					<ContextMenu name="ВариантыЗаполненияЗначенийКонтекстноеМеню" id="31"/>
-					<AutoCommandBar name="ВариантыЗаполненияЗначенийКоманднаяПанель" id="32"/>
+					<AutoCommandBar name="ВариантыЗаполненияЗначенийКоманднаяПанель" id="32">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
 					<ExtendedTooltip name="ВариантыЗаполненияЗначенийРасширеннаяПодсказка" id="33"/>
 					<SearchStringAddition name="ВариантыЗаполненияЗначенийСтрокаПоиска" id="34">
 						<AdditionSource>
@@ -86,7 +82,6 @@
 					</SearchControlAddition>
 					<Events>
 						<Event name="OnStartEdit">ВариантыЗаполненияЗначенийПриНачалеРедактирования</Event>
-						<Event name="OnChange">ВариантыЗаполненияЗначенийПриИзменении</Event>
 					</Events>
 					<ChildItems>
 						<InputField name="ВариантыЗаполненияЗначенийЗначение" id="43">
@@ -97,6 +92,7 @@
 									<v8:content>Значение, которое устанавливается в электронный документ.</v8:content>
 								</v8:item>
 							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
 							<FooterText>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -104,6 +100,7 @@
 </v8:content>
 								</v8:item>
 							</FooterText>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ВариантыЗаполненияЗначенийЗначениеКонтекстноеМеню" id="44"/>
 							<ExtendedTooltip name="ВариантыЗаполненияЗначенийЗначениеРасширеннаяПодсказка" id="45"/>
 							<Events>
@@ -124,6 +121,8 @@
 									<v8:content>Значение, которое отображается при выборе в форме заполнения.</v8:content>
 								</v8:item>
 							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ВариантыЗаполненияЗначенийПредставлениеКонтекстноеМеню" id="47"/>
 							<ExtendedTooltip name="ВариантыЗаполненияЗначенийПредставлениеРасширеннаяПодсказка" id="48"/>
 							<Events>
@@ -230,7 +229,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
+					<v8:content>Применить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>

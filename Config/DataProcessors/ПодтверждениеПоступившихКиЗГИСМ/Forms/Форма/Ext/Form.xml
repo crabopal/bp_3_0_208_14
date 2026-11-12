@@ -2,17 +2,8 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="НомераКиЗКПодтверждениюПодтвердитьПоступление" id="106">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ПодтвердитьПоступление</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="НомераКиЗКПодтверждениюПодтвердитьПоступлениеРасширеннаяПодсказка" id="107"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -21,8 +12,6 @@
 		<LabelField name="Основание" id="87">
 			<DataPath>Основание</DataPath>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="ОснованиеКонтекстноеМеню" id="88"/>
 			<ExtendedTooltip name="ОснованиеРасширеннаяПодсказка" id="89"/>
@@ -54,10 +43,12 @@
 			<ContextMenu name="НомераКиЗКПодтверждениюКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="НомераКиЗКПодтверждениюКоманднаяПанель" id="3">
 				<ChildItems>
-					<Button name="ФормаОбновить" id="67">
+					<Button name="НомераКиЗКПодтверждениюПодтвердитьПоступление" id="106">
 						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Обновить</CommandName>
-						<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="68"/>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.Command.ПодтвердитьПоступление</CommandName>
+						<ButtonImportance>Main</ButtonImportance>
+						<ExtendedTooltip name="НомераКиЗКПодтверждениюПодтвердитьПоступлениеРасширеннаяПодсказка" id="107"/>
 					</Button>
 					<Popup name="УстановитьОтбор" id="69">
 						<Title>
@@ -95,6 +86,11 @@
 							</Button>
 						</ChildItems>
 					</Popup>
+					<Button name="ФормаОбновить" id="67">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Обновить</CommandName>
+						<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="68"/>
+					</Button>
 					<ButtonGroup name="НомераКиЗКПодтверждениюСнятьУстановитьФлажки" id="112">
 						<Title>
 							<v8:item>
@@ -104,6 +100,17 @@
 						</Title>
 						<ExtendedTooltip name="НомераКиЗКПодтверждениюСнятьУстановитьФлажкиРасширеннаяПодсказка" id="113"/>
 					</ButtonGroup>
+					<Button name="НомераКиЗКПодтверждениюИзменитьФорму" id="116">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+						<ExtendedTooltip name="НомераКиЗКПодтверждениюИзменитьФормуРасширеннаяПодсказка" id="117"/>
+					</Button>
+					<Button name="НомераКиЗКПодтверждениюСправка" id="56">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="НомераКиЗКПодтверждениюСправкаРасширеннаяПодсказка" id="57"/>
+					</Button>
 				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="НомераКиЗКПодтверждениюРасширеннаяПодсказка" id="4"/>
@@ -181,7 +188,6 @@
 					<v8:content>Группа проблемы и дубли КиЗ</v8:content>
 				</v8:item>
 			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
 			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
@@ -189,6 +195,8 @@
 			<ExtendedTooltip name="ГруппаПроблемыДублиКиЗРасширеннаяПодсказка" id="94"/>
 			<ChildItems>
 				<PictureDecoration name="КартинкаПроблемыДублиКиЗ" id="95">
+					<Width>2</Width>
+					<Height>1</Height>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -204,8 +212,6 @@
 					<ExtendedTooltip name="КартинкаПроблемыДублиКиЗРасширеннаяПодсказка" id="97"/>
 				</PictureDecoration>
 				<LabelDecoration name="ДекорацияПроблемыДублиКиЗ" id="118">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<AutoMaxHeight>false</AutoMaxHeight>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -227,7 +233,6 @@
 					<v8:content>Проблемы сопоставления</v8:content>
 				</v8:item>
 			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
 			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
@@ -235,6 +240,8 @@
 			<ExtendedTooltip name="ГруппаПроблемыСопоставленияРасширеннаяПодсказка" id="99"/>
 			<ChildItems>
 				<PictureDecoration name="КартинкаПроблемыСопоставления" id="100">
+					<Width>2</Width>
+					<Height>1</Height>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -250,8 +257,6 @@
 					<ExtendedTooltip name="КартинкаПроблемыСопоставленияРасширеннаяПодсказка" id="102"/>
 				</PictureDecoration>
 				<LabelDecoration name="ДекорацияПроблемыСопоставления" id="121">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<AutoMaxHeight>false</AutoMaxHeight>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -521,7 +526,6 @@
 			<Action>ПодтвердитьПоступление</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

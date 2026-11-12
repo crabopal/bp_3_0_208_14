@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
@@ -59,7 +58,7 @@
 					<Button name="ФормаКомандаВыгрузитьУведомлениеВXML" id="102">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.КомандаВыгрузитьУведомлениеВXML</CommandName>
-						<ExtendedTooltip name="ФормаКомандаВыгрузитьУведомлениеВXMLРасширеннаяПодсказка" id="103"/>
+						<ExtendedTooltip name="ФормаКомандаВыгрузитьУведомлениеВXMLExtendedTooltip" id="103"/>
 					</Button>
 					<Popup name="Отправка" id="104">
 						<Title>
@@ -76,18 +75,13 @@
 						</ToolTip>
 						<Picture>
 							<xr:Ref>CommonPicture.ЗначокОбновлениеКонфигурацииЧерезИнтернет16</xr:Ref>
-							<xr:LoadTransparent>false</xr:LoadTransparent>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+							<xr:TransparentPixel x="14" y="1"/>
 						</Picture>
-						<ExtendedTooltip name="ОтправкаРасширеннаяПодсказка" id="105"/>
+						<ExtendedTooltip name="ОтправкаExtendedTooltip" id="105"/>
 						<ChildItems>
 							<ButtonGroup name="ГруппаОтправкаВКонтролирующийОрган" id="106">
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Отправка в контролирующий орган</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="ГруппаОтправкаВКонтролирующийОрганРасширеннаяПодсказка" id="107"/>
+								<ExtendedTooltip name="ГруппаОтправкаВКонтролирующийОрганExtendedTooltip" id="107"/>
 								<ChildItems>
 									<Button name="ПроверитьВИнтернете" id="108">
 										<Type>CommandBarButton</Type>
@@ -117,7 +111,7 @@
 												<v8:content>Отправить в ФНС</v8:content>
 											</v8:item>
 										</Title>
-										<ExtendedTooltip name="ОтправитьВКонтролирующийОрганРасширеннаяПодсказка" id="111"/>
+										<ExtendedTooltip name="ОтправитьВКонтролирующийОрганExtendedTooltip" id="111"/>
 									</Button>
 								</ChildItems>
 							</ButtonGroup>
@@ -135,22 +129,17 @@
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаПанельОтправки" id="112">
 			<EnableContentChange>true</EnableContentChange>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Панель отправки</v8:content>
-				</v8:item>
-			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПанельОтправкиРасширеннаяПодсказка" id="113"/>
+			<ExtendedTooltip name="ГруппаПанельОтправкиExtendedTooltip" id="113"/>
 			<ChildItems>
 				<UsualGroup name="БлокСостоянияОтправки" id="114">
 					<Title>
@@ -280,12 +269,6 @@
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="БлокОшибокИИзвещений" id="134">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Блок ошибок и извещений</v8:content>
-						</v8:item>
-					</Title>
 					<HorizontalStretch>true</HorizontalStretch>
 					<Group>Horizontal</Group>
 					<Behavior>Usual</Behavior>
@@ -295,12 +278,6 @@
 					<ExtendedTooltip name="БлокОшибокИИзвещенийРасширеннаяПодсказка" id="135"/>
 					<ChildItems>
 						<UsualGroup name="БлокКритическихОшибок" id="136">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Блок критических ошибок</v8:content>
-								</v8:item>
-							</Title>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -317,7 +294,7 @@
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
 									<Picture>
 										<xr:Ref>CommonPicture.ПризнакНаличияКритическойОшибки</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="ЗначокКритическойОшибкиКонтекстноеМеню" id="139"/>
@@ -380,12 +357,6 @@
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаШапка" id="74">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Шапка</v8:content>
-				</v8:item>
-			</Title>
 			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
@@ -393,12 +364,6 @@
 			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="75"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаШапкаЛевая" id="76">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Шапка левая</v8:content>
-						</v8:item>
-					</Title>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
@@ -409,7 +374,7 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Номер дата</v8:content>
+									<v8:content>Группа номер дата</v8:content>
 								</v8:item>
 							</Title>
 							<ToolTip>
@@ -443,15 +408,13 @@
 									<DataPath>СостояниеДокумента</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>2</Width>
 									<Height>1</Height>
 									<HorizontalStretch>false</HorizontalStretch>
 									<VerticalStretch>false</VerticalStretch>
 									<ValuesPicture>
-										<xr:Ref>CommonPicture.СостоянияДокументаБП</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:Ref>CommonPicture.СостоянияДокумента</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</ValuesPicture>
 									<Border width="1">
 										<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
@@ -466,8 +429,6 @@
 						</UsualGroup>
 						<InputField name="Контрагент" id="197">
 							<DataPath>Объект.Контрагент</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="КонтрагентКонтекстноеМеню" id="198"/>
 							<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="199"/>
 						</InputField>
@@ -512,8 +473,6 @@
 									<v8:content>Единица измерения</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ЕдиницаИзмеренияКонтекстноеМеню" id="159"/>
 							<ExtendedTooltip name="ЕдиницаИзмеренияРасширеннаяПодсказка" id="160"/>
 							<Events>
@@ -523,12 +482,6 @@
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаШапкаПравая" id="78">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Шапка правая</v8:content>
-						</v8:item>
-					</Title>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
@@ -578,7 +531,7 @@
 								<v8:content>Товары подменю заполнить</v8:content>
 							</v8:item>
 						</ToolTip>
-						<ExtendedTooltip name="ТоварыПодменюЗаполнитьРасширеннаяПодсказка" id="97"/>
+						<ExtendedTooltip name="ТоварыПодменюЗаполнитьExtendedTooltip" id="97"/>
 						<ChildItems>
 							<Button name="ТоварыЗаполнитьТНВЭД" id="98">
 								<Type>CommandBarButton</Type>
@@ -632,20 +585,6 @@
 						<Event name="StartChoice">ТоварыНоменклатураНачалоВыбора</Event>
 					</Events>
 				</InputField>
-				<InputField name="ТоварыХарактеристика" id="206">
-					<DataPath>Объект.Товары.Характеристика</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ТоварыХарактеристикаКонтекстноеМеню" id="207"/>
-					<ExtendedTooltip name="ТоварыХарактеристикаРасширеннаяПодсказка" id="208"/>
-				</InputField>
-				<InputField name="ТоварыПартия" id="209">
-					<DataPath>Объект.Товары.Партия</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ТоварыПартияКонтекстноеМеню" id="210"/>
-					<ExtendedTooltip name="ТоварыПартияРасширеннаяПодсказка" id="211"/>
-				</InputField>
 				<InputField name="ТоварыКодОКПД2" id="176">
 					<DataPath>Объект.Товары.КодОКПД2</DataPath>
 					<EditMode>EnterOnInput</EditMode>
@@ -666,7 +605,6 @@
 							<v8:content>Товары группа единицы измерения</v8:content>
 						</v8:item>
 					</ToolTip>
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ТоварыГруппаЕдиницыИзмеренияРасширеннаяПодсказка" id="83"/>
 					<ChildItems>
 						<InputField name="ТоварыЕдиницаИзмерения" id="179">
@@ -696,7 +634,6 @@
 							<v8:content>Товары группа общая количество</v8:content>
 						</v8:item>
 					</ToolTip>
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ТоварыГруппаОбщаяКоличествоРасширеннаяПодсказка" id="85"/>
 					<ChildItems>
 						<InputField name="ТоварыКоличество" id="182">

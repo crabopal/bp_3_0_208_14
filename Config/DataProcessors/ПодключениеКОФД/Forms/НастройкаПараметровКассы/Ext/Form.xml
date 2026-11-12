@@ -6,8 +6,8 @@
 			<v8:content>Параметры кассы</v8:content>
 		</v8:item>
 	</Title>
+	<Width>50</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
-	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<VerticalAlign>Top</VerticalAlign>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
@@ -23,13 +23,15 @@
 			<Button name="ФормаЗаписать" id="68">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.Записать</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.Write</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
 				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="69"/>
 			</Button>
 			<Button name="ПроверитьПодключение" id="47">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ПроверитьПодключение</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ButtonImportance>Supplementary</ButtonImportance>
 				<ExtendedTooltip name="ПроверитьПодключениеРасширеннаяПодсказка" id="48"/>
 			</Button>
 		</ChildItems>
@@ -48,6 +50,53 @@
 				<Event name="Creating">НастройкаПодключенияСоздание</Event>
 			</Events>
 		</InputField>
+		<UsualGroup name="ГруппаПояснение" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пояснение</v8:content>
+				</v8:item>
+			</Title>
+			<GroupVerticalAlign>Top</GroupVerticalAlign>
+			<Group>AlwaysHorizontal</Group>
+			<VerticalAlign>Center</VerticalAlign>
+			<Behavior>Usual</Behavior>
+			<Representation>WeakSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПояснениеРасширеннаяПодсказка" id="8"/>
+			<ChildItems>
+				<LabelDecoration name="ДекорацияПояснениеКФорме" id="9">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>50</MaxWidth>
+					<Height>3</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Для продолжения выберите настройку подключения.</v8:content>
+						</v8:item>
+					</Title>
+					<VerticalAlign>Top</VerticalAlign>
+					<ContextMenu name="ДекорацияПояснениеКФормеКонтекстноеМеню" id="10"/>
+					<ExtendedTooltip name="ДекорацияПояснениеКФормеРасширеннаяПодсказка" id="11"/>
+				</LabelDecoration>
+				<Button name="ПодключитьКассу" id="61">
+					<Type>UsualButton</Type>
+					<Visible>false</Visible>
+					<GroupVerticalAlign>Top</GroupVerticalAlign>
+					<CommandName>Form.Command.ПодключитьКассу</CommandName>
+					<ExtendedTooltip name="ПодключитьКассуРасширеннаяПодсказка" id="62"/>
+				</Button>
+				<Button name="ОтключитьКассу" id="63">
+					<Type>UsualButton</Type>
+					<Visible>false</Visible>
+					<GroupVerticalAlign>Top</GroupVerticalAlign>
+					<CommandName>Form.Command.ОтключитьКассу</CommandName>
+					<ExtendedTooltip name="ОтключитьКассуРасширеннаяПодсказка" id="64"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 		<UsualGroup name="ГруппаПрикладныеНастройки" id="51">
 			<Title>
 				<v8:item>
@@ -71,13 +120,6 @@
 					<DataPath>ПредставлениеКассы</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<SkipOnInput>true</SkipOnInput>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Сценарий использования</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 					<ContextMenu name="КассаКонтекстноеМеню" id="42"/>
 					<ExtendedTooltip name="КассаРасширеннаяПодсказка" id="43"/>
 				</InputField>
@@ -100,19 +142,6 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<Button name="ОтключитьКассу" id="63">
-			<Type>UsualButton</Type>
-			<GroupVerticalAlign>Top</GroupVerticalAlign>
-			<CommandName>Form.Command.ОтключитьКассу</CommandName>
-			<ExtendedTooltip name="ОтключитьКассуРасширеннаяПодсказка" id="64"/>
-		</Button>
-		<Button name="ПодключитьКассу" id="61">
-			<Type>UsualButton</Type>
-			<Visible>false</Visible>
-			<GroupVerticalAlign>Top</GroupVerticalAlign>
-			<CommandName>Form.Command.ПодключитьКассу</CommandName>
-			<ExtendedTooltip name="ПодключитьКассуРасширеннаяПодсказка" id="62"/>
-		</Button>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ДанныеУчастников" id="2">
@@ -325,7 +354,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПроверитьПодключение" id="2">
 			<Title>
@@ -386,7 +414,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Записать</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

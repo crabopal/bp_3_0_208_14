@@ -2,7 +2,13 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаБыстрыеОтборы" id="40">
 			<Title>
@@ -11,29 +17,44 @@
 					<v8:content>Быстрые отборы</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Быстрые отборы</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаБыстрыеОтборыРасширеннаяПодсказка" id="41"/>
 		</UsualGroup>
+		<CommandBar name="ГруппаКоманднаяПанель" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель</v8:content>
+				</v8:item>
+			</ToolTip>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="43"/>
+		</CommandBar>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
-			<InitialRowActivation>Activate</InitialRowActivation>
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Список</v8:content>
-				</v8:item>
-			</Title>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -50,8 +71,10 @@
 			<UserSettingsGroup>ГруппаБыстрыеОтборы</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="26"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="26"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="44">
 				<AdditionSource>
 					<Item>Список</Item>
@@ -85,11 +108,9 @@
 							<v8:content>N</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>3</Width>
 					<ContextMenu name="НомерСтрокиКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="НомерСтрокиРасширеннаяПодсказка" id="27"/>
+					<ExtendedTooltip name="НомерСтрокиExtendedTooltip" id="27"/>
 				</LabelField>
 				<ColumnGroup name="ГруппаПериодРегистратор" id="38">
 					<Title>
@@ -98,25 +119,26 @@
 							<v8:content>Период, регистратор</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Horizontal</Group>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период, регистратор</v8:content>
+						</v8:item>
+					</ToolTip>
 					<ExtendedTooltip name="ГруппаПериодРегистраторРасширеннаяПодсказка" id="39"/>
 					<ChildItems>
 						<LabelField name="Период" id="4">
 							<DataPath>Список.Period</DataPath>
 							<DefaultItem>true</DefaultItem>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>20</Width>
 							<ContextMenu name="ПериодКонтекстноеМеню" id="5"/>
-							<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="34"/>
+							<ExtendedTooltip name="ПериодExtendedTooltip" id="34"/>
 						</LabelField>
 						<LabelField name="Регистратор" id="6">
 							<DataPath>Список.Recorder</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>20</Width>
 							<ContextMenu name="РегистраторКонтекстноеМеню" id="7"/>
-							<ExtendedTooltip name="РегистраторРасширеннаяПодсказка" id="30"/>
+							<ExtendedTooltip name="РегистраторExtendedTooltip" id="30"/>
 						</LabelField>
 					</ChildItems>
 				</ColumnGroup>
@@ -127,22 +149,23 @@
 							<v8:content>Организация, патент</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Horizontal</Group>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация, патент</v8:content>
+						</v8:item>
+					</ToolTip>
 					<ExtendedTooltip name="ГруппаОрганизацияПатентРасширеннаяПодсказка" id="28"/>
 					<ChildItems>
 						<LabelField name="Организация" id="12">
 							<DataPath>Список.Организация</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="13"/>
-							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="29"/>
+							<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="29"/>
 						</LabelField>
 						<LabelField name="Патент" id="14">
 							<DataPath>Список.Патент</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ПатентКонтекстноеМеню" id="15"/>
-							<ExtendedTooltip name="ПатентРасширеннаяПодсказка" id="35"/>
+							<ExtendedTooltip name="ПатентExtendedTooltip" id="35"/>
 						</LabelField>
 					</ChildItems>
 				</ColumnGroup>
@@ -153,34 +176,65 @@
 							<v8:content>Содержание</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Horizontal</Group>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Содержание</v8:content>
+						</v8:item>
+					</ToolTip>
 					<ExtendedTooltip name="ГруппаСодержаниеРасширеннаяПодсказка" id="32"/>
 					<ChildItems>
 						<LabelField name="Содержание" id="18">
 							<DataPath>Список.Содержание</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>30</Width>
 							<ContextMenu name="СодержаниеКонтекстноеМеню" id="19"/>
-							<ExtendedTooltip name="СодержаниеРасширеннаяПодсказка" id="36"/>
+							<ExtendedTooltip name="СодержаниеExtendedTooltip" id="36"/>
 						</LabelField>
 						<LabelField name="РеквизитыПервичногоДокумента" id="20">
 							<DataPath>Список.РеквизитыПервичногоДокумента</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>30</Width>
 							<ContextMenu name="РеквизитыПервичногоДокументаКонтекстноеМеню" id="21"/>
-							<ExtendedTooltip name="РеквизитыПервичногоДокументаРасширеннаяПодсказка" id="31"/>
+							<ExtendedTooltip name="РеквизитыПервичногоДокументаExtendedTooltip" id="31"/>
 						</LabelField>
 					</ChildItems>
 				</ColumnGroup>
 				<LabelField name="Графа4" id="16">
 					<DataPath>Список.Графа4</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>12</Width>
 					<ContextMenu name="Графа4КонтекстноеМеню" id="17"/>
-					<ExtendedTooltip name="Графа4РасширеннаяПодсказка" id="37"/>
+					<ExtendedTooltip name="Графа4ExtendedTooltip" id="37"/>
+				</LabelField>
+				<ColumnGroup name="ГруппаКонтрагентДоговор" id="53">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа контрагент договор</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа контрагент договор</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаКонтрагентДоговорРасширеннаяПодсказка" id="54"/>
+					<ChildItems>
+						<LabelField name="Контрагент" id="55">
+							<DataPath>Список.Контрагент</DataPath>
+							<ContextMenu name="КонтрагентКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="57"/>
+						</LabelField>
+						<LabelField name="ДоговорКонтрагента" id="58">
+							<DataPath>Список.ДоговорКонтрагента</DataPath>
+							<ContextMenu name="ДоговорКонтрагентаКонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="ДоговорКонтрагентаРасширеннаяПодсказка" id="60"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="ТипОплаты" id="61">
+					<DataPath>Список.ТипОплаты</DataPath>
+					<ContextMenu name="ТипОплатыКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="ТипОплатыРасширеннаяПодсказка" id="63"/>
 				</LabelField>
 			</ChildItems>
 		</Table>

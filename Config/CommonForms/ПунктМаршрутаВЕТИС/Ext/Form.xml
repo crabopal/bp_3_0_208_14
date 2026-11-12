@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаГотово" id="18">
@@ -12,10 +11,10 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаГотовоРасширеннаяПодсказка" id="19"/>
 			</Button>
-			<Button name="ФормаЗакрыть" id="74">
+			<Button name="ФормаОтмена" id="36">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="75"/>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="37"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -24,466 +23,427 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаОсновное" id="76">
+		<UsualGroup name="ГруппаПунктМаршрута" id="1">
+			<EnableContentChange>true</EnableContentChange>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа основное</v8:content>
+					<v8:content>Точка маршрута</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа основное</v8:content>
+					<v8:content>Группа пункт маршрута</v8:content>
 				</v8:item>
 			</ToolTip>
-			<HorizontalStretch>false</HorizontalStretch>
 			<Group>Vertical</Group>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="77"/>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="ГруппаПунктМаршрутаРасширеннаяПодсказка" id="2"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаПунктМаршрута" id="1">
-					<EnableContentChange>true</EnableContentChange>
+				<RadioButtonField name="ВидПунктаМаршрута" id="5">
+					<DataPath>ВидПунктаМаршрута</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Точка маршрута</v8:content>
+							<v8:content>Вид пункта маршрута</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<ShowTitle>true</ShowTitle>
-					<ShowAsCard>true</ShowAsCard>
-					<ExtendedTooltip name="ГруппаПунктМаршрутаРасширеннаяПодсказка" id="2"/>
-					<ChildItems>
-						<RadioButtonField name="ВидПунктаМаршрута" id="5">
-							<DataPath>ВидПунктаМаршрута</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Вид пункта маршрута</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<RadioButtonType>Tumbler</RadioButtonType>
-							<ChoiceList>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Предприятие</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:decimal">0</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Адрес</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:decimal">1</Value>
-									</xr:Value>
-								</xr:Item>
-							</ChoiceList>
-							<ContextMenu name="ВидПунктаМаршрутаКонтекстноеМеню" id="6"/>
-							<ExtendedTooltip name="ВидПунктаМаршрутаРасширеннаяПодсказка" id="7"/>
-							<Events>
-								<Event name="OnChange">ВидПунктаМаршрутаПриИзменении</Event>
-							</Events>
-						</RadioButtonField>
-						<Pages name="ГруппаПунктМаршрутаСтраницы" id="3">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа пункт маршрута страницы</v8:content>
-								</v8:item>
-							</Title>
-							<PagesRepresentation>None</PagesRepresentation>
-							<ExtendedTooltip name="ГруппаПунктМаршрутаСтраницыРасширеннаяПодсказка" id="4"/>
-							<ChildItems>
-								<Page name="ГруппаСтраницаПредприятие" id="10">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа страница предприятие</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа страница предприятие</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Vertical</Group>
-									<ShowTitle>true</ShowTitle>
-									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="ГруппаСтраницаПредприятиеРасширеннаяПодсказка" id="11"/>
-									<ChildItems>
-										<InputField name="Предприятие" id="15">
-											<DataPath>Предприятие</DataPath>
-											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-											<AutoMarkIncomplete>true</AutoMarkIncomplete>
-											<ChoiceForm>Catalog.ПредприятияВЕТИС.Form.ФормаСписка</ChoiceForm>
-											<ChoiceParameterLinks>
-												<xr:Link>
-													<xr:Name>ХозяйствующийСубъект</xr:Name>
-													<xr:DataPath xsi:type="xs:string">ХозяйствующийСубъект</xr:DataPath>
-													<xr:ValueChange>Clear</xr:ValueChange>
-												</xr:Link>
-											</ChoiceParameterLinks>
-											<ContextMenu name="ПредприятиеКонтекстноеМеню" id="16"/>
-											<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="17"/>
-										</InputField>
-									</ChildItems>
-								</Page>
-								<Page name="ГруппаСтраницаАдрес" id="8">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа страница адрес</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа страница адрес</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Horizontal</Group>
-									<ShowTitle>true</ShowTitle>
-									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="ГруппаСтраницаАдресРасширеннаяПодсказка" id="9"/>
-									<ChildItems>
-										<UsualGroup name="ГруппаСтранаАдрес" id="78">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа страна адрес</v8:content>
-												</v8:item>
-											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа страна адрес</v8:content>
-												</v8:item>
-											</ToolTip>
-											<Group>Vertical</Group>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаСтранаАдресРасширеннаяПодсказка" id="79"/>
-											<ChildItems>
-												<UsualGroup name="ГруппаПредставлениеАдреса" id="52">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Группа представление адреса</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Группа представление адреса</v8:content>
-														</v8:item>
-													</ToolTip>
-													<Group>Vertical</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаПредставлениеАдресаРасширеннаяПодсказка" id="53"/>
-													<ChildItems>
-														<InputField name="ПредставлениеАдреса" id="54">
-															<DataPath>АдресПредставление</DataPath>
-															<TitleLocation>None</TitleLocation>
-															<ToolTip>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Адрес доставки, введенный строкой</v8:content>
-																</v8:item>
-															</ToolTip>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
-															<ChoiceButton>true</ChoiceButton>
-															<AutoMarkIncomplete>true</AutoMarkIncomplete>
-															<TextEdit>false</TextEdit>
-															<InputHint>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Для редактирования нажмите кнопку выбора</v8:content>
-																</v8:item>
-															</InputHint>
-															<ContextMenu name="ПредставлениеАдресаКонтекстноеМеню" id="55"/>
-															<ExtendedTooltip name="ПредставлениеАдресаРасширеннаяПодсказка" id="56"/>
-															<Events>
-																<Event name="OnChange">ПредставлениеАдресаПриИзменении</Event>
-																<Event name="StartChoice">ПредставлениеАдресаНачалоВыбора</Event>
-																<Event name="Opening">ПредставлениеАдресаОткрытие</Event>
-																<Event name="Clearing">ПредставлениеАдресаОчистка</Event>
-																<Event name="ChoiceProcessing">ПредставлениеАдресаОбработкаВыбора</Event>
-															</Events>
-														</InputField>
-														<InputField name="ПредставлениеАдресаВЕТИС" id="46">
-															<DataPath>АдресПредставление</DataPath>
-															<Visible>false</Visible>
-															<TitleLocation>None</TitleLocation>
-															<ToolTip>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Адрес доставки, введенный строкой</v8:content>
-																</v8:item>
-															</ToolTip>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
-															<ChoiceButton>true</ChoiceButton>
-															<AutoMarkIncomplete>true</AutoMarkIncomplete>
-															<TextEdit>false</TextEdit>
-															<InputHint>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Для редактирования нажмите кнопку выбора</v8:content>
-																</v8:item>
-															</InputHint>
-															<ContextMenu name="ПредставлениеАдресаВЕТИСКонтекстноеМеню" id="47"/>
-															<ExtendedTooltip name="ПредставлениеАдресаВЕТИСРасширеннаяПодсказка" id="48"/>
-															<Events>
-																<Event name="StartChoice">ПредставлениеАдресаВЕТИСНачалоВыбора</Event>
-															</Events>
-														</InputField>
-													</ChildItems>
-												</UsualGroup>
-												<InputField name="СтранаМира" id="38">
-													<DataPath>СтранаМира</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<AutoMarkIncomplete>true</AutoMarkIncomplete>
-													<TextEdit>false</TextEdit>
-													<ContextMenu name="СтранаМираКонтекстноеМеню" id="39"/>
-													<ExtendedTooltip name="СтранаМираРасширеннаяПодсказка" id="40"/>
-													<Events>
-														<Event name="OnChange">СтранаМираПриИзменении</Event>
-														<Event name="Clearing">СтранаМираОчистка</Event>
-													</Events>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
-									</ChildItems>
-								</Page>
-							</ChildItems>
-						</Pages>
-						<CheckBoxField name="СПерегрузкой" id="57">
-							<DataPath>СПерегрузкой</DataPath>
-							<TitleLocation>Right</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="СПерегрузкойКонтекстноеМеню" id="58"/>
-							<ExtendedTooltip name="СПерегрузкойРасширеннаяПодсказка" id="59"/>
-							<Events>
-								<Event name="OnChange">БезПерегрузкиПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаТранспортноеСредство" id="20">
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Предприятие</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Адрес</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ВидПунктаМаршрутаКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="ВидПунктаМаршрутаРасширеннаяПодсказка" id="7"/>
+					<Events>
+						<Event name="OnChange">ВидПунктаМаршрутаПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<Pages name="ГруппаПунктМаршрутаСтраницы" id="3">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Транспортное средство</v8:content>
+							<v8:content>Группа пункт маршрута страницы</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>true</HorizontalStretch>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<ShowTitle>true</ShowTitle>
-					<ShowAsCard>true</ShowAsCard>
-					<ExtendedTooltip name="ГруппаТранспортноеСредствоРасширеннаяПодсказка" id="21"/>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаПунктМаршрутаСтраницыРасширеннаяПодсказка" id="4"/>
 					<ChildItems>
-						<InputField name="ТипТранспорта" id="22">
-							<DataPath>ТипТранспорта</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ListChoiceMode>true</ListChoiceMode>
-							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-							<ChoiceList>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Автомобиль</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.Автомобиль</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Железнодорожный вагон</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.ЖелезнодорожныйВагон</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Авиарейс</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.Авиарейс</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Морской контейнер</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.МорскойКонтейнер</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Морской трюм</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.МорскойТрюм</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Речной</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.Речной</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Перегон</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.ПерегонСкота</Value>
-									</xr:Value>
-								</xr:Item>
-							</ChoiceList>
-							<ContextMenu name="ТипТранспортаКонтекстноеМеню" id="23"/>
-							<ExtendedTooltip name="ТипТранспортаРасширеннаяПодсказка" id="24"/>
-							<Events>
-								<Event name="OnChange">ТипТранспортаПриИзменении</Event>
-							</Events>
-						</InputField>
-						<InputField name="ТранспортноеСредство" id="60">
-							<DataPath>ТранспортноеСредство</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="ТранспортноеСредствоКонтекстноеМеню" id="61"/>
-							<ExtendedTooltip name="ТранспортноеСредствоРасширеннаяПодсказка" id="62"/>
-							<Events>
-								<Event name="OnChange">ТранспортноеСредствоПриИзменении</Event>
-							</Events>
-						</InputField>
-						<UsualGroup name="ГруппаДанныеТранспортногоСредства" id="25">
+						<Page name="ГруппаСтраницаПредприятие" id="10">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа данные транспортного средства</v8:content>
+									<v8:content>Группа страница предприятие</v8:content>
 								</v8:item>
 							</Title>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа данные транспортного средства</v8:content>
+									<v8:content>Группа страница предприятие</v8:content>
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаДанныеТранспортногоСредстваРасширеннаяПодсказка" id="26"/>
+							<ScrollOnCompress>false</ScrollOnCompress>
+							<ExtendedTooltip name="ГруппаСтраницаПредприятиеРасширеннаяПодсказка" id="11"/>
 							<ChildItems>
-								<InputField name="НомерТранспортногоСредства" id="27">
-									<DataPath>НомерТранспортногоСредства</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Номер автомашины</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+								<InputField name="Предприятие" id="15">
+									<DataPath>Предприятие</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<ContextMenu name="НомерТранспортногоСредстваКонтекстноеМеню" id="28"/>
-									<ExtendedTooltip name="НомерТранспортногоСредстваРасширеннаяПодсказка" id="29"/>
-								</InputField>
-								<InputField name="НомерАвтомобильногоПрицепа" id="30">
-									<DataPath>НомерАвтомобильногоПрицепа</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Номер полуприцепа</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="НомерАвтомобильногоПрицепаКонтекстноеМеню" id="31"/>
-									<ExtendedTooltip name="НомерАвтомобильногоПрицепаРасширеннаяПодсказка" id="32"/>
-								</InputField>
-								<InputField name="НомерАвтомобильногоКонтейнера" id="33">
-									<DataPath>НомерАвтомобильногоКонтейнера</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="НомерАвтомобильногоКонтейнераКонтекстноеМеню" id="34"/>
-									<ExtendedTooltip name="НомерАвтомобильногоКонтейнераРасширеннаяПодсказка" id="35"/>
+									<ChoiceForm>Catalog.ПредприятияВЕТИС.Form.ФормаСписка</ChoiceForm>
+									<ChoiceParameterLinks>
+										<xr:Link>
+											<xr:Name>ХозяйствующийСубъект</xr:Name>
+											<xr:DataPath xsi:type="xs:string">ХозяйствующийСубъект</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+									</ChoiceParameterLinks>
+									<ContextMenu name="ПредприятиеКонтекстноеМеню" id="16"/>
+									<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="17"/>
 								</InputField>
 							</ChildItems>
-						</UsualGroup>
+						</Page>
+						<Page name="ГруппаСтраницаАдрес" id="8">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа страница адрес</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа страница адрес</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ScrollOnCompress>false</ScrollOnCompress>
+							<ExtendedTooltip name="ГруппаСтраницаАдресРасширеннаяПодсказка" id="9"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаПредставлениеАдреса" id="52">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа представление адреса</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа представление адреса</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПредставлениеАдресаРасширеннаяПодсказка" id="53"/>
+									<ChildItems>
+										<InputField name="ПредставлениеАдреса" id="54">
+											<DataPath>АдресПредставление</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Адрес доставки, введенный строкой</v8:content>
+												</v8:item>
+											</ToolTip>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
+											<Width>50</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>50</MaxWidth>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ChoiceButton>true</ChoiceButton>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<TextEdit>false</TextEdit>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Для редактирования нажмите кнопку выбора</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ПредставлениеАдресаКонтекстноеМеню" id="55"/>
+											<ExtendedTooltip name="ПредставлениеАдресаРасширеннаяПодсказка" id="56"/>
+											<Events>
+												<Event name="OnChange">ПредставлениеАдресаПриИзменении</Event>
+												<Event name="StartChoice">ПредставлениеАдресаНачалоВыбора</Event>
+												<Event name="Opening">ПредставлениеАдресаОткрытие</Event>
+												<Event name="Clearing">ПредставлениеАдресаОчистка</Event>
+												<Event name="ChoiceProcessing">ПредставлениеАдресаОбработкаВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ПредставлениеАдресаВЕТИС" id="46">
+											<DataPath>АдресПредставление</DataPath>
+											<Visible>false</Visible>
+											<TitleLocation>None</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Адрес доставки, введенный строкой</v8:content>
+												</v8:item>
+											</ToolTip>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
+											<Width>50</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>50</MaxWidth>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ChoiceButton>true</ChoiceButton>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<TextEdit>false</TextEdit>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Для редактирования нажмите кнопку выбора</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ПредставлениеАдресаВЕТИСКонтекстноеМеню" id="47"/>
+											<ExtendedTooltip name="ПредставлениеАдресаВЕТИСРасширеннаяПодсказка" id="48"/>
+											<Events>
+												<Event name="StartChoice">ПредставлениеАдресаВЕТИСНачалоВыбора</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<InputField name="СтранаМира" id="38">
+									<DataPath>СтранаМира</DataPath>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
+									<Width>18</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="СтранаМираКонтекстноеМеню" id="39"/>
+									<ExtendedTooltip name="СтранаМираРасширеннаяПодсказка" id="40"/>
+									<Events>
+										<Event name="OnChange">СтранаМираПриИзменении</Event>
+										<Event name="Clearing">СтранаМираОчистка</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+				<CheckBoxField name="СПерегрузкой" id="57">
+					<DataPath>СПерегрузкой</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ContextMenu name="СПерегрузкойКонтекстноеМеню" id="58"/>
+					<ExtendedTooltip name="СПерегрузкойРасширеннаяПодсказка" id="59"/>
+					<Events>
+						<Event name="OnChange">БезПерегрузкиПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаТранспортноеСредство" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Транспортное средство</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа транспортное средство</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="ГруппаТранспортноеСредствоРасширеннаяПодсказка" id="21"/>
+			<ChildItems>
+				<RadioButtonField name="ТипТранспорта" id="22">
+					<DataPath>ТипТранспорта</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Автомобиль</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.Автомобиль</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Железнодорожный вагон</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.ЖелезнодорожныйВагон</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Авиарейс</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.Авиарейс</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Морской контейнер</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.МорскойКонтейнер</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Морской трюм</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.МорскойТрюм</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Речной</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.Речной</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Перегон</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ТипыТранспортаВЕТИС.EnumValue.ПерегонСкота</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ТипТранспортаКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ТипТранспортаРасширеннаяПодсказка" id="24"/>
+					<Events>
+						<Event name="OnChange">ТипТранспортаПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<InputField name="ТранспортноеСредство" id="60">
+					<DataPath>ТранспортноеСредство</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ТранспортноеСредствоКонтекстноеМеню" id="61"/>
+					<ExtendedTooltip name="ТранспортноеСредствоРасширеннаяПодсказка" id="62"/>
+					<Events>
+						<Event name="OnChange">ТранспортноеСредствоПриИзменении</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="ГруппаДанныеТранспортногоСредства" id="25">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа данные транспортного средства</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа данные транспортного средства</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДанныеТранспортногоСредстваРасширеннаяПодсказка" id="26"/>
+					<ChildItems>
+						<InputField name="НомерТранспортногоСредства" id="27">
+							<DataPath>НомерТранспортногоСредства</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер автомашины</v8:content>
+								</v8:item>
+							</Title>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="НомерТранспортногоСредстваКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="НомерТранспортногоСредстваРасширеннаяПодсказка" id="29"/>
+						</InputField>
+						<InputField name="НомерАвтомобильногоПрицепа" id="30">
+							<DataPath>НомерАвтомобильногоПрицепа</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер полуприцепа</v8:content>
+								</v8:item>
+							</Title>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="НомерАвтомобильногоПрицепаКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="НомерАвтомобильногоПрицепаРасширеннаяПодсказка" id="32"/>
+						</InputField>
+						<InputField name="НомерАвтомобильногоКонтейнера" id="33">
+							<DataPath>НомерАвтомобильногоКонтейнера</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="НомерАвтомобильногоКонтейнераКонтекстноеМеню" id="34"/>
+							<ExtendedTooltip name="НомерАвтомобильногоКонтейнераРасширеннаяПодсказка" id="35"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -747,7 +707,22 @@
 			<Action>Готово</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 	<Parameters>

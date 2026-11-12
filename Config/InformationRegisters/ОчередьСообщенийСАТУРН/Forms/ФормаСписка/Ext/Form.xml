@@ -6,14 +6,11 @@
 		<ExcludedCommand>Copy</ExcludedCommand>
 		<ExcludedCommand>Create</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<Button name="ФормаПротоколОбмена" id="48" DisplayImportance="High">
+			<Button name="ФормаПротоколОбмена" id="48">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ПротоколОбмена</CommandName>
-				<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
-				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 				<ExtendedTooltip name="ФормаПротоколОбменаРасширеннаяПодсказка" id="49"/>
 			</Button>
 		</ChildItems>
@@ -71,7 +68,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацииРасширеннаяПодсказка" id="73"/>
 							<ChildItems>
@@ -84,8 +80,7 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
 									<ChoiceButton>true</ChoiceButton>
@@ -132,7 +127,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацияРасширеннаяПодсказка" id="78"/>
 							<ChildItems>
@@ -145,8 +139,7 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
 									<ChoiceButton>true</ChoiceButton>
@@ -191,6 +184,7 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -200,9 +194,9 @@
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
 			<CommandSet>
 				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -218,16 +212,10 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
-			<ContextMenu name="СписокКонтекстноеМеню" id="4">
-				<ChildItems>
-					<Button name="СписокКонтекстноеМенюПротоколОбмена" id="100" DisplayImportance="High">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ПротоколОбмена</CommandName>
-						<ExtendedTooltip name="СписокКонтекстноеМенюПротоколОбменаРасширеннаяПодсказка" id="101"/>
-					</Button>
-				</ChildItems>
-			</ContextMenu>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -257,92 +245,66 @@
 				<LabelField name="Сообщение" id="16">
 					<DataPath>Список.Сообщение</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СообщениеКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="СообщениеРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="ОрганизацияСАТУРН" id="28">
 					<DataPath>Список.ОрганизацияСАТУРН</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияСАТУРНКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ОрганизацияСАТУРНРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<LabelField name="Документ" id="19">
 					<DataPath>Список.Документ</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДокументКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ДокументРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<InputField name="ДокументОснование" id="53">
 					<DataPath>Список.ДокументОснование</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="54"/>
 					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="55"/>
 				</InputField>
 				<LabelField name="ДатаСоздания" id="22">
 					<DataPath>Список.ДатаСоздания</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаСозданияКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ДатаСозданияРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="Операция" id="25">
 					<DataPath>Список.Операция</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОперацияКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ОперацияРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 				<InputField name="Пользователь" id="62">
 					<DataPath>Список.Пользователь</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПользовательКонтекстноеМеню" id="63"/>
 					<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="64"/>
 				</InputField>
 				<LabelField name="ДатаМодификацииУниверсальная" id="31">
 					<DataPath>Список.ДатаМодификацииУниверсальная</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаМодификацииУниверсальнаяКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="ДатаМодификацииУниверсальнаяРасширеннаяПодсказка" id="33"/>
 				</LabelField>
 				<InputField name="ЗагружатьДо" id="50">
 					<DataPath>Список.ЗагружатьДо</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ЗагружатьДоКонтекстноеМеню" id="51"/>
 					<ExtendedTooltip name="ЗагружатьДоРасширеннаяПодсказка" id="52"/>
 				</InputField>
 				<LabelField name="ЗагружатьПосле" id="37">
 					<DataPath>Список.ЗагружатьПосле</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ЗагружатьПослеКонтекстноеМеню" id="38"/>
 					<ExtendedTooltip name="ЗагружатьПослеРасширеннаяПодсказка" id="39"/>
 				</LabelField>
 				<InputField name="СообщениеОснование" id="56">
 					<DataPath>Список.СообщениеОснование</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СообщениеОснованиеКонтекстноеМеню" id="57"/>
 					<ExtendedTooltip name="СообщениеОснованиеРасширеннаяПодсказка" id="58"/>
 				</InputField>
 				<InputField name="ИдентификаторЗаявки" id="59">
 					<DataPath>Список.ИдентификаторЗаявки</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИдентификаторЗаявкиКонтекстноеМеню" id="60"/>
 					<ExtendedTooltip name="ИдентификаторЗаявкиРасширеннаяПодсказка" id="61"/>
 				</InputField>
 				<InputField name="ИдентификаторСтроки" id="65">
 					<DataPath>Список.ИдентификаторСтроки</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИдентификаторСтрокиКонтекстноеМеню" id="66"/>
 					<ExtendedTooltip name="ИдентификаторСтрокиРасширеннаяПодсказка" id="67"/>
 				</InputField>
@@ -447,21 +409,12 @@
 					<v8:content>Протокол обмена</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Протокол обмена</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Picture>
 				<xr:Ref>CommonPicture.ПротоколОбмена</xr:Ref>
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>ПротоколОбмена</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 	</Commands>
 </Form>

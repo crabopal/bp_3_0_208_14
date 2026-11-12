@@ -65,6 +65,16 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтавкаВзноса</dataPath>
+			<field>СтавкаВзноса</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ставка взноса</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ДанныеОКВЭД.Раздел КАК Раздел,
@@ -83,24 +93,28 @@
 		ИЛИ ДанныеОКВЭД.КодБезТочек ПОДОБНО &amp;СтрокаПоиска
 		ИЛИ ДанныеОКВЭД.Наименование ПОДОБНО &amp;СтрокаПоиска
 		ИЛИ ДанныеОКВЭД.Описание ПОДОБНО &amp;СтрокаПоиска
-		ИЛИ &amp;СтрокаПоиска = "" КАК СодержитТекстПоиска
+		ИЛИ &amp;СтрокаПоиска = "" КАК СодержитТекстПоиска,
+	ЕСТЬNULL(КлассПрофессиональногоРискаИСтавкаВзносаНаСтрахованиеОтНесчастныхСлучаевСрезПоследних.Ставка, 0) КАК СтавкаВзноса
 ИЗ
 	РегистрСведений.ДанныеОКВЭД КАК ДанныеОКВЭД
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КлассПрофессиональногоРискаИСтавкаВзносаНаСтрахованиеОтНесчастныхСлучаев.СрезПоследних(&amp;Период, ) КАК КлассПрофессиональногоРискаИСтавкаВзносаНаСтрахованиеОтНесчастныхСлучаевСрезПоследних
+		ПО ДанныеОКВЭД.КлассПрофессиональногоРиска = КлассПрофессиональногоРискаИСтавкаВзносаНаСтрахованиеОтНесчастныхСлучаевСрезПоследних.КлассПрофессиональногоРиска
 
 ОБЪЕДИНИТЬ ВСЕ
 
 ВЫБРАТЬ
-	ВТРазделы.Раздел КАК Раздел,
-	ВТРазделы.Раздел КАК Код,
-	ВТРазделы.Наименование КАК Наименование,
-	0 КАК КлассПрофессиональногоРиска,
-	ВТРазделы.Раздел КАК Ссылка,
-	ВТРазделы.Описание КАК Описание,
-	"Раздел" КАК ТипЗначения,
+	ВТРазделы.Раздел,
+	ВТРазделы.Раздел,
+	ВТРазделы.Наименование,
+	0,
+	ВТРазделы.Раздел,
+	ВТРазделы.Описание,
+	"Раздел",
 	ВТРазделы.Раздел ПОДОБНО &amp;СтрокаПоиска
 		ИЛИ ВТРазделы.Наименование ПОДОБНО &amp;СтрокаПоиска
 		ИЛИ ВТРазделы.Описание ПОДОБНО &amp;СтрокаПоиска
-		ИЛИ &amp;СтрокаПоиска = "" КАК СодержитТекстПоиска
+		ИЛИ &amp;СтрокаПоиска = "",
+	0
 ИЗ
 	ВТРазделы КАК ВТРазделы</query>
 	</dataSet>
@@ -212,6 +226,23 @@
 		<value xsi:type="xs:string"/>
 		<useRestriction>false</useRestriction>
 	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
 		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
@@ -235,6 +266,9 @@
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СодержитТекстПоиска</dcsset:field>
 				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтавкаВзноса</dcsset:field>
+				</dcsset:item>
 			</dcsset:selection>
 			<dcsset:dataParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -246,6 +280,10 @@
 					<dcscor:parameter>СтрокаПоиска</dcscor:parameter>
 					<dcscor:value xsi:type="xs:string"/>
 					<dcsset:userSettingID>96ce8c54-6d1f-41bd-bd4b-fa04ad23a071</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:outputParameters>
@@ -304,6 +342,13 @@
 					</dcsset:item>
 					<dcsset:item xsi:type="dcsset:GroupItemField">
 						<dcsset:field>КлассПрофессиональногоРиска</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>СтавкаВзноса</dcsset:field>
 						<dcsset:groupType>Items</dcsset:groupType>
 						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>

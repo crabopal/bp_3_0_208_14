@@ -4,7 +4,9 @@
 	<AutoTitle>false</AutoTitle>
 	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -28,6 +30,9 @@
 			<ChildItems>
 				<InputField name="Организация" id="206">
 					<DataPath>ОтборОрганизация</DataPath>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<Width>15</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ClearButton>false</ClearButton>
 					<CreateButton>false</CreateButton>
@@ -99,16 +104,7 @@
 				</InputField>
 				<CheckBoxField name="ПоказыватьЗагруженные" id="18">
 					<DataPath>ПоказыватьЗагруженные</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Загруженные</v8:content>
-						</v8:item>
-					</Title>
 					<TitleLocation>Right</TitleLocation>
-					<TitleHeight>2</TitleHeight>
-					<GroupVerticalAlign>Top</GroupVerticalAlign>
-					<CheckBoxType>Switcher</CheckBoxType>
 					<ContextMenu name="ПоказыватьЗагруженныеКонтекстноеМеню" id="19"/>
 					<ExtendedTooltip name="ПоказыватьЗагруженныеРасширеннаяПодсказка" id="20"/>
 					<Events>
@@ -117,382 +113,390 @@
 				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
-		<Pages name="СтраницыСписка" id="236">
+		<UsualGroup name="ГруппаКоманд" id="167">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Страницы списка</v8:content>
+					<v8:content>Группа команд</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Страницы списка</v8:content>
-				</v8:item>
-			</ToolTip>
-			<PagesRepresentation>None</PagesRepresentation>
-			<ExtendedTooltip name="СтраницыСпискаРасширеннаяПодсказка" id="237"/>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомандРасширеннаяПодсказка" id="168"/>
 			<ChildItems>
-				<Page name="СтраницаСписок" id="238">
+				<Button name="КомандаЗагрузить" id="171">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Загрузить</CommandName>
+					<ExtendedTooltip name="КомандаЗагрузитьРасширеннаяПодсказка" id="172"/>
+				</Button>
+				<Button name="НайтиДокументаПоQRКоду" id="209">
+					<Type>UsualButton</Type>
+					<Width>16</Width>
+					<CommandName>Form.Command.НайтиДокументаПоQRКоду</CommandName>
+					<Picture>
+						<xr:Ref>CommonPicture.БизнесСетьQRКод</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Страница список</v8:content>
+							<v8:content>Найти по QR-коду</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
+					<ExtendedTooltip name="НайтиДокументаПоQRКодуРасширеннаяПодсказка" id="210"/>
+				</Button>
+				<Button name="КомандаНайти" id="179">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<Width>10</Width>
+					<CommandName>Form.Item.Список.StandardCommand.Find</CommandName>
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Страница список</v8:content>
+							<v8:content>Найти</v8:content>
 						</v8:item>
-					</ToolTip>
-					<ExtendedTooltip name="СтраницаСписокРасширеннаяПодсказка" id="239"/>
+					</Title>
+					<ExtendedTooltip name="КомандаНайтиРасширеннаяПодсказка" id="180"/>
+				</Button>
+				<Button name="КомандаОтменитьПоиск" id="181">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<Width>3</Width>
+					<CommandName>Form.Item.Список.StandardCommand.CancelSearch</CommandName>
+					<ExtendedTooltip name="КомандаОтменитьПоискРасширеннаяПодсказка" id="182"/>
+				</Button>
+				<Button name="КомандаОбновить" id="183">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<CommandName>Form.Command.Обновить</CommandName>
+					<ExtendedTooltip name="КомандаОбновитьРасширеннаяПодсказка" id="184"/>
+				</Button>
+				<CommandBar name="ГруппаКоманднойПанели" id="201">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа командной панели</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="ГруппаКоманднойПанелиРасширеннаяПодсказка" id="202"/>
 					<ChildItems>
-						<Table name="Список" id="21">
-							<Representation>List</Representation>
-							<ChangeRowOrder>false</ChangeRowOrder>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<RowInputMode>AfterCurrentRow</RowInputMode>
-							<RowSelectionMode>Cell</RowSelectionMode>
-							<FileDragMode>AsFile</FileDragMode>
-							<DataPath>Список</DataPath>
+						<Button name="КомандаОткрыть" id="175">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.ОткрытьДокумент</CommandName>
+							<Picture>
+								<xr:Ref>CommonPicture.ОткрытьВыбранныйФайл</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="КомандаОткрытьРасширеннаяПодсказка" id="176"/>
+						</Button>
+						<Button name="КомандаОткрытьПредставление" id="177">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.ОткрытьПредставление</CommandName>
+							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="КомандаОткрытьПредставлениеРасширеннаяПодсказка" id="178"/>
+						</Button>
+						<Button name="КомандаСохранитьДокумент" id="187">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.СохранитьДокументы</CommandName>
+							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="КомандаСохранитьДокументРасширеннаяПодсказка" id="188"/>
+						</Button>
+						<Button name="ФормаСправка" id="199">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.Help</CommandName>
+							<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="200"/>
+						</Button>
+						<ButtonGroup name="ГруппаУдаления" id="189">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Список</v8:content>
+									<v8:content>Удаление</v8:content>
 								</v8:item>
 							</Title>
-							<CommandSet>
-								<ExcludedCommand>Add</ExcludedCommand>
-								<ExcludedCommand>CancelSearch</ExcludedCommand>
-								<ExcludedCommand>Change</ExcludedCommand>
-								<ExcludedCommand>Copy</ExcludedCommand>
-								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
-								<ExcludedCommand>EndEdit</ExcludedCommand>
-								<ExcludedCommand>Find</ExcludedCommand>
-								<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
-								<ExcludedCommand>MoveDown</ExcludedCommand>
-								<ExcludedCommand>MoveUp</ExcludedCommand>
-								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
-								<ExcludedCommand>SearchHistory</ExcludedCommand>
-								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
-								<ExcludedCommand>SortListAsc</ExcludedCommand>
-								<ExcludedCommand>SortListDesc</ExcludedCommand>
-							</CommandSet>
-							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="СписокКонтекстноеМеню" id="22"/>
-							<AutoCommandBar name="СписокКоманднаяПанель" id="23">
-								<ChildItems>
-									<Button name="КомандаЗагрузить" id="171" DisplayImportance="VeryHigh">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.Загрузить</CommandName>
-										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-										<CommandUniqueness>false</CommandUniqueness>
-										<ExtendedTooltip name="КомандаЗагрузитьРасширеннаяПодсказка" id="172"/>
-									</Button>
-									<Button name="НайтиДокументаПоQRКоду" id="209">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.НайтиДокументаПоQRКоду</CommandName>
-										<Picture>
-											<xr:Ref>CommonPicture.БизнесСетьQRКод</xr:Ref>
-											<xr:LoadTransparent>false</xr:LoadTransparent>
-										</Picture>
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Найти по QR-коду</v8:content>
-											</v8:item>
-										</Title>
-										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-										<ExtendedTooltip name="НайтиДокументаПоQRКодуРасширеннаяПодсказка" id="210"/>
-									</Button>
-									<Button name="КомандаОбновить" id="183">
-										<Type>CommandBarButton</Type>
-										<Representation>PictureAndText</Representation>
-										<CommandName>Form.Command.Обновить</CommandName>
-										<ExtendedTooltip name="КомандаОбновитьРасширеннаяПодсказка" id="184"/>
-									</Button>
-									<ButtonGroup name="ГруппаКонтекстныхДействий" id="245">
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Группа контекстных действий</v8:content>
-											</v8:item>
-										</Title>
-										<ToolTip>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Группа контекстных действий</v8:content>
-											</v8:item>
-										</ToolTip>
-										<ExtendedTooltip name="ГруппаКонтекстныхДействийРасширеннаяПодсказка" id="246"/>
-										<ChildItems>
-											<Button name="КомандаОткрыть" id="175">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ОткрытьДокумент</CommandName>
-												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-												<ExtendedTooltip name="КомандаОткрытьРасширеннаяПодсказка" id="176"/>
-											</Button>
-											<Button name="КомандаОткрытьПредставление" id="177">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ОткрытьПредставление</CommandName>
-												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-												<ExtendedTooltip name="КомандаОткрытьПредставлениеРасширеннаяПодсказка" id="178"/>
-											</Button>
-											<Button name="КомандаСохранитьДокумент" id="187">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.СохранитьДокументы</CommandName>
-												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-												<ExtendedTooltip name="КомандаСохранитьДокументРасширеннаяПодсказка" id="188"/>
-											</Button>
-										</ChildItems>
-									</ButtonGroup>
-									<ButtonGroup name="ГруппаУдаления" id="189">
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Удаление</v8:content>
-											</v8:item>
-										</Title>
-										<ToolTip>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Группа удаления</v8:content>
-											</v8:item>
-										</ToolTip>
-										<ExtendedTooltip name="ГруппаУдаленияРасширеннаяПодсказка" id="190"/>
-										<ChildItems>
-											<Button name="КомандаОтклонитьДокументы" id="173">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ОтклонитьДокументы</CommandName>
-												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-												<ExtendedTooltip name="КомандаОтклонитьДокументыРасширеннаяПодсказка" id="174"/>
-											</Button>
-											<Button name="КомандаУдалить" id="191">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.Список.StandardCommand.Delete</CommandName>
-												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-												<ExtendedTooltip name="КомандаУдалитьРасширеннаяПодсказка" id="192"/>
-											</Button>
-										</ChildItems>
-									</ButtonGroup>
-								</ChildItems>
-							</AutoCommandBar>
-							<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="24"/>
-							<SearchStringAddition name="СписокСтрокаПоиска" id="25">
-								<AdditionSource>
-									<Item>Список</Item>
-									<Type>SearchStringRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="28"/>
-								<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="29"/>
-							</SearchStringAddition>
-							<ViewStatusAddition name="СписокСостояниеПросмотра" id="30">
-								<AdditionSource>
-									<Item>Список</Item>
-									<Type>ViewStatusRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="33"/>
-								<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="34"/>
-							</ViewStatusAddition>
-							<SearchControlAddition name="СписокУправлениеПоиском" id="35">
-								<AdditionSource>
-									<Item>Список</Item>
-									<Type>SearchControl</Type>
-								</AdditionSource>
-								<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="38"/>
-								<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="39"/>
-							</SearchControlAddition>
-							<Events>
-								<Event name="Selection">СписокДокументовВыбор</Event>
-								<Event name="BeforeAddRow">СписокДокументовПередНачаломДобавления</Event>
-								<Event name="BeforeDeleteRow">СписокДокументовПередУдалением</Event>
-							</Events>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа удаления</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаУдаленияРасширеннаяПодсказка" id="190"/>
 							<ChildItems>
-								<InputField name="ДатаДокумента" id="52">
-									<DataPath>Список.ДатаДокумента</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Дата</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ДатаДокументаКонтекстноеМеню" id="53"/>
-									<ExtendedTooltip name="ДатаДокументаРасширеннаяПодсказка" id="54"/>
-								</InputField>
-								<InputField name="СписокОрганизация" id="113">
-									<DataPath>Список.Организация</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<ContextMenu name="СписокОрганизацияКонтекстноеМеню" id="114"/>
-									<ExtendedTooltip name="СписокОрганизацияРасширеннаяПодсказка" id="115"/>
-								</InputField>
-								<ColumnGroup name="ГруппаОтправителя" id="142">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отправитель</v8:content>
-										</v8:item>
-									</Title>
-									<Group>Horizontal</Group>
-									<ExtendedTooltip name="ГруппаОтправителяРасширеннаяПодсказка" id="143"/>
-									<ChildItems>
-										<InputField name="СписокКонтрагентНаименование" id="46">
-											<DataPath>Список.КонтрагентНаименование</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Отправитель</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="СписокКонтрагентНаименованиеКонтекстноеМеню" id="47"/>
-											<ExtendedTooltip name="СписокКонтрагентНаименованиеРасширеннаяПодсказка" id="48"/>
-										</InputField>
-										<InputField name="СписокОтправительИНН" id="121">
-											<DataPath>Список.КонтрагентИНН</DataPath>
-											<UserVisible>
-												<xr:Common>false</xr:Common>
-											</UserVisible>
-											<ReadOnly>true</ReadOnly>
-											<ContextMenu name="СписокОтправительИННКонтекстноеМеню" id="122"/>
-											<ExtendedTooltip name="СписокОтправительИННРасширеннаяПодсказка" id="123"/>
-										</InputField>
-										<InputField name="СписокОтправительКПП" id="139">
-											<DataPath>Список.КонтрагентКПП</DataPath>
-											<UserVisible>
-												<xr:Common>false</xr:Common>
-											</UserVisible>
-											<ReadOnly>true</ReadOnly>
-											<ContextMenu name="СписокОтправительКППКонтекстноеМеню" id="140"/>
-											<ExtendedTooltip name="СписокОтправительКППРасширеннаяПодсказка" id="141"/>
-										</InputField>
-									</ChildItems>
-								</ColumnGroup>
-								<InputField name="СписокКонтрагент" id="43">
-									<DataPath>Список.Контрагент</DataPath>
-									<UserVisible>
-										<xr:Common>false</xr:Common>
-									</UserVisible>
-									<ReadOnly>true</ReadOnly>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Контрагент</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="СписокКонтрагентКонтекстноеМеню" id="44"/>
-									<ExtendedTooltip name="СписокКонтрагентРасширеннаяПодсказка" id="45"/>
-								</InputField>
-								<InputField name="СписокТипОбъекта" id="130">
-									<DataPath>Список.ТипОбъекта</DataPath>
-									<Visible>false</Visible>
-									<UserVisible>
-										<xr:Common>false</xr:Common>
-									</UserVisible>
-									<ReadOnly>true</ReadOnly>
-									<OpenButton>false</OpenButton>
-									<CreateButton>false</CreateButton>
-									<ListChoiceMode>true</ListChoiceMode>
-									<ChooseType>false</ChooseType>
-									<ContextMenu name="СписокТипОбъектаКонтекстноеМеню" id="131"/>
-									<ExtendedTooltip name="СписокТипОбъектаРасширеннаяПодсказка" id="132"/>
-									<Events>
-										<Event name="StartChoice">СписокДанныхТипОбъектаНачалоВыбора</Event>
-									</Events>
-								</InputField>
-								<InputField name="СписокВидДокумента" id="49">
-									<DataPath>Список.ВидДокумента</DataPath>
-									<UserVisible>
-										<xr:Common>false</xr:Common>
-									</UserVisible>
-									<ReadOnly>true</ReadOnly>
-									<ContextMenu name="СписокВидДокументаКонтекстноеМеню" id="50"/>
-									<ExtendedTooltip name="СписокВидДокументаРасширеннаяПодсказка" id="51"/>
-								</InputField>
-								<InputField name="СписокСсылка" id="61">
-									<DataPath>Список.ВладелецЭД</DataPath>
-									<UserVisible>
-										<xr:Common>false</xr:Common>
-									</UserVisible>
-									<ReadOnly>true</ReadOnly>
-									<AutoCellHeight>true</AutoCellHeight>
-									<ContextMenu name="СписокСсылкаКонтекстноеМеню" id="62"/>
-									<ExtendedTooltip name="СписокСсылкаРасширеннаяПодсказка" id="63"/>
-								</InputField>
-								<InputField name="СписокДокумент" id="118">
-									<DataPath>Список.Документ</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Документ</v8:content>
-										</v8:item>
-									</Title>
-									<AutoCellHeight>true</AutoCellHeight>
-									<ContextMenu name="СписокДокументКонтекстноеМеню" id="119"/>
-									<ExtendedTooltip name="СписокДокументРасширеннаяПодсказка" id="120"/>
-								</InputField>
-								<InputField name="СписокСумма" id="78">
-									<DataPath>Список.Сумма</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<ContextMenu name="СписокСуммаКонтекстноеМеню" id="79"/>
-									<ExtendedTooltip name="СписокСуммаРасширеннаяПодсказка" id="80"/>
-								</InputField>
-								<InputField name="СписокСтатус" id="146">
-									<DataPath>Список.Статус</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<ContextMenu name="СписокСтатусКонтекстноеМеню" id="147"/>
-									<ExtendedTooltip name="СписокСтатусРасширеннаяПодсказка" id="148"/>
-								</InputField>
+								<Button name="КомандаОтклонитьДокументы" id="173">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.ОтклонитьДокументы</CommandName>
+									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+									<ExtendedTooltip name="КомандаОтклонитьДокументыРасширеннаяПодсказка" id="174"/>
+								</Button>
+								<Button name="КомандаУдалить" id="191">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Item.Список.StandardCommand.Delete</CommandName>
+									<ExtendedTooltip name="КомандаУдалитьРасширеннаяПодсказка" id="192"/>
+								</Button>
 							</ChildItems>
-						</Table>
-						<Button name="ПоказатьЕще" id="231">
-							<Type>UsualButton</Type>
-							<Visible>false</Visible>
-							<HorizontalStretch>true</HorizontalStretch>
-							<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-							<CommandName>Form.Command.ПоказатьЕще</CommandName>
-							<ButtonImportance>Supplementary</ButtonImportance>
-							<ExtendedTooltip name="ПоказатьЕщеРасширеннаяПодсказка" id="232"/>
-						</Button>
+						</ButtonGroup>
 					</ChildItems>
-				</Page>
-				<Page name="СтраницаСписокОбновляется" id="240">
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="Список" id="21">
+			<Representation>List</Representation>
+			<DefaultItem>true</DefaultItem>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<RowInputMode>AfterCurrentRow</RowInputMode>
+			<RowSelectionMode>Cell</RowSelectionMode>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СписокКонтекстноеМеню" id="22">
+				<ChildItems>
+					<Button name="КомандаСписокОткрытьДокумент" id="135">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОткрытьДокумент</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.ОткрытьВыбранныйФайл</xr:Ref>
+							<xr:LoadTransparent>false</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="КомандаСписокОткрытьДокументРасширеннаяПодсказка" id="136"/>
+					</Button>
+				</ChildItems>
+			</ContextMenu>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="23">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="24"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="25">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="28"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="29"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="30">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="33"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="34"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="35">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="38"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="39"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокДокументовВыбор</Event>
+				<Event name="BeforeAddRow">СписокДокументовПередНачаломДобавления</Event>
+				<Event name="BeforeDeleteRow">СписокДокументовПередУдалением</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ДатаДокумента" id="52">
+					<DataPath>Список.ДатаДокумента</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Страница список обновляется</v8:content>
+							<v8:content>Дата</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>9</Width>
+					<ContextMenu name="ДатаДокументаКонтекстноеМеню" id="53"/>
+					<ExtendedTooltip name="ДатаДокументаРасширеннаяПодсказка" id="54"/>
+				</InputField>
+				<InputField name="СписокОрганизация" id="113">
+					<DataPath>Список.Организация</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>15</Width>
+					<ContextMenu name="СписокОрганизацияКонтекстноеМеню" id="114"/>
+					<ExtendedTooltip name="СписокОрганизацияРасширеннаяПодсказка" id="115"/>
+				</InputField>
+				<ColumnGroup name="ГруппаОтправителя" id="142">
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Страница список обновляется</v8:content>
+							<v8:content>Отправитель</v8:content>
 						</v8:item>
-					</ToolTip>
-					<ExtendedTooltip name="СтраницаСписокОбновляетсяРасширеннаяПодсказка" id="241"/>
+					</Title>
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="ГруппаОтправителяРасширеннаяПодсказка" id="143"/>
 					<ChildItems>
-						<PictureDecoration name="ДекорацияДлительнаяОперация" id="242">
-							<HorizontalStretch>true</HorizontalStretch>
-							<VerticalStretch>true</VerticalStretch>
-							<Title formatted="false">
+						<InputField name="СписокКонтрагентНаименование" id="46">
+							<DataPath>Список.КонтрагентНаименование</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Декорация длительная операция</v8:content>
+									<v8:content>Отправитель</v8:content>
 								</v8:item>
 							</Title>
-							<Picture>
-								<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</Picture>
-							<ContextMenu name="ДекорацияДлительнаяОперацияКонтекстноеМеню" id="243"/>
-							<ExtendedTooltip name="ДекорацияДлительнаяОперацияРасширеннаяПодсказка" id="244"/>
-						</PictureDecoration>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>15</Width>
+							<ContextMenu name="СписокКонтрагентНаименованиеКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="СписокКонтрагентНаименованиеРасширеннаяПодсказка" id="48"/>
+						</InputField>
+						<InputField name="СписокОтправительИНН" id="121">
+							<DataPath>Список.КонтрагентИНН</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>10</Width>
+							<ContextMenu name="СписокОтправительИННКонтекстноеМеню" id="122"/>
+							<ExtendedTooltip name="СписокОтправительИННРасширеннаяПодсказка" id="123"/>
+						</InputField>
+						<InputField name="СписокОтправительКПП" id="139">
+							<DataPath>Список.КонтрагентКПП</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="СписокОтправительКППКонтекстноеМеню" id="140"/>
+							<ExtendedTooltip name="СписокОтправительКППРасширеннаяПодсказка" id="141"/>
+						</InputField>
 					</ChildItems>
-				</Page>
+				</ColumnGroup>
+				<InputField name="СписокКонтрагент" id="43">
+					<DataPath>Список.Контрагент</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокКонтрагентКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="СписокКонтрагентРасширеннаяПодсказка" id="45"/>
+				</InputField>
+				<InputField name="СписокТипОбъекта" id="130">
+					<DataPath>Список.ТипОбъекта</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>15</Width>
+					<OpenButton>false</OpenButton>
+					<CreateButton>false</CreateButton>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ChooseType>false</ChooseType>
+					<ContextMenu name="СписокТипОбъектаКонтекстноеМеню" id="131"/>
+					<ExtendedTooltip name="СписокТипОбъектаРасширеннаяПодсказка" id="132"/>
+					<Events>
+						<Event name="StartChoice">СписокДанныхТипОбъектаНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="СписокВидДокумента" id="49">
+					<DataPath>Список.ВидДокумента</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокВидДокументаКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="СписокВидДокументаРасширеннаяПодсказка" id="51"/>
+				</InputField>
+				<InputField name="СписокСсылка" id="61">
+					<DataPath>Список.ВладелецЭД</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoCellHeight>true</AutoCellHeight>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокСсылкаКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="СписокСсылкаРасширеннаяПодсказка" id="63"/>
+				</InputField>
+				<InputField name="СписокДокумент" id="118">
+					<DataPath>Список.Документ</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoCellHeight>true</AutoCellHeight>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокДокументКонтекстноеМеню" id="119"/>
+					<ExtendedTooltip name="СписокДокументРасширеннаяПодсказка" id="120"/>
+				</InputField>
+				<InputField name="СписокСумма" id="78">
+					<DataPath>Список.Сумма</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокСуммаКонтекстноеМеню" id="79"/>
+					<ExtendedTooltip name="СписокСуммаРасширеннаяПодсказка" id="80"/>
+				</InputField>
+				<InputField name="СписокСтатус" id="146">
+					<DataPath>Список.Статус</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="СписокСтатусКонтекстноеМеню" id="147"/>
+					<ExtendedTooltip name="СписокСтатусРасширеннаяПодсказка" id="148"/>
+				</InputField>
+				<LabelField name="СписокГиперссылкаПоказатьЕще" id="162">
+					<DataPath>Список.ГиперссылкаПоказатьЕще</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<HorizontalAlign>Center</HorizontalAlign>
+					<EditMode>EnterOnInput</EditMode>
+					<CellHyperlink>true</CellHyperlink>
+					<ShowInFooter>false</ShowInFooter>
+					<FooterHorizontalAlign>Center</FooterHorizontalAlign>
+					<AutoEditMode>true</AutoEditMode>
+					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
+					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
+					<MaxWidth>1</MaxWidth>
+					<Hiperlink>true</Hiperlink>
+					<TextColor>style:ЦветГиперссылкиБЭД</TextColor>
+					<ContextMenu name="СписокГиперссылкаПоказатьЕщеКонтекстноеМеню" id="163"/>
+					<ExtendedTooltip name="СписокГиперссылкаПоказатьЕщеРасширеннаяПодсказка" id="164"/>
+				</LabelField>
 			</ChildItems>
-		</Pages>
+		</Table>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -1550,9 +1554,7 @@
 			</Picture>
 			<Action>Загрузить</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="Обновить" id="2">
 			<Title>
@@ -1574,8 +1576,6 @@
 			</Picture>
 			<Action>Обновить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ОткрытьДокумент" id="3">
 			<Title>
@@ -1590,15 +1590,8 @@
 					<v8:content>Открыть документ</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.InputFieldOpen</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ОткрытьДокумент</Action>
-			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="СохранитьДокументы" id="4">
 			<Title>
@@ -1614,14 +1607,11 @@
 				</v8:item>
 			</ToolTip>
 			<Picture>
-				<xr:Ref>CommonPicture.Скачать</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
+				<xr:Ref>StdPicture.Write</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>СохранитьДокументы</Action>
-			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ОткрытьПредставление" id="5">
 			<Title>
@@ -1642,9 +1632,7 @@
 			</Picture>
 			<Action>ОткрытьПредставление</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ОтклонитьДокументы" id="6">
 			<Title>
@@ -1659,11 +1647,13 @@
 					<v8:content>Отклонить документы</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗнакСтоп</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
 			<Action>ОтклонитьДокументы</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="НайтиДокументаПоQRКоду" id="7">
 			<Title>
@@ -1678,24 +1668,6 @@
 			</Picture>
 			<Action>НайтиДокументПоQRКоду</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
-		</Command>
-		<Command name="ПоказатьЕще" id="8">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Показать еще</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Показать еще</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ПоказатьЕще</Action>
 		</Command>
 	</Commands>
 	<Parameters>

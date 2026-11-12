@@ -13,16 +13,6 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Выбрать" id="23">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-				<CommandName>Form.Command.Выбрать</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="24"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -32,7 +22,6 @@
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -52,6 +41,8 @@
 				<ExcludedCommand>MoveDown</ExcludedCommand>
 				<ExcludedCommand>MoveUp</ExcludedCommand>
 				<ExcludedCommand>OutputList</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
@@ -110,13 +101,16 @@
 				<CheckBoxField name="СписокПометка" id="14">
 					<DataPath>Список.Пометка</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<CheckBoxType>CheckBox</CheckBoxType>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокПометкаКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="СписокПометкаРасширеннаяПодсказка" id="16"/>
 				</CheckBoxField>
 				<InputField name="СписокИдентификаторЗначения" id="17">
 					<DataPath>Список.ИдентификаторЗначения</DataPath>
 					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокИдентификаторЗначенияКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="СписокИдентификаторЗначенияРасширеннаяПодсказка" id="19"/>
 				</InputField>
@@ -129,11 +123,21 @@
 							<v8:content>Значение</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокПредставлениеЗначенияКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="СписокПредставлениеЗначенияРасширеннаяПодсказка" id="22"/>
 				</InputField>
 			</ChildItems>
 		</Table>
+		<Button name="Выбрать" id="23">
+			<Type>UsualButton</Type>
+			<DefaultButton>true</DefaultButton>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<CommandName>Form.Command.Выбрать</CommandName>
+			<ButtonImportance>Main</ButtonImportance>
+			<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="24"/>
+		</Button>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -212,7 +216,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>УстановитьФлажки</Action>
-			<Representation>TextPicture</Representation>
 		</Command>
 		<Command name="СнятьФлажки" id="2">
 			<Title>
@@ -228,7 +231,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СнятьФлажки</Action>
-			<Representation>TextPicture</Representation>
 		</Command>
 		<Command name="Выбрать" id="3">
 			<Title>
@@ -244,14 +246,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Выбрать</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
-	<Parameters>
-		<Parameter name="ЗначенияДляВыбора">
-			<Type>
-				<v8:Type>v8:ValueListType</v8:Type>
-			</Type>
-		</Parameter>
-	</Parameters>
 </Form>

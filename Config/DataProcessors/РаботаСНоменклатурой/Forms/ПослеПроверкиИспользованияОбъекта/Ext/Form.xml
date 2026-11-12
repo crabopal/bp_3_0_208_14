@@ -10,25 +10,8 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Center</HorizontalAlign>
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="РазрешитьРедактирование" id="1">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.РазрешитьРедактирование</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="РазрешитьРедактированиеРасширеннаяПодсказка" id="2"/>
-			</Button>
-			<Button name="Отмена" id="3">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="4"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -42,7 +25,6 @@
 				</v8:item>
 			</Title>
 			<Group>HorizontalIfPossible</Group>
-			<VerticalAlign>Center</VerticalAlign>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -56,8 +38,8 @@
 						</v8:item>
 					</Title>
 					<Picture>
-						<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
+						<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
 					</Picture>
 					<FileDragMode>AsFile</FileDragMode>
 					<ContextMenu name="КартинкаПредупреждениеКонтекстноеМеню" id="13"/>
@@ -75,6 +57,35 @@
 					<ContextMenu name="ИнформацияКонтекстноеМеню" id="8"/>
 					<ExtendedTooltip name="ИнформацияРасширеннаяПодсказка" id="9"/>
 				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКнопкиФормы" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопки формы</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>AlwaysHorizontal</Group>
+			<HorizontalAlign>Center</HorizontalAlign>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКнопкиФормыРасширеннаяПодсказка" id="6"/>
+			<ChildItems>
+				<Button name="РазрешитьРедактирование" id="1">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.РазрешитьРедактирование</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="РазрешитьРедактированиеРасширеннаяПодсказка" id="2"/>
+				</Button>
+				<Button name="Отмена" id="3">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Отмена</CommandName>
+					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="4"/>
+				</Button>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -125,7 +136,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>РазрешитьРедактирование</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>
@@ -141,21 +151,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Отмена</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
-	<Parameters>
-		<Parameter name="СсылкаНаОбъект">
-			<Type/>
-		</Parameter>
-		<Parameter name="ТекстСообщения">
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-		</Parameter>
-	</Parameters>
 </Form>

@@ -3,7 +3,6 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandBarLocation>None</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -34,7 +33,7 @@
 				</v8:item>
 			</Title>
 			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="40"/>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельExtendedTooltip" id="40"/>
 			<ChildItems>
 				<ButtonGroup name="ГруппаВажныеКоманды" id="41">
 					<Title>
@@ -98,7 +97,7 @@
 							</Title>
 							<Picture>
 								<xr:Ref>CommonPicture.ЗаполнитьФорму</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
 							</Picture>
 							<Representation>Picture</Representation>
 							<ExtendedTooltip name="ПодменюЗаполнитьРасширеннаяПодсказка" id="58"/>
@@ -118,7 +117,7 @@
 							</ToolTip>
 							<Picture>
 								<xr:Ref>CommonPicture.Отчеты</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
 							</Picture>
 							<Representation>PictureAndText</Representation>
 							<ExtendedTooltip name="ПодменюОтчетыРасширеннаяПодсказка" id="60"/>
@@ -140,7 +139,11 @@
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
-			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<RowPictureDataPath>Список.СостояниеДокумента</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.СостоянияДокумента</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</RowsPicture>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -196,14 +199,11 @@
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
 				<Event name="BeforeLoadUserSettingsAtServer">СписокПередЗагрузкойПользовательскихНастроекНаСервере</Event>
-				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="Дата" id="19">
 					<DataPath>Список.Date</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>7</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<Format>
@@ -217,15 +217,11 @@
 				</LabelField>
 				<LabelField name="Номер" id="22">
 					<DataPath>Список.Number</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НомерКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="НалоговыйПериод" id="34">
 					<DataPath>Список.НалоговыйПериод</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>14</Width>
 					<Format>
 						<v8:item>
@@ -238,22 +234,16 @@
 				</LabelField>
 				<LabelField name="Организация" id="25">
 					<DataPath>Список.Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 				<LabelField name="Ответственный" id="28">
 					<DataPath>Список.Ответственный</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<LabelField name="Комментарий" id="31">
 					<DataPath>Список.Комментарий</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КомментарийКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="33"/>
 				</LabelField>
@@ -262,8 +252,6 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="18"/>
 				</LabelField>

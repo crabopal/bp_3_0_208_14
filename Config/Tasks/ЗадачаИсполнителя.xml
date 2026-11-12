@@ -38,7 +38,7 @@
 			<NumberAllowedLength>Fixed</NumberAllowedLength>
 			<CheckUnique>true</CheckUnique>
 			<Autonumbering>true</Autonumbering>
-			<TaskNumberAutoPrefix>BusinessProcessNumber</TaskNumberAutoPrefix>
+			<TaskNumberAutoPrefix>DontUse</TaskNumberAutoPrefix>
 			<DescriptionLength>150</DescriptionLength>
 			<Addressing>InformationRegister.ИсполнителиЗадач</Addressing>
 			<MainAddressingAttribute>Task.ЗадачаИсполнителя.AddressingAttribute.Исполнитель</MainAddressingAttribute>
@@ -303,8 +303,8 @@
 			<FullTextSearchOnInputByString>DontUse</FullTextSearchOnInputByString>
 			<ChoiceDataGetModeOnInputByString>Directly</ChoiceDataGetModeOnInputByString>
 			<CreateOnInput>DontUse</CreateOnInput>
-			<DefaultObjectForm>Task.ЗадачаИсполнителя.Form.ФормаЗадачи</DefaultObjectForm>
-			<DefaultListForm>Task.ЗадачаИсполнителя.Form.ФормаСписка</DefaultListForm>
+			<DefaultObjectForm>Task.ЗадачаИсполнителя.Form.ФормаЗадачиБП</DefaultObjectForm>
+			<DefaultListForm>Task.ЗадачаИсполнителя.Form.МоиЗадачиБП</DefaultListForm>
 			<DefaultChoiceForm/>
 			<AuxiliaryObjectForm/>
 			<AuxiliaryListForm/>
@@ -517,7 +517,7 @@
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Дата начала исполнения</v8:content>
+							<v8:content>Дата начала</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment>Для упорядочивания исполнителем своих задач</Comment>
@@ -979,6 +979,123 @@
 					<DataHistory>Use</DataHistory>
 				</Properties>
 			</Attribute>
+			<Attribute uuid="e58bb86a-abd4-4e25-84e0-908b0f6e02ff">
+				<Properties>
+					<Name>СтатусЗадачи</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус задачи</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>cfg:EnumRef.СтатусЗадачи</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>true</FillFromFillingValue>
+					<FillValue xsi:type="xr:DesignTimeRef">Enum.СтатусЗадачи.EnumValue.НеВыполнена</FillValue>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+					<DataHistory>Use</DataHistory>
+				</Properties>
+			</Attribute>
+			<Attribute uuid="602245cd-1156-4b06-95a8-3cd677d0f139">
+				<Properties>
+					<Name>Категория</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Категория</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>cfg:EnumRef.КатегорииЗадачИсполнителя</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:nil="true"/>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+					<DataHistory>Use</DataHistory>
+				</Properties>
+			</Attribute>
+			<Attribute uuid="d06391be-02fe-449f-ac4f-3b2e7e891980">
+				<Properties>
+					<Name>ТипЗадачи</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип задачи</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>cfg:EnumRef.ТипыЗадачНаПодписание</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:nil="true"/>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+					<DataHistory>Use</DataHistory>
+				</Properties>
+			</Attribute>
 			<Form>Дополнительно</Form>
 			<Form>ЗадачиПоБизнесПроцессу</Form>
 			<Form>ЗадачиПоПредмету</Form>
@@ -987,6 +1104,11 @@
 			<Form>ПеренаправитьЗадачи</Form>
 			<Form>ФормаЗадачи</Form>
 			<Form>ФормаСписка</Form>
+			<Form>МоиЗадачиБП</Form>
+			<Form>ФормаЗадачиБП</Form>
+			<Form>ИсторияВыполненияБП</Form>
+			<Form>ЗадачиПоПредметуБП</Form>
+			<Form>НастройкаОповещений</Form>
 			<AddressingAttribute uuid="0408002c-9255-43a2-8022-82f02ee0e8f4">
 				<Properties>
 					<Name>ДополнительныйОбъектАдресации</Name>
@@ -1016,7 +1138,7 @@
 					<MinValue xsi:nil="true"/>
 					<MaxValue xsi:nil="true"/>
 					<FillFromFillingValue>false</FillFromFillingValue>
-					<FillValue xsi:type="xr:DesignTimeRef">ChartOfCharacteristicTypes.ОбъектыАдресацииЗадач.EmptyRef</FillValue>
+					<FillValue xsi:nil="true"/>
 					<FillChecking>DontCheck</FillChecking>
 					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 					<ChoiceParameterLinks/>
@@ -1107,7 +1229,7 @@
 					<MinValue xsi:nil="true"/>
 					<MaxValue xsi:nil="true"/>
 					<FillFromFillingValue>false</FillFromFillingValue>
-					<FillValue xsi:type="xr:DesignTimeRef">ChartOfCharacteristicTypes.ОбъектыАдресацииЗадач.EmptyRef</FillValue>
+					<FillValue xsi:nil="true"/>
 					<FillChecking>DontCheck</FillChecking>
 					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 					<ChoiceParameterLinks/>

@@ -7,7 +7,6 @@
 		<ExcludedCommand>Write</ExcludedCommand>
 		<ExcludedCommand>WriteAndClose</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
@@ -19,7 +18,9 @@
 			</Button>
 			<Button name="ФормаОбновитьИзСервиса" id="81">
 				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.ОбновитьИзСервиса</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаОбновитьИзСервисаРасширеннаяПодсказка" id="82"/>
 			</Button>
 			<Button name="ФормаИзменить" id="79">
@@ -49,6 +50,7 @@
 					<DataPath>Объект.Статус</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СтатусКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="18"/>
 				</LabelField>
@@ -57,6 +59,7 @@
 					<ReadOnly>true</ReadOnly>
 					<TitleLocation>Right</TitleLocation>
 					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТребуетсяЗагрузкаКонтекстноеМеню" id="47"/>
 					<ExtendedTooltip name="ТребуетсяЗагрузкаРасширеннаяПодсказка" id="48"/>
 				</CheckBoxField>
@@ -79,7 +82,7 @@
 					<DataPath>Объект.Идентификатор</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
-					<TextSize>Enlarged</TextSize>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИдентификаторКонтекстноеМеню" id="8"/>
 					<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="9"/>
 				</InputField>
@@ -101,7 +104,7 @@
 				<InputField name="Наименование" id="4">
 					<DataPath>Объект.Description</DataPath>
 					<EditMode>EnterOnInput</EditMode>
-					<TextSize>Enlarged</TextSize>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
 				</InputField>
@@ -109,10 +112,16 @@
 					<DataPath>Объект.ОКПД2</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ChoiceButton>true</ChoiceButton>
-					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="ОКПД2КонтекстноеМеню" id="11"/>
 					<ExtendedTooltip name="ОКПД2РасширеннаяПодсказка" id="12"/>
+					<Events>
+						<Event name="OnChange">ОКПД2ПриИзменении</Event>
+						<Event name="AutoComplete">ОКПД2АвтоПодбор</Event>
+						<Event name="StartChoice">ОКПД2НачалоВыбора</Event>
+						<Event name="ChoiceProcessing">ОКПД2ОбработкаВыбора</Event>
+					</Events>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
@@ -120,6 +129,7 @@
 			<DataPath>Объект.ВидПродукции</DataPath>
 			<ReadOnly>true</ReadOnly>
 			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
 			<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 			<ContextMenu name="ВидПродукцииКонтекстноеМеню" id="14"/>
 			<ExtendedTooltip name="ВидПродукцииРасширеннаяПодсказка" id="15"/>
@@ -145,7 +155,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаАгрохимикатПестицидРасширеннаяПодсказка" id="76"/>
 					<ChildItems>
 						<UsualGroup name="ДанныеПА" id="63">
@@ -160,14 +170,13 @@
 							<Behavior>Collapsible</Behavior>
 							<ControlRepresentation>Button</ControlRepresentation>
 							<Representation>WeakSeparation</Representation>
-							<ShowTitle>true</ShowTitle>
 							<ExtendedTooltip name="ДанныеПАРасширеннаяПодсказка" id="64"/>
 							<ChildItems>
 								<InputField name="Группа" id="19">
 									<DataPath>Объект.Группа</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<EditMode>EnterOnInput</EditMode>
-									<TextSize>Enlarged</TextSize>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ГруппаКонтекстноеМеню" id="20"/>
 									<ExtendedTooltip name="ГруппаРасширеннаяПодсказка" id="21"/>
 								</InputField>
@@ -175,7 +184,7 @@
 									<DataPath>Объект.Регистрант</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<EditMode>EnterOnInput</EditMode>
-									<TextSize>Enlarged</TextSize>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="РегистрантКонтекстноеМеню" id="23"/>
 									<ExtendedTooltip name="РегистрантРасширеннаяПодсказка" id="24"/>
 								</InputField>
@@ -183,7 +192,7 @@
 									<DataPath>Объект.ДействующееВещество</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<EditMode>EnterOnInput</EditMode>
-									<TextSize>Enlarged</TextSize>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ДействующееВеществоКонтекстноеМеню" id="35"/>
 									<ExtendedTooltip name="ДействующееВеществоРасширеннаяПодсказка" id="36"/>
 								</InputField>
@@ -191,7 +200,7 @@
 									<DataPath>Объект.ПрепаративнаяФорма</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<EditMode>EnterOnInput</EditMode>
-									<TextSize>Enlarged</TextSize>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ПрепаративнаяФормаКонтекстноеМеню" id="38"/>
 									<ExtendedTooltip name="ПрепаративнаяФормаРасширеннаяПодсказка" id="39"/>
 								</InputField>
@@ -199,7 +208,7 @@
 									<DataPath>Объект.СодержаниеДействующегоВещества</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<EditMode>EnterOnInput</EditMode>
-									<TextSize>Enlarged</TextSize>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СодержаниеДействующегоВеществаКонтекстноеМеню" id="41"/>
 									<ExtendedTooltip name="СодержаниеДействующегоВеществаРасширеннаяПодсказка" id="42"/>
 								</InputField>
@@ -207,7 +216,7 @@
 									<DataPath>Объект.КлассОпасности</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<EditMode>EnterOnInput</EditMode>
-									<TextSize>Enlarged</TextSize>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="КлассОпасностиКонтекстноеМеню" id="44"/>
 									<ExtendedTooltip name="КлассОпасностиРасширеннаяПодсказка" id="45"/>
 								</InputField>
@@ -225,7 +234,6 @@
 							<Behavior>Collapsible</Behavior>
 							<ControlRepresentation>Button</ControlRepresentation>
 							<Representation>WeakSeparation</Representation>
-							<ShowTitle>true</ShowTitle>
 							<ExtendedTooltip name="ГруппаДанныеРегистрацииРасширеннаяПодсказка" id="58"/>
 							<ChildItems>
 								<InputField name="НомерГосударственнойРегистрации" id="25">
@@ -238,7 +246,7 @@
 										</v8:item>
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
-									<TextSize>Enlarged</TextSize>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="НомерГосударственнойРегистрацииКонтекстноеМеню" id="26"/>
 									<ExtendedTooltip name="НомерГосударственнойРегистрацииРасширеннаяПодсказка" id="27"/>
 								</InputField>
@@ -265,7 +273,7 @@
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
-											<TextSize>Enlarged</TextSize>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ДатаРегистрацииКонтекстноеМеню" id="29"/>
 											<ExtendedTooltip name="ДатаРегистрацииРасширеннаяПодсказка" id="30"/>
 										</InputField>
@@ -279,7 +287,7 @@
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
-											<TextSize>Enlarged</TextSize>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ДатаОкончанияРегистрацииКонтекстноеМеню" id="32"/>
 											<ExtendedTooltip name="ДатаОкончанияРегистрацииРасширеннаяПодсказка" id="33"/>
 										</InputField>
@@ -297,7 +305,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаТукосмесьРасширеннаяПодсказка" id="78"/>
 					<ChildItems>
 						<UsualGroup name="ДанныеТукосмеси" id="107">
@@ -312,14 +320,13 @@
 							<Behavior>Collapsible</Behavior>
 							<ControlRepresentation>Button</ControlRepresentation>
 							<Representation>WeakSeparation</Representation>
-							<ShowTitle>true</ShowTitle>
 							<ExtendedTooltip name="ДанныеТукосмесиРасширеннаяПодсказка" id="108"/>
 							<ChildItems>
 								<InputField name="ПроизводительТукосмеси" id="49">
 									<DataPath>Объект.Производитель</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<EditMode>EnterOnInput</EditMode>
-									<TextSize>Enlarged</TextSize>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ПроизводительТукосмесиКонтекстноеМеню" id="50"/>
 									<ExtendedTooltip name="ПроизводительТукосмесиРасширеннаяПодсказка" id="51"/>
 								</InputField>
@@ -330,11 +337,11 @@
 									<ChangeRowOrder>false</ChangeRowOrder>
 									<HeightInTableRows>2</HeightInTableRows>
 									<RowSelectionMode>Cell</RowSelectionMode>
+									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<DataPath>Объект.СоставТукосмеси</DataPath>
 									<SearchStringLocation>CommandBar</SearchStringLocation>
 									<ViewStatusLocation>None</ViewStatusLocation>
 									<SearchControlLocation>CommandBar</SearchControlLocation>
-									<AutoMaxCardHeight>false</AutoMaxCardHeight>
 									<RowFilter xsi:nil="true"/>
 									<ContextMenu name="СоставТукосмесиКонтекстноеМеню" id="85"/>
 									<AutoCommandBar name="СоставТукосмесиКоманднаяПанель" id="84"/>
@@ -369,19 +376,16 @@
 									<ChildItems>
 										<InputField name="СоставТукосмесиНомерСтроки" id="96">
 											<DataPath>Объект.СоставТукосмеси.LineNumber</DataPath>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="СоставТукосмесиНомерСтрокиКонтекстноеМеню" id="97"/>
 											<ExtendedTooltip name="СоставТукосмесиНомерСтрокиРасширеннаяПодсказка" id="98"/>
 										</InputField>
 										<InputField name="СоставТукосмесиПА" id="99">
 											<DataPath>Объект.СоставТукосмеси.ПА</DataPath>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="СоставТукосмесиПАКонтекстноеМеню" id="100"/>
 											<ExtendedTooltip name="СоставТукосмесиПАРасширеннаяПодсказка" id="101"/>
 										</InputField>
 										<InputField name="СоставТукосмесиКоличество" id="102">
 											<DataPath>Объект.СоставТукосмеси.Количество</DataPath>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="СоставТукосмесиКоличествоКонтекстноеМеню" id="103"/>
 											<ExtendedTooltip name="СоставТукосмесиКоличествоРасширеннаяПодсказка" id="104"/>
 										</InputField>
@@ -401,13 +405,11 @@
 							<Behavior>Collapsible</Behavior>
 							<ControlRepresentation>Button</ControlRepresentation>
 							<Representation>WeakSeparation</Representation>
-							<ShowTitle>true</ShowTitle>
 							<ExtendedTooltip name="ДанныеКомбипакаРасширеннаяПодсказка" id="192"/>
 							<ChildItems>
 								<InputField name="ПроизводительКомбипака" id="193">
 									<DataPath>Объект.Производитель</DataPath>
 									<ReadOnly>true</ReadOnly>
-									<TextSize>Enlarged</TextSize>
 									<ContextMenu name="ПроизводительКомбипакаКонтекстноеМеню" id="194"/>
 									<ExtendedTooltip name="ПроизводительКомбипакаРасширеннаяПодсказка" id="195"/>
 								</InputField>
@@ -418,6 +420,7 @@
 									<ChangeRowOrder>false</ChangeRowOrder>
 									<HeightInTableRows>2</HeightInTableRows>
 									<RowSelectionMode>Cell</RowSelectionMode>
+									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<DataPath>Объект.СоставКомбипака</DataPath>
 									<Title>
 										<v8:item>
@@ -428,7 +431,6 @@
 									<SearchStringLocation>CommandBar</SearchStringLocation>
 									<ViewStatusLocation>None</ViewStatusLocation>
 									<SearchControlLocation>CommandBar</SearchControlLocation>
-									<AutoMaxCardHeight>false</AutoMaxCardHeight>
 									<RowFilter xsi:nil="true"/>
 									<ContextMenu name="СоставКомбипакаКонтекстноеМеню" id="168"/>
 									<AutoCommandBar name="СоставКомбипакаКоманднаяПанель" id="167"/>
@@ -450,7 +452,6 @@
 										<ExtendedTooltip name="СоставКомбипакаСостояниеПросмотраРасширеннаяПодсказка" id="178"/>
 									</ViewStatusAddition>
 									<SearchControlAddition name="СоставКомбипакаУправлениеПоиском" id="173">
-										<Enabled>false</Enabled>
 										<AdditionSource>
 											<Item>СоставКомбипака</Item>
 											<Type>SearchControl</Type>
@@ -464,19 +465,16 @@
 									<ChildItems>
 										<InputField name="СоставКомбипакаНомерСтроки" id="179">
 											<DataPath>Объект.СоставКомбипака.LineNumber</DataPath>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="СоставКомбипакаНомерСтрокиКонтекстноеМеню" id="180"/>
 											<ExtendedTooltip name="СоставКомбипакаНомерСтрокиРасширеннаяПодсказка" id="181"/>
 										</InputField>
 										<InputField name="СоставКомбипакаПА" id="182">
 											<DataPath>Объект.СоставКомбипака.ПА</DataPath>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="СоставКомбипакаПАКонтекстноеМеню" id="183"/>
 											<ExtendedTooltip name="СоставКомбипакаПАРасширеннаяПодсказка" id="184"/>
 										</InputField>
 										<InputField name="СоставКомбипакаКоличество" id="188">
 											<DataPath>Объект.СоставКомбипака.Количество</DataPath>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="СоставКомбипакаКоличествоКонтекстноеМеню" id="189"/>
 											<ExtendedTooltip name="СоставКомбипакаКоличествоРасширеннаяПодсказка" id="190"/>
 										</InputField>
@@ -530,7 +528,6 @@
 				</v8:item>
 			</Title>
 			<Action>ДанныеСАТУРН</Action>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="Изменить" id="2">
 			<Title>
@@ -552,7 +549,6 @@
 			<Action>Изменить</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ОбновитьИзСервиса" id="3">
 			<Title>
@@ -562,7 +558,6 @@
 				</v8:item>
 			</Title>
 			<Action>ОбновитьИзСервиса</Action>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 </Form>

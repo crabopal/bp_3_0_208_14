@@ -9,7 +9,6 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаВыбрать" id="26">
@@ -18,6 +17,22 @@
 				<CommandName>Form.Command.Выбрать</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="27"/>
+			</Button>
+			<Button name="ФормаОтмена" id="106">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="107"/>
+			</Button>
+			<Button name="ФормаСправка" id="113">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="114"/>
+			</Button>
+			<Button name="ФормаВывестиСписок" id="344">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.Улицы.StandardCommand.OutputList</CommandName>
+				<ExtendedTooltip name="ФормаВывестиСписокРасширеннаяПодсказка" id="345"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -29,7 +44,6 @@
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -48,28 +62,7 @@
 				</ChildItems>
 			</ContextMenu>
 			<AutoCommandBar name="УлицыКоманднаяПанель" id="165">
-				<ChildItems>
-					<Button name="УлицыВыбрать" id="357">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Выбрать</CommandName>
-						<ExtendedTooltip name="УлицыВыбратьРасширеннаяПодсказка" id="358"/>
-					</Button>
-					<Button name="ФормаОтмена" id="106">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Cancel</CommandName>
-						<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="107"/>
-					</Button>
-					<Button name="УлицыИзменитьФорму" id="359">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ExtendedTooltip name="УлицыИзменитьФормуРасширеннаяПодсказка" id="360"/>
-					</Button>
-					<Button name="УлицыСправка" id="361">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="УлицыСправкаРасширеннаяПодсказка" id="362"/>
-					</Button>
-				</ChildItems>
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="УлицыРасширеннаяПодсказка" id="166"/>
 			<SearchStringAddition name="УлицыСтрокаПоиска" id="167">
@@ -193,6 +186,7 @@
 			<ChildItems>
 				<Button name="СтраницаПервая" id="331">
 					<Type>UsualButton</Type>
+					<Width>5</Width>
 					<CommandName>Form.Command.НавигацияСтраницаПервая</CommandName>
 					<Title>
 						<v8:item>
@@ -204,6 +198,7 @@
 				</Button>
 				<Button name="СтраницаПредыдущая" id="333">
 					<Type>UsualButton</Type>
+					<Width>4</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<CommandName>Form.Command.НавигацияСтраницаПредыдущая</CommandName>
 					<Title>
@@ -222,6 +217,7 @@
 				<Button name="СтраницаСледующая" id="337">
 					<Type>UsualButton</Type>
 					<Width>4</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<CommandName>Form.Command.НавигацияСтраницаСледующая</CommandName>
 					<Title>
 						<v8:item>
@@ -233,6 +229,7 @@
 				</Button>
 				<Button name="СтраницаПоследняя" id="339">
 					<Type>UsualButton</Type>
+					<Width>5</Width>
 					<CommandName>Form.Command.НавигацияСтраницаПоследняя</CommandName>
 					<Title>
 						<v8:item>
@@ -477,12 +474,7 @@
 					<v8:content>Перейти на первую страницу</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.GoToBegin</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>НавигацияСтраницаПервая</Action>
-			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="НавигацияСтраницаПоследняя" id="3">
@@ -498,12 +490,7 @@
 					<v8:content>Перейти на последнюю страницу</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.GoToEnd</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>НавигацияСтраницаПоследняя</Action>
-			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="НавигацияСтраницаСледующая" id="4">
@@ -519,12 +506,7 @@
 					<v8:content>Перейти на следующую страницу</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.GoForward</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>НавигацияСтраницаСледующая</Action>
-			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="НавигацияСтраницаПредыдущая" id="5">
@@ -540,12 +522,7 @@
 					<v8:content>Перейти на предыдущую страницу</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.GoBack</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>НавигацияСтраницаПредыдущая</Action>
-			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="НавигацияСтраницаТекущаяСтраница" id="6">

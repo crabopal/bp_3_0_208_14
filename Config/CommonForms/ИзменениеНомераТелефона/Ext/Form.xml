@@ -10,7 +10,6 @@
 	<AutoTitle>false</AutoTitle>
 	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
@@ -93,7 +92,7 @@
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаНомерТелефонаДляПроверкиРасширеннаяПодсказка" id="119"/>
+							<ExtendedTooltip name="ГруппаНомерТелефонаДляПроверкиExtendedTooltip" id="119"/>
 							<ChildItems>
 								<InputField name="НовыйТелефон" id="7">
 									<DataPath>НовыйТелефон</DataPath>
@@ -103,9 +102,7 @@
 											<v8:content>    Телефон</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Left</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<Width>17</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -136,50 +133,13 @@
 									</Title>
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
 									<Picture>
-										<xr:Ref>CommonPicture.ОтмеченоЗеленая</xr:Ref>
+										<xr:Abs>Picture.png</xr:Abs>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="КартинкаТелефонПроверенКонтекстноеМеню" id="116"/>
 									<ExtendedTooltip name="КартинкаТелефонПроверенРасширеннаяПодсказка" id="117"/>
 								</PictureDecoration>
-								<PictureDecoration name="ОтменитьПроверкуТелефона" id="112">
-									<Width>1</Width>
-									<Height>1</Height>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отменить проверку телефона</v8:content>
-										</v8:item>
-									</Title>
-									<Hyperlink>true</Hyperlink>
-									<NonselectedPictureText>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отменить изменение</v8:content>
-										</v8:item>
-									</NonselectedPictureText>
-									<Picture>
-										<xr:Ref>CommonPicture.ОчиститьМонохромная</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
-									</Picture>
-									<FileDragMode>AsFile</FileDragMode>
-									<ContextMenu name="ОтменитьПроверкуТелефонаКонтекстноеМеню" id="113"/>
-									<ExtendedTooltip name="ОтменитьПроверкуТелефонаРасширеннаяПодсказка" id="114"/>
-									<Events>
-										<Event name="Click">ОтменитьПроверкуТелефонаНажатие</Event>
-									</Events>
-								</PictureDecoration>
-								<LabelDecoration name="Отступ1" id="124">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content> </v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="Отступ1КонтекстноеМеню" id="125"/>
-									<ExtendedTooltip name="Отступ1РасширеннаяПодсказка" id="126"/>
-								</LabelDecoration>
 								<Button name="ПроверитьНомер" id="66">
 									<Type>UsualButton</Type>
 									<CommandName>Form.Command.ПроверитьНомер</CommandName>
@@ -201,7 +161,6 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
-							<VerticalSpacing>Half</VerticalSpacing>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -224,8 +183,6 @@
 										<InputField name="КодПодтверждения" id="80">
 											<DataPath>КодПодтверждения</DataPath>
 											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<HorizontalStretch>false</HorizontalStretch>
 											<EditTextUpdate>DontUse</EditTextUpdate>
 											<InputHint>
@@ -241,20 +198,44 @@
 												<Event name="EditTextChange">КодПодтвержденияИзменениеТекстаРедактирования</Event>
 											</Events>
 										</InputField>
-										<Button name="ОтправитьКодПовторно" id="88">
-											<Type>Hyperlink</Type>
-											<Representation>Picture</Representation>
-											<CommandName>Form.Command.ОтправитьКодПовторно</CommandName>
-											<TextColor>#807A76</TextColor>
-											<ExtendedTooltip name="ОтправитьКодПовторноРасширеннаяПодсказка" id="89"/>
-										</Button>
+										<PictureDecoration name="ОтменитьПроверкуТелефона" id="112">
+											<Width>1</Width>
+											<Height>1</Height>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Отменить проверку телефона</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<NonselectedPictureText>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Отменить изменение</v8:content>
+												</v8:item>
+											</NonselectedPictureText>
+											<Picture>
+												<xr:Abs>Picture.png</xr:Abs>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</Picture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="ОтменитьПроверкуТелефонаКонтекстноеМеню" id="113"/>
+											<ExtendedTooltip name="ОтменитьПроверкуТелефонаРасширеннаяПодсказка" id="114"/>
+											<Events>
+												<Event name="Click">ОтменитьПроверкуТелефонаНажатие</Event>
+											</Events>
+										</PictureDecoration>
 									</ChildItems>
 								</UsualGroup>
+								<Button name="ОтправитьКодПовторно" id="88">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.ОтправитьКодПовторно</CommandName>
+									<TextColor>#807A76</TextColor>
+									<ExtendedTooltip name="ОтправитьКодПовторноРасширеннаяПодсказка" id="89"/>
+								</Button>
 								<LabelField name="НадписьОбратногоОтсчета" id="95">
 									<DataPath>НадписьОбратногоОтсчета</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>40</Width>
 									<TextColor>#807A76</TextColor>
 									<ContextMenu name="НадписьОбратногоОтсчетаКонтекстноеМеню" id="96"/>
@@ -332,31 +313,26 @@
 							<v8:content>Шаг 6</v8:content>
 						</v8:item>
 					</Title>
-					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-					<Group>AlwaysHorizontal</Group>
-					<HorizontalAlign>Left</HorizontalAlign>
+					<Group>Horizontal</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаШаг6РасширеннаяПодсказка" id="69"/>
 					<ChildItems>
 						<LabelDecoration name="НадписьШаг6" id="60">
-							<Title formatted="true">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>6. Приложите файл: </v8:content>
 								</v8:item>
 							</Title>
-							<GroupHorizontalAlign>Left</GroupHorizontalAlign>
 							<ContextMenu name="НадписьШаг6КонтекстноеМеню" id="61"/>
 							<ExtendedTooltip name="НадписьШаг6РасширеннаяПодсказка" id="62"/>
 						</LabelDecoration>
 						<LabelField name="ФайлЗаявления" id="70">
 							<DataPath>ФайлЗаявления</DataPath>
 							<TitleLocation>None</TitleLocation>
-							<HorizontalAlign>Left</HorizontalAlign>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<Hiperlink>true</Hiperlink>
 							<ContextMenu name="ФайлЗаявленияКонтекстноеМеню" id="71"/>
@@ -374,7 +350,7 @@
 							<v8:content>Шаг 7</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AlwaysHorizontal</Group>
+					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -394,7 +370,6 @@
 						<Button name="ОтправитьЗаявление" id="47">
 							<Type>UsualButton</Type>
 							<CommandName>Form.Command.ОтправитьЗаявление</CommandName>
-							<ButtonImportance>Supplementary</ButtonImportance>
 							<ExtendedTooltip name="ОтправитьЗаявлениеРасширеннаяПодсказка" id="48"/>
 						</Button>
 					</ChildItems>
@@ -608,10 +583,6 @@
 					<v8:content>Отправить код повторно</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Refresh</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ОтправитьКодПовторно</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>

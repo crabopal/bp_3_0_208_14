@@ -3,15 +3,38 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Настройка оповещений 1С:Сверка 2.0</v8:content>
+			<v8:content>Персональная настройка оповещений 1С:Сверка 2.0</v8:content>
 		</v8:item>
 	</Title>
+	<Width>65</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<ConversationsRepresentation>DontShow</ConversationsRepresentation>
+	<CommandSet>
+		<ExcludedCommand>Write</ExcludedCommand>
+	</CommandSet>
+	<ShowCommandBar>true</ShowCommandBar>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаЗаписатьИЗакрыть" id="227">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.StandardCommand.WriteAndClose</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="228"/>
+			</Button>
+			<Button name="ФормаОтмена" id="219">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="220"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -48,7 +71,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Оповещения</v8:content>
+					<v8:content>Получать оповещения</v8:content>
 				</v8:item>
 			</Title>
 			<TitleLocation>Right</TitleLocation>
@@ -74,6 +97,7 @@
 					<v8:content>Группа настройки</v8:content>
 				</v8:item>
 			</Title>
+			<Width>70</Width>
 			<Group>Vertical</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -81,10 +105,11 @@
 			<ChildItems>
 				<LabelDecoration name="ДекорацияРасхождения" id="194">
 					<AutoMaxWidth>false</AutoMaxWidth>
+					<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Расхождения:</v8:content>
+							<v8:content>Оповещать о расхождениях:</v8:content>
 						</v8:item>
 					</Title>
 					<ContextMenu name="ДекорацияРасхожденияКонтекстноеМеню" id="195"/>
@@ -97,7 +122,8 @@
 							<v8:content>Группа расхождения</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AlwaysHorizontal</Group>
+					<Width>36</Width>
+					<Group>Vertical</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаРасхожденияРасширеннаяПодсказка" id="166"/>
@@ -109,6 +135,8 @@
 									<v8:content>Расхождения</v8:content>
 								</v8:item>
 							</Title>
+							<Width>34</Width>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 							<Group>Vertical</Group>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -156,10 +184,11 @@
 				</UsualGroup>
 				<LabelDecoration name="ДекорацияПрочиеСобытия" id="197">
 					<AutoMaxWidth>false</AutoMaxWidth>
+					<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Прочие события:</v8:content>
+							<v8:content>Оповещать о прочих событиях:</v8:content>
 						</v8:item>
 					</Title>
 					<ContextMenu name="ДекорацияПрочиеСобытияКонтекстноеМеню" id="198"/>
@@ -172,70 +201,81 @@
 							<v8:content>Прочие события</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Прочие события</v8:content>
-						</v8:item>
-					</ToolTip>
+					<Width>36</Width>
 					<Group>Vertical</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаПрочиеСобытияРасширеннаяПодсказка" id="193"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаОповещатьОбОтсутствии" id="108">
-							<Group>AlwaysHorizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаОповещатьОбОтсутствииРасширеннаяПодсказка" id="109"/>
-							<ChildItems>
-								<CheckBoxField name="ОповещатьОбОтсутствии" id="110">
-									<DataPath>ОповещатьОбОтсутствии</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Отсутствие документа более</v8:content>
-										</v8:item>
-									</Title>
-									<TitleLocation>Right</TitleLocation>
-									<ContextMenu name="ОповещатьОбОтсутствииКонтекстноеМеню" id="111"/>
-									<ExtendedTooltip name="ОповещатьОбОтсутствииРасширеннаяПодсказка" id="112"/>
-									<Events>
-										<Event name="OnChange">ОповещатьОбОтсутствииПриИзменении</Event>
-									</Events>
-								</CheckBoxField>
-								<InputField name="КоличествоДнейБезДокумента" id="93">
-									<DataPath>Объект.КоличествоДнейБезДокумента</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<Width>6</Width>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-									<EditFormat>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>ЧФ='Ч дней'</v8:content>
-										</v8:item>
-									</EditFormat>
-									<ContextMenu name="КоличествоДнейБезДокументаКонтекстноеМеню" id="94"/>
-									<ExtendedTooltip name="КоличествоДнейБезДокументаРасширеннаяПодсказка" id="95"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<CheckBoxField name="ОповещатьОбУстраненииРасхождений" id="105">
-							<DataPath>Объект.ОповещатьОбУстраненииРасхождений</DataPath>
+						<UsualGroup name="ГруппаПрочиеСобытияВарианты" id="214">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Устранение расхождений</v8:content>
+									<v8:content>Группа прочие события варианты</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Right</TitleLocation>
-							<ContextMenu name="ОповещатьОбУстраненииРасхожденийКонтекстноеМеню" id="106"/>
-							<ExtendedTooltip name="ОповещатьОбУстраненииРасхожденийРасширеннаяПодсказка" id="107"/>
-						</CheckBoxField>
+							<Width>34</Width>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПрочиеСобытияВариантыРасширеннаяПодсказка" id="215"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаОповещатьОбОтсутствии" id="108">
+									<Group>AlwaysHorizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОповещатьОбОтсутствииРасширеннаяПодсказка" id="109"/>
+									<ChildItems>
+										<CheckBoxField name="ОповещатьОбОтсутствии" id="110">
+											<DataPath>ОповещатьОбОтсутствии</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Отсутствие документа более</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>Right</TitleLocation>
+											<ContextMenu name="ОповещатьОбОтсутствииКонтекстноеМеню" id="111"/>
+											<ExtendedTooltip name="ОповещатьОбОтсутствииРасширеннаяПодсказка" id="112"/>
+											<Events>
+												<Event name="OnChange">ОповещатьОбОтсутствииПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<InputField name="КоличествоДнейБезДокумента" id="93">
+											<DataPath>Объект.КоличествоДнейБезДокумента</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>6</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<EditFormat>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧФ='Ч дней'</v8:content>
+												</v8:item>
+											</EditFormat>
+											<ContextMenu name="КоличествоДнейБезДокументаКонтекстноеМеню" id="94"/>
+											<ExtendedTooltip name="КоличествоДнейБезДокументаРасширеннаяПодсказка" id="95"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<CheckBoxField name="ОповещатьОбУстраненииРасхождений" id="105">
+									<DataPath>Объект.ОповещатьОбУстраненииРасхождений</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Устранение расхождений</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<ContextMenu name="ОповещатьОбУстраненииРасхожденийКонтекстноеМеню" id="106"/>
+									<ExtendedTooltip name="ОповещатьОбУстраненииРасхожденийРасширеннаяПодсказка" id="107"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ГруппаОтборОрганизации" id="134">
+				<UsualGroup name="ГруппаОтборОрганизации" id="134" DisplayImportance="High">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -247,6 +287,18 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаОтборОрганизацииРасширеннаяПодсказка" id="135"/>
 					<ChildItems>
+						<LabelDecoration name="ДекорацияОрганизации" id="221">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Организации по которым оповещать:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияОрганизацииКонтекстноеМеню" id="222"/>
+							<ExtendedTooltip name="ДекорацияОрганизацииРасширеннаяПодсказка" id="223"/>
+						</LabelDecoration>
 						<RadioButtonField name="ОтборОрганизаций" id="78">
 							<DataPath>Объект.ОтборОрганизаций</DataPath>
 							<Title>
@@ -255,7 +307,7 @@
 									<v8:content>Организации</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Top</TitleLocation>
+							<TitleLocation>None</TitleLocation>
 							<RadioButtonType>Auto</RadioButtonType>
 							<ColumnsCount>1</ColumnsCount>
 							<ChoiceList>
@@ -287,6 +339,7 @@
 								</v8:item>
 							</Title>
 							<Group>AlwaysHorizontal</Group>
+							<HorizontalSpacing>Half</HorizontalSpacing>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ОтборОрганизацийКромеРасширеннаяПодсказка" id="140"/>
@@ -320,7 +373,7 @@
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>&lt;выбрать организации&gt;</v8:content>
+											<v8:content>Выбрать организации</v8:content>
 										</v8:item>
 									</Title>
 									<Hyperlink>true</Hyperlink>
@@ -340,6 +393,7 @@
 								</v8:item>
 							</Title>
 							<Group>AlwaysHorizontal</Group>
+							<HorizontalSpacing>Half</HorizontalSpacing>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаВыбранныеОрганизацииРасширеннаяПодсказка" id="145"/>
@@ -373,7 +427,7 @@
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>&lt;выбрать организации&gt;</v8:content>
+											<v8:content>Выбрать организации</v8:content>
 										</v8:item>
 									</Title>
 									<Hyperlink>true</Hyperlink>
@@ -387,7 +441,7 @@
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ГруппаОтборКонтрагенты" id="116">
+				<UsualGroup name="ГруппаОтборКонтрагенты" id="116" DisplayImportance="High">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -399,6 +453,18 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаОтборКонтрагентыРасширеннаяПодсказка" id="117"/>
 					<ChildItems>
+						<LabelDecoration name="ДекорацияКонтрагенты" id="224">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Контрагенты о которых оповещать:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияКонтрагентыКонтекстноеМеню" id="225"/>
+							<ExtendedTooltip name="ДекорацияКонтрагентыРасширеннаяПодсказка" id="226"/>
+						</LabelDecoration>
 						<RadioButtonField name="ОтборКонтрагентов" id="90">
 							<DataPath>Объект.ОтборКонтрагентов</DataPath>
 							<Title>
@@ -407,7 +473,7 @@
 									<v8:content>Контрагенты</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Top</TitleLocation>
+							<TitleLocation>None</TitleLocation>
 							<RadioButtonType>Auto</RadioButtonType>
 							<ColumnsCount>1</ColumnsCount>
 							<ChoiceList>
@@ -439,6 +505,7 @@
 								</v8:item>
 							</Title>
 							<Group>AlwaysHorizontal</Group>
+							<HorizontalSpacing>Half</HorizontalSpacing>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ОтборКонтрагентовКромеРасширеннаяПодсказка" id="125"/>
@@ -472,7 +539,7 @@
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>&lt;выбрать контрагентов&gt;</v8:content>
+											<v8:content>Выбрать контрагентов</v8:content>
 										</v8:item>
 									</Title>
 									<Hyperlink>true</Hyperlink>
@@ -492,6 +559,7 @@
 								</v8:item>
 							</Title>
 							<Group>AlwaysHorizontal</Group>
+							<HorizontalSpacing>Half</HorizontalSpacing>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаВыбранныеКонтрагентыРасширеннаяПодсказка" id="130"/>
@@ -525,7 +593,7 @@
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>&lt;выбрать контрагентов&gt;</v8:content>
+											<v8:content>Выбрать контрагентов</v8:content>
 										</v8:item>
 									</Title>
 									<Hyperlink>true</Hyperlink>
@@ -539,17 +607,19 @@
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<LabelDecoration name="ДекорацияИнформационнаяНадпись" id="162">
+				<LabelDecoration name="ДекорацияИнформация" id="216">
 					<AutoMaxWidth>false</AutoMaxWidth>
+					<AutoMaxHeight>false</AutoMaxHeight>
 					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Оповещения отправляются дважды в неделю, если обнаружены новые или устраненные расхождения. Если изменений нет, оповещения не отправляются.
-&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;bgcolor #ffffff&gt;&lt;color #807a59&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;</v8:content>
+							<v8:content>&lt;b&gt;Как работают оповещения:&lt;/&gt;
+- отправляются дважды в неделю, если есть новые или устраненные расхождения
+- если изменений нет, то не отправляются</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ДекорацияИнформационнаяНадписьКонтекстноеМеню" id="163"/>
-					<ExtendedTooltip name="ДекорацияИнформационнаяНадписьРасширеннаяПодсказка" id="164"/>
+					<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="217"/>
+					<ExtendedTooltip name="ДекорацияИнформацияРасширеннаяПодсказка" id="218"/>
 				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>

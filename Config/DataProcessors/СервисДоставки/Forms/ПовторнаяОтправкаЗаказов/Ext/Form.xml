@@ -10,16 +10,28 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="УдалитьФормаЗакрыть" id="30">
+			<Button name="ФормаОбновитьСписокЗаказов" id="46">
 				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОбновитьСписокЗаказов</CommandName>
+				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаОбновитьСписокЗаказовРасширеннаяПодсказка" id="47"/>
+			</Button>
+			<Button name="ФормаИгнорироватьИзменения" id="28">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ИгнорироватьИзменения</CommandName>
+				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаИгнорироватьИзмененияРасширеннаяПодсказка" id="29"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="30">
+				<Type>CommandBarButton</Type>
 				<CommandName>Form.StandardCommand.Close</CommandName>
 				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-				<ExtendedTooltip name="УдалитьФормаЗакрытьРасширеннаяПодсказка" id="31"/>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="31"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -83,50 +95,10 @@
 				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаПодсказка" id="53">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа подсказка</v8:content>
-				</v8:item>
-			</Title>
-			<ControlRepresentation>Button</ControlRepresentation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПодсказкаРасширеннаяПодсказка" id="54"/>
-			<ChildItems>
-				<PictureDecoration name="ДекорацияПодсказкаФормы" id="55">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Font ref="style:TextLevel3" kind="StyleItem"/>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Декорация подсказка формы</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
-					<Picture>
-						<xr:Ref>StdPicture.Information</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<ContextMenu name="ДекорацияПодсказкаФормыКонтекстноеМеню" id="56"/>
-					<ExtendedTooltip name="ДекорацияПодсказкаФормыРасширеннаяПодсказка" id="57">
-						<AutoMaxWidth>false</AutoMaxWidth>
-						<HorizontalStretch>true</HorizontalStretch>
-						<Title formatted="false">
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Здесь отображаются уже отправленные заказы на доставку, в которых был изменен товарный состав. Для обновления данных в сервисе зайдите в документы, перезаполните товарный состав и отправьте их в сервис повторно. Если заказы не требуется отправлять повторно в сервис, выберите вариант "Игнорировать изменения" в дополнительном подменю.</v8:content>
-							</v8:item>
-						</Title>
-					</ExtendedTooltip>
-				</PictureDecoration>
-			</ChildItems>
-		</UsualGroup>
 		<Table name="СписокЗаказов" id="1">
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -144,6 +116,7 @@
 					<v8:content>Здесь отображаются уже отправленные заказы на доставку, в которых был изменен товарный состав. Для обновления данных в сервисе зайдите в документы, перезаполните товарный состав и отправьте их в сервис повторно. Если заказы не требуется отправлять повторно в сервис, выберите вариант "Игнорировать изменения" в дополнительном подменю.</v8:content>
 				</v8:item>
 			</ToolTip>
+			<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
 			<ContextMenu name="СписокЗаказовКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="СписокЗаказовКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
@@ -159,20 +132,6 @@
 						<CommandName>Form.Item.СписокЗаказов.StandardCommand.UncheckAll</CommandName>
 						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 						<ExtendedTooltip name="СписокЗаказовСнятьФлажкиРасширеннаяПодсказка" id="21"/>
-					</Button>
-					<Button name="ФормаОбновитьСписокЗаказов" id="46">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.ОбновитьСписокЗаказов</CommandName>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ФормаОбновитьСписокЗаказовРасширеннаяПодсказка" id="47"/>
-					</Button>
-					<Button name="ФормаИгнорироватьИзменения" id="28">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ИгнорироватьИзменения</CommandName>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-						<ExtendedTooltip name="ФормаИгнорироватьИзмененияРасширеннаяПодсказка" id="29"/>
 					</Button>
 				</ChildItems>
 			</AutoCommandBar>
@@ -209,13 +168,16 @@
 			<ChildItems>
 				<CheckBoxField name="СписокЗаказовПометка" id="17">
 					<DataPath>СписокЗаказов.Check</DataPath>
-					<CheckBoxType>CheckBox</CheckBoxType>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокЗаказовПометкаКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="СписокЗаказовПометкаРасширеннаяПодсказка" id="19"/>
 				</CheckBoxField>
 				<InputField name="СписокЗаказовЗначение" id="14">
 					<DataPath>СписокЗаказов.Value</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СписокЗаказовЗначениеКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="СписокЗаказовЗначениеРасширеннаяПодсказка" id="16"/>

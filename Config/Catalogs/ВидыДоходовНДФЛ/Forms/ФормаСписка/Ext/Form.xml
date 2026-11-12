@@ -11,14 +11,7 @@
 		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаВосстановитьНачальныеЗначения" id="25">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ВосстановитьНачальныеЗначения</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаВосстановитьНачальныеЗначенияРасширеннаяПодсказка" id="26"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -49,8 +42,27 @@
 			<Representation>None</Representation>
 			<ExtendedTooltip name="СписокНастройкиОтбораРасширеннаяПодсказка" id="32"/>
 		</UsualGroup>
+		<CommandBar name="КоманднаяПанельФормы" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель формы</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="КоманднаяПанельФормыРасширеннаяПодсказка" id="34"/>
+			<ChildItems>
+				<Button name="ФормаВосстановитьНачальныеЗначения" id="25">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.ВосстановитьНачальныеЗначения</CommandName>
+					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="ФормаВосстановитьНачальныеЗначенияРасширеннаяПодсказка" id="26"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -70,7 +82,6 @@
 				<ExcludedCommand>Delete</ExcludedCommand>
 				<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -87,8 +98,10 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="12"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="12"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="16">
 				<AdditionSource>
 					<Item>Список</Item>
@@ -123,31 +136,28 @@
 					<DataPath>Список.Code</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<ContextMenu name="КодКонтекстноеМеню" id="7"/>
-					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="13"/>
+					<ExtendedTooltip name="КодExtendedTooltip" id="13"/>
 				</LabelField>
 				<LabelField name="Наименование" id="4">
 					<DataPath>Список.Description</DataPath>
 					<Height>2</Height>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="14"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="14"/>
 				</LabelField>
 				<LabelField name="СтавкаНалогообложенияРезидента" id="8">
 					<DataPath>Список.СтавкаНалогообложенияРезидента</DataPath>
+					<Width>22</Width>
 					<ContextMenu name="СтавкаНалогообложенияРезидентаКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="СтавкаНалогообложенияРезидентаРасширеннаяПодсказка" id="15"/>
+					<ExtendedTooltip name="СтавкаНалогообложенияРезидентаExtendedTooltip" id="15"/>
 				</LabelField>
 				<LabelField name="КодПрименяемыйВНалоговойОтчетностиС2025Года" id="44">
 					<DataPath>Список.КодПрименяемыйВНалоговойОтчетностиС2025Года</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>С 2025 года</v8:content>
+							<v8:content>Код с 2025 года</v8:content>
 						</v8:item>
 					</Title>
-					<AutoWidthInTable>None</AutoWidthInTable>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>3</MaxWidth>
-					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="КодПрименяемыйВНалоговойОтчетностиС2025ГодаКонтекстноеМеню" id="45"/>
 					<ExtendedTooltip name="КодПрименяемыйВНалоговойОтчетностиС2025ГодаРасширеннаяПодсказка" id="46"/>
 				</LabelField>
@@ -156,10 +166,9 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>В 2021-2024 годах</v8:content>
+							<v8:content>Код в 2021-2024 годах</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="КодПрименяемыйВНалоговойОтчетностиС2021ГодаКонтекстноеМеню" id="42"/>
 					<ExtendedTooltip name="КодПрименяемыйВНалоговойОтчетностиС2021ГодаРасширеннаяПодсказка" id="43"/>
 				</LabelField>
@@ -168,10 +177,9 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>В 2010-2020 годах</v8:content>
+							<v8:content>Код в 2010-2020 годах</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="КодПрименяемыйВНалоговойОтчетностиС2010ГодаКонтекстноеМеню" id="39"/>
 					<ExtendedTooltip name="КодПрименяемыйВНалоговойОтчетностиС2010ГодаРасширеннаяПодсказка" id="40"/>
 				</LabelField>

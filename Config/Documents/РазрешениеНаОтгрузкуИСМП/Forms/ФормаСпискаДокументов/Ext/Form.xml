@@ -6,6 +6,7 @@
 			<v8:content>Разрешения на отгрузку</v8:content>
 		</v8:item>
 	</Title>
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandSet>
@@ -36,8 +37,9 @@
 		<ExcludedCommand>UndoPosting</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="URLListGetProcessing">ОбработкаПолученияСпискаНавигационныхСсылок</Event>
@@ -88,7 +90,7 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаОформленоРасширеннаяПодсказка" id="27"/>
 					<ChildItems>
 						<UsualGroup name="СтраницаОформленоОтбор" id="28">
@@ -104,7 +106,7 @@
 									<v8:content>Группа оформлено отбор</v8:content>
 								</v8:item>
 							</ToolTip>
-							<Group>AutoScreenTypeSensitive</Group>
+							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -113,8 +115,7 @@
 								<InputField name="СтраницаОформленоОтборСтатус" id="71">
 									<DataPath>Статус</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<ClearButton>true</ClearButton>
 									<InputHint>
@@ -132,8 +133,7 @@
 								<InputField name="СтраницаОформленоОтборДальнейшееДействие" id="68">
 									<DataPath>ДальнейшееДействие</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<ChoiceButton>false</ChoiceButton>
 									<ClearButton>true</ClearButton>
@@ -180,7 +180,7 @@
 												</v8:item>
 											</ToolTip>
 											<Group>Vertical</Group>
-											<ShowTitle>true</ShowTitle>
+											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаОформленоОрганизацииРасширеннаяПодсказка" id="39"/>
 											<ChildItems>
 												<InputField name="ОформленоОрганизации" id="40">
@@ -192,8 +192,7 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>28</MaxWidth>
 													<DropListButton>true</DropListButton>
 													<ChoiceButton>true</ChoiceButton>
@@ -241,7 +240,7 @@
 												</v8:item>
 											</ToolTip>
 											<Group>Vertical</Group>
-											<ShowTitle>true</ShowTitle>
+											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаОформленоОрганизацияРасширеннаяПодсказка" id="44"/>
 											<ChildItems>
 												<InputField name="ОформленоОрганизация" id="45">
@@ -253,8 +252,7 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>28</MaxWidth>
 													<DropListButton>true</DropListButton>
 													<ChoiceButton>true</ChoiceButton>
@@ -294,11 +292,9 @@
 								<InputField name="СтраницаОформленоОтборОтветственный" id="48">
 									<DataPath>Ответственный</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<ClearButton>true</ClearButton>
-									<OpenButton>false</OpenButton>
 									<InputHint>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -314,15 +310,12 @@
 							</ChildItems>
 						</UsualGroup>
 						<Table name="Список" id="3">
-							<CommandBarLocation>Top</CommandBarLocation>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>Список</DataPath>
 							<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-							<ShowCommandBar>true</ShowCommandBar>
-							<AutoMaxCardHeight>false</AutoMaxCardHeight>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -354,21 +347,16 @@
 												<v8:content>Действия</v8:content>
 											</v8:item>
 										</ToolTip>
-										<Importance>Main</Importance>
 										<ExtendedTooltip name="ДействияРасширеннаяПодсказка" id="90"/>
 										<ChildItems>
 											<Button name="ЗапроситьРазрешениеНаОтгрузку" id="250">
 												<Type>CommandBarButton</Type>
-												<DefaultButton>true</DefaultButton>
 												<CommandName>Form.Command.ЗапроситьРазрешениеНаОтгрузку</CommandName>
-												<ButtonImportance>Main</ButtonImportance>
 												<ExtendedTooltip name="ЗапроситьРазрешениеНаОтгрузкуРасширеннаяПодсказка" id="251"/>
 											</Button>
 											<Button name="ОтменитьРазрешениеНаОтгрузку" id="254">
 												<Type>CommandBarButton</Type>
-												<DefaultButton>true</DefaultButton>
 												<CommandName>Form.Command.ОтменитьРазрешениеНаОтгрузку</CommandName>
-												<ButtonImportance>Main</ButtonImportance>
 												<ExtendedTooltip name="ОтменитьРазрешениеНаОтгрузкуРасширеннаяПодсказка" id="255"/>
 											</Button>
 										</ChildItems>
@@ -413,7 +401,6 @@
 											<xr:LoadTransparent>true</xr:LoadTransparent>
 										</Picture>
 										<Representation>Picture</Representation>
-										<Importance>Main</Importance>
 										<ExtendedTooltip name="ПодменюСоздатьНаОснованииРасширеннаяПодсказка" id="98"/>
 									</Popup>
 									<ButtonGroup name="ГруппаГлобальныеКоманды" id="99">
@@ -449,7 +436,6 @@
 											<xr:Ref>StdPicture.Print</xr:Ref>
 											<xr:LoadTransparent>true</xr:LoadTransparent>
 										</Picture>
-										<Importance>Main</Importance>
 										<ExtendedTooltip name="ПодменюПечатьРасширеннаяПодсказка" id="102"/>
 									</Popup>
 									<Popup name="ПодменюОтчеты" id="103">
@@ -470,7 +456,6 @@
 											<xr:LoadTransparent>false</xr:LoadTransparent>
 										</Picture>
 										<Representation>Picture</Representation>
-										<Importance>Main</Importance>
 										<ExtendedTooltip name="ПодменюОтчетыРасширеннаяПодсказка" id="104"/>
 										<ChildItems>
 											<ButtonGroup name="ПодменюОтчетыВажное" id="105">
@@ -509,17 +494,13 @@
 									</Button>
 									<Button name="СписокАрхивироватьДокументы" id="172">
 										<Type>CommandBarButton</Type>
-										<DefaultButton>true</DefaultButton>
 										<CommandName>Form.Command.АрхивироватьДокументы</CommandName>
 										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-										<ButtonImportance>Main</ButtonImportance>
 										<ExtendedTooltip name="СписокАрхивироватьДокументыРасширеннаяПодсказка" id="173"/>
 									</Button>
 									<Button name="СписокИзменитьФорму" id="113">
 										<Type>CommandBarButton</Type>
-										<DefaultButton>true</DefaultButton>
 										<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-										<ButtonImportance>Main</ButtonImportance>
 										<ExtendedTooltip name="СписокИзменитьФормуРасширеннаяПодсказка" id="114"/>
 									</Button>
 									<Button name="СписокСправка" id="115">
@@ -560,15 +541,11 @@
 								<LabelField name="Номер" id="16">
 									<DataPath>Список.Номер</DataPath>
 									<DefaultItem>true</DefaultItem>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="НомерКонтекстноеМеню" id="17"/>
 									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="18"/>
 								</LabelField>
 								<LabelField name="Дата" id="19">
 									<DataPath>Список.Дата</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ДатаКонтекстноеМеню" id="20"/>
 									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="21"/>
 								</LabelField>
@@ -580,8 +557,6 @@
 											<v8:content>Статус</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СтатусИСМПКонтекстноеМеню" id="75"/>
 									<ExtendedTooltip name="СтатусИСМПРасширеннаяПодсказка" id="76"/>
 								</LabelField>
@@ -593,15 +568,11 @@
 											<v8:content>Дальнейшее действие</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ДальнейшееДействиеИСМПКонтекстноеМеню" id="78"/>
 									<ExtendedTooltip name="ДальнейшееДействиеИСМПРасширеннаяПодсказка" id="79"/>
 								</LabelField>
 								<LabelField name="Организация" id="80">
 									<DataPath>Список.Организация</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="81"/>
 									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="82"/>
 								</LabelField>
@@ -610,24 +581,16 @@
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<TextSize>Enlarged</TextSize>
 									<ContextMenu name="ЭлектронныйДокументКонтекстноеМеню" id="260"/>
 									<ExtendedTooltip name="ЭлектронныйДокументРасширеннаяПодсказка" id="261"/>
 								</InputField>
 								<InputField name="ЭлектронныйДокументКонтрагент" id="256">
 									<DataPath>Список.ЭлектронныйДокумент.Контрагент</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<TextSize>Enlarged</TextSize>
 									<ContextMenu name="ЭлектронныйДокументКонтрагентКонтекстноеМеню" id="257"/>
 									<ExtendedTooltip name="ЭлектронныйДокументКонтрагентРасширеннаяПодсказка" id="258"/>
 								</InputField>
 								<LabelField name="Ответственный" id="83">
 									<DataPath>Список.Ответственный</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ОтветственныйКонтекстноеМеню" id="84"/>
 									<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="85"/>
 								</LabelField>
@@ -636,8 +599,6 @@
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СсылкаКонтекстноеМеню" id="87"/>
 									<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="88"/>
 								</LabelField>
@@ -659,7 +620,7 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаКОформлениюРасширеннаяПодсказка" id="25"/>
 					<ChildItems>
 						<UsualGroup name="СтраницаКОформлениюОтбор" id="51">
@@ -711,7 +672,7 @@
 												</v8:item>
 											</ToolTip>
 											<Group>Vertical</Group>
-											<ShowTitle>true</ShowTitle>
+											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаКОформлениюОрганизацииРасширеннаяПодсказка" id="56"/>
 											<ChildItems>
 												<InputField name="КОформлениюОрганизации" id="57">
@@ -723,8 +684,7 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>28</MaxWidth>
 													<DropListButton>true</DropListButton>
 													<ChoiceButton>true</ChoiceButton>
@@ -772,7 +732,7 @@
 												</v8:item>
 											</ToolTip>
 											<Group>Vertical</Group>
-											<ShowTitle>true</ShowTitle>
+											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаКОформлениюОрганизацияРасширеннаяПодсказка" id="61"/>
 											<ChildItems>
 												<InputField name="КОформлениюОрганизация" id="62">
@@ -784,8 +744,7 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>28</MaxWidth>
 													<DropListButton>true</DropListButton>
 													<ChoiceButton>true</ChoiceButton>
@@ -825,11 +784,9 @@
 								<InputField name="СтраницаКОформлениюОтборОтветственный" id="65">
 									<DataPath>Ответственный</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<ClearButton>true</ClearButton>
-									<OpenButton>false</OpenButton>
 									<InputHint>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -856,7 +813,6 @@
 								<xr:Ref>StdPicture.Document</xr:Ref>
 								<xr:LoadTransparent>true</xr:LoadTransparent>
 							</RowsPicture>
-							<AutoMaxCardHeight>false</AutoMaxCardHeight>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -877,7 +833,6 @@
 									<Button name="СписокКОформлениюОформить" id="184">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.Оформить</CommandName>
-										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 										<ExtendedTooltip name="СписокКОформлениюОформитьРасширеннаяПодсказка" id="185"/>
 									</Button>
 									<Button name="СписокКОформлениюАрхивировать" id="186">
@@ -887,9 +842,7 @@
 									</Button>
 									<Button name="СписокКОформлениюИзменитьФорму" id="188">
 										<Type>CommandBarButton</Type>
-										<DefaultButton>true</DefaultButton>
 										<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-										<ButtonImportance>Main</ButtonImportance>
 										<ExtendedTooltip name="СписокКОформлениюИзменитьФормуРасширеннаяПодсказка" id="189"/>
 									</Button>
 									<Button name="СписокКОформлениюСправка" id="190">
@@ -938,43 +891,31 @@
 											<v8:content>Документ</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокКОформлениюДокументКонтекстноеМеню" id="227"/>
 									<ExtendedTooltip name="СписокКОформлениюДокументРасширеннаяПодсказка" id="228"/>
 								</LabelField>
 								<LabelField name="СписокКОформлениюСтатусОформления" id="229">
 									<DataPath>СписокКОформлению.СтатусОформления</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокКОформлениюСтатусОформленияКонтекстноеМеню" id="230"/>
 									<ExtendedTooltip name="СписокКОформлениюСтатусОформленияРасширеннаяПодсказка" id="231"/>
 								</LabelField>
 								<LabelField name="СписокКОформлениюДата" id="232">
 									<DataPath>СписокКОформлению.Дата</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокКОформлениюДатаКонтекстноеМеню" id="233"/>
 									<ExtendedTooltip name="СписокКОформлениюДатаРасширеннаяПодсказка" id="234"/>
 								</LabelField>
 								<LabelField name="СписокКОформлениюНомер" id="247">
 									<DataPath>СписокКОформлению.Номер</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокКОформлениюНомерКонтекстноеМеню" id="248"/>
 									<ExtendedTooltip name="СписокКОформлениюНомерРасширеннаяПодсказка" id="249"/>
 								</LabelField>
 								<LabelField name="СписокКОформлениюОрганизация" id="238">
 									<DataPath>СписокКОформлению.Организация</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокКОформлениюОрганизацияКонтекстноеМеню" id="239"/>
 									<ExtendedTooltip name="СписокКОформлениюОрганизацияРасширеннаяПодсказка" id="240"/>
 								</LabelField>
 								<LabelField name="СписокКОформлениюОтветственный" id="241">
 									<DataPath>СписокКОформлению.Ответственный</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокКОформлениюОтветственныйКонтекстноеМеню" id="242"/>
 									<ExtendedTooltip name="СписокКОформлениюОтветственныйРасширеннаяПодсказка" id="243"/>
 								</LabelField>
@@ -1414,7 +1355,7 @@
 			</ToolTip>
 			<Action>ИзменитьВыделенные</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ВыполнитьОбмен" id="2">
 			<Title>
@@ -1436,7 +1377,6 @@
 			<Action>ВыполнитьОбмен</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="Оформить" id="4">
 			<Title>
@@ -1457,9 +1397,7 @@
 			</Picture>
 			<Action>Оформить</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">СписокКОформлению</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="АрхивироватьОснования" id="7">
 			<Title>
@@ -1480,7 +1418,6 @@
 			</Picture>
 			<Action>Архивировать</Action>
 			<Representation>TextPicture</Representation>
-			<AssociatedTableElementId xsi:type="xs:string">СписокКОформлению</AssociatedTableElementId>
 		</Command>
 		<Command name="АрхивироватьДокументы" id="8">
 			<Title>
@@ -1495,7 +1432,6 @@
 			</Picture>
 			<Action>АрхивироватьДокументы</Action>
 			<Representation>TextPicture</Representation>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 		<Command name="ЗапроситьРазрешениеНаОтгрузку" id="9">
 			<Title>
@@ -1509,7 +1445,6 @@
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>ЗапроситьРазрешениеНаОтгрузку</Action>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 		<Command name="ОтменитьРазрешениеНаОтгрузку" id="12">
 			<Title>
@@ -1523,7 +1458,6 @@
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>ОтменитьРазрешениеНаОтгрузку</Action>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

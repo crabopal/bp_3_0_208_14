@@ -11,172 +11,232 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ЗаписатьЗакрыть" id="49">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ЗаписатьЗакрыть</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ЗаписатьЗакрытьРасширеннаяПодсказка" id="50"/>
-			</Button>
-			<Button name="Записать" id="68">
-				<Type>CommandBarButton</Type>
-				<Height>1</Height>
-				<CommandName>Form.Command.Записать</CommandName>
-				<ExtendedTooltip name="ЗаписатьРасширеннаяПодсказка" id="69"/>
-			</Button>
-			<Button name="ЗаполнитьЗначенияРеквизитов" id="72">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ЗаполнитьЗначенияРеквизитов</CommandName>
-				<ExtendedTooltip name="ЗаполнитьЗначенияРеквизитовРасширеннаяПодсказка" id="73"/>
-			</Button>
-			<Button name="Очистить" id="70">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Очистить</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ОчиститьРасширеннаяПодсказка" id="71"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="BeforeClose">ПередЗакрытием</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаЛевоИнформация" id="77">
+		<UsualGroup name="ГруппаКоманд" id="58">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Информация</v8:content>
+					<v8:content>Команды</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
+			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаЛевоИнформацияРасширеннаяПодсказка" id="78"/>
+			<ExtendedTooltip name="ГруппаКомандРасширеннаяПодсказка" id="59"/>
 			<ChildItems>
-				<PictureDecoration name="КартинкаИнформацияСписок" id="79">
-					<Title formatted="false">
+				<Button name="ЗаписатьЗакрыть" id="49">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.ЗаписатьЗакрыть</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ЗаписатьЗакрытьРасширеннаяПодсказка" id="50"/>
+				</Button>
+				<Button name="Записать" id="68">
+					<Type>UsualButton</Type>
+					<Width>3</Width>
+					<Height>1</Height>
+					<CommandName>Form.Command.Записать</CommandName>
+					<ExtendedTooltip name="ЗаписатьРасширеннаяПодсказка" id="69"/>
+				</Button>
+				<Button name="ЗаполнитьЗначенияРеквизитов" id="72">
+					<Type>UsualButton</Type>
+					<Width>20</Width>
+					<CommandName>Form.Command.ЗаполнитьЗначенияРеквизитов</CommandName>
+					<ExtendedTooltip name="ЗаполнитьЗначенияРеквизитовРасширеннаяПодсказка" id="73"/>
+				</Button>
+				<CommandBar name="ГруппаЕще" id="60">
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Картинка информация</v8:content>
+							<v8:content>Еще</v8:content>
 						</v8:item>
 					</Title>
-					<Picture>
-						<xr:Ref>CommonPicture.ВажноеСообщениеИнформация</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<FileDragMode>AsFile</FileDragMode>
-					<ContextMenu name="КартинкаИнформацияСписокКонтекстноеМеню" id="80"/>
-					<ExtendedTooltip name="КартинкаИнформацияСписокРасширеннаяПодсказка" id="81"/>
-				</PictureDecoration>
-				<LabelDecoration name="ИнформацияСписок" id="82">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Необходимо сопоставить значения свойств 1С:Бизнес-сеть для значений реквизитов номенклатуры.</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalAlign>Auto</HorizontalAlign>
-					<ContextMenu name="ИнформацияСписокКонтекстноеМеню" id="83"/>
-					<ExtendedTooltip name="ИнформацияСписокРасширеннаяПодсказка" id="84"/>
-				</LabelDecoration>
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="ГруппаЕщеРасширеннаяПодсказка" id="61"/>
+					<ChildItems>
+						<Button name="Очистить" id="70">
+							<Type>CommandBarButton</Type>
+							<Width>10</Width>
+							<CommandName>Form.Command.Очистить</CommandName>
+							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="ОчиститьРасширеннаяПодсказка" id="71"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
-		<Table name="Список" id="27">
-			<Representation>List</Representation>
-			<ChangeRowSet>false</ChangeRowSet>
-			<ChangeRowOrder>false</ChangeRowOrder>
-			<SelectionMode>SingleRow</SelectionMode>
-			<RowSelectionMode>Cell</RowSelectionMode>
-			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-			<AutoInsertNewRow>true</AutoInsertNewRow>
-			<EnableStartDrag>true</EnableStartDrag>
-			<EnableDrag>true</EnableDrag>
-			<FileDragMode>AsFile</FileDragMode>
-			<DataPath>Список</DataPath>
+		<UsualGroup name="ГруппаЗначения" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Список</v8:content>
+					<v8:content>Сопоставление значений реквизитов</v8:content>
 				</v8:item>
 			</Title>
-			<RowFilter xsi:nil="true"/>
-			<ContextMenu name="СписокКонтекстноеМеню" id="28"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="29">
-				<Autofill>false</Autofill>
-			</AutoCommandBar>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="30"/>
-			<SearchStringAddition name="СписокСтрокаПоиска" id="31">
-				<AdditionSource>
-					<Item>Список</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="32"/>
-				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="33"/>
-			</SearchStringAddition>
-			<ViewStatusAddition name="СписокСостояниеПросмотра" id="34">
-				<AdditionSource>
-					<Item>Список</Item>
-					<Type>ViewStatusRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="35"/>
-				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="36"/>
-			</ViewStatusAddition>
-			<SearchControlAddition name="СписокУправлениеПоиском" id="37">
-				<AdditionSource>
-					<Item>Список</Item>
-					<Type>SearchControl</Type>
-				</AdditionSource>
-				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="38"/>
-				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="39"/>
-			</SearchControlAddition>
-			<Events>
-				<Event name="Selection">СписокВыбор</Event>
-			</Events>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЗначенияРасширеннаяПодсказка" id="2"/>
 			<ChildItems>
-				<InputField name="Значение" id="65">
-					<DataPath>Список.Значение</DataPath>
-					<ReadOnly>true</ReadOnly>
+				<Table name="Список" id="27">
+					<Representation>List</Representation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<RowSelectionMode>Cell</RowSelectionMode>
+					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Список</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Значение реквизита</v8:content>
+							<v8:content>Список</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Значение реквизита информационной базы</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ContextMenu name="ЗначениеКонтекстноеМеню" id="66"/>
-					<ExtendedTooltip name="ЗначениеРасширеннаяПодсказка" id="67"/>
-				</InputField>
-				<InputField name="Представление" id="43">
-					<DataPath>Список.ПредставлениеЗначенияРеквизитаКатегории</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Значение 1С:Бизнес-сеть</v8:content>
-						</v8:item>
-					</Title>
-					<HeaderPicture>
-						<xr:Ref>StdPicture.Change</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</HeaderPicture>
-					<ClearButton>true</ClearButton>
-					<ListChoiceMode>true</ListChoiceMode>
-					<ChooseType>false</ChooseType>
-					<ContextMenu name="ПредставлениеКонтекстноеМеню" id="44"/>
-					<ExtendedTooltip name="ПредставлениеРасширеннаяПодсказка" id="45"/>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="СписокКонтекстноеМеню" id="28"/>
+					<AutoCommandBar name="СписокКоманднаяПанель" id="29">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="30"/>
+					<SearchStringAddition name="СписокСтрокаПоиска" id="31">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="32"/>
+						<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="33"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СписокСостояниеПросмотра" id="34">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="35"/>
+						<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="36"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СписокУправлениеПоиском" id="37">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="38"/>
+						<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="39"/>
+					</SearchControlAddition>
 					<Events>
-						<Event name="OnChange">ПредставлениеЗначенияРеквизитаКатегорииПриИзменении</Event>
+						<Event name="Selection">СписокВыбор</Event>
 					</Events>
-				</InputField>
+					<ChildItems>
+						<InputField name="Значение" id="65">
+							<DataPath>Список.Значение</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Значение реквизита</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Значение реквизита информационной базы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ЗначениеКонтекстноеМеню" id="66"/>
+							<ExtendedTooltip name="ЗначениеРасширеннаяПодсказка" id="67"/>
+						</InputField>
+						<InputField name="Представление" id="43">
+							<DataPath>Список.ПредставлениеЗначенияРеквизитаКатегории</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Значение 1С:Бизнес-сеть</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<HeaderPicture>
+								<xr:Ref>StdPicture.Change</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</HeaderPicture>
+							<AutoEditMode>true</AutoEditMode>
+							<ClearButton>true</ClearButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChooseType>false</ChooseType>
+							<ContextMenu name="ПредставлениеКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="ПредставлениеРасширеннаяПодсказка" id="45"/>
+							<Events>
+								<Event name="OnChange">ПредставлениеЗначенияРеквизитаКатегорииПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<LabelDecoration name="ДекорацияДополнительно" id="24">
+					<Visible>false</Visible>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Не задействовано 95 значений 1С:Бизнес-сеть. &lt;link ДобавитьЗначениеРубрикаторв&gt;Задействовать значения&lt;/&gt;.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияДополнительноКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="ДекорацияДополнительноРасширеннаяПодсказка" id="26"/>
+				</LabelDecoration>
+				<UsualGroup name="ГруппаЛевоИнформация" id="77">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Информация</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЛевоИнформацияРасширеннаяПодсказка" id="78"/>
+					<ChildItems>
+						<PictureDecoration name="КартинкаИнформацияСписок" id="79">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка информация</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.ИнформацияБЭД</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КартинкаИнформацияСписокКонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="КартинкаИнформацияСписокРасширеннаяПодсказка" id="81"/>
+						</PictureDecoration>
+						<LabelDecoration name="ИнформацияСписок" id="82">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Необходимо сопоставить значения свойств 1С:Бизнес-сеть для значений реквизитов номенклатуры.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ИнформацияСписокКонтекстноеМеню" id="83"/>
+							<ExtendedTooltip name="ИнформацияСписокРасширеннаяПодсказка" id="84"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
-		</Table>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -381,13 +441,12 @@
 			</ToolTip>
 			<Action>ЗаписатьЗакрыть</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Записать" id="4">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Записать</v8:content>
+					<v8:content>Записать сопоставление</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -396,10 +455,13 @@
 					<v8:content>Записать</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SaveFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>СохранитьИзменения</Action>
-			<Representation>Text</Representation>
+			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Очистить" id="5">
 			<Title>

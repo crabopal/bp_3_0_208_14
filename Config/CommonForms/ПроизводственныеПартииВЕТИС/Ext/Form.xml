@@ -9,27 +9,8 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="Готово" id="17">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Готово</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="18"/>
-			</Button>
-			<ButtonGroup name="Стандартные" id="19">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Стандартные</v8:content>
-					</v8:item>
-				</Title>
-				<CommandSource>Item.ПроизводственныеПартии</CommandSource>
-				<ExtendedTooltip name="СтандартныеРасширеннаяПодсказка" id="20"/>
-			</ButtonGroup>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -47,7 +28,28 @@
 			<DataPath>ПроизводственныеПартии</DataPath>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="ПроизводственныеПартииКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="ПроизводственныеПартииКоманднаяПанель" id="3"/>
+			<AutoCommandBar name="ПроизводственныеПартииКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="Готово" id="17">
+						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.Command.Готово</CommandName>
+						<ButtonImportance>Main</ButtonImportance>
+						<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="18"/>
+					</Button>
+					<ButtonGroup name="Стандартные" id="19">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Стандартные</v8:content>
+							</v8:item>
+						</Title>
+						<CommandSource>Item.ПроизводственныеПартии</CommandSource>
+						<ExtendedTooltip name="СтандартныеРасширеннаяПодсказка" id="20"/>
+					</ButtonGroup>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="ПроизводственныеПартииРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="ПроизводственныеПартииСтрокаПоиска" id="5">
 				<AdditionSource>
@@ -101,6 +103,7 @@
 				<InputField name="ПроизводственныеПартииИдентификаторПартии" id="14">
 					<DataPath>ПроизводственныеПартии.ИдентификаторПартии</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<AutoEditMode>true</AutoEditMode>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="ПроизводственныеПартииИдентификаторПартииКонтекстноеМеню" id="15"/>
@@ -185,7 +188,6 @@
 			<Action>Готово</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

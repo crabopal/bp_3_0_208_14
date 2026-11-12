@@ -14,14 +14,6 @@
 	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
-		<ChildItems>
-			<Button name="ФормаСправка" id="22">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="23"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -34,6 +26,7 @@
 					<v8:content>Шапка</v8:content>
 				</v8:item>
 			</Title>
+			<Width>73</Width>
 			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
@@ -56,8 +49,7 @@
 					<ExtendedTooltip name="БизнесСетьЛоготипРасширеннаяПодсказка" id="3"/>
 				</PictureDecoration>
 				<LabelDecoration name="КраткоеОписание" id="6">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<HorizontalStretch>true</HorizontalStretch>
+					<Width>62</Width>
 					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -83,10 +75,12 @@
 					<v8:content>Подсказка</v8:content>
 				</v8:item>
 			</Title>
+			<Width>73</Width>
 			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
+			<BackColor>#FFFDF0</BackColor>
 			<ExtendedTooltip name="ПодсказкаРасширеннаяПодсказка" id="10"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаЛево" id="55">
@@ -123,11 +117,13 @@
 					<ExtendedTooltip name="ГруппаСредняяРасширеннаяПодсказка" id="54"/>
 					<ChildItems>
 						<LabelDecoration name="ДекорацияОтступСверху" id="65">
+							<Font ref="style:NormalTextFont" kind="StyleItem" scale="50"/>
 							<ContextMenu name="ДекорацияОтступСверхуКонтекстноеМеню" id="66"/>
 							<ExtendedTooltip name="ДекорацияОтступСверхуРасширеннаяПодсказка" id="67"/>
 						</LabelDecoration>
 						<LabelDecoration name="Содержание" id="44">
 							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>73</MaxWidth>
 							<HorizontalStretch>true</HorizontalStretch>
 							<Title formatted="true">
 								<v8:item>
@@ -148,6 +144,7 @@
 							</Events>
 						</LabelDecoration>
 						<LabelDecoration name="ДекорацияОтступСнизу" id="68">
+							<Font ref="style:NormalTextFont" kind="StyleItem" scale="50"/>
 							<ContextMenu name="ДекорацияОтступСнизуКонтекстноеМеню" id="69"/>
 							<ExtendedTooltip name="ДекорацияОтступСнизуРасширеннаяПодсказка" id="70"/>
 						</LabelDecoration>
@@ -189,11 +186,35 @@
 			<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="27"/>
 			<ChildItems>
 				<LabelDecoration name="ПредупреждениеОбОшибке" id="74">
+					<Width>60</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:ПоясняющийТекст</TextColor>
 					<ContextMenu name="ПредупреждениеОбОшибкеКонтекстноеМеню" id="75"/>
 					<ExtendedTooltip name="ПредупреждениеОбОшибкеРасширеннаяПодсказка" id="76"/>
 				</LabelDecoration>
+				<CommandBar name="КоманднаяПанель" id="24">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalLocation>Right</HorizontalLocation>
+					<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="25"/>
+					<ChildItems>
+						<Button name="ФормаСправка" id="22">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.Help</CommandName>
+							<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="23"/>
+						</Button>
+						<Button name="ФормаЗакрыть" id="20">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.Close</CommandName>
+							<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="21"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>

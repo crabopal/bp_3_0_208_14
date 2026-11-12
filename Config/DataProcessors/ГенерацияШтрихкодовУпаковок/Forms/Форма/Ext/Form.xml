@@ -9,8 +9,6 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаГотово" id="103">
@@ -54,791 +52,653 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаРеквизиты" id="264">
+		<InputField name="ТипУпаковки" id="4">
+			<DataPath>ТипУпаковки</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>28</MaxWidth>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.ТипыУпаковок.EnumValue.МонотоварнаяУпаковка</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.ТипыУпаковок.EnumValue.МультитоварнаяУпаковка</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ТипУпаковкиКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ТипУпаковкиРасширеннаяПодсказка" id="6"/>
+			<Events>
+				<Event name="OnChange">ТипУпаковкиПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="ТипШтрихкодаСтрокой" id="125">
+			<DataPath>ТипШтрихкодаСтрокой</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>28</MaxWidth>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>SSCC</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">SSCC</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Code128 формат 1 (не используется)</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">Code128Формат1</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Code128 для коробов и паллет</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">Code128Формат2</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Code128 для паллет</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">Code128Формат3</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>GS1-128</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">GS1128</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>GS1-DataBar Expanded Stacked</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">GS1DataBarExpandedStacked</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ТипШтрихкодаСтрокойКонтекстноеМеню" id="126"/>
+			<ExtendedTooltip name="ТипШтрихкодаСтрокойРасширеннаяПодсказка" id="127"/>
+			<Events>
+				<Event name="OnChange">ТипШтрихкодаСтрокойПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Номенклатура" id="61">
+			<DataPath>Номенклатура</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>28</MaxWidth>
+			<ContextMenu name="НоменклатураКонтекстноеМеню" id="62"/>
+			<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="63"/>
+			<Events>
+				<Event name="OnChange">НоменклатураПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Характеристика" id="64">
+			<DataPath>Характеристика</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>28</MaxWidth>
+			<ChoiceParameterLinks>
+				<xr:Link>
+					<xr:Name>Номенклатура</xr:Name>
+					<xr:DataPath xsi:type="xs:string">Номенклатура</xr:DataPath>
+					<xr:ValueChange>Clear</xr:ValueChange>
+				</xr:Link>
+			</ChoiceParameterLinks>
+			<ContextMenu name="ХарактеристикаКонтекстноеМеню" id="65"/>
+			<ExtendedTooltip name="ХарактеристикаРасширеннаяПодсказка" id="66"/>
+			<Events>
+				<Event name="OnChange">ХарактеристикаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаРеквизитыSSCC" id="91">
+			<Visible>false</Visible>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа реквизиты</v8:content>
+					<v8:content>Группа реквизиты SSCC</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа реквизиты</v8:content>
+					<v8:content>Группа реквизиты SSCC</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаРеквизитыРасширеннаяПодсказка" id="265"/>
+			<ExtendedTooltip name="ГруппаРеквизитыSSCCРасширеннаяПодсказка" id="92"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаТипУпаковкиТипШтрихкода" id="238">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа тип упаковки тип штрихкода</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа тип упаковки тип штрихкода</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>AutoScreenTypeSensitive</Group>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаТипУпаковкиТипШтрихкодаРасширеннаяПодсказка" id="239"/>
-					<ChildItems>
-						<InputField name="ТипУпаковки" id="4">
-							<DataPath>ТипУпаковки</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ListChoiceMode>true</ListChoiceMode>
-							<ChoiceList>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation/>
-										<Value xsi:type="xr:DesignTimeRef">Enum.ТипыУпаковок.EnumValue.МонотоварнаяУпаковка</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation/>
-										<Value xsi:type="xr:DesignTimeRef">Enum.ТипыУпаковок.EnumValue.МультитоварнаяУпаковка</Value>
-									</xr:Value>
-								</xr:Item>
-							</ChoiceList>
-							<ContextMenu name="ТипУпаковкиКонтекстноеМеню" id="5"/>
-							<ExtendedTooltip name="ТипУпаковкиРасширеннаяПодсказка" id="6"/>
-							<Events>
-								<Event name="OnChange">ТипУпаковкиПриИзменении</Event>
-							</Events>
-						</InputField>
-						<InputField name="ТипШтрихкодаСтрокой" id="125">
-							<DataPath>ТипШтрихкодаСтрокой</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ListChoiceMode>true</ListChoiceMode>
-							<ChoiceList>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>SSCC</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">SSCC</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Code128 формат 1 (не используется)</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">Code128Формат1</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Code128 для коробов и паллет</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">Code128Формат2</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Code128 для паллет</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">Code128Формат3</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>GS1-128</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">GS1128</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>GS1-DataBar Expanded Stacked</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string">GS1DataBarExpandedStacked</Value>
-									</xr:Value>
-								</xr:Item>
-							</ChoiceList>
-							<ContextMenu name="ТипШтрихкодаСтрокойКонтекстноеМеню" id="126"/>
-							<ExtendedTooltip name="ТипШтрихкодаСтрокойРасширеннаяПодсказка" id="127"/>
-							<Events>
-								<Event name="OnChange">ТипШтрихкодаСтрокойПриИзменении</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаНоменклатураХарактеристика" id="240">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа номенклатура характеристика</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа номенклатура характеристика</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Width>50</Width>
-					<Group>AutoScreenTypeSensitive</Group>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаНоменклатураХарактеристикаРасширеннаяПодсказка" id="241"/>
-					<ChildItems>
-						<InputField name="Номенклатура" id="61">
-							<DataPath>Номенклатура</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="НоменклатураКонтекстноеМеню" id="62"/>
-							<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="63"/>
-							<Events>
-								<Event name="OnChange">НоменклатураПриИзменении</Event>
-							</Events>
-						</InputField>
-						<InputField name="Характеристика" id="64">
-							<DataPath>Характеристика</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ChoiceParameterLinks>
-								<xr:Link>
-									<xr:Name>Номенклатура</xr:Name>
-									<xr:DataPath xsi:type="xs:string">Номенклатура</xr:DataPath>
-									<xr:ValueChange>Clear</xr:ValueChange>
-								</xr:Link>
-							</ChoiceParameterLinks>
-							<ContextMenu name="ХарактеристикаКонтекстноеМеню" id="65"/>
-							<ExtendedTooltip name="ХарактеристикаРасширеннаяПодсказка" id="66"/>
-							<Events>
-								<Event name="OnChange">ХарактеристикаПриИзменении</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаРеквизитыSSCC" id="91">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа реквизиты SSCC</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа реквизиты SSCC</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаРеквизитыSSCCРасширеннаяПодсказка" id="92"/>
-					<ChildItems>
-						<UsualGroup name="ГруппаSSCCЦифраРасширениеПрефиксКомпании" id="247">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа SSCCЦифра расширение префикс компании</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа SSCCЦифра расширение префикс компании</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>AutoScreenTypeSensitive</Group>
-							<Representation>None</Representation>
-							<United>false</United>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаSSCCЦифраРасширениеПрефиксКомпанииРасширеннаяПодсказка" id="248"/>
-							<ChildItems>
-								<InputField name="ЦифраРасширения" id="28">
-									<DataPath>ЦифраРасширения</DataPath>
-									<HorizontalAlign>Right</HorizontalAlign>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>15</Width>
-									<MaxWidth>6</MaxWidth>
-									<ContextMenu name="ЦифраРасширенияКонтекстноеМеню" id="29"/>
-									<ExtendedTooltip name="ЦифраРасширенияРасширеннаяПодсказка" id="30"/>
-									<Events>
-										<Event name="OnChange">ЦифраРасширенияПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ПрефиксКомпанииGS1" id="83">
-									<DataPath>ПрефиксКомпанииGS1</DataPath>
-									<HorizontalAlign>Right</HorizontalAlign>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>15</Width>
-									<MaxWidth>15</MaxWidth>
-									<ContextMenu name="ПрефиксКомпанииGS1КонтекстноеМеню" id="84"/>
-									<ExtendedTooltip name="ПрефиксКомпанииGS1РасширеннаяПодсказка" id="85"/>
-									<Events>
-										<Event name="OnChange">ПрефиксКомпанииGS1ПриИзменении</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаSSCCерийныйНомерШтрихкод" id="266">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа SSCCерийный номер штрихкод</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа SSCCерийный номер штрихкод</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>AutoScreenTypeSensitive</Group>
-							<Representation>None</Representation>
-							<United>false</United>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаSSCCерийныйНомерШтрихкодРасширеннаяПодсказка" id="267"/>
-							<ChildItems>
-								<InputField name="СерийныйНомерSSCC" id="31">
-									<DataPath>СерийныйНомерSSCC</DataPath>
-									<HorizontalAlign>Right</HorizontalAlign>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>15</Width>
-									<MaxWidth>15</MaxWidth>
-									<ContextMenu name="СерийныйНомерSSCCКонтекстноеМеню" id="32"/>
-									<ExtendedTooltip name="СерийныйНомерSSCCРасширеннаяПодсказка" id="33"/>
-									<Events>
-										<Event name="OnChange">СерийныйНомерSSCCПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ГруппаРеквизитыSSCCШтрихкод" id="86">
-									<DataPath>Штрихкод</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ГруппаРеквизитыSSCCШтрихкодКонтекстноеМеню" id="87"/>
-									<ExtendedTooltip name="ГруппаРеквизитыSSCCШтрихкодРасширеннаяПодсказка" id="88"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<CheckBoxField name="ГруппаРеквизитыSSCCЗапомнитьПараметрыГенерации" id="171">
-							<DataPath>ЗапомнитьПараметрыГенерации</DataPath>
-							<Visible>false</Visible>
-							<TitleLocation>Right</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="ГруппаРеквизитыSSCCЗапомнитьПараметрыГенерацииКонтекстноеМеню" id="172"/>
-							<ExtendedTooltip name="ГруппаРеквизитыSSCCЗапомнитьПараметрыГенерацииРасширеннаяПодсказка" id="173"/>
-						</CheckBoxField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаРеквизитыCode128Формат1" id="95">
+				<InputField name="ЦифраРасширения" id="28">
+					<DataPath>ЦифраРасширения</DataPath>
+					<Width>10</Width>
+					<ContextMenu name="ЦифраРасширенияКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ЦифраРасширенияРасширеннаяПодсказка" id="30"/>
+					<Events>
+						<Event name="OnChange">ЦифраРасширенияПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ПрефиксКомпанииGS1" id="83">
+					<DataPath>ПрефиксКомпанииGS1</DataPath>
+					<Width>10</Width>
+					<ContextMenu name="ПрефиксКомпанииGS1КонтекстноеМеню" id="84"/>
+					<ExtendedTooltip name="ПрефиксКомпанииGS1РасширеннаяПодсказка" id="85"/>
+					<Events>
+						<Event name="OnChange">ПрефиксКомпанииGS1ПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="СерийныйНомерSSCC" id="31">
+					<DataPath>СерийныйНомерSSCC</DataPath>
+					<Width>10</Width>
+					<ContextMenu name="СерийныйНомерSSCCКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="СерийныйНомерSSCCРасширеннаяПодсказка" id="33"/>
+					<Events>
+						<Event name="OnChange">СерийныйНомерSSCCПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ГруппаРеквизитыSSCCШтрихкод" id="86">
+					<DataPath>Штрихкод</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ГруппаРеквизитыSSCCШтрихкодКонтекстноеМеню" id="87"/>
+					<ExtendedTooltip name="ГруппаРеквизитыSSCCШтрихкодРасширеннаяПодсказка" id="88"/>
+				</InputField>
+				<CheckBoxField name="ГруппаРеквизитыSSCCЗапомнитьПараметрыГенерации" id="171">
+					<DataPath>ЗапомнитьПараметрыГенерации</DataPath>
 					<Visible>false</Visible>
+					<TitleLocation>Right</TitleLocation>
+					<ContextMenu name="ГруппаРеквизитыSSCCЗапомнитьПараметрыГенерацииКонтекстноеМеню" id="172"/>
+					<ExtendedTooltip name="ГруппаРеквизитыSSCCЗапомнитьПараметрыГенерацииРасширеннаяПодсказка" id="173"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРеквизитыCode128Формат1" id="95">
+			<Visible>false</Visible>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты code128 формат1</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты code128 формат1</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРеквизитыCode128Формат1РасширеннаяПодсказка" id="96"/>
+			<ChildItems>
+				<InputField name="ГруппаРеквизитыCode128Формат1ИдентификаторОрганизации" id="72">
+					<DataPath>ИдентификаторОрганизации</DataPath>
+					<DropListButton>true</DropListButton>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат1ИдентификаторОрганизацииКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат1ИдентификаторОрганизацииРасширеннаяПодсказка" id="74"/>
+					<Events>
+						<Event name="OnChange">ИдентификаторОрганизацииПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ГруппаРеквизитыCode128Формат1ДатаМаркировки" id="13">
+					<DataPath>ДатаМаркировки</DataPath>
+					<Width>10</Width>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат1ДатаМаркировкиКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат1ДатаМаркировкиРасширеннаяПодсказка" id="15"/>
+					<Events>
+						<Event name="OnChange">ДатаМаркировкиПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ГруппаРеквизитыCode128Формат1НомерПоПорядку" id="20">
+					<DataPath>НомерПоПорядку</DataPath>
+					<Width>10</Width>
+					<SpinButton>true</SpinButton>
+					<MinValue xsi:type="xs:decimal">0</MinValue>
+					<MaxValue xsi:type="xs:decimal">9999</MaxValue>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат1НомерПоПорядкуКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат1НомерПоПорядкуРасширеннаяПодсказка" id="22"/>
+					<Events>
+						<Event name="OnChange">НомерПоПорядкуПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ГруппаРеквизитыCode128Формат1Штрихкод" id="119">
+					<DataPath>Штрихкод</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат1ШтрихкодКонтекстноеМеню" id="120"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат1ШтрихкодРасширеннаяПодсказка" id="121"/>
+				</InputField>
+				<LabelField name="ГруппаРеквизитыCode128Формат1Информация" id="116">
+					<DataPath>Информация</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат1ИнформацияКонтекстноеМеню" id="117"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат1ИнформацияРасширеннаяПодсказка" id="118"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРеквизитыCode128Формат2" id="131">
+			<Visible>false</Visible>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты code128 формат2</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2РасширеннаяПодсказка" id="132"/>
+			<ChildItems>
+				<InputField name="ГруппаРеквизитыCode128Формат2ИдентификаторОрганизации" id="135">
+					<DataPath>ИдентификаторОрганизации</DataPath>
+					<DropListButton>true</DropListButton>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат2ИдентификаторОрганизацииКонтекстноеМеню" id="136"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2ИдентификаторОрганизацииРасширеннаяПодсказка" id="137"/>
+					<Events>
+						<Event name="OnChange">ИдентификаторОрганизацииПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ГруппаРеквизитыCode128Формат2ТипЛогистическойЕдиницы" id="138">
+					<DataPath>ТипЛогистическойЕдиницы</DataPath>
+					<ChoiceButton>true</ChoiceButton>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Короб</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Паллета</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">2</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Сборный короб</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">3</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Сборная паллета</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">4</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат2ТипЛогистическойЕдиницыКонтекстноеМеню" id="139"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2ТипЛогистическойЕдиницыРасширеннаяПодсказка" id="140"/>
+					<Events>
+						<Event name="OnChange">ТипЛогистическойЕдиницыПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ГруппаРеквизитыCode128Формат2НомерПлощадкиМаркировки" id="141">
+					<DataPath>НомерПлощадкиМаркировки</DataPath>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат2НомерПлощадкиМаркировкиКонтекстноеМеню" id="142"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2НомерПлощадкиМаркировкиРасширеннаяПодсказка" id="143"/>
+					<Events>
+						<Event name="OnChange">НомерПлощадкиМаркировкиПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ГруппаРеквизитыCode128Формат2ГодГенерацииШтрихкода" id="147">
+					<DataPath>ГодГенерацииШтрихкода</DataPath>
+					<SpinButton>true</SpinButton>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат2ГодГенерацииШтрихкодаКонтекстноеМеню" id="148"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2ГодГенерацииШтрихкодаРасширеннаяПодсказка" id="149"/>
+					<Events>
+						<Event name="OnChange">ГодГенерацииШтрихкодаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ГруппаРеквизитыCode128Формат2НомерПоПорядку" id="150">
+					<DataPath>НомерПоПорядку</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа реквизиты code128 формат1</v8:content>
+							<v8:content>Номер упаковки в пределах года</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
+					<MinValue xsi:type="xs:decimal">0</MinValue>
+					<MaxValue xsi:type="xs:decimal">999999999</MaxValue>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат2НомерПоПорядкуКонтекстноеМеню" id="151"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2НомерПоПорядкуРасширеннаяПодсказка" id="152"/>
+					<Events>
+						<Event name="OnChange">НомерПоПорядкуПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ГруппаРеквизитыCode128Формат2Штрихкод" id="159">
+					<DataPath>Штрихкод</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат2ШтрихкодКонтекстноеМеню" id="160"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2ШтрихкодРасширеннаяПодсказка" id="161"/>
+				</InputField>
+				<LabelField name="ГруппаРеквизитыCode128Формат2Информация" id="162">
+					<DataPath>Информация</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат2ИнформацияКонтекстноеМеню" id="163"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2ИнформацияРасширеннаяПодсказка" id="164"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРеквизитыCode128Формат3" id="133">
+			<Visible>false</Visible>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты code128 формат3</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРеквизитыCode128Формат3РасширеннаяПодсказка" id="134"/>
+			<ChildItems>
+				<InputField name="ГруппаРеквизитыCode128Формат3ИдентификаторОрганизации" id="153">
+					<DataPath>ИдентификаторОрганизации</DataPath>
+					<DropListButton>true</DropListButton>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат3ИдентификаторОрганизацииКонтекстноеМеню" id="154"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат3ИдентификаторОрганизацииРасширеннаяПодсказка" id="155"/>
+					<Events>
+						<Event name="OnChange">ИдентификаторОрганизацииПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ГруппаРеквизитыCode128Формат3НомерПоПорядку" id="156">
+					<DataPath>НомерПоПорядку</DataPath>
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа реквизиты code128 формат1</v8:content>
+							<v8:content>Порядковый номер</v8:content>
 						</v8:item>
-					</ToolTip>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат1РасширеннаяПодсказка" id="96"/>
+					</Title>
+					<MinValue xsi:type="xs:decimal">0</MinValue>
+					<MaxValue xsi:type="xs:decimal">999999</MaxValue>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат3НомерПоПорядкуКонтекстноеМеню" id="157"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат3НомерПоПорядкуРасширеннаяПодсказка" id="158"/>
+					<Events>
+						<Event name="OnChange">НомерПоПорядкуПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ГруппаРеквизитыCode128Формат3Штрихкод" id="165">
+					<DataPath>Штрихкод</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат3ШтрихкодКонтекстноеМеню" id="166"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат3ШтрихкодРасширеннаяПодсказка" id="167"/>
+				</InputField>
+				<LabelField name="ГруппаРеквизитыCode128Формат3Информация" id="168">
+					<DataPath>Информация</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ГруппаРеквизитыCode128Формат3ИнформацияКонтекстноеМеню" id="169"/>
+					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат3ИнформацияРасширеннаяПодсказка" id="170"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРеквизитыGS1" id="93">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты GS1</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты g s1</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРеквизитыGS1РасширеннаяПодсказка" id="94"/>
+			<ChildItems>
+				<Table name="ИдентификаторыПрименения" id="39">
+					<Representation>List</Representation>
+					<RowSelectionMode>Cell</RowSelectionMode>
+					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ИдентификаторыПрименения</DataPath>
+					<CommandSet>
+						<ExcludedCommand>Add</ExcludedCommand>
+						<ExcludedCommand>Copy</ExcludedCommand>
+						<ExcludedCommand>MoveDown</ExcludedCommand>
+						<ExcludedCommand>MoveUp</ExcludedCommand>
+					</CommandSet>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ИдентификаторыПримененияКонтекстноеМеню" id="40"/>
+					<AutoCommandBar name="ИдентификаторыПримененияКоманднаяПанель" id="41">
+						<ChildItems>
+							<Button name="ИдентификаторыПримененияИдентификаторыПримененияПереместитьВверх" id="99">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ИдентификаторыПримененияПереместитьВверх</CommandName>
+								<ExtendedTooltip name="ИдентификаторыПримененияИдентификаторыПримененияПереместитьВверхРасширеннаяПодсказка" id="100"/>
+							</Button>
+							<Button name="ИдентификаторыПримененияИдентификаторыПримененияПереместитьВниз" id="101">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ИдентификаторыПримененияПереместитьВниз</CommandName>
+								<ExtendedTooltip name="ИдентификаторыПримененияИдентификаторыПримененияПереместитьВнизРасширеннаяПодсказка" id="102"/>
+							</Button>
+							<Button name="ИдентификаторыПримененияПодборИдентификаторовПримененияGS1" id="97">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПодборИдентификаторовПримененияGS1</CommandName>
+								<ExtendedTooltip name="ИдентификаторыПримененияПодборИдентификаторовПримененияGS1РасширеннаяПодсказка" id="98"/>
+							</Button>
+							<Button name="ИдентификаторыПримененияПолучитьВес" id="111">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПолучитьВес</CommandName>
+								<ExtendedTooltip name="ИдентификаторыПримененияПолучитьВесРасширеннаяПодсказка" id="112"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ИдентификаторыПримененияРасширеннаяПодсказка" id="42"/>
+					<SearchStringAddition name="ИдентификаторыПримененияСтрокаПоиска" id="43">
+						<AdditionSource>
+							<Item>ИдентификаторыПрименения</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ИдентификаторыПримененияСтрокаПоискаКонтекстноеМеню" id="44"/>
+						<ExtendedTooltip name="ИдентификаторыПримененияСтрокаПоискаРасширеннаяПодсказка" id="45"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ИдентификаторыПримененияСостояниеПросмотра" id="46">
+						<AdditionSource>
+							<Item>ИдентификаторыПрименения</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<HorizontalLocation>Left</HorizontalLocation>
+						<ContextMenu name="ИдентификаторыПримененияСостояниеПросмотраКонтекстноеМеню" id="47"/>
+						<ExtendedTooltip name="ИдентификаторыПримененияСостояниеПросмотраРасширеннаяПодсказка" id="48"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ИдентификаторыПримененияУправлениеПоиском" id="49">
+						<AdditionSource>
+							<Item>ИдентификаторыПрименения</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ИдентификаторыПримененияУправлениеПоискомКонтекстноеМеню" id="50"/>
+						<ExtendedTooltip name="ИдентификаторыПримененияУправлениеПоискомРасширеннаяПодсказка" id="51"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="BeforeAddRow">ИдентификаторыПримененияПередНачаломДобавления</Event>
+						<Event name="OnStartEdit">ИдентификаторыПримененияПриНачалеРедактирования</Event>
+						<Event name="OnChange">ИдентификаторыПримененияПриИзменении</Event>
+					</Events>
 					<ChildItems>
-						<UsualGroup name="ГруппаCode128Формат1ИдентификаторОрганизацииДатаМаркировки" id="249">
+						<ColumnGroup name="ИдентификаторыПримененияСвойстваИдентификатора" id="81">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Идентификатор организации, дата маркировки</v8:content>
+									<v8:content>Идентификатор применения</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AutoScreenTypeSensitive</Group>
-							<Representation>None</Representation>
-							<United>false</United>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаCode128Формат1ИдентификаторОрганизацииДатаМаркировкиРасширеннаяПодсказка" id="250"/>
-							<ChildItems>
-								<InputField name="ГруппаРеквизитыCode128Формат1ИдентификаторОрганизации" id="72">
-									<DataPath>ИдентификаторОрганизации</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<DropListButton>true</DropListButton>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат1ИдентификаторОрганизацииКонтекстноеМеню" id="73"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат1ИдентификаторОрганизацииРасширеннаяПодсказка" id="74"/>
-									<Events>
-										<Event name="OnChange">ИдентификаторОрганизацииПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ГруппаРеквизитыCode128Формат1ДатаМаркировки" id="13">
-									<DataPath>ДатаМаркировки</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>12</Width>
-									<MaxWidth>12</MaxWidth>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат1ДатаМаркировкиКонтекстноеМеню" id="14"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат1ДатаМаркировкиРасширеннаяПодсказка" id="15"/>
-									<Events>
-										<Event name="OnChange">ДатаМаркировкиПриИзменении</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаCode128Формат1НомерШтрихкод" id="251">
-							<Title>
+							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Номер, штрихкод</v8:content>
+									<v8:content>Идентификаторы применения свойства идентификатора</v8:content>
 								</v8:item>
-							</Title>
-							<Group>AutoScreenTypeSensitive</Group>
-							<Representation>None</Representation>
-							<United>false</United>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаCode128Формат1НомерШтрихкодРасширеннаяПодсказка" id="252"/>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="ИдентификаторыПримененияСвойстваИдентификатораРасширеннаяПодсказка" id="82"/>
 							<ChildItems>
-								<InputField name="ГруппаРеквизитыCode128Формат1НомерПоПорядку" id="20">
-									<DataPath>НомерПоПорядку</DataPath>
+								<InputField name="ИдентификаторыПримененияПредставлениеИдентификатора" id="55">
+									<DataPath>ИдентификаторыПрименения.ПредставлениеИдентификатора</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>None</TitleLocation>
 									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
 									<AutoEditMode>true</AutoEditMode>
-									<Width>20</Width>
-									<MaxWidth>25</MaxWidth>
+									<ContextMenu name="ИдентификаторыПримененияПредставлениеИдентификатораКонтекстноеМеню" id="56"/>
+									<ExtendedTooltip name="ИдентификаторыПримененияПредставлениеИдентификатораРасширеннаяПодсказка" id="57"/>
+								</InputField>
+								<LabelField name="ИдентификаторыПримененияДополнительныйПараметрПредставление" id="75">
+									<DataPath>ИдентификаторыПрименения.ДополнительныйПараметрПредставление</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ИдентификаторыПримененияДополнительныйПараметрПредставлениеКонтекстноеМеню" id="76"/>
+									<ExtendedTooltip name="ИдентификаторыПримененияДополнительныйПараметрПредставлениеРасширеннаяПодсказка" id="77"/>
+								</LabelField>
+								<InputField name="ИдентификаторыПримененияДополнительныйПараметрЗначение" id="78">
+									<DataPath>ИдентификаторыПрименения.ДополнительныйПараметрЗначение</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<AutoEditMode>true</AutoEditMode>
 									<SpinButton>true</SpinButton>
-									<MinValue xsi:type="xs:decimal">0</MinValue>
-									<MaxValue xsi:type="xs:decimal">9999</MaxValue>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат1НомерПоПорядкуКонтекстноеМеню" id="21"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат1НомерПоПорядкуРасширеннаяПодсказка" id="22"/>
+									<ContextMenu name="ИдентификаторыПримененияДополнительныйПараметрЗначениеКонтекстноеМеню" id="79"/>
+									<ExtendedTooltip name="ИдентификаторыПримененияДополнительныйПараметрЗначениеРасширеннаяПодсказка" id="80"/>
 									<Events>
-										<Event name="OnChange">НомерПоПорядкуПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ГруппаРеквизитыCode128Формат1Штрихкод" id="119">
-									<DataPath>Штрихкод</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат1ШтрихкодКонтекстноеМеню" id="120"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат1ШтрихкодРасширеннаяПодсказка" id="121"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаИнформацияCode128Формат1" id="228">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа информация code128 формат1</v8:content>
-								</v8:item>
-							</Title>
-							<HorizontalStretch>true</HorizontalStretch>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаИнформацияCode128Формат1РасширеннаяПодсказка" id="229"/>
-							<ChildItems>
-								<LabelField name="ГруппаРеквизитыCode128Формат1Информация" id="116">
-									<DataPath>Информация</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат1ИнформацияКонтекстноеМеню" id="117"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат1ИнформацияРасширеннаяПодсказка" id="118"/>
-								</LabelField>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаРеквизитыCode128Формат2" id="131">
-					<Visible>false</Visible>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа реквизиты code128 формат2</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2РасширеннаяПодсказка" id="132"/>
-					<ChildItems>
-						<UsualGroup name="ГруппаCode128Формат2ИдентификаторОрганизацииТипЛогистическойЕдиницы" id="255">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Идентификатор организации, тип логистической единицы</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа code128 формат2 идентификатор организации тип логистической единицы</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>AutoScreenTypeSensitive</Group>
-							<Representation>None</Representation>
-							<United>false</United>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаCode128Формат2ИдентификаторОрганизацииТипЛогистическойЕдиницыРасширеннаяПодсказка" id="256"/>
-							<ChildItems>
-								<InputField name="ГруппаРеквизитыCode128Формат2ИдентификаторОрганизации" id="135">
-									<DataPath>ИдентификаторОрганизации</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<DropListButton>true</DropListButton>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат2ИдентификаторОрганизацииКонтекстноеМеню" id="136"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2ИдентификаторОрганизацииРасширеннаяПодсказка" id="137"/>
-									<Events>
-										<Event name="OnChange">ИдентификаторОрганизацииПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ГруппаРеквизитыCode128Формат2ТипЛогистическойЕдиницы" id="138">
-									<DataPath>ТипЛогистическойЕдиницы</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ChoiceButton>true</ChoiceButton>
-									<ListChoiceMode>true</ListChoiceMode>
-									<ChoiceList>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Короб</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:decimal">1</Value>
-											</xr:Value>
-										</xr:Item>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Паллета</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:decimal">2</Value>
-											</xr:Value>
-										</xr:Item>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Сборный короб</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:decimal">3</Value>
-											</xr:Value>
-										</xr:Item>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Сборная паллета</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:decimal">4</Value>
-											</xr:Value>
-										</xr:Item>
-									</ChoiceList>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат2ТипЛогистическойЕдиницыКонтекстноеМеню" id="139"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2ТипЛогистическойЕдиницыРасширеннаяПодсказка" id="140"/>
-									<Events>
-										<Event name="OnChange">ТипЛогистическойЕдиницыПриИзменении</Event>
+										<Event name="OnChange">ИдентификаторыПримененияДополнительныйПараметрЗначениеПриИзменении</Event>
 									</Events>
 								</InputField>
 							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаCode128Формат2НомерПлощадкиГодГенерации" id="257">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Номер площадки, год генерации</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа code128 формат2 номер площадки год генерации</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>AutoScreenTypeSensitive</Group>
-							<Representation>None</Representation>
-							<United>false</United>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаCode128Формат2НомерПлощадкиГодГенерацииРасширеннаяПодсказка" id="258"/>
-							<ChildItems>
-								<InputField name="ГруппаРеквизитыCode128Формат2НомерПлощадкиМаркировки" id="141">
-									<DataPath>НомерПлощадкиМаркировки</DataPath>
-									<HorizontalAlign>Right</HorizontalAlign>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат2НомерПлощадкиМаркировкиКонтекстноеМеню" id="142"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2НомерПлощадкиМаркировкиРасширеннаяПодсказка" id="143"/>
-									<Events>
-										<Event name="OnChange">НомерПлощадкиМаркировкиПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ГруппаРеквизитыCode128Формат2ГодГенерацииШтрихкода" id="147">
-									<DataPath>ГодГенерацииШтрихкода</DataPath>
-									<HorizontalAlign>Right</HorizontalAlign>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>6</Width>
-									<MaxWidth>25</MaxWidth>
-									<SpinButton>true</SpinButton>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат2ГодГенерацииШтрихкодаКонтекстноеМеню" id="148"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2ГодГенерацииШтрихкодаРасширеннаяПодсказка" id="149"/>
-									<Events>
-										<Event name="OnChange">ГодГенерацииШтрихкодаПриИзменении</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаCode128Формат2НомерШтрикод" id="259">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Номер, штрикод</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа code128 формат2 номер штрикод</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>AutoScreenTypeSensitive</Group>
-							<Representation>None</Representation>
-							<United>false</United>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаCode128Формат2НомерШтрикодРасширеннаяПодсказка" id="260"/>
-							<ChildItems>
-								<InputField name="ГруппаРеквизитыCode128Формат2НомерПоПорядку" id="150">
-									<DataPath>НомерПоПорядку</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Номер упаковки в пределах года</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalAlign>Right</HorizontalAlign>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>20</Width>
-									<MaxWidth>25</MaxWidth>
-									<MinValue xsi:type="xs:decimal">0</MinValue>
-									<MaxValue xsi:type="xs:decimal">999999999</MaxValue>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат2НомерПоПорядкуКонтекстноеМеню" id="151"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2НомерПоПорядкуРасширеннаяПодсказка" id="152"/>
-									<Events>
-										<Event name="OnChange">НомерПоПорядкуПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ГруппаРеквизитыCode128Формат2Штрихкод" id="159">
-									<DataPath>Штрихкод</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат2ШтрихкодКонтекстноеМеню" id="160"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2ШтрихкодРасширеннаяПодсказка" id="161"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаИнформацияCode128Формат2" id="230">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа информация code128 формат2</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа информация code128 формат2</v8:content>
-								</v8:item>
-							</ToolTip>
-							<HorizontalStretch>true</HorizontalStretch>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаИнформацияCode128Формат2РасширеннаяПодсказка" id="231"/>
-							<ChildItems>
-								<LabelField name="ГруппаРеквизитыCode128Формат2Информация" id="162">
-									<DataPath>Информация</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат2ИнформацияКонтекстноеМеню" id="163"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат2ИнформацияРасширеннаяПодсказка" id="164"/>
-								</LabelField>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаРеквизитыCode128Формат3" id="133">
-					<Visible>false</Visible>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа реквизиты code128 формат3</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаРеквизитыCode128Формат3РасширеннаяПодсказка" id="134"/>
-					<ChildItems>
-						<UsualGroup name="ГруппаCode128Формат3ИдентификаторОрганизацииНомерПоПорядку" id="253">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Идентификатор организации, номер по порядку</v8:content>
-								</v8:item>
-							</Title>
-							<Representation>None</Representation>
-							<United>false</United>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаCode128Формат3ИдентификаторОрганизацииНомерПоПорядкуРасширеннаяПодсказка" id="254"/>
-							<ChildItems>
-								<InputField name="ГруппаРеквизитыCode128Формат3ИдентификаторОрганизации" id="153">
-									<DataPath>ИдентификаторОрганизации</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<DropListButton>true</DropListButton>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат3ИдентификаторОрганизацииКонтекстноеМеню" id="154"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат3ИдентификаторОрганизацииРасширеннаяПодсказка" id="155"/>
-									<Events>
-										<Event name="OnChange">ИдентификаторОрганизацииПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ГруппаРеквизитыCode128Формат3НомерПоПорядку" id="156">
-									<DataPath>НомерПоПорядку</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Порядковый номер</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>20</Width>
-									<MaxWidth>20</MaxWidth>
-									<MinValue xsi:type="xs:decimal">0</MinValue>
-									<MaxValue xsi:type="xs:decimal">999999</MaxValue>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат3НомерПоПорядкуКонтекстноеМеню" id="157"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат3НомерПоПорядкуРасширеннаяПодсказка" id="158"/>
-									<Events>
-										<Event name="OnChange">НомерПоПорядкуПриИзменении</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<InputField name="ГруппаРеквизитыCode128Формат3Штрихкод" id="165">
-							<DataPath>Штрихкод</DataPath>
-							<ReadOnly>true</ReadOnly>
+						</ColumnGroup>
+						<InputField name="ИдентификаторыПримененияЗначение" id="58">
+							<DataPath>ИдентификаторыПрименения.Значение</DataPath>
 							<EditMode>EnterOnInput</EditMode>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="ГруппаРеквизитыCode128Формат3ШтрихкодКонтекстноеМеню" id="166"/>
-							<ExtendedTooltip name="ГруппаРеквизитыCode128Формат3ШтрихкодРасширеннаяПодсказка" id="167"/>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<TypeLink>
+								<xr:DataPath>Items.ИдентификаторыПрименения.CurrentData.ТипЗначения</xr:DataPath>
+								<xr:LinkItem>0</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="ИдентификаторыПримененияЗначениеКонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="ИдентификаторыПримененияЗначениеРасширеннаяПодсказка" id="60"/>
+							<Events>
+								<Event name="OnChange">ИдентификаторыПримененияЗначениеПриИзменении</Event>
+							</Events>
 						</InputField>
-						<UsualGroup name="ГруппаИнформацияCode128Формат3" id="232">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа информация code128 формат3</v8:content>
-								</v8:item>
-							</Title>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаИнформацияCode128Формат3РасширеннаяПодсказка" id="233"/>
-							<ChildItems>
-								<LabelField name="ГруппаРеквизитыCode128Формат3Информация" id="168">
-									<DataPath>Информация</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<ContextMenu name="ГруппаРеквизитыCode128Формат3ИнформацияКонтекстноеМеню" id="169"/>
-									<ExtendedTooltip name="ГруппаРеквизитыCode128Формат3ИнформацияРасширеннаяПодсказка" id="170"/>
-								</LabelField>
-							</ChildItems>
-						</UsualGroup>
 					</ChildItems>
-				</UsualGroup>
+				</Table>
+				<InputField name="ГруппаРеквизитыGS1Штрихкод" id="122">
+					<DataPath>Штрихкод</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ГруппаРеквизитыGS1ШтрихкодКонтекстноеМеню" id="123"/>
+					<ExtendedTooltip name="ГруппаРеквизитыGS1ШтрихкодРасширеннаяПодсказка" id="124"/>
+				</InputField>
+				<CheckBoxField name="ГруппаРеквизитыGS1ЗапомнитьПараметрыГенерации" id="174">
+					<DataPath>ЗапомнитьПараметрыГенерации</DataPath>
+					<Visible>false</Visible>
+					<TitleLocation>Right</TitleLocation>
+					<ContextMenu name="ГруппаРеквизитыGS1ЗапомнитьПараметрыГенерацииКонтекстноеМеню" id="175"/>
+					<ExtendedTooltip name="ГруппаРеквизитыGS1ЗапомнитьПараметрыГенерацииРасширеннаяПодсказка" id="176"/>
+				</CheckBoxField>
+				<LabelField name="ГруппаРеквизитыGS1Информация" id="113">
+					<DataPath>Информация</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ГруппаРеквизитыGS1ИнформацияКонтекстноеМеню" id="114"/>
+					<ExtendedTooltip name="ГруппаРеквизитыGS1ИнформацияРасширеннаяПодсказка" id="115"/>
+				</LabelField>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаГрупповаяГенерацияШтрихкодов" id="177">
-			<Group>AutoScreenTypeSensitive</Group>
+			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -852,34 +712,20 @@
 							<v8:content>Сгенерировать штрихкодов</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<MaxWidth>10</MaxWidth>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<Width>10</Width>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<MinValue xsi:type="xs:decimal">1</MinValue>
 					<ContextMenu name="КоличествоШтрихкодовКонтекстноеМеню" id="180"/>
 					<ExtendedTooltip name="КоличествоШтрихкодовРасширеннаяПодсказка" id="181"/>
 				</InputField>
-				<UsualGroup name="ГруппаПараметрыПечати" id="261">
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа параметры печати</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>AutoScreenTypeSensitive</Group>
+				<UsualGroup name="ГруппаПараметрыПечати" id="182">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПараметрыПечатиРасширеннаяПодсказка" id="262"/>
+					<ExtendedTooltip name="ГруппаПараметрыПечатиРасширеннаяПодсказка" id="183"/>
 					<ChildItems>
-						<InputField name="ШаблонЭтикетки" id="187">
-							<DataPath>ШаблонЭтикетки</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<MaxWidth>28</MaxWidth>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="ШаблонЭтикеткиКонтекстноеМеню" id="188"/>
-							<ExtendedTooltip name="ШаблонЭтикеткиРасширеннаяПодсказка" id="189"/>
-						</InputField>
 						<InputField name="КоличествоЭкземпляров" id="184">
 							<DataPath>КоличествоЭкземпляров</DataPath>
 							<Title>
@@ -888,262 +734,26 @@
 									<v8:content>Количество экземпляров</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<MaxWidth>20</MaxWidth>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<Width>10</Width>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<MinValue xsi:type="xs:decimal">1</MinValue>
 							<ContextMenu name="КоличествоЭкземпляровКонтекстноеМеню" id="185"/>
 							<ExtendedTooltip name="КоличествоЭкземпляровРасширеннаяПодсказка" id="186"/>
 						</InputField>
+						<InputField name="ШаблонЭтикетки" id="187">
+							<DataPath>ШаблонЭтикетки</DataPath>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>28</MaxWidth>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ШаблонЭтикеткиКонтекстноеМеню" id="188"/>
+							<ExtendedTooltip name="ШаблонЭтикеткиРасширеннаяПодсказка" id="189"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<Pages name="ГруппаРеквизитыGS1" id="288">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа реквизиты g s1</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа реквизиты g s1</v8:content>
-				</v8:item>
-			</ToolTip>
-			<PagesRepresentation>None</PagesRepresentation>
-			<ExtendedTooltip name="ГруппаРеквизитыGS1РасширеннаяПодсказка" id="289"/>
-			<ChildItems>
-				<Page name="СтраницаРеквизитыGS1" id="290">
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Страница реквизиты g s1</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="СтраницаРеквизитыGS1РасширеннаяПодсказка" id="291"/>
-					<ChildItems>
-						<Table name="ИдентификаторыПрименения" id="39">
-							<Representation>List</Representation>
-							<TitleLocation>Auto</TitleLocation>
-							<SelectionMode>SingleRow</SelectionMode>
-							<RowSelectionMode>Cell</RowSelectionMode>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-							<AutoInsertNewRow>true</AutoInsertNewRow>
-							<FileDragMode>AsFile</FileDragMode>
-							<DataPath>ИдентификаторыПрименения</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Идентификаторы применения</v8:content>
-								</v8:item>
-							</Title>
-							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="ИдентификаторыПримененияКонтекстноеМеню" id="40"/>
-							<AutoCommandBar name="ИдентификаторыПримененияКоманднаяПанель" id="41">
-								<ChildItems>
-									<Button name="ИдентификаторыПримененияИдентификаторыПримененияПереместитьВверх" id="99">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ИдентификаторыПримененияПереместитьВверх</CommandName>
-										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-										<ExtendedTooltip name="ИдентификаторыПримененияИдентификаторыПримененияПереместитьВверхРасширеннаяПодсказка" id="100"/>
-									</Button>
-									<Button name="ИдентификаторыПримененияИдентификаторыПримененияПереместитьВниз" id="101">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ИдентификаторыПримененияПереместитьВниз</CommandName>
-										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-										<ExtendedTooltip name="ИдентификаторыПримененияИдентификаторыПримененияПереместитьВнизРасширеннаяПодсказка" id="102"/>
-									</Button>
-									<Button name="ИдентификаторыПримененияПодборИдентификаторовПримененияGS1" id="97">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ПодборИдентификаторовПримененияGS1</CommandName>
-										<ExtendedTooltip name="ИдентификаторыПримененияПодборИдентификаторовПримененияGS1РасширеннаяПодсказка" id="98"/>
-									</Button>
-									<Button name="ИдентификаторыПримененияПолучитьВес" id="111">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ПолучитьВес</CommandName>
-										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-										<ExtendedTooltip name="ИдентификаторыПримененияПолучитьВесРасширеннаяПодсказка" id="112"/>
-									</Button>
-								</ChildItems>
-							</AutoCommandBar>
-							<ExtendedTooltip name="ИдентификаторыПримененияРасширеннаяПодсказка" id="42"/>
-							<SearchStringAddition name="ИдентификаторыПримененияСтрокаПоиска" id="43">
-								<AdditionSource>
-									<Item>ИдентификаторыПрименения</Item>
-									<Type>SearchStringRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="ИдентификаторыПримененияСтрокаПоискаКонтекстноеМеню" id="44"/>
-								<ExtendedTooltip name="ИдентификаторыПримененияСтрокаПоискаРасширеннаяПодсказка" id="45"/>
-							</SearchStringAddition>
-							<ViewStatusAddition name="ИдентификаторыПримененияСостояниеПросмотра" id="46">
-								<AdditionSource>
-									<Item>ИдентификаторыПрименения</Item>
-									<Type>ViewStatusRepresentation</Type>
-								</AdditionSource>
-								<HorizontalLocation>Left</HorizontalLocation>
-								<ContextMenu name="ИдентификаторыПримененияСостояниеПросмотраКонтекстноеМеню" id="47"/>
-								<ExtendedTooltip name="ИдентификаторыПримененияСостояниеПросмотраРасширеннаяПодсказка" id="48"/>
-							</ViewStatusAddition>
-							<SearchControlAddition name="ИдентификаторыПримененияУправлениеПоиском" id="49">
-								<AdditionSource>
-									<Item>ИдентификаторыПрименения</Item>
-									<Type>SearchControl</Type>
-								</AdditionSource>
-								<ContextMenu name="ИдентификаторыПримененияУправлениеПоискомКонтекстноеМеню" id="50"/>
-								<ExtendedTooltip name="ИдентификаторыПримененияУправлениеПоискомРасширеннаяПодсказка" id="51"/>
-							</SearchControlAddition>
-							<Events>
-								<Event name="BeforeAddRow">ИдентификаторыПримененияПередНачаломДобавления</Event>
-								<Event name="OnStartEdit">ИдентификаторыПримененияПриНачалеРедактирования</Event>
-								<Event name="OnChange">ИдентификаторыПримененияПриИзменении</Event>
-							</Events>
-							<ChildItems>
-								<ColumnGroup name="ИдентификаторыПримененияСвойстваИдентификатора" id="81">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Идентификатор применения</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Идентификаторы применения свойства идентификатора</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Horizontal</Group>
-									<ShowTitle>true</ShowTitle>
-									<ShowInHeader>true</ShowInHeader>
-									<ExtendedTooltip name="ИдентификаторыПримененияСвойстваИдентификатораРасширеннаяПодсказка" id="82"/>
-									<ChildItems>
-										<InputField name="ИдентификаторыПримененияПредставлениеИдентификатора" id="55">
-											<DataPath>ИдентификаторыПрименения.ПредставлениеИдентификатора</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="ИдентификаторыПримененияПредставлениеИдентификатораКонтекстноеМеню" id="56"/>
-											<ExtendedTooltip name="ИдентификаторыПримененияПредставлениеИдентификатораРасширеннаяПодсказка" id="57"/>
-										</InputField>
-										<LabelField name="ИдентификаторыПримененияДополнительныйПараметрПредставление" id="75">
-											<DataPath>ИдентификаторыПрименения.ДополнительныйПараметрПредставление</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="ИдентификаторыПримененияДополнительныйПараметрПредставлениеКонтекстноеМеню" id="76"/>
-											<ExtendedTooltip name="ИдентификаторыПримененияДополнительныйПараметрПредставлениеРасширеннаяПодсказка" id="77"/>
-										</LabelField>
-										<InputField name="ИдентификаторыПримененияДополнительныйПараметрЗначение" id="78">
-											<DataPath>ИдентификаторыПрименения.ДополнительныйПараметрЗначение</DataPath>
-											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
-											<SpinButton>true</SpinButton>
-											<ContextMenu name="ИдентификаторыПримененияДополнительныйПараметрЗначениеКонтекстноеМеню" id="79"/>
-											<ExtendedTooltip name="ИдентификаторыПримененияДополнительныйПараметрЗначениеРасширеннаяПодсказка" id="80"/>
-											<Events>
-												<Event name="OnChange">ИдентификаторыПримененияДополнительныйПараметрЗначениеПриИзменении</Event>
-											</Events>
-										</InputField>
-									</ChildItems>
-								</ColumnGroup>
-								<InputField name="ИдентификаторыПримененияЗначение" id="58">
-									<DataPath>ИдентификаторыПрименения.Значение</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<TypeLink>
-										<xr:DataPath>Items.ИдентификаторыПрименения.CurrentData.ТипЗначения</xr:DataPath>
-										<xr:LinkItem>0</xr:LinkItem>
-									</TypeLink>
-									<ContextMenu name="ИдентификаторыПримененияЗначениеКонтекстноеМеню" id="59"/>
-									<ExtendedTooltip name="ИдентификаторыПримененияЗначениеРасширеннаяПодсказка" id="60"/>
-									<Events>
-										<Event name="OnChange">ИдентификаторыПримененияЗначениеПриИзменении</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</Table>
-						<UsualGroup name="ГруппаРеквизитыGS1Дополнительно" id="93">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа реквизиты GS1</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа реквизиты g s1 дополнительно</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ScrollOnCompress>false</ScrollOnCompress>
-							<ExtendedTooltip name="ГруппаРеквизитыGS1ДополнительноРасширеннаяПодсказка" id="94"/>
-							<ChildItems>
-								<UsualGroup name="ГруппаИнформацияРеквизитыGS1Информация" id="234">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа информация реквизиты g s1 информация</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа информация реквизиты g s1 информация</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаИнформацияРеквизитыGS1ИнформацияРасширеннаяПодсказка" id="235"/>
-									<ChildItems>
-										<LabelField name="ГруппаРеквизитыGS1Информация" id="113">
-											<DataPath>Информация</DataPath>
-											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<ContextMenu name="ГруппаРеквизитыGS1ИнформацияКонтекстноеМеню" id="114"/>
-											<ExtendedTooltip name="ГруппаРеквизитыGS1ИнформацияРасширеннаяПодсказка" id="115"/>
-										</LabelField>
-									</ChildItems>
-								</UsualGroup>
-								<InputField name="ГруппаРеквизитыGS1Штрихкод" id="122">
-									<DataPath>Штрихкод</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ГруппаРеквизитыGS1ШтрихкодКонтекстноеМеню" id="123"/>
-									<ExtendedTooltip name="ГруппаРеквизитыGS1ШтрихкодРасширеннаяПодсказка" id="124"/>
-								</InputField>
-								<CheckBoxField name="ГруппаРеквизитыGS1ЗапомнитьПараметрыГенерации" id="174">
-									<DataPath>ЗапомнитьПараметрыГенерации</DataPath>
-									<Visible>false</Visible>
-									<TitleLocation>Right</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ГруппаРеквизитыGS1ЗапомнитьПараметрыГенерацииКонтекстноеМеню" id="175"/>
-									<ExtendedTooltip name="ГруппаРеквизитыGS1ЗапомнитьПараметрыГенерацииРасширеннаяПодсказка" id="176"/>
-								</CheckBoxField>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
-				</Page>
-			</ChildItems>
-		</Pages>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -1868,9 +1478,7 @@
 			</Picture>
 			<Action>ИдентификаторыПримененияПереместитьВверх</Action>
 			<Representation>Picture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ИдентификаторыПрименения</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ИдентификаторыПримененияПереместитьВниз" id="3">
 			<Title>
@@ -1885,9 +1493,7 @@
 			</Picture>
 			<Action>ИдентификаторыПримененияПереместитьВниз</Action>
 			<Representation>Picture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ИдентификаторыПрименения</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="Готово" id="4">
 			<Title>
@@ -1898,7 +1504,6 @@
 			</Title>
 			<Action>Готово</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="5">
 			<Title>
@@ -1915,7 +1520,6 @@
 			</ToolTip>
 			<Action>Отмена</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПечатьЭтикетокШтрихкода" id="6">
 			<Title>
@@ -1939,15 +1543,8 @@
 					<v8:content>Получить вес</v8:content>
 				</v8:item>
 			</Title>
-			<Picture>
-				<xr:Ref>CommonPicture.ПолучитьВес32ГосИС</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
 			<Action>ПолучитьВес</Action>
-			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ИдентификаторыПрименения</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 	<Parameters>

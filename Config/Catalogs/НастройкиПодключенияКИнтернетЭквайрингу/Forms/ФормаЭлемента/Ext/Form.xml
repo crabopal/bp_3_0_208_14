@@ -19,11 +19,6 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="44"/>
 			</Button>
-			<Button name="ФормаЗаписать" id="71">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Write</CommandName>
-				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="72"/>
-			</Button>
 			<ButtonGroup name="КомандыФормы" id="41">
 				<Title>
 					<v8:item>
@@ -56,6 +51,7 @@
 	<ChildItems>
 		<CheckBoxField name="Используется" id="4">
 			<DataPath>Объект.Используется</DataPath>
+			<TitleLocation>Right</TitleLocation>
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="ИспользуетсяКонтекстноеМеню" id="5"/>
@@ -63,7 +59,6 @@
 		</CheckBoxField>
 		<InputField name="Наименование" id="1">
 			<DataPath>Объект.Description</DataPath>
-			<ToolTipRepresentation>Button</ToolTipRepresentation>
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
@@ -91,9 +86,50 @@
 					</Title>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
-					<ShowAsCard>true</ShowAsCard>
+					<Representation>NormalSeparation</Representation>
 					<ExtendedTooltip name="ГруппаНастройкиПодключенияРасширеннаяПодсказка" id="8"/>
 					<ChildItems>
+						<UsualGroup name="ГруппаПредупреждениеНастройкиПодключения" id="36">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Предупреждение</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПредупреждениеНастройкиПодключенияРасширеннаяПодсказка" id="37"/>
+							<ChildItems>
+								<PictureDecoration name="ДекорацияНетНастроекПодключенияКартинка" id="38">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Предупреждение картинка</v8:content>
+										</v8:item>
+									</Title>
+									<Picture>
+										<xr:Ref>CommonPicture.ИнтернетПоддержкаВнимание</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="ДекорацияНетНастроекПодключенияКартинкаКонтекстноеМеню" id="39"/>
+									<ExtendedTooltip name="ДекорацияНетНастроекПодключенияКартинкаРасширеннаяПодсказка" id="40"/>
+								</PictureDecoration>
+								<LabelDecoration name="ДекорацияНетНастроекПодключения" id="33">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Не удалось загрузить сохраненные настройки подключения.
+Возможно изменился формат хранения данных.
+Попробуйте выполнить обновление параметров аутентификации (Еще -&gt; Обновить параметры аутентификации)</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияНетНастроекПодключенияКонтекстноеМеню" id="34"/>
+									<ExtendedTooltip name="ДекорацияНетНастроекПодключенияРасширеннаяПодсказка" id="35"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
 						<UsualGroup name="ГруппаНастройкиАутентификации" id="65">
 							<Title>
 								<v8:item>
@@ -123,37 +159,6 @@
 							<CommandName>Form.Command.ПроверитьПодключение</CommandName>
 							<ExtendedTooltip name="ПроверитьПодключениеРасширеннаяПодсказка" id="30"/>
 						</Button>
-						<UsualGroup name="ГруппаДополнительныеНастройки" id="47">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Дополнительные настройки</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
-							<Collapsed>true</Collapsed>
-							<ControlRepresentation>Button</ControlRepresentation>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаДополнительныеНастройкиРасширеннаяПодсказка" id="48"/>
-							<ChildItems>
-								<LabelDecoration name="ДекорацияНастройкиШаблонов" id="49">
-									<Title formatted="true">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>&lt;color #000000&gt;&lt;link open:paymentPurpose&gt;Шаблоны назначения (%1)&lt;/&gt;&lt;/&gt;</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTipRepresentation>ShowLeft</ToolTipRepresentation>
-									<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-									<ContextMenu name="ДекорацияНастройкиШаблоновКонтекстноеМеню" id="50"/>
-									<ExtendedTooltip name="ДекорацияНастройкиШаблоновРасширеннаяПодсказка" id="51"/>
-									<Events>
-										<Event name="URLProcessing">ДекорацияНастройкиШаблоновОбработкаНавигационнойСсылки</Event>
-									</Events>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаНастройкиОплаты" id="9">
@@ -167,9 +172,40 @@
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<ControlRepresentation>Button</ControlRepresentation>
-					<ShowAsCard>true</ShowAsCard>
+					<Representation>NormalSeparation</Representation>
 					<ExtendedTooltip name="ГруппаНастройкиОплатыРасширеннаяПодсказка" id="10"/>
 				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДополнительныеНастройки" id="47">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные настройки</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Button</ControlRepresentation>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДополнительныеНастройкиРасширеннаяПодсказка" id="48"/>
+			<ChildItems>
+				<LabelDecoration name="ДекорацияНастройкиШаблонов" id="49">
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;color #000000&gt;&lt;link open:paymentPurpose&gt;Шаблоны назначения (%1)&lt;/&gt;&lt;/&gt;</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTipRepresentation>ShowLeft</ToolTipRepresentation>
+					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+					<ContextMenu name="ДекорацияНастройкиШаблоновКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="ДекорацияНастройкиШаблоновРасширеннаяПодсказка" id="51"/>
+					<Events>
+						<Event name="URLProcessing">ДекорацияНастройкиШаблоновОбработкаНавигационнойСсылки</Event>
+					</Events>
+				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
 		<LabelDecoration name="ДекорацияДополнительнаяИнформация" id="14">
@@ -318,7 +354,6 @@
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

@@ -2,6 +2,8 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
 	<ReportResult>Результат</ReportResult>
 	<DetailsData>ДанныеРасшифровки</DetailsData>
 	<ReportFormType>Main</ReportFormType>
@@ -44,7 +46,7 @@
 				</Button>
 				<Button name="Печать" id="16">
 					<Type>CommandBarButton</Type>
-					<Representation>PictureAndText</Representation>
+					<Representation>Picture</Representation>
 					<CommandName>Form.StandardCommand.Print</CommandName>
 					<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 					<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="17"/>
@@ -90,136 +92,110 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаНастройкиЛеваяРасширеннаяПодсказка" id="44"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаДоставка" id="69">
+						<UsualGroup name="ГруппаПериодДоставки" id="26">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Доставка</v8:content>
+									<v8:content>Группа период доставки</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
 							<United>false</United>
-							<ExtendedTooltip name="ГруппаДоставкаРасширеннаяПодсказка" id="70"/>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПериодДоставкиРасширеннаяПодсказка" id="27"/>
 							<ChildItems>
-								<UsualGroup name="ГруппаПериодДоставки" id="26">
+								<InputField name="ПериодДоставкиДатаНачала" id="28">
+									<DataPath>ПериодДоставки.StartDate</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Доставка</v8:content>
+											<v8:content>Доставка с</v8:content>
 										</v8:item>
 									</Title>
-									<Group>AlwaysHorizontal</Group>
-									<Representation>None</Representation>
-									<United>false</United>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаПериодДоставкиРасширеннаяПодсказка" id="27"/>
-									<ChildItems>
-										<InputField name="ПериодДоставкиДатаНачала" id="28">
-											<DataPath>ПериодДоставки.StartDate</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Дата начала</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ПериодДоставкиДатаНачалаКонтекстноеМеню" id="29"/>
-											<ExtendedTooltip name="ПериодДоставкиДатаНачалаРасширеннаяПодсказка" id="30"/>
-											<Events>
-												<Event name="OnChange">ПериодДоставкиДатаНачалаПриИзменении</Event>
-											</Events>
-										</InputField>
-										<InputField name="ПериодДоставкиДатаОкончания" id="31">
-											<DataPath>ПериодДоставки.EndDate</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Дата окончания</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ПериодДоставкиДатаОкончанияКонтекстноеМеню" id="32"/>
-											<ExtendedTooltip name="ПериодДоставкиДатаОкончанияРасширеннаяПодсказка" id="33"/>
-											<Events>
-												<Event name="OnChange">ПериодДоставкиДатаОкончанияПриИзменении</Event>
-											</Events>
-										</InputField>
-										<Button name="УстановитьПериодДоставки" id="34">
-											<Type>UsualButton</Type>
-											<Representation>Picture</Representation>
-											<CommandName>Form.Command.УстановитьПериодДоставки</CommandName>
-											<Picture>
-												<xr:Ref>StdPicture.SetDateInterval</xr:Ref>
-												<xr:LoadTransparent>true</xr:LoadTransparent>
-											</Picture>
-											<ExtendedTooltip name="УстановитьПериодДоставкиРасширеннаяПодсказка" id="35"/>
-										</Button>
-									</ChildItems>
-								</UsualGroup>
+									<ContextMenu name="ПериодДоставкиДатаНачалаКонтекстноеМеню" id="29"/>
+									<ExtendedTooltip name="ПериодДоставкиДатаНачалаРасширеннаяПодсказка" id="30"/>
+									<Events>
+										<Event name="OnChange">ПериодДоставкиДатаНачалаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ПериодДоставкиДатаОкончания" id="31">
+									<DataPath>ПериодДоставки.EndDate</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>по</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПериодДоставкиДатаОкончанияКонтекстноеМеню" id="32"/>
+									<ExtendedTooltip name="ПериодДоставкиДатаОкончанияРасширеннаяПодсказка" id="33"/>
+									<Events>
+										<Event name="OnChange">ПериодДоставкиДатаОкончанияПриИзменении</Event>
+									</Events>
+								</InputField>
+								<Button name="УстановитьПериодДоставки" id="34">
+									<Type>UsualButton</Type>
+									<Representation>Picture</Representation>
+									<CommandName>Form.Command.УстановитьПериодДоставки</CommandName>
+									<Picture>
+										<xr:Ref>StdPicture.SetDateInterval</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ExtendedTooltip name="УстановитьПериодДоставкиРасширеннаяПодсказка" id="35"/>
+								</Button>
 							</ChildItems>
 						</UsualGroup>
-						<UsualGroup name="ГруппаСоздание" id="71">
+						<UsualGroup name="ГруппаПериодСоздания" id="45">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Создание</v8:content>
+									<v8:content>Группа период создания</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
 							<United>false</United>
-							<ExtendedTooltip name="ГруппаСозданиеРасширеннаяПодсказка" id="72"/>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПериодСозданияРасширеннаяПодсказка" id="46"/>
 							<ChildItems>
-								<UsualGroup name="ГруппаПериодСоздания" id="45">
+								<InputField name="ПериодСозданияДатаНачала" id="51">
+									<DataPath>ПериодСоздания.StartDate</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Группа период создания</v8:content>
+											<v8:content>Дата создания с</v8:content>
 										</v8:item>
 									</Title>
-									<Group>AlwaysHorizontal</Group>
-									<Representation>None</Representation>
-									<United>false</United>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаПериодСозданияРасширеннаяПодсказка" id="46"/>
-									<ChildItems>
-										<InputField name="ПериодСозданияДатаНачала" id="51">
-											<DataPath>ПериодСоздания.StartDate</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Дата начала</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ПериодСозданияДатаНачалаКонтекстноеМеню" id="52"/>
-											<ExtendedTooltip name="ПериодСозданияДатаНачалаРасширеннаяПодсказка" id="53"/>
-											<Events>
-												<Event name="OnChange">ПериодСозданияДатаНачалаПриИзменении</Event>
-											</Events>
-										</InputField>
-										<InputField name="ПериодСозданияДатаОкончания" id="54">
-											<DataPath>ПериодСоздания.EndDate</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Дата окончания</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ПериодСозданияДатаОкончанияКонтекстноеМеню" id="55"/>
-											<ExtendedTooltip name="ПериодСозданияДатаОкончанияРасширеннаяПодсказка" id="56"/>
-											<Events>
-												<Event name="OnChange">ПериодСозданияДатаОкончанияПриИзменении</Event>
-											</Events>
-										</InputField>
-										<Button name="УстановитьПериодСоздания" id="49">
-											<Type>UsualButton</Type>
-											<Representation>Picture</Representation>
-											<CommandName>Form.Command.УстановитьПериодСоздания</CommandName>
-											<Picture>
-												<xr:Ref>StdPicture.SetDateInterval</xr:Ref>
-												<xr:LoadTransparent>true</xr:LoadTransparent>
-											</Picture>
-											<ExtendedTooltip name="УстановитьПериодСозданияРасширеннаяПодсказка" id="50"/>
-										</Button>
-									</ChildItems>
-								</UsualGroup>
+									<ContextMenu name="ПериодСозданияДатаНачалаКонтекстноеМеню" id="52"/>
+									<ExtendedTooltip name="ПериодСозданияДатаНачалаРасширеннаяПодсказка" id="53"/>
+									<Events>
+										<Event name="OnChange">ПериодСозданияДатаНачалаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ПериодСозданияДатаОкончания" id="54">
+									<DataPath>ПериодСоздания.EndDate</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>по</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПериодСозданияДатаОкончанияКонтекстноеМеню" id="55"/>
+									<ExtendedTooltip name="ПериодСозданияДатаОкончанияРасширеннаяПодсказка" id="56"/>
+									<Events>
+										<Event name="OnChange">ПериодСозданияДатаОкончанияПриИзменении</Event>
+									</Events>
+								</InputField>
+								<Button name="УстановитьПериодСоздания" id="49">
+									<Type>UsualButton</Type>
+									<Representation>Picture</Representation>
+									<CommandName>Form.Command.УстановитьПериодСоздания</CommandName>
+									<Picture>
+										<xr:Ref>StdPicture.SetDateInterval</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ExtendedTooltip name="УстановитьПериодСозданияРасширеннаяПодсказка" id="50"/>
+								</Button>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
@@ -236,23 +212,16 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаНастройкиПраваяРасширеннаяПодсказка" id="42"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаОтборы" id="73">
-							<Group>Vertical</Group>
-							<United>false</United>
-							<ExtendedTooltip name="ГруппаОтборыРасширеннаяПодсказка" id="74"/>
-							<ChildItems>
-								<InputField name="Курьер" id="38">
-									<DataPath>Курьер</DataPath>
-									<ClearButton>true</ClearButton>
-									<ListChoiceMode>true</ListChoiceMode>
-									<ContextMenu name="КурьерКонтекстноеМеню" id="39"/>
-									<ExtendedTooltip name="КурьерРасширеннаяПодсказка" id="40"/>
-									<Events>
-										<Event name="OnChange">КурьерПриИзменении</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
+						<InputField name="Курьер" id="38">
+							<DataPath>Курьер</DataPath>
+							<ClearButton>true</ClearButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ContextMenu name="КурьерКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="КурьерРасширеннаяПодсказка" id="40"/>
+							<Events>
+								<Event name="OnChange">КурьерПриИзменении</Event>
+							</Events>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -287,7 +256,6 @@
 			<DefaultItem>true</DefaultItem>
 			<TitleLocation>None</TitleLocation>
 			<Width>100</Width>
-			<CellActionsButtonViewMode>DontShow</CellActionsButtonViewMode>
 			<ContextMenu name="РезультатКонтекстноеМеню" id="12"/>
 			<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="13"/>
 			<Events>
@@ -374,7 +342,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Сохранить</Action>
-			<Representation>TextPicture</Representation>
+			<Representation>Picture</Representation>
 		</Command>
 		<Command name="УстановитьПериодДоставки" id="2">
 			<Title>

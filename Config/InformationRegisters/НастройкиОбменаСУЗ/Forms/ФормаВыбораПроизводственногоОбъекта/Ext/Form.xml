@@ -10,17 +10,35 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВыбрать" id="25">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Item.Список.StandardCommand.Choose</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="26"/>
+			</Button>
+			<Button name="ФормаНайти" id="27">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.Список.StandardCommand.Find</CommandName>
+				<ExtendedTooltip name="ФормаНайтиРасширеннаяПодсказка" id="28"/>
+			</Button>
+			<Button name="ФормаОтменитьПоиск" id="29">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.Список.StandardCommand.CancelSearch</CommandName>
+				<ExtendedTooltip name="ФормаОтменитьПоискРасширеннаяПодсказка" id="30"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<ChildItems>
 		<Table name="Список" id="1">
-			<CommandBarLocation>Top</CommandBarLocation>
 			<ChoiceMode>true</ChoiceMode>
 			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<DataPath>Список</DataPath>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -36,7 +54,9 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="3"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="2">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="5">
 				<AdditionSource>
@@ -70,15 +90,11 @@
 				<InputField name="Организация" id="14">
 					<DataPath>Список.Организация</DataPath>
 					<Visible>false</Visible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="16"/>
 				</InputField>
 				<InputField name="ПроизводственныйОбъект" id="17">
 					<DataPath>Список.ПроизводственныйОбъект</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПроизводственныйОбъектКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="ПроизводственныйОбъектРасширеннаяПодсказка" id="19"/>
 				</InputField>
@@ -90,8 +106,6 @@
 							<v8:content>Адрес объекта</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПроизводственныйОбъектАдресСтрокойКонтекстноеМеню" id="34"/>
 					<ExtendedTooltip name="ПроизводственныйОбъектАдресСтрокойРасширеннаяПодсказка" id="35"/>
 				</InputField>

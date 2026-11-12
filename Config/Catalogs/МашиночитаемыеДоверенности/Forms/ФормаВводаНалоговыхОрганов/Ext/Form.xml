@@ -27,6 +27,17 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаКнопкаСохранитьРасширеннаяПодсказка" id="21"/>
 			</Button>
+			<Button name="ФормаКнопкаОтмена" id="22">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отмена</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаКнопкаОтменаРасширеннаяПодсказка" id="23"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -42,8 +53,6 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<RadioButtonType>Auto</RadioButtonType>
 			<ColumnsCount>1</ColumnsCount>
 			<ChoiceList>
@@ -83,7 +92,7 @@
 		<Table name="НалоговыеОрганыДействия" id="24">
 			<Representation>List</Representation>
 			<ChoiceMode>true</ChoiceMode>
-			<SelectionMode>SingleRow</SelectionMode>
+			<MultipleChoice>true</MultipleChoice>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
 			<VerticalLinesBWA>false</VerticalLinesBWA>
@@ -100,14 +109,12 @@
 				</v8:item>
 			</Title>
 			<CommandSet>
-				<ExcludedCommand>Add</ExcludedCommand>
-				<ExcludedCommand>Change</ExcludedCommand>
 				<ExcludedCommand>Choose</ExcludedCommand>
-				<ExcludedCommand>Copy</ExcludedCommand>
 			</CommandSet>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="НалоговыеОрганыДействияКонтекстноеМеню" id="25"/>
 			<AutoCommandBar name="НалоговыеОрганыДействияКоманднаяПанель" id="26">
+				<Autofill>false</Autofill>
 				<ChildItems>
 					<ButtonGroup name="УправлениеФлажками" id="46">
 						<Title>
@@ -145,7 +152,7 @@
 					</ButtonGroup>
 					<Button name="НалоговыеОрганыДействияКнопкаДобавить" id="61">
 						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ДобавитьНалоговыйОрганДействия</CommandName>
+						<CommandName>Form.Command.Добавить</CommandName>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -304,8 +311,13 @@
 					<v8:content>Сохранить</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Action>Сохранить</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СнятьФлажки" id="3">
 			<Title>
@@ -347,14 +359,20 @@
 			<Action>УстановитьФлажки</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="ДобавитьНалоговыйОрганДействия" id="1">
+		<Command name="Добавить" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Добавить</v8:content>
 				</v8:item>
 			</Title>
-			<Action>ДобавитьНалоговыйОрганДействия</Action>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Добавить</Action>
 		</Command>
 	</Commands>
 	<Parameters>

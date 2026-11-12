@@ -11,10 +11,12 @@
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<VerticalSpacing>Double</VerticalSpacing>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
 	</Events>
@@ -114,7 +116,7 @@
 					<v8:content>Группа привязка к виду номенклатуры</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
+			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -181,6 +183,48 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКнопкиРасширеннаяПодсказка" id="25"/>
 			<ChildItems>
+				<UsualGroup name="ГруппаДекорацииДлительнойОперации" id="29">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа декорации длительной операции</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДекорацииДлительнойОперацииРасширеннаяПодсказка" id="30"/>
+					<ChildItems>
+						<PictureDecoration name="КартинкаДлительнойОперации" id="31">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка длительной операции</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Picture>
+								<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КартинкаДлительнойОперацииКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="КартинкаДлительнойОперацииРасширеннаяПодсказка" id="33"/>
+						</PictureDecoration>
+						<LabelDecoration name="НадписьДлительнойОперации" id="34">
+							<TextColor>style:ЦветПустойГиперссылки</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Загрузка категорий</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьДлительнойОперацииКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="НадписьДлительнойОперацииРасширеннаяПодсказка" id="36"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
 				<Button name="Ок" id="20">
 					<Type>UsualButton</Type>
 					<DefaultButton>true</DefaultButton>
@@ -188,11 +232,16 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Готово</v8:content>
+							<v8:content>OK</v8:content>
 						</v8:item>
 					</Title>
 					<ButtonImportance>Main</ButtonImportance>
 					<ExtendedTooltip name="ОкРасширеннаяПодсказка" id="21"/>
+				</Button>
+				<Button name="Отмена" id="22">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Отмена</CommandName>
+					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="23"/>
 				</Button>
 			</ChildItems>
 		</UsualGroup>
@@ -308,7 +357,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Ок</Action>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
 		</Command>
 	</Commands>
 </Form>

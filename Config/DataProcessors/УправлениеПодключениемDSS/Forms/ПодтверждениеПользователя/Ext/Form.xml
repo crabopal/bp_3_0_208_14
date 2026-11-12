@@ -6,27 +6,12 @@
 	<Group>Vertical</Group>
 	<AutoFillCheck>false</AutoFillCheck>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>Bottom</CommandBarLocation>
+	<CommandBarLocation>None</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<ConversationsRepresentation>DontShow</ConversationsRepresentation>
-	<ShowCommandBar>true</ShowCommandBar>
+	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Right</HorizontalAlign>
-		<ChildItems>
-			<Button name="ФормаПродолжить" id="33">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ПродолжитьРаботу</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Продолжить</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаПродолжитьРасширеннаяПодсказка" id="34"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -61,7 +46,6 @@
 									<v8:content>Команды печати</v8:content>
 								</v8:item>
 							</Title>
-							<AppearanceMode>CommandBar</AppearanceMode>
 							<ExtendedTooltip name="ГруппаКомандыПечатиРасширеннаяПодсказка" id="6"/>
 							<ChildItems>
 								<Button name="Печать" id="7">
@@ -78,7 +62,6 @@
 											<v8:content>Печать</v8:content>
 										</v8:item>
 									</Title>
-									<ButtonImportance>Supplementary</ButtonImportance>
 									<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="8"/>
 								</Button>
 								<Button name="ФормаСохранить" id="9">
@@ -86,7 +69,6 @@
 									<Representation>Picture</Representation>
 									<CommandName>Form.Item.ТабДок.StandardCommand.Save</CommandName>
 									<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-									<ButtonImportance>Supplementary</ButtonImportance>
 									<ExtendedTooltip name="ФормаСохранитьРасширеннаяПодсказка" id="10"/>
 								</Button>
 							</ChildItems>
@@ -101,8 +83,6 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>60</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<Height>16</Height>
@@ -254,8 +234,6 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Right</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="РежимПодтвержденияКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="РежимПодтвержденияРасширеннаяПодсказка" id="30"/>
 					<Events>
@@ -264,6 +242,29 @@
 				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
+		<CommandBar name="ГруппаКомандыФормы" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команды формы</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalLocation>Center</HorizontalLocation>
+			<ExtendedTooltip name="ГруппаКомандыФормыРасширеннаяПодсказка" id="32"/>
+			<ChildItems>
+				<Button name="Продолжить" id="33">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.ОК</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Продолжить</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ПродолжитьРасширеннаяПодсказка" id="34"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ТабДок" id="1">
@@ -288,7 +289,7 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="Таймаут" id="4">
+		<Attribute name="ТаймАут" id="4">
 			<Type>
 				<v8:Type>xs:decimal</v8:Type>
 				<v8:NumberQualifiers>
@@ -338,15 +339,20 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ПродолжитьРаботу" id="1">
+		<Command name="ОК" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Продолжить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
-			<Action>ПродолжитьРаботу</Action>
-			<ActionPurpose>Finish</ActionPurpose>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОК</Action>
 		</Command>
 		<Command name="Печать" id="2">
 			<Title>
@@ -392,7 +398,7 @@
 		<Parameter name="ПараметрыПечати">
 			<Type/>
 		</Parameter>
-		<Parameter name="Таймаут">
+		<Parameter name="ТаймАут">
 			<Type>
 				<v8:Type>xs:decimal</v8:Type>
 				<v8:NumberQualifiers>

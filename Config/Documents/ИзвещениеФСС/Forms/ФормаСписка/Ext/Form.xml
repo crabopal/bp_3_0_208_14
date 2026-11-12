@@ -17,6 +17,25 @@
 		<Event name="BeforeLoadDataFromSettingsAtServer">ПередЗагрузкойДанныхИзНастроекНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<UsualGroup name="ИнформационнаяПанельБРО" id="192">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Информационная панель БРО</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Информационная панель БРО</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ИнформационнаяПанельБРОРасширеннаяПодсказка" id="193"/>
+		</UsualGroup>
 		<UsualGroup name="ОтборОрганизацияГруппа" id="152">
 			<Title>
 				<v8:item>
@@ -81,10 +100,11 @@
 			</Title>
 			<ExtendedTooltip name="СписокОсновнаяКоманднаяПанельРасширеннаяПодсказка" id="151"/>
 			<ChildItems>
-				<Button name="ПолучитьИзФСС" id="161">
+				<Button name="ПолучитьСообщенияСЭДО" id="194">
 					<Type>CommandBarButton</Type>
-					<CommandName>Form.Command.ПолучитьИзФСС</CommandName>
-					<ExtendedTooltip name="ПолучитьИзФССРасширеннаяПодсказка" id="162"/>
+					<Representation>PictureAndText</Representation>
+					<CommandName>DataProcessor.ОбщиеФормыСЭДОФСС.Command.ПолучитьНовыеСообщенияСЭДОФСС</CommandName>
+					<ExtendedTooltip name="ПолучитьСообщенияСЭДОРасширеннаяПодсказка" id="195"/>
 				</Button>
 				<ButtonGroup name="ЭкспортГруппа" id="173">
 					<Title>
@@ -145,18 +165,18 @@
 					</Title>
 					<ExtendedTooltip name="КомандыПовторнойОбработкиРасширеннаяПодсказка" id="158"/>
 					<ChildItems>
-						<Button name="ПовторноПолучитьИзФСС" id="163">
+						<Button name="ПовторноПолучитьСообщенияСЭДО" id="198">
 							<Type>CommandBarButton</Type>
-							<CommandName>Document.ИзвещениеФСС.Command.ПовторноПолучитьИзФСС</CommandName>
+							<CommandName>DataProcessor.ОбщиеФормыСЭДОФСС.Command.ПовторноПолучитьИзФСС</CommandName>
 							<DataPath>Items.Список.CurrentData.Ссылка</DataPath>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ПовторноПолучитьИзФССРасширеннаяПодсказка" id="164"/>
+							<ExtendedTooltip name="ПовторноПолучитьСообщенияСЭДОРасширеннаяПодсказка" id="199"/>
 						</Button>
-						<Button name="ПолучитьСообщенияЗаПериод" id="169">
+						<Button name="ПолучитьСообщенияСЭДОЗаПериод" id="200">
 							<Type>CommandBarButton</Type>
-							<CommandName>Form.Command.ПолучитьСообщенияЗаПериод</CommandName>
+							<CommandName>DataProcessor.ОбщиеФормыСЭДОФСС.Command.ПолучитьСообщенияСЭДОФССЗаПериод</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ПолучитьСообщенияЗаПериодРасширеннаяПодсказка" id="170"/>
+							<ExtendedTooltip name="ПолучитьСообщенияСЭДОЗаПериодРасширеннаяПодсказка" id="201"/>
 						</Button>
 						<Button name="ПовторноЗаполнитьИзФайловИзвещений" id="22">
 							<Type>CommandBarButton</Type>
@@ -205,7 +225,7 @@
 				<Button name="ФормаНастройкаСписка" id="187">
 					<Type>CommandBarButton</Type>
 					<Representation>Picture</Representation>
-					<CommandName>Form.Item.Список.StandardCommand.ListSettings</CommandName>
+					<CommandName>0</CommandName>
 					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 					<ExtendedTooltip name="ФормаНастройкаСпискаРасширеннаяПодсказка" id="188"/>
 				</Button>
@@ -229,7 +249,7 @@
 			<RowPictureDataPath>Список.ИндексКартинки</RowPictureDataPath>
 			<RowsPicture>
 				<xr:Ref>CommonPicture.СостоянияИзвещенийФСС</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</RowsPicture>
 			<Title>
 				<v8:item>
@@ -313,11 +333,11 @@
 					<TitleLocation>None</TitleLocation>
 					<HeaderPicture>
 						<xr:Ref>CommonPicture.ПисьмоПодтверждениеПолучено</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</HeaderPicture>
 					<ValuesPicture>
 						<xr:Ref>CommonPicture.ПисьмоПодтверждениеПолучено</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</ValuesPicture>
 					<ContextMenu name="ПодтверждениеПолученоФССКонтекстноеМеню" id="49"/>
 					<ExtendedTooltip name="ПодтверждениеПолученоФССРасширеннаяПодсказка" id="50"/>
@@ -696,38 +716,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОбновитьНаОснованииФайловИзвещений</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="ПолучитьИзФСС" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Получить из ФСС</v8:content>
-				</v8:item>
-			</Title>
-			<Picture>
-				<xr:Ref>CommonPicture.ВКонвертПодписатьИОтправить</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
-			<Action>ПолучитьИзФСС</Action>
-			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="ПолучитьСообщенияЗаПериод" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Получить сообщения за период</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Получить сообщения за период</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ПолучитьСообщенияЗаПериод</Action>
-			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="НапоминатьОбОтправкеПодтвержденияПолучения" id="4">

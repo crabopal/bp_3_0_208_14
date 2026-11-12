@@ -10,7 +10,6 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
@@ -27,6 +26,25 @@
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаНайтиРасширеннаяПодсказка" id="20"/>
+			</Button>
+			<Button name="ФормаОтмена" id="23">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="24"/>
+			</Button>
+			<Button name="ФормаИзменитьФорму" id="76">
+				<Type>CommandBarButton</Type>
+				<Representation>Picture</Representation>
+				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаИзменитьФормуРасширеннаяПодсказка" id="77"/>
+			</Button>
+			<Button name="ФормаСправка" id="21">
+				<Type>CommandBarButton</Type>
+				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="22"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -46,8 +64,6 @@
 			<TitleTextColor>style:ГруппаВариантовОтчетовЦвет</TitleTextColor>
 			<TitleFont ref="style:NormalTextFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 			<TitleLocation>Top</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<RadioButtonType>Tumbler</RadioButtonType>
 			<ColumnsCount>3</ColumnsCount>
 			<EqualColumnsWidth>false</EqualColumnsWidth>
@@ -108,7 +124,7 @@
 			<TitleFont ref="style:NormalTextFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<ShowTitle>true</ShowTitle>
+			<Representation>NormalSeparation</Representation>
 			<ExtendedTooltip name="ГруппаПоискПоТочномуСоответствиюРасширеннаяПодсказка" id="70"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаДанныеРегламентированногоУчета" id="67">
@@ -124,7 +140,7 @@
 							<v8:content>Группа данные регламентированного </v8:content>
 						</v8:item>
 					</ToolTip>
-					<Group>HorizontalIfPossible</Group>
+					<Group>Horizontal</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>WeakSeparation</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -132,8 +148,6 @@
 					<ChildItems>
 						<InputField name="ИНН" id="1">
 							<DataPath>ИНН</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>14</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<HorizontalStretch>false</HorizontalStretch>
@@ -145,8 +159,6 @@
 						</InputField>
 						<InputField name="КПП" id="55">
 							<DataPath>КПП</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>10</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>10</MaxWidth>
@@ -164,9 +176,6 @@
 						</InputField>
 						<InputField name="ОГРН" id="7">
 							<DataPath>ОГРН</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<Width>15</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>15</MaxWidth>
 							<HorizontalStretch>false</HorizontalStretch>
@@ -193,8 +202,8 @@
 					<ChildItems>
 						<InputField name="GLN" id="78">
 							<DataPath>GLN</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
 							<InputHint>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -215,8 +224,7 @@
 									<v8:content>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX</v8:content>
 								</v8:item>
 							</ToolTip>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
+							<MarkRequiredComplete>false</MarkRequiredComplete>
 							<AutoMarkIncomplete>false</AutoMarkIncomplete>
 							<InputHint>
 								<v8:item>
@@ -244,7 +252,7 @@
 			<TitleFont ref="style:NormalTextFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<ShowTitle>true</ShowTitle>
+			<Representation>None</Representation>
 			<ExtendedTooltip name="ГруппаПоискПоПодстрокеРасширеннаяПодсказка" id="72"/>
 			<ChildItems>
 				<InputField name="ПолноеНаименование" id="10">
@@ -252,12 +260,12 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Наименование</v8:content>
+							<v8:content>Полное.юр. наименование</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<Width>38</Width>
+					<HorizontalStretch>false</HorizontalStretch>
 					<InputHint>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -272,8 +280,8 @@
 				</InputField>
 				<InputField name="ФИО" id="13">
 					<DataPath>ФИО</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<Width>38</Width>
+					<HorizontalStretch>false</HorizontalStretch>
 					<InputHint>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -298,13 +306,13 @@
 			<TitleFont ref="style:NormalTextFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<ShowTitle>true</ShowTitle>
+			<Representation>NormalSeparation</Representation>
 			<ExtendedTooltip name="ГруппаПоискПоАдресуРасширеннаяПодсказка" id="84"/>
 			<ChildItems>
 				<InputField name="СтранаМира" id="85">
 					<DataPath>СтранаМира</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>28</MaxWidth>
 					<TextEdit>false</TextEdit>
 					<ContextMenu name="СтранаМираКонтекстноеМеню" id="86"/>
 					<ExtendedTooltip name="СтранаМираРасширеннаяПодсказка" id="87"/>
@@ -328,8 +336,10 @@
 							<v8:content>Адрес доставки, введенный строкой</v8:content>
 						</v8:item>
 					</ToolTip>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<Width>50</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>50</MaxWidth>
+					<HorizontalStretch>false</HorizontalStretch>
 					<MultiLine>true</MultiLine>
 					<ChoiceButton>true</ChoiceButton>
 					<TextEdit>false</TextEdit>
@@ -339,15 +349,7 @@
 							<v8:content>Для редактирования нажмите кнопку выбора</v8:content>
 						</v8:item>
 					</InputHint>
-					<ContextMenu name="ПредставлениеАдресаКонтекстноеМеню" id="92">
-						<ChildItems>
-							<Button name="ВыбратьПредставлениеАдреса" id="106">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.ВыбратьПредставлениеАдреса</CommandName>
-								<ExtendedTooltip name="ВыбратьПредставлениеАдресаРасширеннаяПодсказка" id="105"/>
-							</Button>
-						</ChildItems>
-					</ContextMenu>
+					<ContextMenu name="ПредставлениеАдресаКонтекстноеМеню" id="92"/>
 					<ExtendedTooltip name="ПредставлениеАдресаРасширеннаяПодсказка" id="93"/>
 					<Events>
 						<Event name="OnChange">ПредставлениеАдресаПриИзменении</Event>
@@ -366,8 +368,6 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Left</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>50</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>50</MaxWidth>
@@ -578,22 +578,6 @@
 			</ToolTip>
 			<Action>ВыполнитьПоиск</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
-		</Command>
-		<Command name="ВыбратьПредставлениеАдреса" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать представление адреса</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать представление адреса</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ВыбратьПредставлениеАдреса</Action>
 		</Command>
 	</Commands>
 	<Parameters>

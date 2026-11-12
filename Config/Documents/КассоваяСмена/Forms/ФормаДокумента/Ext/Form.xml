@@ -12,22 +12,53 @@
 		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 		<ExcludedCommand>UndoPosting</ExcludedCommand>
 	</CommandSet>
-	<WindowViewMode xsi:type="lf:FormWindowViewMode">InDialogWindow</WindowViewMode>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<Button name="ФормаЗаписать" id="144">
+			<ButtonGroup name="ОсновнаяГруппаКнопок" id="98">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Основная группа кнопок</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ОсновнаяГруппаКнопокРасширеннаяПодсказка" id="99"/>
+				<ChildItems>
+					<Button name="ФормаКнопкаЗаписать" id="96">
+						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.StandardCommand.Write</CommandName>
+						<ButtonImportance>Main</ButtonImportance>
+						<ExtendedTooltip name="ФормаКнопкаЗаписатьРасширеннаяПодсказка" id="97"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+			<ButtonGroup name="КомандыФормы" id="100">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Команды формы</v8:content>
+					</v8:item>
+				</Title>
+				<CommandSource>Form</CommandSource>
+				<ExtendedTooltip name="КомандыФормыРасширеннаяПодсказка" id="101"/>
+			</ButtonGroup>
+			<ButtonGroup name="ГлобальныеКомандыФормы" id="102">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Глобальные команды формы</v8:content>
+					</v8:item>
+				</Title>
+				<CommandSource>FormCommandPanelGlobalCommands</CommandSource>
+				<ExtendedTooltip name="ГлобальныеКомандыФормыРасширеннаяПодсказка" id="103"/>
+			</ButtonGroup>
+			<Button name="ФормаСправка" id="104">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Write</CommandName>
-				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="145"/>
-			</Button>
-			<Button name="ПолныеФискальныеДанные" id="89">
-				<Type>CommandBarButton</Type>
-				<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-				<CommandName>Form.Command.ПолныеФискальныеДанные</CommandName>
-				<ExtendedTooltip name="ПолныеФискальныеДанныеРасширеннаяПодсказка" id="90"/>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаExtendedTooltip" id="105"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -38,320 +69,315 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="Группа1" id="142">
-			<HorizontalStretch>false</HorizontalStretch>
+		<UsualGroup name="ГруппаШапка" id="61">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</Title>
 			<Group>Vertical</Group>
+			<VerticalSpacing>Single</VerticalSpacing>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="143"/>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="62"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаШапка" id="61">
+				<UsualGroup name="ГруппаНомерДата" id="71">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа шапка</v8:content>
+							<v8:content>Группа номер дата</v8:content>
 						</v8:item>
 					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<VerticalSpacing>Single</VerticalSpacing>
+					<Group>Horizontal</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="62"/>
+					<ExtendedTooltip name="ГруппаНомерДатаРасширеннаяПодсказка" id="72"/>
 					<ChildItems>
-						<UsualGroup name="ЛеваяКолонка" id="121">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Левая колонка</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Левая колонка</v8:content>
-								</v8:item>
-							</ToolTip>
+						<InputField name="Номер" id="5">
+							<DataPath>Объект.Number</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>10</Width>
 							<HorizontalStretch>false</HorizontalStretch>
-							<Group>Vertical</Group>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ЛеваяКолонкаРасширеннаяПодсказка" id="122"/>
-							<ChildItems>
-								<InputField name="Номер" id="5">
-									<DataPath>Объект.Number</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="НомерКонтекстноеМеню" id="6"/>
-									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="7"/>
-								</InputField>
-								<InputField name="Дата" id="8">
-									<DataPath>Объект.Date</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>40</Width>
-									<ContextMenu name="ДатаКонтекстноеМеню" id="9"/>
-									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="10"/>
-								</InputField>
-								<InputField name="ФискальноеУстройство" id="11">
-									<DataPath>Объект.ФискальноеУстройство</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ChoiceButton>true</ChoiceButton>
-									<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
-									<OpenButton>false</OpenButton>
-									<ContextMenu name="ФискальноеУстройствоКонтекстноеМеню" id="12"/>
-									<ExtendedTooltip name="ФискальноеУстройствоРасширеннаяПодсказка" id="13"/>
-								</InputField>
-								<UsualGroup name="ГруппаОшибкиФискальногоУстройства" id="75">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа ошибки фискального устройства</v8:content>
-										</v8:item>
-									</Title>
-									<Group>Vertical</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаОшибкиФискальногоУстройстваРасширеннаяПодсказка" id="76"/>
-									<ChildItems>
-										<LabelDecoration name="ПамятьФНПереполнена" id="83">
-											<Visible>false</Visible>
-											<TextColor>style:SpecialTextColor</TextColor>
-											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Память ФН переполнена</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ПамятьФНПереполненаКонтекстноеМеню" id="84"/>
-											<ExtendedTooltip name="ПамятьФНПереполненаРасширеннаяПодсказка" id="85"/>
-										</LabelDecoration>
-										<LabelDecoration name="РесурсФНИсчерпан" id="86">
-											<Visible>false</Visible>
-											<TextColor>style:SpecialTextColor</TextColor>
-											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Ресурс ФН исчерпан</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="РесурсФНИсчерпанКонтекстноеМеню" id="87"/>
-											<ExtendedTooltip name="РесурсФНИсчерпанРасширеннаяПодсказка" id="88"/>
-										</LabelDecoration>
-										<LabelDecoration name="НеобходимаСтрочнаяЗаменаФН" id="80">
-											<Visible>false</Visible>
-											<TextColor>style:SpecialTextColor</TextColor>
-											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Необходима строчная замена ФН</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="НеобходимаСтрочнаяЗаменаФНКонтекстноеМеню" id="81"/>
-											<ExtendedTooltip name="НеобходимаСтрочнаяЗаменаФНРасширеннаяПодсказка" id="82"/>
-										</LabelDecoration>
-										<LabelDecoration name="ПревышеноВремяОжиданияОтветаОФД" id="77">
-											<Visible>false</Visible>
-											<TextColor>style:SpecialTextColor</TextColor>
-											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Превышено время ожидания ответа ОФД</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ПревышеноВремяОжиданияОтветаОФДКонтекстноеМеню" id="78"/>
-											<ExtendedTooltip name="ПревышеноВремяОжиданияОтветаОФДРасширеннаяПодсказка" id="79"/>
-										</LabelDecoration>
-									</ChildItems>
-								</UsualGroup>
-								<InputField name="Организация" id="20">
-									<DataPath>Объект.Организация</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="21"/>
-									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="22"/>
-								</InputField>
-								<InputField name="КассаККМ" id="93">
-									<DataPath>Объект.КассаККМ</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<TitleLocation>Top</TitleLocation>
-									<Width>40</Width>
-									<ContextMenu name="КассаККМКонтекстноеМеню" id="94"/>
-									<ExtendedTooltip name="КассаККМРасширеннаяПодсказка" id="95"/>
-								</InputField>
-								<InputField name="НачалоКассовойСмены" id="14">
-									<DataPath>Объект.НачалоКассовойСмены</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Начало кассовой смены</v8:content>
-										</v8:item>
-									</Title>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>40</Width>
-									<ContextMenu name="НачалоКассовойСменыКонтекстноеМеню" id="15"/>
-									<ExtendedTooltip name="НачалоКассовойСменыРасширеннаяПодсказка" id="16"/>
-								</InputField>
-								<InputField name="КассирНачалоКассовойСмены" id="148">
-									<DataPath>Объект.Ref.КассирНачалоКассовойСмены</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Кассир</v8:content>
-										</v8:item>
-									</Title>
-									<TitleLocation>Top</TitleLocation>
-									<ToolTipRepresentation>Balloon</ToolTipRepresentation>
-									<HorizontalAlign>Left</HorizontalAlign>
-									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-									<ContextMenu name="КассирНачалоКассовойСменыКонтекстноеМеню" id="149"/>
-									<ExtendedTooltip name="КассирНачалоКассовойСменыРасширеннаяПодсказка" id="150"/>
-								</InputField>
-								<InputField name="ОкончаниеКассовойСмены" id="17">
-									<DataPath>Объект.ОкончаниеКассовойСмены</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Окончание кассовой смены</v8:content>
-										</v8:item>
-									</Title>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>40</Width>
-									<ContextMenu name="ОкончаниеКассовойСменыКонтекстноеМеню" id="18"/>
-									<ExtendedTooltip name="ОкончаниеКассовойСменыРасширеннаяПодсказка" id="19"/>
-								</InputField>
-								<InputField name="КассирОкончаниеКассовойСмены" id="152">
-									<DataPath>Объект.Ref.КассирОкончаниеКассовойСмены</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Кассир</v8:content>
-										</v8:item>
-									</Title>
-									<TitleLocation>Top</TitleLocation>
-									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-									<ContextMenu name="КассирОкончаниеКассовойСменыКонтекстноеМеню" id="153"/>
-									<ExtendedTooltip name="КассирОкончаниеКассовойСменыРасширеннаяПодсказка" id="154"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ПраваяКолонка" id="123">
+							<ContextMenu name="НомерКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="7"/>
+						</InputField>
+						<InputField name="Дата" id="8">
+							<DataPath>Объект.Date</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ДатаКонтекстноеМеню" id="9"/>
+							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="10"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаФискальноеУстройство" id="73">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа фискальное устройство</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаФискальноеУстройствоРасширеннаяПодсказка" id="74"/>
+					<ChildItems>
+						<InputField name="ФискальноеУстройство" id="11">
+							<DataPath>Объект.ФискальноеУстройство</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ФискальноеУстройствоКонтекстноеМеню" id="12"/>
+							<ExtendedTooltip name="ФискальноеУстройствоРасширеннаяПодсказка" id="13"/>
+						</InputField>
+						<UsualGroup name="ГруппаОшибкиФискальногоУстройства" id="75">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Правая колонка</v8:content>
+									<v8:content>Группа ошибки фискального устройства</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Правая колонка</v8:content>
-								</v8:item>
-							</ToolTip>
 							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ПраваяКолонкаРасширеннаяПодсказка" id="124"/>
+							<ExtendedTooltip name="ГруппаОшибкиФискальногоУстройстваРасширеннаяПодсказка" id="76"/>
 							<ChildItems>
-								<InputField name="Статус" id="23">
-									<DataPath>Объект.Статус</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="СтатусКонтекстноеМеню" id="24"/>
-									<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="25"/>
-								</InputField>
-								<InputField name="НомерСменыККТ" id="29">
-									<DataPath>Объект.НомерСменыККТ</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>40</Width>
-									<ContextMenu name="НомерСменыККТКонтекстноеМеню" id="30"/>
-									<ExtendedTooltip name="НомерСменыККТРасширеннаяПодсказка" id="31"/>
-								</InputField>
-								<InputField name="ДатаСменыККТ" id="34">
-									<DataPath>Объект.ДатаСменыККТ</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>40</Width>
-									<ContextMenu name="ДатаСменыККТКонтекстноеМеню" id="35"/>
-									<ExtendedTooltip name="ДатаСменыККТРасширеннаяПодсказка" id="36"/>
-								</InputField>
-								<InputField name="КоличествоЧеков" id="37">
-									<DataPath>Объект.КоличествоЧеков</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>40</Width>
-									<ContextMenu name="КоличествоЧековКонтекстноеМеню" id="38"/>
-									<ExtendedTooltip name="КоличествоЧековРасширеннаяПодсказка" id="39"/>
-								</InputField>
-								<InputField name="КоличествоФД" id="40">
-									<DataPath>Объект.КоличествоФД</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>40</Width>
-									<ContextMenu name="КоличествоФДКонтекстноеМеню" id="41"/>
-									<ExtendedTooltip name="КоличествоФДРасширеннаяПодсказка" id="42"/>
-								</InputField>
-								<InputField name="КоличествоНепереданныхФД" id="43">
-									<DataPath>Объект.КоличествоНепереданныхФД</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>40</Width>
-									<ContextMenu name="КоличествоНепереданныхФДКонтекстноеМеню" id="44"/>
-									<ExtendedTooltip name="КоличествоНепереданныхФДРасширеннаяПодсказка" id="45"/>
-								</InputField>
-								<InputField name="ДатаПервогоНепереданногоФД" id="46">
-									<DataPath>Объект.ДатаПервогоНепереданногоФД</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>40</Width>
-									<ContextMenu name="ДатаПервогоНепереданногоФДКонтекстноеМеню" id="47"/>
-									<ExtendedTooltip name="ДатаПервогоНепереданногоФДРасширеннаяПодсказка" id="48"/>
-								</InputField>
+								<LabelDecoration name="ПамятьФНПереполнена" id="83">
+									<Visible>false</Visible>
+									<TextColor>style:SpecialTextColor</TextColor>
+									<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Память ФН переполнена</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПамятьФНПереполненаКонтекстноеМеню" id="84"/>
+									<ExtendedTooltip name="ПамятьФНПереполненаРасширеннаяПодсказка" id="85"/>
+								</LabelDecoration>
+								<LabelDecoration name="РесурсФНИсчерпан" id="86">
+									<Visible>false</Visible>
+									<TextColor>style:SpecialTextColor</TextColor>
+									<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ресурс ФН исчерпан</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="РесурсФНИсчерпанКонтекстноеМеню" id="87"/>
+									<ExtendedTooltip name="РесурсФНИсчерпанРасширеннаяПодсказка" id="88"/>
+								</LabelDecoration>
+								<LabelDecoration name="НеобходимаСтрочнаяЗаменаФН" id="80">
+									<Visible>false</Visible>
+									<TextColor>style:SpecialTextColor</TextColor>
+									<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Необходима строчная замена ФН</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="НеобходимаСтрочнаяЗаменаФНКонтекстноеМеню" id="81"/>
+									<ExtendedTooltip name="НеобходимаСтрочнаяЗаменаФНРасширеннаяПодсказка" id="82"/>
+								</LabelDecoration>
+								<LabelDecoration name="ПревышеноВремяОжиданияОтветаОФД" id="77">
+									<Visible>false</Visible>
+									<TextColor>style:SpecialTextColor</TextColor>
+									<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Превышено время ожидания ответа ОФД</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПревышеноВремяОжиданияОтветаОФДКонтекстноеМеню" id="78"/>
+									<ExtendedTooltip name="ПревышеноВремяОжиданияОтветаОФДРасширеннаяПодсказка" id="79"/>
+								</LabelDecoration>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<InputField name="Комментарий" id="129">
-					<DataPath>Объект.Комментарий</DataPath>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-					<ContextMenu name="КомментарийКонтекстноеМеню" id="130"/>
-					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="131"/>
-				</InputField>
 			</ChildItems>
 		</UsualGroup>
+		<Pages name="ГруппаДанные" id="65">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа данные</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<VerticalStretch>true</VerticalStretch>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаДанныеРасширеннаяПодсказка" id="66"/>
+			<ChildItems>
+				<Page name="ГруппаОсновныеДанные" id="67">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основные данные</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<VerticalSpacing>Single</VerticalSpacing>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ГруппаОсновныеДанныеРасширеннаяПодсказка" id="68"/>
+					<ChildItems>
+						<InputField name="Организация" id="20">
+							<DataPath>Объект.Организация</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>30</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="22"/>
+						</InputField>
+						<InputField name="КассаККМ" id="93">
+							<DataPath>Объект.КассаККМ</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Width>30</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="КассаККМКонтекстноеМеню" id="94"/>
+							<ExtendedTooltip name="КассаККМРасширеннаяПодсказка" id="95"/>
+						</InputField>
+						<InputField name="НачалоКассовойСмены" id="14">
+							<DataPath>Объект.НачалоКассовойСмены</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Начало</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>12</Width>
+							<ContextMenu name="НачалоКассовойСменыКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="НачалоКассовойСменыРасширеннаяПодсказка" id="16"/>
+						</InputField>
+						<InputField name="ОкончаниеКассовойСмены" id="17">
+							<DataPath>Объект.ОкончаниеКассовойСмены</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Окончание</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>12</Width>
+							<ContextMenu name="ОкончаниеКассовойСменыКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="ОкончаниеКассовойСменыРасширеннаяПодсказка" id="19"/>
+						</InputField>
+						<InputField name="Статус" id="23">
+							<DataPath>Объект.Статус</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>12</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="СтатусКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="25"/>
+						</InputField>
+						<InputField name="Комментарий" id="26">
+							<DataPath>Объект.Комментарий</DataPath>
+							<TitleLocation>Left</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>45</MaxWidth>
+							<VerticalStretch>false</VerticalStretch>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="28"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаФискальныеДанные" id="69">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Фискальные данные</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<VerticalSpacing>Single</VerticalSpacing>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ГруппаФискальныеДанныеРасширеннаяПодсказка" id="70"/>
+					<ChildItems>
+						<InputField name="НомерСменыККТ" id="29">
+							<DataPath>Объект.НомерСменыККТ</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>12</Width>
+							<ContextMenu name="НомерСменыККТКонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="НомерСменыККТРасширеннаяПодсказка" id="31"/>
+						</InputField>
+						<InputField name="ДатаСменыККТ" id="34">
+							<DataPath>Объект.ДатаСменыККТ</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>12</Width>
+							<ContextMenu name="ДатаСменыККТКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="ДатаСменыККТРасширеннаяПодсказка" id="36"/>
+						</InputField>
+						<InputField name="КоличествоЧеков" id="37">
+							<DataPath>Объект.КоличествоЧеков</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>12</Width>
+							<ContextMenu name="КоличествоЧековКонтекстноеМеню" id="38"/>
+							<ExtendedTooltip name="КоличествоЧековРасширеннаяПодсказка" id="39"/>
+						</InputField>
+						<InputField name="КоличествоФД" id="40">
+							<DataPath>Объект.КоличествоФД</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>12</Width>
+							<ContextMenu name="КоличествоФДКонтекстноеМеню" id="41"/>
+							<ExtendedTooltip name="КоличествоФДРасширеннаяПодсказка" id="42"/>
+						</InputField>
+						<InputField name="КоличествоНепереданныхФД" id="43">
+							<DataPath>Объект.КоличествоНепереданныхФД</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>12</Width>
+							<ContextMenu name="КоличествоНепереданныхФДКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="КоличествоНепереданныхФДРасширеннаяПодсказка" id="45"/>
+						</InputField>
+						<InputField name="ДатаПервогоНепереданногоФД" id="46">
+							<DataPath>Объект.ДатаПервогоНепереданногоФД</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>12</Width>
+							<ContextMenu name="ДатаПервогоНепереданногоФДКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="ДатаПервогоНепереданногоФДРасширеннаяПодсказка" id="48"/>
+						</InputField>
+						<Button name="ПолныеФискальныеДанные" id="89">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.ПолныеФискальныеДанные</CommandName>
+							<ExtendedTooltip name="ПолныеФискальныеДанныеРасширеннаяПодсказка" id="90"/>
+						</Button>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -466,7 +492,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Фискальные данные</v8:content>
+					<v8:content>Все фискальные данные</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>

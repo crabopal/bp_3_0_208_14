@@ -29,39 +29,6 @@
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ФормаПодключитьНовое" id="36">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Create</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Подключить новое</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаПодключитьНовоеРасширеннаяПодсказка" id="37"/>
-			</Button>
-			<Button name="СписокУстройствНастроитьОборудование" id="38" DisplayImportance="VeryHigh">
-				<Type>CommandBarButton</Type>
-				<Representation>PictureAndText</Representation>
-				<CommandName>Form.Command.НастроитьОборудование</CommandName>
-				<Picture>
-					<xr:Ref>StdPicture.Setting</xr:Ref>
-					<xr:LoadTransparent>true</xr:LoadTransparent>
-				</Picture>
-				<ExtendedTooltip name="СписокУстройствНастроитьОборудованиеРасширеннаяПодсказка" id="39"/>
-			</Button>
-			<Button name="СписокУстройствВывестиСписок" id="78">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Item.СписокУстройств.StandardCommand.OutputList</CommandName>
-				<ExtendedTooltip name="СписокУстройствВывестиСписокРасширеннаяПодсказка" id="79"/>
-			</Button>
-			<Button name="СписокУстройствИзменитьФорму" id="76">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-				<ExtendedTooltip name="СписокУстройствИзменитьФормуРасширеннаяПодсказка" id="77"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -151,47 +118,10 @@
 						<Event name="OnChange">РабочееМестоПриИзменении</Event>
 					</Events>
 				</InputField>
-				<CommandBar name="КомандыУправления" id="109" DisplayImportance="Low">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Команды управления</v8:content>
-						</v8:item>
-					</Title>
-					<ExtendedTooltip name="КомандыУправленияРасширеннаяПодсказка" id="110"/>
-					<ChildItems>
-						<ButtonGroup name="КомандыФормы" id="107">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Команды формы</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="КомандыФормыРасширеннаяПодсказка" id="108"/>
-							<ChildItems>
-								<Button name="ИзменитьФорму" id="111">
-									<Type>CommandBarButton</Type>
-									<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-									<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="112"/>
-								</Button>
-							</ChildItems>
-						</ButtonGroup>
-						<ButtonGroup name="ПодключаемыеКоманды" id="83">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Подключаемые команды</v8:content>
-								</v8:item>
-							</Title>
-							<ExtendedTooltip name="ПодключаемыеКомандыРасширеннаяПодсказка" id="84"/>
-						</ButtonGroup>
-					</ChildItems>
-				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<Table name="СписокУстройств" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<SelectionMode>SingleRow</SelectionMode>
@@ -199,8 +129,8 @@
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
 			<DataPath>СписокУстройств</DataPath>
-			<ShowCommandBar>true</ShowCommandBar>
-			<AutoRefresh>true</AutoRefresh>
+			<RowPictureDataPath>СписокУстройств.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
 				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
@@ -217,6 +147,43 @@
 			<ContextMenu name="СписокУстройствКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокУстройствКоманднаяПанель" id="5">
 				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаПодключитьНовое" id="36">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Create</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подключить новое</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаПодключитьНовоеРасширеннаяПодсказка" id="37"/>
+					</Button>
+					<Button name="СписокУстройствНастроитьОборудование" id="38">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.НастроитьОборудование</CommandName>
+						<ExtendedTooltip name="СписокУстройствНастроитьОборудованиеРасширеннаяПодсказка" id="39"/>
+					</Button>
+					<Button name="СписокУстройствВывестиСписок" id="78">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.OutputList</CommandName>
+						<ExtendedTooltip name="СписокУстройствВывестиСписокРасширеннаяПодсказка" id="79"/>
+					</Button>
+					<Button name="СписокУстройствИзменитьФорму" id="76">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+						<ExtendedTooltip name="СписокУстройствИзменитьФормуРасширеннаяПодсказка" id="77"/>
+					</Button>
+					<ButtonGroup name="ПодключаемыеКоманды" id="83">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подключаемые команды</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ПодключаемыеКомандыРасширеннаяПодсказка" id="84"/>
+					</ButtonGroup>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокУстройствРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокУстройствСтрокаПоиска" id="7">
@@ -246,7 +213,6 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnActivateRow">СписокУстройствПриАктивизацииСтроки</Event>
-				<Event name="OnHover">СписокУстройствПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="Ссылка" id="80">
@@ -440,14 +406,7 @@
 					<v8:content>Настроить оборудование</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Setting</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>НастроитьОборудование</Action>
-			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">СписокУстройств</AssociatedTableElementId>
 		</Command>
 	</Commands>
 </Form>

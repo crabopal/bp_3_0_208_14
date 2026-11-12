@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
-	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<Width>73</Width>
+	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandSet>
@@ -172,9 +173,9 @@
 											<v8:content>Номер счета</v8:content>
 										</v8:item>
 									</Title>
-									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<Width>14</Width>
 									<EditTextUpdate>OnValueChange</EditTextUpdate>
 									<ContextMenu name="НомерСчетаКонтекстноеМеню" id="8"/>
 									<ExtendedTooltip name="НомерСчетаExtendedTooltip" id="223"/>
@@ -184,7 +185,6 @@
 								</InputField>
 								<LabelField name="ПодсказкаНомерСчета" id="475">
 									<DataPath>ПодсказкаНомерСчета</DataPath>
-									<Visible>false</Visible>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -215,8 +215,8 @@
 					<ExtendedTooltip name="ГруппаРеглУчетРасширеннаяПодсказка" id="458"/>
 					<ChildItems>
 						<InputField name="СчетБанк" id="320">
-							<DataPath>Объект.СчетУчета</DataPath>
-							<Visible>false</Visible>
+							<DataPath>Объект.СчетБанк</DataPath>
+							<HorizontalStretch>false</HorizontalStretch>
 							<ContextMenu name="СчетБанкКонтекстноеМеню" id="321"/>
 							<ExtendedTooltip name="СчетБанкРасширеннаяПодсказка" id="322"/>
 						</InputField>
@@ -238,7 +238,7 @@
 								</v8:item>
 							</Title>
 							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-							<Group>Vertical</Group>
+							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -251,7 +251,6 @@
 									<ExtendedTooltip name="ДатаОткрытияExtendedTooltip" id="262"/>
 								</InputField>
 								<LabelDecoration name="Отступ" id="459">
-									<Visible>false</Visible>
 									<Width>3</Width>
 									<ContextMenu name="ОтступКонтекстноеМеню" id="460"/>
 									<ExtendedTooltip name="ОтступРасширеннаяПодсказка" id="461"/>
@@ -265,6 +264,7 @@
 							</ChildItems>
 						</UsualGroup>
 						<InputField name="ПодразделениеОрганизации" id="111">
+							<DataPath>Объект.ПодразделениеОрганизации</DataPath>
 							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
 							<OpenButton>false</OpenButton>
 							<ContextMenu name="ПодразделениеОрганизацииКонтекстноеМеню" id="112"/>
@@ -495,7 +495,6 @@
 			</ToolTip>
 			<Action>КомандаЗаписатьИЗакрыть</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>
@@ -517,6 +516,25 @@
 				<Type>Auto</Type>
 				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
 				<Index>2</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Catalog.РеквизитыКодаДляОплаты.StandardCommand.OpenByValue</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<Index>1</Index>
 				<DefaultVisible>false</DefaultVisible>
 				<Visible>
 					<xr:Common>false</xr:Common>

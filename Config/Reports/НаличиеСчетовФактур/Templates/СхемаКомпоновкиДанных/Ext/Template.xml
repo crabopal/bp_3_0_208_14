@@ -220,41 +220,6 @@
 		<dataSource>ИсточникДанных1</dataSource>
 		<objectName>НаборНаличиеСчетовФактур</objectName>
 	</dataSet>
-	<dataSet xsi:type="DataSetQuery">
-		<name>СоставСегментаКонтрагентов</name>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Сегмент</dataPath>
-			<field>Сегмент</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Сегмент контрагентов</v8:content>
-				</v8:item>
-			</title>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Контрагент</dataPath>
-			<field>Контрагент</field>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
-		</field>
-		<dataSource>ИсточникДанных1</dataSource>
-		<query>ВЫБРАТЬ
-	СоставСегментаКонтрагентов.Сегмент КАК Сегмент,
-	СоставСегментаКонтрагентов.Контрагент КАК Контрагент
-ИЗ
-	РегистрСведений.СоставСегментаКонтрагентов КАК СоставСегментаКонтрагентов</query>
-	</dataSet>
-	<dataSetLink>
-		<sourceDataSet>НаборНаличиеСчетовФактур</sourceDataSet>
-		<destinationDataSet>СоставСегментаКонтрагентов</destinationDataSet>
-		<sourceExpression>Контрагент</sourceExpression>
-		<destinationExpression>Контрагент</destinationExpression>
-	</dataSetLink>
 	<calculatedField>
 		<dataPath>Ошибка</dataPath>
 		<expression>СчетФактура = Неопределено 
@@ -275,87 +240,6 @@
 			<v8:Type>xs:boolean</v8:Type>
 		</valueType>
 	</calculatedField>
-	<parameter>
-		<name>Период</name>
-		<title xsi:type="v8:LocalStringType">
-			<v8:item>
-				<v8:lang>ru</v8:lang>
-				<v8:content>Период</v8:content>
-			</v8:item>
-		</title>
-		<valueType>
-			<v8:Type>v8:StandardPeriod</v8:Type>
-		</valueType>
-		<value xsi:type="v8:StandardPeriod">
-			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
-			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
-		</value>
-		<useRestriction>false</useRestriction>
-		<use>Always</use>
-	</parameter>
-	<parameter>
-		<name>НаличиеСчетаФактуры</name>
-		<title xsi:type="v8:LocalStringType">
-			<v8:item>
-				<v8:lang>ru</v8:lang>
-				<v8:content>Показывать документы</v8:content>
-			</v8:item>
-		</title>
-		<valueType>
-			<v8:Type>xs:string</v8:Type>
-			<v8:StringQualifiers>
-				<v8:Length>0</v8:Length>
-				<v8:AllowedLength>Variable</v8:AllowedLength>
-			</v8:StringQualifiers>
-		</valueType>
-		<value xsi:type="xs:string"/>
-		<useRestriction>false</useRestriction>
-		<availableValue>
-			<value xsi:type="xs:string">Без ошибок</value>
-			<presentation xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Без ошибок</v8:content>
-				</v8:item>
-			</presentation>
-		</availableValue>
-		<availableValue>
-			<value xsi:type="xs:string">С ошибками</value>
-			<presentation xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>С ошибками</v8:content>
-				</v8:item>
-			</presentation>
-		</availableValue>
-		<availableValue>
-			<value xsi:type="xs:string">Все</value>
-			<presentation xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Все</v8:content>
-				</v8:item>
-			</presentation>
-		</availableValue>
-		<denyIncompleteValues>true</denyIncompleteValues>
-		<use>Always</use>
-	</parameter>
-	<parameter>
-		<name>Организация</name>
-		<title xsi:type="v8:LocalStringType">
-			<v8:item>
-				<v8:lang>ru</v8:lang>
-				<v8:content>Организация</v8:content>
-			</v8:item>
-		</title>
-		<valueType>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
-		</valueType>
-		<value xsi:nil="true"/>
-		<useRestriction>false</useRestriction>
-		<use>Always</use>
-	</parameter>
 	<template>
 		<name>Макет1</name>
 		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
@@ -405,13 +289,8 @@
 		<template>Макет2</template>
 	</fieldTemplate>
 	<settingsVariant>
-		<dcsset:name>НаличиеСчетовФактур</dcsset:name>
-		<dcsset:presentation xsi:type="v8:LocalStringType">
-			<v8:item>
-				<v8:lang>ru</v8:lang>
-				<v8:content>Наличие счетов-фактур (полученных) с НДС при УСН</v8:content>
-			</v8:item>
-		</dcsset:presentation>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
 		<dcsset:settings xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -438,50 +317,19 @@
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-					<dcsset:viewMode>Normal</dcsset:viewMode>
-					<dcsset:userSettingID>e1d9ffeb-0c03-457f-a119-912c21ba4c70</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Оригинал</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
-					<dcsset:viewMode>Normal</dcsset:viewMode>
-					<dcsset:userSettingID>10c5e680-df11-4ca6-9eb3-65704f156c68</dcsset:userSettingID>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">Сегмент</dcsset:left>
-					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-					<dcsset:viewMode>Normal</dcsset:viewMode>
-					<dcsset:userSettingID>94d86bdc-2155-4212-b374-fb3bf815f63b</dcsset:userSettingID>
 				</dcsset:item>
 			</dcsset:filter>
-			<dcsset:dataParameters>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>Период</dcscor:parameter>
-					<dcscor:value xsi:type="v8:StandardPeriod">
-						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
-					</dcscor:value>
-					<dcsset:userSettingID>7a70bb36-62d1-4595-bdf2-694ceeb963d8</dcsset:userSettingID>
-				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>НаличиеСчетаФактуры</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">Все</dcscor:value>
-					<dcsset:userSettingID>975b4723-3510-488a-b088-33564876b4fc</dcsset:userSettingID>
-				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>Организация</dcscor:parameter>
-					<dcscor:value xsi:nil="true"/>
-					<dcsset:userSettingID>20055c95-e981-4bfc-bdfe-2e4d744c436a</dcsset:userSettingID>
-				</dcscor:item>
-			</dcsset:dataParameters>
 			<dcsset:outputParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>МакетОформления</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">Основной</dcscor:value>
-					<dcsset:viewMode>Normal</dcsset:viewMode>
-					<dcsset:userSettingID>50d11925-bb6c-443e-a87f-9e881036056d</dcsset:userSettingID>
+					<dcscor:value xsi:type="xs:string">БезОформления</dcscor:value>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
@@ -490,14 +338,10 @@
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
 					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
-					<dcsset:viewMode>Normal</dcsset:viewMode>
-					<dcsset:userSettingID>dfddc5eb-0189-4845-a759-35c885ec143b</dcsset:userSettingID>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
 					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
-					<dcsset:viewMode>Normal</dcsset:viewMode>
-					<dcsset:userSettingID>db56d778-0bc1-46d7-82d7-108467fa8f39</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:outputParameters>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
@@ -659,13 +503,114 @@
 							<dcscor:value xsi:type="xs:string">ОформлениеОтчетовЗеленый</dcscor:value>
 						</dcscor:item>
 					</dcsset:outputParameters>
-					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>По документам</v8:content>
-						</v8:item>
-					</dcsset:userSettingPresentation>
 				</dcsset:item>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:name>БезГруппировки</dcsset:name>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>СчетФактура</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Ошибка</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							</dcsset:item>
+						</dcsset:filter>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>ЦветТекста</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>ДокументОснование</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">60</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>СуммаДокумента</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>РастягиватьПоГоризонтали</dcscor:parameter>
+								<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>Оригинал</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>СчетФактура</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">50</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">50</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
 			</dcsset:item>
 		</dcsset:settings>
 	</settingsVariant>

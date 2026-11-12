@@ -10,42 +10,10 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
-		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Подключить" id="43">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<DefaultItem>true</DefaultItem>
-				<AutoMaxWidth>false</AutoMaxWidth>
-				<AutoMaxHeight>false</AutoMaxHeight>
-				<CommandName>Form.Command.Подключиться</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Подключиться к электронному обмену</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ПодключитьРасширеннаяПодсказка" id="44"/>
-			</Button>
-			<Button name="Закрыть" id="45">
-				<Type>CommandBarButton</Type>
-				<AutoMaxWidth>false</AutoMaxWidth>
-				<AutoMaxHeight>false</AutoMaxHeight>
-				<CommandName>Form.Command.НажатиеПоказатьПозже</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Закрыть</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="46"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -79,8 +47,6 @@
 					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="51"/>
 					<ChildItems>
 						<PictureDecoration name="ДекорацияЛоготип" id="52">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -97,7 +63,7 @@
 						</PictureDecoration>
 						<LabelDecoration name="ДекорацияЗаголовок" id="47">
 							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -112,8 +78,6 @@
 							</Events>
 						</LabelDecoration>
 						<LabelDecoration name="ДекорацияПроверка" id="55">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
 							<ContextMenu name="ДекорацияПроверкаКонтекстноеМеню" id="56"/>
 							<ExtendedTooltip name="ДекорацияПроверкаРасширеннаяПодсказка" id="57"/>
 						</LabelDecoration>
@@ -121,7 +85,6 @@
 				</UsualGroup>
 				<LabelDecoration name="ДекорацияПреимущество" id="58">
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<AutoMaxHeight>false</AutoMaxHeight>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -133,6 +96,46 @@
 					<ContextMenu name="ДекорацияПреимуществоКонтекстноеМеню" id="59"/>
 					<ExtendedTooltip name="ДекорацияПреимуществоРасширеннаяПодсказка" id="60"/>
 				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКнопок" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа команд формы</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>WeakSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКнопокРасширеннаяПодсказка" id="42"/>
+			<ChildItems>
+				<Button name="Подключить" id="43">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<DefaultItem>true</DefaultItem>
+					<CommandName>Form.Command.Подключиться</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подключиться к электронному обмену</v8:content>
+						</v8:item>
+					</Title>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ПодключитьРасширеннаяПодсказка" id="44"/>
+				</Button>
+				<Button name="Закрыть" id="45">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.НажатиеПоказатьПозже</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Закрыть</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="46"/>
+				</Button>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -253,7 +256,6 @@
 			</ToolTip>
 			<Action>НажатиеПоказатьПозже</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Подключиться" id="3">
 			<Title>
@@ -270,7 +272,6 @@
 			</ToolTip>
 			<Action>Подключиться</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

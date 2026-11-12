@@ -11,43 +11,8 @@
 	<AutoTitle>false</AutoTitle>
 	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="Подключить" id="28">
-				<Type>CommandBarButton</Type>
-				<Representation>Text</Representation>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Зарегистрировать</CommandName>
-				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ПодключитьРасширеннаяПодсказка" id="29"/>
-			</Button>
-			<ButtonGroup name="ФормаГруппаКомандБизнесСети" id="456">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Группа команд 1С:Бизнес-сети</v8:content>
-					</v8:item>
-				</Title>
-				<ToolTip>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Форма группа команд бизне сети</v8:content>
-					</v8:item>
-				</ToolTip>
-				<ExtendedTooltip name="ФормаГруппаКомандБизнесСетиРасширеннаяПодсказка" id="457"/>
-				<ChildItems>
-					<Button name="Отключить" id="454">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Отключить</CommandName>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ОтключитьРасширеннаяПодсказка" id="455"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -82,6 +47,7 @@
 					<ExtendedTooltip name="ГруппаШапкиРасширеннаяПодсказка" id="390"/>
 					<ChildItems>
 						<PictureDecoration name="Логотип" id="127">
+							<TextColor>style:BorderColor</TextColor>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -94,6 +60,7 @@
 								<xr:LoadTransparent>false</xr:LoadTransparent>
 							</Picture>
 							<FileDragMode>AsFile</FileDragMode>
+							<PictureColor>style:BorderColor</PictureColor>
 							<ContextMenu name="ЛоготипКонтекстноеМеню" id="128"/>
 							<ExtendedTooltip name="ЛоготипРасширеннаяПодсказка" id="129"/>
 						</PictureDecoration>
@@ -117,25 +84,89 @@
 						</LabelDecoration>
 					</ChildItems>
 				</UsualGroup>
+				<CommandBar name="ГруппаКоманд" id="355">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Команды</v8:content>
+						</v8:item>
+					</Title>
+					<Width>11</Width>
+					<ExtendedTooltip name="ГруппаКомандРасширеннаяПодсказка" id="356"/>
+					<ChildItems>
+						<ButtonGroup name="ГруппаЕще" id="383">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа еще</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSource>Form</CommandSource>
+							<ExtendedTooltip name="ГруппаЕщеРасширеннаяПодсказка" id="384"/>
+							<ChildItems>
+								<Button name="ЕщеЗарегистрироватьОрганизации" id="367">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.Зарегистрировать</CommandName>
+									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+									<ExtendedTooltip name="ЕщеЗарегистрироватьОрганизацииРасширеннаяПодсказка" id="368"/>
+								</Button>
+								<Button name="ЕщеОбновить" id="359">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
+									<ExtendedTooltip name="ЕщеОбновитьРасширеннаяПодсказка" id="360"/>
+								</Button>
+								<Button name="ЕщеОтключитьОрганизации" id="363">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.Отключить</CommandName>
+									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+									<ExtendedTooltip name="ЕщеОтключитьОрганизацииРасширеннаяПодсказка" id="364"/>
+								</Button>
+								<ButtonGroup name="ЕщеДополнительная" id="361">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Еще (дополнительная)</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Еще дополнительная</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ЕщеДополнительнаяРасширеннаяПодсказка" id="362"/>
+								</ButtonGroup>
+								<Button name="ФормаКнопкаСправка" id="387">
+									<Type>CommandBarButton</Type>
+									<Visible>false</Visible>
+									<CommandName>Form.StandardCommand.Help</CommandName>
+									<ExtendedTooltip name="ФормаКнопкаСправкаРасширеннаяПодсказка" id="388"/>
+								</Button>
+							</ChildItems>
+						</ButtonGroup>
+						<Button name="Справка" id="353">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.Help</CommandName>
+							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="354"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
-		<Pages name="Основная" id="443">
+		<UsualGroup name="Основное" id="263">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Основная</v8:content>
+					<v8:content>Основное</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Основная</v8:content>
-				</v8:item>
-			</ToolTip>
-			<PagesRepresentation>None</PagesRepresentation>
-			<ExtendedTooltip name="ОсновнаяРасширеннаяПодсказка" id="444"/>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ОсновноеРасширеннаяПодсказка" id="264"/>
 			<ChildItems>
-				<Page name="ГруппаСписок" id="265">
+				<UsualGroup name="ГруппаСписок" id="265">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -143,176 +174,187 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаСписокРасширеннаяПодсказка" id="266"/>
 					<ChildItems>
-						<Table name="Список" id="468">
-							<Representation>List</Representation>
-							<ChangeRowSet>false</ChangeRowSet>
-							<ChangeRowOrder>false</ChangeRowOrder>
-							<SelectionMode>SingleRow</SelectionMode>
+						<Table name="Список" id="391">
+							<Height>3</Height>
 							<RowSelectionMode>Cell</RowSelectionMode>
-							<AutoInsertNewRow>true</AutoInsertNewRow>
-							<RowActionsShowType>ShowOnHover</RowActionsShowType>
-							<EnableStartDrag>true</EnableStartDrag>
-							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>Список</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Список</v8:content>
+								</v8:item>
+							</Title>
 							<CommandSet>
-								<ExcludedCommand>Add</ExcludedCommand>
-								<ExcludedCommand>CancelSearch</ExcludedCommand>
-								<ExcludedCommand>Change</ExcludedCommand>
-								<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
-								<ExcludedCommand>Copy</ExcludedCommand>
 								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
-								<ExcludedCommand>Delete</ExcludedCommand>
-								<ExcludedCommand>EndEdit</ExcludedCommand>
-								<ExcludedCommand>Find</ExcludedCommand>
-								<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
-								<ExcludedCommand>MoveDown</ExcludedCommand>
-								<ExcludedCommand>MoveUp</ExcludedCommand>
-								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
-								<ExcludedCommand>SearchHistory</ExcludedCommand>
-								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
-								<ExcludedCommand>SortListAsc</ExcludedCommand>
-								<ExcludedCommand>SortListDesc</ExcludedCommand>
+								<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
+								<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
 							</CommandSet>
-							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="СписокКонтекстноеМеню" id="469"/>
-							<AutoCommandBar name="СписокКоманднаяПанель" id="470">
-								<Autofill>false</Autofill>
+							<SearchStringLocation>None</SearchStringLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>false</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокКонтекстноеМеню" id="392">
 								<ChildItems>
-									<Button name="ОбновитьСписокКонтекстная" id="529">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ОбновитьСписок</CommandName>
-										<ExtendedTooltip name="ОбновитьСписокКонтекстнаяРасширеннаяПодсказка" id="530"/>
-									</Button>
-									<Button name="ПодключитьКонтекстная" id="534">
-										<Type>CommandBarButton</Type>
-										<Representation>Text</Representation>
-										<DefaultButton>true</DefaultButton>
-										<CommandName>Form.Command.Зарегистрировать</CommandName>
-										<ButtonImportance>Main</ButtonImportance>
-										<ExtendedTooltip name="ПодключитьКонтекстнаяРасширеннаяПодсказка" id="535"/>
-									</Button>
-									<Button name="ФормаОткрытьПрофильОрганизацииНаСайтеБизнесСетиКонтекстная" id="523">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ОткрытьПрофильОрганизацииНаСайтеБизнесСети</CommandName>
-										<ExtendedTooltip name="ФормаОткрытьПрофильОрганизацииНаСайтеБизнесСетиКонтекстнаяРасширеннаяПодсказка" id="524"/>
-									</Button>
-									<Button name="ОтключитьКонтекстная" id="531">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.Отключить</CommandName>
-										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-										<ExtendedTooltip name="ОтключитьКонтекстнаяРасширеннаяПодсказка" id="532"/>
-									</Button>
+									<ButtonGroup name="СписокКонтекстноеМенюРегистрация" id="408">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Список контекстное меню регистрация</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Список контекстное меню регистрация</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="СписокКонтекстноеМенюРегистрацияРасширеннаяПодсказка" id="409"/>
+										<ChildItems>
+											<Button name="СписокКонтекстноеМенюЗарегистрировать" id="404">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.Зарегистрировать</CommandName>
+												<ExtendedTooltip name="СписокКонтекстноеМенюЗарегистрироватьРасширеннаяПодсказка" id="405"/>
+											</Button>
+											<Button name="СписокКонтекстноеМенюОтключить" id="406">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.Отключить</CommandName>
+												<ExtendedTooltip name="СписокКонтекстноеМенюОтключитьРасширеннаяПодсказка" id="407"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
 								</ChildItems>
+							</ContextMenu>
+							<AutoCommandBar name="СписокКоманднаяПанель" id="393">
+								<Autofill>false</Autofill>
 							</AutoCommandBar>
-							<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="471"/>
-							<SearchStringAddition name="СписокСтрокаПоиска" id="472">
+							<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="394"/>
+							<SearchStringAddition name="СписокСтрокаПоиска" id="395">
 								<AdditionSource>
 									<Item>Список</Item>
 									<Type>SearchStringRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="473"/>
-								<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="474"/>
+								<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="396"/>
+								<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="397"/>
 							</SearchStringAddition>
-							<ViewStatusAddition name="СписокСостояниеПросмотра" id="475">
+							<ViewStatusAddition name="СписокСостояниеПросмотра" id="398">
 								<AdditionSource>
 									<Item>Список</Item>
 									<Type>ViewStatusRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="476"/>
-								<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="477"/>
+								<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="399"/>
+								<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="400"/>
 							</ViewStatusAddition>
-							<SearchControlAddition name="СписокУправлениеПоиском" id="478">
+							<SearchControlAddition name="СписокУправлениеПоиском" id="401">
 								<AdditionSource>
 									<Item>Список</Item>
 									<Type>SearchControl</Type>
 								</AdditionSource>
-								<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="479"/>
-								<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="480"/>
+								<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="402"/>
+								<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="403"/>
 							</SearchControlAddition>
 							<Events>
+								<Event name="Selection">СписокВыбор</Event>
 								<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
 							</Events>
 							<ChildItems>
-								<CheckBoxField name="Подключена" id="495">
-									<DataPath>Список.Подключена</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Подключена</v8:content>
-										</v8:item>
-									</ToolTip>
-									<HorizontalAlign>Left</HorizontalAlign>
-									<HeaderPicture>
-										<xr:Ref>CommonPicture.БизнесСеть</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
-									</HeaderPicture>
-									<FooterHorizontalAlign>Left</FooterHorizontalAlign>
-									<CheckBoxType>Switcher</CheckBoxType>
-									<ContextMenu name="ПодключенаКонтекстноеМеню" id="496"/>
-									<ExtendedTooltip name="ПодключенаРасширеннаяПодсказка" id="497"/>
-									<Events>
-										<Event name="OnChange">ПодключенаПриИзменении</Event>
-									</Events>
-								</CheckBoxField>
-								<ColumnGroup name="СписокОрганизацийГруппаОрганизации" id="507">
+								<PictureField name="КартинкаСтрок" id="223">
+									<DataPath>Список.КартинкаСтрок</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
 											<v8:content>Подключена</v8:content>
 										</v8:item>
 									</Title>
-									<ToolTip>
+									<HorizontalAlign>Center</HorizontalAlign>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.БизнесСеть</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</HeaderPicture>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.ПризнакПодключенияОрганизацииБизнесСеть</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</ValuesPicture>
+									<ContextMenu name="КартинкаСтрокКонтекстноеМеню" id="224"/>
+									<ExtendedTooltip name="КартинкаСтрокРасширеннаяПодсказка" id="225"/>
+								</PictureField>
+								<LabelField name="Организация" id="226">
+									<DataPath>Список.Ссылка</DataPath>
+									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Подключена</v8:content>
+											<v8:content>Организация</v8:content>
 										</v8:item>
-									</ToolTip>
-									<Group>InCell</Group>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="СписокОрганизацийГруппаОрганизацииРасширеннаяПодсказка" id="508"/>
-									<ChildItems>
-										<PictureField name="ТребуетсяПовторноеПодключение" id="491">
-											<DataPath>Список.ТребуетсяПовторноеПодключение</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<ShowInHeader>false</ShowInHeader>
-											<ValuesPicture>
-												<xr:Ref>StdPicture.AppearanceExclamationMarkIcon</xr:Ref>
-												<xr:LoadTransparent>true</xr:LoadTransparent>
-											</ValuesPicture>
-											<ContextMenu name="ТребуетсяПовторноеПодключениеКонтекстноеМеню" id="492"/>
-											<ExtendedTooltip name="ТребуетсяПовторноеПодключениеРасширеннаяПодсказка" id="493"/>
-										</PictureField>
-										<InputField name="Ссылка" id="503">
-											<DataPath>Список.Ссылка</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-											<ContextMenu name="СсылкаКонтекстноеМеню" id="504"/>
-											<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="505"/>
-										</InputField>
-									</ChildItems>
-								</ColumnGroup>
-								<InputField name="ИНН" id="487">
+									</Title>
+									<AutoCellHeight>true</AutoCellHeight>
+									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="227"/>
+									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="228"/>
+								</LabelField>
+								<LabelField name="ИНН" id="249">
 									<DataPath>Список.ИНН</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-									<ContextMenu name="ИННКонтекстноеМеню" id="488"/>
-									<ExtendedTooltip name="ИННРасширеннаяПодсказка" id="489"/>
-								</InputField>
-								<InputField name="КПП" id="509">
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ИНН</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ИННКонтекстноеМеню" id="250"/>
+									<ExtendedTooltip name="ИННРасширеннаяПодсказка" id="251"/>
+								</LabelField>
+								<LabelField name="КПП" id="252">
 									<DataPath>Список.КПП</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-									<ContextMenu name="КППКонтекстноеМеню" id="510"/>
-									<ExtendedTooltip name="КППРасширеннаяПодсказка" id="511"/>
-								</InputField>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>КПП</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="КППКонтекстноеМеню" id="253"/>
+									<ExtendedTooltip name="КППРасширеннаяПодсказка" id="254"/>
+								</LabelField>
+								<LabelField name="ПредставлениеСсылкиНаПрофиль" id="410">
+									<DataPath>Список.ПредставлениеСсылкиНаПрофиль</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Управление</v8:content>
+										</v8:item>
+									</Title>
+									<CellHyperlink>true</CellHyperlink>
+									<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
+									<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
+									<TextColor>style:ЦветГиперссылкиБЭД</TextColor>
+									<ContextMenu name="ПредставлениеСсылкиНаПрофильКонтекстноеМеню" id="411"/>
+									<ExtendedTooltip name="ПредставлениеСсылкиНаПрофильРасширеннаяПодсказка" id="412"/>
+								</LabelField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
-				</Page>
-				<Page name="ГруппаОдиночное" id="267">
+				</UsualGroup>
+				<UsualGroup name="ГруппаОдиночное" id="267">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -320,236 +362,288 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаОдиночноеРасширеннаяПодсказка" id="268"/>
 					<ChildItems>
-						<Pages name="ГруппаОдиночноеЭтапы" id="450">
+						<UsualGroup name="ОбластьОрганизация" id="269">
+							<Visible>false</Visible>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа одиночное этапы</v8:content>
+									<v8:content>Организация</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTip>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ОбластьОрганизацияРасширеннаяПодсказка" id="270"/>
+							<ChildItems>
+								<InputField name="ОрганизацияНаименование" id="274">
+									<DataPath>ОрганизацияНаименование</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Width>54</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ОрганизацияНаименованиеКонтекстноеМеню" id="275"/>
+									<ExtendedTooltip name="ОрганизацияНаименованиеРасширеннаяПодсказка" id="276"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаИННКПП" id="277">
+							<Visible>false</Visible>
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа одиночное этапы</v8:content>
+									<v8:content>ИНН и КПП</v8:content>
 								</v8:item>
-							</ToolTip>
-							<PagesRepresentation>None</PagesRepresentation>
-							<ExtendedTooltip name="ГруппаОдиночноеЭтапыРасширеннаяПодсказка" id="451"/>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИННКППРасширеннаяПодсказка" id="278"/>
 							<ChildItems>
-								<Page name="ГруппаОдиночноеРегистрация" id="452">
+								<UsualGroup name="ГруппаИНН" id="279">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Группа одиночное регистрация</v8:content>
+											<v8:content>ИНН</v8:content>
 										</v8:item>
 									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа одиночное регистрация</v8:content>
-										</v8:item>
-									</ToolTip>
-									<ExtendedTooltip name="ГруппаОдиночноеРегистрацияРасширеннаяПодсказка" id="453"/>
-									<ChildItems>
-										<UsualGroup name="ОбластьОрганизация" id="269">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Организация</v8:content>
-												</v8:item>
-											</Title>
-											<Group>Horizontal</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ОбластьОрганизацияРасширеннаяПодсказка" id="270"/>
-											<ChildItems>
-												<LabelField name="ОрганизацияНаименование" id="274">
-													<DataPath>ОрганизацияНаименование</DataPath>
-													<ReadOnly>true</ReadOnly>
-													<UseCopy>true</UseCopy>
-													<ContextMenu name="ОрганизацияНаименованиеКонтекстноеМеню" id="275"/>
-													<ExtendedTooltip name="ОрганизацияНаименованиеРасширеннаяПодсказка" id="276"/>
-												</LabelField>
-											</ChildItems>
-										</UsualGroup>
-										<UsualGroup name="ГруппаИННКПП" id="277">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>ИНН и КПП</v8:content>
-												</v8:item>
-											</Title>
-											<HorizontalStretch>false</HorizontalStretch>
-											<Group>HorizontalIfPossible</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаИННКППРасширеннаяПодсказка" id="278"/>
-											<ChildItems>
-												<LabelField name="ОрганизацияИНН" id="284">
-													<DataPath>ОрганизацияИНН</DataPath>
-													<ReadOnly>true</ReadOnly>
-													<HorizontalStretch>false</HorizontalStretch>
-													<UseCopy>true</UseCopy>
-													<ContextMenu name="ОрганизацияИННКонтекстноеМеню" id="285"/>
-													<ExtendedTooltip name="ОрганизацияИННРасширеннаяПодсказка" id="286"/>
-												</LabelField>
-												<LabelField name="ОрганизацияКПП" id="292">
-													<DataPath>ОрганизацияКПП</DataPath>
-													<ReadOnly>true</ReadOnly>
-													<HorizontalStretch>false</HorizontalStretch>
-													<UseCopy>true</UseCopy>
-													<ContextMenu name="ОрганизацияКППКонтекстноеМеню" id="293"/>
-													<ExtendedTooltip name="ОрганизацияКППРасширеннаяПодсказка" id="294"/>
-												</LabelField>
-											</ChildItems>
-										</UsualGroup>
-									</ChildItems>
-								</Page>
-								<Page name="ГруппаОрганизацияЗарегистрирована" id="341">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа организация зарегистрирована</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа организация зарегистрирована</v8:content>
-										</v8:item>
-									</ToolTip>
-									<VerticalStretch>true</VerticalStretch>
 									<Group>Horizontal</Group>
-									<VerticalAlign>Center</VerticalAlign>
-									<ExtendedTooltip name="ГруппаОрганизацияЗарегистрированаРасширеннаяПодсказка" id="342"/>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаИННРасширеннаяПодсказка" id="280"/>
 									<ChildItems>
-										<PictureDecoration name="КартинкаЗарегистрировано" id="338">
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Картинка зарегистрировано</v8:content>
-												</v8:item>
-											</Title>
-											<Picture>
-												<xr:Ref>CommonPicture.Успешно32</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
-											</Picture>
-											<FileDragMode>AsFile</FileDragMode>
-											<ContextMenu name="КартинкаЗарегистрированоКонтекстноеМеню" id="339"/>
-											<ExtendedTooltip name="КартинкаЗарегистрированоРасширеннаяПодсказка" id="340"/>
-										</PictureDecoration>
-										<LabelDecoration name="ДекорацияЗарегистрировано" id="343">
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Регистрация выполнена</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ДекорацияЗарегистрированоКонтекстноеМеню" id="344"/>
-											<ExtendedTooltip name="ДекорацияЗарегистрированоРасширеннаяПодсказка" id="345"/>
-										</LabelDecoration>
-										<LabelDecoration name="НадписьПрофильОрганизации" id="416">
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Открыть профиль организации</v8:content>
-												</v8:item>
-											</Title>
-											<Hyperlink>true</Hyperlink>
-											<ContextMenu name="НадписьПрофильОрганизацииКонтекстноеМеню" id="417"/>
-											<ExtendedTooltip name="НадписьПрофильОрганизацииРасширеннаяПодсказка" id="418"/>
-											<Events>
-												<Event name="Click">НадписьПрофильОрганизацииНажатие</Event>
-											</Events>
-										</LabelDecoration>
+										<InputField name="ОрганизацияИНН" id="284">
+											<DataPath>ОрганизацияИНН</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Width>25</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ОрганизацияИННКонтекстноеМеню" id="285"/>
+											<ExtendedTooltip name="ОрганизацияИННРасширеннаяПодсказка" id="286"/>
+										</InputField>
 									</ChildItems>
-								</Page>
+								</UsualGroup>
+								<UsualGroup name="ГруппаКПП" id="287">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>КПП</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаКППРасширеннаяПодсказка" id="288"/>
+									<ChildItems>
+										<InputField name="ОрганизацияКПП" id="292">
+											<DataPath>ОрганизацияКПП</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Width>25</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ОрганизацияКППКонтекстноеМеню" id="293"/>
+											<ExtendedTooltip name="ОрганизацияКППРасширеннаяПодсказка" id="294"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
-						</Pages>
+						</UsualGroup>
 					</ChildItems>
-				</Page>
-				<Page name="ГруппаДлительноеОжидание" id="445">
+				</UsualGroup>
+				<UsualGroup name="ГруппаТребуетсяПодключение" id="424">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа длительное ожидание</v8:content>
+							<v8:content>Группа требуется подключение</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа длительное ожидание</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ExtendedTooltip name="ГруппаДлительноеОжиданиеРасширеннаяПодсказка" id="446"/>
+					<Group>AlwaysHorizontal</Group>
+					<VerticalAlign>Center</VerticalAlign>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаТребуетсяПодключениеРасширеннаяПодсказка" id="425"/>
 					<ChildItems>
-						<PictureDecoration name="ДекорацияДлительнаяОперация" id="447">
+						<PictureDecoration name="КартинкаТребуетсяПодключение" id="426">
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Декорация длительная операция</v8:content>
+									<v8:content>Картинка требуется подключение</v8:content>
 								</v8:item>
 							</Title>
 							<Picture>
-								<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
+								<xr:Ref>CommonPicture.ПредупреждениеБЭД</xr:Ref>
 								<xr:LoadTransparent>false</xr:LoadTransparent>
 							</Picture>
-							<ContextMenu name="ДекорацияДлительнаяОперацияКонтекстноеМеню" id="448"/>
-							<ExtendedTooltip name="ДекорацияДлительнаяОперацияРасширеннаяПодсказка" id="449"/>
+							<ContextMenu name="КартинкаТребуетсяПодключениеКонтекстноеМеню" id="427"/>
+							<ExtendedTooltip name="КартинкаТребуетсяПодключениеРасширеннаяПодсказка" id="428"/>
 						</PictureDecoration>
+						<LabelDecoration name="НадписьТребуетсяПодключение" id="429">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Для организации ООО "Ромашка" доступ к сервису 1С:Бизнес-сеть был приостановлен. Необходимо повторное подключение организации.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьТребуетсяПодключениеКонтекстноеМеню" id="430"/>
+							<ExtendedTooltip name="НадписьТребуетсяПодключениеРасширеннаяПодсказка" id="431"/>
+						</LabelDecoration>
 					</ChildItems>
-				</Page>
-			</ChildItems>
-		</Pages>
-		<UsualGroup name="ГруппаТребуетсяПодключение" id="424">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа требуется подключение</v8:content>
-				</v8:item>
-			</Title>
-			<Group>AlwaysHorizontal</Group>
-			<HorizontalSpacing>Half</HorizontalSpacing>
-			<VerticalAlign>Center</VerticalAlign>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<BackColor>pal:Yellow</BackColor>
-			<ExtendedTooltip name="ГруппаТребуетсяПодключениеРасширеннаяПодсказка" id="425"/>
-			<ChildItems>
-				<PictureDecoration name="КартинкаТребуетсяПодключение" id="426">
-					<Title formatted="false">
+				</UsualGroup>
+				<UsualGroup name="ГруппаНавигации" id="182">
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Картинка требуется подключение</v8:content>
+							<v8:content>Навигация</v8:content>
 						</v8:item>
 					</Title>
-					<Picture>
-						<xr:Ref>StdPicture.AppearanceExclamationMarkIcon</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<ContextMenu name="КартинкаТребуетсяПодключениеКонтекстноеМеню" id="427"/>
-					<ExtendedTooltip name="КартинкаТребуетсяПодключениеРасширеннаяПодсказка" id="428"/>
-				</PictureDecoration>
-				<LabelDecoration name="НадписьТребуетсяПодключение" id="429">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="true">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Для организации ООО "Ромашка" доступ к сервису 1С:Бизнес-сеть был приостановлен. Необходимо &lt;link .&gt;повторное подключение организации&lt;/&gt;.</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="НадписьТребуетсяПодключениеКонтекстноеМеню" id="430"/>
-					<ExtendedTooltip name="НадписьТребуетсяПодключениеРасширеннаяПодсказка" id="431"/>
-					<Events>
-						<Event name="URLProcessing">НадписьТребуетсяПодключениеОбработкаНавигационнойСсылки</Event>
-					</Events>
-				</LabelDecoration>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНавигацииРасширеннаяПодсказка" id="183"/>
+					<ChildItems>
+						<UsualGroup name="ОрганизацияЗарегистрирована" id="341">
+							<Visible>false</Visible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Организация зарегистрирована</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ОрганизацияЗарегистрированаРасширеннаяПодсказка" id="342"/>
+							<ChildItems>
+								<PictureDecoration name="КартинкаЗарегистрировано" id="338">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Картинка зарегистрировано</v8:content>
+										</v8:item>
+									</Title>
+									<Picture>
+										<xr:Ref>CommonPicture.Успешно</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="КартинкаЗарегистрированоКонтекстноеМеню" id="339"/>
+									<ExtendedTooltip name="КартинкаЗарегистрированоРасширеннаяПодсказка" id="340"/>
+								</PictureDecoration>
+								<LabelDecoration name="ДекорацияЗарегистрировано" id="343">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Регистрация выполнена</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияЗарегистрированоКонтекстноеМеню" id="344"/>
+									<ExtendedTooltip name="ДекорацияЗарегистрированоРасширеннаяПодсказка" id="345"/>
+								</LabelDecoration>
+								<LabelDecoration name="НадписьПрофильОрганизации" id="416">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Профиль организации</v8:content>
+										</v8:item>
+									</Title>
+									<Hyperlink>true</Hyperlink>
+									<ContextMenu name="НадписьПрофильОрганизацииКонтекстноеМеню" id="417"/>
+									<ExtendedTooltip name="НадписьПрофильОрганизацииРасширеннаяПодсказка" id="418"/>
+									<Events>
+										<Event name="Click">НадписьПрофильОрганизацииНажатие</Event>
+									</Events>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="КоманднаяПанель" id="328">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Командная панель</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="329"/>
+							<ChildItems>
+								<UsualGroup name="Команды" id="419">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Команды</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Group>HorizontalIfPossible</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="КомандыРасширеннаяПодсказка" id="420"/>
+									<ChildItems>
+										<Button name="Подключить" id="28">
+											<Type>UsualButton</Type>
+											<Representation>Text</Representation>
+											<DefaultButton>true</DefaultButton>
+											<CommandName>Form.Command.Зарегистрировать</CommandName>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+											<ButtonImportance>Main</ButtonImportance>
+											<ExtendedTooltip name="ПодключитьРасширеннаяПодсказка" id="29"/>
+										</Button>
+										<PictureDecoration name="КартинкаДлительнаяОперация" id="421">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Картинка длительная операция</v8:content>
+												</v8:item>
+											</Title>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
+											<Picture>
+												<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</Picture>
+											<ContextMenu name="КартинкаДлительнаяОперацияКонтекстноеМеню" id="422"/>
+											<ExtendedTooltip name="КартинкаДлительнаяОперацияРасширеннаяПодсказка" id="423"/>
+										</PictureDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаЗакрыть" id="381">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа закрыть</v8:content>
+										</v8:item>
+									</Title>
+									<Group>HorizontalIfPossible</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаЗакрытьРасширеннаяПодсказка" id="382"/>
+									<ChildItems>
+										<Button name="КомандаЗакрытьОдиночная" id="379">
+											<Type>UsualButton</Type>
+											<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+											<CommandName>Form.StandardCommand.Close</CommandName>
+											<ExtendedTooltip name="КомандаЗакрытьОдиночнаяРасширеннаяПодсказка" id="380"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -564,7 +658,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Подключаемая организация</v8:content>
+					<v8:content>Наименование</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -631,6 +725,55 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="Список" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>Список.ИдентификаторОрганизации</Field>
+				<Field>Список.КартинкаСтрок</Field>
+				<Field>Список.Подключена</Field>
+				<Field>Список.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	NULL КАК Ссылка,
+	ИСТИНА КАК Подключена,
+	NULL КАК ИНН,
+	NULL КАК КПП,
+	NULL КАК ПредставлениеСсылкиНаПрофиль,
+	NULL КАК ИдентификаторОрганизации,
+	0 КАК КартинкаСтрок
+ИЗ
+	Справочник.ИдентификаторыОбъектовМетаданных КАК СписокПереопределяемый
+ГДЕ
+	ЛОЖЬ</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
 		<Attribute name="ОрганизацияЗарегистрирована" id="18">
 			<Title>
 				<v8:item>
@@ -688,79 +831,6 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="Список" id="6">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Список</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>v8:ValueTable</v8:Type>
-			</Type>
-			<Columns>
-				<Column name="ИдентификаторОрганизации" id="1">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Идентификатор организации</v8:content>
-						</v8:item>
-					</Title>
-					<Type/>
-				</Column>
-				<Column name="ИНН" id="2">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ИНН</v8:content>
-						</v8:item>
-					</Title>
-					<Type/>
-				</Column>
-				<Column name="ТребуетсяПовторноеПодключение" id="3">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Требуется повторное подключение</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:boolean</v8:Type>
-					</Type>
-				</Column>
-				<Column name="Подключена" id="4">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Подключена</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:boolean</v8:Type>
-					</Type>
-				</Column>
-				<Column name="Ссылка" id="6">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Организация</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:TypeSet>cfg:CatalogRef</v8:TypeSet>
-					</Type>
-				</Column>
-				<Column name="КПП" id="7">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>КПП</v8:content>
-						</v8:item>
-					</Title>
-					<Type/>
-				</Column>
-			</Columns>
-		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="Зарегистрировать" id="8">
@@ -782,8 +852,6 @@
 			</Picture>
 			<Action>ЗарегистрироватьОрганизации</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отключить" id="10">
 			<Title>
@@ -804,48 +872,6 @@
 			</Picture>
 			<Action>ОтключитьОрганизации</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-		</Command>
-		<Command name="ОткрытьПрофильОрганизацииНаСайтеБизнесСети" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть профиль организации на сайте 1С:Бизнес-сети</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть профиль организации на сайте 1С:Бизнес-сети</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.GotoExternalURL</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>ОткрытьПрофильОрганизацииНаСайтеБизнесСети</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
-		</Command>
-		<Command name="ОбновитьСписок" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Обновить</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Обновить</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Refresh</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>ОбновитьСписокОрганизаций</Action>
 		</Command>
 	</Commands>
 	<Parameters>

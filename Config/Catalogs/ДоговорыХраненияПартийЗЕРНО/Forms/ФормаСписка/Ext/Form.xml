@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -25,6 +24,7 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -32,7 +32,6 @@
 			<EnableDrag>true</EnableDrag>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -49,7 +48,9 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -78,43 +79,31 @@
 			<ChildItems>
 				<LabelField name="Организация" id="19">
 					<DataPath>Список.Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Контрагент" id="34">
 					<DataPath>Список.Контрагент</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КонтрагентКонтекстноеМеню" id="35"/>
 					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="36"/>
 				</LabelField>
 				<LabelField name="НомерДоговора" id="25">
 					<DataPath>Список.НомерДоговора</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НомерДоговораКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="НомерДоговораРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 				<LabelField name="ДатаДоговора" id="22">
 					<DataPath>Список.ДатаДоговора</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаДоговораКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ДатаДоговораРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="ТипХранения" id="28">
 					<DataPath>Список.ТипХранения</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТипХраненияКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ТипХраненияРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<InputField name="МестоХраненияСтрокой" id="37">
 					<DataPath>Список.МестоХраненияСтрокой</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="МестоХраненияСтрокойКонтекстноеМеню" id="38"/>
 					<ExtendedTooltip name="МестоХраненияСтрокойРасширеннаяПодсказка" id="39"/>
 				</InputField>

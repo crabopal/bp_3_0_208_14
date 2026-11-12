@@ -3,15 +3,8 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ВвестиАкцизнуюМарку" id="59">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ВвестиАкцизнуюМарку</CommandName>
-				<ExtendedTooltip name="ВвестиАкцизнуюМаркуРасширеннаяПодсказка" id="60"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -51,7 +44,6 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаСканированиеАкцизнойМаркиРасширеннаяПодсказка" id="42"/>
 					<ChildItems>
@@ -81,11 +73,13 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаВводШКНоменклатураРасширеннаяПодсказка" id="62"/>
 							<ChildItems>
+								<Button name="ВвестиАкцизнуюМарку" id="59">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ВвестиАкцизнуюМарку</CommandName>
+									<ExtendedTooltip name="ВвестиАкцизнуюМаркуРасширеннаяПодсказка" id="60"/>
+								</Button>
 								<LabelField name="Номенклатура" id="34">
 									<DataPath>Номенклатура</DataPath>
-									<TitleLocation>Left</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Hiperlink>true</Hiperlink>
 									<ContextMenu name="НоменклатураКонтекстноеМеню" id="35"/>
 									<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="36"/>
@@ -128,50 +122,31 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаКонтрольАкцизныхМарокРасширеннаяПодсказка" id="10"/>
 					<ChildItems>
 						<LabelField name="НоменклатураКонтроль" id="50">
 							<DataPath>Номенклатура</DataPath>
-							<TitleLocation>Left</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<Hiperlink>true</Hiperlink>
 							<ContextMenu name="НоменклатураКонтрольКонтекстноеМеню" id="51"/>
 							<ExtendedTooltip name="НоменклатураКонтрольРасширеннаяПодсказка" id="52"/>
 						</LabelField>
-						<UsualGroup name="ГруппаОшибкиКонтроляАкцизныхМарок" id="67">
-							<Title>
+						<LabelDecoration name="ТекстОшибкиКонтроляАкцизныхМарок" id="53">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="true"/>
+							<ContextMenu name="ТекстОшибкиКонтроляАкцизныхМарокКонтекстноеМеню" id="54"/>
+							<ExtendedTooltip name="ТекстОшибкиКонтроляАкцизныхМарокРасширеннаяПодсказка" id="55"/>
+						</LabelDecoration>
+						<LabelDecoration name="ТекстОшибкиКонтроляАкцизныхМарокПояснение" id="56">
+							<TextColor>style:СтатусОбработкиОшибкаПередачиГосИС</TextColor>
+							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа ошибки контроля акцизных марок</v8:content>
+									<v8:content>Повторная продажа реализованной алкогольной продукции запрещена.</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаОшибкиКонтроляАкцизныхМарокРасширеннаяПодсказка" id="68"/>
-							<ChildItems>
-								<LabelDecoration name="ТекстОшибкиКонтроляАкцизныхМарок" id="53">
-									<HorizontalStretch>true</HorizontalStretch>
-									<Title formatted="true"/>
-									<ContextMenu name="ТекстОшибкиКонтроляАкцизныхМарокКонтекстноеМеню" id="54"/>
-									<ExtendedTooltip name="ТекстОшибкиКонтроляАкцизныхМарокРасширеннаяПодсказка" id="55"/>
-								</LabelDecoration>
-								<LabelDecoration name="ТекстОшибкиКонтроляАкцизныхМарокПояснение" id="56">
-									<HorizontalStretch>true</HorizontalStretch>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Повторная продажа реализованной алкогольной продукции запрещена.</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ТекстОшибкиКонтроляАкцизныхМарокПояснениеКонтекстноеМеню" id="57"/>
-									<ExtendedTooltip name="ТекстОшибкиКонтроляАкцизныхМарокПояснениеРасширеннаяПодсказка" id="58"/>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
+							<ContextMenu name="ТекстОшибкиКонтроляАкцизныхМарокПояснениеКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="ТекстОшибкиКонтроляАкцизныхМарокПояснениеРасширеннаяПодсказка" id="58"/>
+						</LabelDecoration>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -297,10 +272,6 @@
 					<v8:content>Ввести акцизную марку</v8:content>
 				</v8:item>
 			</Title>
-			<Picture>
-				<xr:Ref>CommonPicture.НовыйПоШтрихкоду</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
 			<Action>ВвестиАкцизнуюМарку</Action>
 			<Representation>Picture</Representation>
 		</Command>

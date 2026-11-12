@@ -8,7 +8,7 @@
 	</Title>
 	<Width>40</Width>
 	<Height>14</Height>
-	<WindowOpeningMode>LockOwner</WindowOpeningMode>
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandSet>
@@ -23,25 +23,7 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ОККакУчитывать" id="14">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ОК</CommandName>
-				<RepresentationInContextMenu>None</RepresentationInContextMenu>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОККакУчитыватьРасширеннаяПодсказка" id="15"/>
-			</Button>
-			<Button name="Отмена" id="16">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Cancel</CommandName>
-				<RepresentationInContextMenu>None</RepresentationInContextMenu>
-				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="17"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -84,7 +66,7 @@
 						<LabelDecoration name="ДекорацияВопросКакУчитывать" id="7">
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<Height>4</Height>
-							<Font ref="style:TitleLevel3" kind="StyleItem"/>
+							<Font ref="style:NormalTextFont" height="12" kind="StyleItem"/>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -116,8 +98,6 @@
 								<RadioButtonField name="УчитыватьНеПроверенныеОтложенныеКакВНаличииОтсутствующие" id="4">
 									<DataPath>КакУчитыватьНеПроверенныеОтложенные</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -141,8 +121,6 @@
 								<RadioButtonField name="УчитыватьНеПроверенныеОтложенныеКакВНаличии" id="1">
 									<DataPath>КакУчитыватьНеПроверенныеОтложенные</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -165,6 +143,38 @@
 								</RadioButtonField>
 							</ChildItems>
 						</UsualGroup>
+						<CommandBar name="КоманднаяПанельКакУчитывать" id="12">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Командная панель как учитывать</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Командная панель маркируемая</v8:content>
+								</v8:item>
+							</ToolTip>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+							<HorizontalLocation>Right</HorizontalLocation>
+							<ExtendedTooltip name="КоманднаяПанельКакУчитыватьРасширеннаяПодсказка" id="13"/>
+							<ChildItems>
+								<Button name="ОККакУчитывать" id="14">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.ОК</CommandName>
+									<RepresentationInContextMenu>None</RepresentationInContextMenu>
+									<ExtendedTooltip name="ОККакУчитыватьРасширеннаяПодсказка" id="15"/>
+								</Button>
+								<Button name="Отмена" id="16">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.StandardCommand.Cancel</CommandName>
+									<RepresentationInContextMenu>None</RepresentationInContextMenu>
+									<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="17"/>
+								</Button>
+							</ChildItems>
+						</CommandBar>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -323,7 +333,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Завершить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -334,7 +344,6 @@
 			</ToolTip>
 			<Action>ОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

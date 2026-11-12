@@ -10,8 +10,9 @@
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -67,7 +68,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацииЕГАИСРасширеннаяПодсказка" id="47"/>
 							<ChildItems>
@@ -80,8 +80,6 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
@@ -130,7 +128,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацияЕГАИСРасширеннаяПодсказка" id="49"/>
 							<ChildItems>
@@ -143,8 +140,6 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
@@ -184,127 +179,93 @@
 				</Pages>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаОсновное" id="68">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа основное</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа основное</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Group>AutoScreenTypeSensitive</Group>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="69"/>
+		<Table name="ВходящиеСообщения" id="1">
+			<Representation>List</Representation>
+			<ReadOnly>true</ReadOnly>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<RowSelectionMode>Cell</RowSelectionMode>
+			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.ВходящиеСообщения</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ВходящиеСообщенияКонтекстноеМеню" id="3"/>
+			<AutoCommandBar name="ВходящиеСообщенияКоманднаяПанель" id="2">
+				<ChildItems>
+					<Button name="ВходящиеСообщенияУдалитьСообщение" id="53">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.УдалитьСообщение</CommandName>
+						<ExtendedTooltip name="ВходящиеСообщенияУдалитьСообщениеРасширеннаяПодсказка" id="55"/>
+					</Button>
+					<Button name="ВходящиеСообщенияПрочитатьСообщения" id="45">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПрочитатьСообщения</CommandName>
+						<ExtendedTooltip name="ВходящиеСообщенияПрочитатьСообщенияРасширеннаяПодсказка" id="28"/>
+					</Button>
+					<Button name="ВходящиеСообщенияСправка" id="23">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ВходящиеСообщенияСправкаРасширеннаяПодсказка" id="24"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ВходящиеСообщенияРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ВходящиеСообщенияСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>ВходящиеСообщения</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВходящиеСообщенияСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ВходящиеСообщенияСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ВходящиеСообщенияСостояниеПросмотра" id="11">
+				<AdditionSource>
+					<Item>ВходящиеСообщения</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<HorizontalLocation>Left</HorizontalLocation>
+				<ContextMenu name="ВходящиеСообщенияСостояниеПросмотраКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ВходящиеСообщенияСостояниеПросмотраРасширеннаяПодсказка" id="13"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ВходящиеСообщенияУправлениеПоиском" id="8">
+				<AdditionSource>
+					<Item>ВходящиеСообщения</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ВходящиеСообщенияУправлениеПоискомКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ВходящиеСообщенияУправлениеПоискомРасширеннаяПодсказка" id="10"/>
+			</SearchControlAddition>
 			<ChildItems>
-				<Table name="ВходящиеСообщения" id="1">
-					<Representation>List</Representation>
-					<ReadOnly>true</ReadOnly>
-					<ChangeRowSet>false</ChangeRowSet>
-					<ChangeRowOrder>false</ChangeRowOrder>
-					<RowSelectionMode>Cell</RowSelectionMode>
-					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-					<FileDragMode>AsFile</FileDragMode>
-					<DataPath>Объект.ВходящиеСообщения</DataPath>
-					<RowFilter xsi:nil="true"/>
-					<ContextMenu name="ВходящиеСообщенияКонтекстноеМеню" id="3"/>
-					<AutoCommandBar name="ВходящиеСообщенияКоманднаяПанель" id="2">
-						<ChildItems>
-							<Button name="ВходящиеСообщенияУдалитьСообщение" id="53">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.УдалитьСообщение</CommandName>
-								<ExtendedTooltip name="ВходящиеСообщенияУдалитьСообщениеРасширеннаяПодсказка" id="55"/>
-							</Button>
-							<Button name="ВходящиеСообщенияПрочитатьСообщения" id="45">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.ПрочитатьСообщения</CommandName>
-								<ExtendedTooltip name="ВходящиеСообщенияПрочитатьСообщенияРасширеннаяПодсказка" id="28"/>
-							</Button>
-							<Button name="ВходящиеСообщенияИзменитьФорму" id="70">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-								<ExtendedTooltip name="ВходящиеСообщенияИзменитьФормуРасширеннаяПодсказка" id="71"/>
-							</Button>
-							<Button name="ВходящиеСообщенияСправка" id="23">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.StandardCommand.Help</CommandName>
-								<ExtendedTooltip name="ВходящиеСообщенияСправкаРасширеннаяПодсказка" id="24"/>
-							</Button>
-						</ChildItems>
-					</AutoCommandBar>
-					<ExtendedTooltip name="ВходящиеСообщенияРасширеннаяПодсказка" id="4"/>
-					<SearchStringAddition name="ВходящиеСообщенияСтрокаПоиска" id="5">
-						<AdditionSource>
-							<Item>ВходящиеСообщения</Item>
-							<Type>SearchStringRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="ВходящиеСообщенияСтрокаПоискаКонтекстноеМеню" id="6"/>
-						<ExtendedTooltip name="ВходящиеСообщенияСтрокаПоискаРасширеннаяПодсказка" id="7"/>
-					</SearchStringAddition>
-					<ViewStatusAddition name="ВходящиеСообщенияСостояниеПросмотра" id="11">
-						<AdditionSource>
-							<Item>ВходящиеСообщения</Item>
-							<Type>ViewStatusRepresentation</Type>
-						</AdditionSource>
-						<HorizontalLocation>Left</HorizontalLocation>
-						<ContextMenu name="ВходящиеСообщенияСостояниеПросмотраКонтекстноеМеню" id="12"/>
-						<ExtendedTooltip name="ВходящиеСообщенияСостояниеПросмотраРасширеннаяПодсказка" id="13"/>
-					</ViewStatusAddition>
-					<SearchControlAddition name="ВходящиеСообщенияУправлениеПоиском" id="8">
-						<AdditionSource>
-							<Item>ВходящиеСообщения</Item>
-							<Type>SearchControl</Type>
-						</AdditionSource>
-						<ContextMenu name="ВходящиеСообщенияУправлениеПоискомКонтекстноеМеню" id="9"/>
-						<ExtendedTooltip name="ВходящиеСообщенияУправлениеПоискомРасширеннаяПодсказка" id="10"/>
-					</SearchControlAddition>
-					<ChildItems>
-						<InputField name="ВходящиеСообщенияНомерСтроки" id="14">
-							<DataPath>Объект.ВходящиеСообщения.LineNumber</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<Width>6</Width>
-							<ContextMenu name="ВходящиеСообщенияНомерСтрокиКонтекстноеМеню" id="15"/>
-							<ExtendedTooltip name="ВходящиеСообщенияНомерСтрокиРасширеннаяПодсказка" id="16"/>
-						</InputField>
-						<InputField name="ВходящиеСообщенияОрганизацияЕГАИС" id="41">
-							<DataPath>Объект.ВходящиеСообщения.ОрганизацияЕГАИС</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="ВходящиеСообщенияОрганизацияЕГАИСКонтекстноеМеню" id="44"/>
-							<ExtendedTooltip name="ВходящиеСообщенияОрганизацияЕГАИСРасширеннаяПодсказка" id="54"/>
-						</InputField>
-						<InputField name="ВходящиеСообщенияИдентификаторЗапроса" id="32">
-							<DataPath>Объект.ВходящиеСообщения.ИдентификаторЗапроса</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="ВходящиеСообщенияИдентификаторЗапросаКонтекстноеМеню" id="46"/>
-							<ExtendedTooltip name="ВходящиеСообщенияИдентификаторЗапросаРасширеннаяПодсказка" id="34"/>
-						</InputField>
-						<InputField name="ВходящиеСообщенияАдресЗапроса" id="35">
-							<DataPath>Объект.ВходящиеСообщения.АдресЗапроса</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="ВходящиеСообщенияАдресЗапросаКонтекстноеМеню" id="36"/>
-							<ExtendedTooltip name="ВходящиеСообщенияАдресЗапросаРасширеннаяПодсказка" id="37"/>
-						</InputField>
-					</ChildItems>
-				</Table>
-				<TextDocumentField name="ВходящиеСообщенияТекстXML" id="38">
-					<DataPath>Items.ВходящиеСообщения.CurrentData.ТекстXML</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ВходящиеСообщенияТекстXMLКонтекстноеМеню" id="39"/>
-					<ExtendedTooltip name="ВходящиеСообщенияТекстXMLРасширеннаяПодсказка" id="40"/>
-				</TextDocumentField>
+				<InputField name="ВходящиеСообщенияНомерСтроки" id="14">
+					<DataPath>Объект.ВходящиеСообщения.LineNumber</DataPath>
+					<Width>6</Width>
+					<ContextMenu name="ВходящиеСообщенияНомерСтрокиКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ВходящиеСообщенияНомерСтрокиРасширеннаяПодсказка" id="16"/>
+				</InputField>
+				<InputField name="ВходящиеСообщенияОрганизацияЕГАИС" id="41">
+					<DataPath>Объект.ВходящиеСообщения.ОрганизацияЕГАИС</DataPath>
+					<ContextMenu name="ВходящиеСообщенияОрганизацияЕГАИСКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ВходящиеСообщенияОрганизацияЕГАИСРасширеннаяПодсказка" id="54"/>
+				</InputField>
+				<InputField name="ВходящиеСообщенияИдентификаторЗапроса" id="32">
+					<DataPath>Объект.ВходящиеСообщения.ИдентификаторЗапроса</DataPath>
+					<ContextMenu name="ВходящиеСообщенияИдентификаторЗапросаКонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="ВходящиеСообщенияИдентификаторЗапросаРасширеннаяПодсказка" id="34"/>
+				</InputField>
+				<InputField name="ВходящиеСообщенияАдресЗапроса" id="35">
+					<DataPath>Объект.ВходящиеСообщения.АдресЗапроса</DataPath>
+					<ContextMenu name="ВходящиеСообщенияАдресЗапросаКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ВходящиеСообщенияАдресЗапросаРасширеннаяПодсказка" id="37"/>
+				</InputField>
 			</ChildItems>
-		</UsualGroup>
+		</Table>
+		<TextDocumentField name="ВходящиеСообщенияТекстXML" id="38">
+			<DataPath>Items.ВходящиеСообщения.CurrentData.ТекстXML</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ВходящиеСообщенияТекстXMLКонтекстноеМеню" id="39"/>
+			<ExtendedTooltip name="ВходящиеСообщенияТекстXMLРасширеннаяПодсказка" id="40"/>
+		</TextDocumentField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -395,7 +356,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>УдалитьСообщение</Action>
-			<AssociatedTableElementId xsi:type="xs:string">ВходящиеСообщения</AssociatedTableElementId>
 		</Command>
 	</Commands>
 </Form>

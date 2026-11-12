@@ -11,38 +11,11 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ФормаВыбор" id="11">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Выбрать</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Сопоставить</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаВыборРасширеннаяПодсказка" id="12"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<LabelDecoration name="Пояснение" id="37">
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<Title formatted="false">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Сопоставьте загружаемые данные с элементами в справочнике. 
-Сопоставление возможно произвести несколько раз, выбирая разные колонки для сравнения.</v8:content>
-				</v8:item>
-			</Title>
-			<ContextMenu name="ПояснениеКонтекстноеМеню" id="38"/>
-			<ExtendedTooltip name="ПояснениеРасширеннаяПодсказка" id="39"/>
-		</LabelDecoration>
 		<Table name="СписокКолонок" id="1">
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
@@ -75,11 +48,23 @@
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 			</CommandSet>
-			<SearchStringLocation>CommandBar</SearchStringLocation>
 			<ContextMenu name="СписокКолонокКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="СписокКолонокКоманднаяПанель" id="3">
 				<ChildItems>
-					<ButtonGroup name="СписокКолонокГруппаВыбор" id="28">
+					<Button name="ФормаВыбор" id="11">
+						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.Command.Выбрать</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сопоставить</v8:content>
+							</v8:item>
+						</Title>
+						<ButtonImportance>Main</ButtonImportance>
+						<ExtendedTooltip name="ФормаВыборРасширеннаяПодсказка" id="12"/>
+					</Button>
+					<ButtonGroup name="СписокКолонокГруппа1" id="28">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -87,7 +72,7 @@
 							</v8:item>
 						</Title>
 						<Representation>Compact</Representation>
-						<ExtendedTooltip name="СписокКолонокГруппаВыборРасширеннаяПодсказка" id="29"/>
+						<ExtendedTooltip name="СписокКолонокГруппа1РасширеннаяПодсказка" id="29"/>
 						<ChildItems>
 							<Button name="СписокКолонокУстановитьФлажки" id="13">
 								<Type>CommandBarButton</Type>
@@ -103,32 +88,46 @@
 							</Button>
 						</ChildItems>
 					</ButtonGroup>
+					<SearchStringAddition name="СтрокаПоиска" id="30">
+						<AdditionSource>
+							<Item>СписокКолонок</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Поиск</v8:content>
+							</v8:item>
+						</Title>
+						<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="31"/>
+						<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="32"/>
+					</SearchStringAddition>
 				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокКолонокРасширеннаяПодсказка" id="4"/>
-			<SearchStringAddition name="СписокКолонокСтрокаПоиска" id="19">
+			<SearchStringAddition name="СписокКолонокSearchString" id="19">
 				<AdditionSource>
 					<Item>СписокКолонок</Item>
 					<Type>SearchStringRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокКолонокСтрокаПоискаКонтекстноеМеню" id="20"/>
-				<ExtendedTooltip name="СписокКолонокСтрокаПоискаРасширеннаяПодсказка" id="21"/>
+				<ContextMenu name="СписокКолонокSearchStringContextMenu" id="20"/>
+				<ExtendedTooltip name="СписокКолонокSearchStringExtendedTooltip" id="21"/>
 			</SearchStringAddition>
-			<ViewStatusAddition name="СписокКолонокСостояниеПросмотра" id="22">
+			<ViewStatusAddition name="СписокКолонокViewStatus" id="22">
 				<AdditionSource>
 					<Item>СписокКолонок</Item>
 					<Type>ViewStatusRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокКолонокСостояниеПросмотраКонтекстноеМеню" id="23"/>
-				<ExtendedTooltip name="СписокКолонокСостояниеПросмотраРасширеннаяПодсказка" id="24"/>
+				<ContextMenu name="СписокКолонокViewStatusContextMenu" id="23"/>
+				<ExtendedTooltip name="СписокКолонокViewStatusExtendedTooltip" id="24"/>
 			</ViewStatusAddition>
-			<SearchControlAddition name="СписокКолонокУправлениеПоиском" id="25">
+			<SearchControlAddition name="СписокКолонокSearchControl" id="25">
 				<AdditionSource>
 					<Item>СписокКолонок</Item>
 					<Type>SearchControl</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокКолонокУправлениеПоискомКонтекстноеМеню" id="26"/>
-				<ExtendedTooltip name="СписокКолонокУправлениеПоискомРасширеннаяПодсказка" id="27"/>
+				<ContextMenu name="СписокКолонокSearchControlContextMenu" id="26"/>
+				<ExtendedTooltip name="СписокКолонокSearchControlExtendedTooltip" id="27"/>
 			</SearchControlAddition>
 			<Events>
 				<Event name="Selection">СписокКолонокВыбор</Event>
@@ -155,7 +154,6 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="СписокКолонокПометкаКонтекстноеМеню" id="9"/>
 							<ExtendedTooltip name="СписокКолонокПометкаРасширеннаяПодсказка" id="10"/>
 						</CheckBoxField>
@@ -170,7 +168,6 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<TextEdit>false</TextEdit>
 							<ContextMenu name="СписокКолонокЗначениеКонтекстноеМеню" id="6"/>
 							<ExtendedTooltip name="СписокКолонокЗначениеРасширеннаяПодсказка" id="7"/>
 						</InputField>
@@ -221,7 +218,6 @@
 			</ToolTip>
 			<Action>Выбор</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

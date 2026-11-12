@@ -33,21 +33,6 @@
 				<InputField name="РабочееМесто" id="58">
 					<DataPath>РабочееМесто</DataPath>
 					<ClearButton>true</ClearButton>
-					<QuickChoice>true</QuickChoice>
-					<ChoiceParameters>
-						<app:item name="Отбор.ПометкаУдаления">
-							<app:value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation/>
-								<Value xsi:type="xs:boolean">false</Value>
-							</app:value>
-						</app:item>
-					</ChoiceParameters>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Рабочее место</v8:content>
-						</v8:item>
-					</InputHint>
 					<ContextMenu name="РабочееМестоКонтекстноеМеню" id="59"/>
 					<ExtendedTooltip name="РабочееМестоРасширеннаяПодсказка" id="60"/>
 					<Events>
@@ -85,12 +70,6 @@
 							</app:value>
 						</app:item>
 					</ChoiceParameters>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ФискальноеУстройство</v8:content>
-						</v8:item>
-					</InputHint>
 					<ContextMenu name="ФискальноеУстройствоШапкаКонтекстноеМеню" id="42"/>
 					<ExtendedTooltip name="ФискальноеУстройствоШапкаРасширеннаяПодсказка" id="43"/>
 					<Events>
@@ -99,7 +78,6 @@
 				</InputField>
 				<Button name="КнопкаПоиск" id="67">
 					<Type>UsualButton</Type>
-					<Visible>false</Visible>
 					<CommandName>Form.Item.Список.StandardCommand.Find</CommandName>
 					<Title>
 						<v8:item>
@@ -110,7 +88,6 @@
 					<ExtendedTooltip name="КнопкаПоискРасширеннаяПодсказка" id="68"/>
 				</Button>
 				<CommandBar name="ГруппаКоманднаяПанель" id="69">
-					<Visible>false</Visible>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -133,7 +110,6 @@
 				</CommandBar>
 				<Button name="КнопкаСправка" id="73">
 					<Type>UsualButton</Type>
-					<Visible>false</Visible>
 					<Representation>Picture</Representation>
 					<Width>3</Width>
 					<CommandName>Form.StandardCommand.Help</CommandName>
@@ -157,9 +133,7 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -173,7 +147,6 @@
 				<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 				<ExcludedCommand>UndoPosting</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -191,14 +164,7 @@
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<ChildItems>
-					<Button name="СписокОбновить" id="89">
-						<Type>CommandBarButton</Type>
-						<Representation>Picture</Representation>
-						<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
-						<ExtendedTooltip name="СписокОбновитьРасширеннаяПодсказка" id="90"/>
-					</Button>
-				</ChildItems>
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
@@ -227,7 +193,6 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
-				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="Ссылка" id="64">
@@ -283,13 +248,11 @@
 						</LabelField>
 					</ChildItems>
 				</ColumnGroup>
-				<InputField name="Статус" id="25" DisplayImportance="VeryHigh">
+				<LabelField name="Статус" id="25">
 					<DataPath>Список.Статус</DataPath>
-					<AppearanceInCard>Extended</AppearanceInCard>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СтатусКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="27"/>
-				</InputField>
+				</LabelField>
 				<LabelField name="Организация" id="22">
 					<DataPath>Список.Организация</DataPath>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="23"/>

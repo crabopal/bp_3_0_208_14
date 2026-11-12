@@ -11,25 +11,8 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Right</HorizontalAlign>
-		<ChildItems>
-			<Button name="ФормаПродолжить" id="32">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Подтвердить</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Подтвердить</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаПродолжитьРасширеннаяПодсказка" id="33"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -59,15 +42,18 @@
 							<v8:content>Описание сервера</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>true</HorizontalStretch>
-					<Group>AlwaysHorizontal</Group>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ShowAsCard>true</ShowAsCard>
 					<ExtendedTooltip name="ГруппаОписаниеСервераРасширеннаяПодсказка" id="60"/>
 					<ChildItems>
-						<LabelField name="ИнформацияСервера" id="53">
+						<LabelDecoration name="ДекорацияПустая4" id="56">
+							<Width>14</Width>
+							<ContextMenu name="ДекорацияПустая4КонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="ДекорацияПустая4РасширеннаяПодсказка" id="58"/>
+						</LabelDecoration>
+						<InputField name="ИнформацияСервера" id="53">
 							<DataPath>ИнформацияСервера</DataPath>
 							<SkipOnInput>true</SkipOnInput>
 							<Title>
@@ -77,14 +63,14 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<AutoMaxWidth>false</AutoMaxWidth>
 							<Height>3</Height>
-							<UseCopy>true</UseCopy>
+							<MultiLine>true</MultiLine>
+							<TextEdit>false</TextEdit>
+							<TextColor>style:ПодтверждениеОперацииОписаниеЦвет</TextColor>
+							<BorderColor>style:FormBackColor</BorderColor>
 							<ContextMenu name="ИнформацияСервераКонтекстноеМеню" id="54"/>
 							<ExtendedTooltip name="ИнформацияСервераРасширеннаяПодсказка" id="55"/>
-						</LabelField>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -111,8 +97,6 @@
 							<v8:content>Сертификат</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Hiperlink>true</Hiperlink>
 					<ContextMenu name="СертификатКонтекстноеМеню" id="4"/>
 					<ExtendedTooltip name="СертификатРасширеннаяПодсказка" id="5"/>
@@ -142,8 +126,7 @@
 								</v8:item>
 							</Title>
 							<ToolTipRepresentation>Button</ToolTipRepresentation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
+							<HorizontalStretch>true</HorizontalStretch>
 							<ChoiceButton>false</ChoiceButton>
 							<ListChoiceMode>true</ListChoiceMode>
 							<TextEdit>false</TextEdit>
@@ -163,8 +146,6 @@
 							<v8:content>Документы</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<AutoMaxHeight>false</AutoMaxHeight>
 					<ContextMenu name="ДокументыКонтекстноеМеню" id="10"/>
@@ -173,6 +154,10 @@
 						<Event name="URLProcessing">ДокументыОбработкаНавигационнойСсылки</Event>
 					</Events>
 				</LabelField>
+				<LabelDecoration name="ДекорацияПустая1" id="44">
+					<ContextMenu name="ДекорацияПустая1КонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="ДекорацияПустая1РасширеннаяПодсказка" id="46"/>
+				</LabelDecoration>
 				<UsualGroup name="ГруппаГрафическийКод" id="37">
 					<Title>
 						<v8:item>
@@ -195,8 +180,7 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
+							<Height>10</Height>
 							<PictureSize>Proportionally</PictureSize>
 							<Border width="1">
 								<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
@@ -206,6 +190,10 @@
 						</PictureField>
 					</ChildItems>
 				</UsualGroup>
+				<LabelDecoration name="ДекорацияПустая2" id="47">
+					<ContextMenu name="ДекорацияПустая2КонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="ДекорацияПустая2РасширеннаяПодсказка" id="49"/>
+				</LabelDecoration>
 				<UsualGroup name="ГруппаКодВвода" id="42">
 					<Title>
 						<v8:item>
@@ -213,7 +201,7 @@
 							<v8:content>Код ввода</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AlwaysHorizontal</Group>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -224,48 +212,67 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Код подтверждения</v8:content>
+									<v8:content>Код</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
+							<Width>5</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<EditTextUpdate>OnValueChange</EditTextUpdate>
 							<ContextMenu name="КодПодтвержденияКонтекстноеМеню" id="30"/>
 							<ExtendedTooltip name="КодПодтвержденияРасширеннаяПодсказка" id="31"/>
 						</InputField>
+						<Button name="ОК" id="32">
+							<Type>UsualButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<Width>9</Width>
+							<CommandName>Form.Command.ОК</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ОК</v8:content>
+								</v8:item>
+							</Title>
+							<ButtonImportance>Main</ButtonImportance>
+							<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="33"/>
+						</Button>
+						<UsualGroup name="ГруппаПомощь" id="61">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Требуется помощь?</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>PopUp</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаПомощьРасширеннаяПодсказка" id="62"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияГрафическийКодОписание" id="39">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Height>3</Height>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>1. Откройте мобильное приложение на своем устройстве.
+2. Наведите камеру устройства на QR-код.
+3. Введите код подтверждения или код отказа.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияГрафическийКодОписаниеКонтекстноеМеню" id="40"/>
+									<ExtendedTooltip name="ДекорацияГрафическийКодОписаниеРасширеннаяПодсказка" id="41"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаТребуетсяПомощь" id="61">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Требуется помощь?</v8:content>
-				</v8:item>
-			</Title>
-			<GroupVerticalAlign>Center</GroupVerticalAlign>
-			<Behavior>PopUp</Behavior>
-			<Representation>None</Representation>
-			<ExtendedTooltip name="ГруппаТребуетсяПомощьРасширеннаяПодсказка" id="62"/>
-			<ChildItems>
-				<LabelDecoration name="ДекорацияГрафическийКодОписание" id="39">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Height>3</Height>
-					<HorizontalStretch>true</HorizontalStretch>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>1. Откройте мобильное приложение на своем устройстве.
-2. Наведите камеру устройства на QR-код.
-3. Введите код подтверждения или код отказа.</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ДекорацияГрафическийКодОписаниеКонтекстноеМеню" id="40"/>
-					<ExtendedTooltip name="ДекорацияГрафическийКодОписаниеРасширеннаяПодсказка" id="41"/>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
+		<LabelDecoration name="ДекорацияПустая3" id="50">
+			<ContextMenu name="ДекорацияПустая3КонтекстноеМеню" id="51"/>
+			<ExtendedTooltip name="ДекорацияПустая3РасширеннаяПодсказка" id="52"/>
+		</LabelDecoration>
 		<UsualGroup name="ГруппаПодвал" id="27">
 			<Title>
 				<v8:item>
@@ -273,7 +280,7 @@
 					<v8:content>Подвал</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
+			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -289,11 +296,28 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОсталосьКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="ОсталосьРасширеннаяПодсказка" id="22"/>
 				</LabelField>
+				<CommandBar name="ГруппаКоманды" id="63">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Команды</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>true</HorizontalStretch>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<HorizontalLocation>Right</HorizontalLocation>
+					<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="64"/>
+					<ChildItems>
+						<Button name="Отмена" id="65">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.Cancel</CommandName>
+							<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="66"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -430,15 +454,20 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Подтвердить" id="2">
+		<Command name="ОК" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Подтвердить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
-			<Action>Подтвердить</Action>
-			<ActionPurpose>Finish</ActionPurpose>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОК</Action>
 		</Command>
 	</Commands>
 	<Parameters>

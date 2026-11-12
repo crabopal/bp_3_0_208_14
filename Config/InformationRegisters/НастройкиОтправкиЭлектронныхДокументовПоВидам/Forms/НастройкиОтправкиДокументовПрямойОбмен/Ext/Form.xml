@@ -117,6 +117,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаОсновнаяРасширеннаяПодсказка" id="130"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаШапка" id="1">
@@ -126,7 +127,7 @@
 									<v8:content>Группа шапка</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AutoScreenTypeSensitive</Group>
+							<Group>AlwaysHorizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -147,7 +148,6 @@
 									<ChildItems>
 										<InputField name="Организация" id="106">
 											<DataPath>Организация</DataPath>
-											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<ContextMenu name="ОрганизацияКонтекстноеМеню" id="107"/>
 											<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="108"/>
 											<Events>
@@ -193,7 +193,6 @@
 									<ChildItems>
 										<InputField name="Контрагент" id="10">
 											<DataPath>Контрагент</DataPath>
-											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<ContextMenu name="КонтрагентКонтекстноеМеню" id="11"/>
 											<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="12"/>
 											<Events>
@@ -275,7 +274,6 @@
 											<CommandBarLocation>None</CommandBarLocation>
 											<ChangeRowSet>false</ChangeRowSet>
 											<ChangeRowOrder>false</ChangeRowOrder>
-											<SelectionMode>SingleRow</SelectionMode>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 											<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -318,11 +316,12 @@
 												<CheckBoxField name="ИсходящиеДокументыФормировать" id="75">
 													<DataPath>ИсходящиеДокументы.Формировать</DataPath>
 													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
 													<HeaderPicture>
 														<xr:Ref>StdPicture.CheckAll</xr:Ref>
 														<xr:LoadTransparent>true</xr:LoadTransparent>
 													</HeaderPicture>
-													<CheckBoxType>CheckBox</CheckBoxType>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="ИсходящиеДокументыФормироватьКонтекстноеМеню" id="76"/>
 													<ExtendedTooltip name="ИсходящиеДокументыФормироватьРасширеннаяПодсказка" id="77"/>
 												</CheckBoxField>
@@ -334,6 +333,8 @@
 															<v8:content>Документ</v8:content>
 														</v8:item>
 													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<Width>1</Width>
 													<ContextMenu name="ИсходящиеДокументыДокументУчетаКонтекстноеМеню" id="46"/>
 													<ExtendedTooltip name="ИсходящиеДокументыДокументУчетаРасширеннаяПодсказка" id="47"/>
@@ -347,6 +348,8 @@
 															<v8:content>Учетная запись</v8:content>
 														</v8:item>
 													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<Width>1</Width>
 													<ContextMenu name="ИсходящиеДокументыУчетнаяЗаписьПредставлениеКонтекстноеМеню" id="125"/>
 													<ExtendedTooltip name="ИсходящиеДокументыУчетнаяЗаписьПредставлениеРасширеннаяПодсказка" id="126"/>
@@ -359,7 +362,9 @@
 															<v8:content>Регламент ЭДО</v8:content>
 														</v8:item>
 													</Title>
+													<EditMode>EnterOnInput</EditMode>
 													<CellHyperlink>true</CellHyperlink>
+													<AutoEditMode>true</AutoEditMode>
 													<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 													<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 													<Width>1</Width>
@@ -561,7 +566,8 @@
 											<ExtendedTooltip name="КартинкаОшибкаРасширеннаяПодсказка" id="154"/>
 										</PictureDecoration>
 										<LabelDecoration name="НадписьОшибка" id="155">
-											<Font ref="style:NormalTextFont" height="14" kind="StyleItem"/>
+											<Width>37</Width>
+											<Font ref="style:NormalTextFont" height="14" bold="false" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -1112,7 +1118,6 @@
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Записать" id="2">
 			<Title>
@@ -1133,7 +1138,6 @@
 			</Picture>
 			<Action>Записать</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ИзменитьРасширенныйРежим" id="3">
 			<Title>
@@ -1174,7 +1178,6 @@
 			</Picture>
 			<Action>Удалить</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОтправитьКаталогТоваров" id="5">
 			<Title>

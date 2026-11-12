@@ -3,15 +3,13 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
+	<CommandBarLocation>Top</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
-		<ExcludedCommand>ChangeHistory</ExcludedCommand>
 		<ExcludedCommand>Ignore</ExcludedCommand>
 		<ExcludedCommand>No</ExcludedCommand>
 		<ExcludedCommand>OK</ExcludedCommand>
-		<ExcludedCommand>OpenFromMainServer</ExcludedCommand>
-		<ExcludedCommand>OpenFromStandaloneServer</ExcludedCommand>
 		<ExcludedCommand>RestoreValues</ExcludedCommand>
 		<ExcludedCommand>Retry</ExcludedCommand>
 		<ExcludedCommand>SaveValues</ExcludedCommand>
@@ -19,7 +17,10 @@
 		<ExcludedCommand>WriteAndClose</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ShowCommandBar>true</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -50,6 +51,23 @@
 					<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="137"/>
 					<ExtendedTooltip name="ОписаниеРазделаРасширеннаяПодсказка" id="138"/>
 				</LabelDecoration>
+				<CommandBar name="ГруппаСправка" id="142">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Справка</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalLocation>Right</HorizontalLocation>
+					<ExtendedTooltip name="ГруппаСправкаРасширеннаяПодсказка" id="143"/>
+					<ChildItems>
+						<Button name="Справка" id="144">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.Help</CommandName>
+							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="145"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаИспользоватьПолнотекстовыйПоиск" id="212">
@@ -74,9 +92,6 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Right</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<CheckBoxType>Switcher</CheckBoxType>
 					<ContextMenu name="ИспользоватьПолнотекстовыйПоискКонтекстноеМеню" id="215"/>
 					<ExtendedTooltip name="ИспользоватьПолнотекстовыйПоискРасширеннаяПодсказка" id="216"/>
 					<Events>
@@ -140,7 +155,6 @@
 								</v8:item>
 							</Title>
 							<Group>HorizontalIfPossible</Group>
-							<HorizontalSpacing>Half</HorizontalSpacing>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -155,9 +169,6 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>Right</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<CheckBoxType>Switcher</CheckBoxType>
 									<ContextMenu name="ОграничитьМаксимальныйРазмерИндексируемыхДанныхКонтекстноеМеню" id="210"/>
 									<ExtendedTooltip name="ОграничитьМаксимальныйРазмерИндексируемыхДанныхРасширеннаяПодсказка" id="211"/>
 									<Events>
@@ -173,9 +184,6 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="МаксимальныйРазмерИндексируемыхДанныхКонтекстноеМеню" id="198"/>
 									<ExtendedTooltip name="МаксимальныйРазмерИндексируемыхДанныхРасширеннаяПодсказка" id="199"/>
 									<Events>
@@ -196,6 +204,7 @@
 						</UsualGroup>
 						<LabelDecoration name="МаксимальныйРазмерИндексируемыхДанныхПодсказка" id="203">
 							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:ПоясняющийТекст</TextColor>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -235,8 +244,6 @@
 									<v8:content>Дата актуальности индекса</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ДатаАктуальностиИндексаКонтекстноеМеню" id="6"/>
 							<ExtendedTooltip name="ДатаАктуальностиИндексаРасширеннаяПодсказка" id="118"/>
 						</LabelField>
@@ -249,8 +256,6 @@
 									<v8:content>Статус индекса</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СтатусИндексаКонтекстноеМеню" id="4"/>
 							<ExtendedTooltip name="СтатусИндексаРасширеннаяПодсказка" id="119"/>
 						</LabelField>
@@ -276,7 +281,6 @@
 											<v8:content>Обновить индекс</v8:content>
 										</v8:item>
 									</Title>
-									<ButtonImportance>Supplementary</ButtonImportance>
 									<ExtendedTooltip name="ОбновитьИндексРасширеннаяПодсказка" id="121"/>
 								</Button>
 								<Button name="ОчиститьИндекс" id="12">
@@ -288,7 +292,6 @@
 											<v8:content>Очистить индекс</v8:content>
 										</v8:item>
 									</Title>
-									<ButtonImportance>Supplementary</ButtonImportance>
 									<ExtendedTooltip name="ОчиститьИндексРасширеннаяПодсказка" id="122"/>
 								</Button>
 								<Button name="ПроверитьИндекс" id="155">
@@ -300,7 +303,6 @@
 											<v8:content>Проверить индекс</v8:content>
 										</v8:item>
 									</Title>
-									<ButtonImportance>Supplementary</ButtonImportance>
 									<ExtendedTooltip name="ПроверитьИндексРасширеннаяПодсказка" id="156"/>
 								</Button>
 							</ChildItems>
@@ -319,11 +321,13 @@
 			<VerticalStretch>false</VerticalStretch>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
 			<ExtendedTooltip name="ГруппаАвтоматическоеИзвлечениеТекстовРасширеннаяПодсказка" id="123"/>
 			<ChildItems>
 				<LabelDecoration name="ПояснениеИзвлекатьТекстыФайловНаСервере4" id="103">
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<SkipOnInput>true</SkipOnInput>
+					<TextColor>style:ПоясняющийТекст</TextColor>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -369,8 +373,6 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ItemTitleHeight>2</ItemTitleHeight>
 									<ChoiceList>
@@ -439,8 +441,6 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ItemTitleHeight>2</ItemTitleHeight>
 									<ChoiceList>
@@ -543,8 +543,14 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
+				<Field>НаборКонстант.ВалютаРегламентированногоУчета</Field>
 				<Field>НаборКонстант.ИзвлекатьТекстыФайловНаСервере</Field>
 				<Field>НаборКонстант.ИспользоватьПолнотекстовыйПоиск</Field>
+				<Field>НаборКонстант.ОтключитьКонтрольОтрицательныхОстатков</Field>
+				<Field>НаборКонстант.СрокОплатыПокупателей</Field>
+				<Field>НаборКонстант.СрокОплатыПоставщикам</Field>
+				<Field>НаборКонстант.ТипЦенПлановойСебестоимостиНоменклатуры</Field>
+				<Field>НаборКонстант.УдалитьНастройкиКолонтитулов</Field>
 			</UseAlways>
 		</Attribute>
 		<Attribute name="ИндексАктуален" id="1">

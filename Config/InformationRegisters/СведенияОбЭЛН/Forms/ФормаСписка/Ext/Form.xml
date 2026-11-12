@@ -7,9 +7,29 @@
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<UsualGroup name="ИнформационнаяПанельБРО" id="182">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Информационная панель БРО</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Информационная панель БРО</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ИнформационнаяПанельБРОРасширеннаяПодсказка" id="183"/>
+		</UsualGroup>
 		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
 			<Title>
 				<v8:item>
@@ -72,24 +92,12 @@
 							<Representation>PictureAndText</Representation>
 							<DefaultButton>true</DefaultButton>
 							<CommandName>DataProcessor.ОбщиеФормыСЭДОФСС.Command.ПолучитьНовыеСообщенияСЭДОФСС</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Получить из ФСС</v8:content>
-								</v8:item>
-							</Title>
 							<ButtonImportance>Main</ButtonImportance>
 							<ExtendedTooltip name="ПолучитьНовыеСообщенияРасширеннаяПодсказка" id="161"/>
 						</Button>
 						<Button name="ПолучитьСообщенияЗаПериод" id="172">
 							<Type>CommandBarButton</Type>
 							<CommandName>DataProcessor.ОбщиеФормыСЭДОФСС.Command.ПолучитьСообщенияСЭДОФССЗаПериод</CommandName>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Получить сообщения за период</v8:content>
-								</v8:item>
-							</Title>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 							<ExtendedTooltip name="ПолучитьСообщенияЗаПериодРасширеннаяПодсказка" id="173"/>
 						</Button>
@@ -298,8 +306,8 @@
 			<Events>
 				<Event name="ValueChoice">СписокВыборЗначения</Event>
 				<Event name="Selection">СписокВыбор</Event>
-				<Event name="BeforeLoadUserSettingsAtServer">СписокПередЗагрузкойПользовательскихНастроекНаСервере</Event>
-				<Event name="OnUpdateUserSettingSetAtServer">СписокПриОбновленииСоставаПользовательскихНастроекНаСервере</Event>
+				<Event name="OnLoadUserSettingsAtServer">СписокПриЗагрузкеПользовательскихНастроекНаСервере</Event>
+				<Event name="OnSaveUserSettingsAtServer">СписокПриСохраненииПользовательскихНастроекНаСервере</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="ФизическоеЛицо" id="40">
@@ -839,7 +847,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Входящий запрос ФСС</v8:content>
+					<v8:content>Входящий запрос</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -854,13 +862,13 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Ответ на запрос ФСС</v8:content>
+					<v8:content>Ответ на запрос</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть ответ на запрос ФСС</v8:content>
+					<v8:content>Открыть ответ на запрос</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>ОткрытьОтветНаЗапросФСС</Action>

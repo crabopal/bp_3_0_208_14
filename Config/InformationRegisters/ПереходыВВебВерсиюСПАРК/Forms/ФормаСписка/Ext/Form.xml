@@ -5,35 +5,83 @@
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>CancelSearch</ExcludedCommand>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>ChangeHistory</ExcludedCommand>
 		<ExcludedCommand>Close</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
 		<ExcludedCommand>Create</ExcludedCommand>
 		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>DynamicListStandardSettings</ExcludedCommand>
+		<ExcludedCommand>Find</ExcludedCommand>
+		<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
 		<ExcludedCommand>Help</ExcludedCommand>
 		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>ListSettings</ExcludedCommand>
+		<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
 		<ExcludedCommand>No</ExcludedCommand>
 		<ExcludedCommand>OK</ExcludedCommand>
 		<ExcludedCommand>OpenFromMainServer</ExcludedCommand>
 		<ExcludedCommand>OpenFromStandaloneServer</ExcludedCommand>
+		<ExcludedCommand>OutputList</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
 		<ExcludedCommand>RestoreValues</ExcludedCommand>
 		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
 		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ВсеПереходыНаПортале" id="37">
-				<Type>CommandBarHyperlink</Type>
-				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-				<CommandName>Form.Command.ВсеПереходыНаПортале</CommandName>
-				<ExtendedTooltip name="ВсеПереходыНаПорталеРасширеннаяПодсказка" id="38"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<UsualGroup name="ГруппаУведомлениеСервиса" id="75">
+			<Visible>false</Visible>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа уведомление сервиса</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ЦветФонаВниманиеБИП</BackColor>
+			<ExtendedTooltip name="ГруппаУведомлениеСервисаРасширеннаяПодсказка" id="76"/>
+			<ChildItems>
+				<LabelDecoration name="ДекорацияТекстУведомления" id="77">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Срок действия 1СПАРК Риски заканчивается &lt;b&gt;&lt;&lt;ДатаСервиса&gt;&gt;&lt;/&gt; года.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияТекстУведомленияКонтекстноеМеню" id="78"/>
+					<ExtendedTooltip name="ДекорацияТекстУведомленияРасширеннаяПодсказка" id="79"/>
+				</LabelDecoration>
+				<LabelDecoration name="ДекорацияУведомлениеПодробнее" id="80">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подробнее</v8:content>
+						</v8:item>
+					</Title>
+					<Hyperlink>true</Hyperlink>
+					<ContextMenu name="ДекорацияУведомлениеПодробнееКонтекстноеМеню" id="81"/>
+					<ExtendedTooltip name="ДекорацияУведомлениеПодробнееРасширеннаяПодсказка" id="82"/>
+					<Events>
+						<Event name="Click">ДекорацияУведомлениеПодробнееНажатие</Event>
+					</Events>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
 		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
 			<Title>
 				<v8:item>
@@ -76,7 +124,6 @@
 					<ChildItems>
 						<InputField name="КонтрагентОтбор" id="30">
 							<DataPath>КонтрагентОтбор</DataPath>
-							<ClearButton>true</ClearButton>
 							<ContextMenu name="КонтрагентОтборКонтекстноеМеню" id="31"/>
 							<ExtendedTooltip name="КонтрагентОтборРасширеннаяПодсказка" id="32"/>
 							<Events>
@@ -106,18 +153,17 @@
 					</Title>
 					<HorizontalLocation>Right</HorizontalLocation>
 					<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="36"/>
+					<ChildItems>
+						<Button name="ВсеПереходыНаПортале" id="37">
+							<Type>CommandBarHyperlink</Type>
+							<CommandName>Form.Command.ВсеПереходыНаПортале</CommandName>
+							<ExtendedTooltip name="ВсеПереходыНаПорталеРасширеннаяПодсказка" id="38"/>
+						</Button>
+					</ChildItems>
 				</CommandBar>
-				<LabelDecoration name="ДекорацияРазделитель" id="94">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<HorizontalStretch>true</HorizontalStretch>
-					<ContextMenu name="ДекорацияРазделительКонтекстноеМеню" id="95"/>
-					<ExtendedTooltip name="ДекорацияРазделительРасширеннаяПодсказка" id="96"/>
-				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
 		<Table name="Список" id="39">
-			<CommandBarLocation>Top</CommandBarLocation>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<DataPath>Список</DataPath>
@@ -140,8 +186,8 @@
 				<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
 				<ExcludedCommand>SearchEverywhere</ExcludedCommand>
 				<ExcludedCommand>SearchHistory</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -157,7 +203,9 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="40"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="41"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="41">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="42"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="43">
 				<AdditionSource>
@@ -310,7 +358,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Показать переходы на Портале 1С:ИТС</v8:content>
+					<v8:content>Все переходы в личном кабинете на Портале 1С:ИТС</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>

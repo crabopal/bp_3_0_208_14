@@ -9,92 +9,143 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаЗавершитьВыбор" id="25">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ЗавершитьВыбор</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаЗавершитьВыборРасширеннаяПодсказка" id="26"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаРежимОтбораКоманднаяПанель" id="46">
-			<HorizontalStretch>false</HorizontalStretch>
-			<Group>HorizontalIfPossible</Group>
+		<UsualGroup name="ГруппаКоманды" id="41">
+			<Group>AlwaysHorizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаРежимОтбораКоманднаяПанельРасширеннаяПодсказка" id="47"/>
+			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="42"/>
 			<ChildItems>
-				<RadioButtonField name="РежимОтбора" id="36">
-					<DataPath>РежимОтбора</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<RadioButtonType>Tumbler</RadioButtonType>
-					<EqualColumnsWidth>true</EqualColumnsWidth>
-					<ChoiceList>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Выбранные</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:decimal">0</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Доступные</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:decimal">1</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Все</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:decimal">2</Value>
-							</xr:Value>
-						</xr:Item>
-					</ChoiceList>
-					<ContextMenu name="РежимОтбораКонтекстноеМеню" id="37"/>
-					<ExtendedTooltip name="РежимОтбораРасширеннаяПодсказка" id="38"/>
-					<Events>
-						<Event name="OnChange">РежимОтбораПриИзменении</Event>
-					</Events>
-				</RadioButtonField>
+				<Button name="ФормаЗавершитьВыбор" id="25">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.ЗавершитьВыбор</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ФормаЗавершитьВыборРасширеннаяПодсказка" id="26"/>
+				</Button>
+				<PictureDecoration name="ДекорацияРазделительКоманднойПанели" id="43">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Height>1</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Декорация разделитель командной панели</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияРазделительКоманднойПанелиКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ДекорацияРазделительКоманднойПанелиРасширеннаяПодсказка" id="45"/>
+				</PictureDecoration>
+				<UsualGroup name="ГруппаРежимОтбораКоманднаяПанель" id="46">
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРежимОтбораКоманднаяПанельРасширеннаяПодсказка" id="47"/>
+					<ChildItems>
+						<RadioButtonField name="РежимОтбора" id="36">
+							<DataPath>РежимОтбора</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<RadioButtonType>Tumbler</RadioButtonType>
+							<EqualColumnsWidth>true</EqualColumnsWidth>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Выбранные</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Доступные</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Все</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">2</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="РежимОтбораКонтекстноеМеню" id="37"/>
+							<ExtendedTooltip name="РежимОтбораРасширеннаяПодсказка" id="38"/>
+							<Events>
+								<Event name="OnChange">РежимОтбораПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<CommandBar name="ГруппаКоманднаяПанель" id="39">
+							<CommandSource>Item.Предприятия</CommandSource>
+							<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="40"/>
+							<ChildItems>
+								<Button name="ПредприятияОбновитьТаблицуПредприятий" id="23">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.ОбновитьТаблицуПредприятий</CommandName>
+									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+									<ExtendedTooltip name="ПредприятияОбновитьТаблицуПредприятийРасширеннаяПодсказка" id="24"/>
+								</Button>
+								<ButtonGroup name="ГруппаКомандыФормы" id="34">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа команды формы</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="ГруппаКомандыФормыРасширеннаяПодсказка" id="35"/>
+									<ChildItems>
+										<Button name="ПредприятияИзменитьФорму" id="30">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+											<ExtendedTooltip name="ПредприятияИзменитьФормуРасширеннаяПодсказка" id="31"/>
+										</Button>
+										<Button name="ПредприятияСправка" id="32">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Help</CommandName>
+											<ExtendedTooltip name="ПредприятияСправкаРасширеннаяПодсказка" id="33"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
+							</ChildItems>
+						</CommandBar>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<Table name="Предприятия" id="1">
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<DataPath>Предприятия</DataPath>
@@ -102,31 +153,7 @@
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="ПредприятияКонтекстноеМеню" id="3"/>
 			<AutoCommandBar name="ПредприятияКоманднаяПанель" id="2">
-				<ChildItems>
-					<Button name="ПредприятияОбновитьТаблицуПредприятий" id="23">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ОбновитьТаблицуПредприятий</CommandName>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ПредприятияОбновитьТаблицуПредприятийРасширеннаяПодсказка" id="24"/>
-					</Button>
-					<Button name="ПредприятияИзменитьФорму" id="30">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ExtendedTooltip name="ПредприятияИзменитьФормуРасширеннаяПодсказка" id="31"/>
-					</Button>
-					<Button name="ПредприятияСправка" id="32">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="ПредприятияСправкаРасширеннаяПодсказка" id="33"/>
-					</Button>
-					<Button name="ПредприятияЗавершитьВыбор" id="54">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.ЗавершитьВыбор</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ПредприятияЗавершитьВыборРасширеннаяПодсказка" id="55"/>
-					</Button>
-				</ChildItems>
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ПредприятияРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="ПредприятияСтрокаПоиска" id="5">
@@ -160,25 +187,20 @@
 				<CheckBoxField name="ПредприятияПометка" id="14">
 					<DataPath>Предприятия.Пометка</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПредприятияПометкаКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="ПредприятияПометкаРасширеннаяПодсказка" id="16"/>
 				</CheckBoxField>
 				<InputField name="ПредприятияПредставление" id="20">
 					<DataPath>Предприятия.Представление</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<Width>50</Width>
 					<ContextMenu name="ПредприятияПредставлениеКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="ПредприятияПредставлениеРасширеннаяПодсказка" id="22"/>
 				</InputField>
 				<InputField name="ПредприятияНастройкаОбмена" id="27">
 					<DataPath>Предприятия.НастройкаОбмена</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<Width>40</Width>
 					<ContextMenu name="ПредприятияНастройкаОбменаКонтекстноеМеню" id="28"/>
 					<ExtendedTooltip name="ПредприятияНастройкаОбменаРасширеннаяПодсказка" id="29"/>
 				</InputField>
@@ -339,9 +361,6 @@
 			</Picture>
 			<Action>ОбновитьТаблицуПредприятий</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Предприятия</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ЗавершитьВыбор" id="2">
 			<Title>
@@ -351,7 +370,6 @@
 				</v8:item>
 			</Title>
 			<Action>ЗавершитьВыбор</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

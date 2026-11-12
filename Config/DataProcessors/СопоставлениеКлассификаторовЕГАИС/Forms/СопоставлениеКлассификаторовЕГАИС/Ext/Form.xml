@@ -10,11 +10,8 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="Продолжить" id="20">
 				<Type>CommandBarButton</Type>
@@ -23,10 +20,26 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ПродолжитьРасширеннаяПодсказка" id="35"/>
 			</Button>
+			<Button name="ФормаГрупповоеСопоставлениеНоменклатуры" id="223">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ГрупповоеСопоставлениеНоменклатуры</CommandName>
+				<ExtendedTooltip name="ФормаГрупповоеСопоставлениеНоменклатурыРасширеннаяПодсказка" id="224"/>
+			</Button>
 			<Button name="Отмена" id="129">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.Отмена</CommandName>
 				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="130"/>
+			</Button>
+			<Button name="ИзменитьФорму" id="19">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+				<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="33"/>
+			</Button>
+			<Button name="Справка" id="18">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="34"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -34,7 +47,6 @@
 		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="NewWriteProcessing">ОбработкаЗаписиНового</Event>
-		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="BeforeClose">ПередЗакрытием</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
@@ -81,12 +93,34 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаКлассификаторОрганизацийЕГАИСРасширеннаяПодсказка" id="60"/>
 					<ChildItems>
+						<CheckBoxField name="ТолькоНеСопоставленныеОрганизации" id="86">
+							<DataPath>ТолькоНеСопоставленныеОрганизации</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Только не сопоставленные</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Tumbler</CheckBoxType>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>БЛ=Все; БИ='Не сопоставленные'</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ТолькоНеСопоставленныеОрганизацииКонтекстноеМеню" id="87"/>
+							<ExtendedTooltip name="ТолькоНеСопоставленныеОрганизацииРасширеннаяПодсказка" id="88"/>
+							<Events>
+								<Event name="OnChange">ТолькоНеСопоставленныеОрганизацииПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
 						<Table name="Организации" id="61">
 							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<SelectionMode>SingleRow</SelectionMode>
@@ -97,40 +131,9 @@
 							<EnableDrag>true</EnableDrag>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>Объект.Организации</DataPath>
-							<ShowCommandBar>auto</ShowCommandBar>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ОрганизацииКонтекстноеМеню" id="62"/>
-							<AutoCommandBar name="ОрганизацииКоманднаяПанель" id="63">
-								<ChildItems>
-									<Popup name="ОрганизацииОтборСтрок" id="247">
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Отбор строк:</v8:content>
-											</v8:item>
-										</Title>
-										<ToolTip>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Организации отбор строк</v8:content>
-											</v8:item>
-										</ToolTip>
-										<ExtendedTooltip name="ОрганизацииОтборСтрокРасширеннаяПодсказка" id="248"/>
-										<ChildItems>
-											<Button name="ОрганизацииОтборВсеСтрокиОрганизации" id="249">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ОтборВсеСтрокиОрганизации</CommandName>
-												<ExtendedTooltip name="ОрганизацииОтборВсеСтрокиОрганизацииРасширеннаяПодсказка" id="250"/>
-											</Button>
-											<Button name="ОрганизацииОтборТолькоНесопоставленныеОрганизации" id="251">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ОтборТолькоНесопоставленныеОрганизации</CommandName>
-												<ExtendedTooltip name="ОрганизацииОтборТолькоНесопоставленныеОрганизацииРасширеннаяПодсказка" id="252"/>
-											</Button>
-										</ChildItems>
-									</Popup>
-								</ChildItems>
-							</AutoCommandBar>
+							<AutoCommandBar name="ОрганизацииКоманднаяПанель" id="63"/>
 							<ExtendedTooltip name="ОрганизацииРасширеннаяПодсказка" id="64"/>
 							<SearchStringAddition name="ОрганизацииСтрокаПоиска" id="65">
 								<AdditionSource>
@@ -183,7 +186,6 @@
 										</v8:item>
 									</ToolTip>
 									<Group>Horizontal</Group>
-									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="ОрганизацииГруппаОрганизацияЕГАИСРасширеннаяПодсказка" id="132"/>
 									<ChildItems>
 										<InputField name="ОрганизацииОрганизацияЕГАИС" id="154">
@@ -268,13 +270,60 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаКлассификаторАлкогольнойПродукцииЕГАИСРасширеннаяПодсказка" id="58"/>
 					<ChildItems>
+						<UsualGroup name="ГруппаКоманднаяПанель" id="139">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа командная панель</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа командная панель</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="140"/>
+							<ChildItems>
+								<CheckBoxField name="ТолькоНеСопоставленныеТовары" id="89">
+									<DataPath>ТолькоНеСопоставленнаяНоменклатура</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Только не сопоставленные</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<CheckBoxType>Tumbler</CheckBoxType>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>БЛ=Все; БИ='Не сопоставленные'</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ТолькоНеСопоставленныеТоварыКонтекстноеМеню" id="90"/>
+									<ExtendedTooltip name="ТолькоНеСопоставленныеТоварыРасширеннаяПодсказка" id="91"/>
+									<Events>
+										<Event name="OnChange">ТолькоНеСопоставленныеТоварыПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<Button name="ОткрытьФормуСопоставленияНоменклатуры" id="141">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ОткрытьФормуСопоставленияНоменклатуры</CommandName>
+									<ExtendedTooltip name="ОткрытьФормуСопоставленияНоменклатурыРасширеннаяПодсказка" id="142"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
 						<Table name="Товары" id="1">
 							<Representation>List</Representation>
-							<CommandBarLocation>Top</CommandBarLocation>
+							<CommandBarLocation>None</CommandBarLocation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<SelectionMode>SingleRow</SelectionMode>
@@ -299,46 +348,10 @@
 							<SearchStringLocation>None</SearchStringLocation>
 							<ViewStatusLocation>None</ViewStatusLocation>
 							<SearchControlLocation>None</SearchControlLocation>
-							<ShowCommandBar>true</ShowCommandBar>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ТоварыКонтекстноеМеню" id="2"/>
 							<AutoCommandBar name="ТоварыКоманднаяПанель" id="3">
-								<ChildItems>
-									<Button name="ОткрытьФормуСопоставленияНоменклатуры" id="141">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ОткрытьФормуСопоставленияНоменклатуры</CommandName>
-										<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
-										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-										<ExtendedTooltip name="ОткрытьФормуСопоставленияНоменклатурыРасширеннаяПодсказка" id="142"/>
-									</Button>
-									<Popup name="ТоварыОтборСтрок" id="253">
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Отбор строк:</v8:content>
-											</v8:item>
-										</Title>
-										<ToolTip>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Товары отбор строк</v8:content>
-											</v8:item>
-										</ToolTip>
-										<ExtendedTooltip name="ТоварыОтборСтрокРасширеннаяПодсказка" id="254"/>
-										<ChildItems>
-											<Button name="ТоварыОтборВсеСтрокиТовары" id="255">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ОтборВсеСтрокиТовары</CommandName>
-												<ExtendedTooltip name="ТоварыОтборВсеСтрокиТоварыРасширеннаяПодсказка" id="256"/>
-											</Button>
-											<Button name="ТоварыОтборТолькоНесопоставленныеТовары" id="257">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ОтборТолькоНесопоставленныеТовары</CommandName>
-												<ExtendedTooltip name="ТоварыОтборТолькоНесопоставленныеТоварыРасширеннаяПодсказка" id="258"/>
-											</Button>
-										</ChildItems>
-									</Popup>
-								</ChildItems>
+								<Autofill>false</Autofill>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ТоварыРасширеннаяПодсказка" id="37"/>
 							<SearchStringAddition name="ТоварыСтрокаПоиска" id="46">
@@ -392,7 +405,6 @@
 										</v8:item>
 									</ToolTip>
 									<Group>Horizontal</Group>
-									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="ТоварыГруппаНоменклатураРасширеннаяПодсказка" id="107"/>
 									<ChildItems>
 										<InputField name="ТоварыАлкогольнаяПродукция" id="187">
@@ -471,7 +483,6 @@
 										</v8:item>
 									</ToolTip>
 									<Group>Horizontal</Group>
-									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="ТоварыГруппаСопоставленоРасширеннаяПодсказка" id="144"/>
 									<ChildItems>
 										<InputField name="ТоварыНоменклатура" id="190">
@@ -958,7 +969,6 @@
 			</ToolTip>
 			<Action>КомандаПродолжить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>
@@ -975,7 +985,6 @@
 			</ToolTip>
 			<Action>Отмена</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОткрытьФормуСопоставленияНоменклатуры" id="4">
 			<Title>
@@ -990,73 +999,23 @@
 					<v8:content>Открыть форму сопоставления номенклатуры</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Catalog</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ОткрытьФормуСопоставленияНоменклатуры</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Товары</AssociatedTableElementId>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="ОтборВсеСтрокиОрганизации" id="3">
+		<Command name="ГрупповоеСопоставлениеНоменклатуры" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Все строки</v8:content>
+					<v8:content>Сопоставить всю номенклатуру</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор все строки организации</v8:content>
+					<v8:content>Групповое сопоставление номенклатуры</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ОтборВсеСтрокиОрганизации</Action>
-		</Command>
-		<Command name="ОтборТолькоНесопоставленныеОрганизации" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Только несопоставленные</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор только несопоставленные организации</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОтборТолькоНесопоставленныеОрганизации</Action>
-		</Command>
-		<Command name="ОтборВсеСтрокиТовары" id="6">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Все строки</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор все строки товары</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОтборВсеСтрокиТовары</Action>
-		</Command>
-		<Command name="ОтборТолькоНесопоставленныеТовары" id="7">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Только несопоставленные</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор только несопоставленные товары</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОтборТолькоНесопоставленныеТовары</Action>
+			<Action>ГрупповоеСопоставлениеНоменклатуры</Action>
 		</Command>
 	</Commands>
 	<Parameters>

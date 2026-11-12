@@ -9,42 +9,8 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ВключитьСервисСейчас" id="49">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ВключитьСервисСейчас</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ВключитьСервисСейчасРасширеннаяПодсказка" id="50"/>
-			</Button>
-			<Button name="РучнаяПроверка" id="67">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.РучнаяПроверка</CommandName>
-				<ExtendedTooltip name="РучнаяПроверкаРасширеннаяПодсказка" id="68"/>
-			</Button>
-			<Button name="НапомнитьПозже" id="53">
-				<Type>CommandBarButton</Type>
-				<Representation>Text</Representation>
-				<CommandName>Form.Command.НапомнитьПозже</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Напомнить позже</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="НапомнитьПозжеРасширеннаяПодсказка" id="54"/>
-			</Button>
-			<Button name="БольшеНеПоказывать" id="113">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.БольшеНеПоказывать</CommandName>
-				<ExtendedTooltip name="БольшеНеПоказыватьРасширеннаяПодсказка" id="114"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -57,9 +23,9 @@
 					<v8:content>Для включения автоматической проверки обратитесь к администратору</v8:content>
 				</v8:item>
 			</Title>
-			<Width>52</Width>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
 			<ExtendedTooltip name="ИнформацияОНеобходимостиОбратитьсяКАдминистраторуРасширеннаяПодсказка" id="73"/>
 			<ChildItems>
 				<LabelDecoration name="ИнформацияОСервисе" id="89">
@@ -73,18 +39,17 @@
 					<ContextMenu name="ИнформацияОСервисеКонтекстноеМеню" id="90"/>
 					<ExtendedTooltip name="ИнформацияОСервисеРасширеннаяПодсказка" id="91"/>
 				</LabelDecoration>
-				<UsualGroup name="РежимыМедленнойРаботы" id="104">
+				<Pages name="РежимыМедленнойРаботы" id="104">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Режимы медленной работы</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<ShowTitle>false</ShowTitle>
+					<PagesRepresentation>None</PagesRepresentation>
 					<ExtendedTooltip name="РежимыМедленнойРаботыРасширеннаяПодсказка" id="105"/>
 					<ChildItems>
-						<UsualGroup name="НедостаточноПамяти" id="106">
+						<Page name="НедостаточноПамяти" id="106">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -92,24 +57,24 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
-							<ShowTitle>false</ShowTitle>
+							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="НедостаточноПамятиРасширеннаяПодсказка" id="107"/>
 							<ChildItems>
 								<LabelDecoration name="ТекстПроМедленноеОткрытие" id="101">
-									<AutoMaxWidth>false</AutoMaxWidth>
 									<Title formatted="true">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
 											<v8:content>Включение автоматической проверки может замедлить открытие документов. 
-Рекомендуется увеличить количество памяти до 4 Гб или использовать ручную проверку по кнопке.</v8:content>
+Рекомендуется увеличить количество памяти до 4 Гб или использовать ручную проверку по кнопке в подменю Еще.
+&lt;link e1cib/app/Обработка.ИнструкцияПоИспользованиюПроверкиКонтрагента&gt;Подробнее о проверке&lt;/&gt;</v8:content>
 										</v8:item>
 									</Title>
 									<ContextMenu name="ТекстПроМедленноеОткрытиеКонтекстноеМеню" id="102"/>
 									<ExtendedTooltip name="ТекстПроМедленноеОткрытиеРасширеннаяПодсказка" id="103"/>
 								</LabelDecoration>
 							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="МедленноеСоединение" id="108">
+						</Page>
+						<Page name="МедленноеСоединение" id="108">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -117,7 +82,7 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
-							<ShowTitle>false</ShowTitle>
+							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="МедленноеСоединениеРасширеннаяПодсказка" id="109"/>
 							<ChildItems>
 								<LabelDecoration name="ТекстПроМедленноеСоединение" id="110">
@@ -126,28 +91,58 @@
 										<v8:item>
 											<v8:lang>ru</v8:lang>
 											<v8:content>Включение автоматической проверки может замедлить открытие документов. 
-Рекомендуется увеличить скорость интернета или использовать ручную проверку по кнопке.</v8:content>
+Рекомендуется увеличить скорость интернета или использовать ручную проверку по кнопке в подменю Еще.
+&lt;link e1cib/app/Обработка.ИнструкцияПоИспользованиюПроверкиКонтрагента&gt;Подробнее о проверке&lt;/&gt;</v8:content>
 										</v8:item>
 									</Title>
 									<ContextMenu name="ТекстПроМедленноеСоединениеКонтекстноеМеню" id="111"/>
 									<ExtendedTooltip name="ТекстПроМедленноеСоединениеРасширеннаяПодсказка" id="112"/>
 								</LabelDecoration>
 							</ChildItems>
-						</UsualGroup>
+						</Page>
 					</ChildItems>
-				</UsualGroup>
-				<LabelDecoration name="СсылкаНаИнструкцию" id="115">
-					<Title formatted="true">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>&lt;link e1cib/app/Обработка.ИнструкцияПоИспользованиюПроверкиКонтрагента&gt;Подробнее о проверке&lt;/&gt;</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="СсылкаНаИнструкциюКонтекстноеМеню" id="116"/>
-					<ExtendedTooltip name="СсылкаНаИнструкциюРасширеннаяПодсказка" id="117"/>
-				</LabelDecoration>
+				</Pages>
 			</ChildItems>
 		</UsualGroup>
+		<CommandBar name="Кнопки" id="65">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопки</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="КнопкиРасширеннаяПодсказка" id="66"/>
+			<ChildItems>
+				<Button name="ВключитьСервисСейчас" id="49">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.ВключитьСервисСейчас</CommandName>
+					<ExtendedTooltip name="ВключитьСервисСейчасРасширеннаяПодсказка" id="50"/>
+				</Button>
+				<Button name="РучнаяПроверка" id="67">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.РучнаяПроверка</CommandName>
+					<ExtendedTooltip name="РучнаяПроверкаРасширеннаяПодсказка" id="68"/>
+				</Button>
+				<Button name="НапомнитьПозже" id="53">
+					<Type>CommandBarButton</Type>
+					<Representation>Text</Representation>
+					<CommandName>Form.Command.НапомнитьПозже</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Напомнить позже</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="НапомнитьПозжеРасширеннаяПодсказка" id="54"/>
+				</Button>
+				<Button name="БольшеНеПоказывать" id="113">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.БольшеНеПоказывать</CommandName>
+					<ExtendedTooltip name="БольшеНеПоказыватьРасширеннаяПодсказка" id="114"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ЕстьПравоНаРедактированиеНастроекСервиса" id="3">
@@ -178,7 +173,6 @@
 			</ToolTip>
 			<Action>ВключитьСервисСейчас</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="РучнаяПроверка" id="3">
 			<Title>
@@ -195,7 +189,6 @@
 			</ToolTip>
 			<Action>РучнаяПроверка</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="НапомнитьПозже" id="2">
 			<Title>
@@ -212,7 +205,6 @@
 			</ToolTip>
 			<Action>НапомнитьПозже</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="БольшеНеПоказывать" id="4">
 			<Title>
@@ -229,7 +221,6 @@
 			</ToolTip>
 			<Action>БольшеНеПоказывать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

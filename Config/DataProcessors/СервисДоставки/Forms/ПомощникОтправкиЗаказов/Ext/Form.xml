@@ -10,31 +10,8 @@
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ОтправитьЗаказы" id="242">
-				<Type>CommandBarButton</Type>
-				<Representation>PictureAndText</Representation>
-				<DefaultButton>true</DefaultButton>
-				<Enabled>false</Enabled>
-				<CommandName>Form.Command.ОтправитьЗаказы</CommandName>
-				<Picture>
-					<xr:Ref>CommonPicture.ЛоготипСервисДоставки</xr:Ref>
-					<xr:LoadTransparent>false</xr:LoadTransparent>
-				</Picture>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отправить заказы</v8:content>
-					</v8:item>
-				</Title>
-				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОтправитьЗаказыРасширеннаяПодсказка" id="243"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -68,15 +45,37 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="443"/>
 					<ChildItems>
-						<CommandBar name="УдалитьГруппаКоманды" id="168">
+						<CommandBar name="ГруппаКоманды" id="168">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Удалить группа команды</v8:content>
+									<v8:content>Группа команды</v8:content>
 								</v8:item>
 							</Title>
 							<HorizontalStretch>false</HorizontalStretch>
-							<ExtendedTooltip name="УдалитьГруппаКомандыРасширеннаяПодсказка" id="169"/>
+							<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="169"/>
+							<ChildItems>
+								<Button name="ОтправитьЗаказы" id="242">
+									<Type>CommandBarButton</Type>
+									<Representation>PictureAndText</Representation>
+									<DefaultButton>true</DefaultButton>
+									<Enabled>false</Enabled>
+									<CommandName>Form.Command.ОтправитьЗаказы</CommandName>
+									<Picture>
+										<xr:Ref>CommonPicture.ЛоготипСервисДоставки</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отправить заказы</v8:content>
+										</v8:item>
+									</Title>
+									<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+									<ButtonImportance>Main</ButtonImportance>
+									<ExtendedTooltip name="ОтправитьЗаказыРасширеннаяПодсказка" id="243"/>
+								</Button>
+							</ChildItems>
 						</CommandBar>
 						<UsualGroup name="ГруппаКомандыМультизаказы" id="271">
 							<Title>
@@ -107,7 +106,7 @@
 										<Event name="OnChange">ОбъединитьЗаказыВМультизаказыПриИзменении</Event>
 									</Events>
 								</CheckBoxField>
-								<LabelDecoration name="УдалитьДекорацияОписаниеМультизаказы" id="273">
+								<LabelDecoration name="ДекорацияОписаниеМультизаказы" id="273">
 									<Visible>false</Visible>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>50</MaxWidth>
@@ -119,8 +118,8 @@
 											<v8:content>Чтобы гарантированно отправить одним рейсом заказы с похожими требованиями к отгрузке, можно их объединять в мультизаказы.</v8:content>
 										</v8:item>
 									</Title>
-									<ContextMenu name="УдалитьДекорацияОписаниеМультизаказыКонтекстноеМеню" id="274"/>
-									<ExtendedTooltip name="УдалитьДекорацияОписаниеМультизаказыРасширеннаяПодсказка" id="275"/>
+									<ContextMenu name="ДекорацияОписаниеМультизаказыКонтекстноеМеню" id="274"/>
+									<ExtendedTooltip name="ДекорацияОписаниеМультизаказыРасширеннаяПодсказка" id="275"/>
 								</LabelDecoration>
 							</ChildItems>
 						</UsualGroup>
@@ -147,7 +146,7 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
-							<ScrollOnCompress>true</ScrollOnCompress>
+							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="ГруппаЗаказыРасширеннаяПодсказка" id="237"/>
 							<ChildItems>
 								<UsualGroup name="ГруппаЗаказыКоманднаяПанель" id="447">
@@ -172,6 +171,43 @@
 											</Title>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ExtendedTooltip name="ГруппаЗаказыВключениеОтключениеФлажковРасширеннаяПодсказка" id="568"/>
+											<ChildItems>
+												<ButtonGroup name="ГруппаКнопокЗаказыВключениеОтключениеФлажков" id="569">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа кнопок заказы включение отключение флажков</v8:content>
+														</v8:item>
+													</Title>
+													<HorizontalStretch>false</HorizontalStretch>
+													<Representation>Compact</Representation>
+													<ExtendedTooltip name="ГруппаКнопокЗаказыВключениеОтключениеФлажковРасширеннаяПодсказка" id="570"/>
+													<ChildItems>
+														<Button name="ЗаказыУстановитьФлажки" id="559">
+															<Type>CommandBarButton</Type>
+															<Representation>Picture</Representation>
+															<CommandName>Form.Command.ЗаказыУстановитьВсеФлажки</CommandName>
+															<Picture>
+																<xr:Ref>StdPicture.CheckAll</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</Picture>
+															<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+															<ExtendedTooltip name="ЗаказыУстановитьФлажкиРасширеннаяПодсказка" id="560"/>
+														</Button>
+														<Button name="ЗаказыСнятьФлажки" id="561">
+															<Type>CommandBarButton</Type>
+															<Representation>Picture</Representation>
+															<CommandName>Form.Command.ЗаказыСнятьВсеФлажки</CommandName>
+															<Picture>
+																<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</Picture>
+															<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+															<ExtendedTooltip name="ЗаказыСнятьФлажкиРасширеннаяПодсказка" id="562"/>
+														</Button>
+													</ChildItems>
+												</ButtonGroup>
+											</ChildItems>
 										</CommandBar>
 										<InputField name="ДатаОтгрузки" id="526">
 											<DataPath>ДатаОтгрузки</DataPath>
@@ -208,6 +244,7 @@
 											<ChildItems>
 												<InputField name="ОтборОтправитель" id="284">
 													<DataPath>ОтборОтправитель</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>30</MaxWidth>
 													<DropListButton>true</DropListButton>
 													<ChoiceButton>false</ChoiceButton>
@@ -232,6 +269,7 @@
 												</InputField>
 												<InputField name="ОтборОтправительАдрес" id="287">
 													<DataPath>ОтборОтправительАдресПредставление</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>30</MaxWidth>
 													<DropListButton>true</DropListButton>
 													<ChoiceButton>false</ChoiceButton>
@@ -256,6 +294,7 @@
 												</InputField>
 												<InputField name="ОтборПолучатель" id="290">
 													<DataPath>ОтборПолучатель</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>30</MaxWidth>
 													<DropListButton>true</DropListButton>
 													<ChoiceButton>false</ChoiceButton>
@@ -280,6 +319,7 @@
 												</InputField>
 												<InputField name="ОтборПолучательАдрес" id="293">
 													<DataPath>ОтборПолучательАдресПредставление</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>30</MaxWidth>
 													<DropListButton>true</DropListButton>
 													<ChoiceButton>false</ChoiceButton>
@@ -303,6 +343,7 @@
 												</InputField>
 												<InputField name="ОтборГрузоперевозчик" id="296">
 													<DataPath>ОтборГрузоперевозчик</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>30</MaxWidth>
 													<Wrap>false</Wrap>
 													<DropListButton>true</DropListButton>
@@ -333,6 +374,8 @@
 															<v8:content>Заказы</v8:content>
 														</v8:item>
 													</Title>
+													<TitleLocation>Left</TitleLocation>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>30</MaxWidth>
 													<Wrap>false</Wrap>
 													<DropListButton>true</DropListButton>
@@ -374,10 +417,13 @@
 															<Type>UsualButton</Type>
 															<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 															<CommandName>Form.Command.ПрименитьОтборы</CommandName>
+															<TextColor>style:ЦветТекстаКнопкаПоУмолчаниюСервисДоставки</TextColor>
+															<BackColor>style:ЦветФонаКнопкаПоУмолчаниюСервисДоставки</BackColor>
+															<Font ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Применить</v8:content>
+																	<v8:content>ОК</v8:content>
 																</v8:item>
 															</Title>
 															<ExtendedTooltip name="ПрименитьОтборыРасширеннаяПодсказка" id="335"/>
@@ -386,8 +432,14 @@
 												</UsualGroup>
 											</ChildItems>
 										</UsualGroup>
+										<Button name="ОбновитьЗаказы" id="591">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.ОбновитьЗаказы</CommandName>
+											<ExtendedTooltip name="ОбновитьЗаказыРасширеннаяПодсказка" id="592"/>
+										</Button>
 										<LabelDecoration name="ДекорацияОбновитьЗаказыСостояние" id="571">
 											<HorizontalStretch>false</HorizontalStretch>
+											<TextColor>style:ПоясняющийТекст</TextColor>
 											<ContextMenu name="ДекорацияОбновитьЗаказыСостояниеКонтекстноеМеню" id="572"/>
 											<ExtendedTooltip name="ДекорацияОбновитьЗаказыСостояниеРасширеннаяПодсказка" id="573"/>
 										</LabelDecoration>
@@ -451,11 +503,9 @@
 												<Table name="Заказы" id="96">
 													<Representation>List</Representation>
 													<ChangeRowSet>false</ChangeRowSet>
-													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 													<AutoInsertNewRow>true</AutoInsertNewRow>
-													<InitialRowActivation>Activate</InitialRowActivation>
 													<EnableStartDrag>true</EnableStartDrag>
 													<EnableDrag>true</EnableDrag>
 													<DataPath>Заказы</DataPath>
@@ -475,6 +525,8 @@
 														<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
 														<ExcludedCommand>OutputList</ExcludedCommand>
 														<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+														<ExcludedCommand>SelectAll</ExcludedCommand>
+														<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 														<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 													</CommandSet>
 													<RowFilter xsi:nil="true"/>
@@ -494,60 +546,6 @@
 													</ContextMenu>
 													<AutoCommandBar name="ЗаказыКоманднаяПанель" id="98">
 														<Autofill>false</Autofill>
-														<ChildItems>
-															<ButtonGroup name="ГруппаКнопокЗаказыВключениеОтключениеФлажков" id="569">
-																<Title>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Группа кнопок заказы включение отключение флажков</v8:content>
-																	</v8:item>
-																</Title>
-																<HorizontalStretch>false</HorizontalStretch>
-																<Representation>Compact</Representation>
-																<ExtendedTooltip name="ГруппаКнопокЗаказыВключениеОтключениеФлажковРасширеннаяПодсказка" id="570"/>
-																<ChildItems>
-																	<Button name="ЗаказыУстановитьФлажки" id="559">
-																		<Type>CommandBarButton</Type>
-																		<Representation>PictureAndText</Representation>
-																		<CommandName>Form.Command.ЗаказыУстановитьВсеФлажки</CommandName>
-																		<Picture>
-																			<xr:Ref>StdPicture.CheckAll</xr:Ref>
-																			<xr:LoadTransparent>true</xr:LoadTransparent>
-																		</Picture>
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Отметить на отправку</v8:content>
-																			</v8:item>
-																		</Title>
-																		<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-																		<ExtendedTooltip name="ЗаказыУстановитьФлажкиРасширеннаяПодсказка" id="560"/>
-																	</Button>
-																	<Button name="ЗаказыСнятьФлажки" id="561">
-																		<Type>CommandBarButton</Type>
-																		<Representation>PictureAndText</Representation>
-																		<CommandName>Form.Command.ЗаказыСнятьВсеФлажки</CommandName>
-																		<Picture>
-																			<xr:Ref>StdPicture.UncheckAll</xr:Ref>
-																			<xr:LoadTransparent>true</xr:LoadTransparent>
-																		</Picture>
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Снять отметки</v8:content>
-																			</v8:item>
-																		</Title>
-																		<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-																		<ExtendedTooltip name="ЗаказыСнятьФлажкиРасширеннаяПодсказка" id="562"/>
-																	</Button>
-																</ChildItems>
-															</ButtonGroup>
-															<Button name="ОбновитьЗаказы" id="591">
-																<Type>CommandBarButton</Type>
-																<CommandName>Form.Command.ОбновитьЗаказы</CommandName>
-																<ExtendedTooltip name="ОбновитьЗаказыРасширеннаяПодсказка" id="592"/>
-															</Button>
-														</ChildItems>
 													</AutoCommandBar>
 													<ExtendedTooltip name="ЗаказыРасширеннаяПодсказка" id="99"/>
 													<SearchStringAddition name="ЗаказыСтрокаПоиска" id="100">
@@ -582,7 +580,6 @@
 															<DataPath>Заказы.Использовать</DataPath>
 															<TitleLocation>None</TitleLocation>
 															<EditMode>Directly</EditMode>
-															<CheckBoxType>CheckBox</CheckBoxType>
 															<ContextMenu name="ЗаказыИспользоватьКонтекстноеМеню" id="549"/>
 															<ExtendedTooltip name="ЗаказыИспользоватьРасширеннаяПодсказка" id="550"/>
 															<Events>
@@ -591,13 +588,14 @@
 														</CheckBoxField>
 														<InputField name="ЗаказыПредставлениеЗаказа" id="268">
 															<DataPath>Заказы.ЗаказПредставление</DataPath>
-															<ReadOnly>true</ReadOnly>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
 																	<v8:content>Заказ</v8:content>
 																</v8:item>
 															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыПредставлениеЗаказаКонтекстноеМеню" id="269"/>
 															<ExtendedTooltip name="ЗаказыПредставлениеЗаказаРасширеннаяПодсказка" id="270"/>
@@ -605,22 +603,27 @@
 														<InputField name="ЗаказыНомерЗаказа" id="109">
 															<DataPath>Заказы.НомерЗаказа</DataPath>
 															<Visible>false</Visible>
-															<ReadOnly>true</ReadOnly>
-															<MaxWidth>15</MaxWidth>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>15</Width>
 															<ContextMenu name="ЗаказыНомерЗаказаКонтекстноеМеню" id="110"/>
 															<ExtendedTooltip name="ЗаказыНомерЗаказаРасширеннаяПодсказка" id="111"/>
 														</InputField>
 														<InputField name="ЗаказыДатаЗаказа" id="112">
 															<DataPath>Заказы.ДатаЗаказа</DataPath>
 															<Visible>false</Visible>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>10</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
 															<MaxWidth>10</MaxWidth>
 															<ContextMenu name="ЗаказыДатаЗаказаКонтекстноеМеню" id="113"/>
 															<ExtendedTooltip name="ЗаказыДатаЗаказаРасширеннаяПодсказка" id="114"/>
 														</InputField>
 														<InputField name="ЗаказыДатаОтгрузки" id="256">
 															<DataPath>Заказы.ДатаОтгрузки</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Format>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -639,97 +642,114 @@
 														</InputField>
 														<InputField name="ЗаказыСумма" id="247">
 															<DataPath>Заказы.Сумма</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыСуммаКонтекстноеМеню" id="248"/>
 															<ExtendedTooltip name="ЗаказыСуммаРасширеннаяПодсказка" id="249"/>
 														</InputField>
 														<InputField name="ЗаказыОтправитель" id="250">
 															<DataPath>Заказы.ОтправительКонтрагентНаименование</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыОтправительКонтекстноеМеню" id="251"/>
 															<ExtendedTooltip name="ЗаказыОтправительРасширеннаяПодсказка" id="252"/>
 														</InputField>
 														<InputField name="ЗаказыПолучатель" id="115">
 															<DataPath>Заказы.ПолучательНаименование</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>30</Width>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыПолучательКонтекстноеМеню" id="116"/>
 															<ExtendedTooltip name="ЗаказыПолучательРасширеннаяПодсказка" id="117"/>
 														</InputField>
 														<InputField name="ЗаказыДокументОснование" id="244">
 															<DataPath>Заказы.ДокументОснованиеПредставление</DataPath>
-															<ReadOnly>true</ReadOnly>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
 																	<v8:content>Основание</v8:content>
 																</v8:item>
 															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыДокументОснованиеКонтекстноеМеню" id="245"/>
 															<ExtendedTooltip name="ЗаказыДокументОснованиеРасширеннаяПодсказка" id="246"/>
 														</InputField>
 														<InputField name="ЗаказыАдресОтгрузкиПредставление" id="253">
 															<DataPath>Заказы.АдресОтгрузкиПредставление</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыАдресОтгрузкиПредставлениеКонтекстноеМеню" id="254"/>
 															<ExtendedTooltip name="ЗаказыАдресОтгрузкиПредставлениеРасширеннаяПодсказка" id="255"/>
 														</InputField>
 														<InputField name="ЗаказыАдресДоставкиПредставление" id="574">
 															<DataPath>Заказы.АдресДоставкиПредставление</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыАдресДоставкиПредставлениеКонтекстноеМеню" id="575"/>
 															<ExtendedTooltip name="ЗаказыАдресДоставкиПредставлениеРасширеннаяПодсказка" id="576"/>
 														</InputField>
 														<InputField name="ЗаказыПеревозчикНаименование" id="259">
 															<DataPath>Заказы.ГрузоперевозчикНаименование</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыПеревозчикНаименованиеКонтекстноеМеню" id="260"/>
 															<ExtendedTooltip name="ЗаказыПеревозчикНаименованиеРасширеннаяПодсказка" id="261"/>
 														</InputField>
 														<InputField name="ЗаказыТариф" id="262">
 															<DataPath>Заказы.ТарифНаименование</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыТарифКонтекстноеМеню" id="263"/>
 															<ExtendedTooltip name="ЗаказыТарифРасширеннаяПодсказка" id="264"/>
 														</InputField>
 														<InputField name="ЗаказыКонтактноеЛицо" id="143">
 															<DataPath>Заказы.ПолучательКонтактноеЛицоНаименование</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыКонтактноеЛицоКонтекстноеМеню" id="144"/>
 															<ExtendedTooltip name="ЗаказыКонтактноеЛицоРасширеннаяПодсказка" id="145"/>
 														</InputField>
 														<InputField name="ЗаказыКонтактноеЛицоТелефон" id="146">
 															<DataPath>Заказы.ПолучательКонтактноеЛицоТелефонПредставление</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыКонтактноеЛицоТелефонКонтекстноеМеню" id="147"/>
 															<ExtendedTooltip name="ЗаказыКонтактноеЛицоТелефонРасширеннаяПодсказка" id="148"/>
 														</InputField>
 														<InputField name="ЗаказыВес" id="121">
 															<DataPath>Заказы.ГрузВес</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>6</Width>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыВесКонтекстноеМеню" id="122"/>
 															<ExtendedTooltip name="ЗаказыВесРасширеннаяПодсказка" id="123"/>
 														</InputField>
 														<InputField name="ЗаказыОбъем" id="124">
 															<DataPath>Заказы.ГрузОбъем</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>6</Width>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыОбъемКонтекстноеМеню" id="125"/>
 															<ExtendedTooltip name="ЗаказыОбъемРасширеннаяПодсказка" id="126"/>
 														</InputField>
 														<InputField name="ЗаказыКоличествоМест" id="127">
 															<DataPath>Заказы.КоличествоГрузовыхМест</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>6</Width>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыКоличествоМестКонтекстноеМеню" id="128"/>
 															<ExtendedTooltip name="ЗаказыКоличествоМестРасширеннаяПодсказка" id="129"/>
@@ -756,8 +776,7 @@
 																	<v8:content>Группа заказы легенда</v8:content>
 																</v8:item>
 															</Title>
-															<Group>AlwaysHorizontal</Group>
-															<VerticalAlign>Center</VerticalAlign>
+															<Group>HorizontalIfPossible</Group>
 															<Behavior>Usual</Behavior>
 															<Representation>None</Representation>
 															<ShowTitle>false</ShowTitle>
@@ -898,13 +917,14 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
+							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="ГруппаМультизаказыРасширеннаяПодсказка" id="239"/>
 							<ChildItems>
-								<UsualGroup name="ГруппаМультизаказыКоманды" id="602">
+								<UsualGroup name="ГруппаМультизаказыКоманднаяПанель" id="602">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Группа мультизаказы команды</v8:content>
+											<v8:content>Группа мультизаказы командная панель</v8:content>
 										</v8:item>
 									</Title>
 									<HorizontalStretch>false</HorizontalStretch>
@@ -912,39 +932,138 @@
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаМультизаказыКомандыРасширеннаяПодсказка" id="603"/>
+									<ExtendedTooltip name="ГруппаМультизаказыКоманднаяПанельРасширеннаяПодсказка" id="603"/>
 									<ChildItems>
+										<CommandBar name="ГруппаМультизаказыВключениеОтключениеФлажков" id="551">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа мультизаказы включение отключение флажков</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="ГруппаМультизаказыВключениеОтключениеФлажковРасширеннаяПодсказка" id="552"/>
+											<ChildItems>
+												<ButtonGroup name="ГруппаКнопокМультизаказыВключениеОтключениеФлажков" id="604">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа кнопок мультизаказы включение отключение флажков</v8:content>
+														</v8:item>
+													</Title>
+													<Representation>Compact</Representation>
+													<ExtendedTooltip name="ГруппаКнопокМультизаказыВключениеОтключениеФлажковРасширеннаяПодсказка" id="605"/>
+													<ChildItems>
+														<Button name="СписокУстановитьФлажки" id="553">
+															<Type>CommandBarButton</Type>
+															<Representation>Picture</Representation>
+															<CommandName>Form.Command.ЗаказыУстановитьВсеФлажки</CommandName>
+															<Picture>
+																<xr:Ref>StdPicture.CheckAll</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</Picture>
+															<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+															<ExtendedTooltip name="СписокУстановитьФлажкиРасширеннаяПодсказка" id="554"/>
+														</Button>
+														<Button name="СписокСнятьФлажки" id="555">
+															<Type>CommandBarButton</Type>
+															<Representation>Picture</Representation>
+															<CommandName>Form.Command.ЗаказыСнятьВсеФлажки</CommandName>
+															<Picture>
+																<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</Picture>
+															<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+															<ExtendedTooltip name="СписокСнятьФлажкиРасширеннаяПодсказка" id="556"/>
+														</Button>
+													</ChildItems>
+												</ButtonGroup>
+											</ChildItems>
+										</CommandBar>
+										<Button name="ДобавитьГруппу" id="504">
+											<Type>UsualButton</Type>
+											<Representation>PictureAndText</Representation>
+											<CommandName>Form.Command.ДобавитьГруппу</CommandName>
+											<Picture>
+												<xr:Ref>StdPicture.CreateFolder</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</Picture>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Создать мультизаказ</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="ДобавитьГруппуРасширеннаяПодсказка" id="505"/>
+										</Button>
+										<Button name="УдалитьГруппу" id="506">
+											<Type>UsualButton</Type>
+											<Representation>Picture</Representation>
+											<Width>3</Width>
+											<MaxWidth>1</MaxWidth>
+											<CommandName>Form.Command.УдалитьГруппу</CommandName>
+											<Picture>
+												<xr:Ref>StdPicture.Delete</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</Picture>
+											<ExtendedTooltip name="УдалитьГруппуРасширеннаяПодсказка" id="507"/>
+										</Button>
+										<Button name="ОбновитьМультизаказы" id="628">
+											<Type>UsualButton</Type>
+											<Representation>PictureAndText</Representation>
+											<Width>14</Width>
+											<CommandName>Form.Command.ОбновитьМультизаказы</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Перезаполнить</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="ОбновитьМультизаказыРасширеннаяПодсказка" id="629"/>
+										</Button>
+										<CommandBar name="ГруппаМультизаказыПереместитьВверхВниз" id="606">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа мультизаказы переместить вверх вниз</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="ГруппаМультизаказыПереместитьВверхВнизРасширеннаяПодсказка" id="607"/>
+											<ChildItems>
+												<ButtonGroup name="ГруппаКолонокМультизаказыПереместитьВверхВниз" id="608">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа колонок мультизаказы переместить вверх вниз</v8:content>
+														</v8:item>
+													</Title>
+													<Representation>Compact</Representation>
+													<ExtendedTooltip name="ГруппаКолонокМультизаказыПереместитьВверхВнизРасширеннаяПодсказка" id="609"/>
+													<ChildItems>
+														<Button name="ПереместитьВверх" id="653">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.ЗаказыСГруппировками.StandardCommand.MoveUp</CommandName>
+															<ExtendedTooltip name="ПереместитьВверхРасширеннаяПодсказка" id="654"/>
+														</Button>
+														<Button name="ПереместитьВниз" id="655">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.ЗаказыСГруппировками.StandardCommand.MoveDown</CommandName>
+															<ExtendedTooltip name="ПереместитьВнизРасширеннаяПодсказка" id="656"/>
+														</Button>
+													</ChildItems>
+												</ButtonGroup>
+											</ChildItems>
+										</CommandBar>
 										<LabelDecoration name="ДекорацияМультизаказыПереместитьВверхВниз" id="545">
-											<Enabled>false</Enabled>
+											<TextColor>style:ПоясняющийТекст</TextColor>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Порядок следования по маршруту изменяется стрелками</v8:content>
+													<v8:content>Можно изменить порядок следования по маршруту</v8:content>
 												</v8:item>
 											</Title>
 											<ContextMenu name="ДекорацияМультизаказыПереместитьВверхВнизКонтекстноеМеню" id="546"/>
 											<ExtendedTooltip name="ДекорацияМультизаказыПереместитьВверхВнизРасширеннаяПодсказка" id="547"/>
 										</LabelDecoration>
-										<CommandBar name="УдалитьГруппаМультизаказыКоманднаяПанель" id="551">
-											<Visible>false</Visible>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Удалить группа мультизаказы командная панель</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="УдалитьГруппаМультизаказыКоманднаяПанельРасширеннаяПодсказка" id="552"/>
-										</CommandBar>
-										<CommandBar name="УдалитьГруппаМультизаказыПереместитьВверхВниз" id="606">
-											<Visible>false</Visible>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Удалить группа мультизаказы переместить вверх вниз</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="УдалитьГруппаМультизаказыПереместитьВверхВнизРасширеннаяПодсказка" id="607"/>
-										</CommandBar>
 									</ChildItems>
 								</UsualGroup>
 								<UsualGroup name="ГруппаМультизаказыСписок" id="7">
@@ -955,7 +1074,6 @@
 										</v8:item>
 									</Title>
 									<Group>AlwaysHorizontal</Group>
-									<HorizontalSpacing>Double</HorizontalSpacing>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
@@ -968,7 +1086,6 @@
 													<v8:content>Мультизаказы</v8:content>
 												</v8:item>
 											</Title>
-											<Width>70</Width>
 											<Group>Vertical</Group>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
@@ -977,13 +1094,11 @@
 											<ChildItems>
 												<Table name="ЗаказыСГруппировками" id="345">
 													<Representation>Tree</Representation>
-													<CommandBarLocation>Top</CommandBarLocation>
-													<SelectionMode>SingleRow</SelectionMode>
+													<CommandBarLocation>None</CommandBarLocation>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 													<AutoInsertNewRow>true</AutoInsertNewRow>
 													<InitialTreeView>ExpandAllLevels</InitialTreeView>
-													<InitialRowActivation>Activate</InitialRowActivation>
 													<EnableStartDrag>true</EnableStartDrag>
 													<EnableDrag>true</EnableDrag>
 													<DataPath>ЗаказыСГруппировками</DataPath>
@@ -1006,6 +1121,8 @@
 														<ExcludedCommand>List</ExcludedCommand>
 														<ExcludedCommand>OutputList</ExcludedCommand>
 														<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+														<ExcludedCommand>SelectAll</ExcludedCommand>
+														<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 														<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 														<ExcludedCommand>SortListAsc</ExcludedCommand>
 														<ExcludedCommand>SortListDesc</ExcludedCommand>
@@ -1014,129 +1131,6 @@
 													<ContextMenu name="ЗаказыСГруппировкамиКонтекстноеМеню" id="346"/>
 													<AutoCommandBar name="ЗаказыСГруппировкамиКоманднаяПанель" id="347">
 														<Autofill>false</Autofill>
-														<ChildItems>
-															<ButtonGroup name="ГруппаКнопокМультизаказыВключениеОтключениеФлажков" id="604">
-																<Title>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Группа кнопок мультизаказы включение отключение флажков</v8:content>
-																	</v8:item>
-																</Title>
-																<Representation>Compact</Representation>
-																<ExtendedTooltip name="ГруппаКнопокМультизаказыВключениеОтключениеФлажковРасширеннаяПодсказка" id="605"/>
-																<ChildItems>
-																	<Button name="СписокУстановитьФлажки" id="553">
-																		<Type>CommandBarButton</Type>
-																		<Representation>PictureAndText</Representation>
-																		<CommandName>Form.Command.ЗаказыУстановитьВсеФлажки</CommandName>
-																		<Picture>
-																			<xr:Ref>StdPicture.CheckAll</xr:Ref>
-																			<xr:LoadTransparent>true</xr:LoadTransparent>
-																		</Picture>
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Отметить на отправку</v8:content>
-																			</v8:item>
-																		</Title>
-																		<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-																		<ExtendedTooltip name="СписокУстановитьФлажкиРасширеннаяПодсказка" id="554"/>
-																	</Button>
-																	<Button name="СписокСнятьФлажки" id="555">
-																		<Type>CommandBarButton</Type>
-																		<Representation>PictureAndText</Representation>
-																		<CommandName>Form.Command.ЗаказыСнятьВсеФлажки</CommandName>
-																		<Picture>
-																			<xr:Ref>StdPicture.UncheckAll</xr:Ref>
-																			<xr:LoadTransparent>true</xr:LoadTransparent>
-																		</Picture>
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Снять отметки</v8:content>
-																			</v8:item>
-																		</Title>
-																		<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-																		<ExtendedTooltip name="СписокСнятьФлажкиРасширеннаяПодсказка" id="556"/>
-																	</Button>
-																</ChildItems>
-															</ButtonGroup>
-															<Button name="ДобавитьГруппу" id="504">
-																<Type>CommandBarButton</Type>
-																<Representation>PictureAndText</Representation>
-																<CommandName>Form.Command.ДобавитьГруппу</CommandName>
-																<Picture>
-																	<xr:Ref>StdPicture.CreateFolder</xr:Ref>
-																	<xr:LoadTransparent>true</xr:LoadTransparent>
-																</Picture>
-																<Title>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Создать мультизаказ</v8:content>
-																	</v8:item>
-																</Title>
-																<ExtendedTooltip name="ДобавитьГруппуРасширеннаяПодсказка" id="505"/>
-															</Button>
-															<Button name="УдалитьГруппу" id="506">
-																<Type>CommandBarButton</Type>
-																<Representation>Picture</Representation>
-																<Width>3</Width>
-																<MaxWidth>1</MaxWidth>
-																<CommandName>Form.Command.УдалитьГруппу</CommandName>
-																<Picture>
-																	<xr:Ref>StdPicture.Delete</xr:Ref>
-																	<xr:LoadTransparent>true</xr:LoadTransparent>
-																</Picture>
-																<ExtendedTooltip name="УдалитьГруппуРасширеннаяПодсказка" id="507"/>
-															</Button>
-															<Button name="ОбновитьМультизаказы" id="628">
-																<Type>CommandBarButton</Type>
-																<Representation>PictureAndText</Representation>
-																<Width>14</Width>
-																<CommandName>Form.Command.ОбновитьМультизаказы</CommandName>
-																<Title>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Обновить</v8:content>
-																	</v8:item>
-																</Title>
-																<ExtendedTooltip name="ОбновитьМультизаказыРасширеннаяПодсказка" id="629"/>
-															</Button>
-															<ButtonGroup name="ГруппаКолонокМультизаказыПереместитьВверхВниз" id="608">
-																<Title>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Группа колонок мультизаказы переместить вверх вниз</v8:content>
-																	</v8:item>
-																</Title>
-																<Representation>Compact</Representation>
-																<ExtendedTooltip name="ГруппаКолонокМультизаказыПереместитьВверхВнизРасширеннаяПодсказка" id="609"/>
-																<ChildItems>
-																	<Button name="ПереместитьВверх" id="653">
-																		<Type>CommandBarButton</Type>
-																		<CommandName>Form.Item.ЗаказыСГруппировками.StandardCommand.MoveUp</CommandName>
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Переместить вверх</v8:content>
-																			</v8:item>
-																		</Title>
-																		<ExtendedTooltip name="ПереместитьВверхРасширеннаяПодсказка" id="654"/>
-																	</Button>
-																	<Button name="ПереместитьВниз" id="655">
-																		<Type>CommandBarButton</Type>
-																		<CommandName>Form.Item.ЗаказыСГруппировками.StandardCommand.MoveDown</CommandName>
-																		<Title>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Переместить вниз</v8:content>
-																			</v8:item>
-																		</Title>
-																		<ExtendedTooltip name="ПереместитьВнизРасширеннаяПодсказка" id="656"/>
-																	</Button>
-																</ChildItems>
-															</ButtonGroup>
-														</ChildItems>
 													</AutoCommandBar>
 													<ExtendedTooltip name="ЗаказыСГруппировкамиРасширеннаяПодсказка" id="348"/>
 													<SearchStringAddition name="ЗаказыСГруппировкамиСтрокаПоиска" id="349">
@@ -1188,9 +1182,10 @@
 																<CheckBoxField name="ЗаказыСГруппировкамиИспользовать" id="538">
 																	<DataPath>ЗаказыСГруппировками.Использовать</DataPath>
 																	<TitleLocation>None</TitleLocation>
+																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
 																	<ShowInFooter>false</ShowInFooter>
-																	<CheckBoxType>CheckBox</CheckBoxType>
+																	<AutoEditMode>true</AutoEditMode>
 																	<ContextMenu name="ЗаказыСГруппировкамиИспользоватьКонтекстноеМеню" id="539"/>
 																	<ExtendedTooltip name="ЗаказыСГруппировкамиИспользоватьРасширеннаяПодсказка" id="540"/>
 																	<Events>
@@ -1200,8 +1195,10 @@
 																<PictureField name="ЗаказыСГруппировкамиНомерКартинки" id="521">
 																	<DataPath>ЗаказыСГруппировками.КартинкаИдентификатор</DataPath>
 																	<TitleLocation>None</TitleLocation>
+																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
 																	<ShowInFooter>false</ShowInFooter>
+																	<AutoEditMode>true</AutoEditMode>
 																	<ValuesPicture>
 																		<xr:Ref>CommonPicture.СтатусСинхронизацииТорговыеПредложения</xr:Ref>
 																		<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -1230,6 +1227,9 @@
 																			<v8:content>№ объезда</v8:content>
 																		</v8:item>
 																	</Title>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
+																	<Width>1</Width>
 																	<AutoMaxWidth>false</AutoMaxWidth>
 																	<MaxWidth>1</MaxWidth>
 																	<HorizontalStretch>false</HorizontalStretch>
@@ -1246,6 +1246,8 @@
 																			<v8:content>Заказ</v8:content>
 																		</v8:item>
 																	</Title>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
 																	<TextEdit>false</TextEdit>
 																	<ContextMenu name="ЗаказыСГруппировкамиПредставлениеЗаказаКонтекстноеМеню" id="416"/>
 																	<ExtendedTooltip name="ЗаказыСГруппировкамиПредставлениеЗаказаРасширеннаяПодсказка" id="417"/>
@@ -1256,6 +1258,8 @@
 															<DataPath>ЗаказыСГруппировками.ДатаОтгрузки</DataPath>
 															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Format>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -1275,6 +1279,8 @@
 															<DataPath>ЗаказыСГруппировками.НомерЗаказа</DataPath>
 															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ЗаказыСГруппировкамиНомерЗаказаКонтекстноеМеню" id="359"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиНомерЗаказаРасширеннаяПодсказка" id="360"/>
 														</InputField>
@@ -1282,12 +1288,17 @@
 															<DataPath>ЗаказыСГруппировками.ДатаЗаказа</DataPath>
 															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ЗаказыСГруппировкамиДатаЗаказаКонтекстноеМеню" id="362"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиДатаЗаказаРасширеннаяПодсказка" id="363"/>
 														</InputField>
 														<InputField name="ЗаказыСГруппировкамиПолучатель" id="364">
 															<DataPath>ЗаказыСГруппировками.ПолучательНаименование</DataPath>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>18</Width>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыСГруппировкамиПолучательКонтекстноеМеню" id="365"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиПолучательРасширеннаяПодсказка" id="366"/>
@@ -1295,6 +1306,9 @@
 														<InputField name="ЗаказыСГруппировкамиВес" id="370">
 															<DataPath>ЗаказыСГруппировками.ГрузВес</DataPath>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>3</Width>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыСГруппировкамиВесКонтекстноеМеню" id="371"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиВесРасширеннаяПодсказка" id="372"/>
@@ -1302,6 +1316,9 @@
 														<InputField name="ЗаказыСГруппировкамиОбъем" id="373">
 															<DataPath>ЗаказыСГруппировками.ГрузОбъем</DataPath>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>3</Width>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыСГруппировкамиОбъемКонтекстноеМеню" id="374"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиОбъемРасширеннаяПодсказка" id="375"/>
@@ -1309,6 +1326,9 @@
 														<InputField name="ЗаказыСГруппировкамиКоличествоМест" id="376">
 															<DataPath>ЗаказыСГруппировками.КоличествоГрузовыхМест</DataPath>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<Width>3</Width>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ЗаказыСГруппировкамиКоличествоМестКонтекстноеМеню" id="377"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиКоличествоМестРасширеннаяПодсказка" id="378"/>
@@ -1317,6 +1337,8 @@
 															<DataPath>ЗаказыСГруппировками.ОтправительКонтактноеЛицоНаименование</DataPath>
 															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ЗаказыСГруппировкамиПолучательКонтактноеЛицоКонтекстноеМеню" id="380"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиПолучательКонтактноеЛицоРасширеннаяПодсказка" id="381"/>
 														</InputField>
@@ -1324,6 +1346,8 @@
 															<DataPath>ЗаказыСГруппировками.ОтправительКонтактноеЛицоТелефонПредставление</DataPath>
 															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ЗаказыСГруппировкамиПолучательКонтактноеЛицоТелефонКонтекстноеМеню" id="383"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиПолучательКонтактноеЛицоТелефонРасширеннаяПодсказка" id="384"/>
 														</InputField>
@@ -1331,6 +1355,8 @@
 															<DataPath>ЗаказыСГруппировками.ДокументОснование</DataPath>
 															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ЗаказыСГруппировкамиДокументОснованиеКонтекстноеМеню" id="389"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиДокументОснованиеРасширеннаяПодсказка" id="390"/>
 														</InputField>
@@ -1338,6 +1364,8 @@
 															<DataPath>ЗаказыСГруппировками.Сумма</DataPath>
 															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ЗаказыСГруппировкамиСуммаКонтекстноеМеню" id="392"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиСуммаРасширеннаяПодсказка" id="393"/>
 														</InputField>
@@ -1345,6 +1373,8 @@
 															<DataPath>ЗаказыСГруппировками.ТарифИдентификатор</DataPath>
 															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ЗаказыСГруппировкамиТарифКонтекстноеМеню" id="431"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиТарифРасширеннаяПодсказка" id="432"/>
 														</InputField>
@@ -1352,6 +1382,8 @@
 															<DataPath>ЗаказыСГруппировками.ОтправительКонтрагентНаименование</DataPath>
 															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ЗаказыСГруппировкамиОтправительНаименованиеКонтекстноеМеню" id="398"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиОтправительНаименованиеРасширеннаяПодсказка" id="399"/>
 														</InputField>
@@ -1359,6 +1391,8 @@
 															<DataPath>ЗаказыСГруппировками.ГрузоперевозчикНаименование</DataPath>
 															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ЗаказыСГруппировкамиПеревозчикНаименованиеКонтекстноеМеню" id="407"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиПеревозчикНаименованиеРасширеннаяПодсказка" id="408"/>
 														</InputField>
@@ -1366,6 +1400,8 @@
 															<DataPath>ЗаказыСГруппировками.ПолучательКонтактноеЛицоТелефонПредставление</DataPath>
 															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ЗаказыСГруппировкамиОтправительКонтактноеЛицоТелефонКонтекстноеМеню" id="419"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиОтправительКонтактноеЛицоТелефонРасширеннаяПодсказка" id="420"/>
 														</InputField>
@@ -1397,6 +1433,8 @@
 															<DataPath>ЗаказыСГруппировками.ПолучательКонтактноеЛицоНаименование</DataPath>
 															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ЗаказыСГруппировкамиОтправительКонтактноеЛицоКонтекстноеМеню" id="422"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиОтправительКонтактноеЛицоРасширеннаяПодсказка" id="423"/>
 														</InputField>
@@ -1404,6 +1442,8 @@
 															<DataPath>ЗаказыСГруппировками.ЭтоМультизаказ</DataPath>
 															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ЗаказыСГруппировкамиМультизаказКонтекстноеМеню" id="425"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиМультизаказРасширеннаяПодсказка" id="426"/>
 														</InputField>
@@ -1429,15 +1469,19 @@
 																	<v8:content>Группа мультизаказы легенда</v8:content>
 																</v8:item>
 															</Title>
-															<GroupVerticalAlign>Center</GroupVerticalAlign>
 															<Group>AlwaysHorizontal</Group>
-															<VerticalAlign>Center</VerticalAlign>
 															<Behavior>Usual</Behavior>
 															<Representation>None</Representation>
 															<ShowTitle>false</ShowTitle>
 															<ExtendedTooltip name="ГруппаМультизаказыЛегендаРасширеннаяПодсказка" id="611"/>
 															<ChildItems>
 																<PictureDecoration name="ДекорацияМультизаказыЛегендаГотов" id="612">
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Декорация мультизаказы легенда готов</v8:content>
+																		</v8:item>
+																	</Title>
 																	<ToolTip>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1528,7 +1572,7 @@
 													<v8:content>Группа список право</v8:content>
 												</v8:item>
 											</Title>
-											<Width>30</Width>
+											<Width>40</Width>
 											<Group>HorizontalIfPossible</Group>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
@@ -1557,7 +1601,6 @@
 													</Title>
 													<HorizontalStretch>true</HorizontalStretch>
 													<Group>AlwaysHorizontal</Group>
-													<VerticalSpacing>Half</VerticalSpacing>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
@@ -1565,12 +1608,14 @@
 													<ExtendedTooltip name="ГруппаНомерИДатаРасширеннаяПодсказка" id="514"/>
 													<ChildItems>
 														<LabelDecoration name="ДекорацияЗаказПредставление" id="684">
+															<HorizontalStretch>true</HorizontalStretch>
 															<ContextMenu name="ДекорацияЗаказПредставлениеКонтекстноеМеню" id="685"/>
 															<ExtendedTooltip name="ДекорацияЗаказПредставлениеРасширеннаяПодсказка" id="686"/>
 														</LabelDecoration>
 													</ChildItems>
 												</UsualGroup>
 												<UsualGroup name="ГруппаПеревозчик" id="497">
+													<Visible>false</Visible>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1578,29 +1623,26 @@
 														</v8:item>
 													</Title>
 													<Group>HorizontalIfPossible</Group>
-													<VerticalSpacing>Half</VerticalSpacing>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
 													<ExtendedTooltip name="ГруппаПеревозчикРасширеннаяПодсказка" id="498"/>
 													<ChildItems>
-														<InputField name="ЗаказыСГруппировкамиПеревозчик" id="499">
+														<LabelField name="ЗаказыСГруппировкамиПеревозчик" id="499">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.ГрузоперевозчикНаименование</DataPath>
-															<ReadOnly>true</ReadOnly>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
 																	<v8:content>Перевозчик</v8:content>
 																</v8:item>
 															</Title>
-															<OpenButton>true</OpenButton>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+															<Hiperlink>true</Hiperlink>
 															<ContextMenu name="ЗаказыСГруппировкамиПеревозчикКонтекстноеМеню" id="500"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиПеревозчикРасширеннаяПодсказка" id="501"/>
 															<Events>
-																<Event name="Opening">ЗаказыСГруппировкамиПеревозчикОткрытие</Event>
+																<Event name="Click">ЗаказыСГруппировкамиПеревозчикНажатие</Event>
 															</Events>
-														</InputField>
+														</LabelField>
 													</ChildItems>
 												</UsualGroup>
 												<UsualGroup name="ГруппаТребованияКТС" id="690">
@@ -1611,7 +1653,6 @@
 														</v8:item>
 													</Title>
 													<Group>AlwaysHorizontal</Group>
-													<VerticalSpacing>Half</VerticalSpacing>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
@@ -1639,7 +1680,7 @@
 																	<Representation>Tree</Representation>
 																	<ChangeRowSet>false</ChangeRowSet>
 																	<ChangeRowOrder>false</ChangeRowOrder>
-																	<SelectionMode>SingleRow</SelectionMode>
+																	<AutoMaxWidth>false</AutoMaxWidth>
 																	<RowSelectionMode>Cell</RowSelectionMode>
 																	<Header>false</Header>
 																	<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -1740,7 +1781,7 @@
 																			<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 																			<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 																			<ValuesPicture>
-																				<xr:Ref>CommonPicture.ИнформацияСиняяБЭД</xr:Ref>
+																				<xr:Ref>CommonPicture.УдалитьИнформация</xr:Ref>
 																				<xr:LoadTransparent>false</xr:LoadTransparent>
 																			</ValuesPicture>
 																			<ContextMenu name="ТребованияКТСПоказыватьИнформациюКонтекстноеМеню" id="766"/>
@@ -1752,14 +1793,9 @@
 																	<Type>UsualButton</Type>
 																	<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 																	<CommandName>Form.Command.ТребованияКТСЗакрыть</CommandName>
+																	<TextColor>style:ЦветТекстаКнопкаПоУмолчаниюСервисДоставки</TextColor>
 																	<BackColor>style:ЦветФонаКнопкаПоУмолчаниюСервисДоставки</BackColor>
 																	<Font ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>Готово</v8:content>
-																		</v8:item>
-																	</Title>
 																	<ExtendedTooltip name="ПрименитьТребованияКТСРасширеннаяПодсказка" id="728"/>
 																</Button>
 															</ChildItems>
@@ -1767,6 +1803,7 @@
 													</ChildItems>
 												</UsualGroup>
 												<UsualGroup name="ГруппаДатаВремяОтгрузки" id="914">
+													<Visible>false</Visible>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1774,7 +1811,6 @@
 														</v8:item>
 													</Title>
 													<Group>HorizontalIfPossible</Group>
-													<VerticalSpacing>Half</VerticalSpacing>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
@@ -1801,6 +1837,10 @@
 																			<v8:content>Отгрузить</v8:content>
 																		</v8:item>
 																	</Title>
+																	<Width>15</Width>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<MaxWidth>15</MaxWidth>
+																	<HorizontalStretch>false</HorizontalStretch>
 																	<ListChoiceMode>true</ListChoiceMode>
 																	<DropListWidth>14</DropListWidth>
 																	<ContextMenu name="ВариантВремениОтгрузкиКонтекстноеМеню" id="934"/>
@@ -1809,22 +1849,22 @@
 																		<Event name="OnChange">ВариантВремениОтгрузкиПриИзменении</Event>
 																	</Events>
 																</InputField>
-																<InputField name="ВариантВремениОтгрузкиНадпись" id="936">
+																<LabelField name="ВариантВремениОтгрузкиНадпись" id="936">
 																	<DataPath>Items.ЗаказыСГруппировками.CurrentData.ВариантВремениОтгрузкиПредставление</DataPath>
-																	<ReadOnly>true</ReadOnly>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
 																			<v8:content>Отгрузить</v8:content>
 																		</v8:item>
 																	</Title>
-																	<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+																	<MaxWidth>14</MaxWidth>
+																	<HorizontalStretch>false</HorizontalStretch>
 																	<ContextMenu name="ВариантВремениОтгрузкиНадписьКонтекстноеМеню" id="937"/>
 																	<ExtendedTooltip name="ВариантВремениОтгрузкиНадписьРасширеннаяПодсказка" id="938"/>
 																	<Events>
 																		<Event name="OnChange">ВариантВремениОтгрузкиПриИзменении</Event>
 																	</Events>
-																</InputField>
+																</LabelField>
 															</ChildItems>
 														</UsualGroup>
 														<UsualGroup name="ГруппаДатаОтгрузки" id="839">
@@ -1834,7 +1874,7 @@
 																	<v8:content>Группа дата отгрузки</v8:content>
 																</v8:item>
 															</Title>
-															<Group>Vertical</Group>
+															<Group>HorizontalIfPossible</Group>
 															<Behavior>Usual</Behavior>
 															<Representation>None</Representation>
 															<ShowTitle>false</ShowTitle>
@@ -1849,6 +1889,9 @@
 																		</v8:item>
 																	</Title>
 																	<MarkRequiredComplete>true</MarkRequiredComplete>
+																	<Width>7</Width>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<MaxWidth>7</MaxWidth>
 																	<EditFormat>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1863,16 +1906,14 @@
 																		<Event name="Clearing">МультизаказыДатаОтгрузкиОчистка</Event>
 																	</Events>
 																</InputField>
-																<InputField name="МультизаказыДатаОтгрузкиНадпись" id="639">
+																<LabelField name="МультизаказыДатаОтгрузкиНадпись" id="639">
 																	<DataPath>Items.ЗаказыСГруппировками.CurrentData.ДатаОтгрузки</DataPath>
-																	<ReadOnly>true</ReadOnly>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
 																			<v8:content>Дата отгрузки</v8:content>
 																		</v8:item>
 																	</Title>
-																	<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 																	<Format>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1881,7 +1922,7 @@
 																	</Format>
 																	<ContextMenu name="МультизаказыДатаОтгрузкиНадписьКонтекстноеМеню" id="640"/>
 																	<ExtendedTooltip name="МультизаказыДатаОтгрузкиНадписьРасширеннаяПодсказка" id="641"/>
-																</InputField>
+																</LabelField>
 															</ChildItems>
 														</UsualGroup>
 														<UsualGroup name="ГруппаПериодОтгрузки" id="841">
@@ -1906,7 +1947,10 @@
 																		</v8:item>
 																	</Title>
 																	<MarkRequiredComplete>true</MarkRequiredComplete>
+																	<Width>14</Width>
+																	<AutoMaxWidth>false</AutoMaxWidth>
 																	<MaxWidth>14</MaxWidth>
+																	<HorizontalStretch>false</HorizontalStretch>
 																	<OpenButton>true</OpenButton>
 																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
 																	<TextEdit>false</TextEdit>
@@ -1924,19 +1968,17 @@
 																		<Event name="Clearing">ВремяОтгрузкиПредставлениеОчистка</Event>
 																	</Events>
 																</InputField>
-																<InputField name="ПериодОтгрузкиПредставлениеНадпись" id="843">
+																<LabelField name="ПериодОтгрузкиПредставлениеНадпись" id="843">
 																	<DataPath>Items.ЗаказыСГруппировками.CurrentData.ВремяОтгрузкиПредставление</DataPath>
-																	<ReadOnly>true</ReadOnly>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
 																			<v8:content>Период отгрузки</v8:content>
 																		</v8:item>
 																	</Title>
-																	<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 																	<ContextMenu name="ПериодОтгрузкиПредставлениеНадписьКонтекстноеМеню" id="844"/>
 																	<ExtendedTooltip name="ПериодОтгрузкиПредставлениеНадписьРасширеннаяПодсказка" id="845"/>
-																</InputField>
+																</LabelField>
 															</ChildItems>
 														</UsualGroup>
 														<UsualGroup name="ГруппаВремяОтгрузки" id="849">
@@ -1961,6 +2003,8 @@
 																		</v8:item>
 																	</Title>
 																	<MarkRequiredComplete>true</MarkRequiredComplete>
+																	<Width>8</Width>
+																	<AutoMaxWidth>false</AutoMaxWidth>
 																	<MaxWidth>8</MaxWidth>
 																	<EditFormat>
 																		<v8:item>
@@ -1975,16 +2019,14 @@
 																		<Event name="OnChange">ВремяОтгрузкиПриИзменении</Event>
 																	</Events>
 																</InputField>
-																<InputField name="ВремяОтгрузкиНадпись" id="851">
+																<LabelField name="ВремяОтгрузкиНадпись" id="851">
 																	<DataPath>Items.ЗаказыСГруппировками.CurrentData.ВремяОтгрузкиК</DataPath>
-																	<ReadOnly>true</ReadOnly>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
 																			<v8:content>Время отгрузки</v8:content>
 																		</v8:item>
 																	</Title>
-																	<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 																	<Format>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1993,7 +2035,7 @@
 																	</Format>
 																	<ContextMenu name="ВремяОтгрузкиНадписьКонтекстноеМеню" id="852"/>
 																	<ExtendedTooltip name="ВремяОтгрузкиНадписьРасширеннаяПодсказка" id="853"/>
-																</InputField>
+																</LabelField>
 															</ChildItems>
 														</UsualGroup>
 													</ChildItems>
@@ -2006,13 +2048,12 @@
 														</v8:item>
 													</Title>
 													<Group>AlwaysHorizontal</Group>
-													<VerticalSpacing>Half</VerticalSpacing>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
 													<ExtendedTooltip name="ГруппаТарифРасширеннаяПодсказка" id="178"/>
 													<ChildItems>
-														<InputField name="ТекущийТариф" id="687">
+														<LabelField name="ТекущийТариф" id="687">
 															<DataPath>ТекущийТариф</DataPath>
 															<Title>
 																<v8:item>
@@ -2020,21 +2061,15 @@
 																	<v8:content>Тариф</v8:content>
 																</v8:item>
 															</Title>
+															<TitleLocation>Left</TitleLocation>
 															<HorizontalStretch>true</HorizontalStretch>
-															<OpenButton>true</OpenButton>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-															<InputHint>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>&lt;не выбран&gt;</v8:content>
-																</v8:item>
-															</InputHint>
+															<Hiperlink>true</Hiperlink>
 															<ContextMenu name="ТекущийТарифКонтекстноеМеню" id="688"/>
 															<ExtendedTooltip name="ТекущийТарифРасширеннаяПодсказка" id="689"/>
 															<Events>
-																<Event name="Opening">ТекущийТарифОткрытие</Event>
+																<Event name="Click">ТекущийТарифНажатие</Event>
 															</Events>
-														</InputField>
+														</LabelField>
 														<UsualGroup name="ГруппаВыбораТарифа" id="179">
 															<Title>
 																<v8:item>
@@ -2044,7 +2079,6 @@
 															</Title>
 															<TitleTextColor>style:ГиперссылкаЦвет</TitleTextColor>
 															<HorizontalStretch>false</HorizontalStretch>
-															<GroupVerticalAlign>Center</GroupVerticalAlign>
 															<Group>Vertical</Group>
 															<Behavior>PopUp</Behavior>
 															<Representation>None</Representation>
@@ -2067,6 +2101,7 @@
 																			<Type>UsualButton</Type>
 																			<Enabled>false</Enabled>
 																			<CommandName>Form.Command.ВыбратьТариф</CommandName>
+																			<TextColor>style:ЦветТекстаКнопкаПоУмолчаниюСервисДоставки</TextColor>
 																			<BackColor>style:ЦветФонаКнопкаПоУмолчаниюСервисДоставки</BackColor>
 																			<Font ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
 																			<ExtendedTooltip name="ВыбратьТарифРасширеннаяПодсказка" id="228"/>
@@ -2093,8 +2128,8 @@
 																</UsualGroup>
 																<Table name="Тарифы" id="181">
 																	<Representation>List</Representation>
+																	<Width>60</Width>
 																	<MaxRowsCount>40</MaxRowsCount>
-																	<SelectionMode>SingleRow</SelectionMode>
 																	<RowSelectionMode>Cell</RowSelectionMode>
 																	<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 																	<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -2146,16 +2181,22 @@
 																	<ChildItems>
 																		<InputField name="ТарифыТарифНаименование" id="197">
 																			<DataPath>Тарифы.ТарифНаименование</DataPath>
+																			<EditMode>EnterOnInput</EditMode>
+																			<AutoEditMode>true</AutoEditMode>
 																			<ContextMenu name="ТарифыТарифНаименованиеКонтекстноеМеню" id="198"/>
 																			<ExtendedTooltip name="ТарифыТарифНаименованиеРасширеннаяПодсказка" id="199"/>
 																		</InputField>
 																		<InputField name="ТарифыСрок" id="215">
 																			<DataPath>Тарифы.Срок</DataPath>
+																			<EditMode>EnterOnInput</EditMode>
+																			<AutoEditMode>true</AutoEditMode>
 																			<ContextMenu name="ТарифыСрокКонтекстноеМеню" id="216"/>
 																			<ExtendedTooltip name="ТарифыСрокРасширеннаяПодсказка" id="217"/>
 																		</InputField>
 																		<InputField name="ТарифыСтоимость" id="206">
 																			<DataPath>Тарифы.Стоимость</DataPath>
+																			<EditMode>EnterOnInput</EditMode>
+																			<AutoEditMode>true</AutoEditMode>
 																			<ContextMenu name="ТарифыСтоимостьКонтекстноеМеню" id="207"/>
 																			<ExtendedTooltip name="ТарифыСтоимостьРасширеннаяПодсказка" id="208"/>
 																		</InputField>
@@ -2183,20 +2224,17 @@
 															<v8:content>Группа дополнительные требования</v8:content>
 														</v8:item>
 													</Title>
-													<Group>AlwaysHorizontal</Group>
-													<VerticalSpacing>Half</VerticalSpacing>
+													<Group>HorizontalIfPossible</Group>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
 													<ExtendedTooltip name="ГруппаДополнительныеТребованияРасширеннаяПодсказка" id="855"/>
 													<ChildItems>
-														<InputField name="ДополнительныеТребованияПредставление" id="856">
+														<LabelField name="ДополнительныеТребованияПредставление" id="856">
 															<DataPath>ДополнительныеТребованияПредставление</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 															<ContextMenu name="ДополнительныеТребованияПредставлениеКонтекстноеМеню" id="857"/>
 															<ExtendedTooltip name="ДополнительныеТребованияПредставлениеРасширеннаяПодсказка" id="858"/>
-														</InputField>
+														</LabelField>
 														<UsualGroup name="ГруппаВыбораДополнительныхТребований" id="859">
 															<Title>
 																<v8:item>
@@ -2205,7 +2243,6 @@
 																</v8:item>
 															</Title>
 															<TitleTextColor>style:ГиперссылкаЦвет</TitleTextColor>
-															<GroupVerticalAlign>Center</GroupVerticalAlign>
 															<Group>Vertical</Group>
 															<Behavior>PopUp</Behavior>
 															<Representation>None</Representation>
@@ -2215,7 +2252,6 @@
 																	<Representation>Tree</Representation>
 																	<ChangeRowSet>false</ChangeRowSet>
 																	<ChangeRowOrder>false</ChangeRowOrder>
-																	<SelectionMode>SingleRow</SelectionMode>
 																	<RowSelectionMode>Cell</RowSelectionMode>
 																	<Header>false</Header>
 																	<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -2316,7 +2352,7 @@
 																			<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 																			<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 																			<ValuesPicture>
-																				<xr:Ref>CommonPicture.ИнформацияСиняяБЭД</xr:Ref>
+																				<xr:Ref>CommonPicture.УдалитьИнформация</xr:Ref>
 																				<xr:LoadTransparent>false</xr:LoadTransparent>
 																			</ValuesPicture>
 																			<ContextMenu name="ДополнительныеТребованияПоказыватьИнформациюКонтекстноеМеню" id="908"/>
@@ -2328,14 +2364,9 @@
 																	<Type>UsualButton</Type>
 																	<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 																	<CommandName>Form.Command.ДополнительныеТребованияЗакрыть</CommandName>
+																	<TextColor>style:ЦветТекстаКнопкаПоУмолчаниюСервисДоставки</TextColor>
 																	<BackColor>style:ЦветФонаКнопкаПоУмолчаниюСервисДоставки</BackColor>
 																	<Font ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>Готово</v8:content>
-																		</v8:item>
-																	</Title>
 																	<ExtendedTooltip name="ПрименитьДополнительныеТребованияРасширеннаяПодсказка" id="911"/>
 																</Button>
 															</ChildItems>
@@ -2351,15 +2382,13 @@
 														</v8:item>
 													</Title>
 													<Group>AlwaysHorizontal</Group>
-													<VerticalSpacing>Half</VerticalSpacing>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
 													<ExtendedTooltip name="ГруппаСуммаРасширеннаяПодсказка" id="810"/>
 													<ChildItems>
-														<InputField name="ЗаказыСГруппировкамиСтоимостьПеревозки" id="811">
+														<LabelField name="ЗаказыСГруппировкамиСтоимостьПеревозки" id="811">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.Сумма</DataPath>
-															<ReadOnly>true</ReadOnly>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -2374,13 +2403,13 @@
 															</ToolTip>
 															<HorizontalAlign>Left</HorizontalAlign>
 															<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 															<ContextMenu name="ЗаказыСГруппировкамиСтоимостьПеревозкиКонтекстноеМеню" id="812"/>
 															<ExtendedTooltip name="ЗаказыСГруппировкамиСтоимостьПеревозкиРасширеннаяПодсказка" id="813"/>
-														</InputField>
+														</LabelField>
 													</ChildItems>
 												</UsualGroup>
 												<UsualGroup name="ГруппаОтгрузка" id="449">
+													<Visible>false</Visible>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -2388,18 +2417,15 @@
 														</v8:item>
 													</Title>
 													<Group>HorizontalIfPossible</Group>
-													<VerticalSpacing>Half</VerticalSpacing>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ExtendedTooltip name="ГруппаОтгрузкаРасширеннаяПодсказка" id="450"/>
 													<ChildItems>
-														<InputField name="Отправитель" id="461">
+														<LabelField name="Отправитель" id="461">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.ОтправительКонтрагентНаименование</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 															<ContextMenu name="ОтправительКонтекстноеМеню" id="462"/>
 															<ExtendedTooltip name="ОтправительРасширеннаяПодсказка" id="463"/>
-														</InputField>
+														</LabelField>
 														<InputField name="ОтправительКонтактноеЛицо" id="149">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.ОтправительКонтактноеЛицоНаименование</DataPath>
 															<Title>
@@ -2408,6 +2434,7 @@
 																	<v8:content>Контактное лицо</v8:content>
 																</v8:item>
 															</Title>
+															<MarkRequiredComplete>true</MarkRequiredComplete>
 															<ChoiceButton>true</ChoiceButton>
 															<AutoMarkIncomplete>true</AutoMarkIncomplete>
 															<InputHint>
@@ -2424,227 +2451,162 @@
 																<Event name="Clearing">ОтправительКонтактноеЛицоОчистка</Event>
 															</Events>
 														</InputField>
-														<InputField name="ОтправительКонтактноеЛицоНадпись" id="657">
+														<LabelField name="ОтправительКонтактноеЛицоНадпись" id="657">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.ОтправительКонтактноеЛицоНаименование</DataPath>
 															<Visible>false</Visible>
-															<ReadOnly>true</ReadOnly>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
 																	<v8:content>Контактное лицо</v8:content>
 																</v8:item>
 															</Title>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 															<ContextMenu name="ОтправительКонтактноеЛицоНадписьКонтекстноеМеню" id="658"/>
 															<ExtendedTooltip name="ОтправительКонтактноеЛицоНадписьРасширеннаяПодсказка" id="659"/>
-														</InputField>
-														<UsualGroup name="ГруппаОтправительТелефон85" id="1141">
-															<Group>Vertical</Group>
+														</LabelField>
+														<UsualGroup name="ГруппаОтправительТелефон" id="829">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа отправитель телефон</v8:content>
+																</v8:item>
+															</Title>
+															<Group>AlwaysHorizontal</Group>
+															<Behavior>Usual</Behavior>
 															<Representation>None</Representation>
 															<United>false</United>
 															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаОтправительТелефон85РасширеннаяПодсказка" id="1142"/>
+															<ExtendedTooltip name="ГруппаОтправительТелефонРасширеннаяПодсказка" id="830"/>
 															<ChildItems>
-																<UsualGroup name="ГруппаОтправительТелефон" id="829">
-																	<Title>
+																<InputField name="ОтправительКонтактноеЛицоТелефон" id="152">
+																	<DataPath>Items.ЗаказыСГруппировками.CurrentData.ОтправительКонтактноеЛицоТелефонПредставление</DataPath>
+																	<MarkRequiredComplete>true</MarkRequiredComplete>
+																	<ChoiceButton>false</ChoiceButton>
+																	<OpenButton>true</OpenButton>
+																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
+																	<InputHint>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
-																			<v8:content>Группа отправитель телефон</v8:content>
+																			<v8:content>Телефон контактного лица</v8:content>
+																		</v8:item>
+																	</InputHint>
+																	<ContextMenu name="ОтправительКонтактноеЛицоТелефонКонтекстноеМеню" id="153"/>
+																	<ExtendedTooltip name="ОтправительКонтактноеЛицоТелефонРасширеннаяПодсказка" id="154"/>
+																	<Events>
+																		<Event name="OnChange">ОтправительКонтактноеЛицоТелефонПриИзменении</Event>
+																		<Event name="Opening">ОтправительКонтактноеЛицоТелефонОткрытие</Event>
+																		<Event name="Clearing">ОтправительКонтактноеЛицоТелефонОчистка</Event>
+																	</Events>
+																</InputField>
+																<PictureDecoration name="ОтправительДобавитьТелефонДополнительный" id="831">
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Отправитель добавить телефон дополнительный</v8:content>
 																		</v8:item>
 																	</Title>
-																	<Group>AlwaysHorizontal</Group>
-																	<Behavior>Usual</Behavior>
-																	<Representation>None</Representation>
-																	<United>false</United>
-																	<ShowTitle>false</ShowTitle>
-																	<ExtendedTooltip name="ГруппаОтправительТелефонРасширеннаяПодсказка" id="830"/>
-																	<ChildItems>
-																		<InputField name="ОтправительКонтактноеЛицоТелефон" id="152">
-																			<DataPath>Items.ЗаказыСГруппировками.CurrentData.ОтправительКонтактноеЛицоТелефонПредставление</DataPath>
-																			<ChoiceButton>false</ChoiceButton>
-																			<OpenButton>true</OpenButton>
-																			<AutoMarkIncomplete>true</AutoMarkIncomplete>
-																			<InputHint>
-																				<v8:item>
-																					<v8:lang>ru</v8:lang>
-																					<v8:content>Телефон контактного лица</v8:content>
-																				</v8:item>
-																			</InputHint>
-																			<ContextMenu name="ОтправительКонтактноеЛицоТелефонКонтекстноеМеню" id="153"/>
-																			<ExtendedTooltip name="ОтправительКонтактноеЛицоТелефонРасширеннаяПодсказка" id="154"/>
-																			<Events>
-																				<Event name="OnChange">ОтправительКонтактноеЛицоТелефонПриИзменении</Event>
-																				<Event name="Opening">ОтправительКонтактноеЛицоТелефонОткрытие</Event>
-																				<Event name="Clearing">ОтправительКонтактноеЛицоТелефонОчистка</Event>
-																			</Events>
-																		</InputField>
-																		<PictureDecoration name="ОтправительДобавитьТелефонДополнительный" id="831">
-																			<GroupVerticalAlign>Center</GroupVerticalAlign>
-																			<Hyperlink>true</Hyperlink>
-																			<Picture>
-																				<xr:Ref>StdPicture.CreateListItem</xr:Ref>
-																				<xr:LoadTransparent>true</xr:LoadTransparent>
-																			</Picture>
-																			<ContextMenu name="ОтправительДобавитьТелефонДополнительныйКонтекстноеМеню" id="832"/>
-																			<ExtendedTooltip name="ОтправительДобавитьТелефонДополнительныйРасширеннаяПодсказка" id="833"/>
-																			<Events>
-																				<Event name="Click">ОтправительДобавитьДополнительныйТелефоныНажатие</Event>
-																			</Events>
-																		</PictureDecoration>
-																	</ChildItems>
-																</UsualGroup>
-																<Button name="ОтправительДобавитьТелефонДополнительный85" id="1137">
-																	<Type>UsualButton</Type>
-																	<Visible>false</Visible>
-																	<Representation>PictureAndText</Representation>
-																	<CommandName>Form.Command.ОтправительДобавитьТелефонДополнительный85</CommandName>
+																	<GroupVerticalAlign>Center</GroupVerticalAlign>
+																	<Hyperlink>true</Hyperlink>
 																	<Picture>
 																		<xr:Ref>StdPicture.CreateListItem</xr:Ref>
 																		<xr:LoadTransparent>true</xr:LoadTransparent>
 																	</Picture>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>Добавить дополнительный телефон</v8:content>
-																		</v8:item>
-																	</Title>
-																	<ButtonImportance>Supplementary</ButtonImportance>
-																	<ExtendedTooltip name="ОтправительДобавитьТелефонДополнительный85РасширеннаяПодсказка" id="1138"/>
-																</Button>
+																	<ContextMenu name="ОтправительДобавитьТелефонДополнительныйКонтекстноеМеню" id="832"/>
+																	<ExtendedTooltip name="ОтправительДобавитьТелефонДополнительныйРасширеннаяПодсказка" id="833"/>
+																	<Events>
+																		<Event name="Click">ОтправительДобавитьДополнительныйТелефоныНажатие</Event>
+																	</Events>
+																</PictureDecoration>
 															</ChildItems>
 														</UsualGroup>
-														<InputField name="ОтправительКонтактноеЛицоТелефонНадпись" id="660">
+														<LabelField name="ОтправительКонтактноеЛицоТелефонНадпись" id="660">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.ОтправительКонтактноеЛицоТелефонПредставление</DataPath>
 															<Visible>false</Visible>
-															<ReadOnly>true</ReadOnly>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 															<ContextMenu name="ОтправительКонтактноеЛицоТелефонНадписьКонтекстноеМеню" id="661"/>
 															<ExtendedTooltip name="ОтправительКонтактноеЛицоТелефонНадписьРасширеннаяПодсказка" id="662"/>
-														</InputField>
-														<UsualGroup name="ГруппаОтправительТелефонДополнительный85" id="1153">
+														</LabelField>
+														<UsualGroup name="ГруппаОтправительТелефонДополнительный" id="834">
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Группа отправитель телефон дополнительный85</v8:content>
+																	<v8:content>Группа отправитель телефон дополнительный</v8:content>
 																</v8:item>
 															</Title>
-															<Group>Vertical</Group>
+															<Group>AlwaysHorizontal</Group>
+															<Behavior>Usual</Behavior>
 															<Representation>None</Representation>
 															<United>false</United>
 															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаОтправительТелефонДополнительный85РасширеннаяПодсказка" id="1154"/>
+															<ExtendedTooltip name="ГруппаОтправительТелефонДополнительныйРасширеннаяПодсказка" id="835"/>
 															<ChildItems>
-																<UsualGroup name="ГруппаОтправительТелефонДополнительный" id="834">
+																<InputField name="ОтправительКонтактноеЛицоТелефонДополнительный" id="823">
+																	<DataPath>Items.ЗаказыСГруппировками.CurrentData.ОтправительКонтактноеЛицоТелефонДополнительныйПредставление</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
-																			<v8:content>Группа отправитель телефон дополнительный</v8:content>
+																			<v8:content>Доп. телефон</v8:content>
 																		</v8:item>
 																	</Title>
-																	<Group>AlwaysHorizontal</Group>
-																	<Behavior>Usual</Behavior>
-																	<Representation>None</Representation>
-																	<United>false</United>
-																	<ShowTitle>false</ShowTitle>
-																	<ExtendedTooltip name="ГруппаОтправительТелефонДополнительныйРасширеннаяПодсказка" id="835"/>
-																	<ChildItems>
-																		<InputField name="ОтправительКонтактноеЛицоТелефонДополнительный" id="823">
-																			<DataPath>Items.ЗаказыСГруппировками.CurrentData.ОтправительКонтактноеЛицоТелефонДополнительныйПредставление</DataPath>
-																			<Title>
-																				<v8:item>
-																					<v8:lang>ru</v8:lang>
-																					<v8:content>Доп. телефон</v8:content>
-																				</v8:item>
-																			</Title>
-																			<ChoiceButton>false</ChoiceButton>
-																			<OpenButton>true</OpenButton>
-																			<AutoMarkIncomplete>true</AutoMarkIncomplete>
-																			<InputHint>
-																				<v8:item>
-																					<v8:lang>ru</v8:lang>
-																					<v8:content>Дополнительный телефон контактного лица</v8:content>
-																				</v8:item>
-																			</InputHint>
-																			<ContextMenu name="ОтправительКонтактноеЛицоТелефонДополнительныйКонтекстноеМеню" id="824"/>
-																			<ExtendedTooltip name="ОтправительКонтактноеЛицоТелефонДополнительныйРасширеннаяПодсказка" id="825"/>
-																			<Events>
-																				<Event name="OnChange">ОтправительКонтактноеЛицоТелефонДополнительныйПриИзменении</Event>
-																				<Event name="StartChoice">ОтправительКонтактноеЛицоТелефонДополнительныйНачалоВыбора</Event>
-																				<Event name="Opening">ОтправительКонтактноеЛицоТелефонДополнительныйОткрытие</Event>
-																				<Event name="Clearing">ОтправительКонтактноеЛицоТелефонДополнительныйОчистка</Event>
-																			</Events>
-																		</InputField>
-																		<PictureDecoration name="ОтправительУдалитьТелефонДополнительный" id="836">
-																			<Title formatted="false">
-																				<v8:item>
-																					<v8:lang>ru</v8:lang>
-																					<v8:content>Отправитель добавить дополнительный телефоны</v8:content>
-																				</v8:item>
-																			</Title>
-																			<GroupVerticalAlign>Center</GroupVerticalAlign>
-																			<Hyperlink>true</Hyperlink>
-																			<Picture>
-																				<xr:Ref>StdPicture.Delete</xr:Ref>
-																				<xr:LoadTransparent>true</xr:LoadTransparent>
-																			</Picture>
-																			<ContextMenu name="ОтправительУдалитьТелефонДополнительныйКонтекстноеМеню" id="837"/>
-																			<ExtendedTooltip name="ОтправительУдалитьТелефонДополнительныйРасширеннаяПодсказка" id="838"/>
-																			<Events>
-																				<Event name="Click">ОтправительУдалитьДополнительныйТелефонНажатие</Event>
-																			</Events>
-																		</PictureDecoration>
-																	</ChildItems>
-																</UsualGroup>
-																<Button name="ОтправительУдалитьТелефонДополнительный85" id="1139">
-																	<Type>UsualButton</Type>
-																	<Visible>false</Visible>
-																	<Representation>PictureAndText</Representation>
-																	<CommandName>Form.Command.ОтправительУдалитьТелефонДополнительный85</CommandName>
+																	<MarkRequiredComplete>true</MarkRequiredComplete>
+																	<ChoiceButton>false</ChoiceButton>
+																	<OpenButton>true</OpenButton>
+																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
+																	<InputHint>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Дополнительный телефон контактного лица</v8:content>
+																		</v8:item>
+																	</InputHint>
+																	<ContextMenu name="ОтправительКонтактноеЛицоТелефонДополнительныйКонтекстноеМеню" id="824"/>
+																	<ExtendedTooltip name="ОтправительКонтактноеЛицоТелефонДополнительныйРасширеннаяПодсказка" id="825"/>
+																	<Events>
+																		<Event name="OnChange">ОтправительКонтактноеЛицоТелефонДополнительныйПриИзменении</Event>
+																		<Event name="Opening">ОтправительКонтактноеЛицоТелефонДополнительныйОткрытие</Event>
+																		<Event name="Clearing">ОтправительКонтактноеЛицоТелефонДополнительныйОчистка</Event>
+																	</Events>
+																</InputField>
+																<PictureDecoration name="ОтправительУдалитьТелефонДополнительный" id="836">
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Отправитель добавить дополнительный телефоны</v8:content>
+																		</v8:item>
+																	</Title>
+																	<GroupVerticalAlign>Center</GroupVerticalAlign>
+																	<Hyperlink>true</Hyperlink>
 																	<Picture>
 																		<xr:Ref>StdPicture.Delete</xr:Ref>
 																		<xr:LoadTransparent>true</xr:LoadTransparent>
 																	</Picture>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>Удалить дополнительный телефон</v8:content>
-																		</v8:item>
-																	</Title>
-																	<ButtonImportance>Supplementary</ButtonImportance>
-																	<ExtendedTooltip name="ОтправительУдалитьТелефонДополнительный85РасширеннаяПодсказка" id="1140"/>
-																</Button>
+																	<ContextMenu name="ОтправительУдалитьТелефонДополнительныйКонтекстноеМеню" id="837"/>
+																	<ExtendedTooltip name="ОтправительУдалитьТелефонДополнительныйРасширеннаяПодсказка" id="838"/>
+																	<Events>
+																		<Event name="Click">ОтправительУдалитьДополнительныйТелефонНажатие</Event>
+																	</Events>
+																</PictureDecoration>
 															</ChildItems>
 														</UsualGroup>
-														<InputField name="ОтправительКонтактноеЛицоТелефонДополнительныйНадпись" id="826">
+														<LabelField name="ОтправительКонтактноеЛицоТелефонДополнительныйНадпись" id="826">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.ОтправительКонтактноеЛицоТелефонДополнительныйПредставление</DataPath>
 															<Visible>false</Visible>
-															<ReadOnly>true</ReadOnly>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
 																	<v8:content>Доп. телефон</v8:content>
 																</v8:item>
 															</Title>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 															<ContextMenu name="ОтправительКонтактноеЛицоТелефонДополнительныйНадписьКонтекстноеМеню" id="827"/>
 															<ExtendedTooltip name="ОтправительКонтактноеЛицоТелефонДополнительныйНадписьРасширеннаяПодсказка" id="828"/>
-														</InputField>
-														<InputField name="ОтправительТерминал" id="454">
+														</LabelField>
+														<LabelField name="ОтправительТерминал" id="454">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.АдресОтгрузкиНаименование</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 															<ContextMenu name="ОтправительТерминалКонтекстноеМеню" id="455"/>
 															<ExtendedTooltip name="ОтправительТерминалРасширеннаяПодсказка" id="456"/>
-														</InputField>
-														<InputField name="ОтправительОткуда" id="633">
+														</LabelField>
+														<LabelField name="ОтправительОткуда" id="633">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.АдресОтгрузкиПредставление</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<AutoMaxHeight>false</AutoMaxHeight>
-															<MaxHeight>2</MaxHeight>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 															<ContextMenu name="ОтправительОткудаКонтекстноеМеню" id="634"/>
 															<ExtendedTooltip name="ОтправительОткудаРасширеннаяПодсказка" id="635"/>
-														</InputField>
+														</LabelField>
 													</ChildItems>
 												</UsualGroup>
 												<UsualGroup name="ГруппаДоставка" id="457">
@@ -2656,60 +2618,47 @@
 														</v8:item>
 													</Title>
 													<Group>HorizontalIfPossible</Group>
-													<VerticalSpacing>Half</VerticalSpacing>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ExtendedTooltip name="ГруппаДоставкаРасширеннаяПодсказка" id="458"/>
 													<ChildItems>
-														<InputField name="Получатель" id="469">
+														<LabelField name="Получатель" id="469">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.ПолучательНаименование</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 															<ContextMenu name="ПолучательКонтекстноеМеню" id="470"/>
 															<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="471"/>
-														</InputField>
-														<InputField name="ПолучательКонтактноеЛицо" id="472">
+														</LabelField>
+														<LabelField name="ПолучательКонтактноеЛицо" id="472">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.ПолучательКонтактноеЛицоНаименование</DataPath>
-															<ReadOnly>true</ReadOnly>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
 																	<v8:content>Контактное лицо</v8:content>
 																</v8:item>
 															</Title>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 															<ContextMenu name="ПолучательКонтактноеЛицоКонтекстноеМеню" id="473"/>
 															<ExtendedTooltip name="ПолучательКонтактноеЛицоРасширеннаяПодсказка" id="474"/>
-														</InputField>
-														<InputField name="ПолучательКонтактноеЛицоТелефон" id="475">
+														</LabelField>
+														<LabelField name="ПолучательКонтактноеЛицоТелефон" id="475">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.ПолучательКонтактноеЛицоТелефонПредставление</DataPath>
-															<ReadOnly>true</ReadOnly>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
 																	<v8:content>Телефон</v8:content>
 																</v8:item>
 															</Title>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 															<ContextMenu name="ПолучательКонтактноеЛицоТелефонКонтекстноеМеню" id="476"/>
 															<ExtendedTooltip name="ПолучательКонтактноеЛицоТелефонРасширеннаяПодсказка" id="477"/>
-														</InputField>
-														<InputField name="ПолучательТерминал" id="481">
+														</LabelField>
+														<LabelField name="ПолучательТерминал" id="481">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.АдресДоставкиНаименование</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 															<ContextMenu name="ПолучательТерминалКонтекстноеМеню" id="482"/>
 															<ExtendedTooltip name="ПолучательТерминалРасширеннаяПодсказка" id="483"/>
-														</InputField>
-														<InputField name="ПолучательКуда" id="636">
+														</LabelField>
+														<LabelField name="ПолучательКуда" id="636">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.АдресДоставкиПредставление</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<AutoMaxHeight>false</AutoMaxHeight>
-															<MaxHeight>2</MaxHeight>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 															<ContextMenu name="ПолучательКудаКонтекстноеМеню" id="637"/>
 															<ExtendedTooltip name="ПолучательКудаРасширеннаяПодсказка" id="638"/>
-														</InputField>
+														</LabelField>
 													</ChildItems>
 												</UsualGroup>
 												<UsualGroup name="ГруппаПараметрыГруза" id="459">
@@ -2721,44 +2670,39 @@
 														</v8:item>
 													</Title>
 													<Group>HorizontalIfPossible</Group>
-													<VerticalSpacing>Half</VerticalSpacing>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ExtendedTooltip name="ГруппаПараметрыГрузаРасширеннаяПодсказка" id="460"/>
 													<ChildItems>
-														<InputField name="КоличествоЗаказов" id="77">
+														<LabelField name="КоличествоЗаказов" id="77">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.КоличествоЗаказов</DataPath>
-															<ReadOnly>true</ReadOnly>
 															<HorizontalAlign>Left</HorizontalAlign>
 															<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+															<HorizontalStretch>true</HorizontalStretch>
 															<ContextMenu name="КоличествоЗаказовКонтекстноеМеню" id="78"/>
 															<ExtendedTooltip name="КоличествоЗаказовРасширеннаяПодсказка" id="79"/>
-														</InputField>
-														<InputField name="КоличествоМест" id="86">
+														</LabelField>
+														<LabelField name="КоличествоМест" id="86">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.КоличествоГрузовыхМест</DataPath>
-															<ReadOnly>true</ReadOnly>
 															<HorizontalAlign>Left</HorizontalAlign>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+															<HorizontalStretch>true</HorizontalStretch>
 															<ContextMenu name="КоличествоМестКонтекстноеМеню" id="87"/>
 															<ExtendedTooltip name="КоличествоМестРасширеннаяПодсказка" id="88"/>
-														</InputField>
-														<InputField name="Вес" id="80">
+														</LabelField>
+														<LabelField name="Вес" id="80">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.ГрузВес</DataPath>
-															<ReadOnly>true</ReadOnly>
 															<HorizontalAlign>Left</HorizontalAlign>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+															<HorizontalStretch>true</HorizontalStretch>
 															<ContextMenu name="ВесКонтекстноеМеню" id="81"/>
 															<ExtendedTooltip name="ВесРасширеннаяПодсказка" id="82"/>
-														</InputField>
-														<InputField name="Объем" id="83">
+														</LabelField>
+														<LabelField name="Объем" id="83">
 															<DataPath>Items.ЗаказыСГруппировками.CurrentData.ГрузОбъем</DataPath>
-															<ReadOnly>true</ReadOnly>
 															<HorizontalAlign>Left</HorizontalAlign>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+															<HorizontalStretch>true</HorizontalStretch>
 															<ContextMenu name="ОбъемКонтекстноеМеню" id="84"/>
 															<ExtendedTooltip name="ОбъемРасширеннаяПодсказка" id="85"/>
-														</InputField>
+														</LabelField>
 													</ChildItems>
 												</UsualGroup>
 												<UsualGroup name="ГруппаОшибки" id="484">
@@ -2769,7 +2713,6 @@
 														</v8:item>
 													</Title>
 													<Group>Vertical</Group>
-													<VerticalSpacing>Half</VerticalSpacing>
 													<VerticalAlign>Top</VerticalAlign>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
@@ -2809,10 +2752,9 @@
 															<TitleLocation>None</TitleLocation>
 															<VerticalAlign>Top</VerticalAlign>
 															<GroupVerticalAlign>Top</GroupVerticalAlign>
-															<MaxHeight>6</MaxHeight>
 															<HorizontalStretch>true</HorizontalStretch>
 															<VerticalStretch>true</VerticalStretch>
-															<TextColor>pal:Red</TextColor>
+															<TextColor>style:SpecialTextColor</TextColor>
 															<ContextMenu name="ОписаниеОшибкиКонтекстноеМеню" id="90"/>
 															<ExtendedTooltip name="ОписаниеОшибкиРасширеннаяПодсказка" id="91"/>
 														</LabelField>
@@ -7268,7 +7210,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОтправитьЗаказы</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПрименитьОтборы" id="11">
 			<Title>
@@ -7368,7 +7309,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Обновить</v8:content>
+					<v8:content>Обновить заказы</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -7382,7 +7323,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ОбновитьЗаказы</Action>
-			<Representation>TextPicture</Representation>
+			<Representation>Picture</Representation>
 		</Command>
 		<Command name="ОбновитьТарифы" id="20">
 			<Title>
@@ -7438,36 +7379,6 @@
 				</v8:item>
 			</Title>
 			<Action>ДополнительныеТребованияЗакрыть</Action>
-		</Command>
-		<Command name="ОтправительДобавитьТелефонДополнительный85" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отправитель добавить телефон дополнительный85</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отправитель добавить телефон дополнительный85</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОтправительДобавитьТелефонДополнительный85</Action>
-		</Command>
-		<Command name="ОтправительУдалитьТелефонДополнительный85" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отправитель удалить телефон дополнительный85</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отправитель удалить телефон дополнительный85</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОтправительУдалитьТелефонДополнительный85</Action>
 		</Command>
 	</Commands>
 </Form>

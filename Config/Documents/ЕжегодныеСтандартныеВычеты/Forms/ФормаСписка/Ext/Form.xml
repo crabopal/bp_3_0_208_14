@@ -3,51 +3,51 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="НастройкиСписка" id="68">
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="45">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Настройки списка</v8:content>
+					<v8:content>Группа пользовательских настроек</v8:content>
 				</v8:item>
 			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<Behavior>PopUp</Behavior>
-			<ExtendedTooltip name="НастройкиСпискаРасширеннаяПодсказка" id="69"/>
-			<ChildItems>
-				<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="45">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа пользовательских настроек</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="46"/>
-				</UsualGroup>
-				<UsualGroup name="СписокНастройкиОтбора" id="47">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Дополнительные условия</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ExtendedTooltip name="СписокНастройкиОтбораРасширеннаяПодсказка" id="48"/>
-				</UsualGroup>
-			</ChildItems>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="46"/>
 		</UsualGroup>
+		<UsualGroup name="СписокНастройкиОтбора" id="47">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные условия</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="СписокНастройкиОтбораРасширеннаяПодсказка" id="48"/>
+		</UsualGroup>
+		<CommandBar name="КоманднаяПанельФормы" id="49">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель формы</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="КоманднаяПанельФормыРасширеннаяПодсказка" id="50"/>
+		</CommandBar>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -61,7 +61,6 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -78,31 +77,33 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="24"/>
-			<SearchStringAddition name="СписокСтрокаПоиска" id="36">
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="24"/>
+			<SearchStringAddition name="СписокSearchString" id="36">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchStringRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="37"/>
-				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="38"/>
+				<ContextMenu name="СписокSearchStringContextMenu" id="37"/>
+				<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="38"/>
 			</SearchStringAddition>
-			<ViewStatusAddition name="СписокСостояниеПросмотра" id="39">
+			<ViewStatusAddition name="СписокViewStatus" id="39">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>ViewStatusRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="40"/>
-				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="41"/>
+				<ContextMenu name="СписокViewStatusContextMenu" id="40"/>
+				<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="41"/>
 			</ViewStatusAddition>
-			<SearchControlAddition name="СписокУправлениеПоиском" id="42">
+			<SearchControlAddition name="СписокSearchControl" id="42">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchControl</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="43"/>
-				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="44"/>
+				<ContextMenu name="СписокSearchControlContextMenu" id="43"/>
+				<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="44"/>
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
@@ -123,6 +124,7 @@
 						<xr:Ref>CommonPicture.Скрепка</xr:Ref>
 						<xr:LoadTransparent>false</xr:LoadTransparent>
 					</HeaderPicture>
+					<Width>2</Width>
 					<ValuesPicture>
 						<xr:Ref>CommonPicture.КоллекцияСкрепка</xr:Ref>
 						<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -141,7 +143,7 @@
 					</Title>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="НалоговыйПериодКонтекстноеМеню" id="15"/>
-					<ExtendedTooltip name="НалоговыйПериодРасширеннаяПодсказка" id="25"/>
+					<ExtendedTooltip name="НалоговыйПериодExtendedTooltip" id="25"/>
 				</LabelField>
 				<LabelField name="ПрименятьВычетыС" id="20">
 					<DataPath>Список.ПрименятьВычетыС</DataPath>
@@ -151,30 +153,32 @@
 							<v8:content>Месяц</v8:content>
 						</v8:item>
 					</Title>
+					<Width>12</Width>
 					<ContextMenu name="ПрименятьВычетыСКонтекстноеМеню" id="21"/>
-					<ExtendedTooltip name="ПрименятьВычетыСРасширеннаяПодсказка" id="30"/>
+					<ExtendedTooltip name="ПрименятьВычетыСExtendedTooltip" id="30"/>
 				</LabelField>
 				<LabelField name="Организация" id="22">
 					<DataPath>Список.Организация</DataPath>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="23"/>
-					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="28"/>
+					<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="28"/>
 				</LabelField>
 				<LabelField name="Сотрудник" id="18">
 					<DataPath>Список.Сотрудник</DataPath>
 					<ContextMenu name="СотрудникКонтекстноеМеню" id="19"/>
-					<ExtendedTooltip name="СотрудникРасширеннаяПодсказка" id="29"/>
+					<ExtendedTooltip name="СотрудникExtendedTooltip" id="29"/>
 				</LabelField>
 				<LabelField name="Дата" id="4">
 					<DataPath>Список.Дата</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<Width>10</Width>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="26"/>
+					<ExtendedTooltip name="ДатаExtendedTooltip" id="26"/>
 				</LabelField>
 				<LabelField name="Номер" id="6">
 					<DataPath>Список.Номер</DataPath>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="НомерКонтекстноеМеню" id="7"/>
-					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="27"/>
+					<ExtendedTooltip name="НомерExtendedTooltip" id="27"/>
 				</LabelField>
 				<LabelField name="Ответственный" id="33">
 					<DataPath>Список.Ответственный</DataPath>
@@ -184,7 +188,7 @@
 				<LabelField name="Комментарий" id="12">
 					<DataPath>Список.Комментарий</DataPath>
 					<ContextMenu name="КомментарийКонтекстноеМеню" id="13"/>
-					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="31"/>
+					<ExtendedTooltip name="КомментарийExtendedTooltip" id="31"/>
 				</LabelField>
 				<LabelField name="Ссылка" id="8">
 					<DataPath>Список.Ссылка</DataPath>
@@ -192,7 +196,7 @@
 						<xr:Common>false</xr:Common>
 					</UserVisible>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="32"/>
+					<ExtendedTooltip name="СсылкаExtendedTooltip" id="32"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -331,4 +335,16 @@
 			<Type/>
 		</Attribute>
 	</Attributes>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>0:2baf6d7a-12ed-4f22-ad96-92bb31b747ff</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
 </Form>

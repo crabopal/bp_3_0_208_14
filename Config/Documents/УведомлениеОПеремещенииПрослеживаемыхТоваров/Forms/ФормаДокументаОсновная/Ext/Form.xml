@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
@@ -59,12 +58,12 @@
 					<Button name="ФормаКомандаПечать" id="182">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.КомандаПечать</CommandName>
-						<ExtendedTooltip name="ФормаКомандаПечатьРасширеннаяПодсказка" id="183"/>
+						<ExtendedTooltip name="ФормаКомандаПечатьExtendedTooltip" id="183"/>
 					</Button>
 					<Button name="ФормаКомандаВыгрузитьУведомлениеВXML" id="99">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.КомандаВыгрузитьУведомлениеВXML</CommandName>
-						<ExtendedTooltip name="ФормаКомандаВыгрузитьУведомлениеВXMLРасширеннаяПодсказка" id="100"/>
+						<ExtendedTooltip name="ФормаКомандаВыгрузитьУведомлениеВXMLExtendedTooltip" id="100"/>
 					</Button>
 					<Popup name="Отправка" id="101">
 						<Title>
@@ -81,12 +80,13 @@
 						</ToolTip>
 						<Picture>
 							<xr:Ref>CommonPicture.ЗначокОбновлениеКонфигурацииЧерезИнтернет16</xr:Ref>
-							<xr:LoadTransparent>false</xr:LoadTransparent>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+							<xr:TransparentPixel x="14" y="1"/>
 						</Picture>
-						<ExtendedTooltip name="ОтправкаРасширеннаяПодсказка" id="102"/>
+						<ExtendedTooltip name="ОтправкаExtendedTooltip" id="102"/>
 						<ChildItems>
 							<ButtonGroup name="ГруппаОтправкаВКонтролирующийОрган" id="103">
-								<ExtendedTooltip name="ГруппаОтправкаВКонтролирующийОрганРасширеннаяПодсказка" id="104"/>
+								<ExtendedTooltip name="ГруппаОтправкаВКонтролирующийОрганExtendedTooltip" id="104"/>
 								<ChildItems>
 									<Button name="ПроверитьВИнтернете" id="105">
 										<Type>CommandBarButton</Type>
@@ -116,7 +116,7 @@
 												<v8:content>Отправить в ФНС</v8:content>
 											</v8:item>
 										</Title>
-										<ExtendedTooltip name="ОтправитьВКонтролирующийОрганРасширеннаяПодсказка" id="108"/>
+										<ExtendedTooltip name="ОтправитьВКонтролирующийОрганExtendedTooltip" id="108"/>
 									</Button>
 								</ChildItems>
 							</ButtonGroup>
@@ -133,6 +133,7 @@
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -142,7 +143,7 @@
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПанельОтправкиРасширеннаяПодсказка" id="110"/>
+			<ExtendedTooltip name="ГруппаПанельОтправкиExtendedTooltip" id="110"/>
 			<ChildItems>
 				<UsualGroup name="БлокСостоянияОтправки" id="111">
 					<Title>
@@ -291,7 +292,7 @@
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
 									<Picture>
 										<xr:Ref>CommonPicture.ПризнакНаличияКритическойОшибки</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="ЗначокКритическойОшибкиКонтекстноеМеню" id="136"/>
@@ -405,15 +406,13 @@
 									<DataPath>СостояниеДокумента</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>2</Width>
 									<Height>1</Height>
 									<HorizontalStretch>false</HorizontalStretch>
 									<VerticalStretch>false</VerticalStretch>
 									<ValuesPicture>
-										<xr:Ref>CommonPicture.СостоянияДокументаБП</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:Ref>CommonPicture.СостоянияДокумента</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</ValuesPicture>
 									<Border width="1">
 										<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
@@ -613,7 +612,6 @@
 			</Events>
 			<ChildItems>
 				<ColumnGroup name="ТоварыНомер" id="171">
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ТоварыНомерРасширеннаяПодсказка" id="172"/>
 					<ChildItems>
 						<LabelField name="ТоварыНомерСтроки" id="63">
@@ -637,17 +635,18 @@
 				</InputField>
 				<InputField name="ТоварыКодТНВЭД" id="72">
 					<DataPath>Объект.Товары.КодТНВЭД</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТоварыКодТНВЭДКонтекстноеМеню" id="73"/>
 					<ExtendedTooltip name="ТоварыКодТНВЭДРасширеннаяПодсказка" id="74"/>
 				</InputField>
 				<ColumnGroup name="ТоварыГруппаЕдиницыИзмерения" id="159">
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ТоварыГруппаЕдиницыИзмеренияРасширеннаяПодсказка" id="160"/>
 					<ChildItems>
 						<InputField name="ТоварыЕдиницаИзмерения" id="75">
 							<DataPath>Объект.Товары.ЕдиницаИзмерения</DataPath>
+							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ТоварыЕдиницаИзмеренияКонтекстноеМеню" id="76"/>
@@ -655,6 +654,7 @@
 						</InputField>
 						<InputField name="ТоварыЕдиницаПрослеживаемости" id="78">
 							<DataPath>Объект.Товары.ЕдиницаПрослеживаемости</DataPath>
+							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ТоварыЕдиницаПрослеживаемостиКонтекстноеМеню" id="79"/>
@@ -663,7 +663,6 @@
 					</ChildItems>
 				</ColumnGroup>
 				<ColumnGroup name="ТоварыГруппаОбщаяКоличество" id="161">
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ТоварыГруппаОбщаяКоличествоРасширеннаяПодсказка" id="162"/>
 					<ChildItems>
 						<InputField name="ТоварыКоличество" id="81">
@@ -693,7 +692,6 @@
 					<ExtendedTooltip name="ТоварыСуммаРасширеннаяПодсказка" id="89"/>
 				</InputField>
 				<ColumnGroup name="ТоварыГруппаСопроводительныйДокумент" id="176">
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ТоварыГруппаСопроводительныйДокументРасширеннаяПодсказка" id="177"/>
 					<ChildItems>
 						<InputField name="ТоварыСопроводительныйДокумент" id="173">

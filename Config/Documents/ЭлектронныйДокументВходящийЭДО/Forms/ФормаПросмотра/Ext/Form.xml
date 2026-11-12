@@ -15,6 +15,7 @@
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
 	</Events>
@@ -138,10 +139,10 @@
 											<CommandName>Form.Command.Отклонить</CommandName>
 											<ExtendedTooltip name="ОтклонитьРасширеннаяПодсказка" id="584"/>
 										</Button>
-										<Button name="ОтказатьсяОтПодписания" id="925">
+										<Button name="ОтказатьсяОтПодписания" id="813">
 											<Type>CommandBarButton</Type>
 											<CommandName>Form.Command.ОтказатьсяОтПодписания</CommandName>
-											<ExtendedTooltip name="ОтказатьсяОтПодписанияРасширеннаяПодсказка" id="926"/>
+											<ExtendedTooltip name="ОтказатьсяОтПодписанияРасширеннаяПодсказка" id="814"/>
 										</Button>
 										<Button name="ОтправитьВАрхив" id="589">
 											<Type>CommandBarButton</Type>
@@ -151,9 +152,7 @@
 										</Button>
 										<Button name="КнопкаСоздатьДокументПоЧерновику" id="850">
 											<Type>CommandBarButton</Type>
-											<DefaultButton>true</DefaultButton>
 											<CommandName>Form.Command.СоздатьДокументПоЧерновику</CommandName>
-											<ButtonImportance>Main</ButtonImportance>
 											<ExtendedTooltip name="КнопкаСоздатьДокументПоЧерновикуРасширеннаяПодсказка" id="851"/>
 										</Button>
 										<ButtonGroup name="ГруппаКомандАннулирование" id="575">
@@ -191,10 +190,10 @@
 													<CommandName>Form.Command.Аннулировать</CommandName>
 													<ExtendedTooltip name="АннулироватьРасширеннаяПодсказка" id="586"/>
 												</Button>
-												<Button name="ЗапроситьУточнение" id="929">
+												<Button name="ЗапроситьУточнение" id="819">
 													<Type>CommandBarButton</Type>
 													<CommandName>Form.Command.ЗапроситьУточнение</CommandName>
-													<ExtendedTooltip name="ЗапроситьУточнениеРасширеннаяПодсказка" id="930"/>
+													<ExtendedTooltip name="ЗапроситьУточнениеРасширеннаяПодсказка" id="820"/>
 												</Button>
 												<Button name="Завершить" id="587">
 													<Type>CommandBarButton</Type>
@@ -275,15 +274,15 @@
 															<CommandName>Form.Command.ОтклонитьДокумент</CommandName>
 															<ExtendedTooltip name="ОтклонитьДокументРасширеннаяПодсказка" id="612"/>
 														</Button>
-														<Button name="ОтказатьсяОтПодписанияДокумент" id="927">
+														<Button name="ОтказатьсяОтПодписанияДокумент" id="815">
 															<Type>CommandBarButton</Type>
 															<CommandName>Form.Command.ОтказатьсяОтПодписанияДокумент</CommandName>
-															<ExtendedTooltip name="ОтказатьсяОтПодписанияДокументРасширеннаяПодсказка" id="928"/>
+															<ExtendedTooltip name="ОтказатьсяОтПодписанияДокументРасширеннаяПодсказка" id="816"/>
 														</Button>
-														<Button name="ЗапроситьУточнениеДокумент" id="931">
+														<Button name="ЗапроситьУточнениеДокумент" id="817">
 															<Type>CommandBarButton</Type>
 															<CommandName>Form.Command.ЗапроситьУточнениеДокумент</CommandName>
-															<ExtendedTooltip name="ЗапроситьУточнениеДокументРасширеннаяПодсказка" id="932"/>
+															<ExtendedTooltip name="ЗапроситьУточнениеДокументРасширеннаяПодсказка" id="818"/>
 														</Button>
 														<Button name="АннулироватьДокумент" id="613">
 															<Type>CommandBarButton</Type>
@@ -315,6 +314,16 @@
 												</Popup>
 											</ChildItems>
 										</Popup>
+										<Button name="ЗаписатьДокумент" id="830">
+											<Type>CommandBarButton</Type>
+											<Representation>Picture</Representation>
+											<CommandName>Form.StandardCommand.Write</CommandName>
+											<Picture>
+												<xr:Ref>StdPicture.Write</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</Picture>
+											<ExtendedTooltip name="ЗаписатьДокументРасширеннаяПодсказка" id="831"/>
+										</Button>
 										<Button name="ОтображатьСхемуРегламента" id="621">
 											<Type>CommandBarButton</Type>
 											<CommandName>Form.Command.ОтображатьСхемуДокументооборота</CommandName>
@@ -495,6 +504,12 @@
 												</Button>
 											</ChildItems>
 										</Popup>
+										<Button name="ВключитьРедактированиеРеквизитовНеформализованныхДокументов" id="828">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ВключитьРедактированиеРеквизитовНеформализованныхДокументов</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ВключитьРедактированиеРеквизитовНеформализованныхДокументовРасширеннаяПодсказка" id="829"/>
+										</Button>
 										<Button name="ПометкаУдаления" id="717">
 											<Type>CommandBarButton</Type>
 											<CommandName>Form.Command.ПометкаУдаления</CommandName>
@@ -561,7 +576,7 @@
 							<ExtendedTooltip name="ГруппаПредупрежденийРасширеннаяПодсказка" id="494"/>
 						</UsualGroup>
 						<UsualGroup name="ГруппаСостояние" id="48">
-							<Group>Vertical</Group>
+							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -575,45 +590,13 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаСостояниеПредставлениеРасширеннаяПодсказка" id="553"/>
 									<ChildItems>
-										<InputField name="ВидДокумента" id="556">
-											<DataPath>Объект.ВидДокумента</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Вид</v8:content>
-												</v8:item>
-											</Title>
-											<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<MaxWidth>25</MaxWidth>
-											<OpenButton>false</OpenButton>
-											<CreateButton>false</CreateButton>
-											<ListChoiceMode>true</ListChoiceMode>
-											<QuickChoice>true</QuickChoice>
-											<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
-											<ContextMenu name="ВидДокументаКонтекстноеМеню" id="557"/>
-											<ExtendedTooltip name="ВидДокументаРасширеннаяПодсказка" id="558"/>
-											<Events>
-												<Event name="OnChange">ВидОсновногоДокументаПриИзменении</Event>
-											</Events>
-										</InputField>
-									</ChildItems>
-								</UsualGroup>
-								<UsualGroup name="ГруппаСостояниеПричина" id="879">
-									<Group>HorizontalIfPossible</Group>
-									<HorizontalSpacing>None</HorizontalSpacing>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаСостояниеПричинаРасширеннаяПодсказка" id="880"/>
-									<ChildItems>
-										<LabelField name="ПредставлениеСостояния" id="881">
+										<LabelField name="ПредставлениеСостояния" id="804">
 											<DataPath>ПредставлениеСостояния</DataPath>
 											<Font ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
-											<ContextMenu name="ПредставлениеСостоянияКонтекстноеМеню" id="882"/>
-											<ExtendedTooltip name="ПредставлениеСостоянияРасширеннаяПодсказка" id="883"/>
+											<ContextMenu name="ПредставлениеСостоянияКонтекстноеМеню" id="805"/>
+											<ExtendedTooltip name="ПредставлениеСостоянияРасширеннаяПодсказка" id="806"/>
 										</LabelField>
-										<PictureDecoration name="ПоказатьКомментарийСостояния" id="885">
+										<PictureDecoration name="ПоказатьКомментарийСостояния" id="807">
 											<Visible>false</Visible>
 											<Title formatted="false">
 												<v8:item>
@@ -626,17 +609,33 @@
 												<xr:Ref>StdPicture.Find</xr:Ref>
 												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
-											<ContextMenu name="ПоказатьКомментарийСостоянияКонтекстноеМеню" id="886"/>
-											<ExtendedTooltip name="ПоказатьКомментарийСостоянияРасширеннаяПодсказка" id="887"/>
+											<ContextMenu name="ПоказатьКомментарийСостоянияКонтекстноеМеню" id="808"/>
+											<ExtendedTooltip name="ПоказатьКомментарийСостоянияРасширеннаяПодсказка" id="809"/>
 											<Events>
 												<Event name="Click">ПоказатьКомментарийСостояния</Event>
 											</Events>
 										</PictureDecoration>
-										<LabelField name="ПричинаОтклонения" id="888">
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаСостояниеПричина" id="802">
+									<Group>HorizontalIfPossible</Group>
+									<HorizontalSpacing>None</HorizontalSpacing>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСостояниеПричинаРасширеннаяПодсказка" id="803"/>
+									<ChildItems>
+										<LabelField name="ПричинаОтклонения" id="810">
 											<DataPath>ПричинаОтклонения</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Причина</v8:content>
+												</v8:item>
+											</Title>
 											<AutoMaxWidth>false</AutoMaxWidth>
-											<ContextMenu name="ПричинаОтклоненияКонтекстноеМеню" id="889"/>
-											<ExtendedTooltip name="ПричинаОтклоненияРасширеннаяПодсказка" id="890"/>
+											<ContextMenu name="ПричинаОтклоненияКонтекстноеМеню" id="811"/>
+											<ExtendedTooltip name="ПричинаОтклоненияРасширеннаяПодсказка" id="812"/>
 										</LabelField>
 									</ChildItems>
 								</UsualGroup>
@@ -972,7 +971,7 @@
 								</v8:item>
 							</Title>
 							<Picture>
-								<xr:Ref>CommonPicture.ИнформацияСиняяБЭД</xr:Ref>
+								<xr:Ref>CommonPicture.УдалитьИнформация</xr:Ref>
 								<xr:LoadTransparent>false</xr:LoadTransparent>
 							</Picture>
 							<FileDragMode>AsFile</FileDragMode>
@@ -1067,6 +1066,8 @@
 							<ChildItems>
 								<InputField name="СхемаРегламентаНаименование" id="240">
 									<DataPath>СхемаРегламента.Наименование</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СхемаРегламентаНаименованиеКонтекстноеМеню" id="241"/>
 									<ExtendedTooltip name="СхемаРегламентаНаименованиеРасширеннаяПодсказка" id="242"/>
 								</InputField>
@@ -1082,12 +1083,16 @@
 									<ChildItems>
 										<InputField name="СхемаРегламентаСтатус" id="234">
 											<DataPath>СхемаРегламента.Статус</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<Font ref="style:МелкийНаклонныйШрифтБЭД" kind="StyleItem"/>
 											<ContextMenu name="СхемаРегламентаСтатусКонтекстноеМеню" id="235"/>
 											<ExtendedTooltip name="СхемаРегламентаСтатусРасширеннаяПодсказка" id="236"/>
 										</InputField>
 										<InputField name="СхемаРегламентаДатаИзмененияСтатуса" id="237">
 											<DataPath>СхемаРегламента.ДатаИзмененияСтатуса</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<Font ref="style:МелкийНаклонныйШрифтБЭД" kind="StyleItem"/>
 											<ContextMenu name="СхемаРегламентаДатаИзмененияСтатусаКонтекстноеМеню" id="238"/>
 											<ExtendedTooltip name="СхемаРегламентаДатаИзмененияСтатусаРасширеннаяПодсказка" id="239"/>
@@ -1135,6 +1140,109 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаРаботаСФайломРасширеннаяПодсказка" id="770"/>
 									<ChildItems>
+										<UsualGroup name="ГруппаРеквизитыДокумента" id="832">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа реквизиты документа</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаРеквизитыДокументаРасширеннаяПодсказка" id="833"/>
+											<ChildItems>
+												<InputField name="ВидДокумента" id="556">
+													<DataPath>Объект.ВидДокумента</DataPath>
+													<MaxWidth>25</MaxWidth>
+													<OpenButton>false</OpenButton>
+													<CreateButton>false</CreateButton>
+													<ListChoiceMode>true</ListChoiceMode>
+													<QuickChoice>true</QuickChoice>
+													<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+													<ContextMenu name="ВидДокументаКонтекстноеМеню" id="557"/>
+													<ExtendedTooltip name="ВидДокументаРасширеннаяПодсказка" id="558"/>
+													<Events>
+														<Event name="OnChange">ВидОсновногоДокументаПриИзменении</Event>
+													</Events>
+												</InputField>
+												<UsualGroup name="ГруппаРеквизитыДокументаДляРедактирования" id="826">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа реквизиты документа для редактирования</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаРеквизитыДокументаДляРедактированияРасширеннаяПодсказка" id="827"/>
+													<ChildItems>
+														<UsualGroup name="ГруппаРеквизитыДокументаНомерДата" id="824">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа реквизиты документа номер дата</v8:content>
+																</v8:item>
+															</Title>
+															<Group>AlwaysHorizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаРеквизитыДокументаНомерДатаРасширеннаяПодсказка" id="825"/>
+															<ChildItems>
+																<InputField name="НомерДокумента" id="835">
+																	<DataPath>Объект.НомерДокумента</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Номер</v8:content>
+																		</v8:item>
+																	</Title>
+																	<Width>12</Width>
+																	<HorizontalStretch>false</HorizontalStretch>
+																	<ContextMenu name="НомерДокументаКонтекстноеМеню" id="838"/>
+																	<ExtendedTooltip name="НомерДокументаРасширеннаяПодсказка" id="839"/>
+																	<Events>
+																		<Event name="OnChange">НомерДокументаПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<InputField name="ДатаДокумента" id="821">
+																	<DataPath>Объект.ДатаДокумента</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Дата</v8:content>
+																		</v8:item>
+																	</Title>
+																	<Width>10</Width>
+																	<ContextMenu name="ДатаДокументаКонтекстноеМеню" id="822"/>
+																	<ExtendedTooltip name="ДатаДокументаРасширеннаяПодсказка" id="823"/>
+																	<Events>
+																		<Event name="OnChange">ДатаДокументаПриИзменении</Event>
+																	</Events>
+																</InputField>
+															</ChildItems>
+														</UsualGroup>
+														<InputField name="СуммаДокумента" id="834">
+															<DataPath>Объект.СуммаДокумента</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Сумма</v8:content>
+																</v8:item>
+															</Title>
+															<Width>12</Width>
+															<ChoiceButton>false</ChoiceButton>
+															<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="836"/>
+															<ExtendedTooltip name="СуммаДокументаРасширеннаяПодсказка" id="837"/>
+															<Events>
+																<Event name="OnChange">СуммаДокументаПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
 										<UsualGroup name="ГруппаПредставлениеФайла" id="82">
 											<Title>
 												<v8:item>
@@ -1599,30 +1707,30 @@
 											</ContextMenu>
 											<AutoCommandBar name="ПодписиКоманднаяПанель" id="325"/>
 											<ExtendedTooltip name="ПодписиРасширеннаяПодсказка" id="326"/>
-											<SearchStringAddition name="ПодписиСтрокаПоиска" id="327">
+											<SearchStringAddition name="ТаблицаЭПСтрокаПоиска" id="327">
 												<AdditionSource>
 													<Item>Подписи</Item>
 													<Type>SearchStringRepresentation</Type>
 												</AdditionSource>
-												<ContextMenu name="ПодписиСтрокаПоискаКонтекстноеМеню" id="328"/>
-												<ExtendedTooltip name="ПодписиСтрокаПоискаРасширеннаяПодсказка" id="329"/>
+												<ContextMenu name="ТаблицаЭПСтрокаПоискаКонтекстноеМеню" id="328"/>
+												<ExtendedTooltip name="ТаблицаЭПСтрокаПоискаРасширеннаяПодсказка" id="329"/>
 											</SearchStringAddition>
-											<ViewStatusAddition name="ПодписиСостояниеПросмотра" id="330">
+											<ViewStatusAddition name="ТаблицаЭПСостояниеПросмотра" id="330">
 												<AdditionSource>
 													<Item>Подписи</Item>
 													<Type>ViewStatusRepresentation</Type>
 												</AdditionSource>
 												<HorizontalLocation>Left</HorizontalLocation>
-												<ContextMenu name="ПодписиСостояниеПросмотраКонтекстноеМеню" id="331"/>
-												<ExtendedTooltip name="ПодписиСостояниеПросмотраРасширеннаяПодсказка" id="332"/>
+												<ContextMenu name="ТаблицаЭПСостояниеПросмотраКонтекстноеМеню" id="331"/>
+												<ExtendedTooltip name="ТаблицаЭПСостояниеПросмотраРасширеннаяПодсказка" id="332"/>
 											</ViewStatusAddition>
-											<SearchControlAddition name="ПодписиУправлениеПоиском" id="333">
+											<SearchControlAddition name="ТаблицаЭПУправлениеПоиском" id="333">
 												<AdditionSource>
 													<Item>Подписи</Item>
 													<Type>SearchControl</Type>
 												</AdditionSource>
-												<ContextMenu name="ПодписиУправлениеПоискомКонтекстноеМеню" id="334"/>
-												<ExtendedTooltip name="ПодписиУправлениеПоискомРасширеннаяПодсказка" id="335"/>
+												<ContextMenu name="ТаблицаЭПУправлениеПоискомКонтекстноеМеню" id="334"/>
+												<ExtendedTooltip name="ТаблицаЭПУправлениеПоискомРасширеннаяПодсказка" id="335"/>
 											</SearchControlAddition>
 											<Events>
 												<Event name="Selection">ПодписиВыбор</Event>
@@ -1707,7 +1815,7 @@
 								</UsualGroup>
 							</ChildItems>
 						</Page>
-						<Page name="СтраницаСообщения" id="933">
+						<Page name="СтраницаСообщения" id="840">
 							<Visible>false</Visible>
 							<Title>
 								<v8:item>
@@ -1721,17 +1829,17 @@
 							</Picture>
 							<Group>Vertical</Group>
 							<ScrollOnCompress>false</ScrollOnCompress>
-							<ExtendedTooltip name="СтраницаСообщенияРасширеннаяПодсказка" id="934"/>
+							<ExtendedTooltip name="СтраницаСообщенияРасширеннаяПодсказка" id="841"/>
 							<ChildItems>
-								<FormattedDocumentField name="ВсеСообщения" id="935">
+								<FormattedDocumentField name="ВсеСообщения" id="845">
 									<DataPath>ВсеСообщения</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<TitleLocation>None</TitleLocation>
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<ContextMenu name="ВсеСообщенияКонтекстноеМеню" id="936"/>
-									<ExtendedTooltip name="ВсеСообщенияРасширеннаяПодсказка" id="937"/>
+									<ContextMenu name="ВсеСообщенияКонтекстноеМеню" id="846"/>
+									<ExtendedTooltip name="ВсеСообщенияРасширеннаяПодсказка" id="847"/>
 								</FormattedDocumentField>
-								<InputField name="ТекстСообщения" id="939">
+								<InputField name="ТекстСообщения" id="842">
 									<DataPath>ТекстСообщения</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<AutoMaxWidth>false</AutoMaxWidth>
@@ -1739,13 +1847,13 @@
 									<AutoMaxHeight>false</AutoMaxHeight>
 									<MaxHeight>2</MaxHeight>
 									<MultiLine>true</MultiLine>
-									<ContextMenu name="ТекстСообщенияКонтекстноеМеню" id="940"/>
-									<ExtendedTooltip name="ТекстСообщенияРасширеннаяПодсказка" id="941"/>
+									<ContextMenu name="ТекстСообщенияКонтекстноеМеню" id="843"/>
+									<ExtendedTooltip name="ТекстСообщенияРасширеннаяПодсказка" id="844"/>
 								</InputField>
-								<Button name="ОтправитьСообщение" id="943">
+								<Button name="ОтправитьСообщение" id="848">
 									<Type>UsualButton</Type>
 									<CommandName>Form.Command.ОтправитьСообщение</CommandName>
-									<ExtendedTooltip name="ОтправитьСообщениеРасширеннаяПодсказка" id="944"/>
+									<ExtendedTooltip name="ОтправитьСообщениеРасширеннаяПодсказка" id="849"/>
 								</Button>
 							</ChildItems>
 						</Page>
@@ -2092,6 +2200,17 @@
 					</Title>
 					<Type>
 						<v8:Type>cfg:DocumentRef.СообщениеЭДО</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПодписьПоДоверенностиВерна" id="120">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подпись по доверенности верна</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
 			</Columns>
@@ -3132,18 +3251,29 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ИспользуютсяУниверсальныеСообщения" id="9">
+		<Attribute name="ИзмененВидДокумента" id="114">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Используются универсальные сообщения</v8:content>
+					<v8:content>Изменен вид документа</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ТекстСообщения" id="14">
+		<Attribute name="ЕстьПравоОбработкиДокументов" id="115">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть право обработки документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстСообщения" id="116">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -3158,7 +3288,7 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="ВсеСообщения" id="16">
+		<Attribute name="ВсеСообщения" id="117">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -3169,7 +3299,18 @@
 				<v8:Type xmlns:fd="http://v8.1c.ru/8.2/data/formatted-document">fd:FormattedDocument</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="УстанавливатьПрочтениеСообщений" id="20">
+		<Attribute name="ИспользуютсяУниверсальныеСообщения" id="118">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используются универсальные сообщения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="УстанавливатьПрочтениеСообщений" id="119">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -3455,6 +3596,10 @@
 					<v8:content>Отклонить предложение об аннулировании документа</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗнакСтоп</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
 			<Action>ОтклонитьАннулирование</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
@@ -3472,6 +3617,10 @@
 					<v8:content>Отклонить электронный документ</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗнакСтоп</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
 			<Action>Отклонить</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
@@ -3490,7 +3639,7 @@
 				</v8:item>
 			</ToolTip>
 			<Picture>
-				<xr:Ref>StdPicture.Stop</xr:Ref>
+				<xr:Ref>StdPicture.AppearanceCross</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Аннулировать</Action>
@@ -3874,6 +4023,10 @@
 					<v8:content>Отклонить предложение об аннулировании документа</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗнакСтоп</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
 			<Action>ОтклонитьАннулирование</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
@@ -3891,6 +4044,10 @@
 					<v8:content>Отклонить электронный документ</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗнакСтоп</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
 			<Action>Отклонить</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
@@ -3909,7 +4066,7 @@
 				</v8:item>
 			</ToolTip>
 			<Picture>
-				<xr:Ref>StdPicture.Stop</xr:Ref>
+				<xr:Ref>StdPicture.AppearanceCross</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Аннулировать</Action>
@@ -4051,20 +4208,16 @@
 			</Title>
 			<Action>ВключитьПолеПредпросмотраPDFФайлов</Action>
 		</Command>
-		<Command name="ЗапроситьУточнениеДокумент" id="10">
+		<Command name="ВключитьРедактированиеРеквизитовНеформализованныхДокументов" id="71">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Запросить уточнение</v8:content>
+					<v8:content>Включить редактирование реквизитов неформализованных документов</v8:content>
 				</v8:item>
 			</Title>
-			<Picture>
-				<xr:Ref>CommonPicture.ВопросительныйЗнакБЭД</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
-			<Action>ЗапроситьУточнениеДокумент</Action>
+			<Action>ВключитьРедактированиеРеквизитовНеформализованныхДокументов</Action>
 		</Command>
-		<Command name="ОтказатьсяОтПодписания" id="24">
+		<Command name="ОтказатьсяОтПодписания" id="67">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -4078,7 +4231,20 @@
 			<Action>ОтказатьсяОтПодписания</Action>
 			<Representation>TextPicture</Representation>
 		</Command>
-		<Command name="ОтказатьсяОтПодписанияДокумент" id="25">
+		<Command name="ЗапроситьУточнение" id="68">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запросить уточнение</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.ВопросительныйЗнакБЭД</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗапроситьУточнение</Action>
+		</Command>
+		<Command name="ОтказатьсяОтПодписанияДокумент" id="69">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -4092,7 +4258,7 @@
 			<Action>ОтказатьсяОтПодписанияДокумент</Action>
 			<Representation>TextPicture</Representation>
 		</Command>
-		<Command name="ЗапроситьУточнение" id="26">
+		<Command name="ЗапроситьУточнениеДокумент" id="70">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -4103,9 +4269,9 @@
 				<xr:Ref>CommonPicture.ВопросительныйЗнакБЭД</xr:Ref>
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
-			<Action>ЗапроситьУточнение</Action>
+			<Action>ЗапроситьУточнениеДокумент</Action>
 		</Command>
-		<Command name="ОтправитьСообщение" id="27">
+		<Command name="ОтправитьСообщение" id="72">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -4127,7 +4293,6 @@
 			</Picture>
 			<Action>СоздатьДокументПоЧерновику</Action>
 			<Representation>TextPicture</Representation>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

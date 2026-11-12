@@ -2,8 +2,16 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗаполнитьПоДаннымСервиса" id="13">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗаполнитьПоДаннымСервиса</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаЗаполнитьПоДаннымСервисаРасширеннаяПодсказка" id="14"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -13,8 +21,6 @@
 	<ChildItems>
 		<InputField name="ОрганизацияКонтрагентСтрокой" id="10">
 			<DataPath>ОрганизацияКонтрагентСтрокой</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<DropListButton>true</DropListButton>
 			<OpenButton>true</OpenButton>
 			<ContextMenu name="ОрганизацияКонтрагентСтрокойКонтекстноеМеню" id="11"/>
@@ -29,25 +35,12 @@
 		</InputField>
 		<InputField name="Подразделение" id="4">
 			<DataPath>Запись.Подразделение</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="ПодразделениеКонтекстноеМеню" id="5"/>
 			<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="6"/>
 		</InputField>
 		<InputField name="КодРАФП" id="7">
 			<DataPath>Запись.КодРАФП</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<ContextMenu name="КодРАФПКонтекстноеМеню" id="8">
-				<ChildItems>
-					<Button name="ЗаполнитьПоДаннымСервиса" id="13">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ЗаполнитьПоДаннымСервиса</CommandName>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ЗаполнитьПоДаннымСервисаРасширеннаяПодсказка" id="14"/>
-					</Button>
-				</ChildItems>
-			</ContextMenu>
+			<ContextMenu name="КодРАФПКонтекстноеМеню" id="8"/>
 			<ExtendedTooltip name="КодРАФПРасширеннаяПодсказка" id="9"/>
 		</InputField>
 	</ChildItems>

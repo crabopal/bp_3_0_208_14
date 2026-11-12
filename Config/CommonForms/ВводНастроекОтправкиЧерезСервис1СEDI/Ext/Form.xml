@@ -28,41 +28,83 @@
 		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<Pages name="СтраницыФормы" id="80">
+		<Pages name="СтраницыФормы" id="83">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Страницы формы</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы формы</v8:content>
+				</v8:item>
+			</ToolTip>
 			<HorizontalStretch>true</HorizontalStretch>
 			<VerticalStretch>true</VerticalStretch>
 			<PagesRepresentation>None</PagesRepresentation>
-			<ExtendedTooltip name="СтраницыФормыРасширеннаяПодсказка" id="81"/>
+			<ExtendedTooltip name="СтраницыФормыРасширеннаяПодсказка" id="84"/>
 			<ChildItems>
-				<Page name="СтраницаОсновная" id="82">
+				<Page name="СтраницаОсновная" id="85">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Основная</v8:content>
 						</v8:item>
 					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница основная</v8:content>
+						</v8:item>
+					</ToolTip>
 					<HorizontalStretch>true</HorizontalStretch>
 					<VerticalStretch>true</VerticalStretch>
 					<Group>Vertical</Group>
-					<VerticalSpacing>Double</VerticalSpacing>
-					<ExtendedTooltip name="СтраницаОсновнаяРасширеннаяПодсказка" id="83"/>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаОсновнаяРасширеннаяПодсказка" id="86"/>
 					<ChildItems>
-						<UsualGroup name="ВажныеСообщения" id="78">
+						<UsualGroup name="ИнформацияДлительнаяОперация" id="9">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Важные сообщения</v8:content>
+									<v8:content>Информация длительная операция</v8:content>
 								</v8:item>
 							</Title>
-							<Representation>None</Representation>
+							<Group>HorizontalIfPossible</Group>
+							<VerticalAlign>Center</VerticalAlign>
+							<Representation>WeakSeparation</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ВажныеСообщенияРасширеннаяПодсказка" id="79"/>
+							<BackColor>style:ToolTipBackColor</BackColor>
+							<ExtendedTooltip name="ИнформацияДлительнаяОперацияРасширеннаяПодсказка" id="10"/>
+							<ChildItems>
+								<PictureDecoration name="ИнформацияДлительнаяОперацияКартинка" id="11">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Информация длительная операция картинка</v8:content>
+										</v8:item>
+									</Title>
+									<Picture>
+										<xr:Ref>CommonPicture.ИнформацияБЭД</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="ИнформацияДлительнаяОперацияКартинкаКонтекстноеМеню" id="12"/>
+									<ExtendedTooltip name="ИнформацияДлительнаяОперацияКартинкаРасширеннаяПодсказка" id="13"/>
+								</PictureDecoration>
+								<LabelDecoration name="ИнформацияДлительнаяОперацияНадпись" id="14">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Длительность получения идентификаторов из сервиса может занимать до 2 минут.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ИнформацияДлительнаяОперацияНадписьКонтекстноеМеню" id="15"/>
+									<ExtendedTooltip name="ИнформацияДлительнаяОперацияНадписьРасширеннаяПодсказка" id="16"/>
+								</LabelDecoration>
+							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="Организация" id="1">
 							<Title>
@@ -73,7 +115,6 @@
 							</Title>
 							<Group>HorizontalIfPossible</Group>
 							<Representation>WeakSeparation</Representation>
-							<ShowAsCard>true</ShowAsCard>
 							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="2"/>
 							<ChildItems>
 								<Pages name="ОрганизацияСтраницы" id="17">
@@ -115,6 +156,7 @@
 													<ContextMenu name="ИдентификаторОрганизацииКонтекстноеМеню" id="42"/>
 													<ExtendedTooltip name="ИдентификаторОрганизацииРасширеннаяПодсказка" id="43"/>
 													<Events>
+														<Event name="OnChange">ИдентификаторОрганизацииПриИзменении</Event>
 														<Event name="AutoComplete">ИдентификаторОрганизацииАвтоПодбор</Event>
 													</Events>
 												</InputField>
@@ -176,7 +218,6 @@
 							</Title>
 							<Group>HorizontalIfPossible</Group>
 							<Representation>WeakSeparation</Representation>
-							<ShowAsCard>true</ShowAsCard>
 							<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="4"/>
 							<ChildItems>
 								<Pages name="КонтрагентСтраницы" id="19">
@@ -218,6 +259,7 @@
 													<ContextMenu name="ИдентификаторКонтрагентаКонтекстноеМеню" id="45"/>
 													<ExtendedTooltip name="ИдентификаторКонтрагентаРасширеннаяПодсказка" id="46"/>
 													<Events>
+														<Event name="OnChange">ИдентификаторКонтрагентаПриИзменении</Event>
 														<Event name="AutoComplete">ИдентификаторКонтрагентаАвтоПодбор</Event>
 													</Events>
 												</InputField>
@@ -279,7 +321,6 @@
 							</Title>
 							<Group>HorizontalIfPossible</Group>
 							<Representation>WeakSeparation</Representation>
-							<ShowAsCard>true</ShowAsCard>
 							<ExtendedTooltip name="ПеревозчикРасширеннаяПодсказка" id="6"/>
 							<ChildItems>
 								<Pages name="ПеревозчикСтраницы" id="21">
@@ -321,9 +362,48 @@
 													<ContextMenu name="ИдентификаторПеревозчикаКонтекстноеМеню" id="48"/>
 													<ExtendedTooltip name="ИдентификаторПеревозчикаРасширеннаяПодсказка" id="49"/>
 													<Events>
+														<Event name="OnChange">ИдентификаторПеревозчикаПриИзменении</Event>
 														<Event name="AutoComplete">ИдентификаторПеревозчикаАвтоПодбор</Event>
 													</Events>
 												</InputField>
+											</ChildItems>
+										</Page>
+										<Page name="ПеревозчикСтраницаДлительнаяОперация" id="39">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Перевозчик (длительная операция)</v8:content>
+												</v8:item>
+											</Title>
+											<Group>AlwaysHorizontal</Group>
+											<VerticalAlign>Center</VerticalAlign>
+											<ScrollOnCompress>false</ScrollOnCompress>
+											<ExtendedTooltip name="ПеревозчикСтраницаДлительнаяОперацияРасширеннаяПодсказка" id="40"/>
+											<ChildItems>
+												<PictureDecoration name="ПеревозчикДлительнаяОперацияКартинка" id="62">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Длительная операция (картинка)</v8:content>
+														</v8:item>
+													</Title>
+													<Picture>
+														<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
+														<xr:LoadTransparent>false</xr:LoadTransparent>
+													</Picture>
+													<ContextMenu name="ПеревозчикДлительнаяОперацияКартинкаКонтекстноеМеню" id="63"/>
+													<ExtendedTooltip name="ПеревозчикДлительнаяОперацияКартинкаРасширеннаяПодсказка" id="64"/>
+												</PictureDecoration>
+												<LabelDecoration name="ПеревозчикДлительнаяОперацияНадпись" id="65">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Выполняется поиск идентификатора ЭПД.</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ПеревозчикДлительнаяОперацияНадписьКонтекстноеМеню" id="66"/>
+													<ExtendedTooltip name="ПеревозчикДлительнаяОперацияНадписьРасширеннаяПодсказка" id="67"/>
+												</LabelDecoration>
 											</ChildItems>
 										</Page>
 									</ChildItems>
@@ -339,7 +419,6 @@
 							</Title>
 							<Group>Vertical</Group>
 							<Representation>WeakSeparation</Representation>
-							<ShowAsCard>true</ShowAsCard>
 							<ExtendedTooltip name="СертификатДоверенностьРасширеннаяПодсказка" id="8"/>
 							<ChildItems>
 								<InputField name="Сертификат" id="26">
@@ -368,7 +447,7 @@
 						</UsualGroup>
 					</ChildItems>
 				</Page>
-				<Page name="СтраницаИнформация" id="84">
+				<Page name="СтраницаИнформация" id="87">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -378,19 +457,22 @@
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Страница информация</v8:content>
+							<v8:content>Страница информация для грузоотправителя</v8:content>
 						</v8:item>
 					</ToolTip>
-					<HorizontalStretch>true</HorizontalStretch>
-					<VerticalStretch>true</VerticalStretch>
 					<Group>Vertical</Group>
-					<VerticalSpacing>Double</VerticalSpacing>
-					<ExtendedTooltip name="СтраницаИнформацияРасширеннаяПодсказка" id="85"/>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаИнформацияРасширеннаяПодсказка" id="88"/>
 					<ChildItems>
-						<LabelDecoration name="НадписьИнформация" id="86">
-							<HorizontalStretch>false</HorizontalStretch>
-							<VerticalStretch>false</VerticalStretch>
+						<LabelDecoration name="НадписьИнформация" id="89">
 							<Title formatted="false">
+								<v8:item>
+									<v8:lang/>
+									<v8:content>Не удалось получить идентификатор грузоотправителя для обмена ЭПД через Сислинк. 
+
+
+Для подключения обмена ЭПД с торговыми сетями обратитесь, пожалуйста, в отдел продаж - edipart@doclink.ru</v8:content>
+								</v8:item>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Не удалось получить идентификатор грузоотправителя для обмена ЭПД через Сислинк. 
@@ -399,21 +481,23 @@
 Для подключения обмена ЭПД с торговыми сетями обратитесь, пожалуйста, в отдел продаж - edipart@doclink.ru</v8:content>
 								</v8:item>
 							</Title>
-							<ContextMenu name="НадписьИнформацияКонтекстноеМеню" id="87"/>
-							<ExtendedTooltip name="НадписьИнформацияРасширеннаяПодсказка" id="88"/>
+							<ContextMenu name="НадписьИнформацияКонтекстноеМеню" id="90"/>
+							<ExtendedTooltip name="НадписьИнформацияРасширеннаяПодсказка" id="91"/>
 						</LabelDecoration>
-						<LabelDecoration name="НадписьВернутьсяНаОсновную" id="89">
-							<HorizontalStretch>false</HorizontalStretch>
-							<VerticalStretch>false</VerticalStretch>
+						<LabelDecoration name="НадписьВернутьсяНаОсновную" id="92">
 							<Title formatted="false">
+								<v8:item>
+									<v8:lang/>
+									<v8:content>Ввести идентификатор вручную</v8:content>
+								</v8:item>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Ввести идентификатор вручную</v8:content>
 								</v8:item>
 							</Title>
 							<Hyperlink>true</Hyperlink>
-							<ContextMenu name="НадписьВернутьсяНаОсновнуюКонтекстноеМеню" id="90"/>
-							<ExtendedTooltip name="НадписьВернутьсяНаОсновнуюРасширеннаяПодсказка" id="91"/>
+							<ContextMenu name="НадписьВернутьсяНаОсновнуюКонтекстноеМеню" id="93"/>
+							<ExtendedTooltip name="НадписьВернутьсяНаОсновнуюРасширеннаяПодсказка" id="94"/>
 							<Events>
 								<Event name="Click">НадписьВернутьсяНаОсновнуюНажатие</Event>
 							</Events>
@@ -706,11 +790,22 @@
 			</Type>
 			<Settings xsi:type="v8:TypeDescription"/>
 		</Attribute>
-		<Attribute name="ОтобразитьСтраницуИнформации" id="30">
+		<Attribute name="ОтобразитьСтраницуИнформации" id="19">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Отобразить страницу информации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьКонтрагента" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать контрагента</v8:content>
 				</v8:item>
 			</Title>
 			<Type>

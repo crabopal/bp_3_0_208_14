@@ -10,20 +10,9 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Top</CommandBarLocation>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowCommandBar>true</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаВыбрать" id="51">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.StandardCommand.Choose</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="52"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -35,15 +24,21 @@
 			<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="21"/>
 		</LabelField>
 		<UsualGroup name="ГруппаДополнительныеОтборы" id="39">
-			<ToolTip>
+			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Группа дополнительные отборы</v8:content>
 				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные отборы</v8:content>
+				</v8:item>
 			</ToolTip>
-			<Group>HorizontalIfPossible</Group>
+			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаДополнительныеОтборыРасширеннаяПодсказка" id="40"/>
 		</UsualGroup>
@@ -54,10 +49,12 @@
 					<v8:content>Командная панель</v8:content>
 				</v8:item>
 			</Title>
+			<CommandSource>Form</CommandSource>
 			<ExtendedTooltip name="ГруппаКоманднаяПанельExtendedTooltip" id="22"/>
 		</CommandBar>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<ChoiceMode>true</ChoiceMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
@@ -69,7 +66,6 @@
 			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -86,7 +82,9 @@
 			<UserSettingsGroup>ГруппаДополнительныеОтборы</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокExtendedTooltip" id="23"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="30">
 				<AdditionSource>
@@ -113,6 +111,11 @@
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="38"/>
 			</SearchControlAddition>
 			<ChildItems>
+				<LabelField name="КПП" id="8">
+					<DataPath>Список.КПП</DataPath>
+					<ContextMenu name="КППКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="КППExtendedTooltip" id="26"/>
+				</LabelField>
 				<LabelField name="Код" id="6">
 					<DataPath>Список.Code</DataPath>
 					<ContextMenu name="КодКонтекстноеМеню" id="7"/>
@@ -123,11 +126,6 @@
 					<DefaultItem>true</DefaultItem>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="25"/>
-				</LabelField>
-				<LabelField name="КПП" id="8">
-					<DataPath>Список.КПП</DataPath>
-					<ContextMenu name="КППКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="КППExtendedTooltip" id="26"/>
 				</LabelField>
 				<LabelField name="КодПоОКТМО" id="19">
 					<DataPath>Список.КодПоОКТМО</DataPath>

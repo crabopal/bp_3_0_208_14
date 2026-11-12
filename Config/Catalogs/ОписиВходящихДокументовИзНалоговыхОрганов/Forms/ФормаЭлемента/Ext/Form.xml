@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<VerticalSpacing>Half</VerticalSpacing>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
@@ -24,8 +23,6 @@
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>StrongSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ShowAsCard>true</ShowAsCard>
 			<ExtendedTooltip name="ГруппаПанельПриемаExtendedTooltip" id="32"/>
 			<ChildItems>
 				<LabelDecoration name="НадписьПанелиПриема" id="24">
@@ -56,7 +53,7 @@
 					<ExtendedTooltip name="ГруппаКнопкиПриемаExtendedTooltip" id="34"/>
 					<ChildItems>
 						<Button name="КомандаПодтвердитьПрием" id="29">
-							<Type>Hyperlink</Type>
+							<Type>UsualButton</Type>
 							<CommandName>Form.Command.КомандаПодтвердитьПрием</CommandName>
 							<ExtendedTooltip name="КомандаПодтвердитьПриемExtendedTooltip" id="35"/>
 						</Button>
@@ -67,12 +64,14 @@
 							<ExtendedTooltip name="КомандаОтказатьВПриемеExtendedTooltip" id="36"/>
 						</Button>
 						<Button name="ПодтвердитьЧтоЭДООбязателен" id="61">
-							<Type>Hyperlink</Type>
+							<Type>UsualButton</Type>
+							<Width>11</Width>
 							<CommandName>Form.Command.ПодтвердитьЧтоЭДООбязателен</CommandName>
 							<ExtendedTooltip name="ПодтвердитьЧтоЭДООбязателенРасширеннаяПодсказка" id="62"/>
 						</Button>
 						<Button name="ПодтвердитьЧтоЭДОНеОбязателен" id="59">
-							<Type>Hyperlink</Type>
+							<Type>UsualButton</Type>
+							<Width>13</Width>
 							<CommandName>Form.Command.ПодтвердитьЧтоЭДОНеОбязателен</CommandName>
 							<ExtendedTooltip name="ПодтвердитьЧтоЭДОНеОбязателенРасширеннаяПодсказка" id="60"/>
 						</Button>
@@ -80,7 +79,7 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<LabelField name="НалоговыйОрган" id="1">
+		<InputField name="НалоговыйОрган" id="1">
 			<DataPath>Объект.НалоговыйОрган</DataPath>
 			<ReadOnly>true</ReadOnly>
 			<Title>
@@ -91,17 +90,19 @@
 			</Title>
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="НалоговыйОрганКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="НалоговыйОрганExtendedTooltip" id="41"/>
-		</LabelField>
-		<LabelField name="Организация" id="3">
+		</InputField>
+		<InputField name="Организация" id="3">
 			<DataPath>Объект.Организация</DataPath>
 			<ReadOnly>true</ReadOnly>
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="4"/>
 			<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="42"/>
-		</LabelField>
+		</InputField>
 		<UsualGroup name="ГруппаПолученныеДокументы" id="14">
 			<Title>
 				<v8:item>
@@ -117,6 +118,7 @@
 			</ToolTip>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
+			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаПолученныеДокументыExtendedTooltip" id="43"/>
 			<ChildItems>
 				<Table name="ВходящиеДокументы" id="5">
@@ -124,7 +126,6 @@
 					<CommandBarLocation>None</CommandBarLocation>
 					<ChangeRowSet>false</ChangeRowSet>
 					<ChangeRowOrder>false</ChangeRowOrder>
-					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -144,6 +145,7 @@
 						<ExcludedCommand>MoveDown</ExcludedCommand>
 						<ExcludedCommand>MoveUp</ExcludedCommand>
 						<ExcludedCommand>OutputList</ExcludedCommand>
+						<ExcludedCommand>SelectAll</ExcludedCommand>
 						<ExcludedCommand>SortListAsc</ExcludedCommand>
 						<ExcludedCommand>SortListDesc</ExcludedCommand>
 					</CommandSet>
@@ -188,7 +190,6 @@
 							<DataPath>Объект.ВходящиеДокументы.LineNumber</DataPath>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>None</AutoWidthInTable>
 							<Width>2</Width>
 							<HorizontalStretch>false</HorizontalStretch>
 							<ContextMenu name="ВходящиеДокументыНомерСтрокиКонтекстноеМеню" id="9"/>
@@ -204,8 +205,6 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>None</AutoWidthInTable>
-							<TextEdit>false</TextEdit>
 							<ContextMenu name="ВходящиеДокументыСсылкаНаОбъектКонтекстноеМеню" id="11"/>
 							<ExtendedTooltip name="ВходящиеДокументыСсылкаНаОбъектExtendedTooltip" id="46"/>
 						</InputField>
@@ -215,7 +214,6 @@
 							<EditMode>EnterOnInput</EditMode>
 							<CellHyperlink>true</CellHyperlink>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>None</AutoWidthInTable>
 							<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 							<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 							<Width>12</Width>
@@ -229,6 +227,27 @@
 				</Table>
 			</ChildItems>
 		</UsualGroup>
+		<CommandBar name="ГруппаКоманднаяПанель" id="12">
+			<EnableContentChange>true</EnableContentChange>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельExtendedTooltip" id="48"/>
+			<ChildItems>
+				<Button name="КнопкаЗакрыть" id="13">
+					<Type>CommandBarButton</Type>
+					<Representation>PictureAndText</Representation>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="КнопкаЗакрытьExtendedTooltip" id="49"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -358,4 +377,17 @@
 			<Action>ПодтвердитьЧтоЭДОНеОбязателен</Action>
 		</Command>
 	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>3:3953cc60-6482-471c-9699-41c70c93335d</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
 </Form>

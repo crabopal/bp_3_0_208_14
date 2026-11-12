@@ -9,6 +9,7 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
@@ -22,6 +23,7 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<ChildItems>
@@ -30,7 +32,7 @@
 				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.Выбрать</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="17"/>
+				<ExtendedTooltip name="ФормаВыбратьExtendedTooltip" id="17"/>
 			</Button>
 			<Button name="ФормаЗакрыть" id="11">
 				<Type>CommandBarButton</Type>
@@ -42,7 +44,7 @@
 						<v8:content>Отмена</v8:content>
 					</v8:item>
 				</Title>
-				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="18"/>
+				<ExtendedTooltip name="ФормаЗакрытьExtendedTooltip" id="18"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -64,7 +66,8 @@
 			<RowPictureDataPath>Организации.ИндексКартинки</RowPictureDataPath>
 			<RowsPicture>
 				<xr:Ref>CommonPicture.ВидыХарактеристик</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+				<xr:TransparentPixel x="16" y="1"/>
 			</RowsPicture>
 			<CommandSet>
 				<ExcludedCommand>Add</ExcludedCommand>
@@ -102,23 +105,23 @@
 								<v8:content>Флажки</v8:content>
 							</v8:item>
 						</ToolTip>
-						<ExtendedTooltip name="ФлажкиРасширеннаяПодсказка" id="19"/>
+						<ExtendedTooltip name="ФлажкиExtendedTooltip" id="19"/>
 						<ChildItems>
 							<Button name="ОрганизацииУстановитьФлажки" id="12">
 								<Type>CommandBarButton</Type>
 								<CommandName>Form.Command.УстановитьФлажки</CommandName>
-								<ExtendedTooltip name="ОрганизацииУстановитьФлажкиРасширеннаяПодсказка" id="20"/>
+								<ExtendedTooltip name="ОрганизацииУстановитьФлажкиExtendedTooltip" id="20"/>
 							</Button>
 							<Button name="ОрганизацииСнятьФлажки" id="13">
 								<Type>CommandBarButton</Type>
 								<CommandName>Form.Command.СнятьФлажки</CommandName>
-								<ExtendedTooltip name="ОрганизацииСнятьФлажкиРасширеннаяПодсказка" id="21"/>
+								<ExtendedTooltip name="ОрганизацииСнятьФлажкиExtendedTooltip" id="21"/>
 							</Button>
 						</ChildItems>
 					</ButtonGroup>
 				</ChildItems>
 			</AutoCommandBar>
-			<ExtendedTooltip name="ОрганизацииРасширеннаяПодсказка" id="22"/>
+			<ExtendedTooltip name="ОрганизацииExtendedTooltip" id="22"/>
 			<SearchStringAddition name="ОрганизацииСтрокаПоиска" id="26">
 				<AdditionSource>
 					<Item>Организации</Item>
@@ -154,9 +157,8 @@
 					<TitleLocation>None</TitleLocation>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<CheckBoxType>CheckBox</CheckBoxType>
 					<ContextMenu name="ОрганизацииПометкаКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="ОрганизацииПометкаРасширеннаяПодсказка" id="23"/>
+					<ExtendedTooltip name="ОрганизацииПометкаExtendedTooltip" id="23"/>
 				</CheckBoxField>
 				<InputField name="ОрганизацииНаименование" id="8">
 					<DataPath>Организации.Наименование</DataPath>
@@ -164,14 +166,14 @@
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацииНаименованиеКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="ОрганизацииНаименованиеРасширеннаяПодсказка" id="24"/>
+					<ExtendedTooltip name="ОрганизацииНаименованиеExtendedTooltip" id="24"/>
 				</InputField>
 				<InputField name="ОрганизацииИНН" id="15">
 					<DataPath>Организации.ИНН</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацииИННКонтекстноеМеню" id="16"/>
-					<ExtendedTooltip name="ОрганизацииИННРасширеннаяПодсказка" id="25"/>
+					<ExtendedTooltip name="ОрганизацииИННExtendedTooltip" id="25"/>
 				</InputField>
 			</ChildItems>
 		</Table>
@@ -280,7 +282,6 @@
 			<FunctionalOptions>
 				<Item>FunctionalOption.ИспользоватьНесколькоОрганизацийРегламентированнаяОтчетность</Item>
 			</FunctionalOptions>
-			<Settings xsi:type="v8:TypeDescription"/>
 		</Attribute>
 		<Attribute name="НачальноеЗначениеВыбора" id="4">
 			<Title>
@@ -303,7 +304,6 @@
 			<Action>Выбрать</Action>
 			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитьФлажки" id="2">
 			<Title>
@@ -357,7 +357,6 @@
 			<Action>Отмена</Action>
 			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

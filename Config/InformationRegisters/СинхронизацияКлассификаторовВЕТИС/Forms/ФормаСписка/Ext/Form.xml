@@ -2,8 +2,9 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -41,7 +42,6 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<ShowTitle>true</ShowTitle>
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="СтраницаОтборОрганизацииВЕТИСРасширеннаяПодсказка" id="44"/>
 									<ChildItems>
@@ -54,8 +54,7 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<AutoMaxWidth>false</AutoMaxWidth>
 											<MaxWidth>28</MaxWidth>
 											<DropListButton>true</DropListButton>
 											<ChoiceButton>true</ChoiceButton>
@@ -97,7 +96,6 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<ShowTitle>true</ShowTitle>
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="СтраницаОтборОрганизацияВЕТИСРасширеннаяПодсказка" id="46"/>
 									<ChildItems>
@@ -110,8 +108,7 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<AutoMaxWidth>false</AutoMaxWidth>
 											<MaxWidth>28</MaxWidth>
 											<DropListButton>true</DropListButton>
 											<ChoiceButton>true</ChoiceButton>
@@ -150,6 +147,32 @@
 						</Pages>
 					</ChildItems>
 				</UsualGroup>
+				<CommandBar name="КоманднаяПанельФормы" id="68">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель формы</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="КоманднаяПанельФормыРасширеннаяПодсказка" id="69"/>
+					<ChildItems>
+						<Button name="Создать" id="72">
+							<Type>CommandBarButton</Type>
+							<Visible>false</Visible>
+							<CommandName>Form.StandardCommand.Create</CommandName>
+							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="СоздатьРасширеннаяПодсказка" id="73"/>
+						</Button>
+						<Button name="Скопировать" id="74">
+							<Type>CommandBarButton</Type>
+							<Visible>false</Visible>
+							<CommandName>Form.StandardCommand.Copy</CommandName>
+							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="СкопироватьРасширеннаяПодсказка" id="75"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
@@ -175,10 +198,9 @@
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<CommandSet>
-				<ExcludedCommand>Copy</ExcludedCommand>
-			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -194,17 +216,17 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
-			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+			<ContextMenu name="СписокКонтекстноеМеню" id="4">
 				<ChildItems>
-					<Button name="СписокСинхронизировать" id="110" DisplayImportance="High">
+					<Button name="СписокКонтекстноеМенюСинхронизировать" id="33">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.Синхронизировать</CommandName>
-						<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-						<ExtendedTooltip name="СписокСинхронизироватьРасширеннаяПодсказка" id="111"/>
+						<ExtendedTooltip name="СписокКонтекстноеМенюСинхронизироватьРасширеннаяПодсказка" id="34"/>
 					</Button>
 				</ChildItems>
+			</ContextMenu>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
@@ -247,24 +269,18 @@
 							<v8:content>Таблица</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТипВЕТИСКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ТипВЕТИСРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<LabelField name="ХозяйствующийСубъект" id="19">
 					<DataPath>Список.ХозяйствующийСубъект</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ХозяйствующийСубъектКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ХозяйствующийСубъектРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Предприятие" id="22">
 					<DataPath>Список.Предприятие</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="24"/>
 				</LabelField>
@@ -276,8 +292,6 @@
 							<v8:content>Дата последнего обмена</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаОбменаКонтекстноеМеню" id="58"/>
 					<ExtendedTooltip name="ДатаОбменаРасширеннаяПодсказка" id="59"/>
 				</InputField>
@@ -286,8 +300,6 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаСинхронизацииКонтекстноеМеню" id="79"/>
 					<ExtendedTooltip name="ДатаСинхронизацииРасширеннаяПодсказка" id="80"/>
 				</InputField>
@@ -296,53 +308,28 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СмещениеКонтекстноеМеню" id="82"/>
 					<ExtendedTooltip name="СмещениеРасширеннаяПодсказка" id="83"/>
 				</InputField>
 				<LabelField name="СостояниеОбмена" id="50">
 					<DataPath>Список.СостояниеОбмена</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СостояниеОбменаКонтекстноеМеню" id="51"/>
 					<ExtendedTooltip name="СостояниеОбменаРасширеннаяПодсказка" id="52"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
-		<UsualGroup name="ГруппаРекомендации" id="112">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа рекомендации</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа рекомендации</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаРекомендацииРасширеннаяПодсказка" id="113"/>
-			<ChildItems>
-				<LabelField name="Рекомендации" id="84">
-					<DataPath>Рекомендации</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Height>3</Height>
-					<AutoMaxHeight>false</AutoMaxHeight>
-					<VerticalStretch>false</VerticalStretch>
-					<ContextMenu name="РекомендацииКонтекстноеМеню" id="85"/>
-					<ExtendedTooltip name="РекомендацииРасширеннаяПодсказка" id="86"/>
-					<Events>
-						<Event name="URLProcessing">РекомендацииОбработкаНавигационнойСсылки</Event>
-					</Events>
-				</LabelField>
-			</ChildItems>
-		</UsualGroup>
+		<LabelField name="Рекомендации" id="84">
+			<DataPath>Рекомендации</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Height>3</Height>
+			<AutoMaxHeight>false</AutoMaxHeight>
+			<VerticalStretch>false</VerticalStretch>
+			<ContextMenu name="РекомендацииКонтекстноеМеню" id="85"/>
+			<ExtendedTooltip name="РекомендацииРасширеннаяПодсказка" id="86"/>
+			<Events>
+				<Event name="URLProcessing">РекомендацииОбработкаНавигационнойСсылки</Event>
+			</Events>
+		</LabelField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Список" id="1">
@@ -489,15 +476,8 @@
 					<v8:content>Синхронизировать</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>CommonPicture.СинхронизацияДанныхВыполнение</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
 			<Action>Синхронизировать</Action>
-			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 </Form>

@@ -284,7 +284,7 @@
 																					<GroupVerticalAlign>Center</GroupVerticalAlign>
 																					<Picture>
 																						<xr:Ref>CommonPicture.ДлительнаяОперация24БЗК</xr:Ref>
-																						<xr:LoadTransparent>false</xr:LoadTransparent>
+																						<xr:LoadTransparent>true</xr:LoadTransparent>
 																					</Picture>
 																					<FileDragMode>AsFile</FileDragMode>
 																					<ContextMenu name="ИндикаторДлительнойОперацииРезервированиеИмениДоменаКонтекстноеМеню" id="43"/>
@@ -346,7 +346,7 @@
 															</Title>
 															<Picture>
 																<xr:Ref>CommonPicture.Этап2КабинетСотрудника</xr:Ref>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
 															</Picture>
 															<ContextMenu name="ДекорацияЭтап2КонтекстноеМеню" id="51"/>
 															<ExtendedTooltip name="ДекорацияЭтап2РасширеннаяПодсказка" id="52"/>
@@ -476,7 +476,7 @@
 															</Title>
 															<Picture>
 																<xr:Ref>CommonPicture.Этап3КабинетСотрудника</xr:Ref>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
 															</Picture>
 															<ContextMenu name="ДекорацияЭтап3КонтекстноеМеню" id="104"/>
 															<ExtendedTooltip name="ДекорацияЭтап3РасширеннаяПодсказка" id="105"/>
@@ -557,7 +557,7 @@
 														<PictureDecoration name="ДекорацияЭтап4" id="115">
 															<Picture>
 																<xr:Ref>CommonPicture.Этап4КабинетСотрудника</xr:Ref>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
 															</Picture>
 															<ContextMenu name="ДекорацияЭтап4КонтекстноеМеню" id="116"/>
 															<ExtendedTooltip name="ДекорацияЭтап4РасширеннаяПодсказка" id="117"/>
@@ -773,7 +773,7 @@
 															</Title>
 															<Picture>
 																<xr:Ref>CommonPicture.Этап1КабинетСотрудника</xr:Ref>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
 															</Picture>
 															<ContextMenu name="ДекорацияЭтап1ЛокальноКонтекстноеМеню" id="379"/>
 															<ExtendedTooltip name="ДекорацияЭтап1ЛокальноРасширеннаяПодсказка" id="380"/>
@@ -826,6 +826,9 @@
 																	<DataPath>Объект.АдресПриложения</DataPath>
 																	<ContextMenu name="АдресПриложенияЛокальноКонтекстноеМеню" id="338"/>
 																	<ExtendedTooltip name="АдресПриложенияЛокальноРасширеннаяПодсказка" id="339"/>
+																	<Events>
+																		<Event name="OnChange">АдресПриложенияЛокальноПриИзменении</Event>
+																	</Events>
 																</InputField>
 																<InputField name="КлючИдентификаторКлиента" id="329">
 																	<DataPath>КлючИдентификаторКлиента</DataPath>
@@ -866,12 +869,6 @@
 																			<ChildItems>
 																				<CheckBoxField name="ИспользоватьАдресСервисаАвторизации" id="1086">
 																					<DataPath>ИспользоватьАдресСервисаАвторизации</DataPath>
-																					<Title>
-																						<v8:item>
-																							<v8:lang>ru</v8:lang>
-																							<v8:content>Адрес сервиса авторизации</v8:content>
-																						</v8:item>
-																					</Title>
 																					<TitleLocation>None</TitleLocation>
 																					<ContextMenu name="ИспользоватьАдресСервисаАвторизацииКонтекстноеМеню" id="1087"/>
 																					<ExtendedTooltip name="ИспользоватьАдресСервисаАвторизацииРасширеннаяПодсказка" id="1088"/>
@@ -894,7 +891,8 @@
 																						<Title formatted="false">
 																							<v8:item>
 																								<v8:lang>ru</v8:lang>
-																								<v8:content>Правила указания адреса
+																								<v8:content>На этот ресурс будет выполняться запрос для получения токена аутентификации.
+Правила указания адреса:
 при использовании - auth/oidc/token
 - &lt;host&gt;/auth/oidc/token, например http://serverhost:port/auth/oidc/token 
 или
@@ -907,18 +905,70 @@
 																				</InputField>
 																			</ChildItems>
 																		</UsualGroup>
-																		<LabelDecoration name="ДекорацияИспользоватьАдресСервисаАвторизации" id="1092">
-																			<AutoMaxWidth>false</AutoMaxWidth>
-																			<TextColor>style:ПоясняющийТекст</TextColor>
-																			<Title formatted="false">
+																	</ChildItems>
+																</UsualGroup>
+																<UsualGroup name="ГруппаАдресРесурсовAPI" id="1149">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Адрес ресурсов API</v8:content>
+																		</v8:item>
+																	</Title>
+																	<Group>Vertical</Group>
+																	<VerticalSpacing>None</VerticalSpacing>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаАдресРесурсовAPIРасширеннаяПодсказка" id="1150"/>
+																	<ChildItems>
+																		<UsualGroup name="ГруппаИспользоватьАдресРесурсовAPI" id="1151">
+																			<Title>
 																				<v8:item>
 																					<v8:lang>ru</v8:lang>
-																					<v8:content>Укажите, если приложение и сервис аутентификации размещены на разных хостах</v8:content>
+																					<v8:content>Группа использовать адрес ресурсов API</v8:content>
 																				</v8:item>
 																			</Title>
-																			<ContextMenu name="ДекорацияИспользоватьАдресСервисаАвторизацииКонтекстноеМеню" id="1093"/>
-																			<ExtendedTooltip name="ДекорацияИспользоватьАдресСервисаАвторизацииРасширеннаяПодсказка" id="1094"/>
-																		</LabelDecoration>
+																			<Group>AlwaysHorizontal</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаИспользоватьАдресРесурсовAPIРасширеннаяПодсказка" id="1152"/>
+																			<ChildItems>
+																				<CheckBoxField name="ИспользоватьАдресРесурсовAPI" id="1153">
+																					<DataPath>ИспользоватьАдресРесурсовAPI</DataPath>
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Адрес ресурсов API</v8:content>
+																						</v8:item>
+																					</Title>
+																					<TitleLocation>None</TitleLocation>
+																					<ContextMenu name="ИспользоватьАдресРесурсовAPIКонтекстноеМеню" id="1154"/>
+																					<ExtendedTooltip name="ИспользоватьАдресРесурсовAPIРасширеннаяПодсказка" id="1155"/>
+																					<Events>
+																						<Event name="OnChange">ИспользоватьАдресРесурсовAPIПриИзменении</Event>
+																					</Events>
+																				</CheckBoxField>
+																				<InputField name="АдресРесурсовAPI" id="1156">
+																					<DataPath>Объект.АдресРесурсовAPI</DataPath>
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Адрес ресурсов API</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ToolTipRepresentation>Button</ToolTipRepresentation>
+																					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+																					<ContextMenu name="АдресРесурсовAPIКонтекстноеМеню" id="1157"/>
+																					<ExtendedTooltip name="АдресРесурсовAPIРасширеннаяПодсказка" id="1158">
+																						<Title formatted="false">
+																							<v8:item>
+																								<v8:lang>ru</v8:lang>
+																								<v8:content>Эта настройка позволяет использовать "внутренний" адрес приложения при обмене.</v8:content>
+																							</v8:item>
+																						</Title>
+																					</ExtendedTooltip>
+																				</InputField>
+																			</ChildItems>
+																		</UsualGroup>
 																	</ChildItems>
 																</UsualGroup>
 															</ChildItems>
@@ -947,7 +997,7 @@
 															</Title>
 															<Picture>
 																<xr:Ref>CommonPicture.Этап2КабинетСотрудника</xr:Ref>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
 															</Picture>
 															<ContextMenu name="ДекорацияЭтап2ЛокальноКонтекстноеМеню" id="363"/>
 															<ExtendedTooltip name="ДекорацияЭтап2ЛокальноРасширеннаяПодсказка" id="364"/>
@@ -1075,7 +1125,7 @@
 															</Title>
 															<Picture>
 																<xr:Ref>CommonPicture.Этап3КабинетСотрудника</xr:Ref>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
 															</Picture>
 															<ContextMenu name="ДекорацияЭтап3ЛокальноКонтекстноеМеню" id="391"/>
 															<ExtendedTooltip name="ДекорацияЭтап3ЛокальноРасширеннаяПодсказка" id="392"/>
@@ -1153,7 +1203,7 @@
 											</Title>
 											<Picture>
 												<xr:Ref>CommonPicture.Информация16АнимированнаяБЗК</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
 											<ContextMenu name="ДекорацияПодключениеНедоступноКонтекстноеМеню" id="446"/>
 											<ExtendedTooltip name="ДекорацияПодключениеНедоступноРасширеннаяПодсказка" id="447"/>
@@ -1194,7 +1244,7 @@
 											</Title>
 											<Picture>
 												<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
 											<ContextMenu name="ДекорацияДлительнаяОперацияКонтекстноеМеню" id="88"/>
 											<ExtendedTooltip name="ДекорацияДлительнаяОперацияРасширеннаяПодсказка" id="89"/>
@@ -1248,7 +1298,7 @@
 									</Title>
 									<Picture>
 										<xr:Ref>CommonPicture.СервисКабинетСотрудника48</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<ContextMenu name="ДекорацияСервисКартинкаКонтекстноеМеню" id="278"/>
 									<ExtendedTooltip name="ДекорацияСервисКартинкаРасширеннаяПодсказка" id="279"/>
@@ -1300,7 +1350,7 @@
 													</Title>
 													<Picture>
 														<xr:Ref>CommonPicture.Информация16АнимированнаяБЗК</xr:Ref>
-														<xr:LoadTransparent>false</xr:LoadTransparent>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
 													</Picture>
 													<ContextMenu name="ИнформацияСостояниеАдресаКонтекстноеМеню" id="863"/>
 													<ExtendedTooltip name="ИнформацияСостояниеАдресаРасширеннаяПодсказка" id="864"/>
@@ -1330,7 +1380,7 @@
 													</Title>
 													<Picture>
 														<xr:Ref>CommonPicture.ДлительнаяОперация24БЗК</xr:Ref>
-														<xr:LoadTransparent>false</xr:LoadTransparent>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
 													</Picture>
 													<ContextMenu name="ИндикаторДлительнойОперацииПроверитьАдресКонтекстноеМеню" id="857"/>
 													<ExtendedTooltip name="ИндикаторДлительнойОперацииПроверитьАдресРасширеннаяПодсказка" id="858"/>
@@ -1453,7 +1503,7 @@
 													</Title>
 													<Picture>
 														<xr:Ref>CommonPicture.Информация16АнимированнаяБЗК</xr:Ref>
-														<xr:LoadTransparent>false</xr:LoadTransparent>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
 													</Picture>
 													<ContextMenu name="ДекорацияИнформацияАнимированнаяКонтекстноеМеню" id="421"/>
 													<ExtendedTooltip name="ДекорацияИнформацияАнимированнаяРасширеннаяПодсказка" id="422"/>
@@ -2043,7 +2093,7 @@
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
-																			<v8:content>Подключить сервис подписания xSign</v8:content>
+																			<v8:content>Подключить сервис подписания 1С:Сигнум</v8:content>
 																		</v8:item>
 																	</Title>
 																	<ExtendedTooltip name="ПодключитьСервисПодписанияРасширеннаяПодсказка" id="1033"/>
@@ -2113,7 +2163,7 @@
 																							</Title>
 																							<Picture>
 																								<xr:Ref>CommonPicture.Предупреждение24БЗК</xr:Ref>
-																								<xr:LoadTransparent>false</xr:LoadTransparent>
+																								<xr:LoadTransparent>true</xr:LoadTransparent>
 																							</Picture>
 																							<ContextMenu name="УведомлениеОСпопобеСогласованияКартинкаКонтекстноеМеню" id="1042"/>
 																							<ExtendedTooltip name="УведомлениеОСпопобеСогласованияКартинкаРасширеннаяПодсказка" id="1043"/>
@@ -2787,6 +2837,11 @@
 																	<CommandName>Form.Command.ИзменитьАдресСервисаАвторизации</CommandName>
 																	<ExtendedTooltip name="ИзменитьАдресСервисаАвторизацииРасширеннаяПодсказка" id="1081"/>
 																</Button>
+																<Button name="ИзменитьАдресРесурсовAPI" id="1162">
+																	<Type>Hyperlink</Type>
+																	<CommandName>Form.Command.ИзменитьАдресРесурсовAPI</CommandName>
+																	<ExtendedTooltip name="ИзменитьАдресРесурсовAPIРасширеннаяПодсказка" id="1163"/>
+																</Button>
 																<Button name="ИзменитьНастройкиПодключения" id="963">
 																	<Type>Hyperlink</Type>
 																	<CommandName>Form.Command.ИзменитьНастройкиПодключения</CommandName>
@@ -3146,7 +3201,7 @@
 															</Title>
 															<Picture>
 																<xr:Ref>CommonPicture.ДлительнаяОперация24БЗК</xr:Ref>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
 															</Picture>
 															<ContextMenu name="ДекорацияДлительнаяОперацияСостояниеКонтекстноеМеню" id="164"/>
 															<ExtendedTooltip name="ДекорацияДлительнаяОперацияСостояниеРасширеннаяПодсказка" id="165"/>
@@ -3461,7 +3516,7 @@
 																											<GroupVerticalAlign>Center</GroupVerticalAlign>
 																											<Picture>
 																												<xr:Ref>CommonPicture.ДлительнаяОперация24БЗК</xr:Ref>
-																												<xr:LoadTransparent>false</xr:LoadTransparent>
+																												<xr:LoadTransparent>true</xr:LoadTransparent>
 																											</Picture>
 																											<ContextMenu name="ИндикаторДлительнойОперацииПодключениеПоКодуАктивацииКонтекстноеМеню" id="481"/>
 																											<ExtendedTooltip name="ИндикаторДлительнойОперацииПодключениеПоКодуАктивацииРасширеннаяПодсказка" id="482"/>
@@ -3606,7 +3661,7 @@
 															</Title>
 															<Picture>
 																<xr:Ref>CommonPicture.ДлительнаяОперация24БЗК</xr:Ref>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
 															</Picture>
 															<ContextMenu name="ДекорацияДлительнаяОперацияАктивацияКонтекстноеМеню" id="512"/>
 															<ExtendedTooltip name="ДекорацияДлительнаяОперацияАктивацияРасширеннаяПодсказка" id="513"/>
@@ -4143,7 +4198,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Использовать адрес сервиса авторизации</v8:content>
+					<v8:content>Использовать адрес сервиса аутентификации</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -4227,6 +4282,17 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Требуется подпись уведомления о начале отпуска со стороны работодателя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьАдресРесурсовAPI" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать адрес ресурсов API</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -4685,7 +4751,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Изменить адрес сервиса авторизации</v8:content>
+					<v8:content>Изменить адрес сервиса аутентификации</v8:content>
 				</v8:item>
 			</Title>
 			<Action>ИзменитьАдресСервисаАвторизации</Action>
@@ -4751,6 +4817,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ИзменитьСостояниеБлокировки</Action>
+		</Command>
+		<Command name="ИзменитьАдресРесурсовAPI" id="48">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить адрес ресурсов API</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить адрес ресурсов API</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИзменитьАдресРесурсовAPI</Action>
 		</Command>
 	</Commands>
 </Form>

@@ -9,22 +9,8 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="МаршрутГотово" id="54">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Готово</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="МаршрутГотовоРасширеннаяПодсказка" id="55"/>
-			</Button>
-			<Button name="МаршрутЗакрыть" id="39">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<ExtendedTooltip name="МаршрутЗакрытьРасширеннаяПодсказка" id="40"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -35,8 +21,6 @@
 		<InputField name="Перевозчик" id="36">
 			<DataPath>Перевозчик</DataPath>
 			<ReadOnly>true</ReadOnly>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="ПеревозчикКонтекстноеМеню" id="37"/>
 			<ExtendedTooltip name="ПеревозчикРасширеннаяПодсказка" id="38"/>
@@ -44,8 +28,6 @@
 		<InputField name="СДИЗ" id="51">
 			<DataPath>СДИЗ</DataPath>
 			<ReadOnly>true</ReadOnly>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="СДИЗКонтекстноеМеню" id="52"/>
 			<ExtendedTooltip name="СДИЗРасширеннаяПодсказка" id="53"/>
@@ -65,8 +47,6 @@
 			<ChildItems>
 				<InputField name="ПеревозчикИБСтрокой" id="106">
 					<DataPath>ПеревозчикИБСтрокой</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<DropListButton>true</DropListButton>
 					<OpenButton>true</OpenButton>
 					<ContextMenu name="ПеревозчикИБСтрокойКонтекстноеМеню" id="107"/>
@@ -81,8 +61,6 @@
 				</InputField>
 				<InputField name="Подразделение" id="111">
 					<DataPath>Подразделение</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПодразделениеКонтекстноеМеню" id="112"/>
 					<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="113"/>
 					<Events>
@@ -92,36 +70,31 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<Pages name="СтраницыМаршрут" id="130">
+		<UsualGroup name="ГруппаМаршрут" id="102">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Страницы маршрут</v8:content>
+					<v8:content>Группа маршрут</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Страницы маршрут</v8:content>
-				</v8:item>
-			</ToolTip>
-			<ExtendedTooltip name="СтраницыМаршрутРасширеннаяПодсказка" id="131"/>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаМаршрутРасширеннаяПодсказка" id="103"/>
 			<ChildItems>
-				<Page name="СтраницаТранспортныеСредства" id="132">
+				<UsualGroup name="ГруппаТранспортныеСредства" id="67">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Транспортные средства</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Страница транспортные средства</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ShowTitle>true</ShowTitle>
-					<ExtendedTooltip name="СтраницаТранспортныеСредстваРасширеннаяПодсказка" id="133"/>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаТранспортныеСредстваРасширеннаяПодсказка" id="68"/>
 					<ChildItems>
 						<Table name="ТранспортныеСредства" id="1">
 							<Representation>List</Representation>
@@ -140,12 +113,12 @@
 									</Button>
 									<Button name="ТранспортныеСредстваПереместитьВверх" id="27">
 										<Type>CommandBarButton</Type>
-										<CommandName>0</CommandName>
+										<CommandName>Form.Item.ТранспортныеСредства.StandardCommand.MoveUp</CommandName>
 										<ExtendedTooltip name="ТранспортныеСредстваПереместитьВверхРасширеннаяПодсказка" id="28"/>
 									</Button>
 									<Button name="ТранспортныеСредстваПереместитьВниз" id="29">
 										<Type>CommandBarButton</Type>
-										<CommandName>0</CommandName>
+										<CommandName>Form.Item.ТранспортныеСредства.StandardCommand.MoveDown</CommandName>
 										<ExtendedTooltip name="ТранспортныеСредстваПереместитьВнизРасширеннаяПодсказка" id="30"/>
 									</Button>
 									<Button name="ТранспортныеСредстваОтметитьВсе" id="47">
@@ -157,6 +130,12 @@
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.СнятьОтметку</CommandName>
 										<ExtendedTooltip name="ТранспортныеСредстваСнятьОтметкуРасширеннаяПодсказка" id="50"/>
+									</Button>
+									<Button name="ТранспортныеСредстваСправка" id="31">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.StandardCommand.Help</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="ТранспортныеСредстваСправкаРасширеннаяПодсказка" id="32"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -188,16 +167,12 @@
 							<ChildItems>
 								<CheckBoxField name="ТранспортныеСредстваОтметка" id="44">
 									<DataPath>ТранспортныеСредства.Отметка</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<CheckBoxType>CheckBox</CheckBoxType>
 									<ContextMenu name="ТранспортныеСредстваОтметкаКонтекстноеМеню" id="45"/>
 									<ExtendedTooltip name="ТранспортныеСредстваОтметкаРасширеннаяПодсказка" id="46"/>
 								</CheckBoxField>
 								<InputField name="ТранспортныеСредстваТипТранспорта" id="14">
 									<DataPath>ТранспортныеСредства.ТипТранспорта</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<OpenButton>false</OpenButton>
 									<CreateButton>false</CreateButton>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -217,8 +192,6 @@
 								</InputField>
 								<InputField name="ТранспортныеСредстваТранспортноеСредство" id="33">
 									<DataPath>ТранспортныеСредства.ТранспортноеСредство</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ТранспортныеСредстваТранспортноеСредствоКонтекстноеМеню" id="34"/>
 									<ExtendedTooltip name="ТранспортныеСредстваТранспортноеСредствоРасширеннаяПодсказка" id="35"/>
 									<Events>
@@ -227,8 +200,7 @@
 								</InputField>
 								<InputField name="ТранспортныеСредстваНомерТранспортногоСредства" id="17">
 									<DataPath>ТранспортныеСредства.НомерТранспортногоСредства</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>10</MaxWidth>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -237,8 +209,6 @@
 								</InputField>
 								<InputField name="ТранспортныеСредстваНомерАвтомобильногоКонтейнера" id="20">
 									<DataPath>ТранспортныеСредства.НомерАвтомобильногоКонтейнера</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>20</MaxWidth>
 									<ContextMenu name="ТранспортныеСредстваНомерАвтомобильногоКонтейнераКонтекстноеМеню" id="21"/>
@@ -246,30 +216,25 @@
 								</InputField>
 								<InputField name="ТранспортныеСредстваПеревозчик" id="41">
 									<DataPath>ТранспортныеСредства.Перевозчик</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ТранспортныеСредстваПеревозчикКонтекстноеМеню" id="42"/>
 									<ExtendedTooltip name="ТранспортныеСредстваПеревозчикРасширеннаяПодсказка" id="43"/>
 								</InputField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
-				</Page>
-				<Page name="СтраницаМестаПерегрузки" id="134">
+				</UsualGroup>
+				<UsualGroup name="ГруппаМестаПерегрузки" id="69">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Места перегрузки</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Страница места перегрузки</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ShowTitle>true</ShowTitle>
-					<ExtendedTooltip name="СтраницаМестаПерегрузкиРасширеннаяПодсказка" id="135"/>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаМестаПерегрузкиРасширеннаяПодсказка" id="70"/>
 					<ChildItems>
 						<Table name="МестаПерегрузки" id="71">
 							<Representation>List</Representation>
@@ -282,18 +247,24 @@
 								<ChildItems>
 									<Button name="МестаПерегрузкиДобавить" id="78">
 										<Type>CommandBarButton</Type>
-										<CommandName>0</CommandName>
+										<CommandName>Form.Item.МестаПерегрузки.StandardCommand.Add</CommandName>
 										<ExtendedTooltip name="МестаПерегрузкиДобавитьРасширеннаяПодсказка" id="79"/>
 									</Button>
 									<Button name="МестаПерегрузкиПереместитьВверх" id="80">
 										<Type>CommandBarButton</Type>
-										<CommandName>0</CommandName>
+										<CommandName>Form.Item.МестаПерегрузки.StandardCommand.MoveUp</CommandName>
 										<ExtendedTooltip name="МестаПерегрузкиПереместитьВверхРасширеннаяПодсказка" id="81"/>
 									</Button>
 									<Button name="МестаПерегрузкиПереместитьВниз" id="82">
 										<Type>CommandBarButton</Type>
-										<CommandName>0</CommandName>
+										<CommandName>Form.Item.МестаПерегрузки.StandardCommand.MoveDown</CommandName>
 										<ExtendedTooltip name="МестаПерегрузкиПереместитьВнизРасширеннаяПодсказка" id="83"/>
+									</Button>
+									<Button name="МестаПерегрузкиСправка" id="84">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.StandardCommand.Help</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="МестаПерегрузкиСправкаРасширеннаяПодсказка" id="85"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -325,8 +296,6 @@
 							<ChildItems>
 								<InputField name="МестаПерегрузкиАдрес" id="99">
 									<DataPath>МестаПерегрузки.АдресСтрокой</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ChoiceButton>true</ChoiceButton>
 									<ContextMenu name="МестаПерегрузкиАдресКонтекстноеМеню" id="100"/>
 									<ExtendedTooltip name="МестаПерегрузкиАдресРасширеннаяПодсказка" id="101"/>
@@ -340,9 +309,33 @@
 							</ChildItems>
 						</Table>
 					</ChildItems>
-				</Page>
+				</UsualGroup>
 			</ChildItems>
-		</Pages>
+		</UsualGroup>
+		<CommandBar name="ГруппаКоманднаяПанель" id="104">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="105"/>
+			<ChildItems>
+				<Button name="МаршрутГотово" id="54">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Готово</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="МаршрутГотовоРасширеннаяПодсказка" id="55"/>
+				</Button>
+				<Button name="МаршрутЗакрыть" id="39">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<ExtendedTooltip name="МаршрутЗакрытьРасширеннаяПодсказка" id="40"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ТранспортныеСредства" id="1">
@@ -790,7 +783,6 @@
 				</v8:item>
 			</Title>
 			<Action>Готово</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

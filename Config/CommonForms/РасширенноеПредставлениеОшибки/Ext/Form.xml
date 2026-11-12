@@ -5,48 +5,9 @@
 	<SaveWindowSettings>false</SaveWindowSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandSet>
-		<ExcludedCommand>Abort</ExcludedCommand>
-		<ExcludedCommand>Cancel</ExcludedCommand>
-		<ExcludedCommand>Ignore</ExcludedCommand>
-		<ExcludedCommand>No</ExcludedCommand>
-		<ExcludedCommand>OK</ExcludedCommand>
-		<ExcludedCommand>OpenFromMainServer</ExcludedCommand>
-		<ExcludedCommand>OpenFromStandaloneServer</ExcludedCommand>
-		<ExcludedCommand>RestoreValues</ExcludedCommand>
-		<ExcludedCommand>Retry</ExcludedCommand>
-		<ExcludedCommand>SaveValues</ExcludedCommand>
-		<ExcludedCommand>Yes</ExcludedCommand>
-	</CommandSet>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ФормаУстановитьРасширение" id="72">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.УстановитьРасширение</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Установить расширение</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаУстановитьРасширениеРасширеннаяПодсказка" id="73"/>
-			</Button>
-			<Button name="ФормаПерейтиКНастройкеПрограмм" id="74">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ПерейтиКНастройкеПрограмм</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Перейти к настройке приложений</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаПерейтиКНастройкеПрограммРасширеннаяПодсказка" id="75"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -127,7 +88,7 @@
 									<v8:content>Рекомендации</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AutoScreenTypeSensitive</Group>
+							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ExtendedTooltip name="ВозможныеРешенияКлиентРасширеннаяПодсказка" id="18"/>
@@ -155,7 +116,7 @@
 									<v8:content>Возможные причины</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AutoScreenTypeSensitive</Group>
+							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ExtendedTooltip name="ВозможныеПричиныКлиентРасширеннаяПодсказка" id="13"/>
@@ -178,18 +139,19 @@
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ТехническиеПодробностиКлиент" id="125">
+				<UsualGroup name="ТехническиеПодробностиКлиент" id="128">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Технические подробности</v8:content>
 						</v8:item>
 					</Title>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Collapsible</Behavior>
 					<Collapsed>true</Collapsed>
 					<ControlRepresentation>Button</ControlRepresentation>
 					<Representation>None</Representation>
-					<ExtendedTooltip name="ТехническиеПодробностиКлиентРасширеннаяПодсказка" id="126"/>
+					<ExtendedTooltip name="ТехническиеПодробностиКлиентРасширеннаяПодсказка" id="129"/>
 					<ChildItems>
 						<InputField name="ТекстОшибкиКлиент" id="9">
 							<DataPath>ТекстОшибкиКлиент</DataPath>
@@ -202,10 +164,9 @@
 							</Title>
 							<TitleTextColor>style:AccentColor</TitleTextColor>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MultiLine>true</MultiLine>
+							<BorderColor>style:FormBackColor</BorderColor>
 							<ContextMenu name="ТекстОшибкиКлиентКонтекстноеМеню" id="10"/>
 							<ExtendedTooltip name="ТекстОшибкиКлиентРасширеннаяПодсказка" id="11"/>
 						</InputField>
@@ -228,6 +189,11 @@
 				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
+		<LabelDecoration name="ДекорацияРазделитель" id="57">
+			<Font ref="style:NormalTextFont" kind="StyleItem" scale="10"/>
+			<ContextMenu name="ДекорацияРазделительКонтекстноеМеню" id="58"/>
+			<ExtendedTooltip name="ДекорацияРазделительРасширеннаяПодсказка" id="59"/>
+		</LabelDecoration>
 		<UsualGroup name="ОшибкаСервер" id="27">
 			<Title>
 				<v8:item>
@@ -304,7 +270,7 @@
 									<v8:content>Рекомендации</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AutoScreenTypeSensitive</Group>
+							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ExtendedTooltip name="ВозможныеРешенияСерверРасширеннаяПодсказка" id="46"/>
@@ -332,7 +298,7 @@
 									<v8:content>Возможные причины</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AutoScreenTypeSensitive</Group>
+							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ExtendedTooltip name="ВозможныеПричиныСерверРасширеннаяПодсказка" id="41"/>
@@ -355,18 +321,19 @@
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ТехническиеПодробностиСервер" id="123">
+				<UsualGroup name="ТехническиеПодробностиСервер" id="126">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Технические подробности</v8:content>
 						</v8:item>
 					</Title>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Collapsible</Behavior>
 					<Collapsed>true</Collapsed>
 					<ControlRepresentation>Button</ControlRepresentation>
 					<Representation>None</Representation>
-					<ExtendedTooltip name="ТехническиеПодробностиСерверРасширеннаяПодсказка" id="124"/>
+					<ExtendedTooltip name="ТехническиеПодробностиСерверРасширеннаяПодсказка" id="127"/>
 					<ChildItems>
 						<InputField name="ТекстОшибкиСервер" id="37">
 							<DataPath>ТекстОшибкиСервер</DataPath>
@@ -379,10 +346,9 @@
 							</Title>
 							<TitleTextColor>style:AccentColor</TitleTextColor>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MultiLine>true</MultiLine>
+							<BorderColor>style:FormBackColor</BorderColor>
 							<ContextMenu name="ТекстОшибкиСерверКонтекстноеМеню" id="38"/>
 							<ExtendedTooltip name="ТекстОшибкиСерверРасширеннаяПодсказка" id="39"/>
 						</InputField>
@@ -437,7 +403,7 @@
 									<v8:content>Рекомендации</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AutoScreenTypeSensitive</Group>
+							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ExtendedTooltip name="ВозможныеРешенияРасширеннаяПодсказка" id="92"/>
@@ -465,13 +431,13 @@
 									<v8:content>Возможные причины</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AutoScreenTypeSensitive</Group>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ExtendedTooltip name="ВозможныеПричиныРасширеннаяПодсказка" id="87"/>
 							<ChildItems>
 								<InputField name="ПричиныТекст" id="101">
 									<DataPath>ПричиныТекст</DataPath>
-									<ReadOnly>true</ReadOnly>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -479,8 +445,6 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MultiLine>true</MultiLine>
 									<ContextMenu name="ПричиныТекстКонтекстноеМеню" id="102"/>
@@ -490,17 +454,19 @@
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ТехническиеПодробности" id="127">
+				<UsualGroup name="ТехническиеПодробности" id="124">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Технические подробности</v8:content>
 						</v8:item>
 					</Title>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Collapsible</Behavior>
+					<Collapsed>true</Collapsed>
 					<ControlRepresentation>Button</ControlRepresentation>
 					<Representation>None</Representation>
-					<ExtendedTooltip name="ТехническиеПодробностиРасширеннаяПодсказка" id="128"/>
+					<ExtendedTooltip name="ТехническиеПодробностиРасширеннаяПодсказка" id="125"/>
 					<ChildItems>
 						<InputField name="ТекстОшибки" id="83">
 							<DataPath>ТекстОшибки</DataPath>
@@ -514,10 +480,9 @@
 							</Title>
 							<TitleTextColor>style:AccentColor</TitleTextColor>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MultiLine>true</MultiLine>
+							<BorderColor>style:FormBackColor</BorderColor>
 							<ContextMenu name="ТекстОшибкиКонтекстноеМеню" id="84"/>
 							<ExtendedTooltip name="ТекстОшибкиРасширеннаяПодсказка" id="85"/>
 						</InputField>
@@ -541,6 +506,11 @@
 				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
+		<LabelDecoration name="ДекорацияРазделитель2" id="78">
+			<Font ref="style:NormalTextFont" kind="StyleItem" scale="10"/>
+			<ContextMenu name="ДекорацияРазделитель2КонтекстноеМеню" id="79"/>
+			<ExtendedTooltip name="ДекорацияРазделитель2РасширеннаяПодсказка" id="80"/>
+		</LabelDecoration>
 		<LabelDecoration name="ДополнительнаяСсылка" id="116">
 			<Title formatted="false">
 				<v8:item>
@@ -567,19 +537,20 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="61"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаТребуетсяПомощь" id="62">
+				<UsualGroup name="ГруппаТребуетсяПомощь" id="130">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Требуется помощь?</v8:content>
 						</v8:item>
 					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
 					<Group>Vertical</Group>
 					<Behavior>PopUp</Behavior>
-					<Representation>None</Representation>
-					<ExtendedTooltip name="ГруппаТребуетсяПомощьРасширеннаяПодсказка" id="63"/>
+					<Representation>WeakSeparation</Representation>
+					<ExtendedTooltip name="ГруппаТребуетсяПомощьРасширеннаяПодсказка" id="131"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаОбращенияВТехническуюПоддержку" id="114">
+						<UsualGroup name="ГруппаОбращенияВТехническуюПоддержку" id="132">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -587,14 +558,15 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
+							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаОбращенияВТехническуюПоддержкуРасширеннаяПодсказка" id="115"/>
+							<ExtendedTooltip name="ГруппаОбращенияВТехническуюПоддержкуРасширеннаяПодсказка" id="133"/>
 							<ChildItems>
-								<LabelDecoration name="ОписаниеОбращенияВПоддержку" id="131">
-									<ContextMenu name="ОписаниеОбращенияВПоддержкуКонтекстноеМеню" id="132"/>
-									<ExtendedTooltip name="ОписаниеОбращенияВПоддержкуРасширеннаяПодсказка" id="133"/>
+								<LabelDecoration name="ОписаниеОбращенияВПоддержку" id="134">
+									<ContextMenu name="ОписаниеОбращенияВПоддержкуКонтекстноеМеню" id="135"/>
+									<ExtendedTooltip name="ОписаниеОбращенияВПоддержкуРасширеннаяПодсказка" id="136"/>
 								</LabelDecoration>
-								<Button name="ВопросВПоддержку" id="129">
+								<Button name="ВопросВПоддержку" id="137">
 									<Type>Hyperlink</Type>
 									<CommandName>Form.Command.ВопросВПоддержку</CommandName>
 									<Picture>
@@ -607,9 +579,9 @@
 											<v8:content>Вопрос в поддержку</v8:content>
 										</v8:item>
 									</Title>
-									<ExtendedTooltip name="ВопросВПоддержкуРасширеннаяПодсказка" id="130"/>
+									<ExtendedTooltip name="ВопросВПоддержкуРасширеннаяПодсказка" id="138"/>
 								</Button>
-								<Button name="ИнформацияДляОтправкиВПоддержку" id="134">
+								<Button name="ИнформацияДляОтправкиВПоддержку" id="139">
 									<Type>Hyperlink</Type>
 									<CommandName>Form.Command.ИнформацияДляОтправкиВПоддержку</CommandName>
 									<Picture>
@@ -622,12 +594,61 @@
 											<v8:content>Информация для отправки в поддержку</v8:content>
 										</v8:item>
 									</Title>
-									<ExtendedTooltip name="ИнформацияДляОтправкиВПоддержкуРасширеннаяПодсказка" id="135"/>
+									<ExtendedTooltip name="ИнформацияДляОтправкиВПоддержкуРасширеннаяПодсказка" id="140"/>
 								</Button>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
+				<CommandBar name="КоманднаяПанель" id="70">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalLocation>Right</HorizontalLocation>
+					<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="71"/>
+					<ChildItems>
+						<Button name="ФормаУстановитьРасширение" id="72">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.УстановитьРасширение</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Установить расширение</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ФормаУстановитьРасширениеРасширеннаяПодсказка" id="73"/>
+						</Button>
+						<Button name="ФормаПерейтиКНастройкеПрограмм" id="74">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.ПерейтиКНастройкеПрограмм</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Перейти к настройке приложений</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ФормаПерейтиКНастройкеПрограммРасширеннаяПодсказка" id="75"/>
+						</Button>
+						<Button name="ФормаЗакрыть" id="76">
+							<Type>CommandBarButton</Type>
+							<Representation>Text</Representation>
+							<DefaultButton>true</DefaultButton>
+							<DefaultItem>true</DefaultItem>
+							<CommandName>Form.StandardCommand.Close</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Закрыть</v8:content>
+								</v8:item>
+							</Title>
+							<ButtonImportance>Main</ButtonImportance>
+							<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="77"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -747,7 +768,6 @@
 			</Title>
 			<Action>ПерейтиКНастройкеПрограмм</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитьРасширение" id="2">
 			<Title>
@@ -764,7 +784,19 @@
 			</ToolTip>
 			<Action>УстановитьРасширение</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="ИнформацияДляОтправкиВПоддержку" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Информация для отправки в поддержку</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.Скачать</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ИнформацияДляОтправкиВПоддержку</Action>
 		</Command>
 		<Command name="ВопросВПоддержку" id="4">
 			<Title>
@@ -778,19 +810,6 @@
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>ВопросВПоддержку</Action>
-		</Command>
-		<Command name="ИнформацияДляОтправкиВПоддержку" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Информация для отправки в поддержку</v8:content>
-				</v8:item>
-			</Title>
-			<Picture>
-				<xr:Ref>CommonPicture.Скачать</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
-			<Action>ИнформацияДляОтправкиВПоддержку</Action>
 		</Command>
 	</Commands>
 	<Parameters>

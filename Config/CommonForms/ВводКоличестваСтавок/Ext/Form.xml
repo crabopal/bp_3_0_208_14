@@ -27,14 +27,27 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<ChildItems>
-			<Button name="ФормаПрименить" id="29">
+			<Button name="ФормаОК" id="29">
 				<Type>CommandBarButton</Type>
 				<Representation>Text</Representation>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Применить</CommandName>
+				<CommandName>Form.Command.ОК</CommandName>
 				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаПрименитьРасширеннаяПодсказка" id="30"/>
+				<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="30"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="27">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отмена</v8:content>
+					</v8:item>
+				</Title>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="28"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -134,147 +147,131 @@
 				<Event name="OnChange">КоличествоСтавокПредопределенноеПриИзменении</Event>
 			</Events>
 		</RadioButtonField>
-		<UsualGroup name="ГруппаПроизвольно" id="58">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа произвольно</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
+		<UsualGroup name="ВводЧислителемИЗнаменателемГруппа" id="40">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
+			<United>false</United>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПроизвольноРасширеннаяПодсказка" id="59"/>
+			<ExtendedTooltip name="ВводЧислителемИЗнаменателемГруппаРасширеннаяПодсказка" id="41"/>
 			<ChildItems>
-				<UsualGroup name="ВводЧислителемИЗнаменателемГруппа" id="40">
+				<RadioButtonField name="КоличествоСтавокЧислителемИЗнаменателем" id="37">
+					<DataPath>КоличествоСтавокПредопределенное</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Произвольно:</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="КоличествоСтавокЧислителемИЗнаменателемКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="КоличествоСтавокЧислителемИЗнаменателемРасширеннаяПодсказка" id="39"/>
+					<Events>
+						<Event name="OnChange">КоличествоСтавокЧислителемИЗнаменателемПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<UsualGroup name="ЧислительИЗнаменательГруппа" id="56">
 					<Group>Horizontal</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
-					<United>false</United>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ВводЧислителемИЗнаменателемГруппаРасширеннаяПодсказка" id="41"/>
+					<ExtendedTooltip name="ЧислительИЗнаменательГруппаРасширеннаяПодсказка" id="57"/>
 					<ChildItems>
-						<RadioButtonField name="КоличествоСтавокЧислителемИЗнаменателем" id="37">
-							<DataPath>КоличествоСтавокПредопределенное</DataPath>
+						<InputField name="Числитель" id="42">
+							<DataPath>Числитель</DataPath>
 							<TitleLocation>None</TitleLocation>
-							<RadioButtonType>Auto</RadioButtonType>
-							<ChoiceList>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Произвольно:</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:decimal">0</Value>
-									</xr:Value>
-								</xr:Item>
-							</ChoiceList>
-							<ContextMenu name="КоличествоСтавокЧислителемИЗнаменателемКонтекстноеМеню" id="38"/>
-							<ExtendedTooltip name="КоличествоСтавокЧислителемИЗнаменателемРасширеннаяПодсказка" id="39"/>
-							<Events>
-								<Event name="OnChange">КоличествоСтавокЧислителемИЗнаменателемПриИзменении</Event>
-							</Events>
-						</RadioButtonField>
-						<UsualGroup name="ЧислительИЗнаменательГруппа" id="56">
-							<Group>Horizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ЧислительИЗнаменательГруппаРасширеннаяПодсказка" id="57"/>
-							<ChildItems>
-								<InputField name="Числитель" id="42">
-									<DataPath>Числитель</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<HorizontalStretch>false</HorizontalStretch>
-									<SpinButton>true</SpinButton>
-									<MinValue xsi:type="xs:decimal">1</MinValue>
-									<MaxValue xsi:type="xs:decimal">99</MaxValue>
-									<ContextMenu name="ЧислительКонтекстноеМеню" id="43"/>
-									<ExtendedTooltip name="ЧислительРасширеннаяПодсказка" id="44"/>
-									<Events>
-										<Event name="OnChange">ЧислительПриИзменении</Event>
-									</Events>
-								</InputField>
-								<LabelDecoration name="ДелениеДекорация" id="48">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>/</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ДелениеДекорацияКонтекстноеМеню" id="49"/>
-									<ExtendedTooltip name="ДелениеДекорацияРасширеннаяПодсказка" id="50"/>
-								</LabelDecoration>
-								<InputField name="Знаменатель" id="45">
-									<DataPath>Знаменатель</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<HorizontalStretch>false</HorizontalStretch>
-									<SpinButton>true</SpinButton>
-									<MinValue xsi:type="xs:decimal">1</MinValue>
-									<MaxValue xsi:type="xs:decimal">100</MaxValue>
-									<ContextMenu name="ЗнаменательКонтекстноеМеню" id="46"/>
-									<ExtendedTooltip name="ЗнаменательРасширеннаяПодсказка" id="47"/>
-									<Events>
-										<Event name="OnChange">ЗнаменательПриИзменении</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ВводДесятичнымЧисломГруппа" id="51">
-					<Group>Horizontal</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ВводДесятичнымЧисломГруппаРасширеннаяПодсказка" id="52"/>
-					<ChildItems>
-						<RadioButtonField name="КоличествоСтавокДесятичнойДробью" id="53">
-							<DataPath>КоличествоСтавокПредопределенное</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<RadioButtonType>Auto</RadioButtonType>
-							<ChoiceList>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Десятичной дробью</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:decimal">-1</Value>
-									</xr:Value>
-								</xr:Item>
-							</ChoiceList>
-							<ContextMenu name="КоличествоСтавокДесятичнойДробьюКонтекстноеМеню" id="54"/>
-							<ExtendedTooltip name="КоличествоСтавокДесятичнойДробьюРасширеннаяПодсказка" id="55"/>
-							<Events>
-								<Event name="OnChange">КоличествоСтавокДесятичнойДробьюПриИзменении</Event>
-							</Events>
-						</RadioButtonField>
-						<InputField name="КоличествоСтавок" id="31">
-							<DataPath>КоличествоСтавок</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<Width>22</Width>
-							<ChoiceButton>false</ChoiceButton>
 							<SpinButton>true</SpinButton>
-							<ContextMenu name="КоличествоСтавокКонтекстноеМеню" id="32"/>
-							<ExtendedTooltip name="КоличествоСтавокРасширеннаяПодсказка" id="33"/>
+							<MinValue xsi:type="xs:decimal">1</MinValue>
+							<MaxValue xsi:type="xs:decimal">99</MaxValue>
+							<ContextMenu name="ЧислительКонтекстноеМеню" id="43"/>
+							<ExtendedTooltip name="ЧислительРасширеннаяПодсказка" id="44"/>
 							<Events>
-								<Event name="OnChange">КоличествоСтавокПриИзменении</Event>
-								<Event name="Tuning">КоличествоСтавокРегулирование</Event>
+								<Event name="OnChange">ЧислительПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ДелениеДекорация" id="48">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>/</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДелениеДекорацияКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="ДелениеДекорацияРасширеннаяПодсказка" id="50"/>
+						</LabelDecoration>
+						<InputField name="Знаменатель" id="45">
+							<DataPath>Знаменатель</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<SpinButton>true</SpinButton>
+							<MinValue xsi:type="xs:decimal">1</MinValue>
+							<MaxValue xsi:type="xs:decimal">100</MaxValue>
+							<ContextMenu name="ЗнаменательКонтекстноеМеню" id="46"/>
+							<ExtendedTooltip name="ЗнаменательРасширеннаяПодсказка" id="47"/>
+							<Events>
+								<Event name="OnChange">ЗнаменательПриИзменении</Event>
 							</Events>
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ВводДесятичнымЧисломГруппа" id="51">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<United>false</United>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ВводДесятичнымЧисломГруппаРасширеннаяПодсказка" id="52"/>
+			<ChildItems>
+				<RadioButtonField name="КоличествоСтавокДесятичнойДробью" id="53">
+					<DataPath>КоличествоСтавокПредопределенное</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Десятичной дробью</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">-1</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="КоличествоСтавокДесятичнойДробьюКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="КоличествоСтавокДесятичнойДробьюРасширеннаяПодсказка" id="55"/>
+					<Events>
+						<Event name="OnChange">КоличествоСтавокДесятичнойДробьюПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<InputField name="КоличествоСтавок" id="31">
+					<DataPath>КоличествоСтавок</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Width>22</Width>
+					<ChoiceButton>false</ChoiceButton>
+					<SpinButton>true</SpinButton>
+					<ContextMenu name="КоличествоСтавокКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="КоличествоСтавокРасширеннаяПодсказка" id="33"/>
+					<Events>
+						<Event name="OnChange">КоличествоСтавокПриИзменении</Event>
+						<Event name="Tuning">КоличествоСтавокРегулирование</Event>
+					</Events>
+				</InputField>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -381,22 +378,21 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="Применить" id="1">
+		<Command name="ОК" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Применить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Применить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>Применить</Action>
+			<Action>ОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

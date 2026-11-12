@@ -2,9 +2,7 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -16,7 +14,6 @@
 			<DataPath>ПоказыватьТолькоФискализированные</DataPath>
 			<TitleLocation>Right</TitleLocation>
 			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-			<CheckBoxType>Switcher</CheckBoxType>
 			<ContextMenu name="ПоказыватьТолькоФискализированныеКонтекстноеМеню" id="59"/>
 			<ExtendedTooltip name="ПоказыватьТолькоФискализированныеРасширеннаяПодсказка" id="60"/>
 			<Events>
@@ -37,14 +34,11 @@
 			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
 		</UsualGroup>
 		<Table name="Список" id="3">
-			<CommandBarLocation>Top</CommandBarLocation>
 			<ChangeRowSet>false</ChangeRowSet>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -92,6 +86,17 @@
 				<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
 			</Events>
 			<ChildItems>
+				<LabelField name="ДокументОснование" id="55">
+					<DataPath>Список.ДокументОснование</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основание</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="57"/>
+				</LabelField>
 				<LabelField name="Дата" id="25">
 					<DataPath>Список.Дата</DataPath>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="26"/>
@@ -112,6 +117,17 @@
 					</Title>
 					<ContextMenu name="НоменклатураКонтекстноеМеню" id="50"/>
 					<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="51"/>
+				</LabelField>
+				<LabelField name="РезультатПроверкиОИСМ" id="37">
+					<DataPath>Список.РезультатПроверкиОИСМ</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Результат</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="РезультатПроверкиОИСМКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="РезультатПроверкиОИСМРасширеннаяПодсказка" id="39"/>
 				</LabelField>
 				<LabelField name="ТипКода" id="43">
 					<DataPath>Список.ТипКода</DataPath>
@@ -146,17 +162,6 @@
 					<ContextMenu name="ОтказОтПокупкиКонтекстноеМеню" id="53"/>
 					<ExtendedTooltip name="ОтказОтПокупкиРасширеннаяПодсказка" id="54"/>
 				</CheckBoxField>
-				<LabelField name="РезультатПроверкиОИСМ" id="37">
-					<DataPath>Список.РезультатПроверкиОИСМ</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Результат</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="РезультатПроверкиОИСМКонтекстноеМеню" id="38"/>
-					<ExtendedTooltip name="РезультатПроверкиОИСМРасширеннаяПодсказка" id="39"/>
-				</LabelField>
 				<LabelField name="ВремяЗапросаРазрешения" id="64">
 					<DataPath>Список.ВремяЗапросаРазрешения</DataPath>
 					<ContextMenu name="ВремяЗапросаРазрешенияКонтекстноеМеню" id="65"/>
@@ -166,17 +171,6 @@
 					<DataPath>Список.КодОтветаРазрешения</DataPath>
 					<ContextMenu name="КодОтветаРазрешенияКонтекстноеМеню" id="68"/>
 					<ExtendedTooltip name="КодОтветаРазрешенияРасширеннаяПодсказка" id="69"/>
-				</LabelField>
-				<LabelField name="ДокументОснование" id="55">
-					<DataPath>Список.ДокументОснование</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Основание</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="56"/>
-					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="57"/>
 				</LabelField>
 			</ChildItems>
 		</Table>

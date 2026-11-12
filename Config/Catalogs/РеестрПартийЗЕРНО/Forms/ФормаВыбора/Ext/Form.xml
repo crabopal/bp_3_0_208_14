@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -26,8 +25,8 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<ChangeRowSet>false</ChangeRowSet>
 			<ChoiceMode>true</ChoiceMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -35,7 +34,6 @@
 			<EnableDrag>true</EnableDrag>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -52,7 +50,9 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -82,71 +82,51 @@
 				<LabelField name="Идентификатор" id="16">
 					<DataPath>Список.Идентификатор</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИдентификаторКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="ВладелецПартии" id="19">
 					<DataPath>Список.ВладелецПартии</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ВладелецПартииКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ВладелецПартииРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="ГодУрожая" id="22">
 					<DataPath>Список.ГодУрожая</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ГодУрожаяКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ГодУрожаяРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="НазначениеПартии" id="25">
 					<DataPath>Список.НазначениеПартии</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НазначениеПартииКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="НазначениеПартииРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 				<LabelField name="ЦельИспользования" id="28">
 					<DataPath>Список.ЦельИспользования</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ЦельИспользованияКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ЦельИспользованияРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<LabelField name="ОКПД2" id="34">
 					<DataPath>Список.ОКПД2</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОКПД2КонтекстноеМеню" id="35"/>
 					<ExtendedTooltip name="ОКПД2РасширеннаяПодсказка" id="36"/>
 				</LabelField>
 				<InputField name="КодТНВЭД" id="46">
 					<DataPath>Список.КодТНВЭД</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КодТНВЭДКонтекстноеМеню" id="47"/>
 					<ExtendedTooltip name="КодТНВЭДРасширеннаяПодсказка" id="48"/>
 				</InputField>
 				<LabelField name="Элеватор" id="37">
 					<DataPath>Список.Элеватор</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ЭлеваторКонтекстноеМеню" id="38"/>
 					<ExtendedTooltip name="ЭлеваторРасширеннаяПодсказка" id="39"/>
 				</LabelField>
 				<LabelField name="Статус" id="40">
 					<DataPath>Список.Статус</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СтатусКонтекстноеМеню" id="41"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="42"/>
 				</LabelField>
 				<LabelField name="Дата" id="43">
 					<DataPath>Список.Дата</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="44"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="45"/>
 				</LabelField>
@@ -210,9 +190,6 @@
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
-		</Parameter>
-		<Parameter name="Партии">
-			<Type/>
 		</Parameter>
 	</Parameters>
 </Form>

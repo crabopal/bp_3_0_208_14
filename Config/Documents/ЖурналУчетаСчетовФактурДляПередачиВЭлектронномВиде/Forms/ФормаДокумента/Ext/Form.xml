@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
@@ -11,7 +10,7 @@
 			<Button name="ФормаЗаполнитьДокумент" id="1">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ЗаполнитьДокумент</CommandName>
-				<ExtendedTooltip name="ФормаЗаполнитьДокументРасширеннаяПодсказка" id="316"/>
+				<ExtendedTooltip name="ФормаЗаполнитьДокументExtendedTooltip" id="316"/>
 			</Button>
 			<ButtonGroup name="ГруппаКнопокПодготовкаОтчета" id="460">
 				<ToolTipRepresentation>None</ToolTipRepresentation>
@@ -39,7 +38,7 @@
 									</v8:item>
 								</Title>
 								<ToolTipRepresentation>None</ToolTipRepresentation>
-								<ExtendedTooltip name="ПроверитьВИнтернетеРасширеннаяПодсказка" id="479"/>
+								<ExtendedTooltip name="ПроверитьВИнтернетеExtendedTooltip" id="479"/>
 							</Button>
 						</ChildItems>
 					</Popup>
@@ -54,14 +53,14 @@
 							</v8:item>
 						</Title>
 						<ToolTipRepresentation>None</ToolTipRepresentation>
-						<ExtendedTooltip name="ОтправитьВКонтролирующийОрганРасширеннаяПодсказка" id="487"/>
+						<ExtendedTooltip name="ОтправитьВКонтролирующийОрганExtendedTooltip" id="487"/>
 					</Button>
 				</ChildItems>
 			</ButtonGroup>
 			<Button name="ФормаВыгрузитьДокумент" id="315">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ВыгрузитьДокумент</CommandName>
-				<ExtendedTooltip name="ФормаВыгрузитьДокументРасширеннаяПодсказка" id="317"/>
+				<ExtendedTooltip name="ФормаВыгрузитьДокументExtendedTooltip" id="317"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -83,7 +82,7 @@
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПанельОтправкиРасширеннаяПодсказка" id="412"/>
+			<ExtendedTooltip name="ГруппаПанельОтправкиExtendedTooltip" id="412"/>
 			<ChildItems>
 				<UsualGroup name="БлокСостоянияОтправки" id="413">
 					<Title>
@@ -220,7 +219,7 @@
 									<Height>1</Height>
 									<Picture>
 										<xr:Ref>CommonPicture.ПризнакНаличияКритическойОшибки</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="ЗначокКритическойОшибкиКонтекстноеМеню" id="445"/>
@@ -299,32 +298,27 @@
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="318"/>
+			<ExtendedTooltip name="ГруппаШапкаExtendedTooltip" id="318"/>
 			<ChildItems>
 				<InputField name="Организация" id="3">
 					<DataPath>Объект.Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="4"/>
-					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="319"/>
+					<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="319"/>
 					<Events>
 						<Event name="OnChange">ОрганизацияПриИзменении</Event>
 					</Events>
 				</InputField>
 				<PictureField name="СостояниеДокумента" id="488">
 					<DataPath>СостояниеДокумента</DataPath>
-					<Visible>false</Visible>
 					<TitleLocation>None</TitleLocation>
 					<GroupVerticalAlign>Center</GroupVerticalAlign>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>2</Width>
 					<Height>1</Height>
 					<HorizontalStretch>false</HorizontalStretch>
 					<VerticalStretch>false</VerticalStretch>
 					<ValuesPicture>
-						<xr:Ref>CommonPicture.СостоянияДокументаБП</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
+						<xr:Ref>CommonPicture.СостоянияДокумента</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</ValuesPicture>
 					<Border width="1">
 						<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
@@ -346,7 +340,7 @@
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаВыборПериодаРасширеннаяПодсказка" id="320"/>
+					<ExtendedTooltip name="ГруппаВыборПериодаExtendedTooltip" id="320"/>
 					<ChildItems>
 						<Button name="ПредыдущийПериод" id="6">
 							<Type>UsualButton</Type>
@@ -356,18 +350,16 @@
 								<xr:Ref>StdPicture.MoveLeft</xr:Ref>
 								<xr:LoadTransparent>true</xr:LoadTransparent>
 							</Picture>
-							<ExtendedTooltip name="ПредыдущийПериодРасширеннаяПодсказка" id="321"/>
+							<ExtendedTooltip name="ПредыдущийПериодExtendedTooltip" id="321"/>
 						</Button>
 						<LabelField name="ПредставлениеНалоговогоПериода" id="7">
 							<DataPath>ПредставлениеНалоговогоПериода</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<HorizontalAlign>Center</HorizontalAlign>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>15</Width>
 							<HorizontalStretch>false</HorizontalStretch>
 							<ContextMenu name="ПредставлениеНалоговогоПериодаКонтекстноеМеню" id="8"/>
-							<ExtendedTooltip name="ПредставлениеНалоговогоПериодаРасширеннаяПодсказка" id="322"/>
+							<ExtendedTooltip name="ПредставлениеНалоговогоПериодаExtendedTooltip" id="322"/>
 						</LabelField>
 						<Button name="СледующийПериод" id="9">
 							<Type>UsualButton</Type>
@@ -377,17 +369,15 @@
 								<xr:Ref>StdPicture.MoveRight</xr:Ref>
 								<xr:LoadTransparent>true</xr:LoadTransparent>
 							</Picture>
-							<ExtendedTooltip name="СледующийПериодРасширеннаяПодсказка" id="323"/>
+							<ExtendedTooltip name="СледующийПериодExtendedTooltip" id="323"/>
 						</Button>
 					</ChildItems>
 				</UsualGroup>
 				<CheckBoxField name="Реорганизация" id="10">
 					<DataPath>Объект.Реорганизация</DataPath>
 					<TitleLocation>Right</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="РеорганизацияКонтекстноеМеню" id="11"/>
-					<ExtendedTooltip name="РеорганизацияРасширеннаяПодсказка" id="324"/>
+					<ExtendedTooltip name="РеорганизацияExtendedTooltip" id="324"/>
 					<Events>
 						<Event name="OnChange">РеорганизацияПриИзменении</Event>
 					</Events>
@@ -403,7 +393,7 @@
 				</v8:item>
 			</Title>
 			<PagesRepresentation>TabsOnTop</PagesRepresentation>
-			<ExtendedTooltip name="СтраницыТабличнаяЧастьРасширеннаяПодсказка" id="325"/>
+			<ExtendedTooltip name="СтраницыТабличнаяЧастьExtendedTooltip" id="325"/>
 			<ChildItems>
 				<Page name="СтраницаВыставленныеСчетаФактуры" id="109">
 					<Title>
@@ -413,9 +403,8 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаВыставленныеСчетаФактурыРасширеннаяПодсказка" id="326"/>
+					<ExtendedTooltip name="СтраницаВыставленныеСчетаФактурыExtendedTooltip" id="326"/>
 					<ChildItems>
 						<Table name="ВыставленныеСчетаФактуры" id="13">
 							<ReadOnly>true</ReadOnly>
@@ -448,7 +437,7 @@
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ВыставленныеСчетаФактурыКонтекстноеМеню" id="14"/>
 							<AutoCommandBar name="ВыставленныеСчетаФактурыКоманднаяПанель" id="15"/>
-							<ExtendedTooltip name="ВыставленныеСчетаФактурыРасширеннаяПодсказка" id="327"/>
+							<ExtendedTooltip name="ВыставленныеСчетаФактурыExtendedTooltip" id="327"/>
 							<SearchStringAddition name="ВыставленныеСчетаФактурыСтрокаПоиска" id="382">
 								<AdditionSource>
 									<Item>ВыставленныеСчетаФактуры</Item>
@@ -480,7 +469,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>10</Width>
 									<ContextMenu name="ВыставленныеСчетаФактурыНомерСтрокиКонтекстноеМеню" id="164"/>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыНомерСтрокиРасширеннаяПодсказка" id="328"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыНомерСтрокиExtendedTooltip" id="328"/>
 								</LabelField>
 								<InputField name="ВыставленныеСчетаФактурыДатаПередачиПолучения" id="165">
 									<DataPath>Объект.ВыставленныеСчетаФактуры.ДатаПередачиПолучения</DataPath>
@@ -488,7 +477,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>20</Width>
 									<ContextMenu name="ВыставленныеСчетаФактурыДатаПередачиПолученияКонтекстноеМеню" id="166"/>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыДатаПередачиПолученияРасширеннаяПодсказка" id="329"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыДатаПередачиПолученияExtendedTooltip" id="329"/>
 								</InputField>
 								<ColumnGroup name="ВыставленныеСчетаФактурыГруппаКодСпособаВыставленияКодВидаОперации" id="23">
 									<Title>
@@ -503,8 +492,7 @@
 											<v8:content>Выставленные счета-фактуры группа код способа выставления код вида операции</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ShowTitle>true</ShowTitle>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыГруппаКодСпособаВыставленияКодВидаОперацииРасширеннаяПодсказка" id="330"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыГруппаКодСпособаВыставленияКодВидаОперацииExtendedTooltip" id="330"/>
 									<ChildItems>
 										<InputField name="ВыставленныеСчетаФактурыКодСпособаВыставления" id="167">
 											<DataPath>Объект.ВыставленныеСчетаФактуры.КодСпособаВыставления</DataPath>
@@ -512,7 +500,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ВыставленныеСчетаФактурыКодСпособаВыставленияКонтекстноеМеню" id="168"/>
-											<ExtendedTooltip name="ВыставленныеСчетаФактурыКодСпособаВыставленияРасширеннаяПодсказка" id="331"/>
+											<ExtendedTooltip name="ВыставленныеСчетаФактурыКодСпособаВыставленияExtendedTooltip" id="331"/>
 										</InputField>
 										<InputField name="ВыставленныеСчетаФактурыКодВидаОперации" id="169">
 											<DataPath>Объект.ВыставленныеСчетаФактуры.КодВидаОперации</DataPath>
@@ -520,7 +508,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ВыставленныеСчетаФактурыКодВидаОперацииКонтекстноеМеню" id="170"/>
-											<ExtendedTooltip name="ВыставленныеСчетаФактурыКодВидаОперацииРасширеннаяПодсказка" id="332"/>
+											<ExtendedTooltip name="ВыставленныеСчетаФактурыКодВидаОперацииExtendedTooltip" id="332"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -537,8 +525,7 @@
 											<v8:content>Выставленные счета-фактуры группа дата номер счета-фактуры</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ShowTitle>true</ShowTitle>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыГруппаДатаНомерСчетаФактурыРасширеннаяПодсказка" id="333"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыГруппаДатаНомерСчетаФактурыExtendedTooltip" id="333"/>
 									<ChildItems>
 										<InputField name="ВыставленныеСчетаФактурыНомерСчетаФактуры" id="171">
 											<DataPath>Объект.ВыставленныеСчетаФактуры.НомерСчетаФактуры</DataPath>
@@ -546,7 +533,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>21</Width>
 											<ContextMenu name="ВыставленныеСчетаФактурыНомерСчетаФактурыКонтекстноеМеню" id="172"/>
-											<ExtendedTooltip name="ВыставленныеСчетаФактурыНомерСчетаФактурыРасширеннаяПодсказка" id="334"/>
+											<ExtendedTooltip name="ВыставленныеСчетаФактурыНомерСчетаФактурыExtendedTooltip" id="334"/>
 										</InputField>
 										<InputField name="ВыставленныеСчетаФактурыДатаСчетаФактуры" id="173">
 											<DataPath>Объект.ВыставленныеСчетаФактуры.ДатаСчетаФактуры</DataPath>
@@ -554,7 +541,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ВыставленныеСчетаФактурыДатаСчетаФактурыКонтекстноеМеню" id="174"/>
-											<ExtendedTooltip name="ВыставленныеСчетаФактурыДатаСчетаФактурыРасширеннаяПодсказка" id="335"/>
+											<ExtendedTooltip name="ВыставленныеСчетаФактурыДатаСчетаФактурыExtendedTooltip" id="335"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -571,8 +558,7 @@
 											<v8:content>Выставленные счета-фактуры группа дата номер корректировочного счета-фактуры</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ShowTitle>true</ShowTitle>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыГруппаДатаНомерКорректировочногоСчетаФактурыРасширеннаяПодсказка" id="336"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыГруппаДатаНомерКорректировочногоСчетаФактурыExtendedTooltip" id="336"/>
 									<ChildItems>
 										<InputField name="ВыставленныеСчетаФактурыНомерКорректировочногоСчетаФактуры" id="175">
 											<DataPath>Объект.ВыставленныеСчетаФактуры.НомерКорректировочногоСчетаФактуры</DataPath>
@@ -580,7 +566,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>37</Width>
 											<ContextMenu name="ВыставленныеСчетаФактурыНомерКорректировочногоСчетаФактурыКонтекстноеМеню" id="176"/>
-											<ExtendedTooltip name="ВыставленныеСчетаФактурыНомерКорректировочногоСчетаФактурыРасширеннаяПодсказка" id="337"/>
+											<ExtendedTooltip name="ВыставленныеСчетаФактурыНомерКорректировочногоСчетаФактурыExtendedTooltip" id="337"/>
 										</InputField>
 										<InputField name="ВыставленныеСчетаФактурыДатаКорректировочногоСчетаФактуры" id="177">
 											<DataPath>Объект.ВыставленныеСчетаФактуры.ДатаКорректировочногоСчетаФактуры</DataPath>
@@ -588,7 +574,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ВыставленныеСчетаФактурыДатаКорректировочногоСчетаФактурыКонтекстноеМеню" id="178"/>
-											<ExtendedTooltip name="ВыставленныеСчетаФактурыДатаКорректировочногоСчетаФактурыРасширеннаяПодсказка" id="338"/>
+											<ExtendedTooltip name="ВыставленныеСчетаФактурыДатаКорректировочногоСчетаФактурыExtendedTooltip" id="338"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -605,8 +591,7 @@
 											<v8:content>Выставленные счета-фактуры группа дата номер корректировочного счета-фактуры</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ShowTitle>true</ShowTitle>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыГруппаДатаНомерИсправленияРасширеннаяПодсказка" id="339"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыГруппаДатаНомерИсправленияExtendedTooltip" id="339"/>
 									<ChildItems>
 										<InputField name="ВыставленныеСчетаФактурыНомерИсправления" id="179">
 											<DataPath>Объект.ВыставленныеСчетаФактуры.НомерИсправления</DataPath>
@@ -614,7 +599,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ВыставленныеСчетаФактурыНомерИсправленияКонтекстноеМеню" id="180"/>
-											<ExtendedTooltip name="ВыставленныеСчетаФактурыНомерИсправленияРасширеннаяПодсказка" id="340"/>
+											<ExtendedTooltip name="ВыставленныеСчетаФактурыНомерИсправленияExtendedTooltip" id="340"/>
 										</InputField>
 										<InputField name="ВыставленныеСчетаФактурыДатаИсправления" id="181">
 											<DataPath>Объект.ВыставленныеСчетаФактуры.ДатаИсправления</DataPath>
@@ -622,7 +607,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ВыставленныеСчетаФактурыДатаИсправленияКонтекстноеМеню" id="182"/>
-											<ExtendedTooltip name="ВыставленныеСчетаФактурыДатаИсправленияРасширеннаяПодсказка" id="341"/>
+											<ExtendedTooltip name="ВыставленныеСчетаФактурыДатаИсправленияExtendedTooltip" id="341"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -640,8 +625,7 @@
 										</v8:item>
 									</ToolTip>
 									<Width>40</Width>
-									<ShowTitle>true</ShowTitle>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыГруппаПокупательРасширеннаяПодсказка" id="342"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыГруппаПокупательExtendedTooltip" id="342"/>
 									<ChildItems>
 										<InputField name="ВыставленныеСчетаФактурыКонтрагентНаименование" id="183">
 											<DataPath>Объект.ВыставленныеСчетаФактуры.КонтрагентНаименование</DataPath>
@@ -649,7 +633,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ВыставленныеСчетаФактурыКонтрагентНаименованиеКонтекстноеМеню" id="184"/>
-											<ExtendedTooltip name="ВыставленныеСчетаФактурыКонтрагентНаименованиеРасширеннаяПодсказка" id="343"/>
+											<ExtendedTooltip name="ВыставленныеСчетаФактурыКонтрагентНаименованиеExtendedTooltip" id="343"/>
 										</InputField>
 										<InputField name="ВыставленныеСчетаФактурыКонтрагентИННКПП" id="185">
 											<DataPath>Объект.ВыставленныеСчетаФактуры.КонтрагентИННКПП</DataPath>
@@ -657,7 +641,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ВыставленныеСчетаФактурыКонтрагентИННКППКонтекстноеМеню" id="186"/>
-											<ExtendedTooltip name="ВыставленныеСчетаФактурыКонтрагентИННКППРасширеннаяПодсказка" id="344"/>
+											<ExtendedTooltip name="ВыставленныеСчетаФактурыКонтрагентИННКППExtendedTooltip" id="344"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -667,7 +651,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ВыставленныеСчетаФактурыВалютаКонтекстноеМеню" id="188"/>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыВалютаРасширеннаяПодсказка" id="345"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыВалютаExtendedTooltip" id="345"/>
 								</InputField>
 								<InputField name="ВыставленныеСчетаФактурыСуммаДокумента" id="189">
 									<DataPath>Объект.ВыставленныеСчетаФактуры.СуммаДокумента</DataPath>
@@ -675,7 +659,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ВыставленныеСчетаФактурыСуммаДокументаКонтекстноеМеню" id="190"/>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыСуммаДокументаРасширеннаяПодсказка" id="346"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыСуммаДокументаExtendedTooltip" id="346"/>
 								</InputField>
 								<InputField name="ВыставленныеСчетаФактурыСуммаНДС" id="191">
 									<DataPath>Объект.ВыставленныеСчетаФактуры.СуммаНДС</DataPath>
@@ -683,7 +667,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ВыставленныеСчетаФактурыСуммаНДСКонтекстноеМеню" id="192"/>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыСуммаНДСРасширеннаяПодсказка" id="347"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыСуммаНДСExtendedTooltip" id="347"/>
 								</InputField>
 								<InputField name="ВыставленныеСчетаФактурыСуммаДокументаРазницаУменьшение" id="193">
 									<DataPath>Объект.ВыставленныеСчетаФактуры.СуммаДокументаРазницаУменьшение</DataPath>
@@ -691,7 +675,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ВыставленныеСчетаФактурыСуммаДокументаРазницаУменьшениеКонтекстноеМеню" id="194"/>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыСуммаДокументаРазницаУменьшениеРасширеннаяПодсказка" id="348"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыСуммаДокументаРазницаУменьшениеExtendedTooltip" id="348"/>
 								</InputField>
 								<InputField name="ВыставленныеСчетаФактурыСуммаДокументаРазницаУвеличение" id="195">
 									<DataPath>Объект.ВыставленныеСчетаФактуры.СуммаДокументаРазницаУвеличение</DataPath>
@@ -699,7 +683,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ВыставленныеСчетаФактурыСуммаДокументаРазницаУвеличениеКонтекстноеМеню" id="196"/>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыСуммаДокументаРазницаУвеличениеРасширеннаяПодсказка" id="349"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыСуммаДокументаРазницаУвеличениеExtendedTooltip" id="349"/>
 								</InputField>
 								<InputField name="ВыставленныеСчетаФактурыСуммаНДСРазницаУменьшение" id="197">
 									<DataPath>Объект.ВыставленныеСчетаФактуры.СуммаНДСРазницаУменьшение</DataPath>
@@ -707,7 +691,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ВыставленныеСчетаФактурыСуммаНДСРазницаУменьшениеКонтекстноеМеню" id="198"/>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыСуммаНДСРазницаУменьшениеРасширеннаяПодсказка" id="350"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыСуммаНДСРазницаУменьшениеExtendedTooltip" id="350"/>
 								</InputField>
 								<InputField name="ВыставленныеСчетаФактурыСуммаНДСРазницаУвеличение" id="199">
 									<DataPath>Объект.ВыставленныеСчетаФактуры.СуммаНДСРазницаУвеличение</DataPath>
@@ -715,7 +699,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ВыставленныеСчетаФактурыСуммаНДСРазницаУвеличениеКонтекстноеМеню" id="200"/>
-									<ExtendedTooltip name="ВыставленныеСчетаФактурыСуммаНДСРазницаУвеличениеРасширеннаяПодсказка" id="351"/>
+									<ExtendedTooltip name="ВыставленныеСчетаФактурыСуммаНДСРазницаУвеличениеExtendedTooltip" id="351"/>
 								</InputField>
 							</ChildItems>
 						</Table>
@@ -729,9 +713,8 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаПолученныеСчетаФактурыРасширеннаяПодсказка" id="352"/>
+					<ExtendedTooltip name="СтраницаПолученныеСчетаФактурыExtendedTooltip" id="352"/>
 					<ChildItems>
 						<Table name="ПолученныеСчетаФактуры" id="249">
 							<ReadOnly>true</ReadOnly>
@@ -764,7 +747,7 @@
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ПолученныеСчетаФактурыКонтекстноеМеню" id="250"/>
 							<AutoCommandBar name="ПолученныеСчетаФактурыКоманднаяПанель" id="251"/>
-							<ExtendedTooltip name="ПолученныеСчетаФактурыРасширеннаяПодсказка" id="353"/>
+							<ExtendedTooltip name="ПолученныеСчетаФактурыExtendedTooltip" id="353"/>
 							<SearchStringAddition name="ПолученныеСчетаФактурыСтрокаПоиска" id="391">
 								<AdditionSource>
 									<Item>ПолученныеСчетаФактуры</Item>
@@ -796,7 +779,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>10</Width>
 									<ContextMenu name="ПолученныеСчетаФактурыНомерСтрокиКонтекстноеМеню" id="278"/>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыНомерСтрокиРасширеннаяПодсказка" id="354"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыНомерСтрокиExtendedTooltip" id="354"/>
 								</LabelField>
 								<InputField name="ПолученныеСчетаФактурыДатаПередачиПолучения" id="279">
 									<DataPath>Объект.ПолученныеСчетаФактуры.ДатаПередачиПолучения</DataPath>
@@ -804,7 +787,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>20</Width>
 									<ContextMenu name="ПолученныеСчетаФактурыДатаПередачиПолученияКонтекстноеМеню" id="280"/>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыДатаПередачиПолученияРасширеннаяПодсказка" id="355"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыДатаПередачиПолученияExtendedTooltip" id="355"/>
 								</InputField>
 								<ColumnGroup name="ПолученныеСчетаФактурыГруппаКодСпособаВыставленияКодВидаОперации" id="256">
 									<Title>
@@ -819,8 +802,7 @@
 											<v8:content>Выставленные счета-фактуры группа код способа выставления код вида операции</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ShowTitle>true</ShowTitle>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыГруппаКодСпособаВыставленияКодВидаОперацииРасширеннаяПодсказка" id="356"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыГруппаКодСпособаВыставленияКодВидаОперацииExtendedTooltip" id="356"/>
 									<ChildItems>
 										<InputField name="ПолученныеСчетаФактурыКодСпособаВыставления" id="281">
 											<DataPath>Объект.ПолученныеСчетаФактуры.КодСпособаВыставления</DataPath>
@@ -828,7 +810,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ПолученныеСчетаФактурыКодСпособаВыставленияКонтекстноеМеню" id="282"/>
-											<ExtendedTooltip name="ПолученныеСчетаФактурыКодСпособаВыставленияРасширеннаяПодсказка" id="357"/>
+											<ExtendedTooltip name="ПолученныеСчетаФактурыКодСпособаВыставленияExtendedTooltip" id="357"/>
 										</InputField>
 										<InputField name="ПолученныеСчетаФактурыКодВидаОперации" id="283">
 											<DataPath>Объект.ПолученныеСчетаФактуры.КодВидаОперации</DataPath>
@@ -836,7 +818,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ПолученныеСчетаФактурыКодВидаОперацииКонтекстноеМеню" id="284"/>
-											<ExtendedTooltip name="ПолученныеСчетаФактурыКодВидаОперацииРасширеннаяПодсказка" id="358"/>
+											<ExtendedTooltip name="ПолученныеСчетаФактурыКодВидаОперацииExtendedTooltip" id="358"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -853,8 +835,7 @@
 											<v8:content>Выставленные счета-фактуры группа дата номер счета-фактуры</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ShowTitle>true</ShowTitle>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыГруппаДатаНомерСчетаФактурыРасширеннаяПодсказка" id="359"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыГруппаДатаНомерСчетаФактурыExtendedTooltip" id="359"/>
 									<ChildItems>
 										<InputField name="ПолученныеСчетаФактурыНомерСчетаФактуры" id="285">
 											<DataPath>Объект.ПолученныеСчетаФактуры.НомерСчетаФактуры</DataPath>
@@ -862,7 +843,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>22</Width>
 											<ContextMenu name="ПолученныеСчетаФактурыНомерСчетаФактурыКонтекстноеМеню" id="286"/>
-											<ExtendedTooltip name="ПолученныеСчетаФактурыНомерСчетаФактурыРасширеннаяПодсказка" id="360"/>
+											<ExtendedTooltip name="ПолученныеСчетаФактурыНомерСчетаФактурыExtendedTooltip" id="360"/>
 										</InputField>
 										<InputField name="ПолученныеСчетаФактурыДатаСчетаФактуры" id="287">
 											<DataPath>Объект.ПолученныеСчетаФактуры.ДатаСчетаФактуры</DataPath>
@@ -870,7 +851,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ПолученныеСчетаФактурыДатаСчетаФактурыКонтекстноеМеню" id="288"/>
-											<ExtendedTooltip name="ПолученныеСчетаФактурыДатаСчетаФактурыРасширеннаяПодсказка" id="361"/>
+											<ExtendedTooltip name="ПолученныеСчетаФактурыДатаСчетаФактурыExtendedTooltip" id="361"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -887,8 +868,7 @@
 											<v8:content>Выставленные счета-фактуры группа дата номер корректировочного счета-фактуры</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ShowTitle>true</ShowTitle>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыГруппаДатаНомерКорректировочногоСчетаФактурыРасширеннаяПодсказка" id="362"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыГруппаДатаНомерКорректировочногоСчетаФактурыExtendedTooltip" id="362"/>
 									<ChildItems>
 										<InputField name="ПолученныеСчетаФактурыНомерКорректировочногоСчетаФактуры" id="289">
 											<DataPath>Объект.ПолученныеСчетаФактуры.НомерКорректировочногоСчетаФактуры</DataPath>
@@ -896,7 +876,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>37</Width>
 											<ContextMenu name="ПолученныеСчетаФактурыНомерКорректировочногоСчетаФактурыКонтекстноеМеню" id="290"/>
-											<ExtendedTooltip name="ПолученныеСчетаФактурыНомерКорректировочногоСчетаФактурыРасширеннаяПодсказка" id="363"/>
+											<ExtendedTooltip name="ПолученныеСчетаФактурыНомерКорректировочногоСчетаФактурыExtendedTooltip" id="363"/>
 										</InputField>
 										<InputField name="ПолученныеСчетаФактурыДатаКорректировочногоСчетаФактуры" id="291">
 											<DataPath>Объект.ПолученныеСчетаФактуры.ДатаКорректировочногоСчетаФактуры</DataPath>
@@ -904,7 +884,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ПолученныеСчетаФактурыДатаКорректировочногоСчетаФактурыКонтекстноеМеню" id="292"/>
-											<ExtendedTooltip name="ПолученныеСчетаФактурыДатаКорректировочногоСчетаФактурыРасширеннаяПодсказка" id="364"/>
+											<ExtendedTooltip name="ПолученныеСчетаФактурыДатаКорректировочногоСчетаФактурыExtendedTooltip" id="364"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -921,8 +901,7 @@
 											<v8:content>Выставленные счета-фактуры группа дата номер корректировочного счета-фактуры</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ShowTitle>true</ShowTitle>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыГруппаДатаНомерИсправленияРасширеннаяПодсказка" id="365"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыГруппаДатаНомерИсправленияExtendedTooltip" id="365"/>
 									<ChildItems>
 										<InputField name="ПолученныеСчетаФактурыНомерИсправления" id="293">
 											<DataPath>Объект.ПолученныеСчетаФактуры.НомерИсправления</DataPath>
@@ -930,7 +909,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ПолученныеСчетаФактурыНомерИсправленияКонтекстноеМеню" id="294"/>
-											<ExtendedTooltip name="ПолученныеСчетаФактурыНомерИсправленияРасширеннаяПодсказка" id="366"/>
+											<ExtendedTooltip name="ПолученныеСчетаФактурыНомерИсправленияExtendedTooltip" id="366"/>
 										</InputField>
 										<InputField name="ПолученныеСчетаФактурыДатаИсправления" id="295">
 											<DataPath>Объект.ПолученныеСчетаФактуры.ДатаИсправления</DataPath>
@@ -938,7 +917,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ПолученныеСчетаФактурыДатаИсправленияКонтекстноеМеню" id="296"/>
-											<ExtendedTooltip name="ПолученныеСчетаФактурыДатаИсправленияРасширеннаяПодсказка" id="367"/>
+											<ExtendedTooltip name="ПолученныеСчетаФактурыДатаИсправленияExtendedTooltip" id="367"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -956,8 +935,7 @@
 										</v8:item>
 									</ToolTip>
 									<Width>40</Width>
-									<ShowTitle>true</ShowTitle>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыГруппаПоставщикРасширеннаяПодсказка" id="368"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыГруппаПоставщикExtendedTooltip" id="368"/>
 									<ChildItems>
 										<InputField name="ПолученныеСчетаФактурыКонтрагентНаименование" id="297">
 											<DataPath>Объект.ПолученныеСчетаФактуры.КонтрагентНаименование</DataPath>
@@ -965,7 +943,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>23</Width>
 											<ContextMenu name="ПолученныеСчетаФактурыКонтрагентНаименованиеКонтекстноеМеню" id="298"/>
-											<ExtendedTooltip name="ПолученныеСчетаФактурыКонтрагентНаименованиеРасширеннаяПодсказка" id="369"/>
+											<ExtendedTooltip name="ПолученныеСчетаФактурыКонтрагентНаименованиеExtendedTooltip" id="369"/>
 										</InputField>
 										<InputField name="ПолученныеСчетаФактурыКонтрагентИННКПП" id="299">
 											<DataPath>Объект.ПолученныеСчетаФактуры.КонтрагентИННКПП</DataPath>
@@ -973,7 +951,7 @@
 											<AutoEditMode>true</AutoEditMode>
 											<Width>20</Width>
 											<ContextMenu name="ПолученныеСчетаФактурыКонтрагентИННКППКонтекстноеМеню" id="300"/>
-											<ExtendedTooltip name="ПолученныеСчетаФактурыКонтрагентИННКППРасширеннаяПодсказка" id="370"/>
+											<ExtendedTooltip name="ПолученныеСчетаФактурыКонтрагентИННКППExtendedTooltip" id="370"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -983,7 +961,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ПолученныеСчетаФактурыВалютаКонтекстноеМеню" id="302"/>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыВалютаРасширеннаяПодсказка" id="371"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыВалютаExtendedTooltip" id="371"/>
 								</InputField>
 								<InputField name="ПолученныеСчетаФактурыСуммаДокумента" id="303">
 									<DataPath>Объект.ПолученныеСчетаФактуры.СуммаДокумента</DataPath>
@@ -991,7 +969,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ПолученныеСчетаФактурыСуммаДокументаКонтекстноеМеню" id="304"/>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыСуммаДокументаРасширеннаяПодсказка" id="372"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыСуммаДокументаExtendedTooltip" id="372"/>
 								</InputField>
 								<InputField name="ПолученныеСчетаФактурыСуммаНДС" id="305">
 									<DataPath>Объект.ПолученныеСчетаФактуры.СуммаНДС</DataPath>
@@ -999,7 +977,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ПолученныеСчетаФактурыСуммаНДСКонтекстноеМеню" id="306"/>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыСуммаНДСРасширеннаяПодсказка" id="373"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыСуммаНДСExtendedTooltip" id="373"/>
 								</InputField>
 								<InputField name="ПолученныеСчетаФактурыСуммаДокументаРазницаУменьшение" id="307">
 									<DataPath>Объект.ПолученныеСчетаФактуры.СуммаДокументаРазницаУменьшение</DataPath>
@@ -1007,7 +985,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ПолученныеСчетаФактурыСуммаДокументаРазницаУменьшениеКонтекстноеМеню" id="308"/>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыСуммаДокументаРазницаУменьшениеРасширеннаяПодсказка" id="374"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыСуммаДокументаРазницаУменьшениеExtendedTooltip" id="374"/>
 								</InputField>
 								<InputField name="ПолученныеСчетаФактурыСуммаДокументаРазницаУвеличение" id="309">
 									<DataPath>Объект.ПолученныеСчетаФактуры.СуммаДокументаРазницаУвеличение</DataPath>
@@ -1015,7 +993,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ПолученныеСчетаФактурыСуммаДокументаРазницаУвеличениеКонтекстноеМеню" id="310"/>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыСуммаДокументаРазницаУвеличениеРасширеннаяПодсказка" id="375"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыСуммаДокументаРазницаУвеличениеExtendedTooltip" id="375"/>
 								</InputField>
 								<InputField name="ПолученныеСчетаФактурыСуммаНДСРазницаУменьшение" id="311">
 									<DataPath>Объект.ПолученныеСчетаФактуры.СуммаНДСРазницаУменьшение</DataPath>
@@ -1023,7 +1001,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ПолученныеСчетаФактурыСуммаНДСРазницаУменьшениеКонтекстноеМеню" id="312"/>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыСуммаНДСРазницаУменьшениеРасширеннаяПодсказка" id="376"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыСуммаНДСРазницаУменьшениеExtendedTooltip" id="376"/>
 								</InputField>
 								<InputField name="ПолученныеСчетаФактурыСуммаНДСРазницаУвеличение" id="313">
 									<DataPath>Объект.ПолученныеСчетаФактуры.СуммаНДСРазницаУвеличение</DataPath>
@@ -1031,7 +1009,7 @@
 									<AutoEditMode>true</AutoEditMode>
 									<Width>15</Width>
 									<ContextMenu name="ПолученныеСчетаФактурыСуммаНДСРазницаУвеличениеКонтекстноеМеню" id="314"/>
-									<ExtendedTooltip name="ПолученныеСчетаФактурыСуммаНДСРазницаУвеличениеРасширеннаяПодсказка" id="377"/>
+									<ExtendedTooltip name="ПолученныеСчетаФактурыСуммаНДСРазницаУвеличениеExtendedTooltip" id="377"/>
 								</InputField>
 							</ChildItems>
 						</Table>
@@ -1042,8 +1020,6 @@
 		<SpreadSheetDocumentField name="ТабличныйДокументФормат4кв2014" id="406">
 			<DataPath>ТабличныйДокументФормат4кв2014</DataPath>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<VerticalScrollBar>true</VerticalScrollBar>
 			<HorizontalScrollBar>true</HorizontalScrollBar>
 			<ContextMenu name="ТабличныйДокументФормат4кв2014КонтекстноеМеню" id="407"/>
@@ -1051,10 +1027,8 @@
 		</SpreadSheetDocumentField>
 		<InputField name="Подписант" id="60">
 			<DataPath>Объект.Подписант</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="ПодписантКонтекстноеМеню" id="61"/>
-			<ExtendedTooltip name="ПодписантРасширеннаяПодсказка" id="379"/>
+			<ExtendedTooltip name="ПодписантExtendedTooltip" id="379"/>
 		</InputField>
 		<UsualGroup name="ГруппаКомментарийОтветственный" id="409">
 			<Title>
@@ -1072,18 +1046,14 @@
 				<InputField name="Комментарий" id="64">
 					<DataPath>Объект.Комментарий</DataPath>
 					<TitleLocation>Left</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<MultiLine>false</MultiLine>
 					<ContextMenu name="КомментарийКонтекстноеМеню" id="65"/>
-					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="381"/>
+					<ExtendedTooltip name="КомментарийExtendedTooltip" id="381"/>
 				</InputField>
 				<InputField name="Ответственный" id="62">
 					<DataPath>Объект.Ответственный</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="63"/>
-					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="380"/>
+					<ExtendedTooltip name="ОтветственныйExtendedTooltip" id="380"/>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>

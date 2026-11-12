@@ -52,11 +52,15 @@
 							<CommandName>Form.Command.СохранитьКакЧерновики</CommandName>
 							<ExtendedTooltip name="СохранитьКакЧерновикиРасширеннаяПодсказка" id="61"/>
 						</Button>
+						<Button name="ФормаЗакрыть" id="79">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.Close</CommandName>
+							<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="80"/>
+						</Button>
 					</ChildItems>
 				</CommandBar>
 				<LabelField name="Организация" id="55">
 					<DataPath>Организация</DataPath>
-					<TitleLocation>Left</TitleLocation>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>true</HorizontalStretch>
 					<Hiperlink>true</Hiperlink>
@@ -148,7 +152,6 @@
 							<ChildItems>
 								<RadioButtonField name="ВариантВремениОтгрузки" id="3">
 									<DataPath>ВариантВремениОтгрузки</DataPath>
-									<TitleLocation>Left</TitleLocation>
 									<RadioButtonType>Tumbler</RadioButtonType>
 									<ColumnsCount>2</ColumnsCount>
 									<EqualColumnsWidth>false</EqualColumnsWidth>
@@ -195,7 +198,6 @@
 									<ChildItems>
 										<InputField name="ДатаДоставки" id="8">
 											<DataPath>ДатаДоставки</DataPath>
-											<TitleLocation>Left</TitleLocation>
 											<Width>7</Width>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<HorizontalStretch>false</HorizontalStretch>
@@ -227,9 +229,9 @@
 													<AutoMaxHeight>false</AutoMaxHeight>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ClearButton>true</ClearButton>
+													<ListChoiceMode>true</ListChoiceMode>
 													<ChooseType>false</ChooseType>
 													<TextEdit>false</TextEdit>
-													<TimeChoiceMode>Interval15Minutes</TimeChoiceMode>
 													<ContextMenu name="ВремяДоставкиСКонтекстноеМеню" id="14"/>
 													<ExtendedTooltip name="ВремяДоставкиСРасширеннаяПодсказка" id="15"/>
 													<Events>
@@ -244,9 +246,8 @@
 													<AutoMaxHeight>false</AutoMaxHeight>
 													<HorizontalStretch>false</HorizontalStretch>
 													<ClearButton>true</ClearButton>
-													<ChooseType>false</ChooseType>
+													<ListChoiceMode>true</ListChoiceMode>
 													<TextEdit>false</TextEdit>
-													<TimeChoiceMode>Interval15Minutes</TimeChoiceMode>
 													<ContextMenu name="ВремяДоставкиПоКонтекстноеМеню" id="17"/>
 													<ExtendedTooltip name="ВремяДоставкиПоРасширеннаяПодсказка" id="18"/>
 													<Events>
@@ -396,21 +397,29 @@
 										</Pages>
 										<Button name="ВывестиСписок" id="146">
 											<Type>UsualButton</Type>
-											<Visible>false</Visible>
 											<Representation>Picture</Representation>
 											<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 											<CommandName>Form.Item.Документы.StandardCommand.OutputList</CommandName>
 											<ExtendedTooltip name="ВывестиСписокРасширеннаяПодсказка" id="147"/>
 										</Button>
+										<SearchStringAddition name="ДополнениеДокументыПоиск" id="160">
+											<AdditionSource>
+												<Item>Документы</Item>
+												<Type>SearchStringRepresentation</Type>
+											</AdditionSource>
+											<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>32</MaxWidth>
+											<ContextMenu name="ДополнениеДокументыПоискКонтекстноеМеню" id="161"/>
+											<ExtendedTooltip name="ДополнениеДокументыПоискРасширеннаяПодсказка" id="162"/>
+										</SearchStringAddition>
 									</ChildItems>
 								</UsualGroup>
 								<Table name="Документы" id="33">
 									<Representation>List</Representation>
-									<CommandBarLocation>None</CommandBarLocation>
 									<MaxWidth>100</MaxWidth>
 									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
-									<RowActionsShowType>DontShow</RowActionsShowType>
 									<DataPath>Документы</DataPath>
 									<CommandSet>
 										<ExcludedCommand>Add</ExcludedCommand>
@@ -421,18 +430,15 @@
 										<ExcludedCommand>EndEdit</ExcludedCommand>
 										<ExcludedCommand>Find</ExcludedCommand>
 										<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
-										<ExcludedCommand>MoveDown</ExcludedCommand>
-										<ExcludedCommand>MoveUp</ExcludedCommand>
 										<ExcludedCommand>SearchEverywhere</ExcludedCommand>
 										<ExcludedCommand>SearchHistory</ExcludedCommand>
 										<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
-										<ExcludedCommand>SortListAsc</ExcludedCommand>
-										<ExcludedCommand>SortListDesc</ExcludedCommand>
 									</CommandSet>
-									<ShowCommandBar>false</ShowCommandBar>
 									<RowFilter xsi:nil="true"/>
 									<ContextMenu name="ДокументыКонтекстноеМеню" id="35"/>
-									<AutoCommandBar name="ДокументыКоманднаяПанель" id="34"/>
+									<AutoCommandBar name="ДокументыКоманднаяПанель" id="34">
+										<Autofill>false</Autofill>
+									</AutoCommandBar>
 									<ExtendedTooltip name="ДокументыРасширеннаяПодсказка" id="36"/>
 									<SearchStringAddition name="ДокументыСтрокаПоиска" id="37">
 										<AdditionSource>
@@ -479,6 +485,8 @@
 										<InputField name="ДокументыДокументОснование" id="76">
 											<DataPath>Документы.ДокументОснование</DataPath>
 											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<Width>40</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
@@ -513,6 +521,7 @@
 									<AutoMaxHeight>false</AutoMaxHeight>
 									<MaxHeight>3</MaxHeight>
 									<MultiLine>true</MultiLine>
+									<OpenButton>true</OpenButton>
 									<InputHint>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -565,7 +574,7 @@
 			<Type>
 				<v8:Type>xs:dateTime</v8:Type>
 				<v8:DateQualifiers>
-					<v8:DateFractions>Time</v8:DateFractions>
+					<v8:DateFractions>DateTime</v8:DateFractions>
 				</v8:DateQualifiers>
 			</Type>
 		</Attribute>
@@ -579,7 +588,7 @@
 			<Type>
 				<v8:Type>xs:dateTime</v8:Type>
 				<v8:DateQualifiers>
-					<v8:DateFractions>Time</v8:DateFractions>
+					<v8:DateFractions>DateTime</v8:DateFractions>
 				</v8:DateQualifiers>
 			</Type>
 		</Attribute>
@@ -895,13 +904,12 @@
 			</Picture>
 			<Action>ОтправитьЗаказы</Action>
 			<Representation>TextPicture</Representation>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СохранитьКакЧерновики" id="4">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить</v8:content>
+					<v8:content>Создать</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -915,8 +923,8 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>СохранитьКакЧерновики</Action>
-			<Representation>TextPicture</Representation>
-			<ActionPurpose>Finish</ActionPurpose>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 </Form>

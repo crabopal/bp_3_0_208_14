@@ -52,11 +52,23 @@
 					</Button>
 					<Button name="КомандаОтменитьПоиск" id="97">
 						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
 						<CommandName>Form.Item.Сопоставление.StandardCommand.CancelSearch</CommandName>
 						<ExtendedTooltip name="КомандаОтменитьПоискРасширеннаяПодсказка" id="98"/>
 					</Button>
 				</ChildItems>
 			</ButtonGroup>
+			<Button name="КомандаСоздатьНоменклатуру" id="99">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.СоздатьНоменклатуру</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать по данным &lt;Владелец&gt;</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="КомандаСоздатьНоменклатуруРасширеннаяПодсказка" id="100"/>
+			</Button>
 			<Button name="ФормаПерезаполнитьСловарьСопоставления" id="170">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ПерезаполнитьСловарьСопоставления</CommandName>
@@ -109,7 +121,7 @@
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<BackColor>pal:Yellow</BackColor>
+							<BackColor>style:ЦветФонаПоясненияОшибкиБИП</BackColor>
 							<ExtendedTooltip name="ГруппаОшибкаВыполненияПоискаРасширеннаяПодсказка" id="197"/>
 							<ChildItems>
 								<PictureDecoration name="ДекорацияОшибкаВыполнения" id="198">
@@ -120,8 +132,8 @@
 										</v8:item>
 									</Title>
 									<Picture>
-										<xr:Ref>StdPicture.AppearanceExclamationMarkIcon</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
+										<xr:Ref>CommonPicture.ПредупреждениеБЭД</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</Picture>
 									<ContextMenu name="ДекорацияОшибкаВыполненияКонтекстноеМеню" id="199"/>
 									<ExtendedTooltip name="ДекорацияОшибкаВыполненияРасширеннаяПодсказка" id="200"/>
@@ -157,7 +169,7 @@
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<BackColor>pal:Yellow</BackColor>
+							<BackColor>style:ЦветФонаПоясненияОшибкиБИП</BackColor>
 							<ExtendedTooltip name="ГруппаОшибкаВыполненияСохраненияРасширеннаяПодсказка" id="205"/>
 							<ChildItems>
 								<PictureDecoration name="КартинкаОшибкаСохранения" id="206">
@@ -168,8 +180,8 @@
 										</v8:item>
 									</Title>
 									<Picture>
-										<xr:Ref>StdPicture.AppearanceExclamationMarkIcon</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
+										<xr:Ref>CommonPicture.ПредупреждениеБЭД</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</Picture>
 									<ContextMenu name="КартинкаОшибкаСохраненияКонтекстноеМеню" id="207"/>
 									<ExtendedTooltip name="КартинкаОшибкаСохраненияРасширеннаяПодсказка" id="208"/>
@@ -285,7 +297,7 @@
 						</UsualGroup>
 						<Table name="Сопоставление" id="1">
 							<Representation>List</Representation>
-							<CommandBarLocation>Top</CommandBarLocation>
+							<CommandBarLocation>None</CommandBarLocation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -297,7 +309,6 @@
 									<v8:content>Сопоставление</v8:content>
 								</v8:item>
 							</Title>
-							<ShowCommandBar>true</ShowCommandBar>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="СопоставлениеКонтекстноеМеню" id="3">
 								<Autofill>false</Autofill>
@@ -377,71 +388,7 @@
 									</Button>
 								</ChildItems>
 							</ContextMenu>
-							<AutoCommandBar name="СопоставлениеКоманднаяПанель" id="2">
-								<ChildItems>
-									<Button name="КомандаСоздатьНоменклатуру" id="99">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.СоздатьНоменклатуру</CommandName>
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Создать по данным &lt;Владелец&gt;</v8:content>
-											</v8:item>
-										</Title>
-										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-										<ExtendedTooltip name="КомандаСоздатьНоменклатуруРасширеннаяПодсказка" id="100"/>
-									</Button>
-									<Button name="СопоставлениеСоздатьНоменклатуру" id="312">
-										<Type>CommandBarButton</Type>
-										<Visible>false</Visible>
-										<CommandName>Form.Command.СоздатьНоменклатуру</CommandName>
-										<ExtendedTooltip name="СопоставлениеСоздатьНоменклатуруРасширеннаяПодсказка" id="313"/>
-									</Button>
-									<ButtonGroup name="СопоставлениеГруппаПереместить" id="321">
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Сопоставление группа переместить</v8:content>
-											</v8:item>
-										</Title>
-										<ToolTip>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Сопоставление группа переместить</v8:content>
-											</v8:item>
-										</ToolTip>
-										<ExtendedTooltip name="СопоставлениеГруппаПереместитьРасширеннаяПодсказка" id="322"/>
-										<ChildItems>
-											<Button name="СопоставлениеПереместитьВверх" id="317">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.Сопоставление.StandardCommand.MoveUp</CommandName>
-												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-												<ExtendedTooltip name="СопоставлениеПереместитьВверхРасширеннаяПодсказка" id="318"/>
-											</Button>
-											<Button name="СопоставлениеПереместитьВниз" id="319">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.Сопоставление.StandardCommand.MoveDown</CommandName>
-												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-												<ExtendedTooltip name="СопоставлениеПереместитьВнизРасширеннаяПодсказка" id="320"/>
-											</Button>
-										</ChildItems>
-									</ButtonGroup>
-									<Button name="СопоставлениеДобавитьПравилоПоискаПоЧастиНаименования" id="308">
-										<Type>CommandBarButton</Type>
-										<Visible>false</Visible>
-										<CommandName>Form.Command.ДобавитьПравилоПоискаПоЧастиНаименования</CommandName>
-										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-										<ExtendedTooltip name="СопоставлениеДобавитьПравилоПоискаПоЧастиНаименованияРасширеннаяПодсказка" id="309"/>
-									</Button>
-									<Button name="СопоставлениеИзменитьПравилоПоискаПоЧастиНаименования" id="310">
-										<Type>CommandBarButton</Type>
-										<Visible>false</Visible>
-										<CommandName>Form.Command.ИзменитьПравилоПоискаПоЧастиНаименования</CommandName>
-										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-										<ExtendedTooltip name="СопоставлениеИзменитьПравилоПоискаПоЧастиНаименованияРасширеннаяПодсказка" id="311"/>
-									</Button>
-								</ChildItems>
-							</AutoCommandBar>
+							<AutoCommandBar name="СопоставлениеКоманднаяПанель" id="2"/>
 							<ExtendedTooltip name="СопоставлениеРасширеннаяПодсказка" id="4"/>
 							<SearchStringAddition name="СопоставлениеСтрокаПоиска" id="5">
 								<AdditionSource>
@@ -470,23 +417,28 @@
 							<Events>
 								<Event name="OnActivateRow">СопоставлениеПриАктивизацииСтроки</Event>
 								<Event name="ChoiceProcessing">СопоставлениеОбработкаВыбора</Event>
-								<Event name="OnHover">СопоставлениеПриНаведении</Event>
 								<Event name="NewWriteProcessing">СопоставлениеОбработкаЗаписиНового</Event>
 								<Event name="OnChange">СопоставлениеПриИзменении</Event>
 							</Events>
 							<ChildItems>
 								<LabelField name="СопоставлениеНомерСтроки" id="151">
 									<DataPath>Объект.Сопоставление.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<Width>2</Width>
 									<ContextMenu name="СопоставлениеНомерСтрокиКонтекстноеМеню" id="152"/>
 									<ExtendedTooltip name="СопоставлениеНомерСтрокиРасширеннаяПодсказка" id="153"/>
 								</LabelField>
 								<PictureField name="СопоставлениеСопоставлено" id="128">
 									<DataPath>Объект.Сопоставление.Сопоставлено</DataPath>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
 									<HeaderPicture>
 										<xr:Ref>CommonPicture.Успешно</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</HeaderPicture>
+									<AutoEditMode>true</AutoEditMode>
+									<Width>1</Width>
 									<ValuesPicture>
 										<xr:Ref>CommonPicture.Успешно</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -498,6 +450,8 @@
 								<InputField name="СопоставлениеВладелец" id="190">
 									<DataPath>Объект.Сопоставление.Владелец</DataPath>
 									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СопоставлениеВладелецКонтекстноеМеню" id="191"/>
 									<ExtendedTooltip name="СопоставлениеВладелецРасширеннаяПодсказка" id="192"/>
 								</InputField>
@@ -528,12 +482,14 @@
 													</UserVisible>
 													<ReadOnly>true</ReadOnly>
 													<ShowInHeader>false</ShowInHeader>
+													<Width>5</Width>
 													<ContextMenu name="СопоставлениеИдентификаторКонтекстноеМеню" id="21"/>
 													<ExtendedTooltip name="СопоставлениеИдентификаторРасширеннаяПодсказка" id="22"/>
 												</InputField>
 												<InputField name="СопоставлениеНаименование" id="23">
 													<DataPath>Объект.Сопоставление.Наименование</DataPath>
 													<ReadOnly>true</ReadOnly>
+													<Width>5</Width>
 													<ContextMenu name="СопоставлениеНаименованиеКонтекстноеМеню" id="24"/>
 													<ExtendedTooltip name="СопоставлениеНаименованиеРасширеннаяПодсказка" id="25"/>
 												</InputField>
@@ -545,6 +501,8 @@
 															<v8:content>Упаковка</v8:content>
 														</v8:item>
 													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="СопоставлениеНаименованиеУпаковкиДляОтображенияКонтекстноеМеню" id="213"/>
 													<ExtendedTooltip name="СопоставлениеНаименованиеУпаковкиДляОтображенияРасширеннаяПодсказка" id="214"/>
 												</InputField>
@@ -572,6 +530,7 @@
 															<v8:content>Ед. изм.</v8:content>
 														</v8:item>
 													</Title>
+													<Width>5</Width>
 													<ContextMenu name="СопоставлениеЕдиницаИзмеренияКонтекстноеМеню" id="30"/>
 													<ExtendedTooltip name="СопоставлениеЕдиницаИзмеренияРасширеннаяПодсказка" id="31"/>
 												</InputField>
@@ -586,12 +545,16 @@
 															<v8:content>Ед. изм. (код)</v8:content>
 														</v8:item>
 													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<Width>5</Width>
 													<ContextMenu name="СопоставлениеЕдиницаИзмеренияКодКонтекстноеМеню" id="126"/>
 													<ExtendedTooltip name="СопоставлениеЕдиницаИзмеренияКодРасширеннаяПодсказка" id="127"/>
 												</InputField>
 												<InputField name="СопоставлениеАртикул" id="32">
 													<DataPath>Объект.Сопоставление.Артикул</DataPath>
 													<ReadOnly>true</ReadOnly>
+													<Width>5</Width>
 													<ContextMenu name="СопоставлениеАртикулКонтекстноеМеню" id="33"/>
 													<ExtendedTooltip name="СопоставлениеАртикулРасширеннаяПодсказка" id="34"/>
 												</InputField>
@@ -606,6 +569,9 @@
 												<InputField name="СопоставлениеСтавкаНДС" id="131">
 													<DataPath>Объект.Сопоставление.СтавкаНДС</DataPath>
 													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<Width>5</Width>
 													<ContextMenu name="СопоставлениеСтавкаНДСКонтекстноеМеню" id="132"/>
 													<ExtendedTooltip name="СопоставлениеСтавкаНДСРасширеннаяПодсказка" id="133"/>
 												</InputField>
@@ -618,6 +584,7 @@
 															<v8:content>Штрихкод</v8:content>
 														</v8:item>
 													</Title>
+													<Width>5</Width>
 													<ContextMenu name="СопоставлениеШтрихкодКомбинацииКонтекстноеМеню" id="36"/>
 													<ExtendedTooltip name="СопоставлениеШтрихкодКомбинацииРасширеннаяПодсказка" id="37"/>
 												</InputField>
@@ -633,6 +600,9 @@
 															<v8:content>Другие штрихкоды</v8:content>
 														</v8:item>
 													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
+													<Width>5</Width>
 													<ContextMenu name="СопоставлениеШтрихкодыНоменклатурыКонтекстноеМеню" id="146"/>
 													<ExtendedTooltip name="СопоставлениеШтрихкодыНоменклатурыРасширеннаяПодсказка" id="147"/>
 												</InputField>
@@ -652,6 +622,7 @@
 													<DataPath>Объект.Сопоставление.НаименованиеХарактеристики</DataPath>
 													<ReadOnly>true</ReadOnly>
 													<ShowInHeader>false</ShowInHeader>
+													<Width>5</Width>
 													<Font ref="style:NormalTextFont" kind="StyleItem"/>
 													<ContextMenu name="СопоставлениеНаименованиеХарактеристикиКонтекстноеМеню" id="27"/>
 													<ExtendedTooltip name="СопоставлениеНаименованиеХарактеристикиРасширеннаяПодсказка" id="28"/>
@@ -672,6 +643,7 @@
 															</UserVisible>
 															<ReadOnly>true</ReadOnly>
 															<ShowInHeader>false</ShowInHeader>
+															<Width>5</Width>
 															<ContextMenu name="СопоставлениеИдентификаторНоменклатурыСервисаКонтекстноеМеню" id="39"/>
 															<ExtendedTooltip name="СопоставлениеИдентификаторНоменклатурыСервисаРасширеннаяПодсказка" id="40"/>
 														</InputField>
@@ -682,6 +654,7 @@
 															</UserVisible>
 															<ReadOnly>true</ReadOnly>
 															<ShowInHeader>false</ShowInHeader>
+															<Width>5</Width>
 															<ContextMenu name="СопоставлениеИдентификаторХарактеристикиСервисаКонтекстноеМеню" id="42"/>
 															<ExtendedTooltip name="СопоставлениеИдентификаторХарактеристикиСервисаРасширеннаяПодсказка" id="43"/>
 														</InputField>
@@ -740,6 +713,8 @@
 																</v8:item>
 															</Title>
 															<EditMode>Directly</EditMode>
+															<MarkRequiredComplete>true</MarkRequiredComplete>
+															<Width>30</Width>
 															<AutoMaxWidth>false</AutoMaxWidth>
 															<DropListButton>true</DropListButton>
 															<ClearButton>true</ClearButton>
@@ -757,7 +732,10 @@
 												</ColumnGroup>
 												<InputField name="СопоставлениеХарактеристика" id="148">
 													<DataPath>Объект.Сопоставление.Характеристика</DataPath>
+													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
+													<AutoEditMode>true</AutoEditMode>
+													<Width>15</Width>
 													<DropListButton>true</DropListButton>
 													<CreateButton>false</CreateButton>
 													<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
@@ -786,7 +764,9 @@
 												</v8:item>
 											</Title>
 											<EditMode>Directly</EditMode>
+											<Width>10</Width>
 											<DropListButton>true</DropListButton>
+											<ChoiceButton>true</ChoiceButton>
 											<CreateButton>false</CreateButton>
 											<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
 											<ContextMenu name="СопоставлениеУпаковкаКонтекстноеМеню" id="51"/>
@@ -864,7 +844,6 @@
 								</UsualGroup>
 								<LabelDecoration name="НадписьРезультатПоискаВариантов" id="109">
 									<Visible>false</Visible>
-									<AutoMaxWidth>false</AutoMaxWidth>
 									<Height>1</Height>
 									<Title formatted="false">
 										<v8:item>
@@ -905,6 +884,7 @@
 											<ExtendedTooltip name="ГруппаРаботаСНоменклатуройПодсказкаРасширеннаяПодсказка" id="118"/>
 											<ChildItems>
 												<PictureDecoration name="КартинкаРаботаСНоменклатуройПодсказка" id="119">
+													<Width>1</Width>
 													<Height>1</Height>
 													<Title formatted="false">
 														<v8:item>
@@ -975,7 +955,6 @@
 													<v8:content>Все (выбирать в строках)</v8:content>
 												</v8:item>
 											</InputHint>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="СправочникКонтекстноеМеню" id="338"/>
 											<ExtendedTooltip name="СправочникРасширеннаяПодсказка" id="339"/>
 											<Events>
@@ -1000,7 +979,6 @@
 											<ChildItems>
 												<TrackBarField name="ТочностьПоискаРегулирование" id="139">
 													<DataPath>ТочностьПоиска</DataPath>
-													<TitleLocation>Left</TitleLocation>
 													<ToolTipRepresentation>Balloon</ToolTipRepresentation>
 													<Width>20</Width>
 													<Height>1</Height>
@@ -1020,15 +998,8 @@
 															<v8:content>%</v8:content>
 														</v8:item>
 													</Title>
-													<TitleLocation>None</TitleLocation>
+													<TitleLocation>Right</TitleLocation>
 													<ToolTipRepresentation>Button</ToolTipRepresentation>
-													<HorizontalStretch>false</HorizontalStretch>
-													<EditFormat>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>ЧФ=Ч%</v8:content>
-														</v8:item>
-													</EditFormat>
 													<ContextMenu name="ТочностьПоискаКонтекстноеМеню" id="143"/>
 													<ExtendedTooltip name="ТочностьПоискаРасширеннаяПодсказка" id="144">
 														<Title formatted="true">
@@ -1135,47 +1106,6 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаОжиданияПерезаполненияСловаряРасширеннаяПодсказка" id="173"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаИнформацииПерезаполненияСловаря" id="188">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа информации перезаполнения словаря</v8:content>
-								</v8:item>
-							</Title>
-							<Group>AlwaysHorizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<BackColor>pal:LightBlue</BackColor>
-							<ExtendedTooltip name="ГруппаИнформацииПерезаполненияСловаряРасширеннаяПодсказка" id="189"/>
-							<ChildItems>
-								<PictureDecoration name="КартинкаИнформацииПерезаполненияСловаря" id="185">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Картинка информации перезаполнения словаря</v8:content>
-										</v8:item>
-									</Title>
-									<Picture>
-										<xr:Ref>StdPicture.Information</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
-									</Picture>
-									<ContextMenu name="КартинкаИнформацииПерезаполненияСловаряКонтекстноеМеню" id="186"/>
-									<ExtendedTooltip name="КартинкаИнформацииПерезаполненияСловаряРасширеннаяПодсказка" id="187"/>
-								</PictureDecoration>
-								<LabelDecoration name="НадписьИнформацииПерезаполненияСловаря" id="182">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Title formatted="true">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Операция перезаполнения может занимать от одной минуты до нескольких часов.</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="НадписьИнформацииПерезаполненияСловаряКонтекстноеМеню" id="183"/>
-									<ExtendedTooltip name="НадписьИнформацииПерезаполненияСловаряРасширеннаяПодсказка" id="184"/>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
 						<UsualGroup name="ГруппаОжиданияПерезаполненияСловаря" id="174">
 							<Title>
 								<v8:item>
@@ -1221,6 +1151,47 @@
 									</Title>
 									<ContextMenu name="ПерезаполнениеСловаряПоясняющийТекстКонтекстноеМеню" id="180"/>
 									<ExtendedTooltip name="ПерезаполнениеСловаряПоясняющийТекстРасширеннаяПодсказка" id="181"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаИнформацииПерезаполненияСловаря" id="188">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа информации перезаполнения словаря</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИнформацииПерезаполненияСловаряРасширеннаяПодсказка" id="189"/>
+							<ChildItems>
+								<PictureDecoration name="КартинкаИнформацииПерезаполненияСловаря" id="185">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Картинка информации перезаполнения словаря</v8:content>
+										</v8:item>
+									</Title>
+									<Picture>
+										<xr:Ref>CommonPicture.УдалитьИнформация</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="КартинкаИнформацииПерезаполненияСловаряКонтекстноеМеню" id="186"/>
+									<ExtendedTooltip name="КартинкаИнформацииПерезаполненияСловаряРасширеннаяПодсказка" id="187"/>
+								</PictureDecoration>
+								<LabelDecoration name="НадписьИнформацииПерезаполненияСловаря" id="182">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="true">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Операция перезаполнения может занимать от одной минуты до нескольких часов.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="НадписьИнформацииПерезаполненияСловаряКонтекстноеМеню" id="183"/>
+									<ExtendedTooltip name="НадписьИнформацииПерезаполненияСловаряРасширеннаяПодсказка" id="184"/>
 								</LabelDecoration>
 							</ChildItems>
 						</UsualGroup>
@@ -1870,8 +1841,6 @@
 			<Action>СохранитьИЗакрыть</Action>
 			<Representation>Text</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Сохранить" id="2">
 			<Title>
@@ -1887,9 +1856,6 @@
 			<Action>Сохранить</Action>
 			<Representation>Text</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="СоздатьНоменклатуру" id="3">
 			<Title>
@@ -1911,7 +1877,6 @@
 			<Action>СоздатьНоменклатуру</Action>
 			<Representation>Text</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<AssociatedTableElementId xsi:type="xs:string">Сопоставление</AssociatedTableElementId>
 		</Command>
 		<Command name="ПерезаполнитьСловарьСопоставления" id="4">
 			<Title>
@@ -1935,8 +1900,6 @@
 			</Picture>
 			<Action>ДобавитьПравилоПоискаПоЧастиНаименования</Action>
 			<Representation>TextPicture</Representation>
-			<AssociatedTableElementId xsi:type="xs:string">Сопоставление</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ИзменитьПравилоПоискаПоЧастиНаименования" id="6">
 			<Title>
@@ -1951,8 +1914,6 @@
 			</Picture>
 			<Action>ИзменитьПравилоПоискаПоЧастиНаименования</Action>
 			<Representation>TextPicture</Representation>
-			<AssociatedTableElementId xsi:type="xs:string">Сопоставление</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

@@ -10,7 +10,6 @@
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -43,6 +42,7 @@
 					<ExtendedTooltip name="ГруппаЛевоРасширеннаяПодсказка" id="53"/>
 					<ChildItems>
 						<PictureDecoration name="Логотип" id="56">
+							<TextColor>style:BorderColor</TextColor>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -55,6 +55,7 @@
 								<xr:LoadTransparent>false</xr:LoadTransparent>
 							</Picture>
 							<FileDragMode>AsFile</FileDragMode>
+							<PictureColor>style:BorderColor</PictureColor>
 							<ContextMenu name="ЛоготипКонтекстноеМеню" id="57"/>
 							<ExtendedTooltip name="ЛоготипРасширеннаяПодсказка" id="58"/>
 						</PictureDecoration>
@@ -92,11 +93,22 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаНовогоКонтрагентаРасширеннаяПодсказка" id="113"/>
 							<ChildItems>
+								<LabelDecoration name="ЗаголовокНовыйКонтрагент" id="117">
+									<Width>13</Width>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Контрагент:</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ЗаголовокНовыйКонтрагентКонтекстноеМеню" id="118"/>
+									<ExtendedTooltip name="ЗаголовокНовыйКонтрагентРасширеннаяПодсказка" id="119"/>
+								</LabelDecoration>
 								<LabelDecoration name="СоздатьКонтрагента" id="114">
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Создать контрагента</v8:content>
+											<v8:content>Создать</v8:content>
 										</v8:item>
 									</Title>
 									<Hyperlink>true</Hyperlink>
@@ -108,90 +120,79 @@
 								</LabelDecoration>
 							</ChildItems>
 						</UsualGroup>
-						<LabelField name="ПрофильНаименование" id="74">
+						<InputField name="ПрофильНаименование" id="74">
 							<DataPath>ПрофильНаименование</DataPath>
-							<UseCopy>true</UseCopy>
+							<TextEdit>false</TextEdit>
 							<ContextMenu name="ПрофильНаименованиеКонтекстноеМеню" id="75"/>
 							<ExtendedTooltip name="ПрофильНаименованиеРасширеннаяПодсказка" id="76"/>
-						</LabelField>
-						<LabelField name="ПрофильНаименованиеЕГРН" id="86">
+						</InputField>
+						<InputField name="ПрофильНаименованиеЕГРН" id="86">
 							<DataPath>ПрофильНаименованиеЕГРН</DataPath>
-							<UseCopy>true</UseCopy>
+							<TextEdit>false</TextEdit>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&lt;Отсутствуют сведения ЕГРН&gt;</v8:content>
+								</v8:item>
+							</InputHint>
 							<ContextMenu name="ПрофильНаименованиеЕГРНКонтекстноеМеню" id="87"/>
 							<ExtendedTooltip name="ПрофильНаименованиеЕГРНРасширеннаяПодсказка" id="88"/>
-						</LabelField>
-						<UsualGroup name="ГруппаИННКПП" id="131">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа ИНН/КПП</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа ИННКПП</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>HorizontalIfPossible</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаИННКППРасширеннаяПодсказка" id="132"/>
-							<ChildItems>
-								<LabelField name="ПрофильИНН" id="77">
-									<DataPath>ПрофильИНН</DataPath>
-									<Width>15</Width>
-									<HorizontalStretch>false</HorizontalStretch>
-									<UseCopy>true</UseCopy>
-									<ContextMenu name="ПрофильИННКонтекстноеМеню" id="78"/>
-									<ExtendedTooltip name="ПрофильИННРасширеннаяПодсказка" id="79"/>
-								</LabelField>
-								<LabelField name="ПрофильКПП" id="80">
-									<DataPath>ПрофильКПП</DataPath>
-									<HorizontalStretch>false</HorizontalStretch>
-									<UseCopy>true</UseCopy>
-									<ContextMenu name="ПрофильКППКонтекстноеМеню" id="81"/>
-									<ExtendedTooltip name="ПрофильКППРасширеннаяПодсказка" id="82"/>
-								</LabelField>
-							</ChildItems>
-						</UsualGroup>
-						<LabelField name="ПрофильОГРН" id="98">
-							<DataPath>ПрофильОГРН</DataPath>
+						</InputField>
+						<InputField name="ПрофильИНН" id="77">
+							<DataPath>ПрофильИНН</DataPath>
+							<Width>15</Width>
 							<HorizontalStretch>false</HorizontalStretch>
-							<UseCopy>true</UseCopy>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="ПрофильИННКонтекстноеМеню" id="78"/>
+							<ExtendedTooltip name="ПрофильИННРасширеннаяПодсказка" id="79"/>
+						</InputField>
+						<InputField name="ПрофильКПП" id="80">
+							<DataPath>ПрофильКПП</DataPath>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="ПрофильКППКонтекстноеМеню" id="81"/>
+							<ExtendedTooltip name="ПрофильКППРасширеннаяПодсказка" id="82"/>
+						</InputField>
+						<InputField name="ПрофильОГРН" id="98">
+							<DataPath>ПрофильОГРН</DataPath>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<TextEdit>false</TextEdit>
 							<ContextMenu name="ПрофильОГРНКонтекстноеМеню" id="99"/>
 							<ExtendedTooltip name="ПрофильОГРНРасширеннаяПодсказка" id="100"/>
-						</LabelField>
-						<LabelField name="ПрофильАдрес" id="95">
+						</InputField>
+						<InputField name="ПрофильАдрес" id="95">
 							<DataPath>ПрофильАдрес</DataPath>
-							<UseCopy>true</UseCopy>
+							<TextEdit>false</TextEdit>
 							<ContextMenu name="ПрофильАдресКонтекстноеМеню" id="96"/>
 							<ExtendedTooltip name="ПрофильАдресРасширеннаяПодсказка" id="97"/>
-						</LabelField>
-						<LabelField name="ПрофильТелефон" id="101">
+						</InputField>
+						<InputField name="ПрофильТелефон" id="101">
 							<DataPath>ПрофильТелефон</DataPath>
-							<UseCopy>true</UseCopy>
+							<TextEdit>false</TextEdit>
 							<ContextMenu name="ПрофильТелефонКонтекстноеМеню" id="102"/>
 							<ExtendedTooltip name="ПрофильТелефонРасширеннаяПодсказка" id="103"/>
-						</LabelField>
-						<LabelField name="ПрофильЭлектроннаяПочта" id="104">
+						</InputField>
+						<InputField name="ПрофильЭлектроннаяПочта" id="104">
 							<DataPath>ПрофильЭлектроннаяПочта</DataPath>
-							<UseCopy>true</UseCopy>
+							<TextEdit>false</TextEdit>
 							<ContextMenu name="ПрофильЭлектроннаяПочтаКонтекстноеМеню" id="105"/>
 							<ExtendedTooltip name="ПрофильЭлектроннаяПочтаРасширеннаяПодсказка" id="106"/>
-						</LabelField>
-						<LabelField name="ПрофильСайт" id="107">
+						</InputField>
+						<InputField name="ПрофильСайт" id="107">
 							<DataPath>ПрофильСайт</DataPath>
-							<UseCopy>true</UseCopy>
+							<TextEdit>false</TextEdit>
 							<ContextMenu name="ПрофильСайтКонтекстноеМеню" id="108"/>
 							<ExtendedTooltip name="ПрофильСайтРасширеннаяПодсказка" id="109"/>
-						</LabelField>
-						<LabelField name="ПрофильДатаРегистрации" id="83">
+						</InputField>
+						<InputField name="ПрофильДатаРегистрации" id="83">
 							<DataPath>ПрофильДатаРегистрации</DataPath>
-							<UseCopy>true</UseCopy>
+							<ChoiceButton>false</ChoiceButton>
+							<TextEdit>false</TextEdit>
 							<ContextMenu name="ПрофильДатаРегистрацииКонтекстноеМеню" id="84"/>
 							<ExtendedTooltip name="ПрофильДатаРегистрацииРасширеннаяПодсказка" id="85"/>
-						</LabelField>
+						</InputField>
 						<LabelDecoration name="ТорговыеПредложения" id="89">
 							<Title formatted="false">
 								<v8:item>

@@ -4,7 +4,6 @@
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<Group>Vertical</Group>
 	<CommandBarLocation>None</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
@@ -47,7 +46,7 @@
 				</v8:item>
 			</Title>
 			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="30"/>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельExtendedTooltip" id="30"/>
 			<ChildItems>
 				<ButtonGroup name="ГруппаВажныеКоманды" id="31">
 					<Title>
@@ -74,7 +73,7 @@
 						</Popup>
 						<Button name="ФормаОбщаяКомандаПоказатьДвиженияДокумента" id="35">
 							<Type>CommandBarButton</Type>
-							<CommandName>0</CommandName>
+							<CommandName>CommonCommand.ПоказатьДвиженияДокумента</CommandName>
 							<DataPath>Items.Список.CurrentData.Ref</DataPath>
 							<ExtendedTooltip name="ФормаОбщаяКомандаПоказатьДвиженияДокументаРасширеннаяПодсказка" id="36"/>
 						</Button>
@@ -180,8 +179,6 @@
 				<LabelField name="Дата" id="16">
 					<DataPath>Список.Date</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Format>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -199,8 +196,6 @@
 							<v8:content>Номер</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НомерКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="21"/>
 				</LabelField>
@@ -212,15 +207,11 @@
 							<v8:content>Тип</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПредставлениеТипДокументаКонтекстноеМеню" id="48"/>
 					<ExtendedTooltip name="ПредставлениеТипДокументаРасширеннаяПодсказка" id="49"/>
 				</LabelField>
 				<LabelField name="Организация" id="22">
 					<DataPath>Список.Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="24"/>
 				</LabelField>
@@ -313,6 +304,9 @@
 			<Save>
 				<Field>ОтборОрганизация</Field>
 			</Save>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьНесколькоОрганизацийБухгалтерскийУчет</Item>
+			</FunctionalOptions>
 		</Attribute>
 		<Attribute name="ОтборОрганизацияИспользование" id="4">
 			<Title>
@@ -327,6 +321,9 @@
 			<Save>
 				<Field>ОтборОрганизацияИспользование</Field>
 			</Save>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьНесколькоОрганизацийБухгалтерскийУчет</Item>
+			</FunctionalOptions>
 		</Attribute>
 		<Attribute name="Новости" id="5">
 			<Title>

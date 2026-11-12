@@ -11,26 +11,7 @@
 	<Group>Vertical</Group>
 	<ShowTitle>false</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="СвязанныеДокументыСохранить" id="93">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Сохранить</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Готово</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="СвязанныеДокументыСохранитьРасширеннаяПодсказка" id="94"/>
-			</Button>
-			<Button name="СвязанныеДокументыОтмена" id="95">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<ExtendedTooltip name="СвязанныеДокументыОтменаРасширеннаяПодсказка" id="96"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -104,8 +85,7 @@
 					<ChildItems>
 						<InputField name="СвязанныеДокументыТипДокумента" id="106">
 							<DataPath>СвязанныеДокументы.ТипДокумента</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<DropListButton>true</DropListButton>
 							<ChoiceButton>false</ChoiceButton>
 							<OpenButton>false</OpenButton>
@@ -120,6 +100,7 @@
 						<InputField name="СвязанныеДокументыНомер" id="53">
 							<DataPath>СвязанныеДокументы.Номер</DataPath>
 							<EditMode>EnterOnInput</EditMode>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<AutoEditMode>true</AutoEditMode>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="СвязанныеДокументыНомерКонтекстноеМеню" id="54"/>
@@ -128,6 +109,7 @@
 						<InputField name="СвязанныеДокументыДата" id="56">
 							<DataPath>СвязанныеДокументы.Дата</DataPath>
 							<EditMode>EnterOnInput</EditMode>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<AutoEditMode>true</AutoEditMode>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<ContextMenu name="СвязанныеДокументыДатаКонтекстноеМеню" id="57"/>
@@ -152,6 +134,26 @@
 			</ToolTip>
 			<HorizontalLocation>Right</HorizontalLocation>
 			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="67"/>
+			<ChildItems>
+				<Button name="СвязанныеДокументыСохранить" id="93">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Сохранить</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Готово</v8:content>
+						</v8:item>
+					</Title>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="СвязанныеДокументыСохранитьРасширеннаяПодсказка" id="94"/>
+				</Button>
+				<Button name="СвязанныеДокументыОтмена" id="95">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Отмена</CommandName>
+					<ExtendedTooltip name="СвязанныеДокументыОтменаРасширеннаяПодсказка" id="96"/>
+				</Button>
+			</ChildItems>
 		</CommandBar>
 	</ChildItems>
 	<Attributes>
@@ -322,7 +324,6 @@
 			</ToolTip>
 			<Action>Сохранить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>

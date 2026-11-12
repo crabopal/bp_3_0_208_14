@@ -3,56 +3,126 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<CommandBar name="ГруппаОсновнаяКоманднаяПанель" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основная командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="ГруппаОсновнаяКоманднаяПанельРасширеннаяПодсказка" id="24"/>
+		</CommandBar>
 		<InputField name="Организация" id="1">
 			<DataPath>Запись.Организация</DataPath>
 			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="8"/>
 		</InputField>
-		<UsualGroup name="ГруппаПериодПроцент" id="7">
+		<InputField name="Месяц" id="3">
+			<DataPath>МесяцСтрокой</DataPath>
+			<Width>18</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<ChoiceButton>true</ChoiceButton>
+			<SpinButton>true</SpinButton>
+			<ChoiceButtonPicture>
+				<xr:Ref>StdPicture.InputFieldCalendar</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</ChoiceButtonPicture>
+			<ContextMenu name="МесяцКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="МесяцExtendedTooltip" id="10"/>
+			<Events>
+				<Event name="OnChange">МесяцПриИзменении</Event>
+				<Event name="AutoComplete">МесяцАвтоПодбор</Event>
+				<Event name="StartChoice">МесяцНачалоВыбора</Event>
+				<Event name="Tuning">МесяцРегулирование</Event>
+				<Event name="TextEditEnd">МесяцОкончаниеВводаТекста</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаПроцент" id="7">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Период процент</v8:content>
+					<v8:content>Группа процент</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа процент</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПериодПроцентExtendedTooltip" id="9"/>
+			<ExtendedTooltip name="ГруппаПроцентРасширеннаяПодсказка" id="9"/>
 			<ChildItems>
-				<InputField name="Месяц" id="3">
-					<DataPath>МесяцСтрокой</DataPath>
-					<ChoiceButton>true</ChoiceButton>
-					<SpinButton>true</SpinButton>
-					<ChoiceButtonPicture>
-						<xr:Ref>StdPicture.InputFieldCalendar</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</ChoiceButtonPicture>
-					<ContextMenu name="МесяцКонтекстноеМеню" id="4"/>
-					<ExtendedTooltip name="МесяцExtendedTooltip" id="10"/>
-					<Events>
-						<Event name="OnChange">МесяцПриИзменении</Event>
-						<Event name="AutoComplete">МесяцАвтоПодбор</Event>
-						<Event name="StartChoice">МесяцНачалоВыбора</Event>
-						<Event name="Tuning">МесяцРегулирование</Event>
-						<Event name="TextEditEnd">МесяцОкончаниеВводаТекста</Event>
-					</Events>
-				</InputField>
 				<InputField name="Процент" id="5">
 					<DataPath>Запись.Процент</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доля ЕНВД</v8:content>
+						</v8:item>
+					</Title>
+					<Width>12</Width>
 					<ContextMenu name="ПроцентКонтекстноеМеню" id="6"/>
 					<ExtendedTooltip name="ПроцентExtendedTooltip" id="11"/>
 				</InputField>
+				<LabelDecoration name="ДекорацияПроцент" id="12">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>%</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияПроцентКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="ДекорацияПроцентРасширеннаяПодсказка" id="14"/>
+				</LabelDecoration>
+				<Button name="ПеречитатьДанныеУчета" id="15">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ПеречитатьДанныеУчета</CommandName>
+					<ExtendedTooltip name="ПеречитатьДанныеУчетаРасширеннаяПодсказка" id="16"/>
+				</Button>
 			</ChildItems>
 		</UsualGroup>
+		<CommandBar name="ГруппаВспомогательнаяКоманднаяПанель" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вспомогательная командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="ГруппаВспомогательнаяКоманднаяПанельРасширеннаяПодсказка" id="18"/>
+			<ChildItems>
+				<Button name="ЗаписатьИЗакрыть" id="19">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.WriteAndClose</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ОК</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ЗаписатьИЗакрытьРасширеннаяПодсказка" id="20"/>
+				</Button>
+				<Button name="Закрыть" id="21">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="22"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Запись" id="1">
@@ -79,4 +149,28 @@
 			<SavedData>true</SavedData>
 		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="ПеречитатьДанныеУчета" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перезаполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перезаполнить по данным учета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПеречитатьДанныеУчета</Action>
+			<Representation>Picture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
 </Form>

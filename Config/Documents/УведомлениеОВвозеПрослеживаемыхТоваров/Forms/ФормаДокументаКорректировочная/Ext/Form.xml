@@ -3,7 +3,6 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
@@ -60,7 +59,7 @@
 					<Button name="ФормаКомандаВыгрузитьУведомлениеВXML" id="102">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.КомандаВыгрузитьУведомлениеВXML</CommandName>
-						<ExtendedTooltip name="ФормаКомандаВыгрузитьУведомлениеВXMLРасширеннаяПодсказка" id="103"/>
+						<ExtendedTooltip name="ФормаКомандаВыгрузитьУведомлениеВXMLExtendedTooltip" id="103"/>
 					</Button>
 					<Popup name="Отправка" id="104">
 						<Title>
@@ -77,18 +76,13 @@
 						</ToolTip>
 						<Picture>
 							<xr:Ref>CommonPicture.ЗначокОбновлениеКонфигурацииЧерезИнтернет16</xr:Ref>
-							<xr:LoadTransparent>false</xr:LoadTransparent>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+							<xr:TransparentPixel x="14" y="1"/>
 						</Picture>
-						<ExtendedTooltip name="ОтправкаРасширеннаяПодсказка" id="105"/>
+						<ExtendedTooltip name="ОтправкаExtendedTooltip" id="105"/>
 						<ChildItems>
 							<ButtonGroup name="ГруппаОтправкаВКонтролирующийОрган" id="106">
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Отправка в контролирующий орган</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="ГруппаОтправкаВКонтролирующийОрганРасширеннаяПодсказка" id="107"/>
+								<ExtendedTooltip name="ГруппаОтправкаВКонтролирующийОрганExtendedTooltip" id="107"/>
 								<ChildItems>
 									<Button name="ПроверитьВИнтернете" id="108">
 										<Type>CommandBarButton</Type>
@@ -118,7 +112,7 @@
 												<v8:content>Отправить в ФНС</v8:content>
 											</v8:item>
 										</Title>
-										<ExtendedTooltip name="ОтправитьВКонтролирующийОрганРасширеннаяПодсказка" id="111"/>
+										<ExtendedTooltip name="ОтправитьВКонтролирующийОрганExtendedTooltip" id="111"/>
 									</Button>
 								</ChildItems>
 							</ButtonGroup>
@@ -136,22 +130,17 @@
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаПанельОтправки" id="112">
 			<EnableContentChange>true</EnableContentChange>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Панель отправки</v8:content>
-				</v8:item>
-			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПанельОтправкиРасширеннаяПодсказка" id="113"/>
+			<ExtendedTooltip name="ГруппаПанельОтправкиExtendedTooltip" id="113"/>
 			<ChildItems>
 				<UsualGroup name="БлокСостоянияОтправки" id="206">
 					<Title>
@@ -275,12 +264,6 @@
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="БлокОшибокИИзвещений" id="134">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Блок ошибок и извещений</v8:content>
-						</v8:item>
-					</Title>
 					<HorizontalStretch>true</HorizontalStretch>
 					<Group>Horizontal</Group>
 					<Behavior>Usual</Behavior>
@@ -290,12 +273,6 @@
 					<ExtendedTooltip name="БлокОшибокИИзвещенийРасширеннаяПодсказка" id="135"/>
 					<ChildItems>
 						<UsualGroup name="БлокКритическихОшибок" id="136">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Блок критических ошибок</v8:content>
-								</v8:item>
-							</Title>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -312,7 +289,7 @@
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
 									<Picture>
 										<xr:Ref>CommonPicture.ПризнакНаличияКритическойОшибки</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="ЗначокКритическойОшибкиКонтекстноеМеню" id="139"/>
@@ -375,12 +352,6 @@
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаПанельСообщений" id="226">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Панель сообщений</v8:content>
-				</v8:item>
-			</Title>
 			<HorizontalStretch>true</HorizontalStretch>
 			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
@@ -412,12 +383,6 @@
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаШапка" id="74">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Шапка</v8:content>
-				</v8:item>
-			</Title>
 			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
@@ -425,12 +390,6 @@
 			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="75"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаШапкаЛевая" id="76">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Шапка левая</v8:content>
-						</v8:item>
-					</Title>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
@@ -438,12 +397,6 @@
 					<ExtendedTooltip name="ГруппаШапкаЛеваяРасширеннаяПодсказка" id="77"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаНадписьОснование" id="236">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Надпись основание</v8:content>
-								</v8:item>
-							</Title>
 							<HorizontalStretch>false</HorizontalStretch>
 							<Group>AlwaysHorizontal</Group>
 							<Behavior>Usual</Behavior>
@@ -453,8 +406,6 @@
 							<ChildItems>
 								<LabelField name="НадписьДокументОснование" id="238">
 									<DataPath>НадписьДокументОснование</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>27</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<Hiperlink>true</Hiperlink>
@@ -476,7 +427,7 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Номер дата</v8:content>
+									<v8:content>Группа номер дата</v8:content>
 								</v8:item>
 							</Title>
 							<ToolTip>
@@ -511,15 +462,13 @@
 									<DataPath>СостояниеДокумента</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>2</Width>
 									<Height>1</Height>
 									<HorizontalStretch>false</HorizontalStretch>
 									<VerticalStretch>false</VerticalStretch>
 									<ValuesPicture>
-										<xr:Ref>CommonPicture.СостоянияДокументаБП</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:Ref>CommonPicture.СостоянияДокумента</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</ValuesPicture>
 									<Border width="1">
 										<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
@@ -555,19 +504,11 @@
 									<v8:content>Основание</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Hiperlink>true</Hiperlink>
 							<ContextMenu name="ОснованиеКорректировкиКонтекстноеМеню" id="343"/>
 							<ExtendedTooltip name="ОснованиеКорректировкиРасширеннаяПодсказка" id="344"/>
 						</LabelField>
 						<UsualGroup name="ГруппаПериодическиеРеквизитыШапки" id="243">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Периодические реквизиты шапки</v8:content>
-								</v8:item>
-							</Title>
 							<HorizontalStretch>false</HorizontalStretch>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
@@ -598,8 +539,6 @@
 											<DataPath>НадписьСтароеЗначение</DataPath>
 											<SkipOnInput>true</SkipOnInput>
 											<TitleTextColor>style:FormBackColor</TitleTextColor>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<TextColor>style:ЦветЗаголовкаИнформационнойПанели</TextColor>
 											<ContextMenu name="НадписьСтароеЗначениеКонтекстноеМеню" id="248"/>
 											<ExtendedTooltip name="НадписьСтароеЗначениеРасширеннаяПодсказка" id="249"/>
@@ -608,8 +547,6 @@
 											<DataPath>НадписьНовоеЗначение</DataPath>
 											<SkipOnInput>true</SkipOnInput>
 											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<TextColor>style:ЦветЗаголовкаИнформационнойПанели</TextColor>
 											<ContextMenu name="НадписьНовоеЗначениеКонтекстноеМеню" id="251"/>
 											<ExtendedTooltip name="НадписьНовоеЗначениеРасширеннаяПодсказка" id="252"/>
@@ -647,8 +584,6 @@
 										<InputField name="КодТНВЭДПослеИзменения" id="258">
 											<DataPath>Объект.КодТНВЭДПослеИзменения</DataPath>
 											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="КодТНВЭДПослеИзмененияКонтекстноеМеню" id="259"/>
 											<ExtendedTooltip name="КодТНВЭДПослеИзмененияРасширеннаяПодсказка" id="260"/>
 										</InputField>
@@ -678,16 +613,12 @@
 													<v8:content>ОКПД2</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="КодОКПД2КонтекстноеМеню" id="264"/>
 											<ExtendedTooltip name="КодОКПД2РасширеннаяПодсказка" id="265"/>
 										</InputField>
 										<InputField name="КодОКПД2ПослеИзменения" id="266">
 											<DataPath>Объект.КодОКПД2КорректировочныйПослеИзменения</DataPath>
 											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="КодОКПД2ПослеИзмененияКонтекстноеМеню" id="267"/>
 											<ExtendedTooltip name="КодОКПД2ПослеИзмененияРасширеннаяПодсказка" id="268"/>
 										</InputField>
@@ -697,7 +628,7 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Единица измерения</v8:content>
+											<v8:content>Группа единица измерения</v8:content>
 										</v8:item>
 									</Title>
 									<Group>AlwaysHorizontal</Group>
@@ -716,8 +647,6 @@
 													<v8:content>Единица измерения</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<Width>5</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<OpenButton>false</OpenButton>
@@ -733,8 +662,6 @@
 										<InputField name="ЕдиницаИзмеренияПослеИзменения" id="277">
 											<DataPath>Объект.ЕдиницаИзмеренияПослеИзменения</DataPath>
 											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<Width>5</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЕдиницаИзмеренияПослеИзмененияКонтекстноеМеню" id="278"/>
@@ -746,7 +673,7 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Единица прослеживаемости</v8:content>
+											<v8:content>Группа единица прослеживаемости</v8:content>
 										</v8:item>
 									</Title>
 									<Group>AlwaysHorizontal</Group>
@@ -765,8 +692,6 @@
 													<v8:content>Единица прослеживаемости</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<Width>5</Width>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<HorizontalStretch>false</HorizontalStretch>
@@ -784,8 +709,6 @@
 											<DataPath>Объект.ЕдиницаПрослеживаемостиПослеИзменения</DataPath>
 											<ReadOnly>true</ReadOnly>
 											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<Width>5</Width>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<HorizontalStretch>false</HorizontalStretch>
@@ -800,12 +723,6 @@
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаШапкаПравая" id="78">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Шапка правая</v8:content>
-						</v8:item>
-					</Title>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
@@ -828,8 +745,6 @@
 						</InputField>
 						<InputField name="Контрагент" id="197">
 							<DataPath>Объект.Контрагент</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="КонтрагентКонтекстноеМеню" id="198"/>
 							<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="199"/>
 						</InputField>
@@ -840,8 +755,6 @@
 							</UserVisible>
 							<TitleLocation>Right</TitleLocation>
 							<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ПолученоПодтверждениеИзФНСКонтекстноеМеню" id="329"/>
 							<ExtendedTooltip name="ПолученоПодтверждениеИзФНСРасширеннаяПодсказка" id="330"/>
 						</CheckBoxField>
@@ -850,18 +763,10 @@
 							<Visible>false</Visible>
 							<TitleLocation>Right</TitleLocation>
 							<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ПолученоПодтверждениеИзФНСРучноеКонтекстноеМеню" id="332"/>
 							<ExtendedTooltip name="ПолученоПодтверждениеИзФНСРучноеРасширеннаяПодсказка" id="333"/>
 						</CheckBoxField>
 						<UsualGroup name="ГруппаДополнительныеСведения" id="334">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Дополнительные сведения</v8:content>
-								</v8:item>
-							</Title>
 							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
@@ -871,8 +776,6 @@
 								<LabelField name="НадписьДополнительныеСведения" id="336">
 									<DataPath>НадписьДополнительныеСведения</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<Hiperlink>true</Hiperlink>
 									<ContextMenu name="НадписьДополнительныеСведенияКонтекстноеМеню" id="337"/>
@@ -957,28 +860,7 @@
 					<ContextMenu name="ТоварыНоменклатураКонтекстноеМеню" id="174"/>
 					<ExtendedTooltip name="ТоварыНоменклатураРасширеннаяПодсказка" id="175"/>
 				</InputField>
-				<InputField name="ТоварыХарактеристика" id="347">
-					<DataPath>Объект.Товары.Характеристика</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ТоварыХарактеристикаКонтекстноеМеню" id="348"/>
-					<ExtendedTooltip name="ТоварыХарактеристикаРасширеннаяПодсказка" id="349"/>
-				</InputField>
-				<InputField name="ТоварыПартия" id="350">
-					<DataPath>Объект.Товары.Партия</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ТоварыПартияКонтекстноеМеню" id="351"/>
-					<ExtendedTooltip name="ТоварыПартияРасширеннаяПодсказка" id="352"/>
-				</InputField>
 				<ColumnGroup name="ТоварыГруппаНадпись" id="291">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Товары группа надпись</v8:content>
-						</v8:item>
-					</Title>
-					<ShowTitle>true</ShowTitle>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="ТоварыГруппаНадписьРасширеннаяПодсказка" id="292"/>
 					<ChildItems>
@@ -1018,7 +900,6 @@
 							<v8:content>Количество</v8:content>
 						</v8:item>
 					</Title>
-					<ShowTitle>true</ShowTitle>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="ТоварыГруппаКоличествоРасширеннаяПодсказка" id="300"/>
 					<ChildItems>
@@ -1051,7 +932,6 @@
 							<v8:content>Количество прослеживаемость</v8:content>
 						</v8:item>
 					</Title>
-					<ShowTitle>true</ShowTitle>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="ТоварыГруппаКоличествоПрослеживаемостьРасширеннаяПодсказка" id="311"/>
 					<ChildItems>
@@ -1081,7 +961,6 @@
 							<v8:content>Сумма</v8:content>
 						</v8:item>
 					</Title>
-					<ShowTitle>true</ShowTitle>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="ТоварыГруппаСуммаРасширеннаяПодсказка" id="319"/>
 					<ChildItems>
@@ -1111,7 +990,6 @@
 							<v8:content>Страна происхождения</v8:content>
 						</v8:item>
 					</Title>
-					<ShowTitle>true</ShowTitle>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="ТоварыГруппаСтранаПроисхожденияРасширеннаяПодсказка" id="324"/>
 					<ChildItems>

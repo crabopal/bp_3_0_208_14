@@ -3,16 +3,61 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаПрименить" id="26">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Применить</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаПрименитьРасширеннаяПодсказка" id="27"/>
-			</Button>
+			<ButtonGroup name="ГруппаКнопокПросмотр" id="33">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Группа кнопок просмотр</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Группа кнопок просмотр</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ГруппаКнопокПросмотрРасширеннаяПодсказка" id="34"/>
+				<ChildItems>
+					<Button name="ФормаЗакрыть" id="35">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Close</CommandName>
+						<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="36"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+			<ButtonGroup name="ГруппаКнопокРедактирование" id="37">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Группа кнопок редактирование</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Группа кнопок редактирование</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ГруппаКнопокРедактированиеРасширеннаяПодсказка" id="38"/>
+				<ChildItems>
+					<Button name="ФормаОК" id="26">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОК</CommandName>
+						<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="27"/>
+					</Button>
+					<Button name="ФормаОтмена" id="28">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Отмена</CommandName>
+						<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="29"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -69,24 +114,17 @@
 				<Event name="OnStartEdit">ВычетыПриНачалеРедактирования</Event>
 			</Events>
 			<ChildItems>
-				<InputField name="ВычетыНалоговаяБаза" id="33">
+				<InputField name="ВычетыНалоговаяБаза" id="39">
 					<DataPath>Вычеты.НалоговаяБаза</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Вид налоговой базы</v8:content>
-						</v8:item>
-					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-					<ContextMenu name="ВычетыНалоговаяБазаКонтекстноеМеню" id="34"/>
-					<ExtendedTooltip name="ВычетыНалоговаяБазаРасширеннаяПодсказка" id="35"/>
+					<ContextMenu name="ВычетыНалоговаяБазаКонтекстноеМеню" id="40"/>
+					<ExtendedTooltip name="ВычетыНалоговаяБазаРасширеннаяПодсказка" id="41"/>
 				</InputField>
 				<InputField name="ВычетыКодВычета" id="17">
 					<DataPath>Вычеты.КодВычета</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<Width>12</Width>
 					<DropListButton>false</DropListButton>
 					<ChoiceButton>true</ChoiceButton>
 					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
@@ -98,6 +136,7 @@
 					<DataPath>Вычеты.СуммаВычета</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<Width>12</Width>
 					<ContextMenu name="ВычетыСуммаВычетаКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="ВычетыСуммаВычетаРасширеннаяПодсказка" id="22"/>
 				</InputField>
@@ -114,15 +153,9 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Месяц использ. права на вычет</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
 							<v8:content>Месяц, за который использовано право на вычет</v8:content>
 						</v8:item>
-					</ToolTip>
+					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<ChoiceButton>true</ChoiceButton>
@@ -239,22 +272,37 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Применить" id="1">
+		<Command name="ОК" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Применить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Применить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>Применить</Action>
+			<Action>ОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 </Form>

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
-	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
@@ -10,15 +9,14 @@
 			<Button name="ЗаписатьИЗакрыть" id="13">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<DefaultItem>true</DefaultItem>
 				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ЗаписатьИЗакрытьРасширеннаяПодсказка" id="16"/>
+				<ExtendedTooltip name="ЗаписатьИЗакрытьExtendedTooltip" id="16"/>
 			</Button>
 			<Button name="ТестУстройства" id="15">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ТестУстройства</CommandName>
-				<ExtendedTooltip name="ТестУстройстваРасширеннаяПодсказка" id="18"/>
+				<ExtendedTooltip name="ТестУстройстваExtendedTooltip" id="18"/>
 			</Button>
 			<Button name="ФормаСправка" id="49">
 				<Type>CommandBarButton</Type>
@@ -33,6 +31,10 @@
 		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<LabelField name="ПодключаемоеОборудованиеТипОфлайнОборудования" id="82">
+			<ContextMenu name="ПодключаемоеОборудованиеТипОфлайнОборудованияКонтекстноеМеню" id="83"/>
+			<ExtendedTooltip name="ПодключаемоеОборудованиеТипОфлайнОборудованияРасширеннаяПодсказка" id="84"/>
+		</LabelField>
 		<UsualGroup name="ФорматОбмена" id="44">
 			<Title>
 				<v8:item>
@@ -49,6 +51,7 @@
 				<InputField name="ВерсияФорматаОбмена" id="46">
 					<DataPath>ВерсияФорматаОбмена</DataPath>
 					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
 					<ListChoiceMode>true</ListChoiceMode>
 					<TextEdit>false</TextEdit>
 					<ContextMenu name="ВерсияФорматаОбменаКонтекстноеМеню" id="47"/>
@@ -119,7 +122,6 @@
 					<ChildItems>
 						<InputField name="КаталогОбмена" id="57">
 							<DataPath>КаталогОбмена</DataPath>
-							<AutoMaxWidth>false</AutoMaxWidth>
 							<ChoiceButton>true</ChoiceButton>
 							<ContextMenu name="КаталогОбменаКонтекстноеМеню" id="58"/>
 							<ExtendedTooltip name="КаталогОбменаРасширеннаяПодсказка" id="59"/>
@@ -129,13 +131,11 @@
 						</InputField>
 						<InputField name="ИмяФайлаЗагрузки" id="60">
 							<DataPath>ИмяФайлаЗагрузки</DataPath>
-							<AutoMaxWidth>false</AutoMaxWidth>
 							<ContextMenu name="ИмяФайлаЗагрузкиКонтекстноеМеню" id="61"/>
 							<ExtendedTooltip name="ИмяФайлаЗагрузкиРасширеннаяПодсказка" id="62"/>
 						</InputField>
 						<InputField name="ИмяФайлаВыгрузки" id="63">
 							<DataPath>ИмяФайлаВыгрузки</DataPath>
-							<AutoMaxWidth>false</AutoMaxWidth>
 							<ContextMenu name="ИмяФайлаВыгрузкиКонтекстноеМеню" id="64"/>
 							<ExtendedTooltip name="ИмяФайлаВыгрузкиРасширеннаяПодсказка" id="65"/>
 						</InputField>
@@ -856,17 +856,6 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ПодключаемоеОборудованиеТипОфлайнОборудования" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подключаемое оборудование тип офлайн оборудования</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>cfg:EnumRef.ТипыОфлайнОборудования</v8:Type>
-			</Type>
-		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -909,7 +898,6 @@
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ТестУстройства" id="2">
 			<Title>

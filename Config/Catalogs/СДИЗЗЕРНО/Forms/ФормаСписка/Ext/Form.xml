@@ -8,8 +8,9 @@
 		<ExcludedCommand>Delete</ExcludedCommand>
 		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -38,8 +39,7 @@
 				<InputField name="СтраницаОтборСтатус" id="95">
 					<DataPath>Статус</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>28</MaxWidth>
 					<ClearButton>true</ClearButton>
 					<InputHint>
@@ -84,7 +84,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацииРасширеннаяПодсказка" id="101"/>
 							<ChildItems>
@@ -97,8 +96,7 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
 									<ChoiceButton>true</ChoiceButton>
@@ -146,7 +144,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацияРасширеннаяПодсказка" id="106"/>
 							<ChildItems>
@@ -159,14 +156,12 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
 									<ChoiceButton>true</ChoiceButton>
 									<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 									<ClearButton>true</ClearButton>
-									<OpenButton>false</OpenButton>
 									<QuickChoice>false</QuickChoice>
 									<ChooseType>false</ChooseType>
 									<ChoiceParameters>
@@ -209,7 +204,6 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -223,7 +217,6 @@
 				<ExcludedCommand>Delete</ExcludedCommand>
 				<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -278,20 +271,26 @@
 						<CommandSource>FormCommandPanelGlobalCommands</CommandSource>
 						<ExtendedTooltip name="ГруппаГлобальныеКомандыРасширеннаяПодсказка" id="111"/>
 					</ButtonGroup>
+					<ButtonGroup name="ГруппаКомандыФормы" id="114">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<CommandSource>Form</CommandSource>
+						<ExtendedTooltip name="ГруппаКомандыФормыРасширеннаяПодсказка" id="115"/>
+					</ButtonGroup>
 					<Button name="ФормаАннулировать" id="167">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.Аннулировать</CommandName>
 						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 						<ExtendedTooltip name="ФормаАннулироватьРасширеннаяПодсказка" id="168"/>
 					</Button>
-					<Button name="СписокИзменитьФорму" id="195">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ExtendedTooltip name="СписокИзменитьФормуРасширеннаяПодсказка" id="196"/>
-					</Button>
 					<Button name="СписокСправка" id="116">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.StandardCommand.Help</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 						<ExtendedTooltip name="СписокСправкаРасширеннаяПодсказка" id="117"/>
 					</Button>
 				</ChildItems>
@@ -324,34 +323,25 @@
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
 				<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
-				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<InputField name="Статус" id="118">
 					<DataPath>Список.Статус</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СтатусКонтекстноеМеню" id="119"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="120"/>
 				</InputField>
 				<InputField name="ДатаОформления" id="143">
 					<DataPath>Список.ДатаОформления</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаОформленияКонтекстноеМеню" id="144"/>
 					<ExtendedTooltip name="ДатаОформленияРасширеннаяПодсказка" id="145"/>
 				</InputField>
 				<LabelField name="Идентификатор" id="22">
 					<DataPath>Список.Идентификатор</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИдентификаторКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<InputField name="Операция" id="133">
 					<DataPath>Список.ВидОперации</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОперацияКонтекстноеМеню" id="134"/>
 					<ExtendedTooltip name="ОперацияРасширеннаяПодсказка" id="135"/>
 				</InputField>
@@ -363,28 +353,21 @@
 						</v8:item>
 					</Title>
 					<Group>Horizontal</Group>
-					<ShowTitle>true</ShowTitle>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="СписокГруппаГрузоотправительРасширеннаяПодсказка" id="147"/>
 					<ChildItems>
 						<LabelField name="Грузоотправитель" id="28">
 							<DataPath>Список.Грузоотправитель</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ГрузоотправительКонтекстноеМеню" id="29"/>
 							<ExtendedTooltip name="ГрузоотправительРасширеннаяПодсказка" id="30"/>
 						</LabelField>
 						<InputField name="Продавец" id="150">
 							<DataPath>Список.Продавец</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ПродавецКонтекстноеМеню" id="151"/>
 							<ExtendedTooltip name="ПродавецРасширеннаяПодсказка" id="152"/>
 						</InputField>
 						<LabelField name="ПунктОтправления" id="49">
 							<DataPath>Список.ПунктОтправления</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ПунктОтправленияКонтекстноеМеню" id="50"/>
 							<ExtendedTooltip name="ПунктОтправленияРасширеннаяПодсказка" id="51"/>
 						</LabelField>
@@ -398,28 +381,21 @@
 						</v8:item>
 					</Title>
 					<Group>Horizontal</Group>
-					<ShowTitle>true</ShowTitle>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="СписокГруппаГрузополучательРасширеннаяПодсказка" id="149"/>
 					<ChildItems>
 						<LabelField name="Грузополучатель" id="31">
 							<DataPath>Список.Грузополучатель</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ГрузополучательКонтекстноеМеню" id="32"/>
 							<ExtendedTooltip name="ГрузополучательРасширеннаяПодсказка" id="33"/>
 						</LabelField>
 						<LabelField name="Покупатель" id="34">
 							<DataPath>Список.Покупатель</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ПокупательКонтекстноеМеню" id="35"/>
 							<ExtendedTooltip name="ПокупательРасширеннаяПодсказка" id="36"/>
 						</LabelField>
 						<LabelField name="ПунктНазначения" id="61">
 							<DataPath>Список.ПунктНазначения</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ПунктНазначенияКонтекстноеМеню" id="62"/>
 							<ExtendedTooltip name="ПунктНазначенияРасширеннаяПодсказка" id="63"/>
 						</LabelField>
@@ -427,30 +403,24 @@
 				</ColumnGroup>
 				<LabelField name="НомерПартии" id="88">
 					<DataPath>Список.НомерПартии</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НомерПартииКонтекстноеМеню" id="89"/>
 					<ExtendedTooltip name="НомерПартииРасширеннаяПодсказка" id="90"/>
 				</LabelField>
 				<InputField name="Количество" id="158">
 					<DataPath>Список.Количество</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КоличествоКонтекстноеМеню" id="159"/>
 					<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="160"/>
 				</InputField>
 				<InputField name="ОКПД2" id="161">
 					<DataPath>Список.ОКПД2</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<MarkRequiredComplete>false</MarkRequiredComplete>
 					<AutoMarkIncomplete>false</AutoMarkIncomplete>
 					<ContextMenu name="ОКПД2КонтекстноеМеню" id="162"/>
 					<ExtendedTooltip name="ОКПД2РасширеннаяПодсказка" id="163"/>
 				</InputField>
 				<InputField name="КодТНВЭД" id="164">
 					<DataPath>Список.КодТНВЭД</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<MarkRequiredComplete>false</MarkRequiredComplete>
 					<AutoMarkIncomplete>false</AutoMarkIncomplete>
 					<ContextMenu name="КодТНВЭДКонтекстноеМеню" id="165"/>
 					<ExtendedTooltip name="КодТНВЭДРасширеннаяПодсказка" id="166"/>
@@ -460,8 +430,6 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="156"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="157"/>
 				</InputField>
@@ -931,6 +899,21 @@
 			</Title>
 			<Type/>
 		</Attribute>
+		<Attribute name="АдресРезультатаОбменаВоВременномХранилище" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес результата обмена во временном хранилище</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="ЗапроситьСДИЗ" id="4">
@@ -961,9 +944,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Аннулировать</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ЗагрузитьИзмененияЗерна" id="6">
 			<Title>

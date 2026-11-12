@@ -518,6 +518,22 @@
 														<Event name="OnChange">ЛицевыеСчетаСтраховойНомерПФРПриИзменении</Event>
 													</Events>
 												</InputField>
+												<InputField name="ЛицевыеСчетаИНН" id="691">
+													<DataPath>Items.ЛицевыеСчета.CurrentData.ИНН</DataPath>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Идентификационный номер налогоплательщика</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+													<ContextMenu name="ЛицевыеСчетаИННКонтекстноеМеню" id="692"/>
+													<ExtendedTooltip name="ЛицевыеСчетаИННРасширеннаяПодсказка" id="693"/>
+													<Events>
+														<Event name="OnChange">ЛицевыеСчетаИННПриИзменении</Event>
+													</Events>
+												</InputField>
 												<CheckBoxField name="ЛицевыеСчетаИспользуетсяОвердрафт" id="339">
 													<DataPath>Items.ЛицевыеСчета.CurrentData.ИспользуетсяОвердрафт</DataPath>
 													<TitleLocation>Right</TitleLocation>
@@ -1184,6 +1200,19 @@
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ЛеваяКолонкаРасширеннаяПодсказка" id="609"/>
 											<ChildItems>
+												<InputField name="ЛицевыеСчетаБанк" id="694">
+													<DataPath>Items.ЛицевыеСчета.CurrentData.Банк</DataPath>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Заполняется только для банков, поддерживающих открытие счетов в других банках</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+													<ContextMenu name="ЛицевыеСчетаБанкКонтекстноеМеню" id="695"/>
+													<ExtendedTooltip name="ЛицевыеСчетаБанкРасширеннаяПодсказка" id="696"/>
+												</InputField>
 												<UsualGroup name="ГруппаВидКарты" id="403">
 													<Title>
 														<v8:item>
@@ -1699,7 +1728,6 @@
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
-			<Settings xsi:type="v8:TypeDescription"/>
 		</Attribute>
 		<Attribute name="ЦветСтиляЦветТекстаПоля" id="4">
 			<Type>
@@ -1717,6 +1745,17 @@
 					<v8:FractionDigits>0</v8:FractionDigits>
 					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
 				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИННУказанПравильно" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИННУказан правильно</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
 	</Attributes>
@@ -1819,6 +1858,11 @@
 	<CommandInterface>
 		<NavigationPanel>
 			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
 				<Command>InformationRegister.СостоянияДокументовОткрытияЛицевыхСчетов.StandardCommand.OpenByValue.ДокументОткрытияЛицевыхСчетов</Command>
 				<Type>Auto</Type>
 				<DefaultVisible>false</DefaultVisible>
@@ -1843,5 +1887,15 @@
 				</Visible>
 			</Item>
 		</NavigationPanel>
+		<CommandBar>
+			<Item>
+				<Command>0:2baf6d7a-12ed-4f22-ad96-92bb31b747ff</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
 	</CommandInterface>
 </Form>

@@ -42,11 +42,11 @@
 						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 						<ExtendedTooltip name="ОткрытьДополнительныеПараметрыРасширеннаяПодсказка" id="479"/>
 					</Button>
-					<Button name="ФормаУдалитьСохраненныйПароль" id="1245">
+					<Button name="ФормаУдалитьСохраненныйПароль" id="1164">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.УдалитьСохраненныйПароль</CommandName>
 						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ФормаУдалитьСохраненныйПарольРасширеннаяПодсказка" id="1246"/>
+						<ExtendedTooltip name="ФормаУдалитьСохраненныйПарольРасширеннаяПодсказка" id="1165"/>
 					</Button>
 					<Button name="ЗагрузитьНастройки" id="849">
 						<Type>CommandBarButton</Type>
@@ -55,8 +55,16 @@
 					</Button>
 					<Button name="ТестНастроек" id="367">
 						<Type>CommandBarButton</Type>
+						<Representation>Text</Representation>
 						<CommandName>Form.Command.ТестНастроек</CommandName>
 						<ExtendedTooltip name="ТестНастроекРасширеннаяПодсказка" id="368"/>
+					</Button>
+					<Button name="ОчиститьПредложенияБанкаПоДепозитам" id="1166">
+						<Type>CommandBarButton</Type>
+						<Visible>false</Visible>
+						<CommandName>Form.Command.ОчиститьПредложенияБанкаПоДепозитам</CommandName>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ОчиститьПредложенияБанкаПоДепозитамРасширеннаяПодсказка" id="1167"/>
 					</Button>
 				</ChildItems>
 			</ButtonGroup>
@@ -80,7 +88,7 @@
 	</Events>
 	<ChildItems>
 		<LabelDecoration name="ДекорацияПометкаУдаления" id="1149">
-			<TextColor>pal:Red</TextColor>
+			<TextColor>style:SpecialTextColor</TextColor>
 			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -126,6 +134,8 @@
 									<v8:content>Организация, у которой открыт счет в банке</v8:content>
 								</v8:item>
 							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="6"/>
 							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="377"/>
 						</InputField>
@@ -160,6 +170,8 @@
 									<v8:content>Банк, с которым производится прямой обмен электронными документами.</v8:content>
 								</v8:item>
 							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ChooseType>false</ChooseType>
 							<ChoiceListButton>false</ChoiceListButton>
 							<ContextMenu name="БанкКонтекстноеМеню" id="8"/>
@@ -206,7 +218,7 @@
 			<ContextMenu name="ДекорацияСервисБанкаКонтекстноеМеню" id="1156"/>
 			<ExtendedTooltip name="ДекорацияСервисБанкаРасширеннаяПодсказка" id="1157"/>
 		</LabelDecoration>
-		<LabelDecoration name="ДекорацияМобильныйКлиентНедоступностьИзменения" id="1247">
+		<LabelDecoration name="ДекорацияМобильныйКлиентНедоступностьИзменения" id="1169">
 			<TextColor>style:НедоступныйДляВыбораЭлементБЭД</TextColor>
 			<Title formatted="false">
 				<v8:item>
@@ -214,8 +226,8 @@
 					<v8:content>Изменение возможно только в приложении для компьютера.</v8:content>
 				</v8:item>
 			</Title>
-			<ContextMenu name="ДекорацияМобильныйКлиентНедоступностьИзмененияКонтекстноеМеню" id="1248"/>
-			<ExtendedTooltip name="ДекорацияМобильныйКлиентНедоступностьИзмененияРасширеннаяПодсказка" id="1249"/>
+			<ContextMenu name="ДекорацияМобильныйКлиентНедоступностьИзмененияКонтекстноеМеню" id="1170"/>
+			<ExtendedTooltip name="ДекорацияМобильныйКлиентНедоступностьИзмененияРасширеннаяПодсказка" id="1168"/>
 		</LabelDecoration>
 		<Pages name="СтраницыВнешнегоМодуля" id="1022">
 			<Title>
@@ -249,7 +261,7 @@
 							<ExtendedTooltip name="ДекорацияВнешнийМодульРасширеннаяПодсказка" id="1033"/>
 						</LabelDecoration>
 						<LabelDecoration name="ИнформацияОВнешнемМодуле" id="1034">
-							<Font ref="style:TextLevel3" bold="false" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+							<Font ref="style:NormalTextFont" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
 							<ContextMenu name="ИнформацияОВнешнемМодулеКонтекстноеМеню" id="1035"/>
 							<ExtendedTooltip name="ИнформацияОВнешнемМодулеРасширеннаяПодсказка" id="1036"/>
 						</LabelDecoration>
@@ -355,54 +367,43 @@
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="СтраницаАсинхронныйРасширеннаяПодсказка" id="531"/>
 									<ChildItems>
-										<UsualGroup name="ГруппаРеквизитыАсинхронный" id="1215">
+										<InputField name="ИдентификаторОрганизацииАсинхронный" id="702">
+											<DataPath>Объект.ИдентификаторОрганизации</DataPath>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Уникальный идентификатор, который выдал банк</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
+											<Width>40</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ContextMenu name="ИдентификаторОрганизацииАсинхронныйКонтекстноеМеню" id="703"/>
+											<ExtendedTooltip name="ИдентификаторОрганизацииАсинхронныйРасширеннаяПодсказка" id="704"/>
+										</InputField>
+										<InputField name="АдресСервераАсинхронный" id="713">
+											<DataPath>Объект.АдресСервера</DataPath>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Реквизиты асинхронный</v8:content>
+													<v8:content>Адрес сервера банка</v8:content>
 												</v8:item>
 											</Title>
-											<ShowTitle>false</ShowTitle>
-											<ThroughAlign>Use</ThroughAlign>
-											<ExtendedTooltip name="ГруппаРеквизитыАсинхронныйРасширеннаяПодсказка" id="1216"/>
-											<ChildItems>
-												<InputField name="ИдентификаторОрганизацииАсинхронный" id="702">
-													<DataPath>Объект.ИдентификаторОрганизации</DataPath>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Уникальный идентификатор, который выдал банк</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ToolTipRepresentation>Button</ToolTipRepresentation>
-													<Width>40</Width>
-													<HorizontalStretch>false</HorizontalStretch>
-													<AutoMarkIncomplete>true</AutoMarkIncomplete>
-													<ContextMenu name="ИдентификаторОрганизацииАсинхронныйКонтекстноеМеню" id="703"/>
-													<ExtendedTooltip name="ИдентификаторОрганизацииАсинхронныйРасширеннаяПодсказка" id="704"/>
-												</InputField>
-												<InputField name="АдресСервераАсинхронный" id="713">
-													<DataPath>Объект.АдресСервера</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Адрес сервера банка</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Адрес сервера банка в виде https://mybank.ru</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ToolTipRepresentation>Button</ToolTipRepresentation>
-													<HorizontalStretch>false</HorizontalStretch>
-													<AutoMarkIncomplete>true</AutoMarkIncomplete>
-													<ContextMenu name="АдресСервераАсинхронныйКонтекстноеМеню" id="714"/>
-													<ExtendedTooltip name="АдресСервераАсинхронныйРасширеннаяПодсказка" id="715"/>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Адрес сервера банка в виде https://mybank.ru</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
+											<HorizontalStretch>false</HorizontalStretch>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ContextMenu name="АдресСервераАсинхронныйКонтекстноеМеню" id="714"/>
+											<ExtendedTooltip name="АдресСервераАсинхронныйРасширеннаяПодсказка" id="715"/>
+										</InputField>
 										<InputField name="ЛогинАсинхронныйОбмен" id="724">
 											<DataPath>Объект.ИмяПользователя</DataPath>
 											<Title>
@@ -417,7 +418,8 @@
 													<v8:content>Логин в учетной системе банка</v8:content>
 												</v8:item>
 											</ToolTip>
-											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+											<Width>20</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ЛогинАсинхронныйОбменКонтекстноеМеню" id="725"/>
 											<ExtendedTooltip name="ЛогинАсинхронныйОбменРасширеннаяПодсказка" id="726"/>
@@ -431,12 +433,11 @@
 											</Title>
 											<Group>Vertical</Group>
 											<Behavior>Usual</Behavior>
+											<Representation>WeakSeparation</Representation>
 											<ExtendedTooltip name="ГруппаСертификатыАсинхронныйРасширеннаяПодсказка" id="764"/>
 											<ChildItems>
 												<Table name="СертификатыНеобходимыхПодписейАсинхронно" id="765">
 													<Representation>List</Representation>
-													<HeightControlVariant>UseContentHeight</HeightControlVariant>
-													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 													<AutoAddIncomplete>false</AutoAddIncomplete>
@@ -489,6 +490,8 @@
 													<ChildItems>
 														<LabelField name="СертификатыНеобходимыхПодписейАсинхронноНомерСтроки" id="784">
 															<DataPath>Объект.СертификатыПодписейОрганизации.LineNumber</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="СертификатыНеобходимыхПодписейАсинхронноНомерСтрокиКонтекстноеМеню" id="785"/>
 															<ExtendedTooltip name="СертификатыНеобходимыхПодписейАсинхронноНомерСтрокиРасширеннаяПодсказка" id="786"/>
 														</LabelField>
@@ -500,7 +503,8 @@
 																	<v8:content>Сертификат организации</v8:content>
 																</v8:item>
 															</Title>
-															<AutoWidthInTable>None</AutoWidthInTable>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ChoiceParameterLinks>
 																<xr:Link>
 																	<xr:Name>Отбор.Организация</xr:Name>
@@ -513,149 +517,6 @@
 														</InputField>
 													</ChildItems>
 												</Table>
-											</ChildItems>
-										</UsualGroup>
-										<UsualGroup name="ГруппаАвтоматическоеПолучениеВыписки" id="1046">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Автоматическое получение выписки</v8:content>
-												</v8:item>
-											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Параметры автоматического получения выписки</v8:content>
-												</v8:item>
-											</ToolTip>
-											<Width>59</Width>
-											<Group>Vertical</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1047"/>
-											<ChildItems>
-												<UsualGroup name="ГруппаДоступноАвтоматическоеПолучениеВыписки" id="1048">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Доступно автоматическое получение выписки</v8:content>
-														</v8:item>
-													</Title>
-													<Group>HorizontalIfPossible</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>NormalSeparation</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаДоступноАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1049"/>
-													<ChildItems>
-														<LabelDecoration name="ДляБанкаДоступноАвтоматическоеПолучениеВыписки" id="1050">
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Для Вашего банка доступно автоматическое получение выписки</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="ДляБанкаДоступноАвтоматическоеПолучениеВыпискиКонтекстноеМеню" id="1051"/>
-															<ExtendedTooltip name="ДляБанкаДоступноАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1052"/>
-														</LabelDecoration>
-														<LabelDecoration name="ВключитьАвтоматическоеПолучениеВыписки" id="1053">
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Включить</v8:content>
-																</v8:item>
-															</Title>
-															<Hyperlink>true</Hyperlink>
-															<ContextMenu name="ВключитьАвтоматическоеПолучениеВыпискиКонтекстноеМеню" id="1054"/>
-															<ExtendedTooltip name="ВключитьАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1055"/>
-															<Events>
-																<Event name="Click">ВключитьАвтоматическоеПолучениеВыпискиНажатие</Event>
-															</Events>
-														</LabelDecoration>
-													</ChildItems>
-												</UsualGroup>
-												<UsualGroup name="ГруппаЗапущеноАвтоматическоеПолучениеВыписки" id="1056">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Запущено автоматическое получение выписки</v8:content>
-														</v8:item>
-													</Title>
-													<Group>HorizontalIfPossible</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>NormalSeparation</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаЗапущеноАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1057"/>
-													<ChildItems>
-														<LabelDecoration name="ЗапущеноАвтоматическоеПолучениеВыписки" id="1058">
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<Title formatted="true">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Запущено автоматическое получение выписки банка
-Последняя выписка получена: &lt;b&gt;&lt;i&gt;21 час назад&lt;/&gt;&lt;/&gt;</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="ЗапущеноАвтоматическоеПолучениеВыпискиКонтекстноеМеню" id="1059"/>
-															<ExtendedTooltip name="ЗапущеноАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1060"/>
-														</LabelDecoration>
-														<LabelDecoration name="ОстановитьАвтоматическоеПолучениеВыписки" id="1061">
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Остановить</v8:content>
-																</v8:item>
-															</Title>
-															<Hyperlink>true</Hyperlink>
-															<ContextMenu name="ОстановитьАвтоматическоеПолучениеВыпискиКонтекстноеМеню" id="1062"/>
-															<ExtendedTooltip name="ОстановитьАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1063"/>
-															<Events>
-																<Event name="Click">ОстановитьАвтоматическоеПолучениеВыпискиНажатие</Event>
-															</Events>
-														</LabelDecoration>
-													</ChildItems>
-												</UsualGroup>
-												<UsualGroup name="ГруппаОшибка" id="1064">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Группа ошибка</v8:content>
-														</v8:item>
-													</Title>
-													<Group>AlwaysHorizontal</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаОшибкаРасширеннаяПодсказка" id="1065"/>
-													<ChildItems>
-														<LabelDecoration name="ПроизошлаОшибка" id="1072">
-															<TextColor>pal:Red</TextColor>
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>При последнем получении выписки произошла ошибка</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="ПроизошлаОшибкаКонтекстноеМеню" id="1073"/>
-															<ExtendedTooltip name="ПроизошлаОшибкаРасширеннаяПодсказка" id="1074"/>
-														</LabelDecoration>
-														<LabelDecoration name="ПоказатьОшибку" id="1075">
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Показать</v8:content>
-																</v8:item>
-															</Title>
-															<Hyperlink>true</Hyperlink>
-															<ContextMenu name="ПоказатьОшибкуКонтекстноеМеню" id="1076"/>
-															<ExtendedTooltip name="ПоказатьОшибкуРасширеннаяПодсказка" id="1077"/>
-															<Events>
-																<Event name="Click">ПоказатьОшибкуНажатие</Event>
-															</Events>
-														</LabelDecoration>
-													</ChildItems>
-												</UsualGroup>
 											</ChildItems>
 										</UsualGroup>
 									</ChildItems>
@@ -719,52 +580,46 @@
 																			<v8:content>Адрес сервера банка в виде https://mybank.ru</v8:content>
 																		</v8:item>
 																	</ToolTip>
-																	<ToolTipRepresentation>Button</ToolTipRepresentation>
+																	<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+																	<MarkRequiredComplete>true</MarkRequiredComplete>
+																	<Width>56</Width>
 																	<HorizontalStretch>false</HorizontalStretch>
 																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
 																	<ContextMenu name="АдресСервераКонтекстноеМеню" id="434"/>
 																	<ExtendedTooltip name="АдресСервераРасширеннаяПодсказка" id="435"/>
 																</InputField>
-																<UsualGroup name="ГруппаРесурсыСинхронный" id="1219">
+																<InputField name="РесурсПриемник" id="436">
+																	<DataPath>Объект.РесурсИсходящихДокументов</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
-																			<v8:content>Ресурсы синхронный</v8:content>
+																			<v8:content>Ресурс для отправки</v8:content>
 																		</v8:item>
 																	</Title>
-																	<ShowTitle>false</ShowTitle>
-																	<ExtendedTooltip name="ГруппаРесурсыСинхронныйРасширеннаяПодсказка" id="1220"/>
-																	<ChildItems>
-																		<InputField name="РесурсПриемник" id="436">
-																			<DataPath>Объект.РесурсИсходящихДокументов</DataPath>
-																			<Title>
-																				<v8:item>
-																					<v8:lang>ru</v8:lang>
-																					<v8:content>Ресурс для отправки</v8:content>
-																				</v8:item>
-																			</Title>
-																			<HorizontalStretch>false</HorizontalStretch>
-																			<AutoMarkIncomplete>true</AutoMarkIncomplete>
-																			<ContextMenu name="РесурсПриемникКонтекстноеМеню" id="437"/>
-																			<ExtendedTooltip name="РесурсПриемникРасширеннаяПодсказка" id="438"/>
-																		</InputField>
-																		<InputField name="РесурсИсточник" id="439">
-																			<DataPath>Объект.РесурсВходящихДокументов</DataPath>
-																			<Title>
-																				<v8:item>
-																					<v8:lang>ru</v8:lang>
-																					<v8:content>Ресурс для получения</v8:content>
-																				</v8:item>
-																			</Title>
-																			<HorizontalStretch>false</HorizontalStretch>
-																			<ChoiceButton>false</ChoiceButton>
-																			<AutoMarkIncomplete>true</AutoMarkIncomplete>
-																			<ChooseType>false</ChooseType>
-																			<ContextMenu name="РесурсИсточникКонтекстноеМеню" id="440"/>
-																			<ExtendedTooltip name="РесурсИсточникРасширеннаяПодсказка" id="441"/>
-																		</InputField>
-																	</ChildItems>
-																</UsualGroup>
+																	<MarkRequiredComplete>true</MarkRequiredComplete>
+																	<Width>56</Width>
+																	<HorizontalStretch>false</HorizontalStretch>
+																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
+																	<ContextMenu name="РесурсПриемникКонтекстноеМеню" id="437"/>
+																	<ExtendedTooltip name="РесурсПриемникРасширеннаяПодсказка" id="438"/>
+																</InputField>
+																<InputField name="РесурсИсточник" id="439">
+																	<DataPath>Объект.РесурсВходящихДокументов</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Ресурс для получения</v8:content>
+																		</v8:item>
+																	</Title>
+																	<MarkRequiredComplete>true</MarkRequiredComplete>
+																	<Width>56</Width>
+																	<HorizontalStretch>false</HorizontalStretch>
+																	<ChoiceButton>false</ChoiceButton>
+																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
+																	<ChooseType>false</ChooseType>
+																	<ContextMenu name="РесурсИсточникКонтекстноеМеню" id="440"/>
+																	<ExtendedTooltip name="РесурсИсточникРасширеннаяПодсказка" id="441"/>
+																</InputField>
 															</ChildItems>
 														</Page>
 													</ChildItems>
@@ -780,11 +635,11 @@
 											</Title>
 											<Group>Vertical</Group>
 											<Behavior>Usual</Behavior>
+											<Representation>WeakSeparation</Representation>
 											<ExtendedTooltip name="ГруппаСертификатыРасширеннаяПодсказка" id="529"/>
 											<ChildItems>
 												<Table name="СертификатыНеобходимыхПодписейТиповые" id="251">
 													<Representation>List</Representation>
-													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 													<AutoAddIncomplete>false</AutoAddIncomplete>
@@ -837,6 +692,8 @@
 													<ChildItems>
 														<LabelField name="СертификатыНеобходимыхПодписейНомерСтроки" id="297">
 															<DataPath>Объект.СертификатыПодписейОрганизации.LineNumber</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Width>2</Width>
 															<ContextMenu name="СертификатыНеобходимыхПодписейНомерСтрокиКонтекстноеМеню" id="298"/>
 															<ExtendedTooltip name="СертификатыНеобходимыхПодписейНомерСтрокиРасширеннаяПодсказка" id="423"/>
@@ -849,7 +706,8 @@
 																	<v8:content>Сертификат организации</v8:content>
 																</v8:item>
 															</Title>
-															<AutoWidthInTable>None</AutoWidthInTable>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="СертификатыНеобходимыхПодписейСертификатКонтекстноеМеню" id="300"/>
 															<ExtendedTooltip name="СертификатыНеобходимыхПодписейСертификатРасширеннаяПодсказка" id="425"/>
 														</InputField>
@@ -870,55 +728,44 @@
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="СтраницаСбербанкРасширеннаяПодсказка" id="416"/>
 									<ChildItems>
-										<UsualGroup name="ГруппаРеквизитыСбер" id="1217">
+										<InputField name="ИдентификаторОрганизации" id="354">
+											<DataPath>Объект.ИдентификаторОрганизации</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Уникальный идентификатор, который выдал банк</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ContextMenu name="ИдентификаторОрганизацииКонтекстноеМеню" id="355"/>
+											<ExtendedTooltip name="ИдентификаторОрганизацииРасширеннаяПодсказка" id="418"/>
+										</InputField>
+										<InputField name="ИмяПользователя" id="985">
+											<DataPath>Объект.ИмяПользователя</DataPath>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Реквизиты Сбер</v8:content>
+													<v8:content>Логин (по-умолчанию)</v8:content>
 												</v8:item>
 											</Title>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаРеквизитыСберРасширеннаяПодсказка" id="1218"/>
-											<ChildItems>
-												<InputField name="ИдентификаторОрганизации" id="354">
-													<DataPath>Объект.ИдентификаторОрганизации</DataPath>
-													<ReadOnly>true</ReadOnly>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Уникальный идентификатор, который выдал банк</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ToolTipRepresentation>Button</ToolTipRepresentation>
-													<AutoMarkIncomplete>true</AutoMarkIncomplete>
-													<ContextMenu name="ИдентификаторОрганизацииКонтекстноеМеню" id="355"/>
-													<ExtendedTooltip name="ИдентификаторОрганизацииРасширеннаяПодсказка" id="418"/>
-												</InputField>
-												<InputField name="ИмяПользователя" id="985">
-													<DataPath>Объект.ИмяПользователя</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Логин (по-умолчанию)</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="ИмяПользователяКонтекстноеМеню" id="986"/>
-													<ExtendedTooltip name="ИмяПользователяРасширеннаяПодсказка" id="987"/>
-												</InputField>
-												<InputField name="СертификатПодключенияДатаОкончания" id="1331">
-													<DataPath>Объект.СертификатПодключенияДатаОкончания</DataPath>
-													<ReadOnly>true</ReadOnly>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Срок действия транспортного сертификата</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="СертификатПодключенияДатаОкончанияКонтекстноеМеню" id="1332"/>
-													<ExtendedTooltip name="СертификатПодключенияДатаОкончанияРасширеннаяПодсказка" id="1333"/>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
+											<ContextMenu name="ИмяПользователяКонтекстноеМеню" id="986"/>
+											<ExtendedTooltip name="ИмяПользователяРасширеннаяПодсказка" id="987"/>
+										</InputField>
+										<InputField name="СертификатПодключенияДатаОкончания" id="1275">
+											<DataPath>Объект.СертификатПодключенияДатаОкончания</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Срок действия транспортного сертификата</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="СертификатПодключенияДатаОкончанияКонтекстноеМеню" id="1276"/>
+											<ExtendedTooltip name="СертификатПодключенияДатаОкончанияРасширеннаяПодсказка" id="1277"/>
+										</InputField>
 										<CheckBoxField name="ОтправлятьДокументыБезПодписиSMS" id="1146">
 											<DataPath>Объект.ОтправлятьДокументыБезПодписиSMS</DataPath>
 											<Title>
@@ -960,10 +807,10 @@
 													</Title>
 													<Group>Vertical</Group>
 													<Behavior>Usual</Behavior>
+													<Representation>WeakSeparation</Representation>
 													<ExtendedTooltip name="ГруппаСертификатыСбербанкРасширеннаяПодсказка" id="998"/>
 													<ChildItems>
 														<Table name="СертификатыПодписейОрганизации" id="999">
-															<SelectionMode>SingleRow</SelectionMode>
 															<RowSelectionMode>Cell</RowSelectionMode>
 															<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 															<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -1025,13 +872,16 @@
 															<ChildItems>
 																<LabelField name="СертификатыПодписейОрганизацииНомерСтроки" id="1012">
 																	<DataPath>Объект.СертификатыПодписейОрганизации.LineNumber</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
 																	<Width>2</Width>
 																	<ContextMenu name="СертификатыПодписейОрганизацииНомерСтрокиКонтекстноеМеню" id="1013"/>
 																	<ExtendedTooltip name="СертификатыПодписейОрганизацииНомерСтрокиРасширеннаяПодсказка" id="1014"/>
 																</LabelField>
 																<InputField name="СертификатыПодписейОрганизацииСертификат" id="1015">
 																	<DataPath>Объект.СертификатыПодписейОрганизации.СертификатЭП</DataPath>
-																	<AutoWidthInTable>None</AutoWidthInTable>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
 																	<ContextMenu name="СертификатыПодписейОрганизацииСертификатКонтекстноеМеню" id="1016"/>
 																	<ExtendedTooltip name="СертификатыПодписейОрганизацииСертификатРасширеннаяПодсказка" id="1017"/>
 																</InputField>
@@ -1063,10 +913,10 @@
 											</Title>
 											<Group>Vertical</Group>
 											<Behavior>Usual</Behavior>
+											<Representation>WeakSeparation</Representation>
 											<ExtendedTooltip name="ГруппаСертификатыОбработкаРасширеннаяПодсказка" id="630"/>
 											<ChildItems>
 												<Table name="СертификатыПодписейОрганизацииОбработка" id="631">
-													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 													<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -1128,13 +978,16 @@
 													<ChildItems>
 														<LabelField name="СертификатыПодписейОрганизацииНомерСтрокиОбработка" id="650">
 															<DataPath>Объект.СертификатыПодписейОрганизации.LineNumber</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<Width>2</Width>
 															<ContextMenu name="СертификатыПодписейОрганизацииНомерСтрокиОбработкаКонтекстноеМеню" id="651"/>
 															<ExtendedTooltip name="СертификатыПодписейОрганизацииНомерСтрокиОбработкаРасширеннаяПодсказка" id="652"/>
 														</LabelField>
 														<InputField name="СертификатыПодписейОрганизацииСертификатОбработка" id="656">
 															<DataPath>Объект.СертификатыПодписейОрганизации.СертификатЭП</DataPath>
-															<AutoWidthInTable>None</AutoWidthInTable>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="СертификатыПодписейОрганизацииСертификатОбработкаКонтекстноеМеню" id="657"/>
 															<ExtendedTooltip name="СертификатыПодписейОрганизацииСертификатОбработкаРасширеннаяПодсказка" id="658"/>
 														</InputField>
@@ -1201,7 +1054,7 @@
 								</InputField>
 								<LabelDecoration name="ПредупреждениеВерсииФормата" id="1152">
 									<MaxWidth>50</MaxWidth>
-									<TextColor>pal:Red</TextColor>
+									<TextColor>style:SpecialTextColor</TextColor>
 									<ContextMenu name="ПредупреждениеВерсииФорматаКонтекстноеМеню" id="1153"/>
 									<ExtendedTooltip name="ПредупреждениеВерсииФорматаРасширеннаяПодсказка" id="1154"/>
 								</LabelDecoration>
@@ -1211,7 +1064,8 @@
 							<CommandBarLocation>None</CommandBarLocation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
-							<SelectionMode>SingleRow</SelectionMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoMaxHeight>false</AutoMaxHeight>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -1237,6 +1091,7 @@
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
 								<ExcludedCommand>OutputList</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
 								<ExcludedCommand>SortListAsc</ExcludedCommand>
 								<ExcludedCommand>SortListDesc</ExcludedCommand>
 							</CommandSet>
@@ -1246,7 +1101,7 @@
 									<v8:content>В списке указаны виды электронных документов, которые может принимать выбранный банк. Список заполняется автоматически. Для различных банков перечень видов электронных документов может отличаться.</v8:content>
 								</v8:item>
 							</ToolTip>
-							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ИсходящиеДокументыКонтекстноеМеню" id="1089"/>
 							<AutoCommandBar name="ИсходящиеДокументыКоманднаяПанель" id="1090"/>
@@ -1288,6 +1143,14 @@
 								<InputField name="ИсходящиеДокументыИсходящийДокумент" id="1101">
 									<DataPath>Объект.ИсходящиеДокументы.ИсходящийДокумент</DataPath>
 									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вид электронного документа</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ИсходящиеДокументыИсходящийДокументКонтекстноеМеню" id="1102"/>
 									<ExtendedTooltip name="ИсходящиеДокументыИсходящийДокументРасширеннаяПодсказка" id="1103"/>
 								</InputField>
@@ -1301,25 +1164,13 @@
 											<v8:content>Используется подпись</v8:content>
 										</v8:item>
 									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ИсходящиеДокументыИспользоватьЭПКонтекстноеМеню" id="1105"/>
 									<ExtendedTooltip name="ИсходящиеДокументыИспользоватьЭПРасширеннаяПодсказка" id="1106"/>
 								</CheckBoxField>
 								<InputField name="ИсходящиеДокументыСпособПодтвержденияДокумента" id="1158">
 									<DataPath>Объект.ИсходящиеДокументы.СпособПодтвержденияДокумента</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Способ подтверждения</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Способ подтверждения документа</v8:content>
-										</v8:item>
-									</ToolTip>
-									<AutoWidthInTable>None</AutoWidthInTable>
-									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="ИсходящиеДокументыСпособПодтвержденияДокументаКонтекстноеМеню" id="1159"/>
 									<ExtendedTooltip name="ИсходящиеДокументыСпособПодтвержденияДокументаРасширеннаяПодсказка" id="1160"/>
 									<Events>
@@ -1336,6 +1187,8 @@
 								</InputField>
 								<InputField name="ИсходящиеДокументыМаршрутПодписания" id="1107">
 									<DataPath>Объект.ИсходящиеДокументы.МаршрутПодписания</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ИсходящиеДокументыМаршрутПодписанияКонтекстноеМеню" id="1108"/>
 									<ExtendedTooltip name="ИсходящиеДокументыМаршрутПодписанияРасширеннаяПодсказка" id="1109"/>
 									<Events>
@@ -1344,6 +1197,8 @@
 								</InputField>
 								<CheckBoxField name="ИсходящиеДокументыПодписыватьВБанке" id="1110">
 									<DataPath>Объект.ИсходящиеДокументы.ПодтвердитьВБанке</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ИсходящиеДокументыПодписыватьВБанкеКонтекстноеМеню" id="1111"/>
 									<ExtendedTooltip name="ИсходящиеДокументыПодписыватьВБанкеРасширеннаяПодсказка" id="1112"/>
 									<Events>
@@ -1410,7 +1265,6 @@
 							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
-							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<DataPath>СертификатыБанка</DataPath>
@@ -1424,6 +1278,8 @@
 								<ExcludedCommand>Find</ExcludedCommand>
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
+								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 								<ExcludedCommand>SortListAsc</ExcludedCommand>
 								<ExcludedCommand>SortListDesc</ExcludedCommand>
@@ -1491,7 +1347,698 @@
 						</Table>
 					</ChildItems>
 				</Page>
-				<Page name="СтраницаДополнительныеБанки" id="1416">
+				<Page name="СтраницаНастройкиАвтоматическойВыписки" id="1171">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автоматическая выписка</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаНастройкиАвтоматическойВыпискиРасширеннаяПодсказка" id="1172"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаАвтоматическоеПолучениеВыписки" id="1046">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Автоматическое получение выписки</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Параметры автоматического получения выписки</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Width>59</Width>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1047"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаДоступноАвтоматическоеПолучениеВыписки" id="1048">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Доступно автоматическое получение выписки</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>NormalSeparation</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДоступноАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1049">
+										<Title formatted="false">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>При включении загрузка выписки будет выполняться в фоновом режиме по выбранным ниже параметрам</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
+									<ChildItems>
+										<LabelDecoration name="ДляБанкаДоступноАвтоматическоеПолучениеВыписки" id="1050">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<TextColor>style:FormTextColor</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Доступно автоматическое получение выписки.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ДляБанкаДоступноАвтоматическоеПолучениеВыпискиКонтекстноеМеню" id="1051"/>
+											<ExtendedTooltip name="ДляБанкаДоступноАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1052"/>
+										</LabelDecoration>
+										<Button name="ВключитьАвтоматическоеПолучениеВыписки" id="1183">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.ВключитьАвтоматическоеПолучениеВыписки</CommandName>
+											<ExtendedTooltip name="ВключитьАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1184"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаЗапущеноАвтоматическоеПолучениеВыписки" id="1056">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Запущено автоматическое получение выписки</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>NormalSeparation</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаЗапущеноАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1057"/>
+									<ChildItems>
+										<LabelDecoration name="ЗапущеноАвтоматическоеПолучениеВыписки" id="1058">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<TextColor>style:FormTextColor</TextColor>
+											<Title formatted="true">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Включено автоматическое получение выписки банка.
+Последняя выписка получена: &lt;b&gt;&lt;i&gt;21 час назад&lt;/&gt;&lt;/&gt;</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ЗапущеноАвтоматическоеПолучениеВыпискиКонтекстноеМеню" id="1059"/>
+											<ExtendedTooltip name="ЗапущеноАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1060"/>
+										</LabelDecoration>
+										<Button name="ВыключитьАвтоматическоеПолучениеВыписки" id="1185">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.ВыключитьАвтоматическоеПолучениеВыписки</CommandName>
+											<ExtendedTooltip name="ВыключитьАвтоматическоеПолучениеВыпискиРасширеннаяПодсказка" id="1186"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаОшибкаБаннер" id="1187">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ошибка баннер</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<BackColor>style:ЦветФонаКрасныйСостояниеДокументаБЭД</BackColor>
+									<ExtendedTooltip name="ГруппаОшибкаБаннерРасширеннаяПодсказка" id="1188"/>
+									<ChildItems>
+										<LabelDecoration name="ТекстОшибкиБаннерНадпись" id="1189">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>В расписании заданы некорректные значения полей: "Дата начала", "Повторять каждые".  Обратитесь к Администратору.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ТекстОшибкиБаннерНадписьКонтекстноеМеню" id="1190"/>
+											<ExtendedTooltip name="ТекстОшибкиБаннерНадписьРасширеннаяПодсказка" id="1191"/>
+										</LabelDecoration>
+										<LabelDecoration name="ОшибкаВЖурналеРегистрации" id="1192">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Title formatted="true">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>При загрузке документов произошла ошибка. Подробнее в &lt;link ЖурналРегистрации&gt;Журнале регистрации&lt;/&gt;.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ОшибкаВЖурналеРегистрацииКонтекстноеМеню" id="1193"/>
+											<ExtendedTooltip name="ОшибкаВЖурналеРегистрацииРасширеннаяПодсказка" id="1194"/>
+											<Events>
+												<Event name="URLProcessing">ОшибкаВЖурналеРегистрацииОбработкаНавигационнойСсылки</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаПредупрежденияБаннер" id="1195">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа предупреждения баннер</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Group>AlwaysHorizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<BackColor>style:ToolTipBackColor</BackColor>
+									<ExtendedTooltip name="ГруппаПредупрежденияБаннерРасширеннаяПодсказка" id="1196"/>
+									<ChildItems>
+										<LabelDecoration name="ТекстПредупрежденияБаннерНадпись" id="1197">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>true</HorizontalStretch>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Выполнение задания отключено в следующие дни: Среда, Суббота.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ТекстПредупрежденияБаннерНадписьКонтекстноеМеню" id="1198"/>
+											<ExtendedTooltip name="ТекстПредупрежденияБаннерНадписьРасширеннаяПодсказка" id="1199"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаНастройкиАвтоматическойВыписки" id="1200">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройки автоматической выписки</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаНастройкиАвтоматическойВыпискиРасширеннаяПодсказка" id="1201"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаНастройкаРасписанияАвтоматическойВыписки" id="1202">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Расписание получения выписки</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<Representation>WeakSeparation</Representation>
+											<ExtendedTooltip name="ГруппаНастройкаРасписанияАвтоматическойВыпискиРасширеннаяПодсказка" id="1203"/>
+											<ChildItems>
+												<UsualGroup name="ГруппаСтандартнаяНастройкаАвтоматическойВыписки" id="1204">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа стандартная настройка автоматической выписки</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаСтандартнаяНастройкаАвтоматическойВыпискиРасширеннаяПодсказка" id="1205"/>
+													<ChildItems>
+														<RadioButtonField name="СтандартнаяНастройкаАвтоматическойВыписки" id="1206">
+															<DataPath>ВидНастройкиАвтоматическойВыписки</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<ToolTipRepresentation>None</ToolTipRepresentation>
+															<RadioButtonType>Auto</RadioButtonType>
+															<ChoiceList>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>Стандартная настройка</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xs:decimal">1</Value>
+																	</xr:Value>
+																</xr:Item>
+															</ChoiceList>
+															<ContextMenu name="СтандартнаяНастройкаАвтоматическойВыпискиКонтекстноеМеню" id="1207"/>
+															<ExtendedTooltip name="СтандартнаяНастройкаАвтоматическойВыпискиРасширеннаяПодсказка" id="1208"/>
+															<Events>
+																<Event name="OnChange">СтандартнаяНастройкаАвтоматическойВыпискиПриИзменении</Event>
+															</Events>
+														</RadioButtonField>
+														<LabelDecoration name="ПодсказкаСтандартнаяНастройкаАвтоматическойВыписки" id="1209">
+															<Width>53</Width>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Загрузка выписки будет происходить 1 раз в час. В такие выписки включаются операции с момента последней загрузки по текущее время.</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTipRepresentation>None</ToolTipRepresentation>
+															<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+															<ContextMenu name="ПодсказкаСтандартнаяНастройкаАвтоматическойВыпискиКонтекстноеМеню" id="1210"/>
+															<ExtendedTooltip name="ПодсказкаСтандартнаяНастройкаАвтоматическойВыпискиРасширеннаяПодсказка" id="1211"/>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаРасширеннаяНастройкаРасписанияАвтоматическойВыписки" id="1212">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа расширенная настройка расписания автоматической выписки</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаРасширеннаяНастройкаРасписанияАвтоматическойВыпискиРасширеннаяПодсказка" id="1213"/>
+													<ChildItems>
+														<RadioButtonField name="РасширеннаяНастройкаАвтоматическойВыписки" id="1214">
+															<DataPath>ВидНастройкиАвтоматическойВыписки</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+															<RadioButtonType>Auto</RadioButtonType>
+															<ChoiceList>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>Расширенная настройка</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xs:decimal">2</Value>
+																	</xr:Value>
+																</xr:Item>
+															</ChoiceList>
+															<ContextMenu name="РасширеннаяНастройкаАвтоматическойВыпискиКонтекстноеМеню" id="1215"/>
+															<ExtendedTooltip name="РасширеннаяНастройкаАвтоматическойВыпискиРасширеннаяПодсказка" id="1216">
+																<AutoMaxWidth>false</AutoMaxWidth>
+																<MaxWidth>59</MaxWidth>
+																<Title formatted="false">
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Позволяет отслеживать движение денег за текущий или прошедший день по выбранному расписанию. Если планируется оценивать все прошедшие операции за день и держать на контроле исполнение срочных платежей, рекомендуем выбрать получение и промежуточной, и итоговой выписок.</v8:content>
+																	</v8:item>
+																</Title>
+															</ExtendedTooltip>
+															<Events>
+																<Event name="OnChange">РасширеннаяНастройкаАвтоматическойВыпискиПриИзменении</Event>
+															</Events>
+														</RadioButtonField>
+														<UsualGroup name="ГруппаРасширеннаяНастройкаРасписанияАвтоматическойВыпискиСОтступом" id="1217">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа расширенная настройка расписания автоматической выписки с отступом</v8:content>
+																</v8:item>
+															</Title>
+															<Group>AlwaysHorizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаРасширеннаяНастройкаРасписанияАвтоматическойВыпискиСОтступомРасширеннаяПодсказка" id="1218"/>
+															<ChildItems>
+																<LabelDecoration name="ДекорацияОтступРасширеннаяНастройкаРасписанияАвтоматическойВыписки" id="1219">
+																	<Width>1</Width>
+																	<ContextMenu name="ДекорацияОтступРасширеннаяНастройкаРасписанияАвтоматическойВыпискиКонтекстноеМеню" id="1220"/>
+																	<ExtendedTooltip name="ДекорацияОтступРасширеннаяНастройкаРасписанияАвтоматическойВыпискиРасширеннаяПодсказка" id="1221"/>
+																</LabelDecoration>
+																<UsualGroup name="ГруппаРасширеннаяНастройкаРасписанияАвтоматическойВыпискиОбщая" id="1222">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа расширенная настройка расписания автоматической выписки с отступом</v8:content>
+																		</v8:item>
+																	</Title>
+																	<Group>HorizontalIfPossible</Group>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаРасширеннаяНастройкаРасписанияАвтоматическойВыпискиОбщаяРасширеннаяПодсказка" id="1223"/>
+																	<ChildItems>
+																		<UsualGroup name="ГруппаПромежуточнаяВыпискаВключена" id="1224">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа промежуточная выписка включена</v8:content>
+																				</v8:item>
+																			</Title>
+																			<Group>Vertical</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаПромежуточнаяВыпискаВключенаРасширеннаяПодсказка" id="1225"/>
+																			<ChildItems>
+																				<CheckBoxField name="ПромежуточнаяВыпискаВключена" id="1226">
+																					<DataPath>ПромежуточнаяВыпискаВключена</DataPath>
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Промежуточная выписка</v8:content>
+																						</v8:item>
+																					</Title>
+																					<TitleLocation>Right</TitleLocation>
+																					<ToolTipRepresentation>Button</ToolTipRepresentation>
+																					<ContextMenu name="ПромежуточнаяВыпискаВключенаКонтекстноеМеню" id="1227"/>
+																					<ExtendedTooltip name="ПромежуточнаяВыпискаВключенаРасширеннаяПодсказка" id="1228">
+																						<Width>53</Width>
+																						<AutoMaxWidth>false</AutoMaxWidth>
+																						<Title formatted="false">
+																							<v8:item>
+																								<v8:lang>ru</v8:lang>
+																								<v8:content>Загрузка банковских данных за текущий день в указанном промежутке времени и с выбранной регулярностью.
+Например, если установлена загрузка промежуточной выписки с 10:00 до 19:00 каждые 60 минут, 
+то каждый день первый запуск загрузки промежуточной выписки будет выполняться в 10:00, затем повторится в 11:00, 12:00 и т.д.
+В 19:00 совершится последняя за день загрузка промежуточной выписки.</v8:content>
+																							</v8:item>
+																						</Title>
+																					</ExtendedTooltip>
+																					<Events>
+																						<Event name="OnChange">ПромежуточнаяВыпискаВключенаПриИзменении</Event>
+																					</Events>
+																				</CheckBoxField>
+																				<LabelDecoration name="ДекорацияПромежуточнаяВыпискаВключена" id="1229">
+																					<Width>53</Width>
+																					<Title formatted="false">
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Для загрузки банковских данных за текущий день. При этом в ней может отсутствовать информация, которую банк обрабатывает в конце дня.</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ContextMenu name="ДекорацияПромежуточнаяВыпискаВключенаКонтекстноеМеню" id="1230"/>
+																					<ExtendedTooltip name="ДекорацияПромежуточнаяВыпискаВключенаРасширеннаяПодсказка" id="1231"/>
+																				</LabelDecoration>
+																			</ChildItems>
+																		</UsualGroup>
+																		<UsualGroup name="ГруппаНастройкиПромежуточнойВыписки" id="1232">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа настройки промежуточной выписки</v8:content>
+																				</v8:item>
+																			</Title>
+																			<Group>AlwaysHorizontal</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаНастройкиПромежуточнойВыпискиРасширеннаяПодсказка" id="1233"/>
+																			<ChildItems>
+																				<LabelDecoration name="ДекорацияОтступНастройкиПромежуточнойВыписки" id="1234">
+																					<Width>1</Width>
+																					<ContextMenu name="ДекорацияОтступНастройкиПромежуточнойВыпискиКонтекстноеМеню" id="1235"/>
+																					<ExtendedTooltip name="ДекорацияОтступНастройкиПромежуточнойВыпискиРасширеннаяПодсказка" id="1236"/>
+																				</LabelDecoration>
+																				<UsualGroup name="ГруппаВремяПромежуточнойВыписки" id="1237">
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа время промежуточной выписки</v8:content>
+																						</v8:item>
+																					</Title>
+																					<Group>AlwaysHorizontal</Group>
+																					<ChildrenAlign>None</ChildrenAlign>
+																					<Representation>None</Representation>
+																					<ShowTitle>false</ShowTitle>
+																					<ExtendedTooltip name="ГруппаВремяПромежуточнойВыпискиРасширеннаяПодсказка" id="1238"/>
+																					<ChildItems>
+																						<InputField name="ПромежуточнаяВыпискаВремяНачала" id="1239">
+																							<DataPath>ПромежуточнаяВыпискаВремяНачала</DataPath>
+																							<Title>
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>С</v8:content>
+																								</v8:item>
+																							</Title>
+																							<TitleLocation>Left</TitleLocation>
+																							<AutoMaxWidth>false</AutoMaxWidth>
+																							<MaxWidth>7</MaxWidth>
+																							<DropListButton>true</DropListButton>
+																							<ChoiceButton>false</ChoiceButton>
+																							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+																							<EditFormat>
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>ДФ=HH:mm; ДП=00:00</v8:content>
+																								</v8:item>
+																							</EditFormat>
+																							<ContextMenu name="ПромежуточнаяВыпискаВремяНачалаКонтекстноеМеню" id="1240"/>
+																							<ExtendedTooltip name="ПромежуточнаяВыпискаВремяНачалаРасширеннаяПодсказка" id="1241"/>
+																							<Events>
+																								<Event name="OnChange">ПромежуточнаяВыпискаВремяНачалаПриИзменении</Event>
+																							</Events>
+																						</InputField>
+																						<InputField name="ПромежуточнаяВыпискаВремяКонца" id="1242">
+																							<DataPath>ПромежуточнаяВыпискаВремяКонца</DataPath>
+																							<Title>
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>по</v8:content>
+																								</v8:item>
+																							</Title>
+																							<TitleLocation>Left</TitleLocation>
+																							<AutoMaxWidth>false</AutoMaxWidth>
+																							<MaxWidth>7</MaxWidth>
+																							<DropListButton>true</DropListButton>
+																							<ChoiceButton>false</ChoiceButton>
+																							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+																							<EditFormat>
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>ДФ=HH:mm; ДП=00:00</v8:content>
+																								</v8:item>
+																							</EditFormat>
+																							<ContextMenu name="ПромежуточнаяВыпискаВремяКонцаКонтекстноеМеню" id="1243"/>
+																							<ExtendedTooltip name="ПромежуточнаяВыпискаВремяКонцаРасширеннаяПодсказка" id="1244"/>
+																							<Events>
+																								<Event name="OnChange">ПромежуточнаяВыпискаВремяКонцаПриИзменении</Event>
+																							</Events>
+																						</InputField>
+																						<InputField name="ИнтервалЗапускаПромежуточнойВыписки" id="1245">
+																							<DataPath>ПромежуточнаяВыпискаИнтервалЗапуска</DataPath>
+																							<Title>
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>каждые</v8:content>
+																								</v8:item>
+																							</Title>
+																							<TitleLocation>Left</TitleLocation>
+																							<AutoMaxWidth>false</AutoMaxWidth>
+																							<MaxWidth>5</MaxWidth>
+																							<SpinButton>true</SpinButton>
+																							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+																							<MinValue xsi:type="xs:decimal">10</MinValue>
+																							<ContextMenu name="ИнтервалЗапускаПромежуточнойВыпискиКонтекстноеМеню" id="1246"/>
+																							<ExtendedTooltip name="ИнтервалЗапускаПромежуточнойВыпискиРасширеннаяПодсказка" id="1247"/>
+																							<Events>
+																								<Event name="OnChange">ИнтервалЗапускаПромежуточнойВыпискиПриИзменении</Event>
+																							</Events>
+																						</InputField>
+																						<LabelDecoration name="ЕдиницаИзмеренияИнтервалаПромежуточнойВыписки" id="1248">
+																							<Title formatted="false">
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>минут</v8:content>
+																								</v8:item>
+																							</Title>
+																							<ContextMenu name="ЕдиницаИзмеренияИнтервалаПромежуточнойВыпискиКонтекстноеМеню" id="1249"/>
+																							<ExtendedTooltip name="ЕдиницаИзмеренияИнтервалаПромежуточнойВыпискиРасширеннаяПодсказка" id="1250"/>
+																						</LabelDecoration>
+																					</ChildItems>
+																				</UsualGroup>
+																			</ChildItems>
+																		</UsualGroup>
+																		<UsualGroup name="ГруппаИтоговаяВыпискаВключена" id="1251">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа итоговая выписка включена</v8:content>
+																				</v8:item>
+																			</Title>
+																			<Group>Vertical</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаИтоговаяВыпискаВключенаРасширеннаяПодсказка" id="1252"/>
+																			<ChildItems>
+																				<CheckBoxField name="ИтоговаяВыпискаВключена" id="1253">
+																					<DataPath>ИтоговаяВыпискаВключена</DataPath>
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Итоговая выписка</v8:content>
+																						</v8:item>
+																					</Title>
+																					<TitleLocation>Right</TitleLocation>
+																					<ToolTipRepresentation>None</ToolTipRepresentation>
+																					<ContextMenu name="ИтоговаяВыпискаВключенаКонтекстноеМеню" id="1254"/>
+																					<ExtendedTooltip name="ИтоговаяВыпискаВключенаРасширеннаяПодсказка" id="1255">
+																						<AutoMaxWidth>false</AutoMaxWidth>
+																						<MaxWidth>53</MaxWidth>
+																					</ExtendedTooltip>
+																					<Events>
+																						<Event name="OnChange">ИтоговаяВыпискаВключенаПриИзменении</Event>
+																					</Events>
+																				</CheckBoxField>
+																				<LabelDecoration name="ДекорацияИтоговаяВыпискаВключена" id="1256">
+																					<Width>53</Width>
+																					<Title formatted="false">
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Загрузка банковских данных после завершения банковского дня, совершается в установленное время за предыдущий день.
+Если последняя итоговая выписка была получена два дня назад, то выписка будет загружена за оба прошедших дня.</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ContextMenu name="ДекорацияИтоговаяВыпискаВключенаКонтекстноеМеню" id="1257"/>
+																					<ExtendedTooltip name="ДекорацияИтоговаяВыпискаВключенаРасширеннаяПодсказка" id="1258"/>
+																				</LabelDecoration>
+																			</ChildItems>
+																		</UsualGroup>
+																		<UsualGroup name="ГруппаВремяИтоговойВыписки" id="1259">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа время итоговой выписки</v8:content>
+																				</v8:item>
+																			</Title>
+																			<Group>HorizontalIfPossible</Group>
+																			<ChildrenAlign>None</ChildrenAlign>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаВремяИтоговойВыпискиРасширеннаяПодсказка" id="1260"/>
+																			<ChildItems>
+																				<LabelDecoration name="ДекорацияОтступВремяИтоговойВыписки" id="1261">
+																					<Width>1</Width>
+																					<ContextMenu name="ДекорацияОтступВремяИтоговойВыпискиКонтекстноеМеню" id="1262"/>
+																					<ExtendedTooltip name="ДекорацияОтступВремяИтоговойВыпискиРасширеннаяПодсказка" id="1263"/>
+																				</LabelDecoration>
+																				<InputField name="ИтоговаяВыпискаВремяНачала" id="1264">
+																					<DataPath>ИтоговаяВыпискаВремяНачала</DataPath>
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Выполнить в</v8:content>
+																						</v8:item>
+																					</Title>
+																					<TitleLocation>Left</TitleLocation>
+																					<AutoMaxWidth>false</AutoMaxWidth>
+																					<MaxWidth>7</MaxWidth>
+																					<DropListButton>true</DropListButton>
+																					<ChoiceButton>false</ChoiceButton>
+																					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+																					<EditFormat>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>ДФ=HH:mm; ДП=00:00</v8:content>
+																						</v8:item>
+																					</EditFormat>
+																					<ContextMenu name="ИтоговаяВыпискаВремяНачалаКонтекстноеМеню" id="1265"/>
+																					<ExtendedTooltip name="ИтоговаяВыпискаВремяНачалаРасширеннаяПодсказка" id="1266"/>
+																					<Events>
+																						<Event name="OnChange">ИтоговаяВыпискаВремяНачалаПриИзменении</Event>
+																					</Events>
+																				</InputField>
+																			</ChildItems>
+																		</UsualGroup>
+																	</ChildItems>
+																</UsualGroup>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаПараметрыЗагрузкиАвтоматическойВыписки" id="1267">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Параметры загрузки документов</v8:content>
+												</v8:item>
+											</Title>
+											<Width>10</Width>
+											<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+											<Group>Vertical</Group>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<Representation>WeakSeparation</Representation>
+											<ExtendedTooltip name="ГруппаПараметрыЗагрузкиАвтоматическойВыпискиРасширеннаяПодсказка" id="1268"/>
+											<ChildItems>
+												<CheckBoxField name="СоздаватьОтсутствующиеЭлементы" id="1269">
+													<DataPath>СоздаватьОтсутствующиеЭлементы</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+													<ContextMenu name="СоздаватьОтсутствующиеЭлементыКонтекстноеМеню" id="1270"/>
+													<ExtendedTooltip name="СоздаватьОтсутствующиеЭлементыРасширеннаяПодсказка" id="1271">
+														<Title formatted="false">
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Отсутствующие в документах элементы справочников контрагентов, банковских счетов и других будут созданы автоматически</v8:content>
+															</v8:item>
+														</Title>
+													</ExtendedTooltip>
+													<Events>
+														<Event name="OnChange">СоздаватьОтсутствующиеЭлементыПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<CheckBoxField name="ПроводитьДокументы" id="1272">
+													<DataPath>ПроводитьДокументы</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+													<ContextMenu name="ПроводитьДокументыКонтекстноеМеню" id="1273"/>
+													<ExtendedTooltip name="ПроводитьДокументыРасширеннаяПодсказка" id="1274">
+														<Title formatted="false">
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>При автоматической загрузке выписки созданные документы будут проведены</v8:content>
+															</v8:item>
+														</Title>
+													</ExtendedTooltip>
+													<Events>
+														<Event name="OnChange">ПроводитьДокументыПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаНеПоддерживаетАвтоматическуюВыписку" id="1173">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа не поддерживает автоматическую выписку</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНеПоддерживаетАвтоматическуюВыпискуРасширеннаяПодсказка" id="1174"/>
+							<ChildItems>
+								<LabelDecoration name="НадписьОбратитесьВБанкЧерезПисьмо" id="1175">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content> не поддерживает автоматическую загрузку выписки через сервис 1С:ДиректБанк.
+Для уточнения возможности подключения отправьте запрос в банк из 1С или скопируйте шаблон, чтобы отправить письмо через другой почтовый клиент.
+</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="НадписьОбратитесьВБанкЧерезПисьмоКонтекстноеМеню" id="1176"/>
+									<ExtendedTooltip name="НадписьОбратитесьВБанкЧерезПисьмоРасширеннаяПодсказка" id="1177"/>
+								</LabelDecoration>
+								<Button name="ОтправитьПисьмоПоАвтоматическойВыписке" id="1178">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.ОтправитьПисьмоПоАвтоматическойВыписке</CommandName>
+									<ExtendedTooltip name="ОтправитьПисьмоПоАвтоматическойВыпискеРасширеннаяПодсказка" id="1179"/>
+								</Button>
+								<InputField name="ШаблонПисьмаАвтоматическойВыписки" id="1180">
+									<DataPath>ШаблонПисьмаАвтоматическойВыписки</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MultiLine>true</MultiLine>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ШаблонПисьмаАвтоматическойВыпискиКонтекстноеМеню" id="1181"/>
+									<ExtendedTooltip name="ШаблонПисьмаАвтоматическойВыпискиРасширеннаяПодсказка" id="1182"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаДополнительныеБанки" id="1278">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1500,9 +2047,9 @@
 					</Title>
 					<Group>Vertical</Group>
 					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаДополнительныеБанкиРасширеннаяПодсказка" id="1417"/>
+					<ExtendedTooltip name="СтраницаДополнительныеБанкиРасширеннаяПодсказка" id="1279"/>
 					<ChildItems>
-						<LabelDecoration name="ДекорацияОписаниеСпискаДополнительныхБанков" id="1418">
+						<LabelDecoration name="ДекорацияОписаниеСпискаДополнительныхБанков" id="1280">
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<Title formatted="false">
 								<v8:item>
@@ -1510,76 +2057,74 @@
 									<v8:content>Список банков, по которым доступна загрузка банковских выписок через текущую настройку</v8:content>
 								</v8:item>
 							</Title>
-							<ContextMenu name="ДекорацияОписаниеСпискаДополнительныхБанковКонтекстноеМеню" id="1419"/>
-							<ExtendedTooltip name="ДекорацияОписаниеСпискаДополнительныхБанковРасширеннаяПодсказка" id="1420"/>
+							<ContextMenu name="ДекорацияОписаниеСпискаДополнительныхБанковКонтекстноеМеню" id="1281"/>
+							<ExtendedTooltip name="ДекорацияОписаниеСпискаДополнительныхБанковРасширеннаяПодсказка" id="1282"/>
 						</LabelDecoration>
-						<Table name="ДополнительныеБанки" id="1421">
+						<Table name="ДополнительныеБанки" id="1283">
 							<ReadOnly>true</ReadOnly>
-							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
-							<RowActionsShowType>DontShow</RowActionsShowType>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>Объект.ДополнительныеБанки</DataPath>
 							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="ДополнительныеБанкиКонтекстноеМеню" id="1422"/>
-							<AutoCommandBar name="ДополнительныеБанкиКоманднаяПанель" id="1423">
+							<ContextMenu name="ДополнительныеБанкиКонтекстноеМеню" id="1284"/>
+							<AutoCommandBar name="ДополнительныеБанкиКоманднаяПанель" id="1285">
 								<Autofill>false</Autofill>
 								<ChildItems>
-									<Button name="ДополнительныеБанкиДобавитьБанк" id="1450">
+									<Button name="ДополнительныеБанкиДобавитьБанк" id="1302">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.ДобавитьБанк</CommandName>
-										<ExtendedTooltip name="ДополнительныеБанкиДобавитьБанкРасширеннаяПодсказка" id="1451"/>
+										<ExtendedTooltip name="ДополнительныеБанкиДобавитьБанкРасширеннаяПодсказка" id="1303"/>
 									</Button>
-									<Button name="ДополнительныеБанкиУдалитьБанк" id="1452">
+									<Button name="ДополнительныеБанкиУдалитьБанк" id="1304">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.УдалитьБанк</CommandName>
-										<ExtendedTooltip name="ДополнительныеБанкиУдалитьБанкРасширеннаяПодсказка" id="1453"/>
+										<ExtendedTooltip name="ДополнительныеБанкиУдалитьБанкРасширеннаяПодсказка" id="1305"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
-							<ExtendedTooltip name="ДополнительныеБанкиРасширеннаяПодсказка" id="1424"/>
-							<SearchStringAddition name="ДополнительныеБанкиСтрокаПоиска" id="1425">
+							<ExtendedTooltip name="ДополнительныеБанкиРасширеннаяПодсказка" id="1286"/>
+							<SearchStringAddition name="ДополнительныеБанкиСтрокаПоиска" id="1287">
 								<AdditionSource>
 									<Item>ДополнительныеБанки</Item>
 									<Type>SearchStringRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="ДополнительныеБанкиСтрокаПоискаКонтекстноеМеню" id="1426"/>
-								<ExtendedTooltip name="ДополнительныеБанкиСтрокаПоискаРасширеннаяПодсказка" id="1427"/>
+								<ContextMenu name="ДополнительныеБанкиСтрокаПоискаКонтекстноеМеню" id="1288"/>
+								<ExtendedTooltip name="ДополнительныеБанкиСтрокаПоискаРасширеннаяПодсказка" id="1289"/>
 							</SearchStringAddition>
-							<ViewStatusAddition name="ДополнительныеБанкиСостояниеПросмотра" id="1428">
+							<ViewStatusAddition name="ДополнительныеБанкиСостояниеПросмотра" id="1290">
 								<AdditionSource>
 									<Item>ДополнительныеБанки</Item>
 									<Type>ViewStatusRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="ДополнительныеБанкиСостояниеПросмотраКонтекстноеМеню" id="1429"/>
-								<ExtendedTooltip name="ДополнительныеБанкиСостояниеПросмотраРасширеннаяПодсказка" id="1430"/>
+								<ContextMenu name="ДополнительныеБанкиСостояниеПросмотраКонтекстноеМеню" id="1291"/>
+								<ExtendedTooltip name="ДополнительныеБанкиСостояниеПросмотраРасширеннаяПодсказка" id="1292"/>
 							</ViewStatusAddition>
-							<SearchControlAddition name="ДополнительныеБанкиУправлениеПоиском" id="1431">
+							<SearchControlAddition name="ДополнительныеБанкиУправлениеПоиском" id="1293">
 								<AdditionSource>
 									<Item>ДополнительныеБанки</Item>
 									<Type>SearchControl</Type>
 								</AdditionSource>
-								<ContextMenu name="ДополнительныеБанкиУправлениеПоискомКонтекстноеМеню" id="1432"/>
-								<ExtendedTooltip name="ДополнительныеБанкиУправлениеПоискомРасширеннаяПодсказка" id="1433"/>
+								<ContextMenu name="ДополнительныеБанкиУправлениеПоискомКонтекстноеМеню" id="1294"/>
+								<ExtendedTooltip name="ДополнительныеБанкиУправлениеПоискомРасширеннаяПодсказка" id="1295"/>
 							</SearchControlAddition>
 							<ChildItems>
-								<LabelField name="ДополнительныеБанкиНомерСтроки" id="1442">
+								<LabelField name="ДополнительныеБанкиНомерСтроки" id="1296">
 									<DataPath>Объект.ДополнительныеБанки.LineNumber</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ДополнительныеБанкиНомерСтрокиКонтекстноеМеню" id="1443"/>
-									<ExtendedTooltip name="ДополнительныеБанкиНомерСтрокиРасширеннаяПодсказка" id="1444"/>
+									<ContextMenu name="ДополнительныеБанкиНомерСтрокиКонтекстноеМеню" id="1297"/>
+									<ExtendedTooltip name="ДополнительныеБанкиНомерСтрокиРасширеннаяПодсказка" id="1298"/>
 								</LabelField>
-								<InputField name="ДополнительныеБанкиБанк" id="1446">
+								<InputField name="ДополнительныеБанкиБанк" id="1299">
 									<DataPath>Объект.ДополнительныеБанки.Банк</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-									<ContextMenu name="ДополнительныеБанкиБанкКонтекстноеМеню" id="1447"/>
-									<ExtendedTooltip name="ДополнительныеБанкиБанкРасширеннаяПодсказка" id="1448"/>
+									<ContextMenu name="ДополнительныеБанкиБанкКонтекстноеМеню" id="1300"/>
+									<ExtendedTooltip name="ДополнительныеБанкиБанкРасширеннаяПодсказка" id="1301"/>
 								</InputField>
 							</ChildItems>
 						</Table>
@@ -1864,7 +2409,7 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ДоступностьПунктаУдаленияПароля" id="2">
+		<Attribute name="ДоступностьПунктаУдаленияПароля" id="23">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1875,7 +2420,234 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ДоступноПолучениеВыписокИзДругихБанков" id="3">
+		<Attribute name="ИспользуютсяДепозиты" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используются депозиты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидНастройкиАвтоматическойВыписки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид настройки автоматической выписки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПромежуточнаяВыпискаВключена" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Промежуточная выписка включена</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПромежуточнаяВыпискаВремяКонца" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Промежуточная выписка время конца</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПромежуточнаяВыпискаВремяНачала" id="11">
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПромежуточнаяВыпискаИнтервалЗапуска" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Промежуточная выписка интервал запуска</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ИтоговаяВыпискаВключена" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итоговая выписка включена</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ИтоговаяВыпискаВремяНачала" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итоговая выписка время начала</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ЕстьИзмененияВНастройкахАвтоматическойВыписки" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть изменения в настройках автоматической выписки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЕстьИзмененияВПараметрахЗагрузкиДокументов" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть изменения в параметрах загрузки документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИзмененаИтоговаяВыписка" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменена итоговая выписка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИзмененаПромежуточнаяВыписка" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменена промежуточная выписка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СоздаватьОтсутствующиеЭлементы" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создавать отсутствующие элементы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПроводитьДокументы" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проводить документы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ШаблонПисьмаАвтоматическойВыписки" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шаблон письма автоматической выписки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаСинхронизацииАвтоматическогоПолученияВыписки" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата синхронизации автоматического получения выписки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДоступнаНастройкаПроводитьДокументы" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доступна настройка "Проводить документы"</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДоступнаНастройкаСоздаватьОтсутствующиеЭлементы" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доступна настройка "Создавать отсутствующие элементы"</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДоступноПолучениеВыписокИзДругихБанков" id="29">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1886,7 +2658,7 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="БанкиДляЗагрузкиВыписки" id="7">
+		<Attribute name="БанкиДляЗагрузкиВыписки" id="30">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1897,6 +2669,17 @@
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
 			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+		<Attribute name="ЭтоМобильныйКлиент" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это мобильный клиент</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
 		</Attribute>
 	</Attributes>
 	<Commands>
@@ -1930,12 +2713,7 @@
 					<v8:content>Тест настроек</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Parameters</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ТестНастроек</Action>
-			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ОткрытьДополнительныеПараметры" id="4">
@@ -1989,7 +2767,6 @@
 			<Action>ЗаписатьИЗакрыть</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ДобавитьСертификатБанка" id="8">
 			<Title>
@@ -2000,7 +2777,7 @@
 			</Title>
 			<Action>ДобавитьСертификатБанка</Action>
 		</Command>
-		<Command name="УдалитьСохраненныйПароль" id="6">
+		<Command name="УдалитьСохраненныйПароль" id="9">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -2009,7 +2786,67 @@
 			</Title>
 			<Action>УдалитьСохраненныйПароль</Action>
 		</Command>
-		<Command name="ДобавитьБанк" id="7">
+		<Command name="ОчиститьПредложенияБанкаПоДепозитам" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить предложения банка по депозитам</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить предложения банка по депозитам</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОчиститьПредложенияБанкаПоДепозитам</Action>
+		</Command>
+		<Command name="ВключитьАвтоматическоеПолучениеВыписки" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить автоматическое получение выписки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВключитьАвтоматическоеПолучениеВыписки</Action>
+		</Command>
+		<Command name="ВыключитьАвтоматическоеПолучениеВыписки" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выключить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выключить автоматическое получение выписки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыключитьАвтоматическоеПолучениеВыписки</Action>
+		</Command>
+		<Command name="ОтправитьПисьмоПоАвтоматическойВыписке" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подготовить письмо</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить письмо по автоматической выписке</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтправитьПисьмоПоАвтоматическойВыписке</Action>
+		</Command>
+		<Command name="ДобавитьБанк" id="12">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -2018,7 +2855,7 @@
 			</Title>
 			<Action>ДобавитьБанк</Action>
 		</Command>
-		<Command name="УдалитьБанк" id="9">
+		<Command name="УдалитьБанк" id="13">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>

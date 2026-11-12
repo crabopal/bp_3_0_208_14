@@ -41,6 +41,18 @@
 			<Popup name="ГруппаКонтекстныхПодсказок" id="237">
 				<ExtendedTooltip name="ГруппаКонтекстныхПодсказокРасширеннаяПодсказка" id="238"/>
 			</Popup>
+			<Button name="ПереходВЦентрЭДО" id="255">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПереходВЦентрЭДО</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ПереходВЦентрЭДОРасширеннаяПодсказка" id="256"/>
+			</Button>
+			<Button name="ПереносДокументовВЦентрЭДО" id="272">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПереносДокументовВЦентрЭДО</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ПереносДокументовВЦентрЭДОРасширеннаяПодсказка" id="273"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -52,6 +64,7 @@
 		<Event name="BeforeClose">ПередЗакрытием</Event>
 		<Event name="BeforeWrite">ПередЗаписью</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<UsualGroup name="ПанельКонтекстныхНовостей" id="214">
@@ -70,6 +83,52 @@
 			<ShowTitle>false</ShowTitle>
 			<BackColor>style:ToolTipBackColor</BackColor>
 			<ExtendedTooltip name="ПанельКонтекстныхНовостейРасширеннаяПодсказка" id="215"/>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПереходВЦентрЭДО" id="257">
+			<Visible>false</Visible>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа переход в центр ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>HorizontalIfPossible</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ToolTipBackColor</BackColor>
+			<ExtendedTooltip name="ГруппаПереходВЦентрЭДОРасширеннаяПодсказка" id="258"/>
+			<ChildItems>
+				<PictureDecoration name="КартинкаПереходВЦентрЭДО" id="259">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка переход в центр ЭДО</v8:content>
+						</v8:item>
+					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<Picture>
+						<xr:Ref>CommonPicture.ПапкаОблачногоСервиса</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="КартинкаПереходВЦентрЭДОКонтекстноеМеню" id="260"/>
+					<ExtendedTooltip name="КартинкаПереходВЦентрЭДОРасширеннаяПодсказка" id="261"/>
+				</PictureDecoration>
+				<LabelDecoration name="НадписьПереходВЦентрЭДО" id="262">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние выгрузки в центр ЭДО: &lt;link ОткрытьСостояниеВыгрузки&gt;Выгружено 33%&lt;/&gt;</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьПереходВЦентрЭДОКонтекстноеМеню" id="263"/>
+					<ExtendedTooltip name="НадписьПереходВЦентрЭДОРасширеннаяПодсказка" id="264"/>
+					<Events>
+						<Event name="URLProcessing">НадписьПереходВЦентрЭДООбработкаНавигационнойСсылки</Event>
+					</Events>
+				</LabelDecoration>
+			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаПредупреждения" id="204">
 			<Visible>false</Visible>
@@ -676,6 +735,7 @@
 											<ChildItems>
 												<InputField name="НазначениеУчетнойЗаписи" id="66">
 													<DataPath>Запись.НазначениеУчетнойЗаписи</DataPath>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMaxWidth>false</AutoMaxWidth>
 													<Height>3</Height>
 													<AutoMaxHeight>false</AutoMaxHeight>
@@ -695,6 +755,82 @@
 														<Event name="OnChange">НазначениеУчетнойЗаписиПриИзменении</Event>
 													</Events>
 												</InputField>
+												<Table name="КодыТиповДокументов" id="296">
+													<Representation>List</Representation>
+													<TitleLocation>Top</TitleLocation>
+													<ChangeRowSet>false</ChangeRowSet>
+													<ChangeRowOrder>false</ChangeRowOrder>
+													<HeightInTableRows>3</HeightInTableRows>
+													<AutoMaxRowsCount>false</AutoMaxRowsCount>
+													<MaxRowsCount>3</MaxRowsCount>
+													<RowSelectionMode>Cell</RowSelectionMode>
+													<Header>false</Header>
+													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+													<AutoInsertNewRow>true</AutoInsertNewRow>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<DataPath>КодыТиповДокументов</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Для документов</v8:content>
+														</v8:item>
+													</Title>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="КодыТиповДокументовКонтекстноеМеню" id="298"/>
+													<AutoCommandBar name="КодыТиповДокументовКоманднаяПанель" id="297">
+														<Autofill>false</Autofill>
+													</AutoCommandBar>
+													<ExtendedTooltip name="КодыТиповДокументовРасширеннаяПодсказка" id="299"/>
+													<SearchStringAddition name="КодыТиповДокументовСтрокаПоиска" id="300">
+														<AdditionSource>
+															<Item>КодыТиповДокументов</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="КодыТиповДокументовСтрокаПоискаКонтекстноеМеню" id="301"/>
+														<ExtendedTooltip name="КодыТиповДокументовСтрокаПоискаРасширеннаяПодсказка" id="302"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="КодыТиповДокументовСостояниеПросмотра" id="306">
+														<AdditionSource>
+															<Item>КодыТиповДокументов</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="КодыТиповДокументовСостояниеПросмотраКонтекстноеМеню" id="307"/>
+														<ExtendedTooltip name="КодыТиповДокументовСостояниеПросмотраРасширеннаяПодсказка" id="308"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="КодыТиповДокументовУправлениеПоиском" id="303">
+														<AdditionSource>
+															<Item>КодыТиповДокументов</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="КодыТиповДокументовУправлениеПоискомКонтекстноеМеню" id="304"/>
+														<ExtendedTooltip name="КодыТиповДокументовУправлениеПоискомРасширеннаяПодсказка" id="305"/>
+													</SearchControlAddition>
+													<ChildItems>
+														<CheckBoxField name="КодыТиповДокументовИспользуется" id="309">
+															<DataPath>КодыТиповДокументов.Используется</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<ContextMenu name="КодыТиповДокументовИспользуетсяКонтекстноеМеню" id="310"/>
+															<ExtendedTooltip name="КодыТиповДокументовИспользуетсяРасширеннаяПодсказка" id="311"/>
+															<Events>
+																<Event name="OnChange">КодыТиповДокументовИспользуетсяПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<InputField name="КодыТиповДокументовНаименование" id="312">
+															<DataPath>КодыТиповДокументов.Наименование</DataPath>
+															<Enabled>false</Enabled>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
+															<ContextMenu name="КодыТиповДокументовНаименованиеКонтекстноеМеню" id="313"/>
+															<ExtendedTooltip name="КодыТиповДокументовНаименованиеРасширеннаяПодсказка" id="314"/>
+														</InputField>
+													</ChildItems>
+												</Table>
 												<InputField name="ПодробноеОписаниеУчетнойЗаписи" id="69">
 													<DataPath>Запись.ПодробноеОписаниеУчетнойЗаписи</DataPath>
 													<Title>
@@ -726,240 +862,232 @@
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-						<UsualGroup name="Уведомления" id="77">
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаУведомления" id="294">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомления</v8:content>
+						</v8:item>
+					</Title>
+					<Width>60</Width>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаУведомленияРасширеннаяПодсказка" id="295"/>
+					<ChildItems>
+						<Pages name="СтраницыУведомлений" id="181">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Настройки уведомлений</v8:content>
+									<v8:content>Страницы уведомлений</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>WeakSeparation</Representation>
-							<Format>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>БЛ=; БИ=*</v8:content>
-								</v8:item>
-							</Format>
-							<TitleDataPath>ИзмененыНастройкиУведомлений</TitleDataPath>
-							<ExtendedTooltip name="УведомленияРасширеннаяПодсказка" id="78"/>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="СтраницыУведомленийРасширеннаяПодсказка" id="182"/>
 							<ChildItems>
-								<Pages name="СтраницыУведомлений" id="181">
+								<Page name="СтраницаНастройкаУведомлений" id="183">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Страницы уведомлений</v8:content>
+											<v8:content>Настройка уведомлений</v8:content>
 										</v8:item>
 									</Title>
-									<PagesRepresentation>None</PagesRepresentation>
-									<ExtendedTooltip name="СтраницыУведомленийРасширеннаяПодсказка" id="182"/>
+									<Group>Vertical</Group>
+									<ScrollOnCompress>false</ScrollOnCompress>
+									<ExtendedTooltip name="СтраницаНастройкаУведомленийРасширеннаяПодсказка" id="184"/>
 									<ChildItems>
-										<Page name="СтраницаНастройкаУведомлений" id="183">
+										<UsualGroup name="УведомлятьНа" id="82">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Настройка уведомлений</v8:content>
+													<v8:content>Уведомлять на</v8:content>
 												</v8:item>
 											</Title>
-											<Group>Vertical</Group>
-											<ScrollOnCompress>false</ScrollOnCompress>
-											<ExtendedTooltip name="СтраницаНастройкаУведомленийРасширеннаяПодсказка" id="184"/>
+											<Group>AlwaysHorizontal</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="УведомлятьНаРасширеннаяПодсказка" id="83"/>
 											<ChildItems>
-												<UsualGroup name="УведомлятьНа" id="82">
+												<CheckBoxField name="ИспользоватьУведомления" id="79">
+													<DataPath>ИспользоватьУведомления</DataPath>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Уведомлять на</v8:content>
+															<v8:content>Уведомлять</v8:content>
 														</v8:item>
 													</Title>
-													<Group>AlwaysHorizontal</Group>
-													<HorizontalSpacing>Half</HorizontalSpacing>
+													<TitleLocation>Right</TitleLocation>
+													<ContextMenu name="ИспользоватьУведомленияКонтекстноеМеню" id="80"/>
+													<ExtendedTooltip name="ИспользоватьУведомленияРасширеннаяПодсказка" id="81"/>
+													<Events>
+														<Event name="OnChange">ИспользоватьУведомленияПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<InputField name="ЭлектроннаяПочтаДляУведомлений" id="84">
+													<DataPath>Запись.ЭлектроннаяПочтаДляУведомлений</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>на</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Left</TitleLocation>
+													<InputHint>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>адрес электронной почты</v8:content>
+														</v8:item>
+													</InputHint>
+													<ContextMenu name="ЭлектроннаяПочтаДляУведомленийКонтекстноеМеню" id="85"/>
+													<ExtendedTooltip name="ЭлектроннаяПочтаДляУведомленийРасширеннаяПодсказка" id="86"/>
+													<Events>
+														<Event name="OnChange">ЭлектроннаяПочтаДляУведомленийПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаНастройки" id="87">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа настройки</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Horizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>WeakSeparation</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="88"/>
+											<ChildItems>
+												<LabelDecoration name="ДекорацияОтступ" id="89">
+													<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="90"/>
+													<ExtendedTooltip name="ДекорацияОтступРасширеннаяПодсказка" id="91"/>
+												</LabelDecoration>
+												<UsualGroup name="ГруппаСостав" id="92">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа состав</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="УведомлятьНаРасширеннаяПодсказка" id="83"/>
+													<ExtendedTooltip name="ГруппаСоставРасширеннаяПодсказка" id="93"/>
 													<ChildItems>
-														<CheckBoxField name="ИспользоватьУведомления" id="79">
-															<DataPath>ИспользоватьУведомления</DataPath>
+														<CheckBoxField name="УведомлятьОНовыхПриглашениях" id="96">
+															<DataPath>Запись.УведомлятьОНовыхПриглашениях</DataPath>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Уведомлять</v8:content>
+																	<v8:content>о новых приглашениях</v8:content>
 																</v8:item>
 															</Title>
 															<TitleLocation>Right</TitleLocation>
-															<ContextMenu name="ИспользоватьУведомленияКонтекстноеМеню" id="80"/>
-															<ExtendedTooltip name="ИспользоватьУведомленияРасширеннаяПодсказка" id="81"/>
+															<ContextMenu name="УведомлятьОНовыхПриглашенияхКонтекстноеМеню" id="97"/>
+															<ExtendedTooltip name="УведомлятьОНовыхПриглашенияхРасширеннаяПодсказка" id="98"/>
 															<Events>
-																<Event name="OnChange">ИспользоватьУведомленияПриИзменении</Event>
+																<Event name="OnChange">ПроверитьИспользованиеУведомлений</Event>
 															</Events>
 														</CheckBoxField>
-														<InputField name="ЭлектроннаяПочтаДляУведомлений" id="84">
-															<DataPath>Запись.ЭлектроннаяПочтаДляУведомлений</DataPath>
+														<CheckBoxField name="УведомлятьОбОтветахНаПриглашения" id="99">
+															<DataPath>Запись.УведомлятьОбОтветахНаПриглашения</DataPath>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>на</v8:content>
+																	<v8:content>об ответах на приглашения</v8:content>
 																</v8:item>
 															</Title>
-															<TitleLocation>Left</TitleLocation>
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<InputHint>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>адрес электронной почты</v8:content>
-																</v8:item>
-															</InputHint>
-															<ContextMenu name="ЭлектроннаяПочтаДляУведомленийКонтекстноеМеню" id="85"/>
-															<ExtendedTooltip name="ЭлектроннаяПочтаДляУведомленийРасширеннаяПодсказка" id="86"/>
+															<TitleLocation>Right</TitleLocation>
+															<ContextMenu name="УведомлятьОбОтветахНаПриглашенияКонтекстноеМеню" id="100"/>
+															<ExtendedTooltip name="УведомлятьОбОтветахНаПриглашенияРасширеннаяПодсказка" id="101"/>
 															<Events>
-																<Event name="OnChange">ЭлектроннаяПочтаДляУведомленийПриИзменении</Event>
+																<Event name="OnChange">ПроверитьИспользованиеУведомлений</Event>
 															</Events>
-														</InputField>
-													</ChildItems>
-												</UsualGroup>
-												<UsualGroup name="ГруппаНастройки" id="87">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Группа настройки</v8:content>
-														</v8:item>
-													</Title>
-													<Group>Horizontal</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>WeakSeparation</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="88"/>
-													<ChildItems>
-														<LabelDecoration name="ДекорацияОтступ" id="89">
-															<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="90"/>
-															<ExtendedTooltip name="ДекорацияОтступРасширеннаяПодсказка" id="91"/>
-														</LabelDecoration>
-														<UsualGroup name="ГруппаСостав" id="92">
+														</CheckBoxField>
+														<CheckBoxField name="УведомлятьОНовыхДокументах" id="104">
+															<DataPath>Запись.УведомлятьОНовыхДокументах</DataPath>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Группа состав</v8:content>
+																	<v8:content>о новых документах</v8:content>
 																</v8:item>
 															</Title>
-															<Group>Vertical</Group>
-															<Behavior>Usual</Behavior>
-															<Representation>None</Representation>
-															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаСоставРасширеннаяПодсказка" id="93"/>
-															<ChildItems>
-																<CheckBoxField name="УведомлятьОНовыхПриглашениях" id="96">
-																	<DataPath>Запись.УведомлятьОНовыхПриглашениях</DataPath>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>о новых приглашениях</v8:content>
-																		</v8:item>
-																	</Title>
-																	<TitleLocation>Right</TitleLocation>
-																	<ContextMenu name="УведомлятьОНовыхПриглашенияхКонтекстноеМеню" id="97"/>
-																	<ExtendedTooltip name="УведомлятьОНовыхПриглашенияхРасширеннаяПодсказка" id="98"/>
-																	<Events>
-																		<Event name="OnChange">ПроверитьИспользованиеУведомлений</Event>
-																	</Events>
-																</CheckBoxField>
-																<CheckBoxField name="УведомлятьОбОтветахНаПриглашения" id="99">
-																	<DataPath>Запись.УведомлятьОбОтветахНаПриглашения</DataPath>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>об ответах на приглашения</v8:content>
-																		</v8:item>
-																	</Title>
-																	<TitleLocation>Right</TitleLocation>
-																	<ContextMenu name="УведомлятьОбОтветахНаПриглашенияКонтекстноеМеню" id="100"/>
-																	<ExtendedTooltip name="УведомлятьОбОтветахНаПриглашенияРасширеннаяПодсказка" id="101"/>
-																	<Events>
-																		<Event name="OnChange">ПроверитьИспользованиеУведомлений</Event>
-																	</Events>
-																</CheckBoxField>
-																<CheckBoxField name="УведомлятьОНовыхДокументах" id="104">
-																	<DataPath>Запись.УведомлятьОНовыхДокументах</DataPath>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>о новых документах</v8:content>
-																		</v8:item>
-																	</Title>
-																	<TitleLocation>Right</TitleLocation>
-																	<ContextMenu name="УведомлятьОНовыхДокументахКонтекстноеМеню" id="105"/>
-																	<ExtendedTooltip name="УведомлятьОНовыхДокументахРасширеннаяПодсказка" id="106"/>
-																	<Events>
-																		<Event name="OnChange">ПроверитьИспользованиеУведомлений</Event>
-																	</Events>
-																</CheckBoxField>
-																<CheckBoxField name="УведомлятьОНеОбработанныхДокументах" id="107">
-																	<DataPath>Запись.УведомлятьОНеОбработанныхДокументах</DataPath>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>о необработанных документах</v8:content>
-																		</v8:item>
-																	</Title>
-																	<TitleLocation>Right</TitleLocation>
-																	<ContextMenu name="УведомлятьОНеОбработанныхДокументахКонтекстноеМеню" id="108"/>
-																	<ExtendedTooltip name="УведомлятьОНеОбработанныхДокументахРасширеннаяПодсказка" id="109"/>
-																	<Events>
-																		<Event name="OnChange">ПроверитьИспользованиеУведомлений</Event>
-																	</Events>
-																</CheckBoxField>
-																<CheckBoxField name="УведомлятьОбОкончанииСрокаДействияСертификата" id="112">
-																	<DataPath>Запись.УведомлятьОбОкончанииСрокаДействияСертификата</DataPath>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>об окончании срока действия сертификата</v8:content>
-																		</v8:item>
-																	</Title>
-																	<TitleLocation>Right</TitleLocation>
-																	<ContextMenu name="УведомлятьОбОкончанииСрокаДействияСертификатаКонтекстноеМеню" id="113"/>
-																	<ExtendedTooltip name="УведомлятьОбОкончанииСрокаДействияСертификатаРасширеннаяПодсказка" id="114"/>
-																	<Events>
-																		<Event name="OnChange">ПроверитьИспользованиеУведомлений</Event>
-																	</Events>
-																</CheckBoxField>
-															</ChildItems>
-														</UsualGroup>
+															<TitleLocation>Right</TitleLocation>
+															<ContextMenu name="УведомлятьОНовыхДокументахКонтекстноеМеню" id="105"/>
+															<ExtendedTooltip name="УведомлятьОНовыхДокументахРасширеннаяПодсказка" id="106"/>
+															<Events>
+																<Event name="OnChange">ПроверитьИспользованиеУведомлений</Event>
+															</Events>
+														</CheckBoxField>
+														<CheckBoxField name="УведомлятьОНеОбработанныхДокументах" id="107">
+															<DataPath>Запись.УведомлятьОНеОбработанныхДокументах</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>о необработанных документах</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>Right</TitleLocation>
+															<ContextMenu name="УведомлятьОНеОбработанныхДокументахКонтекстноеМеню" id="108"/>
+															<ExtendedTooltip name="УведомлятьОНеОбработанныхДокументахРасширеннаяПодсказка" id="109"/>
+															<Events>
+																<Event name="OnChange">ПроверитьИспользованиеУведомлений</Event>
+															</Events>
+														</CheckBoxField>
+														<CheckBoxField name="УведомлятьОбОкончанииСрокаДействияСертификата" id="112">
+															<DataPath>Запись.УведомлятьОбОкончанииСрокаДействияСертификата</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>об окончании срока действия сертификата</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>Right</TitleLocation>
+															<ContextMenu name="УведомлятьОбОкончанииСрокаДействияСертификатаКонтекстноеМеню" id="113"/>
+															<ExtendedTooltip name="УведомлятьОбОкончанииСрокаДействияСертификатаРасширеннаяПодсказка" id="114"/>
+															<Events>
+																<Event name="OnChange">ПроверитьИспользованиеУведомлений</Event>
+															</Events>
+														</CheckBoxField>
 													</ChildItems>
 												</UsualGroup>
 											</ChildItems>
-										</Page>
-										<Page name="СтраницаОбновлениеУведомлений" id="185">
-											<Title>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаОбновлениеУведомлений" id="185">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Обновление уведомлений</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<ScrollOnCompress>false</ScrollOnCompress>
+									<ExtendedTooltip name="СтраницаОбновлениеУведомленийРасширеннаяПодсказка" id="186"/>
+									<ChildItems>
+										<LabelDecoration name="НадписьОбновлениеУведомлений" id="187">
+											<Title formatted="true">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Обновление уведомлений</v8:content>
+													<v8:content>Требуется &lt;link ЗагрузитьНастройкиУведомлений&gt;загрузить&lt;/&gt; текущие настройки уведомлений из сервиса.</v8:content>
 												</v8:item>
 											</Title>
-											<Group>Vertical</Group>
-											<ScrollOnCompress>false</ScrollOnCompress>
-											<ExtendedTooltip name="СтраницаОбновлениеУведомленийРасширеннаяПодсказка" id="186"/>
-											<ChildItems>
-												<LabelDecoration name="НадписьОбновлениеУведомлений" id="187">
-													<Title formatted="true">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Требуется &lt;link ЗагрузитьНастройкиУведомлений&gt;загрузить&lt;/&gt; текущие настройки уведомлений из сервиса.</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="НадписьОбновлениеУведомленийКонтекстноеМеню" id="188"/>
-													<ExtendedTooltip name="НадписьОбновлениеУведомленийРасширеннаяПодсказка" id="189"/>
-													<Events>
-														<Event name="URLProcessing">НадписьОбновлениеУведомленийОбработкаНавигационнойСсылки</Event>
-													</Events>
-												</LabelDecoration>
-											</ChildItems>
-										</Page>
+											<ContextMenu name="НадписьОбновлениеУведомленийКонтекстноеМеню" id="188"/>
+											<ExtendedTooltip name="НадписьОбновлениеУведомленийРасширеннаяПодсказка" id="189"/>
+											<Events>
+												<Event name="URLProcessing">НадписьОбновлениеУведомленийОбработкаНавигационнойСсылки</Event>
+											</Events>
+										</LabelDecoration>
 									</ChildItems>
-								</Pages>
+								</Page>
 							</ChildItems>
-						</UsualGroup>
+						</Pages>
 					</ChildItems>
 				</Page>
 				<Page name="СтраницаСертификаты" id="5">
@@ -1051,7 +1179,37 @@
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="СписокСертификатовКонтекстноеМеню" id="24"/>
-							<AutoCommandBar name="СписокСертификатовКоманднаяПанель" id="25"/>
+							<AutoCommandBar name="СписокСертификатовКоманднаяПанель" id="25">
+								<ChildItems>
+									<Popup name="ДобавитьИзСервисовМобильногоПодписания" id="274">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Добавить из сервисов мобильного подписания</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ДобавитьИзСервисовМобильногоПодписанияРасширеннаяПодсказка" id="275"/>
+										<ChildItems>
+											<Button name="СписокСертификатовДобавитьИзСервисаМояПодпись" id="268">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ДобавитьИзСервисаМояПодпись</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Моя подпись</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="СписокСертификатовДобавитьИзСервисаМояПодписьРасширеннаяПодсказка" id="269"/>
+											</Button>
+											<Button name="СписокСертификатовДобавитьИзСервисаГосключУКЭП" id="276">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ДобавитьИзСервисаГосключУКЭП</CommandName>
+												<ExtendedTooltip name="СписокСертификатовДобавитьИзСервисаГосключУКЭПРасширеннаяПодсказка" id="277"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+								</ChildItems>
+							</AutoCommandBar>
 							<ExtendedTooltip name="СписокСертификатовРасширеннаяПодсказка" id="26"/>
 							<SearchStringAddition name="СписокСертификатовСтрокаПоиска" id="27">
 								<AdditionSource>
@@ -1136,6 +1294,22 @@
 									<ContextMenu name="СписокСертификатовКемВыданКонтекстноеМеню" id="40"/>
 									<ExtendedTooltip name="СписокСертификатовКемВыданРасширеннаяПодсказка" id="41"/>
 								</LabelField>
+								<InputField name="СписокСертификатовДолжность" id="265">
+									<DataPath>СписокСертификатов.Должность</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Должность (для документов)</v8:content>
+										</v8:item>
+									</Title>
+									<Width>25</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="СписокСертификатовДолжностьКонтекстноеМеню" id="266"/>
+									<ExtendedTooltip name="СписокСертификатовДолжностьРасширеннаяПодсказка" id="267"/>
+									<Events>
+										<Event name="OnChange">СписокСертификатовДолжностьПриИзменении</Event>
+									</Events>
+								</InputField>
 								<InputField name="СписокСертификатовДоверенность" id="239">
 									<DataPath>СписокСертификатов.Доверенность</DataPath>
 									<ReadOnly>true</ReadOnly>
@@ -1340,6 +1514,47 @@
 						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
+				<Column name="Должность" id="28">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Должность</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДолжностьПоСертификату" id="29">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Должность по сертификату</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТребуетсяЗаполнитьДолжность" id="31">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Требуется заполнить должность</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="ИспользоватьУведомления" id="3">
@@ -1530,16 +1745,16 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="УчетнаяЗаписьОблачногоЭДО" id="27">
+		<Attribute name="УчетнаяЗаписьЦентраЭДО" id="27">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Учетная запись
-облачного ЭДО</v8:content>
+центра ЭДО</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.УчетныеЗаписиОблачногоЭДО</v8:Type>
+				<v8:Type>cfg:CatalogRef.УчетныеЗаписиЦентровЭДО</v8:Type>
 			</Type>
 		</Attribute>
 		<Attribute name="ПараметрыАвтоматическогоПолученияЭДО" id="28">
@@ -1551,6 +1766,17 @@
 			</Title>
 			<Type/>
 		</Attribute>
+		<Attribute name="ОбновлятьСостояниеВыгрузкиВЦентрЭДО" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновлять состояние выгрузки в центр ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
 		<Attribute name="РегистрационныйПакетПоддерживаетПередачуНазначения" id="32">
 			<Title>
 				<v8:item>
@@ -1561,6 +1787,60 @@
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
+		</Attribute>
+		<Attribute name="КодыТиповДокументов" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Коды типов документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Используется" id="34">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Используется</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Наименование" id="35">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Код" id="36">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>4</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
 		</Attribute>
 	</Attributes>
 	<Commands>
@@ -1690,5 +1970,60 @@
 			</Picture>
 			<Action>ПроверкаУчетнойЗаписи</Action>
 		</Command>
+		<Command name="ПереходВЦентрЭДО" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переход в центр ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.ПапкаОблачногоСервиса</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ПереходВЦентрЭДО</Action>
+		</Command>
+		<Command name="ДобавитьИзСервисаМояПодпись" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить из сервиса "Моя подпись"</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ДобавитьИзСервисаМояПодпись</Action>
+		</Command>
+		<Command name="ПереносДокументовВЦентрЭДО" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перенос документов в центр ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.ОбновитьФайлИзФайлаНаДиске</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ПереносДокументовВЦентрЭДО</Action>
+		</Command>
+		<Command name="ДобавитьИзСервисаГосключУКЭП" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Госключ (УКЭП)</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ДобавитьИзСервисаГосключУКЭП</Action>
+		</Command>
 	</Commands>
+	<Parameters>
+		<Parameter name="ТекущаяСтраницаФормы">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+	</Parameters>
 </Form>

@@ -11,34 +11,8 @@
 	<AutoURL>false</AutoURL>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>Top</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Отмена" id="50">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="51"/>
-			</Button>
-			<Button name="ОтправитьПоУмолчанию" id="46">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ОтправитьПоУмолчанию</CommandName>
-				<ExtendedTooltip name="ОтправитьПоУмолчаниюРасширеннаяПодсказка" id="47"/>
-			</Button>
-			<Popup name="ОтправитьКакПодменю" id="48">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отправить как ...</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ОтправитьКакПодменюРасширеннаяПодсказка" id="49"/>
-			</Popup>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -47,7 +21,6 @@
 	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаПояснение" id="38">
-			<Visible>false</Visible>
 			<HorizontalStretch>true</HorizontalStretch>
 			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
@@ -77,38 +50,7 @@
 				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаИнформационноеСообщение85" id="67">
-			<HorizontalStretch>true</HorizontalStretch>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<BackColor>pal:LightBlue</BackColor>
-			<ExtendedTooltip name="ГруппаИнформационноеСообщение85РасширеннаяПодсказка" id="68"/>
-			<ChildItems>
-				<PictureDecoration name="ИнформационноеСообщениеКартинка" id="69">
-					<GroupVerticalAlign>Center</GroupVerticalAlign>
-					<Picture>
-						<xr:Ref>StdPicture.Information</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<ContextMenu name="ИнформационноеСообщениеКартинкаКонтекстноеМеню" id="70"/>
-					<ExtendedTooltip name="ИнформационноеСообщениеКартинкаРасширеннаяПодсказка" id="71"/>
-				</PictureDecoration>
-				<LabelDecoration name="ИнформационноеСообщениеНадпись" id="72">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Для документа %1 уже имеются сформированные документы ЭДО.
-Перед отправкой нового документа убедитесь, что не произойдет дублирования документов.</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ИнформационноеСообщениеНадписьКонтекстноеМеню" id="73"/>
-					<ExtendedTooltip name="ИнформационноеСообщениеНадписьРасширеннаяПодсказка" id="74"/>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
 		<Table name="Документы" id="5">
-			<CommandBarLocation>None</CommandBarLocation>
 			<ReadOnly>true</ReadOnly>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
@@ -116,7 +58,6 @@
 			<Height>6</Height>
 			<MaxHeight>6</MaxHeight>
 			<HeightControlVariant>UseContentHeight</HeightControlVariant>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<DataPath>Документы</DataPath>
 			<RowPictureDataPath>~Документы.DefaultPicture</RowPictureDataPath>
@@ -127,8 +68,8 @@
 				<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
 				<ExcludedCommand>OutputList</ExcludedCommand>
 				<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>false</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -260,6 +201,22 @@
 						</v8:item>
 					</Title>
 					<ExtendedTooltip name="ПанельЛевоРасширеннаяПодсказка" id="59"/>
+					<ChildItems>
+						<Button name="ОтправитьПоУмолчанию" id="46">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.ОтправитьПоУмолчанию</CommandName>
+							<ExtendedTooltip name="ОтправитьПоУмолчаниюРасширеннаяПодсказка" id="47"/>
+						</Button>
+						<Popup name="ОтправитьКакПодменю" id="48">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отправить как ...</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ОтправитьКакПодменюРасширеннаяПодсказка" id="49"/>
+						</Popup>
+					</ChildItems>
 				</CommandBar>
 				<CommandBar name="ПанельПраво" id="60">
 					<Title>
@@ -270,6 +227,15 @@
 					</Title>
 					<HorizontalLocation>Right</HorizontalLocation>
 					<ExtendedTooltip name="ПанельПравоРасширеннаяПодсказка" id="61"/>
+					<ChildItems>
+						<Button name="Отмена" id="50">
+							<Type>CommandBarButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<CommandName>Form.Command.Отмена</CommandName>
+							<ButtonImportance>Main</ButtonImportance>
+							<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="51"/>
+						</Button>
+					</ChildItems>
 				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
@@ -390,7 +356,6 @@
 				</v8:item>
 			</Title>
 			<Action>ОтправитьПоУмолчанию</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="4">
 			<Title>
@@ -400,7 +365,6 @@
 				</v8:item>
 			</Title>
 			<Action>Отмена</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

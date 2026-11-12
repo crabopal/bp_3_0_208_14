@@ -9,47 +9,12 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<CollapseItemsByImportanceVariant>DontUse</CollapseItemsByImportanceVariant>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ФормаОткрытьПолныйОтчет" id="5806">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ОткрытьПолныйОтчет</CommandName>
-				<ExtendedTooltip name="ФормаОткрытьПолныйОтчетРасширеннаяПодсказка" id="5807"/>
-			</Button>
-			<Button name="ПечатьПроверкиКонтрагента" id="5159">
-				<Type>CommandBarButton</Type>
-				<Representation>Picture</Representation>
-				<CommandName>Form.Command.ПечатьПроверкиКонтрагента</CommandName>
-				<Picture>
-					<xr:Ref>StdPicture.Print</xr:Ref>
-					<xr:LoadTransparent>true</xr:LoadTransparent>
-				</Picture>
-				<ShapeRepresentation>None</ShapeRepresentation>
-				<ButtonImportance>Supplementary</ButtonImportance>
-				<ExtendedTooltip name="ПечатьПроверкиКонтрагентаРасширеннаяПодсказка" id="5160"/>
-			</Button>
-			<Button name="СкачатьКарточку" id="4638">
-				<Type>CommandBarButton</Type>
-				<Representation>Picture</Representation>
-				<CommandName>Form.Command.СкачатьКарточку</CommandName>
-				<Picture>
-					<xr:Ref>CommonPicture.Скачать</xr:Ref>
-					<xr:LoadTransparent>false</xr:LoadTransparent>
-				</Picture>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Скачать карточку</v8:content>
-					</v8:item>
-				</Title>
-				<ShapeRepresentation>None</ShapeRepresentation>
-				<ButtonImportance>Supplementary</ButtonImportance>
-				<ExtendedTooltip name="СкачатьКарточкуРасширеннаяПодсказка" id="4639"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -58,43 +23,422 @@
 		<Event name="OnClose">ПриЗакрытии</Event>
 	</Events>
 	<ChildItems>
-		<Pages name="ГруппаСтраницы" id="4">
+		<UsualGroup name="ГруппаУведомлениеСервисаСПАРКРиски" id="5114">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Страницы</v8:content>
+					<v8:content>Группа уведомление сервиса 1СПАРК Риски</v8:content>
 				</v8:item>
 			</Title>
 			<HorizontalStretch>true</HorizontalStretch>
-			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="5"/>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ЦветФонаВниманиеБИП</BackColor>
+			<ExtendedTooltip name="ГруппаУведомлениеСервисаСПАРКРискиРасширеннаяПодсказка" id="5115"/>
 			<ChildItems>
-				<Page name="СтраницаОбщиеСведения" id="6">
-					<EnableContentChange>true</EnableContentChange>
+				<LabelDecoration name="ДекорацияТекстУведомленияСПАРКРиски" id="5116">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Срок действия 1СПАРК Риски заканчивается &lt;b&gt;&lt;&lt;ДатаСервиса&gt;&gt;&lt;/&gt; года.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияТекстУведомленияСПАРКРискиКонтекстноеМеню" id="5117"/>
+					<ExtendedTooltip name="ДекорацияТекстУведомленияСПАРКРискиРасширеннаяПодсказка" id="5118"/>
+				</LabelDecoration>
+				<LabelDecoration name="ДекорацияУведомлениеСПАРКРискиПодробнее" id="5144">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подробнее</v8:content>
+						</v8:item>
+					</Title>
+					<Hyperlink>true</Hyperlink>
+					<ContextMenu name="ДекорацияУведомлениеСПАРКРискиПодробнееКонтекстноеМеню" id="5145"/>
+					<ExtendedTooltip name="ДекорацияУведомлениеСПАРКРискиПодробнееРасширеннаяПодсказка" id="5146"/>
+					<Events>
+						<Event name="Click">ДекорацияУведомлениеСПАРКРискиПодробнееНажатие</Event>
+					</Events>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаФон" id="151">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа фон</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<VerticalSpacing>Half</VerticalSpacing>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>#F0F0F0</BackColor>
+			<ExtendedTooltip name="ГруппаФонРасширеннаяПодсказка" id="152"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаУправлениеСтраницами" id="5155">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Общие сведения</v8:content>
+							<v8:content>Группа управление страницами</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>true</HorizontalStretch>
 					<Group>AlwaysHorizontal</Group>
 					<HorizontalSpacing>None</HorizontalSpacing>
-					<VerticalSpacing>Half</VerticalSpacing>
-					<ScrollOnCompress>true</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаОбщиеСведенияРасширеннаяПодсказка" id="7"/>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаУправлениеСтраницамиРасширеннаяПодсказка" id="5156"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаОбщиеСведения" id="5703">
+						<Pages name="ГруппаРазделОбщиеСведенияСтраницы" id="5366">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа общие сведения</v8:content>
+									<v8:content>Группа раздел общие сведения страницы</v8:content>
+								</v8:item>
+							</Title>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="ГруппаРазделОбщиеСведенияСтраницыРасширеннаяПодсказка" id="5367"/>
+							<ChildItems>
+								<Page name="ГруппаРазделОбщиеСведения" id="5372">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа раздел общие сведения</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<BackColor>#FFFFFF</BackColor>
+									<ScrollOnCompress>false</ScrollOnCompress>
+									<ExtendedTooltip name="ГруппаРазделОбщиеСведенияРасширеннаяПодсказка" id="5373"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияОбщиеСведения" id="5374">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Общие сведения</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ДекорацияОбщиеСведенияКонтекстноеМеню" id="5375"/>
+											<ExtendedTooltip name="ДекорацияОбщиеСведенияРасширеннаяПодсказка" id="5376"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+								<Page name="ГруппаРазделОбщиеСведенияГиперссылка" id="5368">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа раздел общие сведения гиперссылка</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<BackColor>#F0F0F0</BackColor>
+									<ScrollOnCompress>false</ScrollOnCompress>
+									<ExtendedTooltip name="ГруппаРазделОбщиеСведенияГиперссылкаРасширеннаяПодсказка" id="5369"/>
+									<ChildItems>
+										<Button name="ОбщиеСведения" id="375">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ОбщиеСведения</CommandName>
+											<ExtendedTooltip name="ОбщиеСведенияРасширеннаяПодсказка" id="376"/>
+										</Button>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+						<Pages name="ГруппаРазделФакторыТребующиеВниманияСтраницы" id="5827">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа раздел факторы требующие внимания страницы</v8:content>
+								</v8:item>
+							</Title>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="ГруппаРазделФакторыТребующиеВниманияСтраницыРасширеннаяПодсказка" id="5828"/>
+							<ChildItems>
+								<Page name="ГруппаРазделФакторыТребующиеВниманияГиперссылка" id="5829">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа раздел факторы требующие внимания гиперссылка</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<BackColor>#F0F0F0</BackColor>
+									<ScrollOnCompress>false</ScrollOnCompress>
+									<ExtendedTooltip name="ГруппаРазделФакторыТребующиеВниманияГиперссылкаРасширеннаяПодсказка" id="5830"/>
+									<ChildItems>
+										<Button name="ФакторыТребующиеВнимания" id="5831">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ФакторыТребующиеВнимания</CommandName>
+											<ExtendedTooltip name="ФакторыТребующиеВниманияРасширеннаяПодсказка" id="5832"/>
+										</Button>
+									</ChildItems>
+								</Page>
+								<Page name="ГруппаРазделФакторыТребующиеВнимания" id="5833">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа раздел факторы требующие внимания</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<BackColor>#FFFFFF</BackColor>
+									<ScrollOnCompress>false</ScrollOnCompress>
+									<ExtendedTooltip name="ГруппаРазделФакторыТребующиеВниманияРасширеннаяПодсказка" id="5834"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияФакторыТребующиеВнимания" id="5835">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Факторы риска</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ДекорацияФакторыТребующиеВниманияКонтекстноеМеню" id="5836"/>
+											<ExtendedTooltip name="ДекорацияФакторыТребующиеВниманияРасширеннаяПодсказка" id="5837"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+						<Pages name="ГруппаРазделДанныеОбАрбитражныхДелахСтраницы" id="5800">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа раздел данные об арбитражных делах страницы</v8:content>
+								</v8:item>
+							</Title>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="ГруппаРазделДанныеОбАрбитражныхДелахСтраницыРасширеннаяПодсказка" id="5801"/>
+							<ChildItems>
+								<Page name="ГруппаРазделДанныеОбАрбитражныхДелахГиперссылка" id="5802">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа раздел данные об арбитражных делах гиперссылка</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<BackColor>#F0F0F0</BackColor>
+									<ScrollOnCompress>false</ScrollOnCompress>
+									<ExtendedTooltip name="ГруппаРазделДанныеОбАрбитражныхДелахГиперссылкаРасширеннаяПодсказка" id="5803"/>
+									<ChildItems>
+										<Button name="ДанныеОбАрбитражныхДелах" id="5804">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ДанныеОбАрбитражныхДелах</CommandName>
+											<ExtendedTooltip name="ДанныеОбАрбитражныхДелахРасширеннаяПодсказка" id="5805"/>
+										</Button>
+									</ChildItems>
+								</Page>
+								<Page name="ГруппаРазделДанныеОбАрбитражныхДелах" id="5806">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа раздел данные об арбитражных делах</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<BackColor>#FFFFFF</BackColor>
+									<ScrollOnCompress>false</ScrollOnCompress>
+									<ExtendedTooltip name="ГруппаРазделДанныеОбАрбитражныхДелахРасширеннаяПодсказка" id="5807"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияДанныеОбАрбитражныхДелах" id="5808">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Арбитражные дела</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ДекорацияДанныеОбАрбитражныхДелахКонтекстноеМеню" id="5809"/>
+											<ExtendedTooltip name="ДекорацияДанныеОбАрбитражныхДелахРасширеннаяПодсказка" id="5810"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+						<Pages name="ГруппаРазделДанныеГосударственныеКонтрактыСтраницы" id="5811">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа раздел данные государственные контракты страницы</v8:content>
+								</v8:item>
+							</Title>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="ГруппаРазделДанныеГосударственныеКонтрактыСтраницыРасширеннаяПодсказка" id="5812"/>
+							<ChildItems>
+								<Page name="ГруппаРазделДанныеГосударственныеКонтрактыГиперссылка" id="5813">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа раздел данные государственные контракты гиперссылка</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<BackColor>#F0F0F0</BackColor>
+									<ScrollOnCompress>false</ScrollOnCompress>
+									<ExtendedTooltip name="ГруппаРазделДанныеГосударственныеКонтрактыГиперссылкаРасширеннаяПодсказка" id="5814"/>
+									<ChildItems>
+										<Button name="ДанныеГосударственныеКонтракты" id="5815">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ДанныеГосударственныеКонтракты</CommandName>
+											<ExtendedTooltip name="ДанныеГосударственныеКонтрактыРасширеннаяПодсказка" id="5816"/>
+										</Button>
+									</ChildItems>
+								</Page>
+								<Page name="ГруппаРазделДанныеГосударственныеКонтракты" id="5817">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа раздел данные государственные контракты</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<BackColor>#FFFFFF</BackColor>
+									<ScrollOnCompress>false</ScrollOnCompress>
+									<ExtendedTooltip name="ГруппаРазделДанныеГосударственныеКонтрактыРасширеннаяПодсказка" id="5818"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияДанныеГосударственныеКонтракты" id="5819">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Госконтракты</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ДекорацияДанныеГосударственныеКонтрактыКонтекстноеМеню" id="5820"/>
+											<ExtendedTooltip name="ДекорацияДанныеГосударственныеКонтрактыРасширеннаяПодсказка" id="5821"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+						<Pages name="ГруппаРазделСобытияМониторингаСтраницы" id="5454">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа раздел события мониторинга страницы</v8:content>
+								</v8:item>
+							</Title>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="ГруппаРазделСобытияМониторингаСтраницыРасширеннаяПодсказка" id="5455"/>
+							<ChildItems>
+								<Page name="ГруппаРазделСобытияМониторингаГиперссылка" id="5456">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа раздел события мониторинга гиперссылка</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<BackColor>#F0F0F0</BackColor>
+									<ScrollOnCompress>false</ScrollOnCompress>
+									<ExtendedTooltip name="ГруппаРазделСобытияМониторингаГиперссылкаРасширеннаяПодсказка" id="5457"/>
+									<ChildItems>
+										<Button name="СобытияМониторинга" id="1721">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.СобытияМониторинга</CommandName>
+											<ExtendedTooltip name="СобытияМониторингаРасширеннаяПодсказка" id="1722"/>
+										</Button>
+									</ChildItems>
+								</Page>
+								<Page name="ГруппаРазделСобытияМониторинга" id="5460">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа раздел события мониторинга</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<BackColor>#FFFFFF</BackColor>
+									<ScrollOnCompress>false</ScrollOnCompress>
+									<ExtendedTooltip name="ГруппаРазделСобытияМониторингаРасширеннаяПодсказка" id="5461"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияСобытияМониторинга" id="5462">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>События мониторинга</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ДекорацияСобытияМониторингаКонтекстноеМеню" id="5463"/>
+											<ExtendedTooltip name="ДекорацияСобытияМониторингаРасширеннаяПодсказка" id="5464"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+						<CommandBar name="ГруппаКоманднаяПанельПраво" id="5134">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа командная панель право</v8:content>
+								</v8:item>
+							</Title>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<GroupVerticalAlign>Top</GroupVerticalAlign>
+							<HorizontalLocation>Right</HorizontalLocation>
+							<ExtendedTooltip name="ГруппаКоманднаяПанельПравоРасширеннаяПодсказка" id="5135"/>
+							<ChildItems>
+								<Button name="ОткрытьПолныйОтчет" id="5843">
+									<Type>CommandBarHyperlink</Type>
+									<CommandName>Form.Command.ОткрытьПолныйОтчет</CommandName>
+									<ExtendedTooltip name="ОткрытьПолныйОтчетРасширеннаяПодсказка" id="5844"/>
+								</Button>
+								<Button name="ПечатьПроверкиКонтрагента" id="5159">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.ПечатьПроверкиКонтрагента</CommandName>
+									<Picture>
+										<xr:Ref>StdPicture.Print</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ShapeRepresentation>None</ShapeRepresentation>
+									<ButtonImportance>Supplementary</ButtonImportance>
+									<ExtendedTooltip name="ПечатьПроверкиКонтрагентаРасширеннаяПодсказка" id="5160"/>
+								</Button>
+								<Button name="СкачатьКарточку" id="4638">
+									<Type>CommandBarButton</Type>
+									<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+									<CommandName>Form.Command.СкачатьКарточку</CommandName>
+									<Picture>
+										<xr:Ref>CommonPicture.Скачать</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Скачать карточку</v8:content>
+										</v8:item>
+									</Title>
+									<ShapeRepresentation>None</ShapeRepresentation>
+									<ButtonImportance>Supplementary</ButtonImportance>
+									<ExtendedTooltip name="СкачатьКарточкуРасширеннаяПодсказка" id="4639"/>
+								</Button>
+							</ChildItems>
+						</CommandBar>
+					</ChildItems>
+				</UsualGroup>
+				<Pages name="ГруппаСтраницы" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страницы</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="5"/>
+					<ChildItems>
+						<Page name="СтраницаОбщиеСведения" id="6">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Общие сведения</v8:content>
 								</v8:item>
 							</Title>
 							<Group>AlwaysHorizontal</Group>
 							<HorizontalSpacing>Half</HorizontalSpacing>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаОбщиеСведенияРасширеннаяПодсказка" id="5704"/>
+							<VerticalSpacing>Half</VerticalSpacing>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="СтраницаОбщиеСведенияРасширеннаяПодсказка" id="7"/>
 							<ChildItems>
 								<UsualGroup name="ГруппаЛевоОбщиеСведения" id="10">
 									<Title>
@@ -104,8 +448,8 @@
 										</v8:item>
 									</Title>
 									<Width>48</Width>
-									<HorizontalStretch>true</HorizontalStretch>
-									<VerticalStretch>true</VerticalStretch>
+									<HorizontalStretch>false</HorizontalStretch>
+									<VerticalStretch>false</VerticalStretch>
 									<Group>Vertical</Group>
 									<HorizontalSpacing>Single</HorizontalSpacing>
 									<VerticalSpacing>Half</VerticalSpacing>
@@ -122,11 +466,10 @@
 											</Title>
 											<Width>48</Width>
 											<Group>Vertical</Group>
-											<VerticalSpacing>Half</VerticalSpacing>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ShowAsCard>true</ShowAsCard>
+											<BackColor>#FFFFFF</BackColor>
 											<ExtendedTooltip name="ГруппаСПАРКРискиИндексыРасширеннаяПодсказка" id="2691"/>
 											<ChildItems>
 												<UsualGroup name="ГруппаИндексыСПАРКРискиСервис" id="3070">
@@ -137,7 +480,6 @@
 														</v8:item>
 													</Title>
 													<Group>Horizontal</Group>
-													<HorizontalSpacing>Half</HorizontalSpacing>
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ChildItemsWidth>LeftWide</ChildItemsWidth>
@@ -145,9 +487,10 @@
 													<ExtendedTooltip name="ГруппаИндексыСПАРКРискиСервисРасширеннаяПодсказка" id="3071"/>
 													<ChildItems>
 														<PictureDecoration name="ДекорацияИндексыСПАРКРискиКартинка" id="3072">
-															<Font ref="style:TitleLevel3" kind="StyleItem"/>
-															<GroupVerticalAlign>Center</GroupVerticalAlign>
-															<PictureSize>ByFontSize</PictureSize>
+															<Width>2</Width>
+															<Height>1</Height>
+															<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+															<PictureSize>Proportionally</PictureSize>
 															<Picture>
 																<xr:Ref>CommonPicture.Сервис1СПАРКРиски48</xr:Ref>
 																<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -156,7 +499,7 @@
 															<ExtendedTooltip name="ДекорацияИндексыСПАРКРискиКартинкаРасширеннаяПодсказка" id="3074"/>
 														</PictureDecoration>
 														<LabelDecoration name="ДекорацияИндексыСПАРКРискиСервисЗаголовок" id="3075">
-															<Font ref="style:TitleLevel2" kind="StyleItem"/>
+															<Font ref="style:ВажнаяНадписьШрифт" kind="StyleItem"/>
 															<Title formatted="false">
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -171,7 +514,10 @@
 													</ChildItems>
 												</UsualGroup>
 												<PictureDecoration name="КартинкаОжиданиеЗагрузкиИндексовСПАРКРиски" id="4911">
-													<PictureSize>ByFontSize</PictureSize>
+													<Width>2</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<Height>1</Height>
+													<AutoMaxHeight>false</AutoMaxHeight>
 													<Picture>
 														<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
 														<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -184,18 +530,18 @@
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Группа индексы 1СПАРК Риски</v8:content>
+															<v8:content>Группа индексы СПАРК Риски</v8:content>
 														</v8:item>
 													</Title>
 													<Group>Vertical</Group>
 													<VerticalSpacing>Single</VerticalSpacing>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
+													<BackColor>#FFFFFF</BackColor>
 													<ExtendedTooltip name="ГруппаИндексыСПАРКРискиРасширеннаяПодсказка" id="2701"/>
 													<ChildItems>
 														<LabelDecoration name="ДекорацияИндексыСПАРКРискиОписание" id="4926">
 															<HorizontalStretch>true</HorizontalStretch>
-															<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
 															<Title formatted="false">
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -223,7 +569,7 @@
 															<ExtendedTooltip name="ГруппаИндексыСПАРКРискиСтатусРасширеннаяПодсказка" id="4115"/>
 															<ChildItems>
 																<LabelDecoration name="ДекорацияИндексыСПАРКРискиСтатусЗаголовок" id="4116">
-																	<Font ref="style:TitleLevel4" kind="StyleItem"/>
+																	<Font ref="style:ВажнаяНадписьШрифт" kind="StyleItem"/>
 																	<Title formatted="false">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -234,7 +580,7 @@
 																	<ExtendedTooltip name="ДекорацияИндексыСПАРКРискиСтатусЗаголовокРасширеннаяПодсказка" id="4118"/>
 																</LabelDecoration>
 																<LabelDecoration name="ДекорацияИндексыСПАРКРискиСтатусЗначение" id="4105">
-																	<Font ref="style:TitleLevel4" kind="StyleItem"/>
+																	<Font ref="style:ВажнаяНадписьШрифт" kind="StyleItem"/>
 																	<ContextMenu name="ДекорацияИндексыСПАРКРискиСтатусЗначениеКонтекстноеМеню" id="4106"/>
 																	<ExtendedTooltip name="ДекорацияИндексыСПАРКРискиСтатусЗначениеРасширеннаяПодсказка" id="4107"/>
 																	<Events>
@@ -259,7 +605,6 @@
 															<ChildItems>
 																<LabelDecoration name="ДекорацияПереданаБухгалтерскаяОтчетность" id="5103">
 																	<TextColor>style:ЦветГрадацияСПАРКНизкийРиск</TextColor>
-																	<Font ref="style:TextLevel3" kind="StyleItem"/>
 																	<Title formatted="true">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -303,7 +648,7 @@
 																	<ExtendedTooltip name="ГруппаДанныеИндексыСПАРКРискиРасширеннаяПодсказка" id="2703"/>
 																	<ChildItems>
 																		<LabelDecoration name="ДекорацияИндексыСПАРКРискиЗаголовок" id="2704">
-																			<Font ref="style:TitleLevel3" kind="StyleItem"/>
+																			<Font ref="style:ВажнаяНадписьШрифт" kind="StyleItem"/>
 																			<Title formatted="false">
 																				<v8:item>
 																					<v8:lang>ru</v8:lang>
@@ -347,10 +692,8 @@
 																				<PictureField name="КартинкаСводныйИндикатор" id="3725">
 																					<DataPath>КартинкаСводныйИндикатор</DataPath>
 																					<TitleLocation>None</TitleLocation>
-																					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-																					<GroupVerticalAlign>Center</GroupVerticalAlign>
-																					<Width>4</Width>
-																					<Height>1</Height>
+																					<Width>5</Width>
+																					<Height>2</Height>
 																					<HorizontalStretch>false</HorizontalStretch>
 																					<VerticalStretch>false</VerticalStretch>
 																					<PictureSize>Proportionally</PictureSize>
@@ -365,7 +708,7 @@
 																					</Events>
 																				</PictureField>
 																				<LabelDecoration name="ДекорацияСводныйИндикатор" id="4936">
-																					<Font ref="style:TextLevel3" kind="StyleItem"/>
+																					<Font ref="style:NormalTextFont" height="11" bold="false" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
 																					<GroupVerticalAlign>Top</GroupVerticalAlign>
 																					<HorizontalAlign>Center</HorizontalAlign>
 																					<VerticalAlign>Top</VerticalAlign>
@@ -378,14 +721,14 @@
 																			</ChildItems>
 																		</UsualGroup>
 																		<LabelDecoration name="ДекорацияСводныйИндикаторЗаголовок" id="4806">
-																			<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
+																			<Font ref="style:NormalTextFont" height="11" kind="StyleItem"/>
 																			<Title formatted="false">
 																				<v8:item>
 																					<v8:lang>ru</v8:lang>
-																					<v8:content>Сводный индикатор</v8:content>
+																					<v8:content>
+Сводный индикатор</v8:content>
 																				</v8:item>
 																			</Title>
-																			<GroupVerticalAlign>Center</GroupVerticalAlign>
 																			<ContextMenu name="ДекорацияСводныйИндикаторЗаголовокКонтекстноеМеню" id="4807"/>
 																			<ExtendedTooltip name="ДекорацияСводныйИндикаторЗаголовокРасширеннаяПодсказка" id="4808"/>
 																		</LabelDecoration>
@@ -422,10 +765,8 @@
 																				<PictureField name="КартинкаИДО" id="3566">
 																					<DataPath>КартинкаИндексДолжнойОсмотрительности</DataPath>
 																					<TitleLocation>None</TitleLocation>
-																					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-																					<GroupVerticalAlign>Center</GroupVerticalAlign>
-																					<Width>4</Width>
-																					<Height>1</Height>
+																					<Width>5</Width>
+																					<Height>2</Height>
 																					<HorizontalStretch>false</HorizontalStretch>
 																					<VerticalStretch>false</VerticalStretch>
 																					<PictureSize>Proportionally</PictureSize>
@@ -440,7 +781,7 @@
 																					</Events>
 																				</PictureField>
 																				<LabelDecoration name="ДекорацияИДОЗначение" id="4931">
-																					<Font ref="style:TextLevel3" kind="StyleItem"/>
+																					<Font ref="style:NormalTextFont" height="11" bold="false" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
 																					<GroupVerticalAlign>Top</GroupVerticalAlign>
 																					<HorizontalAlign>Center</HorizontalAlign>
 																					<VerticalAlign>Top</VerticalAlign>
@@ -453,14 +794,14 @@
 																			</ChildItems>
 																		</UsualGroup>
 																		<LabelDecoration name="ДекорацияИДОЗаголовок" id="4790">
-																			<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
+																			<Font ref="style:NormalTextFont" height="11" bold="false" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
 																			<Title formatted="false">
 																				<v8:item>
 																					<v8:lang>ru</v8:lang>
-																					<v8:content>Индекс должной осмотрительности</v8:content>
+																					<v8:content>
+Индекс должной осмотрительности</v8:content>
 																				</v8:item>
 																			</Title>
-																			<GroupVerticalAlign>Center</GroupVerticalAlign>
 																			<ContextMenu name="ДекорацияИДОЗаголовокКонтекстноеМеню" id="4791"/>
 																			<ExtendedTooltip name="ДекорацияИДОЗаголовокРасширеннаяПодсказка" id="4792"/>
 																		</LabelDecoration>
@@ -497,10 +838,8 @@
 																				<PictureField name="КартинкаИФР" id="3683">
 																					<DataPath>КартинкаИндексФинансовогоРиска</DataPath>
 																					<TitleLocation>None</TitleLocation>
-																					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-																					<GroupVerticalAlign>Center</GroupVerticalAlign>
-																					<Width>4</Width>
-																					<Height>1</Height>
+																					<Width>5</Width>
+																					<Height>2</Height>
 																					<HorizontalStretch>false</HorizontalStretch>
 																					<VerticalStretch>false</VerticalStretch>
 																					<PictureSize>Proportionally</PictureSize>
@@ -515,7 +854,7 @@
 																					</Events>
 																				</PictureField>
 																				<LabelDecoration name="ДекорацияИФРЗначение" id="4941">
-																					<Font ref="style:TextLevel3" kind="StyleItem"/>
+																					<Font ref="style:NormalTextFont" height="11" bold="false" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
 																					<GroupVerticalAlign>Top</GroupVerticalAlign>
 																					<HorizontalAlign>Center</HorizontalAlign>
 																					<VerticalAlign>Top</VerticalAlign>
@@ -528,14 +867,14 @@
 																			</ChildItems>
 																		</UsualGroup>
 																		<LabelDecoration name="ДекорацияИФРЗаголовок" id="4798">
-																			<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
+																			<Font ref="style:NormalTextFont" height="11" kind="StyleItem" scale="100"/>
 																			<Title formatted="false">
 																				<v8:item>
 																					<v8:lang>ru</v8:lang>
-																					<v8:content>Индекс финансового риска</v8:content>
+																					<v8:content>
+Индекс финансового риска</v8:content>
 																				</v8:item>
 																			</Title>
-																			<GroupVerticalAlign>Center</GroupVerticalAlign>
 																			<ContextMenu name="ДекорацияИФРЗаголовокКонтекстноеМеню" id="4799"/>
 																			<ExtendedTooltip name="ДекорацияИФРЗаголовокРасширеннаяПодсказка" id="4800"/>
 																		</LabelDecoration>
@@ -572,10 +911,8 @@
 																				<PictureField name="КартинкаИПД" id="3686">
 																					<DataPath>КартинкаИндексПлатежнойДисциплины</DataPath>
 																					<TitleLocation>None</TitleLocation>
-																					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-																					<GroupVerticalAlign>Center</GroupVerticalAlign>
-																					<Width>4</Width>
-																					<Height>1</Height>
+																					<Width>5</Width>
+																					<Height>2</Height>
 																					<HorizontalStretch>false</HorizontalStretch>
 																					<VerticalStretch>false</VerticalStretch>
 																					<PictureSize>Proportionally</PictureSize>
@@ -590,7 +927,7 @@
 																					</Events>
 																				</PictureField>
 																				<LabelDecoration name="ДекорацияИПДЗначение" id="4946">
-																					<Font ref="style:TextLevel3" kind="StyleItem"/>
+																					<Font ref="style:NormalTextFont" height="11" bold="false" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
 																					<GroupVerticalAlign>Top</GroupVerticalAlign>
 																					<HorizontalAlign>Center</HorizontalAlign>
 																					<VerticalAlign>Top</VerticalAlign>
@@ -603,14 +940,14 @@
 																			</ChildItems>
 																		</UsualGroup>
 																		<LabelDecoration name="ДекорацияИПДЗаголовок" id="4782">
-																			<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
+																			<Font ref="style:NormalTextFont" height="11" kind="StyleItem" scale="100"/>
 																			<Title formatted="false">
 																				<v8:item>
 																					<v8:lang>ru</v8:lang>
-																					<v8:content>Индекс платежной дисциплины</v8:content>
+																					<v8:content>
+Индекс платежной дисциплины</v8:content>
 																				</v8:item>
 																			</Title>
-																			<GroupVerticalAlign>Center</GroupVerticalAlign>
 																			<ContextMenu name="ДекорацияИПДЗаголовокКонтекстноеМеню" id="4783"/>
 																			<ExtendedTooltip name="ДекорацияИПДЗаголовокРасширеннаяПодсказка" id="4784"/>
 																		</LabelDecoration>
@@ -634,17 +971,18 @@
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ShowAsCard>true</ShowAsCard>
+											<BackColor>#FFFFFF</BackColor>
 											<ExtendedTooltip name="ГруппаСПАРКСобытияМониторингаРасширеннаяПодсказка" id="5100"/>
 											<ChildItems>
 												<LabelDecoration name="ДекорацияСобытияМониторингаЗаголовок" id="2585">
-													<Font ref="style:TitleLevel3" kind="StyleItem"/>
+													<Font ref="style:ВажнаяНадписьШрифт" kind="StyleItem"/>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
 															<v8:content>Последние изменения</v8:content>
 														</v8:item>
 													</Title>
+													<GroupVerticalAlign>Center</GroupVerticalAlign>
 													<ContextMenu name="ДекорацияСобытияМониторингаЗаголовокКонтекстноеМеню" id="2586"/>
 													<ExtendedTooltip name="ДекорацияСобытияМониторингаЗаголовокРасширеннаяПодсказка" id="2587"/>
 												</LabelDecoration>
@@ -660,6 +998,7 @@
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
+													<BackColor>#FFFFFF</BackColor>
 													<ExtendedTooltip name="ГруппаСобытияМониторингаРасширеннаяПодсказка" id="2580"/>
 													<ChildItems>
 														<LabelDecoration name="ДекорацияСобытиеМониторингаОписание" id="4977">
@@ -697,6 +1036,7 @@
 																		</v8:item>
 																	</Title>
 																	<Group>AlwaysHorizontal</Group>
+																	<VerticalSpacing>None</VerticalSpacing>
 																	<Behavior>Usual</Behavior>
 																	<Representation>None</Representation>
 																	<ChildItemsWidth>LeftWide</ChildItemsWidth>
@@ -704,7 +1044,6 @@
 																	<ExtendedTooltip name="ГруппаСобытиеМониторинга0РасширеннаяПодсказка" id="3694"/>
 																	<ChildItems>
 																		<LabelDecoration name="ДекорацияСобытиеМониторингаДата0" id="3695">
-																			<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
 																			<Title formatted="false">
 																				<v8:item>
 																					<v8:lang>ru</v8:lang>
@@ -719,7 +1058,6 @@
 																		<LabelDecoration name="ДекорацияСобытиеМониторингаЗначение0" id="3698">
 																			<AutoMaxWidth>false</AutoMaxWidth>
 																			<AutoMaxHeight>false</AutoMaxHeight>
-																			<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
 																			<Title formatted="false">
 																				<v8:item>
 																					<v8:lang>ru</v8:lang>
@@ -739,6 +1077,7 @@
 																		</v8:item>
 																	</Title>
 																	<Group>AlwaysHorizontal</Group>
+																	<VerticalSpacing>None</VerticalSpacing>
 																	<Behavior>Usual</Behavior>
 																	<Representation>None</Representation>
 																	<ChildItemsWidth>LeftWide</ChildItemsWidth>
@@ -746,7 +1085,6 @@
 																	<ExtendedTooltip name="ГруппаСобытиеМониторинга1РасширеннаяПодсказка" id="4959"/>
 																	<ChildItems>
 																		<LabelDecoration name="ДекорацияСобытиеМониторингаДата1" id="4960">
-																			<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
 																			<Title formatted="false">
 																				<v8:item>
 																					<v8:lang>ru</v8:lang>
@@ -761,7 +1099,6 @@
 																		<LabelDecoration name="ДекорацияСобытиеМониторингаЗначение1" id="4963">
 																			<AutoMaxWidth>false</AutoMaxWidth>
 																			<AutoMaxHeight>false</AutoMaxHeight>
-																			<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
 																			<Title formatted="false">
 																				<v8:item>
 																					<v8:lang>ru</v8:lang>
@@ -781,6 +1118,7 @@
 																		</v8:item>
 																	</Title>
 																	<Group>AlwaysHorizontal</Group>
+																	<VerticalSpacing>None</VerticalSpacing>
 																	<Behavior>Usual</Behavior>
 																	<Representation>None</Representation>
 																	<ChildItemsWidth>LeftWide</ChildItemsWidth>
@@ -788,7 +1126,6 @@
 																	<ExtendedTooltip name="ГруппаСобытиеМониторинга2РасширеннаяПодсказка" id="4967"/>
 																	<ChildItems>
 																		<LabelDecoration name="ДекорацияСобытиеМониторингаДата2" id="4968">
-																			<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
 																			<Title formatted="false">
 																				<v8:item>
 																					<v8:lang>ru</v8:lang>
@@ -803,7 +1140,6 @@
 																		<LabelDecoration name="ДекорацияСобытиеМониторингаЗначение2" id="4971">
 																			<AutoMaxWidth>false</AutoMaxWidth>
 																			<AutoMaxHeight>false</AutoMaxHeight>
-																			<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
 																			<Title formatted="false">
 																				<v8:item>
 																					<v8:lang>ru</v8:lang>
@@ -817,7 +1153,6 @@
 																</UsualGroup>
 																<LabelDecoration name="ДекорацияВсеСобытияМониторинга" id="3719">
 																	<Visible>false</Visible>
-																	<Font ref="style:SubtitleLevel1" kind="StyleItem"/>
 																	<Title formatted="false">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -849,11 +1184,11 @@
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ShowAsCard>true</ShowAsCard>
+											<BackColor>#FFFFFF</BackColor>
 											<ExtendedTooltip name="ГруппаПереходВВебВерсиюСПАРКРасширеннаяПодсказка" id="2759"/>
 											<ChildItems>
 												<LabelDecoration name="ДекорацияПереходВВебВерсиюСПАРКЗаголовок" id="2772">
-													<Font ref="style:TitleLevel3" kind="StyleItem"/>
+													<Font ref="style:ВажнаяНадписьШрифт" kind="StyleItem"/>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -864,7 +1199,6 @@
 													<ExtendedTooltip name="ДекорацияПереходВВебВерсиюСПАРКЗаголовокРасширеннаяПодсказка" id="2774"/>
 												</LabelDecoration>
 												<LabelDecoration name="ДекорацияПереходВВебВерсиюСПАРКОписание" id="2783">
-													<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
 													<Title formatted="true">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -872,8 +1206,7 @@
 &lt;fontsize 10&gt;- Общая информация (Регистрационные и контактные сведения, история изменений и т.д.)&lt;/&gt;
 &lt;fontsize 10&gt;- Структура компании (Структура собственников и дочерних компаний и анализ взаимосвязей)&lt;/&gt;
 &lt;fontsize 10&gt;- Деятельность компании (Сведения о наличии у компании или персоны залогов, лизинга, факторинга, исполнительных производств, гарантий и другое)&lt;/&gt;
-&lt;fontsize 10&gt;- Финансовая информация
-&lt;/&gt;&lt;fontsize 10&gt;- Финансовый анализ&lt;/&gt;</v8:content>
+&lt;fontsize 10&gt;- Финансовая информация&lt;/&gt;&lt;fontsize 10&gt;- Финансовый анализ&lt;/&gt;</v8:content>
 														</v8:item>
 													</Title>
 													<ContextMenu name="ДекорацияПереходВВебВерсиюСПАРКОписаниеКонтекстноеМеню" id="2784"/>
@@ -886,24 +1219,24 @@
 										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
-								<UsualGroup name="ГруппаПравоОбщиеСведения" id="91">
+								<UsualGroup name="ГруппаПравоОбщиеСведения" id="12">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Группа право общие сведения</v8:content>
+											<v8:content>Группа лево сводка</v8:content>
 										</v8:item>
 									</Title>
 									<Width>48</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<VerticalStretch>false</VerticalStretch>
 									<Group>Vertical</Group>
+									<HorizontalSpacing>Half</HorizontalSpacing>
 									<VerticalSpacing>Half</VerticalSpacing>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
-									<ThroughAlign>Use</ThroughAlign>
-									<ExtendedTooltip name="ГруппаПравоОбщиеСведенияРасширеннаяПодсказка" id="92"/>
+									<ExtendedTooltip name="ГруппаПравоОбщиеСведенияРасширеннаяПодсказка" id="13"/>
 									<ChildItems>
-										<UsualGroup name="ГруппаСПАРКНегативныеСписки" id="5788">
+										<UsualGroup name="ГруппаСПАРКНегативныеСписки" id="5775">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -912,15 +1245,15 @@
 											</Title>
 											<Width>48</Width>
 											<Group>Vertical</Group>
-											<VerticalSpacing>Half</VerticalSpacing>
+											<VerticalSpacing>Single</VerticalSpacing>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ShowAsCard>true</ShowAsCard>
-											<ExtendedTooltip name="ГруппаСПАРКНегативныеСпискиРасширеннаяПодсказка" id="5789"/>
+											<BackColor>#FFFFFF</BackColor>
+											<ExtendedTooltip name="ГруппаСПАРКНегативныеСпискиРасширеннаяПодсказка" id="5776"/>
 											<ChildItems>
-												<LabelDecoration name="ДекорацияНегативныеСписки" id="5790">
-													<Font ref="style:TitleLevel3" kind="StyleItem"/>
+												<LabelDecoration name="ДекорацияНегативныеСписки" id="5777">
+													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -928,23 +1261,22 @@
 														</v8:item>
 													</Title>
 													<GroupVerticalAlign>Center</GroupVerticalAlign>
-													<ContextMenu name="ДекорацияНегативныеСпискиКонтекстноеМеню" id="5791"/>
-													<ExtendedTooltip name="ДекорацияНегативныеСпискиРасширеннаяПодсказка" id="5792"/>
+													<ContextMenu name="ДекорацияНегативныеСпискиКонтекстноеМеню" id="5778"/>
+													<ExtendedTooltip name="ДекорацияНегативныеСпискиРасширеннаяПодсказка" id="5779"/>
 												</LabelDecoration>
-												<LabelDecoration name="ДекорацияНегативныеСпискиОписание" id="5793">
+												<LabelDecoration name="ДекорацияНегативныеСпискиОписание" id="5780">
 													<AutoMaxWidth>false</AutoMaxWidth>
 													<AutoMaxHeight>false</AutoMaxHeight>
-													<Font ref="style:TextLevel3" kind="StyleItem"/>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
 															<v8:content>░░ ░░░░░ ░░░░░░░ ░░░░</v8:content>
 														</v8:item>
 													</Title>
-													<ContextMenu name="ДекорацияНегативныеСпискиОписаниеКонтекстноеМеню" id="5794"/>
-													<ExtendedTooltip name="ДекорацияНегативныеСпискиОписаниеРасширеннаяПодсказка" id="5795"/>
+													<ContextMenu name="ДекорацияНегативныеСпискиОписаниеКонтекстноеМеню" id="5781"/>
+													<ExtendedTooltip name="ДекорацияНегативныеСпискиОписаниеРасширеннаяПодсказка" id="5782"/>
 												</LabelDecoration>
-												<UsualGroup name="ГруппаДанныеНегативныеСписки" id="5796">
+												<UsualGroup name="ГруппаДанныеНегативныеСписки" id="5783">
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -956,9 +1288,9 @@
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаДанныеНегативныеСпискиРасширеннаяПодсказка" id="5797"/>
+													<ExtendedTooltip name="ГруппаДанныеНегативныеСпискиРасширеннаяПодсказка" id="5784"/>
 													<ChildItems>
-														<UsualGroup name="ГруппаНегативныеСписки" id="5798">
+														<UsualGroup name="ГруппаНегативныеСписки" id="5785">
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -971,27 +1303,24 @@
 															<Representation>None</Representation>
 															<ChildItemsWidth>LeftWide</ChildItemsWidth>
 															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаНегативныеСпискиРасширеннаяПодсказка" id="5799"/>
+															<ExtendedTooltip name="ГруппаНегативныеСпискиРасширеннаяПодсказка" id="5786"/>
 															<ChildItems>
-																<PictureDecoration name="ДекорацияНегативныеСпискиКартинка1" id="5800">
-																	<Font ref="style:TextLevel3" kind="StyleItem"/>
+																<PictureDecoration name="ДекорацияНегативныеСпискиКартинка1" id="5787">
 																	<Title formatted="false">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
 																			<v8:content>Декорация негативные списки картинка1</v8:content>
 																		</v8:item>
 																	</Title>
-																	<GroupVerticalAlign>Center</GroupVerticalAlign>
 																	<PictureSize>ByFontSize</PictureSize>
 																	<Picture>
 																		<xr:Ref>CommonPicture.ФакторРискаСПАРК</xr:Ref>
 																		<xr:LoadTransparent>false</xr:LoadTransparent>
 																	</Picture>
-																	<ContextMenu name="ДекорацияНегативныеСпискиКартинка1КонтекстноеМеню" id="5801"/>
-																	<ExtendedTooltip name="ДекорацияНегативныеСпискиКартинка1РасширеннаяПодсказка" id="5802"/>
+																	<ContextMenu name="ДекорацияНегативныеСпискиКартинка1КонтекстноеМеню" id="5788"/>
+																	<ExtendedTooltip name="ДекорацияНегативныеСпискиКартинка1РасширеннаяПодсказка" id="5789"/>
 																</PictureDecoration>
-																<LabelDecoration name="ДекорацияНегативныеСпискиЗначение1" id="5803">
-																	<Font ref="style:TextLevel3" kind="StyleItem"/>
+																<LabelDecoration name="ДекорацияНегативныеСпискиЗначение1" id="5790">
 																	<Title formatted="false">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1000,8 +1329,8 @@
 																	</Title>
 																	<GroupVerticalAlign>Top</GroupVerticalAlign>
 																	<VerticalAlign>Top</VerticalAlign>
-																	<ContextMenu name="ДекорацияНегативныеСпискиЗначение1КонтекстноеМеню" id="5804"/>
-																	<ExtendedTooltip name="ДекорацияНегативныеСпискиЗначение1РасширеннаяПодсказка" id="5805"/>
+																	<ContextMenu name="ДекорацияНегативныеСпискиЗначение1КонтекстноеМеню" id="5791"/>
+																	<ExtendedTooltip name="ДекорацияНегативныеСпискиЗначение1РасширеннаяПодсказка" id="5792"/>
 																</LabelDecoration>
 															</ChildItems>
 														</UsualGroup>
@@ -1009,7 +1338,7 @@
 												</UsualGroup>
 											</ChildItems>
 										</UsualGroup>
-										<UsualGroup name="ГруппаСПАРКФакторыРиска" id="5729">
+										<UsualGroup name="ГруппаСПАРКФакторыРиска" id="5737">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -1018,15 +1347,15 @@
 											</Title>
 											<Width>48</Width>
 											<Group>Vertical</Group>
-											<VerticalSpacing>Half</VerticalSpacing>
+											<VerticalSpacing>Single</VerticalSpacing>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ShowAsCard>true</ShowAsCard>
-											<ExtendedTooltip name="ГруппаСПАРКФакторыРискаРасширеннаяПодсказка" id="5730"/>
+											<BackColor>#FFFFFF</BackColor>
+											<ExtendedTooltip name="ГруппаСПАРКФакторыРискаРасширеннаяПодсказка" id="5738"/>
 											<ChildItems>
-												<LabelDecoration name="ДекорацияФакторыРиска" id="5731">
-													<Font ref="style:TitleLevel3" kind="StyleItem"/>
+												<LabelDecoration name="ДекорацияФакторыРиска" id="5741">
+													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1034,23 +1363,22 @@
 														</v8:item>
 													</Title>
 													<GroupVerticalAlign>Center</GroupVerticalAlign>
-													<ContextMenu name="ДекорацияФакторыРискаКонтекстноеМеню" id="5732"/>
-													<ExtendedTooltip name="ДекорацияФакторыРискаРасширеннаяПодсказка" id="5733"/>
+													<ContextMenu name="ДекорацияФакторыРискаКонтекстноеМеню" id="5742"/>
+													<ExtendedTooltip name="ДекорацияФакторыРискаРасширеннаяПодсказка" id="5743"/>
 												</LabelDecoration>
-												<LabelDecoration name="ДекорацияФакторыРискаОписание" id="5734">
+												<LabelDecoration name="ДекорацияФакторыРискаОписание" id="5754">
 													<AutoMaxWidth>false</AutoMaxWidth>
 													<AutoMaxHeight>false</AutoMaxHeight>
-													<Font ref="style:TextLevel3" kind="StyleItem"/>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
 															<v8:content>░░ ░░░░░ ░░░░░░░ ░░░░</v8:content>
 														</v8:item>
 													</Title>
-													<ContextMenu name="ДекорацияФакторыРискаОписаниеКонтекстноеМеню" id="5735"/>
-													<ExtendedTooltip name="ДекорацияФакторыРискаОписаниеРасширеннаяПодсказка" id="5736"/>
+													<ContextMenu name="ДекорацияФакторыРискаОписаниеКонтекстноеМеню" id="5755"/>
+													<ExtendedTooltip name="ДекорацияФакторыРискаОписаниеРасширеннаяПодсказка" id="5756"/>
 												</LabelDecoration>
-												<UsualGroup name="ГруппаДанныеФакторРиска" id="5737">
+												<UsualGroup name="ГруппаДанныеФакторРиска" id="5744">
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1062,9 +1390,9 @@
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаДанныеФакторРискаРасширеннаяПодсказка" id="5738"/>
+													<ExtendedTooltip name="ГруппаДанныеФакторРискаРасширеннаяПодсказка" id="5745"/>
 													<ChildItems>
-														<UsualGroup name="ГруппаФакторРиска1" id="5739">
+														<UsualGroup name="ГруппаФакторРиска1" id="5746">
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -1077,27 +1405,24 @@
 															<Representation>None</Representation>
 															<ChildItemsWidth>LeftWide</ChildItemsWidth>
 															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаФакторРиска1РасширеннаяПодсказка" id="5740"/>
+															<ExtendedTooltip name="ГруппаФакторРиска1РасширеннаяПодсказка" id="5747"/>
 															<ChildItems>
-																<PictureDecoration name="ДекорацияФакторРискаКартинка1" id="5741">
-																	<Font ref="style:TextLevel3" kind="StyleItem"/>
+																<PictureDecoration name="ДекорацияФакторРискаКартинка1" id="5748">
 																	<Title formatted="false">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
 																			<v8:content>Декорация фактор риска картинка1</v8:content>
 																		</v8:item>
 																	</Title>
-																	<GroupVerticalAlign>Center</GroupVerticalAlign>
 																	<PictureSize>ByFontSize</PictureSize>
 																	<Picture>
 																		<xr:Ref>CommonPicture.ФакторРискаСПАРК</xr:Ref>
 																		<xr:LoadTransparent>false</xr:LoadTransparent>
 																	</Picture>
-																	<ContextMenu name="ДекорацияФакторРискаКартинка1КонтекстноеМеню" id="5742"/>
-																	<ExtendedTooltip name="ДекорацияФакторРискаКартинка1РасширеннаяПодсказка" id="5743"/>
+																	<ContextMenu name="ДекорацияФакторРискаКартинка1КонтекстноеМеню" id="5749"/>
+																	<ExtendedTooltip name="ДекорацияФакторРискаКартинка1РасширеннаяПодсказка" id="5750"/>
 																</PictureDecoration>
-																<LabelDecoration name="ДекорацияФакторРискаЗначение1" id="5744">
-																	<Font ref="style:TextLevel3" kind="StyleItem"/>
+																<LabelDecoration name="ДекорацияФакторРискаЗначение1" id="5751">
 																	<Title formatted="false">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1106,8 +1431,8 @@
 																	</Title>
 																	<GroupVerticalAlign>Top</GroupVerticalAlign>
 																	<VerticalAlign>Top</VerticalAlign>
-																	<ContextMenu name="ДекорацияФакторРискаЗначение1КонтекстноеМеню" id="5745"/>
-																	<ExtendedTooltip name="ДекорацияФакторРискаЗначение1РасширеннаяПодсказка" id="5746"/>
+																	<ContextMenu name="ДекорацияФакторРискаЗначение1КонтекстноеМеню" id="5752"/>
+																	<ExtendedTooltip name="ДекорацияФакторРискаЗначение1РасширеннаяПодсказка" id="5753"/>
 																</LabelDecoration>
 															</ChildItems>
 														</UsualGroup>
@@ -1115,7 +1440,7 @@
 												</UsualGroup>
 											</ChildItems>
 										</UsualGroup>
-										<UsualGroup name="ГруппаСПАРКФакторыРиска115ФЗ" id="5747">
+										<UsualGroup name="ГруппаСПАРКФакторыРиска115ФЗ" id="5757">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -1124,15 +1449,15 @@
 											</Title>
 											<Width>48</Width>
 											<Group>Vertical</Group>
-											<VerticalSpacing>Half</VerticalSpacing>
+											<VerticalSpacing>Single</VerticalSpacing>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ShowAsCard>true</ShowAsCard>
-											<ExtendedTooltip name="ГруппаСПАРКФакторыРиска115ФЗРасширеннаяПодсказка" id="5748"/>
+											<BackColor>#FFFFFF</BackColor>
+											<ExtendedTooltip name="ГруппаСПАРКФакторыРиска115ФЗРасширеннаяПодсказка" id="5758"/>
 											<ChildItems>
-												<LabelDecoration name="ДекорацияФакторыРиска115ФЗ" id="5749">
-													<Font ref="style:TitleLevel3" kind="StyleItem"/>
+												<LabelDecoration name="ДекорацияФакторыРиска115ФЗ" id="5759">
+													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1140,23 +1465,22 @@
 														</v8:item>
 													</Title>
 													<GroupVerticalAlign>Center</GroupVerticalAlign>
-													<ContextMenu name="ДекорацияФакторыРиска115ФЗКонтекстноеМеню" id="5750"/>
-													<ExtendedTooltip name="ДекорацияФакторыРиска115ФЗРасширеннаяПодсказка" id="5751"/>
+													<ContextMenu name="ДекорацияФакторыРиска115ФЗКонтекстноеМеню" id="5760"/>
+													<ExtendedTooltip name="ДекорацияФакторыРиска115ФЗРасширеннаяПодсказка" id="5761"/>
 												</LabelDecoration>
-												<LabelDecoration name="ДекорацияФакторыРиска115ФЗОписание" id="5752">
+												<LabelDecoration name="ДекорацияФакторыРиска115ФЗОписание" id="5762">
 													<AutoMaxWidth>false</AutoMaxWidth>
 													<AutoMaxHeight>false</AutoMaxHeight>
-													<Font ref="style:TextLevel3" kind="StyleItem"/>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
 															<v8:content>░░ ░░░░░ ░░░░░░░ ░░░░</v8:content>
 														</v8:item>
 													</Title>
-													<ContextMenu name="ДекорацияФакторыРиска115ФЗОписаниеКонтекстноеМеню" id="5753"/>
-													<ExtendedTooltip name="ДекорацияФакторыРиска115ФЗОписаниеРасширеннаяПодсказка" id="5754"/>
+													<ContextMenu name="ДекорацияФакторыРиска115ФЗОписаниеКонтекстноеМеню" id="5763"/>
+													<ExtendedTooltip name="ДекорацияФакторыРиска115ФЗОписаниеРасширеннаяПодсказка" id="5764"/>
 												</LabelDecoration>
-												<UsualGroup name="ГруппаДанныеФакторРиска115ФЗ" id="5755">
+												<UsualGroup name="ГруппаДанныеФакторРиска115ФЗ" id="5765">
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1168,9 +1492,9 @@
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаДанныеФакторРиска115ФЗРасширеннаяПодсказка" id="5756"/>
+													<ExtendedTooltip name="ГруппаДанныеФакторРиска115ФЗРасширеннаяПодсказка" id="5766"/>
 													<ChildItems>
-														<UsualGroup name="ГруппаФакторРиска115ФЗ1" id="5757">
+														<UsualGroup name="ГруппаФакторРиска115ФЗ1" id="5767">
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -1183,27 +1507,24 @@
 															<Representation>None</Representation>
 															<ChildItemsWidth>LeftWide</ChildItemsWidth>
 															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаФакторРиска115ФЗ1РасширеннаяПодсказка" id="5758"/>
+															<ExtendedTooltip name="ГруппаФакторРиска115ФЗ1РасширеннаяПодсказка" id="5768"/>
 															<ChildItems>
-																<PictureDecoration name="ДекорацияФакторРиска115ФЗКартинка1" id="5759">
-																	<Font ref="style:TextLevel3" kind="StyleItem"/>
+																<PictureDecoration name="ДекорацияФакторРиска115ФЗКартинка1" id="5769">
 																	<Title formatted="false">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
 																			<v8:content>Декорация фактор риска 115ФЗ картинка 1</v8:content>
 																		</v8:item>
 																	</Title>
-																	<GroupVerticalAlign>Center</GroupVerticalAlign>
 																	<PictureSize>ByFontSize</PictureSize>
 																	<Picture>
 																		<xr:Ref>CommonPicture.ФакторРискаСПАРК</xr:Ref>
 																		<xr:LoadTransparent>false</xr:LoadTransparent>
 																	</Picture>
-																	<ContextMenu name="ДекорацияФакторРиска115ФЗКартинка1КонтекстноеМеню" id="5760"/>
-																	<ExtendedTooltip name="ДекорацияФакторРиска115ФЗКартинка1РасширеннаяПодсказка" id="5761"/>
+																	<ContextMenu name="ДекорацияФакторРиска115ФЗКартинка1КонтекстноеМеню" id="5770"/>
+																	<ExtendedTooltip name="ДекорацияФакторРиска115ФЗКартинка1РасширеннаяПодсказка" id="5771"/>
 																</PictureDecoration>
-																<LabelDecoration name="ДекорацияФакторРиска115ФЗЗначение1" id="5762">
-																	<Font ref="style:TextLevel3" kind="StyleItem"/>
+																<LabelDecoration name="ДекорацияФакторРиска115ФЗЗначение1" id="5772">
 																	<Title formatted="false">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1212,8 +1533,8 @@
 																	</Title>
 																	<GroupVerticalAlign>Top</GroupVerticalAlign>
 																	<VerticalAlign>Top</VerticalAlign>
-																	<ContextMenu name="ДекорацияФакторРиска115ФЗЗначение1КонтекстноеМеню" id="5763"/>
-																	<ExtendedTooltip name="ДекорацияФакторРиска115ФЗЗначение1РасширеннаяПодсказка" id="5764"/>
+																	<ContextMenu name="ДекорацияФакторРиска115ФЗЗначение1КонтекстноеМеню" id="5773"/>
+																	<ExtendedTooltip name="ДекорацияФакторРиска115ФЗЗначение1РасширеннаяПодсказка" id="5774"/>
 																</LabelDecoration>
 															</ChildItems>
 														</UsualGroup>
@@ -1221,7 +1542,7 @@
 												</UsualGroup>
 											</ChildItems>
 										</UsualGroup>
-										<UsualGroup name="ГруппаСПАРКПризнакиХозяйственнойДеятельности" id="5765">
+										<UsualGroup name="ГруппаСПАРКПризнакиХозяйственнойДеятельности" id="5654">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -1230,25 +1551,25 @@
 											</Title>
 											<Width>48</Width>
 											<Group>Vertical</Group>
-											<VerticalSpacing>Half</VerticalSpacing>
+											<VerticalSpacing>Single</VerticalSpacing>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ShowAsCard>true</ShowAsCard>
-											<ExtendedTooltip name="ГруппаСПАРКПризнакиХозяйственнойДеятельностиРасширеннаяПодсказка" id="5766"/>
+											<BackColor>#FFFFFF</BackColor>
+											<ExtendedTooltip name="ГруппаСПАРКПризнакиХозяйственнойДеятельностиРасширеннаяПодсказка" id="5655"/>
 											<ChildItems>
-												<LabelDecoration name="ДекорацияПризнакиХозяйственнойДеятельности" id="5767">
-													<Font ref="style:TitleLevel3" kind="StyleItem"/>
+												<LabelDecoration name="ДекорацияПризнакиХозяйственнойДеятельности" id="5656">
+													<Font ref="style:ВажнаяНадписьШрифт" kind="StyleItem"/>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
 															<v8:content>Признаки хозяйственной деятельности</v8:content>
 														</v8:item>
 													</Title>
-													<ContextMenu name="ДекорацияПризнакиХозяйственнойДеятельностиКонтекстноеМеню" id="5768"/>
-													<ExtendedTooltip name="ДекорацияПризнакиХозяйственнойДеятельностиРасширеннаяПодсказка" id="5769"/>
+													<ContextMenu name="ДекорацияПризнакиХозяйственнойДеятельностиКонтекстноеМеню" id="5657"/>
+													<ExtendedTooltip name="ДекорацияПризнакиХозяйственнойДеятельностиРасширеннаяПодсказка" id="5658"/>
 												</LabelDecoration>
-												<UsualGroup name="ГруппаДанныеСобытияМониторинга4" id="5770">
+												<UsualGroup name="ГруппаДанныеСобытияМониторинга4" id="5719">
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1260,9 +1581,9 @@
 													<Behavior>Usual</Behavior>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаДанныеСобытияМониторинга4РасширеннаяПодсказка" id="5771"/>
+													<ExtendedTooltip name="ГруппаДанныеСобытияМониторинга4РасширеннаяПодсказка" id="5720"/>
 													<ChildItems>
-														<UsualGroup name="ГруппаДанныеОбАрбитражныхДелах" id="5772">
+														<UsualGroup name="ГруппаДанныеОбАрбитражныхДелах" id="5721">
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -1275,11 +1596,10 @@
 															<Representation>None</Representation>
 															<ChildItemsWidth>LeftWide</ChildItemsWidth>
 															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаДанныеОбАрбитражныхДелахРасширеннаяПодсказка" id="5773"/>
+															<ExtendedTooltip name="ГруппаДанныеОбАрбитражныхДелахРасширеннаяПодсказка" id="5722"/>
 															<ChildItems>
-																<LabelDecoration name="ДекорацияДанныеОбАрбитражныхДелахЗаголовок" id="5774">
+																<LabelDecoration name="ДекорацияДанныеОбАрбитражныхДелахЗаголовок" id="5723">
 																	<Width>13</Width>
-																	<Font ref="style:TextLevel3" kind="StyleItem"/>
 																	<Title formatted="false">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1289,28 +1609,27 @@
 																	<GroupVerticalAlign>Top</GroupVerticalAlign>
 																	<Hyperlink>true</Hyperlink>
 																	<VerticalAlign>Top</VerticalAlign>
-																	<ContextMenu name="ДекорацияДанныеОбАрбитражныхДелахЗаголовокКонтекстноеМеню" id="5775"/>
-																	<ExtendedTooltip name="ДекорацияДанныеОбАрбитражныхДелахЗаголовокРасширеннаяПодсказка" id="5776"/>
+																	<ContextMenu name="ДекорацияДанныеОбАрбитражныхДелахЗаголовокКонтекстноеМеню" id="5724"/>
+																	<ExtendedTooltip name="ДекорацияДанныеОбАрбитражныхДелахЗаголовокРасширеннаяПодсказка" id="5725"/>
 																	<Events>
 																		<Event name="Click">ДекорацияДанныеОбАрбитражныхДелахЗаголовокНажатие</Event>
 																	</Events>
 																</LabelDecoration>
-																<LabelDecoration name="ДекорацияДанныеОбАрбитражныхДелахЗначение" id="5777">
+																<LabelDecoration name="ДекорацияДанныеОбАрбитражныхДелахЗначение" id="5726">
 																	<AutoMaxWidth>false</AutoMaxWidth>
 																	<AutoMaxHeight>false</AutoMaxHeight>
-																	<Font ref="style:TextLevel3" kind="StyleItem"/>
 																	<Title formatted="false">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
-																			<v8:content>░░ рассматривается - ░░ решений и постановлений -·░░ завершено</v8:content>
+																			<v8:content>░░ рассматривается - ░░ решений и постановлений - ░░ завершено</v8:content>
 																		</v8:item>
 																	</Title>
-																	<ContextMenu name="ДекорацияДанныеОбАрбитражныхДелахЗначениеКонтекстноеМеню" id="5778"/>
-																	<ExtendedTooltip name="ДекорацияДанныеОбАрбитражныхДелахЗначениеРасширеннаяПодсказка" id="5779"/>
+																	<ContextMenu name="ДекорацияДанныеОбАрбитражныхДелахЗначениеКонтекстноеМеню" id="5727"/>
+																	<ExtendedTooltip name="ДекорацияДанныеОбАрбитражныхДелахЗначениеРасширеннаяПодсказка" id="5728"/>
 																</LabelDecoration>
 															</ChildItems>
 														</UsualGroup>
-														<UsualGroup name="ГруппаДанныеГосударственныеКонтракты" id="5780">
+														<UsualGroup name="ГруппаДанныеГосударственныеКонтракты" id="5729">
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -1323,11 +1642,10 @@
 															<Representation>None</Representation>
 															<ChildItemsWidth>LeftWide</ChildItemsWidth>
 															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаДанныеГосударственныеКонтрактыРасширеннаяПодсказка" id="5781"/>
+															<ExtendedTooltip name="ГруппаДанныеГосударственныеКонтрактыРасширеннаяПодсказка" id="5730"/>
 															<ChildItems>
-																<LabelDecoration name="ДекорацияДанныеГосударственныеКонтрактыЗаголовок" id="5782">
+																<LabelDecoration name="ДекорацияДанныеГосударственныеКонтрактыЗаголовок" id="5731">
 																	<Width>13</Width>
-																	<Font ref="style:TextLevel3" kind="StyleItem"/>
 																	<Title formatted="false">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1337,16 +1655,15 @@
 																	<GroupVerticalAlign>Top</GroupVerticalAlign>
 																	<Hyperlink>true</Hyperlink>
 																	<VerticalAlign>Top</VerticalAlign>
-																	<ContextMenu name="ДекорацияДанныеГосударственныеКонтрактыЗаголовокКонтекстноеМеню" id="5783"/>
-																	<ExtendedTooltip name="ДекорацияДанныеГосударственныеКонтрактыЗаголовокРасширеннаяПодсказка" id="5784"/>
+																	<ContextMenu name="ДекорацияДанныеГосударственныеКонтрактыЗаголовокКонтекстноеМеню" id="5732"/>
+																	<ExtendedTooltip name="ДекорацияДанныеГосударственныеКонтрактыЗаголовокРасширеннаяПодсказка" id="5733"/>
 																	<Events>
 																		<Event name="Click">ДекорацияДанныеГосударственныеКонтрактыЗаголовокНажатие</Event>
 																	</Events>
 																</LabelDecoration>
-																<LabelDecoration name="ДекорацияДанныеГосударственныеКонтрактыЗначение" id="5785">
+																<LabelDecoration name="ДекорацияДанныеГосударственныеКонтрактыЗначение" id="5734">
 																	<AutoMaxWidth>false</AutoMaxWidth>
 																	<AutoMaxHeight>false</AutoMaxHeight>
-																	<Font ref="style:TextLevel3" kind="StyleItem"/>
 																	<Title formatted="false">
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1354,8 +1671,8 @@
 Заключено ░░ контрактов на ░ ░░░ ░░░ ₽.</v8:content>
 																		</v8:item>
 																	</Title>
-																	<ContextMenu name="ДекорацияДанныеГосударственныеКонтрактыЗначениеКонтекстноеМеню" id="5786"/>
-																	<ExtendedTooltip name="ДекорацияДанныеГосударственныеКонтрактыЗначениеРасширеннаяПодсказка" id="5787"/>
+																	<ContextMenu name="ДекорацияДанныеГосударственныеКонтрактыЗначениеКонтекстноеМеню" id="5735"/>
+																	<ExtendedTooltip name="ДекорацияДанныеГосударственныеКонтрактыЗначениеРасширеннаяПодсказка" id="5736"/>
 																</LabelDecoration>
 															</ChildItems>
 														</UsualGroup>
@@ -1375,11 +1692,11 @@
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ShowAsCard>true</ShowAsCard>
+											<BackColor>#FFFFFF</BackColor>
 											<ExtendedTooltip name="ГруппаСправкиСПАРКРасширеннаяПодсказка" id="2640"/>
 											<ChildItems>
 												<LabelDecoration name="ДекорацияСправкиСПАРКЗаголовок" id="2676">
-													<Font ref="style:TitleLevel3" kind="StyleItem"/>
+													<Font ref="style:ВажнаяНадписьШрифт" kind="StyleItem"/>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1390,7 +1707,6 @@
 													<ExtendedTooltip name="ДекорацияСправкиСПАРКЗаголовокРасширеннаяПодсказка" id="2678"/>
 												</LabelDecoration>
 												<LabelDecoration name="ДекорацияСправкиСПАРКОписание" id="2687">
-													<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1417,7 +1733,6 @@
 													<ExtendedTooltip name="ГруппаСправкиСПАРККомандыРасширеннаяПодсказка" id="3732"/>
 													<ChildItems>
 														<LabelDecoration name="ДекорацияЗапроситьСправкуСПАРК" id="3759">
-															<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
 															<Title formatted="false">
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -1432,7 +1747,6 @@
 															</Events>
 														</LabelDecoration>
 														<LabelDecoration name="ДекорацияАктуальнаяСправкаСПАРК" id="3735">
-															<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
 															<Title formatted="false">
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -1449,7 +1763,6 @@
 													</ChildItems>
 												</UsualGroup>
 												<LabelDecoration name="ДекорацияПоказатьВсеСправкиСПАРК" id="3767">
-													<Font ref="style:SubtitleLevel1" kind="StyleItem"/>
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1468,207 +1781,229 @@
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
-				</Page>
-				<Page name="СтраницаФакторыТребующиеВнимания" id="5717">
-					<EnableContentChange>true</EnableContentChange>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Факторы риска</v8:content>
-						</v8:item>
-					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<HorizontalSpacing>Single</HorizontalSpacing>
-					<VerticalSpacing>Half</VerticalSpacing>
-					<ScrollOnCompress>true</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаФакторыТребующиеВниманияРасширеннаяПодсказка" id="5718"/>
-					<ChildItems>
-						<SpreadSheetDocumentField name="РезультатФакторыТребующиеВнимания" id="5719">
-							<DataPath>РезультатФакторыТребующиеВнимания</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<Width>90</Width>
-							<Height>3</Height>
-							<MaxHeight>80</MaxHeight>
-							<HorizontalScrollBar>false</HorizontalScrollBar>
-							<Protection>true</Protection>
-							<ViewScalingMode>Normal</ViewScalingMode>
-							<ContextMenu name="РезультатФакторыТребующиеВниманияКонтекстноеМеню" id="5720"/>
-							<ExtendedTooltip name="РезультатФакторыТребующиеВниманияРасширеннаяПодсказка" id="5721"/>
-						</SpreadSheetDocumentField>
-					</ChildItems>
-				</Page>
-				<Page name="СтраницаДанныеОбАрбитражныхДелах" id="5723">
-					<EnableContentChange>true</EnableContentChange>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Данные об арбитражных делах</v8:content>
-						</v8:item>
-					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<HorizontalSpacing>Single</HorizontalSpacing>
-					<VerticalSpacing>Half</VerticalSpacing>
-					<ScrollOnCompress>true</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаДанныеОбАрбитражныхДелахРасширеннаяПодсказка" id="5724"/>
-					<ChildItems>
-						<SpreadSheetDocumentField name="РезультатДанныеОбАрбитражныхДелах" id="5725">
-							<DataPath>РезультатДанныеОбАрбитражныхДелах</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<Width>90</Width>
-							<Height>3</Height>
-							<MaxHeight>80</MaxHeight>
-							<HorizontalScrollBar>false</HorizontalScrollBar>
-							<Protection>true</Protection>
-							<ViewScalingMode>Normal</ViewScalingMode>
-							<ContextMenu name="РезультатДанныеОбАрбитражныхДелахКонтекстноеМеню" id="5726"/>
-							<ExtendedTooltip name="РезультатДанныеОбАрбитражныхДелахРасширеннаяПодсказка" id="5727"/>
-						</SpreadSheetDocumentField>
-					</ChildItems>
-				</Page>
-				<Page name="СтраницаДанныеГосударственныеКонтракты" id="5711">
-					<EnableContentChange>true</EnableContentChange>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Госконтракты</v8:content>
-						</v8:item>
-					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<HorizontalSpacing>Single</HorizontalSpacing>
-					<VerticalSpacing>Half</VerticalSpacing>
-					<ScrollOnCompress>true</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаДанныеГосударственныеКонтрактыРасширеннаяПодсказка" id="5712"/>
-					<ChildItems>
-						<SpreadSheetDocumentField name="РезультатДанныеГосударственныеКонтракты" id="5713">
-							<DataPath>РезультатДанныеГосударственныеКонтракты</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<Width>90</Width>
-							<Height>3</Height>
-							<MaxHeight>80</MaxHeight>
-							<HorizontalScrollBar>false</HorizontalScrollBar>
-							<Protection>true</Protection>
-							<ViewScalingMode>Normal</ViewScalingMode>
-							<ContextMenu name="РезультатДанныеГосударственныеКонтрактыКонтекстноеМеню" id="5714"/>
-							<ExtendedTooltip name="РезультатДанныеГосударственныеКонтрактыРасширеннаяПодсказка" id="5715"/>
-						</SpreadSheetDocumentField>
-					</ChildItems>
-				</Page>
-				<Page name="СтраницаСобытияМониторинга" id="1723">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>События мониторинга</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<VerticalSpacing>Half</VerticalSpacing>
-					<ScrollOnCompress>true</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаСобытияМониторингаРасширеннаяПодсказка" id="1724"/>
-					<ChildItems>
-						<UsualGroup name="ГруппаСобытияМониторингаФильтры" id="2231">
+						</Page>
+						<Page name="СтраницаФормированиеОтчета" id="5119">
+							<Visible>false</Visible>
+							<EnableContentChange>true</EnableContentChange>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа события мониторинга фильтры</v8:content>
+									<v8:content>Страница формирование отчета</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>AlwaysHorizontal</Group>
+							<HorizontalSpacing>Single</HorizontalSpacing>
+							<VerticalSpacing>Half</VerticalSpacing>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="СтраницаФормированиеОтчетаРасширеннаяПодсказка" id="5120"/>
+							<ChildItems>
+								<PictureDecoration name="КартинкаФормированиеОтчета" id="5121">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<AutoMaxHeight>false</AutoMaxHeight>
+									<Picture>
+										<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="КартинкаФормированиеОтчетаКонтекстноеМеню" id="5122"/>
+									<ExtendedTooltip name="КартинкаФормированиеОтчетаРасширеннаяПодсказка" id="5123"/>
+								</PictureDecoration>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаДанныеОбАрбитражныхДелах" id="5793">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Данные об арбитражных делах</v8:content>
 								</v8:item>
 							</Title>
 							<Group>AlwaysHorizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаСобытияМониторингаФильтрыРасширеннаяПодсказка" id="2232"/>
+							<HorizontalSpacing>Single</HorizontalSpacing>
+							<VerticalSpacing>Half</VerticalSpacing>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="СтраницаДанныеОбАрбитражныхДелахРасширеннаяПодсказка" id="5794"/>
 							<ChildItems>
-								<CheckBoxField name="ИсполнительныеПроизводства" id="2233">
-									<DataPath>ИсполнительныеПроизводства</DataPath>
-									<TitleLocation>Right</TitleLocation>
-									<CheckBoxType>Switcher</CheckBoxType>
-									<ContextMenu name="ИсполнительныеПроизводстваКонтекстноеМеню" id="2234"/>
-									<ExtendedTooltip name="ИсполнительныеПроизводстваРасширеннаяПодсказка" id="2235"/>
-									<Events>
-										<Event name="OnChange">ИсполнительныеПроизводстваПриИзменении</Event>
-									</Events>
-								</CheckBoxField>
-								<CheckBoxField name="ТолькоКритичные" id="2228">
-									<DataPath>ТолькоКритичные</DataPath>
-									<TitleLocation>Right</TitleLocation>
-									<CheckBoxType>Switcher</CheckBoxType>
-									<ContextMenu name="ТолькоКритичныеКонтекстноеМеню" id="2229"/>
-									<ExtendedTooltip name="ТолькоКритичныеРасширеннаяПодсказка" id="2230"/>
-									<Events>
-										<Event name="OnChange">ТолькоКритичныеПриИзменении</Event>
-									</Events>
-								</CheckBoxField>
+								<SpreadSheetDocumentField name="РезультатДанныеОбАрбитражныхДелах" id="5797">
+									<DataPath>РезультатДанныеОбАрбитражныхДелах</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>95</Width>
+									<Height>3</Height>
+									<MaxHeight>80</MaxHeight>
+									<HorizontalStretch>false</HorizontalStretch>
+									<HorizontalScrollBar>false</HorizontalScrollBar>
+									<Protection>true</Protection>
+									<ViewScalingMode>Normal</ViewScalingMode>
+									<ContextMenu name="РезультатДанныеОбАрбитражныхДелахКонтекстноеМеню" id="5798"/>
+									<ExtendedTooltip name="РезультатДанныеОбАрбитражныхДелахРасширеннаяПодсказка" id="5799"/>
+								</SpreadSheetDocumentField>
 							</ChildItems>
-						</UsualGroup>
-						<SpreadSheetDocumentField name="РезультатСобытияМониторинга" id="2212">
-							<DataPath>РезультатСобытияМониторинга</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<Width>90</Width>
-							<MaxWidth>80</MaxWidth>
-							<Height>3</Height>
-							<MaxHeight>80</MaxHeight>
-							<HorizontalScrollBar>false</HorizontalScrollBar>
-							<ViewScalingMode>Normal</ViewScalingMode>
-							<ContextMenu name="РезультатСобытияМониторингаКонтекстноеМеню" id="2213"/>
-							<ExtendedTooltip name="РезультатСобытияМониторингаРасширеннаяПодсказка" id="2214"/>
-							<Events>
-								<Event name="DetailProcessing">РезультатСобытияМониторингаОбработкаРасшифровки</Event>
-							</Events>
-						</SpreadSheetDocumentField>
+						</Page>
+						<Page name="СтраницаДанныеГосударственныеКонтракты" id="5822">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Госконтракты</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<HorizontalSpacing>Single</HorizontalSpacing>
+							<VerticalSpacing>Half</VerticalSpacing>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="СтраницаДанныеГосударственныеКонтрактыРасширеннаяПодсказка" id="5823"/>
+							<ChildItems>
+								<SpreadSheetDocumentField name="РезультатДанныеГосударственныеКонтракты" id="5824">
+									<DataPath>РезультатДанныеГосударственныеКонтракты</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>95</Width>
+									<Height>3</Height>
+									<MaxHeight>80</MaxHeight>
+									<HorizontalStretch>false</HorizontalStretch>
+									<HorizontalScrollBar>false</HorizontalScrollBar>
+									<Protection>true</Protection>
+									<ViewScalingMode>Normal</ViewScalingMode>
+									<ContextMenu name="РезультатДанныеГосударственныеКонтрактыКонтекстноеМеню" id="5825"/>
+									<ExtendedTooltip name="РезультатДанныеГосударственныеКонтрактыРасширеннаяПодсказка" id="5826"/>
+								</SpreadSheetDocumentField>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаФакторыТребующиеВнимания" id="5838">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Факторы риска</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<HorizontalSpacing>Single</HorizontalSpacing>
+							<VerticalSpacing>Half</VerticalSpacing>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="СтраницаФакторыТребующиеВниманияРасширеннаяПодсказка" id="5839"/>
+							<ChildItems>
+								<SpreadSheetDocumentField name="РезультатФакторыТребующиеВнимания" id="5840">
+									<DataPath>РезультатФакторыТребующиеВнимания</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>95</Width>
+									<Height>3</Height>
+									<MaxHeight>80</MaxHeight>
+									<HorizontalStretch>false</HorizontalStretch>
+									<HorizontalScrollBar>false</HorizontalScrollBar>
+									<Protection>true</Protection>
+									<ViewScalingMode>Normal</ViewScalingMode>
+									<ContextMenu name="РезультатФакторыТребующиеВниманияКонтекстноеМеню" id="5841"/>
+									<ExtendedTooltip name="РезультатФакторыТребующиеВниманияРасширеннаяПодсказка" id="5842"/>
+								</SpreadSheetDocumentField>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаСобытияМониторинга" id="1723">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>События мониторинга</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<VerticalSpacing>Half</VerticalSpacing>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="СтраницаСобытияМониторингаРасширеннаяПодсказка" id="1724"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаСобытияМониторингаПраво" id="2215">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа события мониторинга право</v8:content>
+										</v8:item>
+									</Title>
+									<Width>95</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<BackColor>#FFFFFF</BackColor>
+									<ExtendedTooltip name="ГруппаСобытияМониторингаПравоРасширеннаяПодсказка" id="2216"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаСобытияМониторингаФильтры" id="2231">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа события мониторинга фильтры</v8:content>
+												</v8:item>
+											</Title>
+											<Group>AlwaysHorizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаСобытияМониторингаФильтрыРасширеннаяПодсказка" id="2232"/>
+											<ChildItems>
+												<CheckBoxField name="ИсполнительныеПроизводства" id="2233">
+													<DataPath>ИсполнительныеПроизводства</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<ContextMenu name="ИсполнительныеПроизводстваКонтекстноеМеню" id="2234"/>
+													<ExtendedTooltip name="ИсполнительныеПроизводстваРасширеннаяПодсказка" id="2235"/>
+													<Events>
+														<Event name="OnChange">ИсполнительныеПроизводстваПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<CheckBoxField name="ТолькоКритичные" id="2228">
+													<DataPath>ТолькоКритичные</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<ContextMenu name="ТолькоКритичныеКонтекстноеМеню" id="2229"/>
+													<ExtendedTooltip name="ТолькоКритичныеРасширеннаяПодсказка" id="2230"/>
+													<Events>
+														<Event name="OnChange">ТолькоКритичныеПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<SpreadSheetDocumentField name="РезультатСобытияМониторинга" id="2212">
+									<DataPath>РезультатСобытияМониторинга</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>95</Width>
+									<MaxWidth>80</MaxWidth>
+									<Height>3</Height>
+									<MaxHeight>80</MaxHeight>
+									<HorizontalStretch>false</HorizontalStretch>
+									<HorizontalScrollBar>false</HorizontalScrollBar>
+									<ViewScalingMode>Normal</ViewScalingMode>
+									<ContextMenu name="РезультатСобытияМониторингаКонтекстноеМеню" id="2213"/>
+									<ExtendedTooltip name="РезультатСобытияМониторингаРасширеннаяПодсказка" id="2214"/>
+									<Events>
+										<Event name="DetailProcessing">РезультатСобытияМониторингаОбработкаРасшифровки</Event>
+									</Events>
+								</SpreadSheetDocumentField>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаОписаниеОшибки" id="5124">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница описание ошибки</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<HorizontalSpacing>Single</HorizontalSpacing>
+							<VerticalSpacing>Half</VerticalSpacing>
+							<ShowTitle>false</ShowTitle>
+							<ScrollOnCompress>true</ScrollOnCompress>
+							<ExtendedTooltip name="СтраницаОписаниеОшибкиРасширеннаяПодсказка" id="5125"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияОписаниеОшибки" id="5126">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<AutoMaxHeight>false</AutoMaxHeight>
+									<ContextMenu name="ДекорацияОписаниеОшибкиКонтекстноеМеню" id="5127"/>
+									<ExtendedTooltip name="ДекорацияОписаниеОшибкиРасширеннаяПодсказка" id="5128"/>
+								</LabelDecoration>
+							</ChildItems>
+						</Page>
 					</ChildItems>
-				</Page>
-				<Page name="СтраницаФормированиеОтчета" id="5119">
-					<Visible>false</Visible>
-					<EnableContentChange>true</EnableContentChange>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Формирование отчета</v8:content>
-						</v8:item>
-					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<ShowTitle>false</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаФормированиеОтчетаРасширеннаяПодсказка" id="5120"/>
-					<ChildItems>
-						<PictureDecoration name="КартинкаФормированиеОтчета" id="5121">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<Picture>
-								<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</Picture>
-							<FileDragMode>AsFile</FileDragMode>
-							<ContextMenu name="КартинкаФормированиеОтчетаКонтекстноеМеню" id="5122"/>
-							<ExtendedTooltip name="КартинкаФормированиеОтчетаРасширеннаяПодсказка" id="5123"/>
-						</PictureDecoration>
-					</ChildItems>
-				</Page>
-				<Page name="СтраницаОписаниеОшибки" id="5124">
-					<Visible>false</Visible>
-					<EnableContentChange>true</EnableContentChange>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Описание ошибки</v8:content>
-						</v8:item>
-					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<ShowTitle>false</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаОписаниеОшибкиРасширеннаяПодсказка" id="5125"/>
-					<ChildItems>
-						<LabelDecoration name="ДекорацияОписаниеОшибки" id="5126">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<ContextMenu name="ДекорацияОписаниеОшибкиКонтекстноеМеню" id="5127"/>
-							<ExtendedTooltip name="ДекорацияОписаниеОшибкиРасширеннаяПодсказка" id="5128"/>
-						</LabelDecoration>
-					</ChildItems>
-				</Page>
+				</Pages>
 			</ChildItems>
-		</Pages>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -1776,11 +2111,6 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="СсылкаДляПереходаНаКарту" id="58">
-			<Type>
-				<v8:Type>v8ui:FormattedString</v8:Type>
-			</Type>
-		</Attribute>
 		<Attribute name="КартинкаИндексДолжнойОсмотрительности" id="64">
 			<Title>
 				<v8:item>
@@ -1867,7 +2197,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>ИНН контрагента</v8:content>
+					<v8:content>ИНН поиска</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1903,21 +2233,6 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Адрес хранилища</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="АдресХранилищаДанныеПроверки" id="80">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Адрес хранилища данные проверки</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1990,37 +2305,6 @@
 			</Title>
 			<Type/>
 		</Attribute>
-		<Attribute name="НайденныйИНН" id="88">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Найденный ИНН</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>12</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="КоличествоУчредителей" id="57">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Количество учредителей</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>10</v8:Digits>
-					<v8:FractionDigits>0</v8:FractionDigits>
-					<v8:AllowedSign>Any</v8:AllowedSign>
-				</v8:NumberQualifiers>
-			</Type>
-		</Attribute>
 		<Attribute name="АктуальнаяСправка" id="22">
 			<Title>
 				<v8:item>
@@ -2030,21 +2314,6 @@
 			</Title>
 			<Type>
 				<v8:Type>cfg:DocumentRef.СправкиСПАРКРиски</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="ИННСобытий" id="23">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>ИНН событий мониторинга</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 		<Attribute name="АдресХранилищаДанныеСобытияМониторинга" id="24">
@@ -2062,11 +2331,11 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="УведомленияМонитораПортала" id="2">
+		<Attribute name="УведомленияПользователя" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Уведомления монитора портала</v8:content>
+					<v8:content>Уведомления пользователя</v8:content>
 				</v8:item>
 			</Title>
 			<Type/>
@@ -2102,6 +2371,36 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="ТекущийРазделГлавноеМеню" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущий раздел главное меню</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущийРазделОтчетности" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущий раздел отчетности</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
 		<Attribute name="ВключенРазделГлавноеМеню" id="47">
 			<Title>
 				<v8:item>
@@ -2117,7 +2416,7 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="АдресХранилищаДанныеФакторыРиска" id="25">
+		<Attribute name="АдресХранилищаДанныеФакторыРиска" id="56">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -2132,7 +2431,7 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="РезультатДанныеОбАрбитражныхДелах" id="43">
+		<Attribute name="РезультатДанныеОбАрбитражныхДелах" id="71">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -2143,7 +2442,7 @@
 				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="РезультатДанныеГосударственныеКонтракты" id="56">
+		<Attribute name="РезультатДанныеГосударственныеКонтракты" id="73">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -2154,7 +2453,7 @@
 				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="РезультатФакторыТребующиеВнимания" id="71">
+		<Attribute name="РезультатФакторыТребующиеВнимания" id="75">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -2167,6 +2466,36 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
+		<Command name="ОбщиеСведения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общие сведения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общие сведения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОбщиеСведения</Action>
+		</Command>
+		<Command name="СобытияМониторинга" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>События мониторинга</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>События мониторинга</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СобытияМониторинга</Action>
+		</Command>
 		<Command name="СкачатьКарточку" id="22">
 			<Title>
 				<v8:item>
@@ -2200,6 +2529,45 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Печать</Action>
+		</Command>
+		<Command name="ДанныеОбАрбитражныхДелах" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Арбитражные дела</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные об арбитражных делах</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДанныеОбАрбитражныхДелах</Action>
+		</Command>
+		<Command name="ДанныеГосударственныеКонтракты" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Госконтракты</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ДанныеГосударственныеКонтракты</Action>
+		</Command>
+		<Command name="ФакторыТребующиеВнимания" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Факторы риска</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Факторы риска</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ФакторыТребующиеВнимания</Action>
 		</Command>
 		<Command name="ОткрытьПолныйОтчет" id="1">
 			<Title>

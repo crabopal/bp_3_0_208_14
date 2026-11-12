@@ -9,8 +9,9 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -57,9 +58,6 @@
 		<CheckBoxField name="ИспользоватьИндивидуальныеРегламентныеЗадания" id="97">
 			<DataPath>ИспользоватьИндивидуальныеРегламентныеЗадания</DataPath>
 			<TitleLocation>Right</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<CheckBoxType>Switcher</CheckBoxType>
 			<ContextMenu name="ИспользоватьИндивидуальныеРегламентныеЗаданияКонтекстноеМеню" id="98"/>
 			<ExtendedTooltip name="ИспользоватьИндивидуальныеРегламентныеЗаданияРасширеннаяПодсказка" id="99"/>
 			<Events>
@@ -76,20 +74,24 @@
 				<CheckBoxField name="ИспользованиеСинхронизацииКлассификаторов" id="46">
 					<DataPath>ИспользованиеСинхронизацииКлассификаторов</DataPath>
 					<TitleLocation>Right</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<CheckBoxType>Switcher</CheckBoxType>
 					<ContextMenu name="ИспользованиеСинхронизацииКлассификаторовКонтекстноеМеню" id="47"/>
 					<ExtendedTooltip name="ИспользованиеСинхронизацииКлассификаторовРасширеннаяПодсказка" id="48"/>
 					<Events>
 						<Event name="OnChange">ИспользованиеСинхронизацииКлассификаторовПриИзменении</Event>
 					</Events>
 				</CheckBoxField>
-				<Button name="НастроитьРасписаниеСинхронизацииКлассификаторов" id="157">
-					<Type>Hyperlink</Type>
-					<CommandName>Form.Command.НастроитьРасписаниеСинхронизацииКлассификаторов</CommandName>
-					<ExtendedTooltip name="НастроитьРасписаниеСинхронизацииКлассификаторовРасширеннаяПодсказка" id="158"/>
-				</Button>
+				<LabelField name="РасписаниеСинхронизацииКлассификаторовСтрокой" id="49">
+					<DataPath>РасписаниеСинхронизацииКлассификаторовСтрокой</DataPath>
+					<SkipOnInput>true</SkipOnInput>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Hiperlink>true</Hiperlink>
+					<ContextMenu name="РасписаниеСинхронизацииКлассификаторовСтрокойКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="РасписаниеСинхронизацииКлассификаторовСтрокойРасширеннаяПодсказка" id="51"/>
+					<Events>
+						<Event name="Click">РасписаниеСинхронизацииКлассификаторовСтрокойНажатие</Event>
+					</Events>
+				</LabelField>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаОтбор" id="125">
@@ -117,7 +119,6 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацииВЕТИСРасширеннаяПодсказка" id="116"/>
 							<ChildItems>
@@ -130,8 +131,7 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
 									<ChoiceButton>true</ChoiceButton>
@@ -173,7 +173,6 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацияВЕТИСРасширеннаяПодсказка" id="121"/>
 							<ChildItems>
@@ -186,8 +185,7 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
 									<ChoiceButton>true</ChoiceButton>
@@ -224,37 +222,16 @@
 						</Page>
 					</ChildItems>
 				</Pages>
-				<UsualGroup name="ГруппаПредприятияБезНастроек" id="152">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа предприятия без настроек</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа предприятия без настроек</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПредприятияБезНастроекРасширеннаяПодсказка" id="153"/>
-					<ChildItems>
-						<LabelField name="ПредприятияБезНастроекНадпись" id="130">
-							<DataPath>ПредприятияБезНастроекНадпись</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<ContextMenu name="ПредприятияБезНастроекНадписьКонтекстноеМеню" id="131"/>
-							<ExtendedTooltip name="ПредприятияБезНастроекНадписьРасширеннаяПодсказка" id="132"/>
-							<Events>
-								<Event name="URLProcessing">ПредприятияБезНастроекНадписьОбработкаНавигационнойСсылки</Event>
-							</Events>
-						</LabelField>
-					</ChildItems>
-				</UsualGroup>
+				<LabelField name="ПредприятияБезНастроекНадпись" id="130">
+					<DataPath>ПредприятияБезНастроекНадпись</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ПредприятияБезНастроекНадписьКонтекстноеМеню" id="131"/>
+					<ExtendedTooltip name="ПредприятияБезНастроекНадписьРасширеннаяПодсказка" id="132"/>
+					<Events>
+						<Event name="URLProcessing">ПредприятияБезНастроекНадписьОбработкаНавигационнойСсылки</Event>
+					</Events>
+				</LabelField>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаЕдиноеРегламентноеЗадание" id="34">
@@ -298,8 +275,6 @@
 							<DataPath>РасписаниеАвтоматическогоОбменаСтрокой</DataPath>
 							<SkipOnInput>true</SkipOnInput>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<Hiperlink>true</Hiperlink>
 							<ContextMenu name="РасписаниеАвтоматическогоОбменаСтрокойКонтекстноеМеню" id="42"/>
@@ -310,38 +285,17 @@
 						</LabelField>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ГруппаОшибкиАвтоматическогоОбмена" id="154">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа ошибки автоматического обмена</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа ошибки автоматического обмена</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаОшибкиАвтоматическогоОбменаРасширеннаяПодсказка" id="155"/>
-					<ChildItems>
-						<LabelField name="ОшибкиАвтоматическогоОбмена" id="110">
-							<DataPath>ОшибкиАвтоматическогоОбмена</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<Height>1</Height>
-							<ContextMenu name="ОшибкиАвтоматическогоОбменаКонтекстноеМеню" id="111"/>
-							<ExtendedTooltip name="ОшибкиАвтоматическогоОбменаРасширеннаяПодсказка" id="112"/>
-							<Events>
-								<Event name="URLProcessing">ОшибкиАвтоматическогоОбменаОбработкаНавигационнойСсылки</Event>
-							</Events>
-						</LabelField>
-					</ChildItems>
-				</UsualGroup>
+				<LabelField name="ОшибкиАвтоматическогоОбмена" id="110">
+					<DataPath>ОшибкиАвтоматическогоОбмена</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Height>1</Height>
+					<ContextMenu name="ОшибкиАвтоматическогоОбменаКонтекстноеМеню" id="111"/>
+					<ExtendedTooltip name="ОшибкиАвтоматическогоОбменаРасширеннаяПодсказка" id="112"/>
+					<Events>
+						<Event name="URLProcessing">ОшибкиАвтоматическогоОбменаОбработкаНавигационнойСсылки</Event>
+					</Events>
+				</LabelField>
 			</ChildItems>
 		</UsualGroup>
 		<Table name="ТаблицаНастроек" id="7">
@@ -430,29 +384,23 @@
 				<Event name="OnActivateRow">ТаблицаНастроекПриАктивизацииСтроки</Event>
 			</Events>
 			<ChildItems>
-				<InputField name="ТаблицаНастроекНастройкаОбмена" id="20">
-					<DataPath>ТаблицаНастроек.НастройкаОбмена</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ТаблицаНастроекНастройкаОбменаКонтекстноеМеню" id="21"/>
-					<ExtendedTooltip name="ТаблицаНастроекНастройкаОбменаРасширеннаяПодсказка" id="22"/>
-				</InputField>
 				<CheckBoxField name="ТаблицаНастроекИспользование" id="23">
 					<DataPath>ТаблицаНастроек.Использование</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТаблицаНастроекИспользованиеКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="ТаблицаНастроекИспользованиеРасширеннаяПодсказка" id="25"/>
 					<Events>
 						<Event name="OnChange">ТаблицаНастроекИспользованиеПриИзменении</Event>
 					</Events>
 				</CheckBoxField>
+				<InputField name="ТаблицаНастроекНастройкаОбмена" id="20">
+					<DataPath>ТаблицаНастроек.НастройкаОбмена</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ТаблицаНастроекНастройкаОбменаКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ТаблицаНастроекНастройкаОбменаРасширеннаяПодсказка" id="22"/>
+				</InputField>
 				<InputField name="ТаблицаНастроекСостояние" id="67">
 					<DataPath>ТаблицаНастроек.Состояние</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТаблицаНастроекСостояниеКонтекстноеМеню" id="68"/>
 					<ExtendedTooltip name="ТаблицаНастроекСостояниеРасширеннаяПодсказка" id="69"/>
 				</InputField>
@@ -470,16 +418,12 @@
 				<CheckBoxField name="ТаблицаНастроекПометкаУдаления" id="64">
 					<DataPath>ТаблицаНастроек.ПометкаУдаления</DataPath>
 					<Visible>false</Visible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТаблицаНастроекПометкаУдаленияКонтекстноеМеню" id="65"/>
 					<ExtendedTooltip name="ТаблицаНастроекПометкаУдаленияРасширеннаяПодсказка" id="66"/>
 				</CheckBoxField>
 				<CheckBoxField name="ТаблицаНастроекСостояниеОшибка" id="76">
 					<DataPath>ТаблицаНастроек.СостояниеОшибка</DataPath>
 					<Visible>false</Visible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТаблицаНастроекСостояниеОшибкаКонтекстноеМеню" id="77"/>
 					<ExtendedTooltip name="ТаблицаНастроекСостояниеОшибкаРасширеннаяПодсказка" id="78"/>
 				</CheckBoxField>
@@ -488,8 +432,6 @@
 		<LabelField name="ВремяПоследнегоВыполнения" id="103">
 			<DataPath>ВремяПоследнегоВыполнения</DataPath>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<Height>1</Height>
 			<ContextMenu name="ВремяПоследнегоВыполненияКонтекстноеМеню" id="104"/>
@@ -501,8 +443,6 @@
 		<LabelField name="Действия" id="79">
 			<DataPath>Действия</DataPath>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<Height>2</Height>
 			<VerticalStretch>false</VerticalStretch>
@@ -922,7 +862,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Включить использование</v8:content>
+					<v8:content>Включить использование регламентных заданий</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -937,14 +877,12 @@
 			</Picture>
 			<Action>ВключитьИспользованиеРегламентныхЗаданий</Action>
 			<Representation>Picture</Representation>
-			<AssociatedTableElementId xsi:type="xs:string">ТаблицаНастроек</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ОтключитьИспользованиеРегламентныхЗаданий" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Отключить использование</v8:content>
+					<v8:content>Отключить использование регламентных заданий</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -959,22 +897,6 @@
 			</Picture>
 			<Action>ОтключитьИспользованиеРегламентныхЗаданий</Action>
 			<Representation>Picture</Representation>
-			<AssociatedTableElementId xsi:type="xs:string">ТаблицаНастроек</AssociatedTableElementId>
-		</Command>
-		<Command name="НастроитьРасписаниеСинхронизацииКлассификаторов" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>&lt;Расписание не задано&gt;</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Настроить расписание синхронизации классификаторов</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>НастроитьРасписаниеСинхронизацииКлассификаторов</Action>
 		</Command>
 	</Commands>
 </Form>

@@ -3,7 +3,6 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаПеренестиВДокумент" id="270">
@@ -62,8 +61,6 @@
 								<LabelField name="ПредставлениеСохраненногоВыбора" id="242">
 									<DataPath>ПредставлениеСохраненногоВыбора</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<HorizontalStretch>true</HorizontalStretch>
 									<ContextMenu name="ПредставлениеСохраненногоВыбораКонтекстноеМеню" id="243"/>
@@ -100,8 +97,6 @@
 								<LabelField name="ПредставлениеУстановитьОтбор" id="245">
 									<DataPath>ПредставлениеУстановитьОтбор</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<HorizontalStretch>true</HorizontalStretch>
 									<ContextMenu name="ПредставлениеУстановитьОтборКонтекстноеМеню" id="246"/>
@@ -130,8 +125,6 @@
 									<v8:content>В документе</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<HorizontalStretch>true</HorizontalStretch>
 							<ContextMenu name="ПроверяемыйДокументКонтекстноеМеню" id="213"/>
@@ -171,10 +164,112 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаРезультатыСверкиРасширеннаяПодсказка" id="4"/>
 					<ChildItems>
+						<UsualGroup name="ГруппаРезультатыСверки" id="72">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа результаты сверки</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа результаты сверки командная панель</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаРезультатыСверкиРасширеннаяПодсказка" id="73"/>
+							<ChildItems>
+								<RadioButtonField name="ОтображатьРезультатыФизПроверки" id="74">
+									<DataPath>ОтображатьРезультатыФизПроверки</DataPath>
+									<RadioButtonType>Auto</RadioButtonType>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Все</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">Все</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Фактические расхождения</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ФактическиеРасхождения</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Расхождения ЭДО</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ЭДОРасхождения</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ОтображатьРезультатыФизПроверкиКонтекстноеМеню" id="75"/>
+									<ExtendedTooltip name="ОтображатьРезультатыФизПроверкиРасширеннаяПодсказка" id="76"/>
+									<Events>
+										<Event name="OnChange">ОтображатьРезультатыФизПроверкиПриИзменении</Event>
+									</Events>
+								</RadioButtonField>
+								<CommandBar name="ГруппаРезультатыСверкиКоманднаяПанель" id="260">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа результаты сверки командная панель</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="ГруппаРезультатыСверкиКоманднаяПанельРасширеннаяПодсказка" id="261"/>
+									<ChildItems>
+										<Popup name="ПодменюПризнатьРасхождения" id="262">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Признать расхождения</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="ПодменюПризнатьРасхожденияРасширеннаяПодсказка" id="263"/>
+											<ChildItems>
+												<Button name="УстановитьДействиеПризнать" id="264">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Command.УстановитьДействиеПризнать</CommandName>
+													<ExtendedTooltip name="УстановитьДействиеПризнатьРасширеннаяПодсказка" id="265"/>
+												</Button>
+												<Button name="УстановитьДействиеНеПризнать" id="266">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Command.УстановитьДействиеНеПризнать</CommandName>
+													<ExtendedTooltip name="УстановитьДействиеНеПризнатьРасширеннаяПодсказка" id="267"/>
+												</Button>
+											</ChildItems>
+										</Popup>
+									</ChildItems>
+								</CommandBar>
+							</ChildItems>
+						</UsualGroup>
 						<Table name="ДеревоМаркированнойПродукции" id="7">
 							<Representation>Tree</Representation>
 							<RowSelectionMode>Cell</RowSelectionMode>
@@ -192,55 +287,6 @@
 							<ContextMenu name="ДеревоМаркированнойПродукцииКонтекстноеМеню" id="8"/>
 							<AutoCommandBar name="ДеревоМаркированнойПродукцииКоманднаяПанель" id="9">
 								<Autofill>false</Autofill>
-								<ChildItems>
-									<Popup name="ПодменюДеревоМаркированнойПродукцииРежимПросмотра" id="302">
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Отбор</v8:content>
-											</v8:item>
-										</Title>
-										<ExtendedTooltip name="ПодменюДеревоМаркированнойПродукцииРежимПросмотраРасширеннаяПодсказка" id="303"/>
-										<ChildItems>
-											<Button name="ДеревоМаркированнойПродукцииОтборРезультатыФизПроверкиВсе" id="310">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ОтборРезультатыФизПроверкиВсе</CommandName>
-												<ExtendedTooltip name="ДеревоМаркированнойПродукцииОтборРезультатыФизПроверкиВсеРасширеннаяПодсказка" id="311"/>
-											</Button>
-											<Button name="ДеревоМаркированнойПродукцииОтборРезультатыФизПроверкиФактическиеРасхождения" id="312">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ОтборРезультатыФизПроверкиФактическиеРасхождения</CommandName>
-												<ExtendedTooltip name="ДеревоМаркированнойПродукцииОтборРезультатыФизПроверкиФактическиеРасхожденияРасширеннаяПодсказка" id="313"/>
-											</Button>
-											<Button name="ДеревоМаркированнойПродукцииОтборРезультатыФизПроверкиРасхожденияЭДО" id="314">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ОтборРезультатыФизПроверкиРасхожденияЭДО</CommandName>
-												<ExtendedTooltip name="ДеревоМаркированнойПродукцииОтборРезультатыФизПроверкиРасхожденияЭДОРасширеннаяПодсказка" id="315"/>
-											</Button>
-										</ChildItems>
-									</Popup>
-									<Popup name="ПодменюПризнатьРасхождения" id="262">
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Признать расхождения</v8:content>
-											</v8:item>
-										</Title>
-										<ExtendedTooltip name="ПодменюПризнатьРасхожденияРасширеннаяПодсказка" id="263"/>
-										<ChildItems>
-											<Button name="УстановитьДействиеПризнать" id="264">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.УстановитьДействиеПризнать</CommandName>
-												<ExtendedTooltip name="УстановитьДействиеПризнатьРасширеннаяПодсказка" id="265"/>
-											</Button>
-											<Button name="УстановитьДействиеНеПризнать" id="266">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.УстановитьДействиеНеПризнать</CommandName>
-												<ExtendedTooltip name="УстановитьДействиеНеПризнатьРасширеннаяПодсказка" id="267"/>
-											</Button>
-										</ChildItems>
-									</Popup>
-								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ДеревоМаркированнойПродукцииРасширеннаяПодсказка" id="10"/>
 							<SearchStringAddition name="ДеревоМаркированнойПродукцииСтрокаПоиска" id="11">
@@ -286,7 +332,6 @@
 										</v8:item>
 									</ToolTip>
 									<Group>InCell</Group>
-									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="ДеревоМаркированнойПродукцииГруппаШтрихкодРасширеннаяПодсказка" id="21"/>
 									<ChildItems>
 										<PictureField name="ДеревоМаркированнойПродукцииИндексКартинкиТипУпаковки" id="22">
@@ -317,7 +362,6 @@
 								</ColumnGroup>
 								<PictureField name="ДеревоМаркированнойПродукцииЭДО" id="63">
 									<DataPath>ДеревоМаркированнойПродукции.ЭДО</DataPath>
-									<ReadOnly>true</ReadOnly>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ValuesPicture>
@@ -345,7 +389,6 @@
 									</ToolTip>
 									<HorizontalStretch>true</HorizontalStretch>
 									<Group>InCell</Group>
-									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="ДеревоМаркированнойПродукцииГруппаСтатусПроверкиРасширеннаяПодсказка" id="29"/>
 									<ChildItems>
 										<PictureField name="ДеревоМаркированнойПродукцииИндексКартинкиСтатусПроверки" id="30">
@@ -413,8 +456,6 @@
 								</ColumnGroup>
 								<InputField name="ДеревоМаркированнойПродукцииДействиеПоРасхождениям" id="257">
 									<DataPath>ДеревоМаркированнойПродукции.ДействиеПоРасхождениям</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<TextEdit>false</TextEdit>
 									<ContextMenu name="ДеревоМаркированнойПродукцииДействиеПоРасхождениямКонтекстноеМеню" id="258"/>
 									<ExtendedTooltip name="ДеревоМаркированнойПродукцииДействиеПоРасхождениямРасширеннаяПодсказка" id="259"/>
@@ -457,6 +498,7 @@
 									<ReadOnly>true</ReadOnly>
 									<TitleLocation>None</TitleLocation>
 									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
 									<HeaderPicture>
 										<xr:Ref>CommonPicture.НеЧислиласьОбнаруженаПриПроверкеГосИС</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -475,7 +517,7 @@
 									<TitleLocation>None</TitleLocation>
 									<EditMode>EnterOnInput</EditMode>
 									<HeaderPicture>
-										<xr:Ref>CommonPicture.Сумма</xr:Ref>
+										<xr:Ref>CommonPicture.СуммаГосИС</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</HeaderPicture>
 									<AutoEditMode>true</AutoEditMode>
@@ -535,10 +577,64 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаСтруктураРезультатовЭДОРасширеннаяПодсказка" id="6"/>
 					<ChildItems>
+						<UsualGroup name="ГруппаСтруктураРезультатовЭДОКоманднаяПанель" id="124">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа результаты сверки командная панель</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа результаты сверки командная панель</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСтруктураРезультатовЭДОКоманднаяПанельРасширеннаяПодсказка" id="125"/>
+							<ChildItems>
+								<RadioButtonField name="ОтображатьРезультатыЭДО" id="126">
+									<DataPath>ОтображатьРезультатыЭДО</DataPath>
+									<RadioButtonType>Auto</RadioButtonType>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Все</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ВсеЭДО</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Только расхождения</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ТолькоРасхождения</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ОтображатьРезультатыЭДОКонтекстноеМеню" id="127"/>
+									<ExtendedTooltip name="ОтображатьРезультатыЭДОРасширеннаяПодсказка" id="128"/>
+								</RadioButtonField>
+							</ChildItems>
+						</UsualGroup>
 						<Table name="ДеревоРезультатовЭДО" id="152">
 							<Representation>Tree</Representation>
 							<RowSelectionMode>Cell</RowSelectionMode>
@@ -559,35 +655,6 @@
 							<ContextMenu name="ДеревоРезультатовЭДОКонтекстноеМеню" id="153"/>
 							<AutoCommandBar name="ДеревоРезультатовЭДОКоманднаяПанель" id="154">
 								<Autofill>false</Autofill>
-								<ChildItems>
-									<Popup name="ПодменюДеревоРезультатовЭДООтбор" id="304">
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Отбор</v8:content>
-											</v8:item>
-										</Title>
-										<ToolTip>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Подменю дерево результатов ЭДООтбор</v8:content>
-											</v8:item>
-										</ToolTip>
-										<ExtendedTooltip name="ПодменюДеревоРезультатовЭДООтборРасширеннаяПодсказка" id="305"/>
-										<ChildItems>
-											<Button name="ДеревоРезультатовЭДООтборРезультатыЭДОВсеСтроки" id="306">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ОтборРезультатыЭДОВсеСтроки</CommandName>
-												<ExtendedTooltip name="ДеревоРезультатовЭДООтборРезультатыЭДОВсеСтрокиРасширеннаяПодсказка" id="307"/>
-											</Button>
-											<Button name="ДеревоРезультатовЭДООтборРезультатыЭДОРасхождения" id="308">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ОтборРезультатыЭДОРасхождения</CommandName>
-												<ExtendedTooltip name="ДеревоРезультатовЭДООтборРезультатыЭДОРасхожденияРасширеннаяПодсказка" id="309"/>
-											</Button>
-										</ChildItems>
-									</Popup>
-								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ДеревоРезультатовЭДОРасширеннаяПодсказка" id="155"/>
 							<SearchStringAddition name="ДеревоРезультатовЭДОСтрокаПоиска" id="156">
@@ -634,7 +701,6 @@
 										</v8:item>
 									</ToolTip>
 									<Group>InCell</Group>
-									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="ДеревоРезультатовЭДОГруппаСодержимоеРасширеннаяПодсказка" id="166"/>
 									<ChildItems>
 										<PictureField name="ДеревоРезультатовЭДОИндексКартинкиТипУпаковки" id="178">
@@ -674,7 +740,6 @@
 									</ToolTip>
 									<HorizontalStretch>true</HorizontalStretch>
 									<Group>InCell</Group>
-									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="ДеревоРезультатовЭДОГруппаСтатусПроверкиРасширеннаяПодсказка" id="174"/>
 									<ChildItems>
 										<PictureField name="ДеревоРезультатовЭДОИндексКартинкиСтатусПроверки" id="181">
@@ -1976,8 +2041,6 @@
 				</v8:item>
 			</Title>
 			<Action>УстановитьДействиеНеПризнать</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ДеревоМаркированнойПродукции</AssociatedTableElementId>
 		</Command>
 		<Command name="УстановитьДействиеПризнать" id="2">
 			<Title>
@@ -1987,8 +2050,6 @@
 				</v8:item>
 			</Title>
 			<Action>УстановитьДействиеПризнать</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ДеревоМаркированнойПродукции</AssociatedTableElementId>
 		</Command>
 		<Command name="ПроверкаЗавершена" id="3">
 			<Title>
@@ -1998,82 +2059,6 @@
 				</v8:item>
 			</Title>
 			<Action>ПроверкаЗавершена</Action>
-			<ActionPurpose>Finish</ActionPurpose>
-		</Command>
-		<Command name="ОтборРезультатыФизПроверкиВсе" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Все строки</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор результаты физ проверки все</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОтборРезультатыФизПроверкиВсе</Action>
-		</Command>
-		<Command name="ОтборРезультатыФизПроверкиФактическиеРасхождения" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Фактические расхождения</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Результаты физ проверки все</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОтборРезультатыФизПроверкиФактическиеРасхождения</Action>
-		</Command>
-		<Command name="ОтборРезультатыФизПроверкиРасхожденияЭДО" id="6">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Расхождения ЭДО</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Результаты физ проверки все</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОтборРезультатыФизПроверкиРасхожденияЭДО</Action>
-		</Command>
-		<Command name="ОтборРезультатыЭДОВсеСтроки" id="7">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Все строки</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор результаты ЭДОВсе строки</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОтборРезультатыЭДОВсеСтроки</Action>
-		</Command>
-		<Command name="ОтборРезультатыЭДОРасхождения" id="8">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Только расхождения</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор результаты ЭДОВсе строки</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОтборРезультатыЭДОРасхождения</Action>
 		</Command>
 	</Commands>
 	<Parameters>

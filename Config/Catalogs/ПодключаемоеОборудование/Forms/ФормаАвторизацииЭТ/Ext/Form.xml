@@ -12,6 +12,21 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ВыполнитьОперацию" id="10">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.ВыполнитьОперацию</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ВыполнитьОперациюExtendedTooltip" id="18"/>
+			</Button>
+			<Button name="ФормаОтмена" id="28">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="29"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -20,12 +35,13 @@
 		<InputField name="Сумма" id="1">
 			<DataPath>Сумма</DataPath>
 			<DefaultItem>true</DefaultItem>
-			<HorizontalAlign>Right</HorizontalAlign>
+			<MarkRequiredComplete>true</MarkRequiredComplete>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ChoiceButton>false</ChoiceButton>
+			<SpinButton>true</SpinButton>
 			<AutoMarkIncomplete>true</AutoMarkIncomplete>
 			<ContextMenu name="СуммаКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="19"/>
+			<ExtendedTooltip name="СуммаExtendedTooltip" id="19"/>
 			<Events>
 				<Event name="TextEditEnd">СуммаОкончаниеВводаТекста</Event>
 			</Events>
@@ -36,25 +52,26 @@
 			<RadioButtonType>Auto</RadioButtonType>
 			<ColumnsCount>1</ColumnsCount>
 			<ContextMenu name="ТипКартыКонтекстноеМеню" id="17"/>
-			<ExtendedTooltip name="ТипКартыРасширеннаяПодсказка" id="20"/>
+			<ExtendedTooltip name="ТипКартыExtendedTooltip" id="20"/>
 		</RadioButtonField>
 		<InputField name="НомерКарты" id="14">
 			<DataPath>НомерКарты</DataPath>
 			<ReadOnly>true</ReadOnly>
 			<SkipOnInput>true</SkipOnInput>
+			<MarkRequiredComplete>true</MarkRequiredComplete>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<Mask>9999 9999 9999 9999 9999</Mask>
 			<AutoMarkIncomplete>true</AutoMarkIncomplete>
 			<TextEdit>false</TextEdit>
 			<ContextMenu name="НомерКартыКонтекстноеМеню" id="15"/>
-			<ExtendedTooltip name="НомерКартыРасширеннаяПодсказка" id="21"/>
+			<ExtendedTooltip name="НомерКартыExtendedTooltip" id="21"/>
 		</InputField>
 		<CheckBoxField name="УказатьДополнительныеДанные" id="12">
 			<DataPath>УказатьДополнительныеДанные</DataPath>
 			<SkipOnInput>true</SkipOnInput>
 			<TitleLocation>Right</TitleLocation>
 			<ContextMenu name="УказатьДополнительныеДанныеКонтекстноеМеню" id="13"/>
-			<ExtendedTooltip name="УказатьДополнительныеДанныеРасширеннаяПодсказка" id="22"/>
+			<ExtendedTooltip name="УказатьДополнительныеДанныеExtendedTooltip" id="22"/>
 			<Events>
 				<Event name="OnChange">УказатьДополнительныеДанныеПриИзменении</Event>
 			</Events>
@@ -70,44 +87,20 @@
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаРучнойВводДанныхРасширеннаяПодсказка" id="23"/>
+			<ExtendedTooltip name="ГруппаРучнойВводДанныхExtendedTooltip" id="23"/>
 			<ChildItems>
 				<InputField name="СсылочныйНомер" id="6">
 					<DataPath>СсылочныйНомер</DataPath>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="СсылочныйНомерКонтекстноеМеню" id="7"/>
-					<ExtendedTooltip name="СсылочныйНомерРасширеннаяПодсказка" id="24"/>
+					<ExtendedTooltip name="СсылочныйНомерExtendedTooltip" id="24"/>
 				</InputField>
 				<InputField name="НомерЧека" id="8">
 					<DataPath>НомерЧека</DataPath>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="НомерЧекаКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="НомерЧекаРасширеннаяПодсказка" id="25"/>
+					<ExtendedTooltip name="НомерЧекаExtendedTooltip" id="25"/>
 				</InputField>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="Группа" id="36">
-			<HorizontalStretch>true</HorizontalStretch>
-			<GroupVerticalAlign>Bottom</GroupVerticalAlign>
-			<Group>Horizontal</Group>
-			<HorizontalAlign>Right</HorizontalAlign>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ExtendedTooltip name="ГруппаРасширеннаяПодсказка" id="37"/>
-			<ChildItems>
-				<Button name="ВыполнитьОперацию" id="10">
-					<Type>UsualButton</Type>
-					<DefaultButton>true</DefaultButton>
-					<SkipOnInput>false</SkipOnInput>
-					<CommandName>Form.Command.ВыполнитьОперацию</CommandName>
-					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="ВыполнитьОперациюРасширеннаяПодсказка" id="18"/>
-				</Button>
-				<Button name="ФормаОтмена" id="38">
-					<Type>UsualButton</Type>
-					<CommandName>Form.StandardCommand.Cancel</CommandName>
-					<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="39"/>
-				</Button>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>

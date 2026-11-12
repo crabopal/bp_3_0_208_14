@@ -9,7 +9,6 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="Печать" id="35">
@@ -35,9 +34,7 @@
 	<ChildItems>
 		<RadioButtonField name="РазмещениеЭтикетокНаЛисте" id="46">
 			<DataPath>РазмещениеЭтикетокНаЛисте</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<RadioButtonType>Tumbler</RadioButtonType>
+			<RadioButtonType>Auto</RadioButtonType>
 			<ChoiceList>
 				<xr:Item>
 					<xr:Presentation/>
@@ -69,6 +66,42 @@
 			<ContextMenu name="РазмещениеЭтикетокНаЛистеКонтекстноеМеню" id="47"/>
 			<ExtendedTooltip name="РазмещениеЭтикетокНаЛистеРасширеннаяПодсказка" id="48"/>
 		</RadioButtonField>
+		<UsualGroup name="ГруппаКомандыШтрихкодыУпаковок" id="58">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомандыШтрихкодыУпаковокРасширеннаяПодсказка" id="59"/>
+			<ChildItems>
+				<CommandBar name="ГруппаСтандартныеКомандыШтрихкодыУпаковок" id="60">
+					<CommandSource>Item.ШтрихкодыУпаковок</CommandSource>
+					<ExtendedTooltip name="ГруппаСтандартныеКомандыШтрихкодыУпаковокРасширеннаяПодсказка" id="61"/>
+					<ChildItems>
+						<ButtonGroup name="ГруппаВыбратьИсключить" id="54">
+							<HorizontalStretch>false</HorizontalStretch>
+							<ExtendedTooltip name="ГруппаВыбратьИсключитьРасширеннаяПодсказка" id="55"/>
+							<ChildItems>
+								<Button name="ШтрихкодыУпаковокВыбратьВсе" id="52">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.ВыбратьВсе</CommandName>
+									<ExtendedTooltip name="ШтрихкодыУпаковокВыбратьВсеРасширеннаяПодсказка" id="53"/>
+								</Button>
+								<Button name="ШтрихкодыУпаковокИсключитьВсе" id="56">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.ИсключитьВсе</CommandName>
+									<ExtendedTooltip name="ШтрихкодыУпаковокИсключитьВсеРасширеннаяПодсказка" id="57"/>
+								</Button>
+							</ChildItems>
+						</ButtonGroup>
+						<Button name="Заполнить" id="99">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.Заполнить</CommandName>
+							<ExtendedTooltip name="ЗаполнитьРасширеннаяПодсказка" id="100"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
 		<Table name="ШтрихкодыУпаковок" id="4">
 			<Representation>List</Representation>
 			<ChangeRowOrder>false</ChangeRowOrder>
@@ -85,28 +118,7 @@
 			<ContextMenu name="ШтрихкодыУпаковокКонтекстноеМеню" id="6"/>
 			<AutoCommandBar name="ШтрихкодыУпаковокКоманднаяПанель" id="5">
 				<HorizontalAlign>Auto</HorizontalAlign>
-				<ChildItems>
-					<Button name="Заполнить" id="99">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Заполнить</CommandName>
-						<ExtendedTooltip name="ЗаполнитьРасширеннаяПодсказка" id="100"/>
-					</Button>
-					<Button name="ШтрихкодыУпаковокВыбратьВсе" id="52">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ВыбратьВсе</CommandName>
-						<ExtendedTooltip name="ШтрихкодыУпаковокВыбратьВсеРасширеннаяПодсказка" id="53"/>
-					</Button>
-					<Button name="ШтрихкодыУпаковокИсключитьВсе" id="56">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ИсключитьВсе</CommandName>
-						<ExtendedTooltip name="ШтрихкодыУпаковокИсключитьВсеРасширеннаяПодсказка" id="57"/>
-					</Button>
-					<Button name="ШтрихкодыУпаковокПечать" id="111">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Печать</CommandName>
-						<ExtendedTooltip name="ШтрихкодыУпаковокПечатьРасширеннаяПодсказка" id="112"/>
-					</Button>
-				</ChildItems>
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ШтрихкодыУпаковокРасширеннаяПодсказка" id="7"/>
 			<SearchStringAddition name="ШтрихкодыУпаковокСтрокаПоиска" id="8">
@@ -148,13 +160,11 @@
 							<v8:content>Пометка строки для печати</v8:content>
 						</v8:item>
 					</ToolTip>
-					<EditMode>EnterOnInput</EditMode>
 					<HeaderPicture>
 						<xr:Ref>StdPicture.Print</xr:Ref>
 						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</HeaderPicture>
 					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ШтрихкодыУпаковокПометкаКонтекстноеМеню" id="50"/>
 					<ExtendedTooltip name="ШтрихкодыУпаковокПометкаРасширеннаяПодсказка" id="51"/>
 					<Events>
@@ -164,23 +174,19 @@
 				<InputField name="ШтрихкодыУпаковокШтрихкодУпаковки" id="17">
 					<DataPath>ШтрихкодыУпаковок.ШтрихкодУпаковки</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ШтрихкодыУпаковокШтрихкодУпаковкиКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="ШтрихкодыУпаковокШтрихкодУпаковкиРасширеннаяПодсказка" id="19"/>
 				</InputField>
 				<InputField name="ШтрихкодыУпаковокШаблонЭтикетки" id="64">
 					<DataPath>ШтрихкодыУпаковок.ШаблонЭтикетки</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="ШтрихкодыУпаковокШаблонЭтикеткиКонтекстноеМеню" id="65"/>
 					<ExtendedTooltip name="ШтрихкодыУпаковокШаблонЭтикеткиРасширеннаяПодсказка" id="66"/>
 				</InputField>
 				<InputField name="ШтрихкодыУпаковокКоличествоЭкземпляров" id="67">
 					<DataPath>ШтрихкодыУпаковок.КоличествоЭкземпляров</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<MinValue xsi:type="xs:decimal">1</MinValue>
 					<ContextMenu name="ШтрихкодыУпаковокКоличествоЭкземпляровКонтекстноеМеню" id="68"/>
@@ -189,8 +195,6 @@
 				<InputField name="ШтрихкодыУпаковокПредставлениеНоменклатуры" id="70">
 					<DataPath>ШтрихкодыУпаковок.ПредставлениеНоменклатуры</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ШтрихкодыУпаковокПредставлениеНоменклатурыКонтекстноеМеню" id="71"/>
 					<ExtendedTooltip name="ШтрихкодыУпаковокПредставлениеНоменклатурыРасширеннаяПодсказка" id="72"/>
 				</InputField>
@@ -454,17 +458,6 @@
 				<v8:TypeSet>cfg:DefinedType.ХарактеристикаНоменклатуры</v8:TypeSet>
 			</Type>
 		</Attribute>
-		<Attribute name="ЭтоИнтерфейс85" id="7">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Это интерфейс85</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="Печать" id="2">
@@ -480,9 +473,6 @@
 			</Picture>
 			<Action>Печать</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ШтрихкодыУпаковок</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ВыбратьВсе" id="3">
 			<Title>
@@ -538,9 +528,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Заполнить</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ШтрихкодыУпаковок</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 </Form>

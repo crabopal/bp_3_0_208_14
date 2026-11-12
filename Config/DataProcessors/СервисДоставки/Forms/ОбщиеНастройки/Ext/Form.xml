@@ -12,7 +12,6 @@
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
 	<CommandBarLocation>Bottom</CommandBarLocation>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
@@ -30,7 +29,7 @@
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Записать</v8:content>
+						<v8:content>ОК</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
@@ -39,12 +38,6 @@
 			<Button name="Отмена" id="433">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.Отмена</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Закрыть</v8:content>
-					</v8:item>
-				</Title>
 				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="434"/>
 			</Button>
 		</ChildItems>
@@ -77,7 +70,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ОсновноеРасширеннаяПодсказка" id="492"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаОрганизации" id="130">
@@ -90,8 +83,10 @@
 							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
 							<ExtendedTooltip name="ГруппаОрганизацииРасширеннаяПодсказка" id="131">
-								<MaxWidth>55</MaxWidth>
+								<AutoMaxWidth>false</AutoMaxWidth>
+								<MaxWidth>50</MaxWidth>
 								<Title formatted="true">
 									<v8:item>
 										<v8:lang>ru</v8:lang>
@@ -102,12 +97,13 @@
 							<ChildItems>
 								<InputField name="Организация" id="135">
 									<DataPath>ОрганизацияБизнесСети</DataPath>
-									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>40</MaxWidth>
 									<ListChoiceMode>true</ListChoiceMode>
 									<InputHint>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Заказчик по умолчанию</v8:content>
+											<v8:content>заказчик по умолчанию</v8:content>
 										</v8:item>
 									</InputHint>
 									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="136"/>
@@ -115,200 +111,169 @@
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
-						<UsualGroup name="ГруппаДанныеКолонки" id="918">
+						<UsualGroup name="ГруппаОрганизацияТарификации" id="822">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа данные колонки</v8:content>
+									<v8:content>Группа организация тарификации</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AlwaysHorizontal</Group>
+							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<Group>Vertical</Group>
 							<Representation>None</Representation>
-							<United>false</United>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаДанныеКолонкиРасширеннаяПодсказка" id="919"/>
+							<ExtendedTooltip name="ГруппаОрганизацияТарификацииРасширеннаяПодсказка" id="823">
+								<Title formatted="false">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Организация, скидки которой будут учтены при расчете тарифов</v8:content>
+									</v8:item>
+								</Title>
+							</ExtendedTooltip>
 							<ChildItems>
-								<UsualGroup name="ГруппаДанныеЛево" id="920">
+								<InputField name="ОрганизацияТарификации" id="824">
+									<DataPath>ОрганизацияТарификации</DataPath>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ChooseType>false</ChooseType>
+									<ContextMenu name="ОрганизацияТарификацииКонтекстноеМеню" id="825"/>
+									<ExtendedTooltip name="ОрганизацияТарификацииРасширеннаяПодсказка" id="826"/>
+									<Events>
+										<Event name="OnChange">ОрганизацияТарификацииПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаЗаказчикРоль" id="544">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заказчик роль</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЗаказчикРольРасширеннаяПодсказка" id="545">
+								<AutoMaxWidth>false</AutoMaxWidth>
+								<MaxWidth>50</MaxWidth>
+								<Title formatted="false">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Позволяет указывать роль организации, как участника перевозки. Используется для расчета скидок. Не все перевозчики поддерживают этот параметр. По вопросу наличия скидок на услуги доставки необходимо обратиться в службу поддержки соответствующего перевозчика.</v8:content>
+									</v8:item>
+								</Title>
+							</ExtendedTooltip>
+							<ChildItems>
+								<InputField name="ЗаказчикРоль" id="523">
+									<DataPath>ЗаказчикРоль</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Группа данные лево</v8:content>
+											<v8:content>Роль в грузоперевозке</v8:content>
 										</v8:item>
 									</Title>
-									<Group>Vertical</Group>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаДанныеЛевоРасширеннаяПодсказка" id="921"/>
-									<ChildItems>
-										<UsualGroup name="ГруппаОрганизацияТарификации" id="822">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа организация тарификации</v8:content>
-												</v8:item>
-											</Title>
-											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-											<Group>Vertical</Group>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаОрганизацияТарификацииРасширеннаяПодсказка" id="823"/>
-											<ChildItems>
-												<InputField name="ОрганизацияТарификации" id="824">
-													<DataPath>ОрганизацияТарификации</DataPath>
-													<TitleLocation>Top</TitleLocation>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Организация, скидки которой будут учтены при расчете тарифов</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ToolTipRepresentation>Button</ToolTipRepresentation>
-													<ListChoiceMode>true</ListChoiceMode>
-													<ChooseType>false</ChooseType>
-													<ContextMenu name="ОрганизацияТарификацииКонтекстноеМеню" id="825"/>
-													<ExtendedTooltip name="ОрганизацияТарификацииРасширеннаяПодсказка" id="826"/>
-													<Events>
-														<Event name="OnChange">ОрганизацияТарификацииПриИзменении</Event>
-													</Events>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
-										<UsualGroup name="ГруппаЗаказчикРоль" id="544">
-											<Group>HorizontalIfPossible</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаЗаказчикРольРасширеннаяПодсказка" id="545">
-												<MaxWidth>55</MaxWidth>
-											</ExtendedTooltip>
-											<ChildItems>
-												<InputField name="ЗаказчикРоль" id="523">
-													<DataPath>ЗаказчикРоль</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Роль в грузоперевозке</v8:content>
-														</v8:item>
-													</Title>
-													<TitleLocation>Top</TitleLocation>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Позволяет указывать роль организации, как участника перевозки. Используется для расчета скидок. Не все перевозчики поддерживают этот параметр. По вопросу наличия скидок на услуги доставки необходимо обратиться в службу поддержки соответствующего перевозчика</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ToolTipRepresentation>Button</ToolTipRepresentation>
-													<MaxWidth>40</MaxWidth>
-													<ListChoiceMode>true</ListChoiceMode>
-													<TextEdit>false</TextEdit>
-													<ChoiceList>
-														<xr:Item>
-															<xr:Presentation/>
-															<xr:CheckState>0</xr:CheckState>
-															<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																<Presentation>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Отправитель</v8:content>
-																	</v8:item>
-																</Presentation>
-																<Value xsi:type="xs:decimal">1</Value>
-															</xr:Value>
-														</xr:Item>
-														<xr:Item>
-															<xr:Presentation/>
-															<xr:CheckState>0</xr:CheckState>
-															<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																<Presentation>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Получатель</v8:content>
-																	</v8:item>
-																</Presentation>
-																<Value xsi:type="xs:decimal">2</Value>
-															</xr:Value>
-														</xr:Item>
-														<xr:Item>
-															<xr:Presentation/>
-															<xr:CheckState>0</xr:CheckState>
-															<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																<Presentation>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Плательщик</v8:content>
-																	</v8:item>
-																</Presentation>
-																<Value xsi:type="xs:decimal">3</Value>
-															</xr:Value>
-														</xr:Item>
-														<xr:Item>
-															<xr:Presentation/>
-															<xr:CheckState>0</xr:CheckState>
-															<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																<Presentation>
-																	<v8:item>
-																		<v8:lang>ru</v8:lang>
-																		<v8:content>Третье лицо</v8:content>
-																	</v8:item>
-																</Presentation>
-																<Value xsi:type="xs:decimal">4</Value>
-															</xr:Value>
-														</xr:Item>
-													</ChoiceList>
-													<ContextMenu name="ЗаказчикРольКонтекстноеМеню" id="524"/>
-													<ExtendedTooltip name="ЗаказчикРольРасширеннаяПодсказка" id="525">
-														<MaxWidth>50</MaxWidth>
-													</ExtendedTooltip>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
-									</ChildItems>
-								</UsualGroup>
-								<UsualGroup name="ГруппаДанныеПраво" id="922">
-									<Title>
+									<ToolTip>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Группа данные право</v8:content>
+											<v8:content>Роль заказчика в грузоперевозке.</v8:content>
 										</v8:item>
-									</Title>
-									<Group>Vertical</Group>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаДанныеПравоРасширеннаяПодсказка" id="923"/>
-									<ChildItems>
-										<UsualGroup name="ГруппаКонтактноеЛицо" id="495">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа контактное лицо</v8:content>
-												</v8:item>
-											</Title>
-											<Group>Vertical</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаКонтактноеЛицоРасширеннаяПодсказка" id="496"/>
-											<ChildItems>
-												<InputField name="СпособОпределенияКонтактногоЛица" id="497">
-													<DataPath>СпособОпределенияКонтактногоЛица</DataPath>
-													<TitleLocation>Top</TitleLocation>
-													<ListChoiceMode>true</ListChoiceMode>
-													<ContextMenu name="СпособОпределенияКонтактногоЛицаКонтекстноеМеню" id="498"/>
-													<ExtendedTooltip name="СпособОпределенияКонтактногоЛицаРасширеннаяПодсказка" id="499"/>
-													<Events>
-														<Event name="OnChange">СпособОпределенияКонтактногоЛицаПриИзменении</Event>
-													</Events>
-												</InputField>
-												<InputField name="КонтактноеЛицо" id="500">
-													<DataPath>КонтактноеЛицо</DataPath>
-													<TitleLocation>Top</TitleLocation>
-													<ContextMenu name="КонтактноеЛицоКонтекстноеМеню" id="501"/>
-													<ExtendedTooltip name="КонтактноеЛицоРасширеннаяПодсказка" id="502"/>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
-									</ChildItems>
-								</UsualGroup>
+									</ToolTip>
+									<MaxWidth>40</MaxWidth>
+									<ListChoiceMode>true</ListChoiceMode>
+									<TextEdit>false</TextEdit>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Отправитель</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">1</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Получатель</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">2</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Плательщик</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">3</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Третье лицо</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">4</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ЗаказчикРольКонтекстноеМеню" id="524"/>
+									<ExtendedTooltip name="ЗаказчикРольРасширеннаяПодсказка" id="525">
+										<AutoMaxWidth>false</AutoMaxWidth>
+										<MaxWidth>50</MaxWidth>
+									</ExtendedTooltip>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаКонтактноеЛицо" id="495">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа контактное лицо</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКонтактноеЛицоРасширеннаяПодсказка" id="496"/>
+							<ChildItems>
+								<InputField name="СпособОпределенияКонтактногоЛица" id="497">
+									<DataPath>СпособОпределенияКонтактногоЛица</DataPath>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ContextMenu name="СпособОпределенияКонтактногоЛицаКонтекстноеМеню" id="498"/>
+									<ExtendedTooltip name="СпособОпределенияКонтактногоЛицаРасширеннаяПодсказка" id="499"/>
+									<Events>
+										<Event name="OnChange">СпособОпределенияКонтактногоЛицаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="КонтактноеЛицо" id="500">
+									<DataPath>КонтактноеЛицо</DataPath>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="КонтактноеЛицоКонтекстноеМеню" id="501"/>
+									<ExtendedTooltip name="КонтактноеЛицоРасширеннаяПодсказка" id="502"/>
+								</InputField>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаОсновноеПериоды" id="503">
@@ -320,6 +285,7 @@
 							</Title>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
 							<United>false</United>
 							<ExtendedTooltip name="ГруппаОсновноеПериодыРасширеннаяПодсказка" id="504"/>
 							<ChildItems>
@@ -333,13 +299,12 @@
 									<Group>HorizontalIfPossible</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
-									<United>false</United>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаОсновноеПериодыЛевоРасширеннаяПодсказка" id="506"/>
 									<ChildItems>
 										<InputField name="СпособОтгрузки" id="520">
 											<DataPath>СпособОтгрузки</DataPath>
-											<TitleLocation>Top</TitleLocation>
+											<Width>10</Width>
 											<ListChoiceMode>true</ListChoiceMode>
 											<ChoiceList>
 												<xr:Item>
@@ -384,8 +349,7 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
-											<MaxWidth>32</MaxWidth>
-											<ChoiceButton>true</ChoiceButton>
+											<MarkRequiredComplete>false</MarkRequiredComplete>
 											<OpenButton>true</OpenButton>
 											<AutoMarkIncomplete>false</AutoMarkIncomplete>
 											<TextEdit>false</TextEdit>
@@ -398,7 +362,6 @@
 											<ContextMenu name="ВремяОтгрузкиПредставлениеКонтекстноеМеню" id="508"/>
 											<ExtendedTooltip name="ВремяОтгрузкиПредставлениеРасширеннаяПодсказка" id="509"/>
 											<Events>
-												<Event name="StartChoice">ВремяОтгрузкиПредставлениеНачалоВыбора</Event>
 												<Event name="Opening">ВремяОтгрузкиОткрытие</Event>
 												<Event name="Clearing">ВремяОтгрузкиОчистка</Event>
 											</Events>
@@ -415,13 +378,12 @@
 									<Group>HorizontalIfPossible</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
-									<United>false</United>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаОсновноеПериодыПравоРасширеннаяПодсказка" id="511"/>
 									<ChildItems>
 										<InputField name="СпособДоставки" id="517">
 											<DataPath>СпособДоставки</DataPath>
-											<TitleLocation>Top</TitleLocation>
+											<Width>10</Width>
 											<ListChoiceMode>true</ListChoiceMode>
 											<ChoiceList>
 												<xr:Item>
@@ -466,7 +428,7 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
-											<ChoiceButton>true</ChoiceButton>
+											<MarkRequiredComplete>false</MarkRequiredComplete>
 											<OpenButton>true</OpenButton>
 											<AutoMarkIncomplete>false</AutoMarkIncomplete>
 											<TextEdit>false</TextEdit>
@@ -479,7 +441,6 @@
 											<ContextMenu name="ВремяДоставкиПредставлениеКонтекстноеМеню" id="513"/>
 											<ExtendedTooltip name="ВремяДоставкиПредставлениеРасширеннаяПодсказка" id="514"/>
 											<Events>
-												<Event name="StartChoice">ВремяДоставкиПредставлениеНачалоВыбора</Event>
 												<Event name="Opening">ВремяДоставкиОткрытие</Event>
 												<Event name="Clearing">ВремяДоставкиОчистка</Event>
 											</Events>
@@ -488,8 +449,20 @@
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
+						<UsualGroup name="ГруппаСпособыОтгрузкиИДоставки" id="515">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа способы отгрузки и доставки</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСпособыОтгрузкиИДоставкиРасширеннаяПодсказка" id="516"/>
+						</UsualGroup>
 						<UsualGroup name="ГруппаНастройкиКурьерика" id="675">
-							<Visible>false</Visible>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -497,72 +470,59 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<ControlRepresentation>Button</ControlRepresentation>
+							<Representation>None</Representation>
 							<ThroughAlign>Use</ThroughAlign>
 							<ExtendedTooltip name="ГруппаНастройкиКурьерикаРасширеннаяПодсказка" id="676"/>
 							<ChildItems>
-								<UsualGroup name="ГруппаКурьерикаСтрока1" id="902">
+								<UsualGroup name="ГруппаТелефон" id="703">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Группа курьерика строка1</v8:content>
+											<v8:content>Группа телефон</v8:content>
 										</v8:item>
 									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Позволяет вводить номер телефона по указанной маске, если получатель заполняется в свободной форме</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 									<Group>AlwaysHorizontal</Group>
 									<Representation>None</Representation>
-									<United>false</United>
 									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаКурьерикаСтрока1РасширеннаяПодсказка" id="903"/>
+									<ThroughAlign>Use</ThroughAlign>
+									<ExtendedTooltip name="ГруппаТелефонРасширеннаяПодсказка" id="704"/>
 									<ChildItems>
-										<UsualGroup name="ГруппаТелефон" id="703">
-											<Title>
+										<CheckBoxField name="ВводитьНомерПоМаске" id="707">
+											<DataPath>ВводитьНомерПоМаске</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<ContextMenu name="ВводитьНомерПоМаскеКонтекстноеМеню" id="708"/>
+											<ExtendedTooltip name="ВводитьНомерПоМаскеРасширеннаяПодсказка" id="709"/>
+											<Events>
+												<Event name="OnChange">ВводитьНомерПоМаскеПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<InputField name="МаскаНомераТелефона" id="710">
+											<DataPath>МаскаНомераТелефона</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>17</MaxWidth>
+											<DropListButton>true</DropListButton>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<InputHint>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Группа телефон</v8:content>
+													<v8:content>+9 (999) 999-99-99</v8:content>
 												</v8:item>
-											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Позволяет вводить номер телефона по указанной маске, если получатель заполняется в свободной форме</v8:content>
-												</v8:item>
-											</ToolTip>
-											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-											<Group>Vertical</Group>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ThroughAlign>Use</ThroughAlign>
-											<ExtendedTooltip name="ГруппаТелефонРасширеннаяПодсказка" id="704"/>
-											<ChildItems>
-												<CheckBoxField name="ВводитьНомерПоМаске" id="707">
-													<DataPath>ВводитьНомерПоМаске</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<ContextMenu name="ВводитьНомерПоМаскеКонтекстноеМеню" id="708"/>
-													<ExtendedTooltip name="ВводитьНомерПоМаскеРасширеннаяПодсказка" id="709"/>
-													<Events>
-														<Event name="OnChange">ВводитьНомерПоМаскеПриИзменении</Event>
-													</Events>
-												</CheckBoxField>
-												<InputField name="МаскаНомераТелефона" id="710">
-													<DataPath>МаскаНомераТелефона</DataPath>
-													<TitleLocation>None</TitleLocation>
-													<ToolTipRepresentation>Button</ToolTipRepresentation>
-													<MaxWidth>17</MaxWidth>
-													<DropListButton>true</DropListButton>
-													<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-													<InputHint>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>+9 (999) 999-99-99</v8:content>
-														</v8:item>
-													</InputHint>
-													<ContextMenu name="МаскаНомераТелефонаКонтекстноеМеню" id="711"/>
-													<ExtendedTooltip name="МаскаНомераТелефонаРасширеннаяПодсказка" id="712">
-														<Title formatted="true">
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;В&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;строке&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;маски&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;допустимо&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;использование&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;следующих&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;специальных&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;символов:&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;
+											</InputHint>
+											<ContextMenu name="МаскаНомераТелефонаКонтекстноеМеню" id="711"/>
+											<ExtendedTooltip name="МаскаНомераТелефонаРасширеннаяПодсказка" id="712">
+												<Title formatted="true">
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;В&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;строке&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;маски&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;допустимо&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;использование&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;следующих&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;специальных&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;символов:&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;
 &lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;!&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;-&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;любой&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;введенный&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;символ&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;преобразуется&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;в&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;верхний&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;регистр;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;
 &lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;9&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;-&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;допустимо&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;ввести&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;произвольный&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;символ&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;цифры;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;
 &lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;#&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;-&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;допустимо&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;ввести&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;произвольный&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;символ&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;цифры&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;или&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;-&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;(знак&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;минус)&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;или&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;+&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;(знак&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;плюс)&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;или&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;пробел;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;
@@ -571,237 +531,187 @@
 &lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;X&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;(латинского&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;алфавита)&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;-&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;допустимо&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;ввести&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;произвольный&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;символ;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;
 &lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;@&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;–&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;допустимо&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;ввести&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;любой&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;алфавитно-цифровой&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;символ&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;(буква&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;или&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;цифра)&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;в&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;верхнем&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;регистре&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;или&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;пробел;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;
 &lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;\&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;-&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;допустимо&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;ввести&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt; символ, указанный после "\"&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;color #333333&gt;&lt;bgcolor #ffffff&gt;.&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;</v8:content>
-															</v8:item>
-														</Title>
-													</ExtendedTooltip>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
-										<UsualGroup name="ГруппаИнтервалОбновления" id="716">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа интервал обновления</v8:content>
-												</v8:item>
-											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Интервал автоматического обновления информации в списке заказов в минутах</v8:content>
-												</v8:item>
-											</ToolTip>
-											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-											<Group>Vertical</Group>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаИнтервалОбновленияРасширеннаяПодсказка" id="717"/>
-											<ChildItems>
-												<CheckBoxField name="ИспользоватьАвтообновление" id="718">
-													<DataPath>ИспользоватьАвтообновление</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<ContextMenu name="ИспользоватьАвтообновлениеКонтекстноеМеню" id="719"/>
-													<ExtendedTooltip name="ИспользоватьАвтообновлениеРасширеннаяПодсказка" id="720"/>
-													<Events>
-														<Event name="OnChange">ИспользоватьАвтообновлениеПриИзменении</Event>
-													</Events>
-												</CheckBoxField>
-												<InputField name="ИнтервалОбновленияИнформацииПоЗаказам" id="713">
-													<DataPath>ИнтервалОбновленияИнформацииПоЗаказам</DataPath>
-													<TitleLocation>None</TitleLocation>
-													<MaxWidth>10</MaxWidth>
-													<SpinButton>true</SpinButton>
-													<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-													<EditFormat>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>ЧФ='Ч мин.'</v8:content>
-														</v8:item>
-													</EditFormat>
-													<MinValue xsi:type="xs:decimal">2</MinValue>
-													<ContextMenu name="ИнтервалОбновленияИнформацииПоЗаказамКонтекстноеМеню" id="714"/>
-													<ExtendedTooltip name="ИнтервалОбновленияИнформацииПоЗаказамРасширеннаяПодсказка" id="715"/>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
+													</v8:item>
+												</Title>
+											</ExtendedTooltip>
+										</InputField>
 									</ChildItems>
 								</UsualGroup>
-								<UsualGroup name="ГруппаКурьерикаСтрока2" id="910">
+								<UsualGroup name="ГруппаИнтервалОбновления" id="716">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Группа курьерика строка2</v8:content>
+											<v8:content>Группа интервал обновления</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Интервал автоматического обновления информации в списке заказов в минутах</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<Group>AlwaysHorizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаИнтервалОбновленияРасширеннаяПодсказка" id="717"/>
+									<ChildItems>
+										<CheckBoxField name="ИспользоватьАвтообновление" id="718">
+											<DataPath>ИспользоватьАвтообновление</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<ContextMenu name="ИспользоватьАвтообновлениеКонтекстноеМеню" id="719"/>
+											<ExtendedTooltip name="ИспользоватьАвтообновлениеРасширеннаяПодсказка" id="720"/>
+											<Events>
+												<Event name="OnChange">ИспользоватьАвтообновлениеПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<InputField name="ИнтервалОбновленияИнформацииПоЗаказам" id="713">
+											<DataPath>ИнтервалОбновленияИнформацииПоЗаказам</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>10</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>10</MaxWidth>
+											<HorizontalStretch>false</HorizontalStretch>
+											<SpinButton>true</SpinButton>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<MinValue xsi:type="xs:decimal">2</MinValue>
+											<ContextMenu name="ИнтервалОбновленияИнформацииПоЗаказамКонтекстноеМеню" id="714"/>
+											<ExtendedTooltip name="ИнтервалОбновленияИнформацииПоЗаказамРасширеннаяПодсказка" id="715"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаВариантДоставки" id="701">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа вариант доставки</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>При групповом создании заказов на доставку по умолчанию будет использован выбранный вариант определения даты и времени доставки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<Group>HorizontalIfPossible</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаВариантДоставкиРасширеннаяПодсказка" id="702"/>
+									<ChildItems>
+										<InputField name="ВариантДоставки" id="677">
+											<DataPath>ВариантДоставки</DataPath>
+											<Width>15</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ListChoiceMode>true</ListChoiceMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Как можно быстрее</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">0</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>На следующий день</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">1</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="ВариантДоставкиКонтекстноеМеню" id="678"/>
+											<ExtendedTooltip name="ВариантДоставкиРасширеннаяПодсказка" id="679"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<CheckBoxField name="УведомлятьОСостоянииПодписки" id="698">
+									<DataPath>УведомлятьОСостоянииПодписки</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Пользователь будет уведомлен о необходимости продлить подписку, если остаток доступных заказов или календарных дней действия достигнет указанных значений</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<ContextMenu name="УведомлятьОСостоянииПодпискиКонтекстноеМеню" id="699"/>
+									<ExtendedTooltip name="УведомлятьОСостоянииПодпискиРасширеннаяПодсказка" id="700"/>
+									<Events>
+										<Event name="OnChange">УведомлятьОСостоянииПодписки</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="ГруппаПредупрежденияПоСостояниюПодписки" id="683">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Предупреждения по состоянию подписки</v8:content>
 										</v8:item>
 									</Title>
 									<Group>AlwaysHorizontal</Group>
 									<Representation>None</Representation>
-									<United>false</United>
 									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаКурьерикаСтрока2РасширеннаяПодсказка" id="911"/>
+									<ExtendedTooltip name="ГруппаПредупрежденияПоСостояниюПодпискиРасширеннаяПодсказка" id="684"/>
 									<ChildItems>
-										<UsualGroup name="ГруппаКурьерикаСтрока2Лево" id="914">
+										<UsualGroup name="ГруппаПодпискаПанельЛевая" id="685">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Группа курьерика строка2 лево</v8:content>
+													<v8:content>Группа подписка панель левая</v8:content>
 												</v8:item>
 											</Title>
 											<Group>Vertical</Group>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаКурьерикаСтрока2ЛевоРасширеннаяПодсказка" id="915"/>
+											<ExtendedTooltip name="ГруппаПодпискаПанельЛеваяРасширеннаяПодсказка" id="686"/>
 											<ChildItems>
-												<CheckBoxField name="УведомлятьОСостоянииПодписки" id="698">
-													<DataPath>УведомлятьОСостоянииПодписки</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Пользователь будет уведомлен о необходимости продлить подписку, если остаток доступных заказов или календарных дней действия достигнет указанных значений</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-													<ContextMenu name="УведомлятьОСостоянииПодпискиКонтекстноеМеню" id="699"/>
-													<ExtendedTooltip name="УведомлятьОСостоянииПодпискиРасширеннаяПодсказка" id="700"/>
-													<Events>
-														<Event name="OnChange">УведомлятьОСостоянииПодписки</Event>
-													</Events>
-												</CheckBoxField>
-												<UsualGroup name="ГруппаПредупрежденияПоСостояниюПодписки" id="683">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Предупреждения по состоянию подписки</v8:content>
-														</v8:item>
-													</Title>
-													<Group>AlwaysHorizontal</Group>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаПредупрежденияПоСостояниюПодпискиРасширеннаяПодсказка" id="684"/>
-													<ChildItems>
-														<UsualGroup name="ГруппаПодпискаПанельЛевая" id="685">
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Группа подписка панель левая</v8:content>
-																</v8:item>
-															</Title>
-															<Group>Vertical</Group>
-															<Representation>None</Representation>
-															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаПодпискаПанельЛеваяРасширеннаяПодсказка" id="686"/>
-															<ChildItems>
-																<LabelDecoration name="ДекорацияКурьерикаПодпискаОтступ" id="687">
-																	<Width>1</Width>
-																	<ContextMenu name="ДекорацияКурьерикаПодпискаОтступКонтекстноеМеню" id="688"/>
-																	<ExtendedTooltip name="ДекорацияКурьерикаПодпискаОтступРасширеннаяПодсказка" id="689"/>
-																</LabelDecoration>
-															</ChildItems>
-														</UsualGroup>
-														<UsualGroup name="ГруппаПодпискаПанельПравая" id="690">
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Группа подписка панель правая</v8:content>
-																</v8:item>
-															</Title>
-															<Group>Vertical</Group>
-															<Representation>None</Representation>
-															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаПодпискаПанельПраваяРасширеннаяПодсказка" id="691"/>
-															<ChildItems>
-																<InputField name="КоличествоКалендарныхДней" id="692">
-																	<DataPath>КоличествоКалендарныхДней</DataPath>
-																	<HorizontalAlign>Right</HorizontalAlign>
-																	<SpinButton>true</SpinButton>
-																	<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-																	<ContextMenu name="КоличествоКалендарныхДнейКонтекстноеМеню" id="693"/>
-																	<ExtendedTooltip name="КоличествоКалендарныхДнейРасширеннаяПодсказка" id="694"/>
-																</InputField>
-																<InputField name="ОстатокДоступныхЗаказов" id="695">
-																	<DataPath>ОстатокДоступныхЗаказов</DataPath>
-																	<HorizontalAlign>Right</HorizontalAlign>
-																	<SpinButton>true</SpinButton>
-																	<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-																	<ContextMenu name="ОстатокДоступныхЗаказовКонтекстноеМеню" id="696"/>
-																	<ExtendedTooltip name="ОстатокДоступныхЗаказовРасширеннаяПодсказка" id="697"/>
-																</InputField>
-															</ChildItems>
-														</UsualGroup>
-													</ChildItems>
-												</UsualGroup>
+												<LabelDecoration name="ДекорацияКурьерикаПодпискаОтступ" id="687">
+													<Width>1</Width>
+													<ContextMenu name="ДекорацияКурьерикаПодпискаОтступКонтекстноеМеню" id="688"/>
+													<ExtendedTooltip name="ДекорацияКурьерикаПодпискаОтступРасширеннаяПодсказка" id="689"/>
+												</LabelDecoration>
 											</ChildItems>
 										</UsualGroup>
-										<UsualGroup name="ГруппаКуртерикаСтрока2Право" id="916">
+										<UsualGroup name="ГруппаПодпискаПанельПравая" id="690">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Группа правая</v8:content>
+													<v8:content>Группа подписка панель правая</v8:content>
 												</v8:item>
 											</Title>
 											<Group>Vertical</Group>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаКуртерикаСтрока2ПравоРасширеннаяПодсказка" id="917"/>
+											<ExtendedTooltip name="ГруппаПодпискаПанельПраваяРасширеннаяПодсказка" id="691"/>
 											<ChildItems>
-												<UsualGroup name="ГруппаВариантДоставки" id="701">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Группа вариант доставки</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>При групповом создании заказов на доставку по умолчанию будет использован выбранный вариант определения даты и времени доставки</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-													<Group>HorizontalIfPossible</Group>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаВариантДоставкиРасширеннаяПодсказка" id="702"/>
-													<ChildItems>
-														<InputField name="ВариантДоставки" id="677">
-															<DataPath>ВариантДоставки</DataPath>
-															<Width>20</Width>
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<HorizontalStretch>false</HorizontalStretch>
-															<ListChoiceMode>true</ListChoiceMode>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-															<ChoiceList>
-																<xr:Item>
-																	<xr:Presentation/>
-																	<xr:CheckState>0</xr:CheckState>
-																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																		<Presentation>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Как можно быстрее</v8:content>
-																			</v8:item>
-																		</Presentation>
-																		<Value xsi:type="xs:decimal">0</Value>
-																	</xr:Value>
-																</xr:Item>
-																<xr:Item>
-																	<xr:Presentation/>
-																	<xr:CheckState>0</xr:CheckState>
-																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																		<Presentation>
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>На следующий день</v8:content>
-																			</v8:item>
-																		</Presentation>
-																		<Value xsi:type="xs:decimal">1</Value>
-																	</xr:Value>
-																</xr:Item>
-															</ChoiceList>
-															<ContextMenu name="ВариантДоставкиКонтекстноеМеню" id="678"/>
-															<ExtendedTooltip name="ВариантДоставкиРасширеннаяПодсказка" id="679"/>
-														</InputField>
-													</ChildItems>
-												</UsualGroup>
+												<InputField name="КоличествоКалендарныхДней" id="692">
+													<DataPath>КоличествоКалендарныхДней</DataPath>
+													<SpinButton>true</SpinButton>
+													<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+													<ContextMenu name="КоличествоКалендарныхДнейКонтекстноеМеню" id="693"/>
+													<ExtendedTooltip name="КоличествоКалендарныхДнейРасширеннаяПодсказка" id="694"/>
+												</InputField>
+												<InputField name="ОстатокДоступныхЗаказов" id="695">
+													<DataPath>ОстатокДоступныхЗаказов</DataPath>
+													<SpinButton>true</SpinButton>
+													<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+													<ContextMenu name="ОстатокДоступныхЗаказовКонтекстноеМеню" id="696"/>
+													<ExtendedTooltip name="ОстатокДоступныхЗаказовРасширеннаяПодсказка" id="697"/>
+												</InputField>
 											</ChildItems>
 										</UsualGroup>
 									</ChildItems>
@@ -814,11 +724,11 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Параметры груза (по-умолчанию)</v8:content>
+							<v8:content>Параметры груза</v8:content>
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ПараметрыГрузаРасширеннаяПодсказка" id="494"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаХарактерГруза" id="833">
@@ -845,8 +755,8 @@
 								<InputField name="ХарактерГрузаСтрокой" id="835">
 									<DataPath>ХарактерГрузаСтрокой</DataPath>
 									<ChoiceButton>true</ChoiceButton>
-									<ContextMenu name="ХарактерГрузаСтрокойКонтекстноеМеню" id="932"/>
-									<ExtendedTooltip name="ХарактерГрузаСтрокойРасширеннаяПодсказка" id="933"/>
+									<ContextMenu name="ХарактерГрузаСтрокойКонтекстноеМеню" id="836"/>
+									<ExtendedTooltip name="ХарактерГрузаСтрокойРасширеннаяПодсказка" id="837"/>
 									<Events>
 										<Event name="OnChange">ХарактерГрузаСтрокойПриИзменении</Event>
 										<Event name="AutoComplete">ХарактерГрузаСтрокойАвтоПодбор</Event>
@@ -966,12 +876,15 @@
 									<v8:content>Вес и габариты</v8:content>
 								</v8:item>
 							</Title>
+							<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<ControlRepresentation>Button</ControlRepresentation>
 							<Representation>WeakSeparation</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаНастройкиВГХРасширеннаяПодсказка" id="397">
+								<AutoMaxWidth>false</AutoMaxWidth>
+								<MaxWidth>50</MaxWidth>
 								<VerticalAlign>Top</VerticalAlign>
 							</ExtendedTooltip>
 							<ChildItems>
@@ -985,10 +898,11 @@
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
 									<ExtendedTooltip name="ГруппаВесИГабаритыЕдиницыТовараРасширеннаяПодсказка" id="436">
+										<AutoMaxWidth>false</AutoMaxWidth>
 										<MaxWidth>55</MaxWidth>
-										<MaxHeight>3</MaxHeight>
-										<HorizontalStretch>true</HorizontalStretch>
+										<HorizontalStretch>false</HorizontalStretch>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -1012,116 +926,59 @@
 											<ChildItems>
 												<InputField name="ВесЕдиницыТовара" id="483">
 													<DataPath>ВесЕдиницыТовара</DataPath>
-													<MaxWidth>18</MaxWidth>
-													<EditFormat>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>ЧФ='Ч кг.'</v8:content>
-														</v8:item>
-													</EditFormat>
 													<ContextMenu name="ВесЕдиницыТовараКонтекстноеМеню" id="484"/>
 													<ExtendedTooltip name="ВесЕдиницыТовараРасширеннаяПодсказка" id="485"/>
 												</InputField>
 											</ChildItems>
 										</UsualGroup>
-										<UsualGroup name="ГруппаГабаритыТовара" id="445">
+										<UsualGroup name="ГруппаГабариты1" id="445">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Габариты:</v8:content>
+													<v8:content>Габариты обычно не более (см):</v8:content>
 												</v8:item>
 											</Title>
 											<TitleTextColor>style:FormTextColor</TitleTextColor>
-											<Group>Vertical</Group>
+											<Group>AlwaysHorizontal</Group>
 											<Behavior>Usual</Behavior>
-											<ExtendedTooltip name="ГруппаГабаритыТовараРасширеннаяПодсказка" id="948"/>
+											<Representation>None</Representation>
+											<ThroughAlign>DontUse</ThroughAlign>
+											<ExtendedTooltip name="ГруппаГабариты1РасширеннаяПодсказка" id="446"/>
 											<ChildItems>
-												<UsualGroup name="ГруппаГабариты1" id="935">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Группа габариты1</v8:content>
-														</v8:item>
-													</Title>
-													<TitleTextColor>style:FormTextColor</TitleTextColor>
-													<Group>AlwaysHorizontal</Group>
-													<Representation>None</Representation>
-													<United>false</United>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаГабариты1РасширеннаяПодсказка" id="446"/>
-													<ChildItems>
-														<InputField name="ДлинаЕдиницыТовара" id="447">
-															<DataPath>ДлинаЕдиницыТовара</DataPath>
-															<TitleLocation>Top</TitleLocation>
-															<Width>10</Width>
-															<MaxWidth>10</MaxWidth>
-															<ChoiceButton>true</ChoiceButton>
-															<EditFormat>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч см.'</v8:content>
-																</v8:item>
-															</EditFormat>
-															<ContextMenu name="ДлинаЕдиницыТовараКонтекстноеМеню" id="448"/>
-															<ExtendedTooltip name="ДлинаЕдиницыТовараРасширеннаяПодсказка" id="449"/>
-															<Events>
-																<Event name="OnChange">РазмерГабаритПриИзменении</Event>
-															</Events>
-														</InputField>
-														<InputField name="ШиринаЕдиницыТовара" id="450">
-															<DataPath>ШиринаЕдиницыТовара</DataPath>
-															<TitleLocation>Top</TitleLocation>
-															<Width>10</Width>
-															<MaxWidth>10</MaxWidth>
-															<ChoiceButton>true</ChoiceButton>
-															<EditFormat>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч см.'</v8:content>
-																</v8:item>
-															</EditFormat>
-															<ContextMenu name="ШиринаЕдиницыТовараКонтекстноеМеню" id="451"/>
-															<ExtendedTooltip name="ШиринаЕдиницыТовараРасширеннаяПодсказка" id="452"/>
-															<Events>
-																<Event name="OnChange">РазмерГабаритПриИзменении</Event>
-															</Events>
-														</InputField>
-														<InputField name="ВысотаЕдиницыТовара" id="453">
-															<DataPath>ВысотаЕдиницыТовара</DataPath>
-															<TitleLocation>Top</TitleLocation>
-															<Width>10</Width>
-															<MaxWidth>10</MaxWidth>
-															<ChoiceButton>true</ChoiceButton>
-															<EditFormat>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч см.'</v8:content>
-																</v8:item>
-															</EditFormat>
-															<ContextMenu name="ВысотаЕдиницыТовараКонтекстноеМеню" id="454"/>
-															<ExtendedTooltip name="ВысотаЕдиницыТовараРасширеннаяПодсказка" id="455"/>
-															<Events>
-																<Event name="OnChange">РазмерГабаритПриИзменении</Event>
-															</Events>
-														</InputField>
-														<InputField name="ОбъемЕдиницыТовара" id="456">
-															<DataPath>ОбъемЕдиницыТовара</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<TitleLocation>Top</TitleLocation>
-															<Width>10</Width>
-															<MaxWidth>10</MaxWidth>
-															<ChoiceButton>false</ChoiceButton>
-															<EditFormat>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч куб.см.'</v8:content>
-																</v8:item>
-															</EditFormat>
-															<ContextMenu name="ОбъемЕдиницыТовараКонтекстноеМеню" id="457"/>
-															<ExtendedTooltip name="ОбъемЕдиницыТовараРасширеннаяПодсказка" id="458"/>
-														</InputField>
-													</ChildItems>
-												</UsualGroup>
+												<InputField name="ДлинаЕдиницыТовара" id="447">
+													<DataPath>ДлинаЕдиницыТовара</DataPath>
+													<ChoiceButton>true</ChoiceButton>
+													<ContextMenu name="ДлинаЕдиницыТовараКонтекстноеМеню" id="448"/>
+													<ExtendedTooltip name="ДлинаЕдиницыТовараРасширеннаяПодсказка" id="449"/>
+													<Events>
+														<Event name="OnChange">РазмерГабаритПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="ШиринаЕдиницыТовара" id="450">
+													<DataPath>ШиринаЕдиницыТовара</DataPath>
+													<ChoiceButton>true</ChoiceButton>
+													<ContextMenu name="ШиринаЕдиницыТовараКонтекстноеМеню" id="451"/>
+													<ExtendedTooltip name="ШиринаЕдиницыТовараРасширеннаяПодсказка" id="452"/>
+													<Events>
+														<Event name="OnChange">РазмерГабаритПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="ВысотаЕдиницыТовара" id="453">
+													<DataPath>ВысотаЕдиницыТовара</DataPath>
+													<ChoiceButton>true</ChoiceButton>
+													<ContextMenu name="ВысотаЕдиницыТовараКонтекстноеМеню" id="454"/>
+													<ExtendedTooltip name="ВысотаЕдиницыТовараРасширеннаяПодсказка" id="455"/>
+													<Events>
+														<Event name="OnChange">РазмерГабаритПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="ОбъемЕдиницыТовара" id="456">
+													<DataPath>ОбъемЕдиницыТовара</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<ChoiceButton>false</ChoiceButton>
+													<ContextMenu name="ОбъемЕдиницыТовараКонтекстноеМеню" id="457"/>
+													<ExtendedTooltip name="ОбъемЕдиницыТовараРасширеннаяПодсказка" id="458"/>
+												</InputField>
 											</ChildItems>
 										</UsualGroup>
 									</ChildItems>
@@ -1136,9 +993,11 @@
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
 									<ExtendedTooltip name="ГруппаВесИГабаритыГрузовогоМестаРасширеннаяПодсказка" id="460">
+										<AutoMaxWidth>false</AutoMaxWidth>
 										<MaxWidth>55</MaxWidth>
-										<HorizontalStretch>true</HorizontalStretch>
+										<HorizontalStretch>false</HorizontalStretch>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -1162,111 +1021,59 @@
 											<ChildItems>
 												<InputField name="ВесГрузовогоМеста" id="486">
 													<DataPath>ВесГрузовогоМеста</DataPath>
-													<AutoMaxWidth>false</AutoMaxWidth>
-													<MaxWidth>18</MaxWidth>
-													<EditFormat>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>ЧФ='Ч кг.'</v8:content>
-														</v8:item>
-													</EditFormat>
 													<ContextMenu name="ВесГрузовогоМестаКонтекстноеМеню" id="487"/>
 													<ExtendedTooltip name="ВесГрузовогоМестаРасширеннаяПодсказка" id="488"/>
 												</InputField>
 											</ChildItems>
 										</UsualGroup>
-										<UsualGroup name="ГруппаГабаритыМеста" id="928">
+										<UsualGroup name="ГруппаГабариты2" id="469">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Габариты:</v8:content>
+													<v8:content>Габариты обычно не более (см):</v8:content>
 												</v8:item>
 											</Title>
 											<TitleTextColor>style:FormTextColor</TitleTextColor>
-											<Group>Vertical</Group>
+											<Group>AlwaysHorizontal</Group>
 											<Behavior>Usual</Behavior>
-											<ExtendedTooltip name="ГруппаГабаритыМестаРасширеннаяПодсказка" id="949"/>
+											<Representation>None</Representation>
+											<ThroughAlign>DontUse</ThroughAlign>
+											<ExtendedTooltip name="ГруппаГабариты2РасширеннаяПодсказка" id="470"/>
 											<ChildItems>
-												<UsualGroup name="ГруппаГабариты2" id="469">
-													<TitleTextColor>style:FormTextColor</TitleTextColor>
-													<Group>AlwaysHorizontal</Group>
-													<Behavior>Usual</Behavior>
-													<United>false</United>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаГабариты2РасширеннаяПодсказка" id="470"/>
-													<ChildItems>
-														<InputField name="ДлинаГрузовогоМеста" id="471">
-															<DataPath>ДлинаГрузовогоМеста</DataPath>
-															<TitleLocation>Top</TitleLocation>
-															<Width>10</Width>
-															<MaxWidth>10</MaxWidth>
-															<ChoiceButton>true</ChoiceButton>
-															<EditFormat>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч см.'</v8:content>
-																</v8:item>
-															</EditFormat>
-															<ContextMenu name="ДлинаГрузовогоМестаКонтекстноеМеню" id="472"/>
-															<ExtendedTooltip name="ДлинаГрузовогоМестаРасширеннаяПодсказка" id="473"/>
-															<Events>
-																<Event name="OnChange">РазмерГабаритПриИзменении</Event>
-															</Events>
-														</InputField>
-														<InputField name="ШиринаГрузовогоМеста" id="474">
-															<DataPath>ШиринаГрузовогоМеста</DataPath>
-															<TitleLocation>Top</TitleLocation>
-															<Width>10</Width>
-															<MaxWidth>10</MaxWidth>
-															<ChoiceButton>true</ChoiceButton>
-															<EditFormat>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч см.'</v8:content>
-																</v8:item>
-															</EditFormat>
-															<ContextMenu name="ШиринаГрузовогоМестаКонтекстноеМеню" id="475"/>
-															<ExtendedTooltip name="ШиринаГрузовогоМестаРасширеннаяПодсказка" id="476"/>
-															<Events>
-																<Event name="OnChange">РазмерГабаритПриИзменении</Event>
-															</Events>
-														</InputField>
-														<InputField name="ВысотаГрузовогоМеста" id="477">
-															<DataPath>ВысотаГрузовогоМеста</DataPath>
-															<TitleLocation>Top</TitleLocation>
-															<Width>10</Width>
-															<MaxWidth>10</MaxWidth>
-															<ChoiceButton>true</ChoiceButton>
-															<EditFormat>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч см.'</v8:content>
-																</v8:item>
-															</EditFormat>
-															<ContextMenu name="ВысотаГрузовогоМестаКонтекстноеМеню" id="478"/>
-															<ExtendedTooltip name="ВысотаГрузовогоМестаРасширеннаяПодсказка" id="479"/>
-															<Events>
-																<Event name="OnChange">РазмерГабаритПриИзменении</Event>
-															</Events>
-														</InputField>
-														<InputField name="ОбъемГрузовогоМеста" id="480">
-															<DataPath>ОбъемГрузовогоМеста</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<TitleLocation>Top</TitleLocation>
-															<Width>10</Width>
-															<MaxWidth>10</MaxWidth>
-															<ChoiceButton>false</ChoiceButton>
-															<EditFormat>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>ЧФ='Ч куб.см.'</v8:content>
-																</v8:item>
-															</EditFormat>
-															<ContextMenu name="ОбъемГрузовогоМестаКонтекстноеМеню" id="481"/>
-															<ExtendedTooltip name="ОбъемГрузовогоМестаРасширеннаяПодсказка" id="482"/>
-														</InputField>
-													</ChildItems>
-												</UsualGroup>
+												<InputField name="ДлинаГрузовогоМеста" id="471">
+													<DataPath>ДлинаГрузовогоМеста</DataPath>
+													<ChoiceButton>true</ChoiceButton>
+													<ContextMenu name="ДлинаГрузовогоМестаКонтекстноеМеню" id="472"/>
+													<ExtendedTooltip name="ДлинаГрузовогоМестаРасширеннаяПодсказка" id="473"/>
+													<Events>
+														<Event name="OnChange">РазмерГабаритПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="ШиринаГрузовогоМеста" id="474">
+													<DataPath>ШиринаГрузовогоМеста</DataPath>
+													<ChoiceButton>true</ChoiceButton>
+													<ContextMenu name="ШиринаГрузовогоМестаКонтекстноеМеню" id="475"/>
+													<ExtendedTooltip name="ШиринаГрузовогоМестаРасширеннаяПодсказка" id="476"/>
+													<Events>
+														<Event name="OnChange">РазмерГабаритПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="ВысотаГрузовогоМеста" id="477">
+													<DataPath>ВысотаГрузовогоМеста</DataPath>
+													<ChoiceButton>true</ChoiceButton>
+													<ContextMenu name="ВысотаГрузовогоМестаКонтекстноеМеню" id="478"/>
+													<ExtendedTooltip name="ВысотаГрузовогоМестаРасширеннаяПодсказка" id="479"/>
+													<Events>
+														<Event name="OnChange">РазмерГабаритПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="ОбъемГрузовогоМеста" id="480">
+													<DataPath>ОбъемГрузовогоМеста</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<ChoiceButton>false</ChoiceButton>
+													<ContextMenu name="ОбъемГрузовогоМестаКонтекстноеМеню" id="481"/>
+													<ExtendedTooltip name="ОбъемГрузовогоМестаРасширеннаяПодсказка" id="482"/>
+												</InputField>
 											</ChildItems>
 										</UsualGroup>
 									</ChildItems>
@@ -1286,17 +1093,16 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СоответствиеОбъектовОператоровДоставкиРасширеннаяПодсказка" id="547"/>
 					<ChildItems>
-						<LabelField name="ОрганизацияБизнесСетиСсылка" id="929">
+						<LabelField name="ОрганизацияБизнесСетиСсылка" id="830">
 							<DataPath>ОрганизацияБизнесСетиСсылка</DataPath>
 							<ReadOnly>true</ReadOnly>
-							<ContextMenu name="ОрганизацияБизнесСетиСсылкаКонтекстноеМеню" id="930"/>
+							<ContextMenu name="ОрганизацияБизнесСетиСсылкаКонтекстноеМеню" id="831"/>
 							<ExtendedTooltip name="ОрганизацияБизнесСетиСсылкаРасширеннаяПодсказка" id="832"/>
 						</LabelField>
 						<Table name="СоответствиеСкладов" id="606">
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
-							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<DataPath>СоответствиеСкладов</DataPath>
 							<RowFilter xsi:nil="true"/>
@@ -1397,7 +1203,6 @@
 									<ChildItems>
 										<InputField name="СоответствиеСкладовСклад" id="642">
 											<DataPath>СоответствиеСкладов.Склад</DataPath>
-											<AutoWidthInTable>None</AutoWidthInTable>
 											<ChoiceFoldersAndItems>FoldersAndItems</ChoiceFoldersAndItems>
 											<ContextMenu name="СоответствиеСкладовСкладКонтекстноеМеню" id="643"/>
 											<ExtendedTooltip name="СоответствиеСкладовСкладРасширеннаяПодсказка" id="644"/>
@@ -1489,27 +1294,21 @@
 									<ChildItems>
 										<Button name="ШаблоныСоздатьЗаказНаДоставку" id="739">
 											<Type>CommandBarButton</Type>
-											<DefaultButton>true</DefaultButton>
 											<CommandName>Form.Command.ШаблоныСоздатьЗаказНаДоставку</CommandName>
-											<ButtonImportance>Main</ButtonImportance>
 											<ExtendedTooltip name="ШаблоныСоздатьЗаказНаДоставкуРасширеннаяПодсказка" id="740"/>
 										</Button>
 										<Button name="Выбрать" id="798">
 											<Type>CommandBarButton</Type>
 											<Representation>PictureAndText</Representation>
-											<DefaultButton>true</DefaultButton>
 											<CommandName>Form.Item.Шаблоны.StandardCommand.Choose</CommandName>
-											<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-											<ButtonImportance>Main</ButtonImportance>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 											<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="799"/>
 										</Button>
 										<Button name="ШаблоныУдалить" id="749">
 											<Type>CommandBarButton</Type>
 											<Representation>PictureAndText</Representation>
-											<DefaultButton>true</DefaultButton>
 											<CommandName>Form.Item.Шаблоны.StandardCommand.Delete</CommandName>
 											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-											<ButtonImportance>Main</ButtonImportance>
 											<ExtendedTooltip name="ШаблоныУдалитьРасширеннаяПодсказка" id="750"/>
 										</Button>
 									</ChildItems>
@@ -1579,6 +1378,7 @@
 									<Group>Vertical</Group>
 									<HorizontalAlign>Right</HorizontalAlign>
 									<Behavior>PopUp</Behavior>
+									<Representation>None</Representation>
 									<ExtendedTooltip name="ГруппаШаблоныПодсказкаРасширеннаяПодсказка" id="808"/>
 									<ChildItems>
 										<LabelDecoration name="ПодсказкаПросмотрИРедактированиеДанныхВыгрузки" id="809">
@@ -1607,35 +1407,11 @@
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-						<UsualGroup name="ГруппаПодсказки" id="941">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа подсказки</v8:content>
-								</v8:item>
-							</Title>
-							<Width>50</Width>
-							<Group>AlwaysHorizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаПодсказкиРасширеннаяПодсказка" id="942"/>
-							<ChildItems>
-								<LabelDecoration name="ДекорацияОтступ" id="945">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>true</HorizontalStretch>
-									<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="946"/>
-									<ExtendedTooltip name="ДекорацияОтступРасширеннаяПодсказка" id="947"/>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
 						<Table name="Шаблоны" id="723">
 							<Representation>List</Representation>
-							<TitleLocation>Auto</TitleLocation>
 							<Height>11</Height>
 							<ChoiceMode>true</ChoiceMode>
-							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
-							<RowActionsShowType>ShowOnHover</RowActionsShowType>
 							<DataPath>Шаблоны</DataPath>
 							<CommandSet>
 								<ExcludedCommand>Add</ExcludedCommand>
@@ -1704,7 +1480,6 @@
 											<v8:content>По умолчанию</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<EditMode>Directly</EditMode>
 									<ContextMenu name="ШаблоныПометкаКонтекстноеМеню" id="805"/>
 									<ExtendedTooltip name="ШаблоныПометкаРасширеннаяПодсказка" id="806"/>
@@ -1721,6 +1496,7 @@
 										</v8:item>
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ШаблоныПредставлениеКонтекстноеМеню" id="788"/>
 									<ExtendedTooltip name="ШаблоныПредставлениеРасширеннаяПодсказка" id="789"/>
 								</InputField>
@@ -1752,7 +1528,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Длина</v8:content>
+					<v8:content>Д</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1769,7 +1545,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Длина</v8:content>
+					<v8:content>Д</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1786,7 +1562,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Ширина</v8:content>
+					<v8:content>Х Ш</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1803,7 +1579,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Ширина</v8:content>
+					<v8:content>Х Ш</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1820,7 +1596,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Высота</v8:content>
+					<v8:content>Х В</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1837,7 +1613,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Высота</v8:content>
+					<v8:content>Х В</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1866,7 +1642,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Объем</v8:content>
+					<v8:content>= Объем (м)</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1883,7 +1659,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Объем</v8:content>
+					<v8:content>= Объем (м)</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1900,7 +1676,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Вес</v8:content>
+					<v8:content>Вес обычно не более (кг)</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1917,7 +1693,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Вес</v8:content>
+					<v8:content>Вес обычно не более (кг)</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -2710,7 +2486,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Записать</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="3">
 			<Title>
@@ -2726,7 +2501,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Отмена</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОбновитьСоответствие" id="5">
 			<Title>
@@ -2749,20 +2523,12 @@
 					<v8:content>Заказ на доставку</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Создать Заказ на доставку по шаблону</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Picture>
 				<xr:Ref>StdPicture.CreateListItem</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ШаблоныСоздатьЗаказНаДоставку</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Шаблоны</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

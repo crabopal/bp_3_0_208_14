@@ -53,8 +53,6 @@
 			<ToolTipRepresentation>Balloon</ToolTipRepresentation>
 			<VerticalAlign>Top</VerticalAlign>
 			<GroupVerticalAlign>Top</GroupVerticalAlign>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="ОписаниеПродукцииКонтекстноеМеню" id="107"/>
 			<ExtendedTooltip name="ОписаниеПродукцииРасширеннаяПодсказка" id="108"/>
@@ -64,30 +62,22 @@
 		</LabelField>
 		<LabelField name="Статус" id="129">
 			<DataPath>Объект.Статус</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<TextColor>pal:Red</TextColor>
+			<TextColor>style:SpecialTextColor</TextColor>
 			<ContextMenu name="СтатусКонтекстноеМеню" id="130"/>
 			<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="131"/>
 		</LabelField>
-		<LabelField name="Наименование" id="126">
+		<InputField name="Наименование" id="126">
 			<DataPath>НаименованиеПродукции</DataPath>
 			<ReadOnly>true</ReadOnly>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<UseCopy>true</UseCopy>
 			<ContextMenu name="НаименованиеКонтекстноеМеню" id="127"/>
 			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="128"/>
-		</LabelField>
-		<LabelField name="Идентификатор" id="103">
+		</InputField>
+		<InputField name="Идентификатор" id="103">
 			<DataPath>Объект.Идентификатор</DataPath>
 			<ReadOnly>true</ReadOnly>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<UseCopy>true</UseCopy>
 			<ContextMenu name="ИдентификаторКонтекстноеМеню" id="104"/>
 			<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="105"/>
-		</LabelField>
+		</InputField>
 		<UsualGroup name="ГруппаХС" id="143">
 			<EnableContentChange>true</EnableContentChange>
 			<Title>
@@ -96,32 +86,43 @@
 					<v8:content>ХС</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
+			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаХСРасширеннаяПодсказка" id="144"/>
 			<ChildItems>
-				<LabelField name="ХСПроизводительСтрока" id="137">
+				<InputField name="ХСПроизводительСтрока" id="137">
 					<DataPath>ХСПроизводительСтрока</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>ХС-производитель</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<UseCopy>true</UseCopy>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>не загружено</v8:content>
+						</v8:item>
+					</InputHint>
 					<ContextMenu name="ХСПроизводительСтрокаКонтекстноеМеню" id="138"/>
 					<ExtendedTooltip name="ХСПроизводительСтрокаРасширеннаяПодсказка" id="139"/>
-					<Events>
-						<Event name="Click">ХСПроизводительСтрокаНажатие</Event>
-					</Events>
-				</LabelField>
+				</InputField>
+				<Button name="ЗагрузитьНаименованиеХС" id="149">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<CommandName>Form.Command.ЗагрузитьНаименованиеХС</CommandName>
+					<Picture>
+						<xr:Ref>StdPicture.Refresh</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ЗагрузитьНаименованиеХСРасширеннаяПодсказка" id="150"/>
+				</Button>
 			</ChildItems>
 		</UsualGroup>
-		<LabelField name="ХозяйствующийСубъектПроизводитель" id="132">
+		<InputField name="ХозяйствующийСубъектПроизводитель" id="132">
 			<DataPath>Объект.ХозяйствующийСубъектПроизводитель</DataPath>
 			<Visible>false</Visible>
 			<ReadOnly>true</ReadOnly>
@@ -131,12 +132,9 @@
 					<v8:content>ХС-производитель</v8:content>
 				</v8:item>
 			</Title>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<UseCopy>true</UseCopy>
 			<ContextMenu name="ХозяйствующийСубъектПроизводительКонтекстноеМеню" id="133"/>
 			<ExtendedTooltip name="ХозяйствующийСубъектПроизводительРасширеннаяПодсказка" id="134"/>
-		</LabelField>
+		</InputField>
 		<UsualGroup name="ГруппаСобственникТМ" id="147">
 			<EnableContentChange>true</EnableContentChange>
 			<Title>
@@ -145,13 +143,13 @@
 					<v8:content>Группа собственник ТМ</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
+			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаСобственникТМРасширеннаяПодсказка" id="148"/>
 			<ChildItems>
-				<LabelField name="ХССобственникТМСтрока" id="140">
+				<InputField name="ХССобственникТМСтрока" id="140">
 					<DataPath>ХССобственникТМСтрока</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<Title>
@@ -160,44 +158,52 @@
 							<v8:content>Собственник ТМ</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<UseCopy>true</UseCopy>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>не загружено</v8:content>
+						</v8:item>
+					</InputHint>
 					<ContextMenu name="ХССобственникТМСтрокаКонтекстноеМеню" id="141"/>
 					<ExtendedTooltip name="ХССобственникТМСтрокаРасширеннаяПодсказка" id="142"/>
-					<Events>
-						<Event name="Click">ХССобственникТМСтрокаНажатие</Event>
-					</Events>
-				</LabelField>
+				</InputField>
+				<Button name="ЗагрузитьНаименованиеСобственникаТМ" id="145">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ЗагрузитьНаименованиеСобственникаТМ</CommandName>
+					<ExtendedTooltip name="ЗагрузитьНаименованиеСобственникаТМРасширеннаяПодсказка" id="146"/>
+				</Button>
 			</ChildItems>
 		</UsualGroup>
-		<LabelField name="КодТНВЭД" id="19">
+		<InputField name="КодТНВЭД" id="19">
 			<DataPath>Объект.КодТНВЭД</DataPath>
 			<ReadOnly>true</ReadOnly>
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
-			<UseCopy>true</UseCopy>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>20</MaxWidth>
 			<ContextMenu name="КодТНВЭДКонтекстноеМеню" id="20"/>
 			<ExtendedTooltip name="КодТНВЭДРасширеннаяПодсказка" id="21"/>
-		</LabelField>
-		<LabelField name="GTIN" id="37">
+		</InputField>
+		<InputField name="GTIN" id="37">
 			<DataPath>Объект.GTIN</DataPath>
 			<ReadOnly>true</ReadOnly>
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
-			<UseCopy>true</UseCopy>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>20</MaxWidth>
 			<ContextMenu name="GTINКонтекстноеМеню" id="38"/>
 			<ExtendedTooltip name="GTINРасширеннаяПодсказка" id="39"/>
-		</LabelField>
-		<LabelField name="Артикул" id="34">
+		</InputField>
+		<InputField name="Артикул" id="34">
 			<DataPath>Объект.Артикул</DataPath>
 			<ReadOnly>true</ReadOnly>
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
-			<UseCopy>true</UseCopy>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>20</MaxWidth>
 			<ContextMenu name="АртикулКонтекстноеМеню" id="35"/>
 			<ExtendedTooltip name="АртикулРасширеннаяПодсказка" id="36"/>
-		</LabelField>
+		</InputField>
 		<UsualGroup name="ГруппаГОСТ" id="77">
 			<Title>
 				<v8:item>
@@ -205,35 +211,31 @@
 					<v8:content>Группа ГОСТ</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
+			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаГОСТРасширеннаяПодсказка" id="78"/>
 			<ChildItems>
-				<LabelField name="ГОСТ" id="31">
+				<InputField name="ГОСТ" id="31">
 					<DataPath>Объект.ГОСТ</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<UseCopy>true</UseCopy>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>20</MaxWidth>
 					<ContextMenu name="ГОСТКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="ГОСТРасширеннаяПодсказка" id="33"/>
-				</LabelField>
-				<LabelField name="СоответствуетГОСТ" id="28">
+				</InputField>
+				<CheckBoxField name="СоответствуетГОСТ" id="28">
 					<DataPath>Объект.СоответствуетГОСТ</DataPath>
 					<ReadOnly>true</ReadOnly>
+					<TitleLocation>Right</TitleLocation>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<Format>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>БЛ=Нет; БИ=Да</v8:content>
-						</v8:item>
-					</Format>
 					<ContextMenu name="СоответствуетГОСТКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="СоответствуетГОСТРасширеннаяПодсказка" id="30"/>
-				</LabelField>
+				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
 		<LabelField name="ОписаниеФасовки" id="109">
@@ -244,8 +246,6 @@
 					<v8:content>Фасовка</v8:content>
 				</v8:item>
 			</Title>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="ОписаниеФасовкиКонтекстноеМеню" id="110"/>
 			<ExtendedTooltip name="ОписаниеФасовкиРасширеннаяПодсказка" id="111"/>
@@ -261,8 +261,6 @@
 					<v8:content>Производственные площадки</v8:content>
 				</v8:item>
 			</Title>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="ОписаниеПроизводителиКонтекстноеМеню" id="113"/>
 			<ExtendedTooltip name="ОписаниеПроизводителиРасширеннаяПодсказка" id="114"/>
@@ -272,8 +270,6 @@
 		</LabelField>
 		<LabelField name="Сопоставлено" id="100">
 			<DataPath>Сопоставлено</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="СопоставленоКонтекстноеМеню" id="101"/>
 			<ExtendedTooltip name="СопоставленоРасширеннаяПодсказка" id="102"/>
@@ -475,7 +471,48 @@
 			</ToolTip>
 			<Action>ЗагрузитьВБазу</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="ЗагрузитьНаименованиеХС" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить наименование ХС-производителя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить наименование ХС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗагрузитьНаименованиеХС</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗагрузитьНаименованиеСобственникаТМ" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить наименование собственника ТМ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить наименование ХС</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗагрузитьНаименованиеСобственникаТМ</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 	<Parameters>

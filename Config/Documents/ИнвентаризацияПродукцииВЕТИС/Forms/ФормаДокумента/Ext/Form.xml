@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandSet>
 		<ExcludedCommand>Post</ExcludedCommand>
 		<ExcludedCommand>PostAndClose</ExcludedCommand>
 		<ExcludedCommand>Write</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
@@ -56,7 +56,6 @@
 					<xr:LoadTransparent>true</xr:LoadTransparent>
 				</Picture>
 				<Representation>Picture</Representation>
-				<Importance>Main</Importance>
 				<ExtendedTooltip name="ПодменюСоздатьНаОснованииРасширеннаяПодсказка" id="308"/>
 			</Popup>
 			<Popup name="ПодменюПечать" id="305">
@@ -76,7 +75,6 @@
 					<xr:Ref>StdPicture.Print</xr:Ref>
 					<xr:LoadTransparent>true</xr:LoadTransparent>
 				</Picture>
-				<Importance>Main</Importance>
 				<ExtendedTooltip name="ПодменюПечатьРасширеннаяПодсказка" id="306"/>
 			</Popup>
 			<ButtonGroup name="ФормаГруппаКомандыФормы" id="303">
@@ -120,7 +118,6 @@
 					<xr:LoadTransparent>false</xr:LoadTransparent>
 				</Picture>
 				<Representation>PictureAndText</Representation>
-				<Importance>Main</Importance>
 				<ExtendedTooltip name="ПодменюОтчетыРасширеннаяПодсказка" id="294"/>
 				<ChildItems>
 					<ButtonGroup name="ПодменюОтчетыВажное" id="295">
@@ -148,10 +145,9 @@
 					</v8:item>
 				</ToolTip>
 				<Picture>
-					<xr:Ref>CommonPicture.ЗаполнитьФорму</xr:Ref>
+					<xr:Ref>CommonPicture.ЗаполнитьФормуГосИС</xr:Ref>
 					<xr:LoadTransparent>false</xr:LoadTransparent>
 				</Picture>
-				<Importance>Main</Importance>
 				<ExtendedTooltip name="ПодменюЗаполнитьРасширеннаяПодсказка" id="292"/>
 			</Popup>
 			<Button name="ФормаАрхивироватьДокумент" id="775">
@@ -239,7 +235,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаОсновноеРасширеннаяПодсказка" id="74"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаНередактируемыеПослеОтправкиРеквизитыОсновное" id="78">
@@ -272,9 +268,9 @@
 										<InputField name="Номер" id="84">
 											<DataPath>Объект.Number</DataPath>
 											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<MaxWidth>10</MaxWidth>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="НомерКонтекстноеМеню" id="85"/>
 											<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="86"/>
 										</InputField>
@@ -287,10 +283,10 @@
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<Width>14</Width>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<HorizontalStretch>false</HorizontalStretch>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="ДатаКонтекстноеМеню" id="88"/>
 											<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="89"/>
 											<Events>
@@ -314,7 +310,6 @@
 									<ChildItems>
 										<InputField name="ХозяйствующийСубъект" id="491">
 											<DataPath>Объект.ХозяйствующийСубъект</DataPath>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="ХозяйствующийСубъектКонтекстноеМеню" id="492"/>
 											<ExtendedTooltip name="ХозяйствующийСубъектРасширеннаяПодсказка" id="493"/>
 											<Events>
@@ -345,7 +340,6 @@
 									<ChildItems>
 										<InputField name="Предприятие" id="499">
 											<DataPath>Объект.Предприятие</DataPath>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="ПредприятиеКонтекстноеМеню" id="500"/>
 											<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="501"/>
 											<Events>
@@ -405,7 +399,6 @@
 											<ClearButton>true</ClearButton>
 											<OpenButton>true</OpenButton>
 											<TextEdit>false</TextEdit>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="415"/>
 											<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="416"/>
 											<Events>
@@ -448,7 +441,6 @@
 													<TitleFont ref="style:NormalTextFont" bold="false" italic="false" underline="true" strikeout="false" kind="StyleItem"/>
 													<VerticalStretch>false</VerticalStretch>
 													<ShapeRepresentation>None</ShapeRepresentation>
-													<Importance>Main</Importance>
 													<ExtendedTooltip name="КомандыЗаполненияОснованияНовыеДокументыРасширеннаяПодсказка" id="422"/>
 												</Popup>
 												<Popup name="КомандыЗаполненияОснованияВыборДокументов" id="423">
@@ -461,7 +453,6 @@
 													<TitleTextColor>style:ГиперссылкаЦвет</TitleTextColor>
 													<TitleFont ref="style:NormalTextFont" bold="false" italic="false" underline="true" strikeout="false" kind="StyleItem"/>
 													<ShapeRepresentation>None</ShapeRepresentation>
-													<Importance>Main</Importance>
 													<ExtendedTooltip name="КомандыЗаполненияОснованияВыборДокументовРасширеннаяПодсказка" id="424"/>
 												</Popup>
 											</ChildItems>
@@ -480,7 +471,6 @@
 							<DataPath>Объект.Ответственный</DataPath>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>28</MaxWidth>
-							<TextSize>Enlarged</TextSize>
 							<ContextMenu name="ОтветственныйКонтекстноеМеню" id="94"/>
 							<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="95"/>
 						</InputField>
@@ -488,11 +478,11 @@
 							<DataPath>Объект.Комментарий</DataPath>
 							<TitleLocation>Left</TitleLocation>
 							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>60</MaxWidth>
 							<AutoMaxHeight>false</AutoMaxHeight>
 							<VerticalStretch>false</VerticalStretch>
-							<TextSize>Enlarged</TextSize>
 							<ContextMenu name="КомментарийКонтекстноеМеню" id="108"/>
 							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="109"/>
 						</InputField>
@@ -506,8 +496,8 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<TitleDataPath>Объект.Товары.RowsCount</TitleDataPath>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаТоварыРасширеннаяПодсказка" id="111"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаТовары" id="505">
@@ -525,12 +515,12 @@
 							<ChildItems>
 								<Table name="Товары" id="507">
 									<RowSelectionMode>Cell</RowSelectionMode>
+									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<EnableStartDrag>true</EnableStartDrag>
 									<EnableDrag>true</EnableDrag>
 									<FileDragMode>AsFile</FileDragMode>
 									<DataPath>Объект.Товары</DataPath>
-									<AutoMaxCardHeight>false</AutoMaxCardHeight>
 									<RowFilter xsi:nil="true"/>
 									<ContextMenu name="ТоварыКонтекстноеМеню" id="508"/>
 									<AutoCommandBar name="ТоварыКоманднаяПанель" id="509">
@@ -557,7 +547,6 @@
 																<v8:content>Заполнить</v8:content>
 															</v8:item>
 														</Title>
-														<Importance>Main</Importance>
 														<ExtendedTooltip name="ТоварыПодменюЗаполнитьРасширеннаяПодсказка" id="721"/>
 														<ChildItems>
 															<ButtonGroup name="ТоварыГруппаПодбор" id="728">
@@ -653,6 +642,7 @@
 										<LabelField name="ТоварыНомерСтроки" id="520">
 											<DataPath>Объект.Товары.LineNumber</DataPath>
 											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<MaxWidth>4</MaxWidth>
 											<ContextMenu name="ТоварыНомерСтрокиКонтекстноеМеню" id="521"/>
@@ -661,7 +651,7 @@
 										<InputField name="ТоварыОперация" id="523">
 											<DataPath>Объект.Товары.Операция</DataPath>
 											<EditMode>EnterOnInput</EditMode>
-											<TextSize>Enlarged</TextSize>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ТоварыОперацияКонтекстноеМеню" id="524"/>
 											<ExtendedTooltip name="ТоварыОперацияРасширеннаяПодсказка" id="525"/>
 											<Events>
@@ -677,14 +667,13 @@
 												</v8:item>
 											</Title>
 											<Group>Horizontal</Group>
-											<ShowTitle>true</ShowTitle>
 											<ExtendedTooltip name="ТоварыГруппаНоменклатураРасширеннаяПодсказка" id="743"/>
 											<ChildItems>
 												<InputField name="ТоварыНоменклатура" id="535">
 													<DataPath>Объект.Товары.Номенклатура</DataPath>
 													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
-													<TextSize>Enlarged</TextSize>
 													<ContextMenu name="ТоварыНоменклатураКонтекстноеМеню" id="536"/>
 													<ExtendedTooltip name="ТоварыНоменклатураРасширеннаяПодсказка" id="537"/>
 													<Events>
@@ -696,8 +685,8 @@
 												<InputField name="ТоварыХарактеристика" id="538">
 													<DataPath>Объект.Товары.Характеристика</DataPath>
 													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
-													<TextSize>Enlarged</TextSize>
 													<ContextMenu name="ТоварыХарактеристикаКонтекстноеМеню" id="539"/>
 													<ExtendedTooltip name="ТоварыХарактеристикаРасширеннаяПодсказка" id="540"/>
 													<Events>
@@ -709,10 +698,10 @@
 												<InputField name="ТоварыСерия" id="541">
 													<DataPath>Объект.Товары.Серия</DataPath>
 													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<DropListButton>false</DropListButton>
 													<ChoiceButton>true</ChoiceButton>
 													<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
-													<TextSize>Enlarged</TextSize>
 													<ContextMenu name="ТоварыСерияКонтекстноеМеню" id="542"/>
 													<ExtendedTooltip name="ТоварыСерияРасширеннаяПодсказка" id="543"/>
 													<Events>
@@ -731,14 +720,13 @@
 												</v8:item>
 											</Title>
 											<Group>InCell</Group>
-											<ShowTitle>true</ShowTitle>
 											<ExtendedTooltip name="ГруппаТоварыПродукцияРасширеннаяПодсказка" id="671"/>
 											<ChildItems>
 												<InputField name="ТоварыПродукция" id="532">
 													<DataPath>Объект.Товары.Продукция</DataPath>
 													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
-													<TextSize>Enlarged</TextSize>
 													<ContextMenu name="ТоварыПродукцияКонтекстноеМеню" id="533"/>
 													<ExtendedTooltip name="ТоварыПродукцияРасширеннаяПодсказка" id="534"/>
 													<Events>
@@ -757,6 +745,7 @@
 													</ToolTip>
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
+													<AutoEditMode>true</AutoEditMode>
 													<MaxWidth>1</MaxWidth>
 													<ValuesPicture>
 														<xr:Ref>CommonPicture.ВосклицательныйЗнакКрасный</xr:Ref>
@@ -780,7 +769,6 @@
 													<v8:content>Ед. изм.</v8:content>
 												</v8:item>
 											</Title>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="ТоварыЕдиницаИзмеренияКонтекстноеМеню" id="773"/>
 											<ExtendedTooltip name="ТоварыЕдиницаИзмеренияРасширеннаяПодсказка" id="774"/>
 										</InputField>
@@ -792,7 +780,6 @@
 												</v8:item>
 											</Title>
 											<Group>Horizontal</Group>
-											<ShowTitle>true</ShowTitle>
 											<ShowInHeader>true</ShowInHeader>
 											<ExtendedTooltip name="ТоварыГруппаНоменклатураКоличествоРасширеннаяПодсказка" id="739"/>
 											<ChildItems>
@@ -806,16 +793,16 @@
 														</v8:item>
 													</Title>
 													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<Width>10</Width>
-													<TextSize>Enlarged</TextSize>
 													<ContextMenu name="ТоварыКоличествоСтароеКонтекстноеМеню" id="736"/>
 													<ExtendedTooltip name="ТоварыКоличествоСтароеРасширеннаяПодсказка" id="737"/>
 												</InputField>
 												<InputField name="ТоварыКоличествоИзменение" id="732">
 													<DataPath>Объект.Товары.КоличествоИзменение</DataPath>
 													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<Width>10</Width>
-													<TextSize>Enlarged</TextSize>
 													<ContextMenu name="ТоварыКоличествоИзменениеКонтекстноеМеню" id="733"/>
 													<ExtendedTooltip name="ТоварыКоличествоИзменениеРасширеннаяПодсказка" id="734"/>
 													<Events>
@@ -831,9 +818,10 @@
 														</v8:item>
 													</Title>
 													<EditMode>EnterOnInput</EditMode>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
+													<AutoEditMode>true</AutoEditMode>
 													<Width>10</Width>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
-													<TextSize>Enlarged</TextSize>
 													<ContextMenu name="ТоварыКоличествоКонтекстноеМеню" id="545"/>
 													<ExtendedTooltip name="ТоварыКоличествоРасширеннаяПодсказка" id="546"/>
 													<Events>
@@ -851,7 +839,6 @@
 												</v8:item>
 											</Title>
 											<Group>InCell</Group>
-											<ShowTitle>true</ShowTitle>
 											<ExtendedTooltip name="ТоварыГруппаЕдиницаИзмеренияВЕТИСРасширеннаяПодсказка" id="712"/>
 											<ChildItems>
 												<InputField name="ТоварыЕдиницаИзмеренияВЕТИС" id="553">
@@ -863,9 +850,9 @@
 														</v8:item>
 													</Title>
 													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<Width>10</Width>
 													<ListChoiceMode>true</ListChoiceMode>
-													<TextSize>Enlarged</TextSize>
 													<ContextMenu name="ТоварыЕдиницаИзмеренияВЕТИСКонтекстноеМеню" id="554"/>
 													<ExtendedTooltip name="ТоварыЕдиницаИзмеренияВЕТИСРасширеннаяПодсказка" id="555"/>
 													<Events>
@@ -883,6 +870,7 @@
 													</ToolTip>
 													<EditMode>EnterOnInput</EditMode>
 													<ShowInHeader>false</ShowInHeader>
+													<AutoEditMode>true</AutoEditMode>
 													<ValuesPicture>
 														<xr:Ref>CommonPicture.ВосклицательныйЗнакКрасный</xr:Ref>
 														<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -904,7 +892,6 @@
 												</v8:item>
 											</Title>
 											<Group>Horizontal</Group>
-											<ShowTitle>true</ShowTitle>
 											<ShowInHeader>true</ShowInHeader>
 											<ExtendedTooltip name="ТоварыГруппаПродукцияКоличествоРасширеннаяПодсказка" id="741"/>
 											<ChildItems>
@@ -918,8 +905,8 @@
 														</v8:item>
 													</Title>
 													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<Width>10</Width>
-													<TextSize>Enlarged</TextSize>
 													<ContextMenu name="ТоварыКоличествоСтароеВЕТИСКонтекстноеМеню" id="656"/>
 													<ExtendedTooltip name="ТоварыКоличествоСтароеВЕТИСРасширеннаяПодсказка" id="657"/>
 												</InputField>
@@ -932,8 +919,8 @@
 														</v8:item>
 													</Title>
 													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<Width>10</Width>
-													<TextSize>Enlarged</TextSize>
 													<ContextMenu name="ТоварыКоличествоИзменениеВЕТИСКонтекстноеМеню" id="551"/>
 													<ExtendedTooltip name="ТоварыКоличествоИзменениеВЕТИСРасширеннаяПодсказка" id="552"/>
 													<Events>
@@ -949,7 +936,6 @@
 														</v8:item>
 													</Title>
 													<Group>InCell</Group>
-													<ShowTitle>true</ShowTitle>
 													<ExtendedTooltip name="ТоварыГруппаКоличествоВЕТИСРасширеннаяПодсказка" id="707"/>
 													<ChildItems>
 														<InputField name="ТоварыКоличествоВЕТИС" id="547">
@@ -961,9 +947,10 @@
 																</v8:item>
 															</Title>
 															<EditMode>EnterOnInput</EditMode>
+															<MarkRequiredComplete>true</MarkRequiredComplete>
+															<AutoEditMode>true</AutoEditMode>
 															<Width>10</Width>
 															<AutoMarkIncomplete>true</AutoMarkIncomplete>
-															<TextSize>Enlarged</TextSize>
 															<ContextMenu name="ТоварыКоличествоВЕТИСКонтекстноеМеню" id="548"/>
 															<ExtendedTooltip name="ТоварыКоличествоВЕТИСРасширеннаяПодсказка" id="549"/>
 															<Events>
@@ -980,6 +967,7 @@
 															</ToolTip>
 															<EditMode>EnterOnInput</EditMode>
 															<ShowInHeader>false</ShowInHeader>
+															<AutoEditMode>true</AutoEditMode>
 															<ValuesPicture>
 																<xr:Ref>CommonPicture.ВосклицательныйЗнакКрасный</xr:Ref>
 																<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -1004,9 +992,10 @@
 												</v8:item>
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
+											<AutoEditMode>true</AutoEditMode>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
-											<TextSize>Enlarged</TextSize>
 											<ContextMenu name="ТоварыЗаписьСкладскогоЖурналаКонтекстноеМеню" id="530"/>
 											<ExtendedTooltip name="ТоварыЗаписьСкладскогоЖурналаРасширеннаяПодсказка" id="531"/>
 											<Events>
@@ -1024,7 +1013,6 @@
 												</v8:item>
 											</Title>
 											<Group>Horizontal</Group>
-											<ShowTitle>true</ShowTitle>
 											<ExtendedTooltip name="ТоварыГруппаДополнительноРасширеннаяПодсказка" id="753"/>
 											<ChildItems>
 												<CheckBoxField name="ТоварыСкоропортящаясяПродукция" id="754">
@@ -1106,10 +1094,10 @@
 													</UserVisible>
 													<EditMode>EnterOnInput</EditMode>
 													<CellHyperlink>true</CellHyperlink>
+													<AutoEditMode>true</AutoEditMode>
 													<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 													<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 													<TextColor>style:ЦветГиперссылкиГосИС</TextColor>
-													<TextSize>Enlarged</TextSize>
 													<ContextMenu name="ТоварыСтранаПроизводстваКонтекстноеМеню" id="770"/>
 													<ExtendedTooltip name="ТоварыСтранаПроизводстваРасширеннаяПодсказка" id="771"/>
 												</InputField>
@@ -1387,7 +1375,7 @@
 												<InputField name="ТоварыПанельСтранаПроизводства" id="580">
 													<DataPath>Items.Товары.CurrentData.СтранаПроизводства</DataPath>
 													<EditMode>EnterOnInput</EditMode>
-													<TextSize>Enlarged</TextSize>
+													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="ТоварыПанельСтранаПроизводстваКонтекстноеМеню" id="581"/>
 													<ExtendedTooltip name="ТоварыПанельСтранаПроизводстваРасширеннаяПодсказка" id="582"/>
 												</InputField>
@@ -1499,7 +1487,6 @@
 																</v8:item>
 															</Title>
 															<CreateButton>true</CreateButton>
-															<TextSize>Enlarged</TextSize>
 															<ContextMenu name="ТоварыВетеринарноСопроводительныйДокументКонтекстноеМеню" id="778"/>
 															<ExtendedTooltip name="ТоварыВетеринарноСопроводительныйДокументРасширеннаяПодсказка" id="779"/>
 															<Events>
@@ -2404,7 +2391,6 @@
 			<Action>ПровестиДокумент</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ПровестиИЗакрыть" id="3">
 			<Title>
@@ -2423,7 +2409,6 @@
 			<Action>ПровестиИЗакрыть</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ЗаписатьДокумент" id="4">
 			<Title>
@@ -2446,7 +2431,6 @@
 			<Action>ЗаписатьДокумент</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ОткрытьПодборЗаписейЖурнала" id="1">
 			<Title>
@@ -2465,7 +2449,6 @@
 			<Representation>TextPicture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="РазвернутьПанельТовары" id="6">
 			<Title>
@@ -2476,7 +2459,6 @@
 			</Title>
 			<Action>РазвернутьПанель</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="СвернутьПанельТовары" id="7">
 			<Title>
@@ -2487,7 +2469,6 @@
 			</Title>
 			<Action>СвернутьПанель</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="СгенерироватьСерии" id="8">
 			<Title>
@@ -2510,7 +2491,6 @@
 			<Representation>TextPicture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ЗаполнитьЗаписиСкладскогоЖурнала" id="9">
 			<Title>
@@ -2528,7 +2508,6 @@
 			<Action>ЗаполнитьЗаписиСкладскогоЖурнала</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ОткрытьПодборНоменклатуры" id="10">
 			<Title>
@@ -2551,7 +2530,6 @@
 			<Representation>TextPicture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ПерезаполнитьПоОснованию" id="11">
 			<Title>
@@ -2569,7 +2547,6 @@
 			<Action>ПерезаполнитьПоОснованию</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="АрхивироватьДокумент" id="12">
 			<Title>
@@ -2584,7 +2561,6 @@
 			</Picture>
 			<Action>АрхивироватьДокумент</Action>
 			<Representation>TextPicture</Representation>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="РазбитьСтроку" id="13">
 			<Title>
@@ -2607,7 +2583,6 @@
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>Use</CurrentRowUse>
 			<AssociatedTableElementId xsi:type="xs:string">Товары</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<CommandInterface>

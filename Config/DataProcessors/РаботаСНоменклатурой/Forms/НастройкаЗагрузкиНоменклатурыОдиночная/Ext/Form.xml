@@ -6,6 +6,7 @@
 			<v8:content>Загрузка номенклатуры</v8:content>
 		</v8:item>
 	</Title>
+	<Width>50</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
@@ -26,6 +27,7 @@
 			</Title>
 			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаПояснениеРасширеннаяПодсказка" id="19"/>
 			<ChildItems>
@@ -36,8 +38,9 @@
 							<v8:content>Информация</v8:content>
 						</v8:item>
 					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
 					<Picture>
-						<xr:Ref>CommonPicture.ВажноеСообщениеИнформация</xr:Ref>
+						<xr:Ref>CommonPicture.УдалитьИнформация</xr:Ref>
 						<xr:LoadTransparent>false</xr:LoadTransparent>
 					</Picture>
 					<FileDragMode>AsFile</FileDragMode>
@@ -52,7 +55,7 @@
 							<v8:content>Для номенклатуры &lt;link v8config://8a49d832-6870-48e8-a4c6-472522da2214/ывава&gt;Сыр твердый российский &lt;/&gt;необходимо загрузить категорию &lt;link v8config://8a49d832-6870-48e8-a4c6-472522da2214/вавыа&gt;Сыр твердый&lt;/&gt; или сопоставить ее с видом номенклатуры. Это позволит сохранить дополнительные реквизиты и характеристики номенклатуры.</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalAlign>Auto</HorizontalAlign>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
 					<ContextMenu name="ПояснениеКФормеКонтекстноеМеню" id="8"/>
 					<ExtendedTooltip name="ПояснениеКФормеРасширеннаяПодсказка" id="9"/>
 					<Events>
@@ -76,6 +79,7 @@
 			<ChildItems>
 				<InputField name="ВидНоменклатуры" id="4">
 					<DataPath>ВидНоменклатуры</DataPath>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<CreateButton>false</CreateButton>
 					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -94,22 +98,57 @@
 						<Event name="ChoiceProcessing">ВидНоменклатурыОбработкаВыбора</Event>
 					</Events>
 				</InputField>
-				<LabelDecoration name="ПояснениеКВидуНоменклатуры" id="12">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Font ref="style:TextLevel3" kind="StyleItem" scale="100"/>
-					<Title formatted="true">
+				<UsualGroup name="ГруппаПодсказкаКВидуНоменклатуры" id="31">
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Пояснение к виду номенклатуры</v8:content>
+							<v8:content>Группа подсказка к виду номенклатуры</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ПояснениеКВидуНоменклатурыКонтекстноеМеню" id="13"/>
-					<ExtendedTooltip name="ПояснениеКВидуНоменклатурыРасширеннаяПодсказка" id="14"/>
-					<Events>
-						<Event name="Click">ПояснениеКВидуНоменклатурыНажатие</Event>
-						<Event name="URLProcessing">ПояснениеКВидуНоменклатурыОбработкаНавигационнойСсылки</Event>
-					</Events>
-				</LabelDecoration>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Group>HorizontalIfPossible</Group>
+					<HorizontalAlign>Right</HorizontalAlign>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПодсказкаКВидуНоменклатурыРасширеннаяПодсказка" id="32"/>
+					<ChildItems>
+						<PictureDecoration name="КартинкаДлительнойОперацииКатегория" id="33">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка длительной операции категория</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Picture>
+								<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КартинкаДлительнойОперацииКатегорияКонтекстноеМеню" id="34"/>
+							<ExtendedTooltip name="КартинкаДлительнойОперацииКатегорияРасширеннаяПодсказка" id="35"/>
+						</PictureDecoration>
+						<LabelDecoration name="ПояснениеКВидуНоменклатуры" id="12">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Font ref="style:МелкийНаклонныйШрифтРаботаСНоменклатурой" kind="StyleItem"/>
+							<Title formatted="true">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пояснение к виду номенклатуры</v8:content>
+								</v8:item>
+							</Title>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<ContextMenu name="ПояснениеКВидуНоменклатурыКонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="ПояснениеКВидуНоменклатурыРасширеннаяПодсказка" id="14"/>
+							<Events>
+								<Event name="Click">ПояснениеКВидуНоменклатурыНажатие</Event>
+								<Event name="URLProcessing">ПояснениеКВидуНоменклатурыОбработкаНавигационнойСсылки</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<InputField name="Характеристики" id="1">
@@ -124,13 +163,15 @@
 		</InputField>
 		<LabelDecoration name="ПоясненияКХарактеристикам" id="15">
 			<AutoMaxWidth>false</AutoMaxWidth>
-			<Font ref="style:TextLevel3" kind="StyleItem"/>
+			<TextColor>style:ПоясняющийТекст</TextColor>
+			<Font ref="style:МелкийНаклонныйШрифтРаботаСНоменклатурой" kind="StyleItem"/>
 			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Пояснения к характеристикам</v8:content>
 				</v8:item>
 			</Title>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 			<ContextMenu name="ПоясненияКХарактеристикамКонтекстноеМеню" id="16"/>
 			<ExtendedTooltip name="ПоясненияКХарактеристикамРасширеннаяПодсказка" id="17"/>
 		</LabelDecoration>
@@ -149,6 +190,48 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКнопкиФормыРасширеннаяПодсказка" id="28"/>
 			<ChildItems>
+				<UsualGroup name="ГруппаДекорацииДлительнойОперации" id="36">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа декорации длительной операции</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДекорацииДлительнойОперацииРасширеннаяПодсказка" id="37"/>
+					<ChildItems>
+						<PictureDecoration name="КартинкаДлительнойОперации" id="38">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка длительной операции</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Picture>
+								<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КартинкаДлительнойОперацииКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="КартинкаДлительнойОперацииРасширеннаяПодсказка" id="40"/>
+						</PictureDecoration>
+						<LabelDecoration name="НадписьДлительнойОперации" id="41">
+							<TextColor>style:ЦветПустойГиперссылки</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Загрузка номенклатуры</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьДлительнойОперацииКонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="НадписьДлительнойОперацииРасширеннаяПодсказка" id="43"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
 				<Button name="Создать" id="10">
 					<Type>UsualButton</Type>
 					<DefaultButton>true</DefaultButton>
@@ -157,11 +240,16 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Готово</v8:content>
+							<v8:content>ОК</v8:content>
 						</v8:item>
 					</Title>
 					<ButtonImportance>Main</ButtonImportance>
 					<ExtendedTooltip name="СоздатьРасширеннаяПодсказка" id="11"/>
+				</Button>
+				<Button name="Отмена" id="29">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Отмена</CommandName>
+					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="30"/>
 				</Button>
 			</ChildItems>
 		</UsualGroup>
@@ -453,6 +541,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Создать</Action>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
 		</Command>
 	</Commands>
 </Form>

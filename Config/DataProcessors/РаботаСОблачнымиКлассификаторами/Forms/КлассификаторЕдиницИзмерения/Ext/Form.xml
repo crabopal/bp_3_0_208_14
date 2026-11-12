@@ -9,24 +9,18 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Top</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ЗагрузитьДанные" id="23">
 				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
 				<Enabled>false</Enabled>
 				<CommandName>Form.Command.ЗагрузитьДанные</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ЗагрузитьДанныеРасширеннаяПодсказка" id="25"/>
 			</Button>
 			<Button name="Отмена" id="24">
 				<Type>CommandBarButton</Type>
 				<Visible>false</Visible>
-				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.Отмена</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="26"/>
 			</Button>
 		</ChildItems>
@@ -36,14 +30,26 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<LabelDecoration name="ПодсказкаКФорме" id="59">
+			<Visible>false</Visible>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<TextColor>style:ПоясняющийТекст</TextColor>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выберите необходимые элементы классификатора и загрузите их в базу, нажав кнопку "Загрузить данные".</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ПодсказкаКФормеКонтекстноеМеню" id="60"/>
+			<ExtendedTooltip name="ПодсказкаКФормеРасширеннаяПодсказка" id="61"/>
+		</LabelDecoration>
 		<Table name="ДеревоКлассификатора" id="1">
 			<Representation>Tree</Representation>
 			<CommandBarLocation>None</CommandBarLocation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
-			<UseAlternationRowColorBWA>true</UseAlternationRowColorBWA>
+			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<InitialTreeView>ExpandAllLevels</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -56,7 +62,6 @@
 					<v8:content>Дерево классификатора</v8:content>
 				</v8:item>
 			</Title>
-			<AutoMaxCardHeight>false</AutoMaxCardHeight>
 			<ContextMenu name="ДеревоКлассификатораКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="ДеревоКлассификатораКоманднаяПанель" id="3"/>
 			<ExtendedTooltip name="ДеревоКлассификатораРасширеннаяПодсказка" id="27"/>
@@ -103,6 +108,7 @@
 							<DataPath>ДеревоКлассификатора.Пометка</DataPath>
 							<EditMode>EnterOnInput</EditMode>
 							<ShowInHeader>false</ShowInHeader>
+							<AutoEditMode>true</AutoEditMode>
 							<ThreeState>true</ThreeState>
 							<ContextMenu name="ДеревоКлассификатораПометкаКонтекстноеМеню" id="19"/>
 							<ExtendedTooltip name="ДеревоКлассификатораПометкаРасширеннаяПодсказка" id="29"/>
@@ -114,7 +120,7 @@
 							<DataPath>ДеревоКлассификатора.Наименование</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
-							<TextSize>Enlarged</TextSize>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ДеревоКлассификатораНаименованиеКонтекстноеМеню" id="7"/>
 							<ExtendedTooltip name="ДеревоКлассификатораНаименованиеРасширеннаяПодсказка" id="30"/>
 						</InputField>
@@ -133,8 +139,8 @@
 							<DataPath>ДеревоКлассификатора.Числитель</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<HorizontalStretch>false</HorizontalStretch>
-							<TextSize>Enlarged</TextSize>
 							<ContextMenu name="ДеревоКлассификатораЧислительКонтекстноеМеню" id="54"/>
 							<ExtendedTooltip name="ДеревоКлассификатораЧислительРасширеннаяПодсказка" id="55"/>
 						</InputField>
@@ -142,8 +148,8 @@
 							<DataPath>ДеревоКлассификатора.Знаменатель</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<HorizontalStretch>false</HorizontalStretch>
-							<TextSize>Enlarged</TextSize>
 							<ContextMenu name="ДеревоКлассификатораЗнаменательКонтекстноеМеню" id="57"/>
 							<ExtendedTooltip name="ДеревоКлассификатораЗнаменательРасширеннаяПодсказка" id="58"/>
 						</InputField>
@@ -170,7 +176,8 @@
 								</v8:item>
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
-							<TextSize>Enlarged</TextSize>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>8</Width>
 							<ContextMenu name="ДеревоКлассификатораУсловноеОбозначениеНациональноеКонтекстноеМеню" id="9"/>
 							<ExtendedTooltip name="ДеревоКлассификатораУсловноеОбозначениеНациональноеРасширеннаяПодсказка" id="36"/>
 						</InputField>
@@ -184,7 +191,8 @@
 								</v8:item>
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
-							<TextSize>Enlarged</TextSize>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>8</Width>
 							<ContextMenu name="ДеревоКлассификатораУсловноеОбозначениеМеждународноеКонтекстноеМеню" id="11"/>
 							<ExtendedTooltip name="ДеревоКлассификатораУсловноеОбозначениеМеждународноеРасширеннаяПодсказка" id="35"/>
 						</InputField>
@@ -211,7 +219,8 @@
 								</v8:item>
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
-							<TextSize>Enlarged</TextSize>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>8</Width>
 							<ContextMenu name="ДеревоКлассификатораКодовоеБуквенноеОбозначениеНациональноеКонтекстноеМеню" id="13"/>
 							<ExtendedTooltip name="ДеревоКлассификатораКодовоеБуквенноеОбозначениеНациональноеРасширеннаяПодсказка" id="32"/>
 						</InputField>
@@ -225,7 +234,8 @@
 								</v8:item>
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
-							<TextSize>Enlarged</TextSize>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>8</Width>
 							<ContextMenu name="ДеревоКлассификатораКодовоеБуквенноеОбозначениеМеждународноеКонтекстноеМеню" id="15"/>
 							<ExtendedTooltip name="ДеревоКлассификатораКодовоеБуквенноеОбозначениеМеждународноеРасширеннаяПодсказка" id="33"/>
 						</InputField>
@@ -235,7 +245,8 @@
 					<DataPath>ДеревоКлассификатора.Код</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
-					<TextSize>Enlarged</TextSize>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>10</Width>
 					<ContextMenu name="ДеревоКлассификатораКодКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="ДеревоКлассификатораКодРасширеннаяПодсказка" id="37"/>
 				</InputField>
@@ -252,7 +263,8 @@
 						</v8:item>
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
-					<TextSize>Enlarged</TextSize>
+					<AutoEditMode>true</AutoEditMode>
+					<Width>12</Width>
 					<ContextMenu name="ДеревоКлассификатораТипИзмеряемойВеличиныКонтекстноеМеню" id="49"/>
 					<ExtendedTooltip name="ДеревоКлассификатораТипИзмеряемойВеличиныРасширеннаяПодсказка" id="50"/>
 				</InputField>
@@ -498,7 +510,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Загрузить</v8:content>
+					<v8:content>Загрузить данные</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -509,8 +521,6 @@
 			</ToolTip>
 			<Action>ЗагрузитьДанные</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>
@@ -527,7 +537,6 @@
 			</ToolTip>
 			<Action>Отмена</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

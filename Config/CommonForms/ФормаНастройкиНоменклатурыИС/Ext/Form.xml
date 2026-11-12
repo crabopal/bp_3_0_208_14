@@ -10,7 +10,6 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
@@ -22,11 +21,15 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="251"/>
 			</Button>
+			<Button name="ФормаСправка" id="1">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="2"/>
+			</Button>
 			<Button name="ФормаОтмена" id="248">
 				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.Отмена</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="249"/>
 			</Button>
 		</ChildItems>
@@ -45,7 +48,7 @@
 			</Title>
 			<Group>AlwaysHorizontal</Group>
 			<Behavior>Usual</Behavior>
-			<ShowTitle>true</ShowTitle>
+			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаВариантыЕдиницыИзмеренияРасширеннаяПодсказка" id="155"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаВариантыЕдиницыИзмеренияОтступ" id="179">
@@ -106,8 +109,6 @@
 								<RadioButtonField name="ВариантЕдиницыИзмеренияУпаковка" id="158">
 									<DataPath>ВариантИспользованияЕдиницыХранения</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -158,8 +159,6 @@
 									<DataPath>ВариантИспользованияЕдиницыХранения</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<Shortcut>Ctrl+S</Shortcut>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -185,8 +184,7 @@
 								<InputField name="ПотребительскаяУпаковка" id="245">
 									<DataPath>ПотребительскаяУпаковка</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<Width>10</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<DropListButton>false</DropListButton>
 									<ChoiceButton>true</ChoiceButton>
@@ -226,8 +224,6 @@
 								<RadioButtonField name="ВариантЕдиницыИзмеренияЧастьУпаковки" id="174">
 									<DataPath>ВариантИспользованияЕдиницыХранения</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -259,11 +255,15 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<SpinButton>true</SpinButton>
 									<ContextMenu name="ПолеКоличествоЧастичноеВыбытиеКонтекстноеМеню" id="205"/>
-									<ExtendedTooltip name="ПолеКоличествоЧастичноеВыбытиеРасширеннаяПодсказка" id="206"/>
+									<ExtendedTooltip name="ПолеКоличествоЧастичноеВыбытиеРасширеннаяПодсказка" id="206">
+										<Title formatted="false">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>ед.</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
 									<Events>
 										<Event name="OnChange">ПолеКоличествоЧастичноеВыбытиеПриИзменении</Event>
 									</Events>
@@ -295,8 +295,6 @@
 								<RadioButtonField name="ВариантЕдиницыИзмеренияБлокКороб" id="166">
 									<DataPath>ВариантИспользованияЕдиницыХранения</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -329,11 +327,15 @@
 									</Title>
 									<TitleLocation>None</TitleLocation>
 									<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<SpinButton>true</SpinButton>
 									<ContextMenu name="ПолеКоличествоКоробКонтекстноеМеню" id="208"/>
-									<ExtendedTooltip name="ПолеКоличествоКоробРасширеннаяПодсказка" id="209"/>
+									<ExtendedTooltip name="ПолеКоличествоКоробРасширеннаяПодсказка" id="209">
+										<Title formatted="false">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>шт.</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
 									<Events>
 										<Event name="OnChange">ПолеКоличествоКоробПриИзменении</Event>
 									</Events>
@@ -366,8 +368,6 @@
 								<RadioButtonField name="ВариантЕдиницыИзмеренияИмеетФиксированныйВес" id="195">
 									<DataPath>ВариантИспользованияЕдиницыХранения</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -394,11 +394,15 @@
 									<DataPath>ПолеКоличествоФиксированныйВес</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<SpinButton>true</SpinButton>
 									<ContextMenu name="ПолеКоличествоФиксированныйВесКонтекстноеМеню" id="211"/>
-									<ExtendedTooltip name="ПолеКоличествоФиксированныйВесРасширеннаяПодсказка" id="212"/>
+									<ExtendedTooltip name="ПолеКоличествоФиксированныйВесРасширеннаяПодсказка" id="212">
+										<Title formatted="false">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>ед.</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
 									<Events>
 										<Event name="OnChange">ПолеКоличествоФиксированныйВесПриИзменении</Event>
 									</Events>
@@ -431,8 +435,6 @@
 								<RadioButtonField name="ВариантЕдиницыИзмеренияТребуетсяВзвешивание" id="169">
 									<DataPath>ВариантИспользованияЕдиницыХранения</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -470,7 +472,7 @@
 			</Title>
 			<Group>AlwaysHorizontal</Group>
 			<Behavior>Usual</Behavior>
-			<ShowTitle>true</ShowTitle>
+			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаВариантыУчетаЧастичногоВыбытияРасширеннаяПодсказка" id="30"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаВариантыУчетаЧастичногоВыбытияОтступ" id="186">
@@ -533,8 +535,6 @@
 									<DataPath>ВариантЧастичногоВыбытия</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -587,8 +587,6 @@
 									<DataPath>ВариантЧастичногоВыбытия</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -646,8 +644,6 @@
 									<DataPath>ВариантЧастичногоВыбытия</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -681,10 +677,15 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ПолеКоличествоУпаковкаКонтекстноеМеню" id="214"/>
-									<ExtendedTooltip name="ПолеКоличествоУпаковкаРасширеннаяПодсказка" id="215"/>
+									<ExtendedTooltip name="ПолеКоличествоУпаковкаРасширеннаяПодсказка" id="215">
+										<Title formatted="false">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>ед.</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
 									<Events>
 										<Event name="OnChange">ПолеКоличествоУпаковкаПриИзменении</Event>
 									</Events>
@@ -709,7 +710,6 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<ShowTitle>true</ShowTitle>
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="ГруппаСтраницаНесколькоРасширеннаяПодсказка" id="120"/>
 									<ChildItems>
@@ -758,8 +758,6 @@
 												<InputField name="НастройкиНоменклатурыНомерСтроки" id="109">
 													<DataPath>НастройкиНоменклатуры.НомерСтроки</DataPath>
 													<ReadOnly>true</ReadOnly>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
 													<Width>3</Width>
 													<ContextMenu name="НастройкиНоменклатурыНомерСтрокиКонтекстноеМеню" id="110"/>
 													<ExtendedTooltip name="НастройкиНоменклатурыНомерСтрокиРасширеннаяПодсказка" id="111"/>
@@ -772,14 +770,11 @@
 														</v8:item>
 													</Title>
 													<Group>Horizontal</Group>
-													<ShowTitle>true</ShowTitle>
 													<ShowInHeader>true</ShowInHeader>
 													<ExtendedTooltip name="НастройкиНоменклатурыГруппаУпаковкаРасширеннаяПодсказка" id="142"/>
 													<ChildItems>
 														<InputField name="НастройкиНоменклатурыХарактеристика" id="235">
 															<DataPath>НастройкиНоменклатуры.Характеристика</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="НастройкиНоменклатурыХарактеристикаКонтекстноеМеню" id="236"/>
 															<ExtendedTooltip name="НастройкиНоменклатурыХарактеристикаРасширеннаяПодсказка" id="237"/>
 															<Events>
@@ -796,7 +791,6 @@
 														</v8:item>
 													</Title>
 													<Group>Horizontal</Group>
-													<ShowTitle>true</ShowTitle>
 													<ShowInHeader>true</ShowInHeader>
 													<ExtendedTooltip name="НастройкиНоменклатурыГруппаИспользуемаяНоменклатураРасширеннаяПодсказка" id="144"/>
 													<ChildItems>
@@ -808,13 +802,11 @@
 																</v8:item>
 															</Title>
 															<Group>InCell</Group>
-															<ShowTitle>true</ShowTitle>
 															<ExtendedTooltip name="НастройкиНоменклатурыГруппаНоменклатураЧастичногоВыбытияРасширеннаяПодсказка" id="116"/>
 															<ChildItems>
 																<InputField name="НастройкиНоменклатурыНоменклатураЧастичногоВыбытия" id="100">
 																	<DataPath>НастройкиНоменклатуры.НоменклатураЧастичногоВыбытия</DataPath>
-																	<EditMode>EnterOnInput</EditMode>
-																	<AutoEditMode>true</AutoEditMode>
+																	<MarkRequiredComplete>true</MarkRequiredComplete>
 																	<CreateButton>false</CreateButton>
 																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
 																	<ContextMenu name="НастройкиНоменклатурыНоменклатураЧастичногоВыбытияКонтекстноеМеню" id="101"/>
@@ -827,8 +819,6 @@
 																<InputField name="НастройкиНоменклатурыЕдиницаИзмерения" id="112">
 																	<DataPath>НастройкиНоменклатуры.ЕдиницаИзмеренияЧастичногоВыбытия</DataPath>
 																	<ReadOnly>true</ReadOnly>
-																	<EditMode>EnterOnInput</EditMode>
-																	<AutoEditMode>true</AutoEditMode>
 																	<ContextMenu name="НастройкиНоменклатурыЕдиницаИзмеренияКонтекстноеМеню" id="113"/>
 																	<ExtendedTooltip name="НастройкиНоменклатурыЕдиницаИзмеренияРасширеннаяПодсказка" id="114"/>
 																</InputField>
@@ -836,8 +826,7 @@
 														</ColumnGroup>
 														<InputField name="НастройкиНоменклатурыХарактеристикаЧастичногоВыбытия" id="103">
 															<DataPath>НастройкиНоменклатуры.ХарактеристикаЧастичногоВыбытия</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
+															<MarkRequiredComplete>true</MarkRequiredComplete>
 															<CreateButton>false</CreateButton>
 															<AutoMarkIncomplete>true</AutoMarkIncomplete>
 															<ContextMenu name="НастройкиНоменклатурыХарактеристикаЧастичногоВыбытияКонтекстноеМеню" id="104"/>
@@ -849,8 +838,6 @@
 														<InputField name="НастройкиНоменклатурыНоменклатура" id="106">
 															<DataPath>НастройкиНоменклатуры.Номенклатура</DataPath>
 															<Visible>false</Visible>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="НастройкиНоменклатурыНоменклатураКонтекстноеМеню" id="107"/>
 															<ExtendedTooltip name="НастройкиНоменклатурыНоменклатураРасширеннаяПодсказка" id="108"/>
 														</InputField>
@@ -868,14 +855,11 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<ShowTitle>true</ShowTitle>
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="ГруппаСтраницаОднаНоменклатураРасширеннаяПодсказка" id="122"/>
 									<ChildItems>
 										<InputField name="НоменклатураЧастичногоВыбытия" id="123">
 											<DataPath>НоменклатураЧастичногоВыбытия</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<CreateButton>false</CreateButton>
 											<ContextMenu name="НоменклатураЧастичногоВыбытияКонтекстноеМеню" id="124"/>
 											<ExtendedTooltip name="НоменклатураЧастичногоВыбытияРасширеннаяПодсказка" id="125"/>
@@ -885,8 +869,6 @@
 										</InputField>
 										<InputField name="ХарактеристикаЧастичногоВыбытия" id="128">
 											<DataPath>ХарактеристикаЧастичногоВыбытия</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<CreateButton>false</CreateButton>
 											<ContextMenu name="ХарактеристикаЧастичногоВыбытияКонтекстноеМеню" id="129"/>
 											<ExtendedTooltip name="ХарактеристикаЧастичногоВыбытияРасширеннаяПодсказка" id="130"/>
@@ -1389,8 +1371,6 @@
 				</v8:item>
 			</Title>
 			<Action>Отмена</Action>
-			<ActionPurpose>Finish</ActionPurpose>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="Выбрать" id="4">
 			<Title>
@@ -1401,8 +1381,6 @@
 			</Title>
 			<Action>Выбрать</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<ActionPurpose>Finish</ActionPurpose>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

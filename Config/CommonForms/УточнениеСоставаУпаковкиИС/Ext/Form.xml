@@ -9,34 +9,8 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ЗавершитьРедактирование" id="155">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-				<CommandName>Form.Command.Готово</CommandName>
-				<RepresentationInContextMenu>None</RepresentationInContextMenu>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ЗавершитьРедактированиеРасширеннаяПодсказка" id="156"/>
-			</Button>
-			<Button name="Закрыть" id="157">
-				<Type>CommandBarButton</Type>
-				<Representation>Text</Representation>
-				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отмена</v8:content>
-					</v8:item>
-				</Title>
-				<RepresentationInContextMenu>None</RepresentationInContextMenu>
-				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="158"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
@@ -66,8 +40,6 @@
 				<LabelField name="ПоясняющийТекст" id="165">
 					<DataPath>ПоясняющийТекст</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="ПоясняющийТекстКонтекстноеМеню" id="166"/>
 					<ExtendedTooltip name="ПоясняющийТекстРасширеннаяПодсказка" id="167"/>
@@ -101,10 +73,21 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ОсновнаяРасширеннаяПодсказка" id="11"/>
 					<ChildItems>
+						<LabelDecoration name="ДекорацияСценарийРаботы" id="178">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:ТекстИнформационнойНадписиИС</TextColor>
+							<Title formatted="true">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Для группового сопоставления выделите несколько строк в табличной части &lt;b&gt;Коды&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;требующие&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;уточнения&lt;/&gt; и выберите один из вариантов в таблице &lt;b&gt;Варианты&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;сопоставления&lt;/&gt;, нажмите "&lt;b&gt;&lt;&lt;&lt;/&gt;" для сопоставления выделенных&lt;b&gt;,&lt;/&gt;&lt;b&gt; &lt;/&gt;или нажмите "&lt;b&gt;&lt;&lt;&lt;&lt;&lt;/&gt;"&lt;b&gt; &lt;/&gt;для сопоставления всех подходящих строк (без учета выделеных строк)</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияСценарийРаботыКонтекстноеМеню" id="179"/>
+							<ExtendedTooltip name="ДекорацияСценарийРаботыРасширеннаяПодсказка" id="180"/>
+						</LabelDecoration>
 						<UsualGroup name="ГруппаГоризонтально" id="181">
 							<Title>
 								<v8:item>
@@ -132,6 +115,7 @@
 									<ExtendedTooltip name="ГруппаДанныеДляУточненияРасширеннаяПодсказка" id="172"/>
 									<ChildItems>
 										<LabelDecoration name="ДекорацияКодыТребующиеУточнения" id="168">
+											<TextColor>style:ТекстИнформационнойНадписиИС</TextColor>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -191,15 +175,11 @@
 												<InputField name="ДанныеДляУточненияКодМаркировки" id="132">
 													<DataPath>ДанныеДляУточнения.Штрихкод</DataPath>
 													<ReadOnly>true</ReadOnly>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="ДанныеДляУточненияКодМаркировкиКонтекстноеМеню" id="133"/>
 													<ExtendedTooltip name="ДанныеДляУточненияКодМаркировкиРасширеннаяПодсказка" id="134"/>
 												</InputField>
 												<InputField name="ДанныеДляУточненияНоменклатура" id="108">
 													<DataPath>ДанныеДляУточнения.Номенклатура</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
 													<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
 													<ContextMenu name="ДанныеДляУточненияНоменклатураКонтекстноеМеню" id="109"/>
 													<ExtendedTooltip name="ДанныеДляУточненияНоменклатураРасширеннаяПодсказка" id="110"/>
@@ -211,16 +191,14 @@
 												</InputField>
 												<InputField name="ДанныеДляУточненияХарактеристика" id="111">
 													<DataPath>ДанныеДляУточнения.Характеристика</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ContextMenu name="ДанныеДляУточненияХарактеристикаКонтекстноеМеню" id="112"/>
 													<ExtendedTooltip name="ДанныеДляУточненияХарактеристикаРасширеннаяПодсказка" id="113"/>
 												</InputField>
 												<InputField name="ДанныеДляУточненияСерия" id="114">
 													<DataPath>ДанныеДляУточнения.Серия</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ContextMenu name="ДанныеДляУточненияСерияКонтекстноеМеню" id="115"/>
 													<ExtendedTooltip name="ДанныеДляУточненияСерияРасширеннаяПодсказка" id="116"/>
@@ -230,8 +208,7 @@
 												</InputField>
 												<InputField name="ДанныеДляУточненияИдентификаторПроисхожденияВЕТИС" id="117">
 													<DataPath>ДанныеДляУточнения.ИдентификаторПроисхожденияВЕТИС</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
 													<ContextMenu name="ДанныеДляУточненияИдентификаторПроисхожденияВЕТИСКонтекстноеМеню" id="118"/>
@@ -242,23 +219,18 @@
 												</InputField>
 												<InputField name="ДанныеДляУточненияСрокГодности" id="120">
 													<DataPath>ДанныеДляУточнения.СрокГодности</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ContextMenu name="ДанныеДляУточненияСрокГодностиКонтекстноеМеню" id="121"/>
 													<ExtendedTooltip name="ДанныеДляУточненияСрокГодностиРасширеннаяПодсказка" id="122"/>
 												</InputField>
 												<InputField name="ДанныеДляУточненияАлкогольнаяПродукция" id="190">
 													<DataPath>ДанныеДляУточнения.АлкогольнаяПродукция</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="ДанныеДляУточненияАлкогольнаяПродукцияКонтекстноеМеню" id="191"/>
 													<ExtendedTooltip name="ДанныеДляУточненияАлкогольнаяПродукцияРасширеннаяПодсказка" id="192"/>
 												</InputField>
 												<InputField name="ДанныеДляУточненияСправка2" id="193">
 													<DataPath>ДанныеДляУточнения.Справка2</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
 													<ChoiceParameterLinks>
 														<xr:Link>
 															<xr:Name>Отбор.АлкогольнаяПродукция</xr:Name>
@@ -315,6 +287,7 @@
 									<ExtendedTooltip name="ГруппаДанныеДокументаРасширеннаяПодсказка" id="174"/>
 									<ChildItems>
 										<LabelDecoration name="ДекорацияДанныеДокумента" id="175">
+											<TextColor>style:ТекстИнформационнойНадписиИС</TextColor>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -326,7 +299,6 @@
 										</LabelDecoration>
 										<Table name="ДанныеДокумента" id="51">
 											<Representation>List</Representation>
-											<TitleLocation>Auto</TitleLocation>
 											<CommandBarLocation>None</CommandBarLocation>
 											<DefaultItem>true</DefaultItem>
 											<SelectionMode>SingleRow</SelectionMode>
@@ -377,15 +349,12 @@
 														</v8:item>
 													</Title>
 													<Group>InCell</Group>
-													<ShowTitle>true</ShowTitle>
 													<ExtendedTooltip name="ГруппаОбъединенныеСтрокиРасширеннаяПодсказка" id="65"/>
 													<ChildItems>
 														<InputField name="ДанныеДокументаПредставлениеПустого" id="183">
 															<DataPath>ДанныеДокумента.ПредставлениеПустого</DataPath>
 															<ReadOnly>true</ReadOnly>
 															<TitleLocation>None</TitleLocation>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ДанныеДокументаПредставлениеПустогоКонтекстноеМеню" id="184"/>
 															<ExtendedTooltip name="ДанныеДокументаПредставлениеПустогоРасширеннаяПодсказка" id="185"/>
 														</InputField>
@@ -399,8 +368,6 @@
 																</v8:item>
 															</Title>
 															<TitleLocation>None</TitleLocation>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ДанныеДокументаНоменклатураКонтекстноеМеню" id="73"/>
 															<ExtendedTooltip name="ДанныеДокументаНоменклатураРасширеннаяПодсказка" id="74"/>
@@ -415,8 +382,6 @@
 																</v8:item>
 															</Title>
 															<TitleLocation>None</TitleLocation>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ДанныеДокументаХарактеристикаКонтекстноеМеню" id="76"/>
 															<ExtendedTooltip name="ДанныеДокументаХарактеристикаРасширеннаяПодсказка" id="77"/>
@@ -431,8 +396,6 @@
 																</v8:item>
 															</Title>
 															<TitleLocation>None</TitleLocation>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ДанныеДокументаСерияКонтекстноеМеню" id="79"/>
 															<ExtendedTooltip name="ДанныеДокументаСерияРасширеннаяПодсказка" id="80"/>
@@ -447,8 +410,6 @@
 																</v8:item>
 															</Title>
 															<TitleLocation>None</TitleLocation>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ДанныеДокументаИдентификаторПроисхожденияВЕТИСКонтекстноеМеню" id="82"/>
 															<ExtendedTooltip name="ДанныеДокументаИдентификаторПроисхожденияВЕТИСРасширеннаяПодсказка" id="83"/>
@@ -463,8 +424,6 @@
 																</v8:item>
 															</Title>
 															<TitleLocation>None</TitleLocation>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ДанныеДокументаСрокГодностиКонтекстноеМеню" id="85"/>
 															<ExtendedTooltip name="ДанныеДокументаСрокГодностиРасширеннаяПодсказка" id="86"/>
@@ -472,16 +431,12 @@
 														<InputField name="ДанныеДокументаАлкогольнаяПродукция" id="196">
 															<DataPath>ДанныеДокумента.АлкогольнаяПродукция</DataPath>
 															<TitleLocation>None</TitleLocation>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ДанныеДокументаАлкогольнаяПродукцияКонтекстноеМеню" id="197"/>
 															<ExtendedTooltip name="ДанныеДокументаАлкогольнаяПродукцияРасширеннаяПодсказка" id="198"/>
 														</InputField>
 														<InputField name="ДанныеДокументаСправка2" id="199">
 															<DataPath>ДанныеДокумента.Справка2</DataPath>
 															<TitleLocation>None</TitleLocation>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ДанныеДокументаСправка2КонтекстноеМеню" id="200"/>
 															<ExtendedTooltip name="ДанныеДокументаСправка2РасширеннаяПодсказка" id="201"/>
 														</InputField>
@@ -494,8 +449,6 @@
 																	<v8:content>Количество</v8:content>
 																</v8:item>
 															</Title>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<TextEdit>false</TextEdit>
 															<ContextMenu name="ДанныеДокументаКоличествоКонтекстноеМеню" id="88"/>
 															<ExtendedTooltip name="ДанныеДокументаКоличествоРасширеннаяПодсказка" id="89"/>
@@ -504,90 +457,6 @@
 												</ColumnGroup>
 											</ChildItems>
 										</Table>
-									</ChildItems>
-								</UsualGroup>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаПодвал" id="229">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа подвал</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="230"/>
-							<ChildItems>
-								<UsualGroup name="ГруппаПодсказка" id="227">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа подсказка</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа подсказка</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаПодсказкаРасширеннаяПодсказка" id="228"/>
-									<ChildItems>
-										<LabelDecoration name="ДекорацияСценарийРаботы" id="178">
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<HorizontalStretch>true</HorizontalStretch>
-											<Title formatted="true">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Для группового сопоставления выделите несколько строк в табличной части &lt;b&gt;Коды&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;требующие&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;уточнения&lt;/&gt; и выберите один из вариантов в таблице &lt;b&gt;Варианты&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;сопоставления&lt;/&gt;, нажмите "&lt;b&gt;&lt;&lt;&lt;/&gt;" для сопоставления выделенных&lt;b&gt;,&lt;/&gt;&lt;b&gt; &lt;/&gt;или нажмите "&lt;b&gt;&lt;&lt;&lt;&lt;&lt;/&gt;"&lt;b&gt; &lt;/&gt;для сопоставления всех подходящих строк (без учета выделеных строк)</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ДекорацияСценарийРаботыКонтекстноеМеню" id="179"/>
-											<ExtendedTooltip name="ДекорацияСценарийРаботыРасширеннаяПодсказка" id="180"/>
-										</LabelDecoration>
-									</ChildItems>
-								</UsualGroup>
-								<UsualGroup name="ГруппаЗапомнитьВыбор" id="231">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа запомнить выбор</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа запомнить выбор</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>HorizontalIfPossible</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаЗапомнитьВыборРасширеннаяПодсказка" id="232"/>
-									<ChildItems>
-										<CheckBoxField name="ЗапомнитьВыбор" id="233">
-											<DataPath>ЗапомнитьВыбор</DataPath>
-											<TitleLocation>Right</TitleLocation>
-											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<CheckBoxType>CheckBox</CheckBoxType>
-											<ContextMenu name="ЗапомнитьВыборКонтекстноеМеню" id="234"/>
-											<ExtendedTooltip name="ЗапомнитьВыборРасширеннаяПодсказка" id="235">
-												<AutoMaxWidth>false</AutoMaxWidth>
-												<Title formatted="false">
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>При последовательном уточнении однородных упаковок не будет показываться эта форма. Будут использованы указанные данные. </v8:content>
-													</v8:item>
-												</Title>
-											</ExtendedTooltip>
-										</CheckBoxField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -608,14 +477,11 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаБуферРасширеннаяПодсказка" id="91"/>
 					<ChildItems>
 						<HTMLDocumentField name="БуферОбмена" id="92">
 							<DataPath>БуферОбмена</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="БуферОбменаКонтекстноеМеню" id="93"/>
 							<ExtendedTooltip name="БуферОбменаРасширеннаяПодсказка" id="94"/>
 						</HTMLDocumentField>
@@ -623,6 +489,148 @@
 				</Page>
 			</ChildItems>
 		</Pages>
+		<UsualGroup name="ГруппаЗапомнитьВыбор" id="236">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа запомнить выбор</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа запомнить выбор</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<HorizontalAlign>Left</HorizontalAlign>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЗапомнитьВыборРасширеннаяПодсказка" id="237"/>
+			<ChildItems>
+				<CheckBoxField name="ЗапомнитьВыбор" id="238">
+					<DataPath>ЗапомнитьВыбор</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+					<CheckBoxType>CheckBox</CheckBoxType>
+					<ContextMenu name="ЗапомнитьВыборКонтекстноеМеню" id="239"/>
+					<ExtendedTooltip name="ЗапомнитьВыборРасширеннаяПодсказка" id="240">
+						<AutoMaxWidth>false</AutoMaxWidth>
+						<Title formatted="false">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>При последовательном уточнении однородных упаковок не будет показываться эта форма. Будут использованы указанные данные. </v8:content>
+							</v8:item>
+						</Title>
+					</ExtendedTooltip>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНиз" id="139">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа низ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа низ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<VerticalStretch>true</VerticalStretch>
+			<Group>HorizontalIfPossible</Group>
+			<HorizontalAlign>Right</HorizontalAlign>
+			<VerticalAlign>Bottom</VerticalAlign>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНизРасширеннаяПодсказка" id="140"/>
+			<ChildItems>
+				<CommandBar name="ГруппаПодвал" id="151">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа подвал</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа подвал</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>40</Width>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+					<HorizontalLocation>Right</HorizontalLocation>
+					<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="152"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаЗапомнитьВыбор" id="231">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа запомнить выбор</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа запомнить выбор</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЗапомнитьВыборРасширеннаяПодсказка" id="232"/>
+							<ChildItems>
+								<CheckBoxField name="ЗапомнитьВыбор" id="233">
+									<DataPath>ЗапомнитьВыбор</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<CheckBoxType>CheckBox</CheckBoxType>
+									<ContextMenu name="ЗапомнитьВыборКонтекстноеМеню" id="234"/>
+									<ExtendedTooltip name="ЗапомнитьВыборРасширеннаяПодсказка" id="235">
+										<AutoMaxWidth>false</AutoMaxWidth>
+										<Title formatted="false">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>При последовательном уточнении однородных упаковок не будет показываться эта форма. Будут использованы указанные данные. </v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<Button name="ЗавершитьРедактирование" id="155">
+							<Type>CommandBarButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<CommandName>Form.Command.Готово</CommandName>
+							<RepresentationInContextMenu>None</RepresentationInContextMenu>
+							<ButtonImportance>Main</ButtonImportance>
+							<ExtendedTooltip name="ЗавершитьРедактированиеРасширеннаяПодсказка" id="156"/>
+						</Button>
+						<Button name="Закрыть" id="157">
+							<Type>CommandBarButton</Type>
+							<Representation>Text</Representation>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<CommandName>Form.StandardCommand.Close</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отмена</v8:content>
+								</v8:item>
+							</Title>
+							<RepresentationInContextMenu>None</RepresentationInContextMenu>
+							<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="158"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ПоясняющийТекст" id="2">
@@ -1184,7 +1192,6 @@
 			</ToolTip>
 			<Action>ЗавершитьРедактирование</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="СопоставитьПохожие" id="5">
 			<Title>

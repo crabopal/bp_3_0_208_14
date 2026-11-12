@@ -10,8 +10,6 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
-	<CollapseItemsByImportanceVariant>DontUse</CollapseItemsByImportanceVariant>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
@@ -23,6 +21,11 @@
 				<CommandName>Form.Command.ПодставитьРекомендуемыеЗначения</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаПодставитьРекомендуемыеЗначенияРасширеннаяПодсказка" id="33"/>
+			</Button>
+			<Button name="ФормаОтмена" id="34">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="35"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -53,9 +56,12 @@
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
 			<VerticalLinesBWA>false</VerticalLinesBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
-			<RowActionsShowType>DontShow</RowActionsShowType>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>ПлатежныеРеквизиты</DataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.КоллекцияЗадачБухгалтера</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</RowsPicture>
 			<BorderColor>style:FormBackColor</BorderColor>
 			<CommandSet>
 				<ExcludedCommand>Add</ExcludedCommand>
@@ -190,11 +196,23 @@
 					</Type>
 				</Column>
 				<Column name="ПлатежныеРеквизитыОтличаются" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Платежные реквизиты отличаются</v8:content>
+						</v8:item>
+					</Title>
 					<Type>
 						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
 				<Column name="ПлатежныеРеквизитыОбновлены" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Платежные реквизиты обновлены</v8:content>
+						</v8:item>
+					</Title>
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
@@ -206,11 +224,27 @@
 			</Columns>
 		</Attribute>
 		<Attribute name="Реквизиты" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты</v8:content>
+				</v8:item>
+			</Title>
 			<Type/>
 		</Attribute>
 		<Attribute name="ЭтоРекомендацияПерейтиНаРеквизиты2021" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это рекомендация перейти на реквизиты2021</v8:content>
+				</v8:item>
+			</Title>
 			<Type>
-				<v8:Type>xs:boolean</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 	</Attributes>
@@ -230,7 +264,22 @@
 			</ToolTip>
 			<Action>ПодставитьРекомендуемыеЗначения</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 	<Parameters>

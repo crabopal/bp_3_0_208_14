@@ -8,12 +8,12 @@
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаПрименить" id="1">
+			<Button name="ФормаОК" id="1">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Применить</CommandName>
+				<CommandName>Form.Command.ОК</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаПрименитьРасширеннаяПодсказка" id="2"/>
+				<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="2"/>
 			</Button>
 			<Button name="ФормаЗакрыть" id="3">
 				<Type>CommandBarButton</Type>
@@ -50,11 +50,11 @@
 					</Title>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
 					<ExtendedTooltip name="ГруппаНеВключатьВФОТРасширеннаяПодсказка" id="72"/>
 					<ChildItems>
 						<Table name="НачисленияНеВключатьВФОТ" id="73">
 							<Representation>List</Representation>
-							<TitleLocation>Auto</TitleLocation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<RowSelectionMode>Cell</RowSelectionMode>
@@ -68,9 +68,15 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Список начислений, не входящих в состав фонда оплаты труда</v8:content>
+									<v8:content>Начисления не включать ВФОТ</v8:content>
 								</v8:item>
 							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Список начислений, не входящих в состав фонда оплаты труда</v8:content>
+								</v8:item>
+							</ToolTip>
 							<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="НачисленияНеВключатьВФОТКонтекстноеМеню" id="74"/>
@@ -140,11 +146,23 @@
 						<Button name="ПравоСоставФОТ" id="67">
 							<Type>UsualButton</Type>
 							<CommandName>Form.Command.ПравоСоставФОТ</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&gt;</v8:content>
+								</v8:item>
+							</Title>
 							<ExtendedTooltip name="ПравоСоставФОТРасширеннаяПодсказка" id="68"/>
 						</Button>
 						<Button name="ЛевоСоставФОТ" id="69">
 							<Type>UsualButton</Type>
 							<CommandName>Form.Command.ЛевоСоставФОТ</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&lt;</v8:content>
+								</v8:item>
+							</Title>
 							<ExtendedTooltip name="ЛевоСоставФОТРасширеннаяПодсказка" id="70"/>
 						</Button>
 					</ChildItems>
@@ -158,11 +176,11 @@
 					</Title>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
 					<ExtendedTooltip name="ГруппаВключатьВФОТРасширеннаяПодсказка" id="45"/>
 					<ChildItems>
 						<Table name="НачисленияВключатьВФОТ" id="46">
 							<Representation>List</Representation>
-							<TitleLocation>Auto</TitleLocation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
 							<RowSelectionMode>Cell</RowSelectionMode>
@@ -176,9 +194,15 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Список начислений, включаемых в состав фонда оплаты труда</v8:content>
+									<v8:content>Начисления включать ВФОТ</v8:content>
 								</v8:item>
 							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Список начислений, включаемых в состав фонда оплаты труда</v8:content>
+								</v8:item>
+							</ToolTip>
 							<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="НачисленияВключатьВФОТКонтекстноеМеню" id="47"/>
@@ -338,21 +362,20 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Применить" id="1">
+		<Command name="ОК" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Применить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Применить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>Применить</Action>
-			<ActionPurpose>Finish</ActionPurpose>
+			<Action>ОК</Action>
 		</Command>
 		<Command name="ЛевоСоставФОТ" id="2">
 			<Title>
@@ -367,12 +390,7 @@
 					<v8:content>Лево состав ФОТ</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.GoBack</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ЛевоСоставФОТ</Action>
-			<Representation>Picture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
@@ -389,12 +407,7 @@
 					<v8:content>Право состав ФОТ</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.GoForward</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>ПравоСоставФОТ</Action>
-			<Representation>Picture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>

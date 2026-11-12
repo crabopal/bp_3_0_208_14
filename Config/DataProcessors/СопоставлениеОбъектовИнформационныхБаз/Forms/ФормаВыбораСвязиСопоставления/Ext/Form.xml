@@ -9,26 +9,9 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Top</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="Выбрать" id="16">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.Command.Выбрать</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Выбрать</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ВыбратьExtendedTooltip" id="42"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -53,7 +36,6 @@
 			<SkipOnInput>false</SkipOnInput>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Row</RowSelectionMode>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -74,6 +56,7 @@
 				<ExcludedCommand>EndEdit</ExcludedCommand>
 				<ExcludedCommand>MoveDown</ExcludedCommand>
 				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 			</CommandSet>
@@ -139,6 +122,31 @@
 			</ContextMenu>
 			<AutoCommandBar name="ТаблицаВыбораКоманднаяПанель" id="3">
 				<ChildItems>
+					<ButtonGroup name="ФормаГруппаВыбратьОтменить" id="23">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Форма группа выбрать отменить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаГруппаВыбратьОтменитьExtendedTooltip" id="41"/>
+						<ChildItems>
+							<Button name="Выбрать" id="16">
+								<Type>CommandBarButton</Type>
+								<DefaultButton>true</DefaultButton>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.Выбрать</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Выбрать</v8:content>
+									</v8:item>
+								</Title>
+								<ButtonImportance>Main</ButtonImportance>
+								<ExtendedTooltip name="ВыбратьExtendedTooltip" id="42"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
 					<ButtonGroup name="ФормаГруппаНайти" id="24">
 						<Title>
 							<v8:item>
@@ -246,6 +254,7 @@
 									</Title>
 									<TitleLocation>None</TitleLocation>
 									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
 									<ShowInFooter>false</ShowInFooter>
 									<AutoEditMode>true</AutoEditMode>
 									<ValuesPicture>
@@ -333,9 +342,13 @@
 					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>Выбрать</Action>
+			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

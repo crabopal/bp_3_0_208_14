@@ -9,7 +9,6 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
@@ -22,8 +21,6 @@
 		<LabelField name="ТекстДокумент" id="88">
 			<DataPath>ТекстДокумент</DataPath>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="ТекстДокументКонтекстноеМеню" id="89"/>
 			<ExtendedTooltip name="ТекстДокументРасширеннаяПодсказка" id="90"/>
@@ -32,12 +29,10 @@
 			<Representation>Tree</Representation>
 			<ReadOnly>true</ReadOnly>
 			<Width>80</Width>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
-			<InitialRowActivation>Activate</InitialRowActivation>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -54,6 +49,8 @@
 				<ExcludedCommand>MoveDown</ExcludedCommand>
 				<ExcludedCommand>MoveUp</ExcludedCommand>
 				<ExcludedCommand>OutputList</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
@@ -150,6 +147,12 @@
 						</Picture>
 						<ExtendedTooltip name="ДеревоФайловОбновитьРасширеннаяПодсказка" id="29"/>
 					</Button>
+					<Button name="ФормаСправка" id="26">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="27"/>
+					</Button>
 					<Button name="ДеревоФайловВосстановитьСтатус" id="91">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.РассчитатьСтатус</CommandName>
@@ -197,7 +200,6 @@
 						</v8:item>
 					</Title>
 					<Group>InCell</Group>
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ДеревоФайловГруппаПредставлениеРасширеннаяПодсказка" id="44"/>
 					<ChildItems>
 						<PictureField name="ДеревоФайловИндексКартинки" id="40">
@@ -252,8 +254,6 @@
 		<LabelField name="ИнтеграцияВетИС_ИнформацияОДокументах" id="85">
 			<DataPath>ТекстДокументаВЕТИС</DataPath>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<Height>1</Height>
 			<VerticalStretch>false</VerticalStretch>
@@ -539,7 +539,6 @@
 			</ToolTip>
 			<Action>ПоказатьСообщенияXML</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ДеревоФайлов</AssociatedTableElementId>
 		</Command>
 		<Command name="ДействиеПодтвердить" id="3">
 			<Title>

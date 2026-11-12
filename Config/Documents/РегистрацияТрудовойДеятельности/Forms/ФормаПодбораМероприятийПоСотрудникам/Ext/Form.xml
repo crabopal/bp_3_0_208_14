@@ -14,6 +14,20 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаДобавитьМероприятия" id="4">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ДобавитьМероприятия</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаДобавитьМероприятияРасширеннаяПодсказка" id="5"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="6">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="7"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -81,10 +95,10 @@
 			<ContextMenu name="МероприятияКонтекстноеМеню" id="9"/>
 			<AutoCommandBar name="МероприятияКоманднаяПанель" id="10">
 				<ChildItems>
-					<Button name="ФормаДобавитьМероприятия" id="4">
+					<Button name="МероприятияИзменитьФорму" id="124">
 						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ДобавитьМероприятия</CommandName>
-						<ExtendedTooltip name="ФормаДобавитьМероприятияРасширеннаяПодсказка" id="5"/>
+						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+						<ExtendedTooltip name="МероприятияИзменитьФормуРасширеннаяПодсказка" id="125"/>
 					</Button>
 				</ChildItems>
 			</AutoCommandBar>
@@ -114,6 +128,20 @@
 				<ExtendedTooltip name="МероприятияУправлениеПоискомРасширеннаяПодсказка" id="20"/>
 			</SearchControlAddition>
 			<ChildItems>
+				<CheckBoxField name="МероприятияЯвляетсяСовместителем" id="75">
+					<DataPath>Мероприятия.ЯвляетсяСовместителем</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Совм-ль</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<FixingInTable>Left</FixingInTable>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="МероприятияЯвляетсяСовместителемКонтекстноеМеню" id="76"/>
+					<ExtendedTooltip name="МероприятияЯвляетсяСовместителемРасширеннаяПодсказка" id="77"/>
+				</CheckBoxField>
 				<ColumnGroup name="МероприятияМероприятиеГруппа" id="111">
 					<Title>
 						<v8:item>
@@ -122,24 +150,10 @@
 						</v8:item>
 					</Title>
 					<Group>Horizontal</Group>
-					<ShowTitle>false</ShowTitle>
+					<ShowInHeader>true</ShowInHeader>
 					<FixingInTable>Left</FixingInTable>
 					<ExtendedTooltip name="МероприятияМероприятиеГруппаРасширеннаяПодсказка" id="112"/>
 					<ChildItems>
-						<InputField name="МероприятияВидМероприятия" id="24">
-							<DataPath>Мероприятия.ВидМероприятия</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Вид мероприятия</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<Width>14</Width>
-							<ContextMenu name="МероприятияВидМероприятияКонтекстноеМеню" id="25"/>
-							<ExtendedTooltip name="МероприятияВидМероприятияРасширеннаяПодсказка" id="26"/>
-						</InputField>
 						<InputField name="МероприятияДатаМероприятия" id="21">
 							<DataPath>Мероприятия.ДатаМероприятия</DataPath>
 							<Title>
@@ -154,8 +168,29 @@
 							<ContextMenu name="МероприятияДатаМероприятияКонтекстноеМеню" id="22"/>
 							<ExtendedTooltip name="МероприятияДатаМероприятияРасширеннаяПодсказка" id="23"/>
 						</InputField>
+						<InputField name="МероприятияВидМероприятия" id="24">
+							<DataPath>Мероприятия.ВидМероприятия</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вид</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>14</Width>
+							<ContextMenu name="МероприятияВидМероприятияКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="МероприятияВидМероприятияРасширеннаяПодсказка" id="26"/>
+						</InputField>
 					</ChildItems>
 				</ColumnGroup>
+				<InputField name="МероприятияСведения" id="48">
+					<DataPath>Мероприятия.Сведения</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="МероприятияСведенияКонтекстноеМеню" id="49"/>
+					<ExtendedTooltip name="МероприятияСведенияРасширеннаяПодсказка" id="50"/>
+				</InputField>
 				<InputField name="МероприятияПодразделение" id="87">
 					<DataPath>Мероприятия.Подразделение</DataPath>
 					<Title>
@@ -200,27 +235,6 @@
 						</InputField>
 					</ChildItems>
 				</ColumnGroup>
-				<CheckBoxField name="МероприятияЯвляетсяСовместителем" id="75">
-					<DataPath>Мероприятия.ЯвляетсяСовместителем</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Совместитель</v8:content>
-						</v8:item>
-					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<CheckBoxType>CheckBox</CheckBoxType>
-					<ContextMenu name="МероприятияЯвляетсяСовместителемКонтекстноеМеню" id="76"/>
-					<ExtendedTooltip name="МероприятияЯвляетсяСовместителемРасширеннаяПодсказка" id="77"/>
-				</CheckBoxField>
-				<InputField name="МероприятияСведения" id="48">
-					<DataPath>Мероприятия.Сведения</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="МероприятияСведенияКонтекстноеМеню" id="49"/>
-					<ExtendedTooltip name="МероприятияСведенияРасширеннаяПодсказка" id="50"/>
-				</InputField>
 				<InputField name="МероприятияКодПоРееструДолжностей" id="63">
 					<DataPath>Мероприятия.КодПоРееструДолжностей</DataPath>
 					<Title>
@@ -835,10 +849,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ДобавитьМероприятия</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Мероприятия</AssociatedTableElementId>
-			<ActionPurpose>Finish</ActionPurpose>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

@@ -10,14 +10,7 @@
 		<ExcludedCommand>Delete</ExcludedCommand>
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаВосстановитьНачальныеЗначения" id="35">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ВосстановитьНачальныеЗначения</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаВосстановитьНачальныеЗначенияРасширеннаяПодсказка" id="36"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -48,11 +41,29 @@
 			<Representation>None</Representation>
 			<ExtendedTooltip name="СписокНастройкиОтбораРасширеннаяПодсказка" id="43"/>
 		</UsualGroup>
+		<CommandBar name="КоманднаяПанельФормы" id="44">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель формы</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="КоманднаяПанельФормыРасширеннаяПодсказка" id="45"/>
+			<ChildItems>
+				<Button name="ФормаВосстановитьНачальныеЗначения" id="35">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.ВосстановитьНачальныеЗначения</CommandName>
+					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="ФормаВосстановитьНачальныеЗначенияРасширеннаяПодсказка" id="36"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
-			<HorizontalScrollBar>UseAlways</HorizontalScrollBar>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -69,7 +80,6 @@
 				<ExcludedCommand>Create</ExcludedCommand>
 				<ExcludedCommand>Delete</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -86,8 +96,10 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="18"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="18"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="26">
 				<AdditionSource>
 					<Item>Список</Item>
@@ -123,12 +135,12 @@
 					<DataPath>Список.Период</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<ContextMenu name="ПериодКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="19"/>
+					<ExtendedTooltip name="ПериодExtendedTooltip" id="19"/>
 				</LabelField>
 				<LabelField name="ВидТарифа" id="6">
 					<DataPath>Список.ВидТарифа</DataPath>
 					<ContextMenu name="ВидТарифаКонтекстноеМеню" id="7"/>
-					<ExtendedTooltip name="ВидТарифаРасширеннаяПодсказка" id="20"/>
+					<ExtendedTooltip name="ВидТарифаExtendedTooltip" id="20"/>
 				</LabelField>
 				<ColumnGroup name="ГруппаСтавкиЕдиногоТарифа" id="52">
 					<Title>
@@ -225,6 +237,7 @@
 					<ChildItems>
 						<LabelField name="ПФР" id="8">
 							<DataPath>Список.ПФР</DataPath>
+							<Width>10</Width>
 							<Format>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -232,7 +245,7 @@
 								</v8:item>
 							</Format>
 							<ContextMenu name="ПФРКонтекстноеМеню" id="9"/>
-							<ExtendedTooltip name="ПФРРасширеннаяПодсказка" id="21"/>
+							<ExtendedTooltip name="ПФРExtendedTooltip" id="21"/>
 						</LabelField>
 						<LabelField name="ПФРСПревышения" id="64">
 							<DataPath>Список.ПФРСПревышения</DataPath>
@@ -259,6 +272,7 @@
 									<v8:content>ПФР, накопит. часть</v8:content>
 								</v8:item>
 							</Title>
+							<Width>15</Width>
 							<Format>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -266,7 +280,7 @@
 								</v8:item>
 							</Format>
 							<ContextMenu name="ПФРНакопительнаяКонтекстноеМеню" id="11"/>
-							<ExtendedTooltip name="ПФРНакопительнаяРасширеннаяПодсказка" id="22"/>
+							<ExtendedTooltip name="ПФРНакопительнаяExtendedTooltip" id="22"/>
 						</LabelField>
 						<LabelField name="ФСС" id="12">
 							<DataPath>Список.ФСС</DataPath>
@@ -276,6 +290,7 @@
 									<v8:content>ФСС</v8:content>
 								</v8:item>
 							</Title>
+							<Width>10</Width>
 							<Format>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -283,7 +298,7 @@
 								</v8:item>
 							</Format>
 							<ContextMenu name="ФССКонтекстноеМеню" id="13"/>
-							<ExtendedTooltip name="ФССРасширеннаяПодсказка" id="23"/>
+							<ExtendedTooltip name="ФССExtendedTooltip" id="23"/>
 						</LabelField>
 						<LabelField name="ФССсИностранцев" id="37">
 							<DataPath>Список.ФССсИностранцев</DataPath>
@@ -304,6 +319,7 @@
 									<v8:content>ФФОМС</v8:content>
 								</v8:item>
 							</Title>
+							<Width>10</Width>
 							<Format>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -311,10 +327,11 @@
 								</v8:item>
 							</Format>
 							<ContextMenu name="ФФОМСКонтекстноеМеню" id="15"/>
-							<ExtendedTooltip name="ФФОМСРасширеннаяПодсказка" id="24"/>
+							<ExtendedTooltip name="ФФОМСExtendedTooltip" id="24"/>
 						</LabelField>
 						<LabelField name="ТФОМС" id="16">
 							<DataPath>Список.ТФОМС</DataPath>
+							<Width>10</Width>
 							<Format>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -322,7 +339,7 @@
 								</v8:item>
 							</Format>
 							<ContextMenu name="ТФОМСКонтекстноеМеню" id="17"/>
-							<ExtendedTooltip name="ТФОМСРасширеннаяПодсказка" id="25"/>
+							<ExtendedTooltip name="ТФОМСExtendedTooltip" id="25"/>
 						</LabelField>
 					</ChildItems>
 				</ColumnGroup>

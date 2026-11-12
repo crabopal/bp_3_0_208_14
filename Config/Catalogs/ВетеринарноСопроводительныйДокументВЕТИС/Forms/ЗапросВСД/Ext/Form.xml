@@ -9,43 +9,9 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Top</CommandBarLocation>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowTitle>true</ShowTitle>
-	<ShowCommandBar>true</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаКомандаВНачало" id="199">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаВНачало</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Назад</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаКомандаВНачалоРасширеннаяПодсказка" id="200"/>
-			</Button>
-			<Button name="ФормаКомандаНазад" id="203">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.КомандаНазад</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Повторить</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаКомандаНазадРасширеннаяПодсказка" id="204"/>
-			</Button>
-			<Button name="ФормаКомандаДалее" id="201">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КомандаДалее</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаКомандаДалееРасширеннаяПодсказка" id="202"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="ExternalEvent">ВнешнееСобытие</Event>
@@ -72,54 +38,29 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаИсходныеДанныеРасширеннаяПодсказка" id="4"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаХозяйствующийСубъектПредприятие" id="206">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа хозяйствующий субъект предприятие</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа хозяйствующий субъект предприятие</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>AlwaysHorizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаХозяйствующийСубъектПредприятиеРасширеннаяПодсказка" id="207"/>
-							<ChildItems>
-								<InputField name="ХозяйствующийСубъект" id="5">
-									<DataPath>ХозяйствующийСубъект</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>35</Width>
-									<ChoiceForm>Catalog.ХозяйствующиеСубъектыВЕТИС.Form.ФормаСписка</ChoiceForm>
-									<ContextMenu name="ХозяйствующийСубъектКонтекстноеМеню" id="6"/>
-									<ExtendedTooltip name="ХозяйствующийСубъектРасширеннаяПодсказка" id="7"/>
-								</InputField>
-								<InputField name="Предприятие" id="96">
-									<DataPath>Предприятие</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ChoiceForm>Catalog.ПредприятияВЕТИС.Form.ФормаСписка</ChoiceForm>
-									<ChoiceParameterLinks>
-										<xr:Link>
-											<xr:Name>ХозяйствующийСубъект</xr:Name>
-											<xr:DataPath xsi:type="xs:string">ХозяйствующийСубъект</xr:DataPath>
-											<xr:ValueChange>Clear</xr:ValueChange>
-										</xr:Link>
-									</ChoiceParameterLinks>
-									<ContextMenu name="ПредприятиеКонтекстноеМеню" id="97"/>
-									<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="98"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
+						<InputField name="ХозяйствующийСубъект" id="5">
+							<DataPath>ХозяйствующийСубъект</DataPath>
+							<Width>35</Width>
+							<ChoiceForm>Catalog.ХозяйствующиеСубъектыВЕТИС.Form.ФормаСписка</ChoiceForm>
+							<ContextMenu name="ХозяйствующийСубъектКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="ХозяйствующийСубъектРасширеннаяПодсказка" id="7"/>
+						</InputField>
+						<InputField name="Предприятие" id="96">
+							<DataPath>Предприятие</DataPath>
+							<ChoiceForm>Catalog.ПредприятияВЕТИС.Form.ФормаСписка</ChoiceForm>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>ХозяйствующийСубъект</xr:Name>
+									<xr:DataPath xsi:type="xs:string">ХозяйствующийСубъект</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<ContextMenu name="ПредприятиеКонтекстноеМеню" id="97"/>
+							<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="98"/>
+						</InputField>
 						<UsualGroup name="ГруппаВидЗапроса" id="169">
 							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
@@ -130,9 +71,7 @@
 							<ChildItems>
 								<RadioButtonField name="ВидЗапроса" id="135">
 									<DataPath>ВидЗапроса</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<RadioButtonType>Tumbler</RadioButtonType>
+									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
 											<xr:Presentation/>
@@ -187,7 +126,6 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<ShowTitle>true</ShowTitle>
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="СтраницаЗапросПоИдентификаторуРасширеннаяПодсказка" id="143"/>
 									<ChildItems>
@@ -204,13 +142,10 @@
 													<v8:content>Группа информация</v8:content>
 												</v8:item>
 											</ToolTip>
-											<HorizontalStretch>true</HorizontalStretch>
 											<Group>Horizontal</Group>
-											<VerticalAlign>Center</VerticalAlign>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<BackColor>pal:Yellow</BackColor>
 											<ExtendedTooltip name="ГруппаИнформацияРасширеннаяПодсказка" id="121"/>
 											<ChildItems>
 												<PictureDecoration name="КартинкаИнформация" id="122">
@@ -230,29 +165,22 @@
 												</PictureDecoration>
 												<LabelDecoration name="Надпись" id="125">
 													<AutoMaxWidth>false</AutoMaxWidth>
-													<HorizontalStretch>true</HorizontalStretch>
+													<TextColor>style:ПоясняющийТекст</TextColor>
 													<Title formatted="true">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Считайте QR-коды ВСД с помощью сканера штрихкода или загрузите идентификаторы из внешнего файла</v8:content>
+															<v8:content>Считайте QR-коды ВСД с помощью сканера штрихкода
+или загрузите идентификаторы из внешнего файла.</v8:content>
 														</v8:item>
 													</Title>
 													<VerticalAlign>Center</VerticalAlign>
 													<ContextMenu name="НадписьКонтекстноеМеню" id="126"/>
 													<ExtendedTooltip name="НадписьРасширеннаяПодсказка" id="127"/>
 												</LabelDecoration>
-												<Button name="ЗакрытьИнформацию" id="213">
-													<Type>UsualButton</Type>
-													<CommandName>Form.Command.ЗакрытьИнформацию</CommandName>
-													<ButtonImportance>Supplementary</ButtonImportance>
-													<ExtendedTooltip name="ЗакрытьИнформациюРасширеннаяПодсказка" id="214"/>
-												</Button>
 											</ChildItems>
 										</UsualGroup>
 										<Table name="ИдентификаторыВСД" id="99">
 											<Representation>List</Representation>
-											<HeightControlVariant>UseHeightInFormRows</HeightControlVariant>
-											<SelectionMode>SingleRow</SelectionMode>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 											<AutoAddIncomplete>false</AutoAddIncomplete>
@@ -334,157 +262,93 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<ShowTitle>true</ShowTitle>
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="СтраницаЗапросСДатыРасширеннаяПодсказка" id="141"/>
 									<ChildItems>
-										<UsualGroup name="ГруппаПериодГрузоотправитель" id="219">
-											<Title>
+										<InputField name="СтатусВСД" id="173">
+											<DataPath>СтатусВСД</DataPath>
+											<InputHint>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Группа период грузоотправитель</v8:content>
+													<v8:content>Все статусы</v8:content>
 												</v8:item>
-											</Title>
-											<ToolTip>
+											</InputHint>
+											<ContextMenu name="СтатусВСДКонтекстноеМеню" id="174"/>
+											<ExtendedTooltip name="СтатусВСДРасширеннаяПодсказка" id="175"/>
+										</InputField>
+										<InputField name="ТипВСД" id="176">
+											<DataPath>ТипВСД</DataPath>
+											<ListChoiceMode>true</ListChoiceMode>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation/>
+														<Value xsi:type="xr:DesignTimeRef">Enum.ТипыВетеринарныхДокументовВЕТИС.EnumValue.Транспортный</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation/>
+														<Value xsi:type="xr:DesignTimeRef">Enum.ТипыВетеринарныхДокументовВЕТИС.EnumValue.Производственный</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation/>
+														<Value xsi:type="xr:DesignTimeRef">Enum.ТипыВетеринарныхДокументовВЕТИС.EnumValue.Возвратный</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<InputHint>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Группа период грузоотправитель</v8:content>
+													<v8:content>Все типы</v8:content>
 												</v8:item>
-											</ToolTip>
+											</InputHint>
+											<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+											<ContextMenu name="ТипВСДКонтекстноеМеню" id="177"/>
+											<ExtendedTooltip name="ТипВСДРасширеннаяПодсказка" id="178"/>
+										</InputField>
+										<InputField name="ПредприятиеГрузоотправитель" id="179">
+											<DataPath>ПредприятиеГрузоотправитель</DataPath>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Все предприятия-грузоотправители</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ПредприятиеГрузоотправительКонтекстноеМеню" id="180"/>
+											<ExtendedTooltip name="ПредприятиеГрузоотправительРасширеннаяПодсказка" id="181"/>
+										</InputField>
+										<UsualGroup name="ГруппаИнтервал" id="171">
 											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаПериодГрузоотправительРасширеннаяПодсказка" id="220"/>
+											<ExtendedTooltip name="ГруппаИнтервалРасширеннаяПодсказка" id="172"/>
 											<ChildItems>
-												<UsualGroup name="ГруппаИнтервал" id="171">
-													<Group>AlwaysHorizontal</Group>
-													<Behavior>Usual</Behavior>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаИнтервалРасширеннаяПодсказка" id="172"/>
-													<ChildItems>
-														<InputField name="НачалоПериода" id="132">
-															<DataPath>НачалоПериода</DataPath>
-															<Visible>false</Visible>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Дата начала</v8:content>
-																</v8:item>
-															</Title>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
-															<ContextMenu name="НачалоПериодаКонтекстноеМеню" id="133"/>
-															<ExtendedTooltip name="НачалоПериодаРасширеннаяПодсказка" id="134"/>
-														</InputField>
-														<InputField name="КонецПериода" id="152">
-															<DataPath>КонецПериода</DataPath>
-															<Visible>false</Visible>
-															<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
-															<ContextMenu name="КонецПериодаКонтекстноеМеню" id="153"/>
-															<ExtendedTooltip name="КонецПериодаРасширеннаяПодсказка" id="154"/>
-														</InputField>
-														<InputField name="ИнтервалЗапросаВСД" id="215">
-															<DataPath>ИнтервалЗапросаВСД</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
-															<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-															<ContextMenu name="ИнтервалЗапросаВСДКонтекстноеМеню" id="216"/>
-															<ExtendedTooltip name="ИнтервалЗапросаВСДРасширеннаяПодсказка" id="217"/>
-															<Events>
-																<Event name="OnChange">ИнтервалЗапросаВСДПриИзменении</Event>
-															</Events>
-														</InputField>
-													</ChildItems>
-												</UsualGroup>
-												<InputField name="ПредприятиеГрузоотправитель" id="179">
-													<DataPath>ПредприятиеГрузоотправитель</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<InputHint>
+												<InputField name="НачалоПериода" id="132">
+													<DataPath>НачалоПериода</DataPath>
+													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Все предприятия-грузоотправители</v8:content>
+															<v8:content>С</v8:content>
 														</v8:item>
-													</InputHint>
-													<ContextMenu name="ПредприятиеГрузоотправительКонтекстноеМеню" id="180"/>
-													<ExtendedTooltip name="ПредприятиеГрузоотправительРасширеннаяПодсказка" id="181"/>
+													</Title>
+													<ContextMenu name="НачалоПериодаКонтекстноеМеню" id="133"/>
+													<ExtendedTooltip name="НачалоПериодаРасширеннаяПодсказка" id="134"/>
 												</InputField>
-											</ChildItems>
-										</UsualGroup>
-										<UsualGroup name="ГруппаСтатусТип" id="209">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа статус тип</v8:content>
-												</v8:item>
-											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа статус тип</v8:content>
-												</v8:item>
-											</ToolTip>
-											<Group>HorizontalIfPossible</Group>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаСтатусТипРасширеннаяПодсказка" id="210"/>
-											<ChildItems>
-												<InputField name="СтатусВСД" id="173">
-													<DataPath>СтатусВСД</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<InputHint>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Все статусы</v8:content>
-														</v8:item>
-													</InputHint>
-													<ContextMenu name="СтатусВСДКонтекстноеМеню" id="174"/>
-													<ExtendedTooltip name="СтатусВСДРасширеннаяПодсказка" id="175"/>
-												</InputField>
-												<InputField name="ТипВСД" id="176">
-													<DataPath>ТипВСД</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<ListChoiceMode>true</ListChoiceMode>
-													<ChoiceList>
-														<xr:Item>
-															<xr:Presentation/>
-															<xr:CheckState>0</xr:CheckState>
-															<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																<Presentation/>
-																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыВетеринарныхДокументовВЕТИС.EnumValue.Транспортный</Value>
-															</xr:Value>
-														</xr:Item>
-														<xr:Item>
-															<xr:Presentation/>
-															<xr:CheckState>0</xr:CheckState>
-															<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																<Presentation/>
-																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыВетеринарныхДокументовВЕТИС.EnumValue.Производственный</Value>
-															</xr:Value>
-														</xr:Item>
-														<xr:Item>
-															<xr:Presentation/>
-															<xr:CheckState>0</xr:CheckState>
-															<xr:Value xsi:type="FormChoiceListDesTimeValue">
-																<Presentation/>
-																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыВетеринарныхДокументовВЕТИС.EnumValue.Возвратный</Value>
-															</xr:Value>
-														</xr:Item>
-													</ChoiceList>
-													<InputHint>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Все типы</v8:content>
-														</v8:item>
-													</InputHint>
-													<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
-													<ContextMenu name="ТипВСДКонтекстноеМеню" id="177"/>
-													<ExtendedTooltip name="ТипВСДРасширеннаяПодсказка" id="178"/>
+												<InputField name="КонецПериода" id="152">
+													<DataPath>КонецПериода</DataPath>
+													<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+													<ContextMenu name="КонецПериодаКонтекстноеМеню" id="153"/>
+													<ExtendedTooltip name="КонецПериодаРасширеннаяПодсказка" id="154"/>
 												</InputField>
 											</ChildItems>
 										</UsualGroup>
@@ -508,7 +372,6 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаЗапросОжиданиеРасширеннаяПодсказка" id="12"/>
 					<ChildItems>
@@ -519,7 +382,6 @@
 									<v8:content>Группа  ожидание запроса</v8:content>
 								</v8:item>
 							</Title>
-							<VerticalStretch>false</VerticalStretch>
 							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
@@ -547,8 +409,6 @@
 								<LabelField name="ТекстОжидание" id="18">
 									<DataPath>ТекстОжидание</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<Height>2</Height>
 									<ContextMenu name="ТекстОжиданиеКонтекстноеМеню" id="19"/>
@@ -575,7 +435,6 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаЗапросОшибкаРасширеннаяПодсказка" id="22"/>
 					<ChildItems>
@@ -586,7 +445,6 @@
 									<v8:content>Группа ошибка выполнения запроса</v8:content>
 								</v8:item>
 							</Title>
-							<VerticalStretch>false</VerticalStretch>
 							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
@@ -613,8 +471,6 @@
 								<LabelField name="ТекстОшибка" id="28">
 									<DataPath>ТекстОшибка</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<Height>2</Height>
 									<ContextMenu name="ТекстОшибкаКонтекстноеМеню" id="29"/>
@@ -641,7 +497,6 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаЗапросРезультатРасширеннаяПодсказка" id="32"/>
 					<ChildItems>
@@ -652,9 +507,7 @@
 									<v8:content>Группа результат выполнения запроса</v8:content>
 								</v8:item>
 							</Title>
-							<VerticalStretch>false</VerticalStretch>
 							<Group>Horizontal</Group>
-							<VerticalAlign>Center</VerticalAlign>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -680,10 +533,8 @@
 								<LabelField name="ТекстРезультат" id="38">
 									<DataPath>ТекстРезультат</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<Height>2</Height>
+									<Height>4</Height>
 									<ContextMenu name="ТекстРезультатКонтекстноеМеню" id="39"/>
 									<ExtendedTooltip name="ТекстРезультатРасширеннаяПодсказка" id="40"/>
 									<Events>
@@ -697,7 +548,6 @@
 			</ChildItems>
 		</Pages>
 		<UsualGroup name="НавигацияРамка" id="41">
-			<Visible>false</Visible>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -729,7 +579,6 @@
 								</v8:item>
 							</Title>
 							<Group>Horizontal</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="НавигацияНачалоРасширеннаяПодсказка" id="46"/>
 							<ChildItems>
@@ -766,6 +615,13 @@
 											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 											<ExtendedTooltip name="НачалоЗакрытьРасширеннаяПодсказка" id="52"/>
 										</Button>
+										<Button name="НачалоСправка" id="53">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Help</CommandName>
+											<RepresentationInContextMenu>None</RepresentationInContextMenu>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="НачалоСправкаРасширеннаяПодсказка" id="54"/>
+										</Button>
 									</ChildItems>
 								</CommandBar>
 							</ChildItems>
@@ -778,7 +634,6 @@
 								</v8:item>
 							</Title>
 							<Group>Horizontal</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="НавигацияПродолжениеРасширеннаяПодсказка" id="56"/>
 							<ChildItems>
@@ -832,6 +687,13 @@
 											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 											<ExtendedTooltip name="ПродолжениеЗакрытьРасширеннаяПодсказка" id="66"/>
 										</Button>
+										<Button name="ПродолжениеСправка" id="67">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Help</CommandName>
+											<RepresentationInContextMenu>None</RepresentationInContextMenu>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ПродолжениеСправкаРасширеннаяПодсказка" id="68"/>
+										</Button>
 									</ChildItems>
 								</CommandBar>
 							</ChildItems>
@@ -843,9 +705,7 @@
 									<v8:content>Навигация ошибка</v8:content>
 								</v8:item>
 							</Title>
-							<HorizontalStretch>true</HorizontalStretch>
 							<Group>Horizontal</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="НавигацияОшибкаРасширеннаяПодсказка" id="70"/>
 							<ChildItems>
@@ -856,8 +716,6 @@
 											<v8:content>Навигация ошибка командная панель левая</v8:content>
 										</v8:item>
 									</Title>
-									<HorizontalStretch>false</HorizontalStretch>
-									<GroupHorizontalAlign>Left</GroupHorizontalAlign>
 									<ExtendedTooltip name="НавигацияОшибкаКоманднаяПанельЛеваяРасширеннаяПодсказка" id="72"/>
 									<ChildItems>
 										<Button name="ОшибкаВНачало" id="73">
@@ -866,7 +724,7 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Назад</v8:content>
+													<v8:content>&lt;&lt; Назад</v8:content>
 												</v8:item>
 											</Title>
 											<RepresentationInContextMenu>None</RepresentationInContextMenu>
@@ -881,8 +739,6 @@
 											<v8:content>Навигация ошибка командная панель правая</v8:content>
 										</v8:item>
 									</Title>
-									<HorizontalStretch>false</HorizontalStretch>
-									<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 									<HorizontalLocation>Right</HorizontalLocation>
 									<ExtendedTooltip name="НавигацияОшибкаКоманднаяПанельПраваяРасширеннаяПодсказка" id="76"/>
 									<ChildItems>
@@ -917,6 +773,13 @@
 											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 											<ExtendedTooltip name="ОшибкаЗакрытьРасширеннаяПодсказка" id="80"/>
 										</Button>
+										<Button name="ОшибкаСправка" id="81">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Help</CommandName>
+											<RepresentationInContextMenu>None</RepresentationInContextMenu>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ОшибкаСправкаРасширеннаяПодсказка" id="82"/>
+										</Button>
 									</ChildItems>
 								</CommandBar>
 							</ChildItems>
@@ -929,7 +792,6 @@
 								</v8:item>
 							</Title>
 							<Group>Horizontal</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="НавигацияОкончаниеРасширеннаяПодсказка" id="84"/>
 							<ChildItems>
@@ -964,6 +826,13 @@
 											<RepresentationInContextMenu>None</RepresentationInContextMenu>
 											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 											<ExtendedTooltip name="ОкончаниеЗакрытьРасширеннаяПодсказка" id="90"/>
+										</Button>
+										<Button name="ОкончаниеСправка" id="91">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Help</CommandName>
+											<RepresentationInContextMenu>None</RepresentationInContextMenu>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ОкончаниеСправкаРасширеннаяПодсказка" id="92"/>
 										</Button>
 									</ChildItems>
 								</CommandBar>
@@ -1285,7 +1154,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Дата окончания</v8:content>
+					<v8:content>по</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1337,51 +1206,37 @@
 			</Title>
 			<Type/>
 		</Attribute>
-		<Attribute name="ИнтервалЗапросаВСД" id="10">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Период</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>v8:StandardPeriod</v8:Type>
-			</Type>
-		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="КомандаВНачало" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>В начало</v8:content>
+					<v8:content>&lt;&lt; В начало</v8:content>
 				</v8:item>
 			</Title>
 			<Action>КомандаВНачало</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КомандаДалее" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Далее</v8:content>
+					<v8:content>Далее &gt;&gt;</v8:content>
 				</v8:item>
 			</Title>
 			<Action>КомандаДалее</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КомандаНазад" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Назад</v8:content>
+					<v8:content>&lt;&lt; Назад</v8:content>
 				</v8:item>
 			</Title>
 			<Action>КомандаНазад</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЗагрузитьИзВнешнегоФайла" id="4">
 			<Title>
@@ -1402,26 +1257,6 @@
 			</Picture>
 			<Action>ЗагрузитьИзВнешнегоФайла</Action>
 			<Representation>TextPicture</Representation>
-		</Command>
-		<Command name="ЗакрытьИнформацию" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Закрыть информацию</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Закрыть информацию</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Close</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>ЗакрытьИнформацию</Action>
-			<Representation>Picture</Representation>
 		</Command>
 	</Commands>
 	<Parameters>

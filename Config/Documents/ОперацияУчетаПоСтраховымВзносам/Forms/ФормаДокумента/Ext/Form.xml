@@ -31,7 +31,7 @@
 			<Representation>None</Representation>
 			<ChildItemsWidth>LeftWide</ChildItemsWidth>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ШапкаРасширеннаяПодсказка" id="142"/>
+			<ExtendedTooltip name="ШапкаExtendedTooltip" id="142"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаШапкаЛевая" id="138">
 					<Title>
@@ -44,14 +44,14 @@
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаШапкаЛеваяРасширеннаяПодсказка" id="143"/>
+					<ExtendedTooltip name="ГруппаШапкаЛеваяExtendedTooltip" id="143"/>
 					<ChildItems>
 						<InputField name="Организация" id="7">
 							<DataPath>Объект.Организация</DataPath>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="8"/>
-							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="144"/>
+							<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="144"/>
 							<Events>
 								<Event name="OnChange">ОрганизацияПриИзменении</Event>
 							</Events>
@@ -67,7 +67,26 @@
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ФизическоеЛицоКонтекстноеМеню" id="10"/>
-							<ExtendedTooltip name="ФизическоеЛицоРасширеннаяПодсказка" id="146"/>
+							<ExtendedTooltip name="ФизическоеЛицоExtendedTooltip" id="146"/>
+						</InputField>
+						<InputField name="МесяцРасчетногоПериодаСтрокой" id="97">
+							<DataPath>МесяцРасчетногоПериодаСтрокой</DataPath>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ChoiceButton>true</ChoiceButton>
+							<SpinButton>true</SpinButton>
+							<ChoiceButtonPicture>
+								<xr:Ref>StdPicture.InputFieldCalendar</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</ChoiceButtonPicture>
+							<ContextMenu name="МесяцРасчетногоПериодаСтрокойКонтекстноеМеню" id="98"/>
+							<ExtendedTooltip name="МесяцРасчетногоПериодаСтрокойExtendedTooltip" id="145"/>
+							<Events>
+								<Event name="OnChange">МесяцРасчетногоПериодаСтрокойПриИзменении</Event>
+								<Event name="AutoComplete">МесяцРасчетногоПериодаСтрокойАвтоПодбор</Event>
+								<Event name="StartChoice">МесяцРасчетногоПериодаСтрокойНачалоВыбора</Event>
+								<Event name="Tuning">МесяцРасчетногоПериодаСтрокойРегулирование</Event>
+								<Event name="TextEditEnd">МесяцРасчетногоПериодаСтрокойОкончаниеВводаТекста</Event>
+							</Events>
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
@@ -82,7 +101,7 @@
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="АвторизацияРасширеннаяПодсказка" id="147"/>
+					<ExtendedTooltip name="АвторизацияExtendedTooltip" id="147"/>
 					<ChildItems>
 						<UsualGroup name="ДатаНомер" id="139">
 							<Title>
@@ -95,48 +114,26 @@
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ДатаНомерРасширеннаяПодсказка" id="148"/>
+							<ExtendedTooltip name="ДатаНомерExtendedTooltip" id="148"/>
 							<ChildItems>
+								<InputField name="Дата" id="3">
+									<DataPath>Объект.Date</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<Width>10</Width>
+									<ContextMenu name="ДатаКонтекстноеМеню" id="4"/>
+									<ExtendedTooltip name="ДатаExtendedTooltip" id="149"/>
+								</InputField>
 								<InputField name="Номер" id="1">
 									<DataPath>Объект.Number</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
-									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="150"/>
-								</InputField>
-								<InputField name="Дата" id="3">
-									<DataPath>Объект.Date</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>от</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ДатаКонтекстноеМеню" id="4"/>
-									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="149"/>
+									<ExtendedTooltip name="НомерExtendedTooltip" id="150"/>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
-						<InputField name="МесяцРасчетногоПериодаСтрокой" id="97">
-							<DataPath>МесяцРасчетногоПериодаСтрокой</DataPath>
-							<ChoiceButton>true</ChoiceButton>
-							<SpinButton>true</SpinButton>
-							<ChoiceButtonPicture>
-								<xr:Ref>StdPicture.InputFieldCalendar</xr:Ref>
-								<xr:LoadTransparent>true</xr:LoadTransparent>
-							</ChoiceButtonPicture>
-							<ContextMenu name="МесяцРасчетногоПериодаСтрокойКонтекстноеМеню" id="98"/>
-							<ExtendedTooltip name="МесяцРасчетногоПериодаСтрокойРасширеннаяПодсказка" id="145"/>
-							<Events>
-								<Event name="OnChange">МесяцРасчетногоПериодаСтрокойПриИзменении</Event>
-								<Event name="AutoComplete">МесяцРасчетногоПериодаСтрокойАвтоПодбор</Event>
-								<Event name="StartChoice">МесяцРасчетногоПериодаСтрокойНачалоВыбора</Event>
-								<Event name="Tuning">МесяцРасчетногоПериодаСтрокойРегулирование</Event>
-								<Event name="TextEditEnd">МесяцРасчетногоПериодаСтрокойОкончаниеВводаТекста</Event>
-							</Events>
-						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -149,7 +146,7 @@
 				</v8:item>
 			</Title>
 			<PagesRepresentation>TabsOnTop</PagesRepresentation>
-			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="171"/>
+			<ExtendedTooltip name="СтраницыExtendedTooltip" id="171"/>
 			<ChildItems>
 				<Page name="СтраховыеВзносыГруппа" id="93">
 					<Title>
@@ -160,7 +157,7 @@
 					</Title>
 					<Group>Horizontal</Group>
 					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраховыеВзносыГруппаРасширеннаяПодсказка" id="152"/>
+					<ExtendedTooltip name="СтраховыеВзносыГруппаExtendedTooltip" id="152"/>
 					<ChildItems>
 						<UsualGroup name="ПФРГруппа" id="94">
 							<Title>
@@ -172,7 +169,7 @@
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
-							<ExtendedTooltip name="ПФРГруппаРасширеннаяПодсказка" id="153"/>
+							<ExtendedTooltip name="ПФРГруппаExtendedTooltip" id="153"/>
 							<ChildItems>
 								<InputField name="ПФРСтраховая" id="13">
 									<DataPath>Объект.ПФРСтраховая</DataPath>
@@ -182,11 +179,10 @@
 											<v8:content>Страховая</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ПФРСтраховаяКонтекстноеМеню" id="14"/>
-									<ExtendedTooltip name="ПФРСтраховаяРасширеннаяПодсказка" id="154"/>
+									<ExtendedTooltip name="ПФРСтраховаяExtendedTooltip" id="154"/>
 								</InputField>
 								<InputField name="ПФРНакопительная" id="11">
 									<DataPath>Объект.ПФРНакопительная</DataPath>
@@ -196,11 +192,10 @@
 											<v8:content>Накопительная</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ПФРНакопительнаяКонтекстноеМеню" id="12"/>
-									<ExtendedTooltip name="ПФРНакопительнаяРасширеннаяПодсказка" id="155"/>
+									<ExtendedTooltip name="ПФРНакопительнаяExtendedTooltip" id="155"/>
 								</InputField>
 								<InputField name="ПФРПоСуммарномуТарифу" id="210">
 									<DataPath>Объект.ПФРПоСуммарномуТарифу</DataPath>
@@ -210,7 +205,6 @@
 											<v8:content>По суммарному тарифу</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРПоСуммарномуТарифуКонтекстноеМеню" id="211"/>
 									<ExtendedTooltip name="ПФРПоСуммарномуТарифуРасширеннаяПодсказка" id="212"/>
 								</InputField>
@@ -222,7 +216,6 @@
 											<v8:content>С базы до превышения</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРДоПредельнойВеличиныКонтекстноеМеню" id="289"/>
 									<ExtendedTooltip name="ПФРДоПредельнойВеличиныРасширеннаяПодсказка" id="290"/>
 								</InputField>
@@ -234,7 +227,6 @@
 											<v8:content>С базы сверх превышения</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРСПревышенияКонтекстноеМеню" id="292"/>
 									<ExtendedTooltip name="ПФРСПревышенияРасширеннаяПодсказка" id="293"/>
 								</InputField>
@@ -246,9 +238,8 @@
 											<v8:content>На доплату шахтерам</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРНаДоплатуШахтерамКонтекстноеМеню" id="114"/>
-									<ExtendedTooltip name="ПФРНаДоплатуШахтерамРасширеннаяПодсказка" id="156"/>
+									<ExtendedTooltip name="ПФРНаДоплатуШахтерамExtendedTooltip" id="156"/>
 								</InputField>
 								<InputField name="ПФРНаДоплатуЛетчикам" id="111">
 									<DataPath>Объект.ПФРНаДоплатуЛетчикам</DataPath>
@@ -258,9 +249,8 @@
 											<v8:content>На доплату летчикам</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРНаДоплатуЛетчикамКонтекстноеМеню" id="112"/>
-									<ExtendedTooltip name="ПФРНаДоплатуЛетчикамРасширеннаяПодсказка" id="157"/>
+									<ExtendedTooltip name="ПФРНаДоплатуЛетчикамExtendedTooltip" id="157"/>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
@@ -287,7 +277,7 @@
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
-									<ExtendedTooltip name="ФОМСГруппаРасширеннаяПодсказка" id="161"/>
+									<ExtendedTooltip name="ФОМСГруппаExtendedTooltip" id="161"/>
 									<ChildItems>
 										<InputField name="ФФОМС" id="15">
 											<DataPath>Объект.ФФОМС</DataPath>
@@ -297,11 +287,11 @@
 													<v8:content>ОМС</v8:content>
 												</v8:item>
 											</Title>
-											<TitleLocation>Top</TitleLocation>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
+											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ФФОМСКонтекстноеМеню" id="16"/>
-											<ExtendedTooltip name="ФФОМСРасширеннаяПодсказка" id="162"/>
+											<ExtendedTooltip name="ФФОМСExtendedTooltip" id="162"/>
 										</InputField>
 										<InputField name="ФСС" id="19">
 											<DataPath>Объект.ФСС</DataPath>
@@ -311,25 +301,23 @@
 													<v8:content>Соц. страхование</v8:content>
 												</v8:item>
 											</Title>
-											<TitleLocation>Top</TitleLocation>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ФССКонтекстноеМеню" id="20"/>
-											<ExtendedTooltip name="ФССРасширеннаяПодсказка" id="164"/>
+											<ExtendedTooltip name="ФССExtendedTooltip" id="164"/>
 										</InputField>
 										<InputField name="ФССНесчастныеСлучаи" id="21">
 											<DataPath>Объект.ФССНесчастныеСлучаи</DataPath>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>От несчастных случаев</v8:content>
+													<v8:content>От несч. случаев</v8:content>
 												</v8:item>
 											</Title>
-											<TitleLocation>Top</TitleLocation>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ФССНесчастныеСлучаиКонтекстноеМеню" id="22"/>
-											<ExtendedTooltip name="ФССНесчастныеСлучаиРасширеннаяПодсказка" id="165"/>
+											<ExtendedTooltip name="ФССНесчастныеСлучаиExtendedTooltip" id="165"/>
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
@@ -345,7 +333,7 @@
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
-							<ExtendedTooltip name="ЕНВДГруппаРасширеннаяПодсказка" id="166"/>
+							<ExtendedTooltip name="ЕНВДГруппаExtendedTooltip" id="166"/>
 							<ChildItems>
 								<InputField name="ПФРСтраховаяЕНВД" id="107">
 									<DataPath>Объект.ПФРСтраховаяЕНВД</DataPath>
@@ -355,9 +343,8 @@
 											<v8:content>Страховая</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРСтраховаяЕНВДКонтекстноеМеню" id="108"/>
-									<ExtendedTooltip name="ПФРСтраховаяЕНВДРасширеннаяПодсказка" id="167"/>
+									<ExtendedTooltip name="ПФРСтраховаяЕНВДExtendedTooltip" id="167"/>
 								</InputField>
 								<InputField name="ПФРНакопительнаяЕНВД" id="109">
 									<DataPath>Объект.ПФРНакопительнаяЕНВД</DataPath>
@@ -367,9 +354,8 @@
 											<v8:content>Накопительная</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРНакопительнаяЕНВДКонтекстноеМеню" id="110"/>
-									<ExtendedTooltip name="ПФРНакопительнаяЕНВДРасширеннаяПодсказка" id="168"/>
+									<ExtendedTooltip name="ПФРНакопительнаяЕНВДExtendedTooltip" id="168"/>
 								</InputField>
 								<InputField name="ПФРПоСуммарномуТарифуЕНВД" id="213">
 									<DataPath>Объект.ПФРПоСуммарномуТарифуЕНВД</DataPath>
@@ -379,7 +365,7 @@
 											<v8:content>На ОПС, по суммарному тарифу</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
+									<TitleLocation>Left</TitleLocation>
 									<TitleHeight>1</TitleHeight>
 									<ContextMenu name="ПФРПоСуммарномуТарифуЕНВДКонтекстноеМеню" id="214"/>
 									<ExtendedTooltip name="ПФРПоСуммарномуТарифуЕНВДРасширеннаяПодсказка" id="215"/>
@@ -392,7 +378,6 @@
 											<v8:content>На ОПС, с базы до превышения</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРДоПредельнойВеличиныЕНВДКонтекстноеМеню" id="295"/>
 									<ExtendedTooltip name="ПФРДоПредельнойВеличиныЕНВДРасширеннаяПодсказка" id="296"/>
 								</InputField>
@@ -404,7 +389,6 @@
 											<v8:content>На ОПС, с базы сверх превышения</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРСПревышенияЕНВДКонтекстноеМеню" id="298"/>
 									<ExtendedTooltip name="ПФРСПревышенияЕНВДРасширеннаяПодсказка" id="299"/>
 								</InputField>
@@ -416,9 +400,8 @@
 											<v8:content>Федеральный ОМС</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ФФОМСЕНВДКонтекстноеМеню" id="104"/>
-									<ExtendedTooltip name="ФФОМСЕНВДРасширеннаяПодсказка" id="169"/>
+									<ExtendedTooltip name="ФФОМСЕНВДExtendedTooltip" id="169"/>
 								</InputField>
 								<InputField name="ФССЕНВД" id="101">
 									<DataPath>Объект.ФССЕНВД</DataPath>
@@ -428,9 +411,8 @@
 											<v8:content>Соц. страхование</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ФССЕНВДКонтекстноеМеню" id="102"/>
-									<ExtendedTooltip name="ФССЕНВДРасширеннаяПодсказка" id="170"/>
+									<ExtendedTooltip name="ФССЕНВДExtendedTooltip" id="170"/>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
@@ -455,7 +437,6 @@
 									<v8:content>ОПС, с базы до превышения</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Top</TitleLocation>
 							<ContextMenu name="ОПСпоМеждународнымДоговорамКонтекстноеМеню" id="308"/>
 							<ExtendedTooltip name="ОПСпоМеждународнымДоговорамРасширеннаяПодсказка" id="309"/>
 						</InputField>
@@ -467,7 +448,6 @@
 									<v8:content>ОПС, с базы сверх предела</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Top</TitleLocation>
 							<ContextMenu name="ОПСпоМеждународнымДоговорамСПревышенияКонтекстноеМеню" id="311"/>
 							<ExtendedTooltip name="ОПСпоМеждународнымДоговорамСПревышенияРасширеннаяПодсказка" id="312"/>
 						</InputField>
@@ -479,7 +459,6 @@
 									<v8:content>ОМС, с базы до превышения</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Top</TitleLocation>
 							<ContextMenu name="ОМСпоМеждународнымДоговорамКонтекстноеМеню" id="314"/>
 							<ExtendedTooltip name="ОМСпоМеждународнымДоговорамРасширеннаяПодсказка" id="315"/>
 						</InputField>
@@ -491,7 +470,6 @@
 									<v8:content>ОМС, с базы сверх предела</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Top</TitleLocation>
 							<ContextMenu name="ОМСпоМеждународнымДоговорамСПревышенияКонтекстноеМеню" id="317"/>
 							<ExtendedTooltip name="ОМСпоМеждународнымДоговорамСПревышенияРасширеннаяПодсказка" id="318"/>
 						</InputField>
@@ -503,7 +481,6 @@
 									<v8:content>ОСС, с базы до превышения</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Top</TitleLocation>
 							<ContextMenu name="ОССпоМеждународнымДоговорамКонтекстноеМеню" id="320"/>
 							<ExtendedTooltip name="ОССпоМеждународнымДоговорамРасширеннаяПодсказка" id="321"/>
 						</InputField>
@@ -515,7 +492,6 @@
 									<v8:content>ОСС, с базы сверх предела</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Top</TitleLocation>
 							<ContextMenu name="ОССпоМеждународнымДоговорамСПревышенияКонтекстноеМеню" id="323"/>
 							<ExtendedTooltip name="ОССпоМеждународнымДоговорамСПревышенияРасширеннаяПодсказка" id="324"/>
 						</InputField>
@@ -552,9 +528,8 @@
 											<v8:content>Без спец.оценки</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахКонтекстноеМеню" id="128"/>
-									<ExtendedTooltip name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахРасширеннаяПодсказка" id="158"/>
+									<ExtendedTooltip name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахExtendedTooltip" id="158"/>
 								</InputField>
 								<InputField name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасный" id="221">
 									<DataPath>Объект.ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасный</DataPath>
@@ -564,7 +539,6 @@
 											<v8:content>Класс опасный</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасныйКонтекстноеМеню" id="222"/>
 									<ExtendedTooltip name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасныйРасширеннаяПодсказка" id="223"/>
 								</InputField>
@@ -576,7 +550,6 @@
 											<v8:content>Класс вредный 3.1</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный1КонтекстноеМеню" id="227"/>
 									<ExtendedTooltip name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный1РасширеннаяПодсказка" id="228"/>
 								</InputField>
@@ -588,7 +561,6 @@
 											<v8:content>Класс вредный 3.2</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный2КонтекстноеМеню" id="230"/>
 									<ExtendedTooltip name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный2РасширеннаяПодсказка" id="231"/>
 								</InputField>
@@ -600,7 +572,6 @@
 											<v8:content>Класс вредный 3.3</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный3КонтекстноеМеню" id="233"/>
 									<ExtendedTooltip name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный3РасширеннаяПодсказка" id="234"/>
 								</InputField>
@@ -612,7 +583,6 @@
 											<v8:content>Класс вредный 3.4</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный4КонтекстноеМеню" id="236"/>
 									<ExtendedTooltip name="ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный4РасширеннаяПодсказка" id="237"/>
 								</InputField>
@@ -638,9 +608,8 @@
 											<v8:content>Без спец.оценки</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахКонтекстноеМеню" id="130"/>
-									<ExtendedTooltip name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахРасширеннаяПодсказка" id="159"/>
+									<ExtendedTooltip name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахExtendedTooltip" id="159"/>
 								</InputField>
 								<InputField name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасный" id="238">
 									<DataPath>Объект.ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасный</DataPath>
@@ -650,7 +619,6 @@
 											<v8:content>Класс опасный</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасныйКонтекстноеМеню" id="239"/>
 									<ExtendedTooltip name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасныйРасширеннаяПодсказка" id="240"/>
 								</InputField>
@@ -662,7 +630,6 @@
 											<v8:content>Класс вредный 3.1</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный1КонтекстноеМеню" id="242"/>
 									<ExtendedTooltip name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный1РасширеннаяПодсказка" id="243"/>
 								</InputField>
@@ -674,7 +641,6 @@
 											<v8:content>Класс вредный 3.2</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный2КонтекстноеМеню" id="245"/>
 									<ExtendedTooltip name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный2РасширеннаяПодсказка" id="246"/>
 								</InputField>
@@ -686,7 +652,6 @@
 											<v8:content>Класс вредный 3.3</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный3КонтекстноеМеню" id="248"/>
 									<ExtendedTooltip name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный3РасширеннаяПодсказка" id="249"/>
 								</InputField>
@@ -698,7 +663,6 @@
 											<v8:content>Класс вредный 3.4</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Top</TitleLocation>
 									<ContextMenu name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный4КонтекстноеМеню" id="251"/>
 									<ExtendedTooltip name="ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный4РасширеннаяПодсказка" id="252"/>
 								</InputField>
@@ -715,7 +679,7 @@
 					</Title>
 					<Group>Vertical</Group>
 					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="ГруппаСведенияОДоходахРасширеннаяПодсказка" id="172"/>
+					<ExtendedTooltip name="ГруппаСведенияОДоходахExtendedTooltip" id="172"/>
 					<ChildItems>
 						<Table name="СведенияОДоходах" id="29">
 							<Representation>List</Representation>
@@ -738,7 +702,7 @@
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="СведенияОДоходахКонтекстноеМеню" id="30"/>
 							<AutoCommandBar name="СведенияОДоходахКоманднаяПанель" id="31"/>
-							<ExtendedTooltip name="СведенияОДоходахРасширеннаяПодсказка" id="173"/>
+							<ExtendedTooltip name="СведенияОДоходахExtendedTooltip" id="173"/>
 							<SearchStringAddition name="СведенияОДоходахСтрокаПоиска" id="261">
 								<AdditionSource>
 									<Item>СведенияОДоходах</Item>
@@ -775,21 +739,21 @@
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СведенияОДоходахНомерСтрокиКонтекстноеМеню" id="33"/>
-									<ExtendedTooltip name="СведенияОДоходахНомерСтрокиРасширеннаяПодсказка" id="174"/>
+									<ExtendedTooltip name="СведенияОДоходахНомерСтрокиExtendedTooltip" id="174"/>
 								</LabelField>
 								<InputField name="СведенияОДоходахВидДохода" id="34">
 									<DataPath>Объект.СведенияОДоходах.ВидДохода</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СведенияОДоходахВидДоходаКонтекстноеМеню" id="35"/>
-									<ExtendedTooltip name="СведенияОДоходахВидДоходаРасширеннаяПодсказка" id="175"/>
+									<ExtendedTooltip name="СведенияОДоходахВидДоходаExtendedTooltip" id="175"/>
 								</InputField>
 								<InputField name="СведенияОДоходахРезультат" id="36">
 									<DataPath>Объект.СведенияОДоходах.Результат</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СведенияОДоходахРезультатКонтекстноеМеню" id="37"/>
-									<ExtendedTooltip name="СведенияОДоходахРезультатРасширеннаяПодсказка" id="176"/>
+									<ExtendedTooltip name="СведенияОДоходахРезультатExtendedTooltip" id="176"/>
 								</InputField>
 								<InputField name="СведенияОДоходахКоличествоДетей" id="38">
 									<DataPath>Объект.СведенияОДоходах.КоличествоДетей</DataPath>
@@ -801,22 +765,23 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<Width>9</Width>
 									<ContextMenu name="СведенияОДоходахКоличествоДетейКонтекстноеМеню" id="39"/>
-									<ExtendedTooltip name="СведенияОДоходахКоличествоДетейРасширеннаяПодсказка" id="177"/>
+									<ExtendedTooltip name="СведенияОДоходахКоличествоДетейExtendedTooltip" id="177"/>
 								</InputField>
 								<InputField name="СведенияОДоходахСкидка" id="40">
 									<DataPath>Объект.СведенияОДоходах.Скидка</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СведенияОДоходахСкидкаКонтекстноеМеню" id="41"/>
-									<ExtendedTooltip name="СведенияОДоходахСкидкаРасширеннаяПодсказка" id="178"/>
+									<ExtendedTooltip name="СведенияОДоходахСкидкаExtendedTooltip" id="178"/>
 								</InputField>
 								<InputField name="СведенияОДоходахОблагаетсяВзносамиЗаЗанятыхНаРаботахСДосрочнойПенсией" id="131">
 									<DataPath>Объект.СведенияОДоходах.ОблагаетсяВзносамиЗаЗанятыхНаРаботахСДосрочнойПенсией</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СведенияОДоходахОблагаетсяВзносамиЗаЗанятыхНаРаботахСДосрочнойПенсиейКонтекстноеМеню" id="132"/>
-									<ExtendedTooltip name="СведенияОДоходахОблагаетсяВзносамиЗаЗанятыхНаРаботахСДосрочнойПенсиейРасширеннаяПодсказка" id="184"/>
+									<ExtendedTooltip name="СведенияОДоходахОблагаетсяВзносамиЗаЗанятыхНаРаботахСДосрочнойПенсиейExtendedTooltip" id="184"/>
 								</InputField>
 								<InputField name="СведенияОДоходахКлассУсловийТруда" id="216">
 									<DataPath>Объект.СведенияОДоходах.КлассУсловийТруда</DataPath>
@@ -839,7 +804,6 @@
 									<DataPath>Объект.СведенияОДоходах.ИспользоватьБюджетныйТарифНСиПЗ</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<CheckBoxType>CheckBox</CheckBoxType>
 									<ContextMenu name="СведенияОДоходахИспользоватьБюджетныйТарифНСиПЗКонтекстноеМеню" id="326"/>
 									<ExtendedTooltip name="СведенияОДоходахИспользоватьБюджетныйТарифНСиПЗРасширеннаяПодсказка" id="327"/>
 								</CheckBoxField>
@@ -847,25 +811,22 @@
 									<DataPath>Объект.СведенияОДоходах.ОблагаетсяВзносамиНаДоплатуЛетчикам</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<CheckBoxType>CheckBox</CheckBoxType>
 									<ContextMenu name="СведенияОДоходахОблагаетсяВзносамиНаДоплатуЛетчикамКонтекстноеМеню" id="118"/>
-									<ExtendedTooltip name="СведенияОДоходахОблагаетсяВзносамиНаДоплатуЛетчикамРасширеннаяПодсказка" id="182"/>
+									<ExtendedTooltip name="СведенияОДоходахОблагаетсяВзносамиНаДоплатуЛетчикамExtendedTooltip" id="182"/>
 								</CheckBoxField>
 								<CheckBoxField name="СведенияОДоходахОблагаетсяВзносамиНаДоплатуШахтерам" id="119">
 									<DataPath>Объект.СведенияОДоходах.ОблагаетсяВзносамиНаДоплатуШахтерам</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<CheckBoxType>CheckBox</CheckBoxType>
 									<ContextMenu name="СведенияОДоходахОблагаетсяВзносамиНаДоплатуШахтерамКонтекстноеМеню" id="120"/>
-									<ExtendedTooltip name="СведенияОДоходахОблагаетсяВзносамиНаДоплатуШахтерамРасширеннаяПодсказка" id="183"/>
+									<ExtendedTooltip name="СведенияОДоходахОблагаетсяВзносамиНаДоплатуШахтерамExtendedTooltip" id="183"/>
 								</CheckBoxField>
 								<CheckBoxField name="СведенияОДоходахЯвляетсяДоходомЧленаЭкипажаСуднаПодФлагомРФ" id="125">
 									<DataPath>Объект.СведенияОДоходах.ЯвляетсяДоходомЧленаЭкипажаСуднаПодФлагомРФ</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<CheckBoxType>CheckBox</CheckBoxType>
 									<ContextMenu name="СведенияОДоходахЯвляетсяДоходомЧленаЭкипажаСуднаПодФлагомРФКонтекстноеМеню" id="126"/>
-									<ExtendedTooltip name="СведенияОДоходахЯвляетсяДоходомЧленаЭкипажаСуднаПодФлагомРФРасширеннаяПодсказка" id="181"/>
+									<ExtendedTooltip name="СведенияОДоходахЯвляетсяДоходомЧленаЭкипажаСуднаПодФлагомРФExtendedTooltip" id="181"/>
 									<Events>
 										<Event name="OnChange">СведенияОДоходахЯвляетсяДоходомЧленаЭкипажаСуднаПодФлагомРФПриИзменении</Event>
 									</Events>
@@ -874,9 +835,8 @@
 									<DataPath>Объект.СведенияОДоходах.ЯвляетсяДоходомФармацевта</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<CheckBoxType>CheckBox</CheckBoxType>
 									<ContextMenu name="СведенияОДоходахЯвляетсяДоходомФармацевтаКонтекстноеМеню" id="124"/>
-									<ExtendedTooltip name="СведенияОДоходахЯвляетсяДоходомФармацевтаРасширеннаяПодсказка" id="180"/>
+									<ExtendedTooltip name="СведенияОДоходахЯвляетсяДоходомФармацевтаExtendedTooltip" id="180"/>
 								</CheckBoxField>
 								<CheckBoxField name="СведенияОДоходахОблагаетсяЕНВД" id="115">
 									<DataPath>Объект.СведенияОДоходах.ОблагаетсяЕНВД</DataPath>
@@ -888,9 +848,8 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<CheckBoxType>CheckBox</CheckBoxType>
 									<ContextMenu name="СведенияОДоходахОблагаетсяЕНВДКонтекстноеМеню" id="116"/>
-									<ExtendedTooltip name="СведенияОДоходахОблагаетсяЕНВДРасширеннаяПодсказка" id="179"/>
+									<ExtendedTooltip name="СведенияОДоходахОблагаетсяЕНВДExtendedTooltip" id="179"/>
 								</CheckBoxField>
 							</ChildItems>
 						</Table>
@@ -905,7 +864,7 @@
 					</Title>
 					<Group>Vertical</Group>
 					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="ГруппаПособияПоСоциальномуСтрахованиюРасширеннаяПодсказка" id="185"/>
+					<ExtendedTooltip name="ГруппаПособияПоСоциальномуСтрахованиюExtendedTooltip" id="185"/>
 					<ChildItems>
 						<Table name="ПособияПоСоциальномуСтрахованию" id="43">
 							<Representation>List</Representation>
@@ -928,7 +887,7 @@
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ПособияПоСоциальномуСтрахованиюКонтекстноеМеню" id="44"/>
 							<AutoCommandBar name="ПособияПоСоциальномуСтрахованиюКоманднаяПанель" id="45"/>
-							<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюРасширеннаяПодсказка" id="186"/>
+							<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюExtendedTooltip" id="186"/>
 							<SearchStringAddition name="ПособияПоСоциальномуСтрахованиюСтрокаПоиска" id="270">
 								<AdditionSource>
 									<Item>ПособияПоСоциальномуСтрахованию</Item>
@@ -959,7 +918,7 @@
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ПособияПоСоциальномуСтрахованиюНомерСтрокиКонтекстноеМеню" id="47"/>
-									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюНомерСтрокиРасширеннаяПодсказка" id="187"/>
+									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюНомерСтрокиExtendedTooltip" id="187"/>
 								</LabelField>
 								<InputField name="ПособияПоСоциальномуСтрахованиюВидПособияСоциальногоСтрахования" id="48">
 									<DataPath>Объект.ПособияПоСоциальномуСтрахованию.ВидПособияСоциальногоСтрахования</DataPath>
@@ -1055,14 +1014,14 @@
 										</xr:Item>
 									</ChoiceList>
 									<ContextMenu name="ПособияПоСоциальномуСтрахованиюВидПособияСоциальногоСтрахованияКонтекстноеМеню" id="49"/>
-									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюВидПособияСоциальногоСтрахованияРасширеннаяПодсказка" id="188"/>
+									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюВидПособияСоциальногоСтрахованияExtendedTooltip" id="188"/>
 								</InputField>
 								<InputField name="ПособияПоСоциальномуСтрахованиюДатаСтраховогоСлучая" id="50">
 									<DataPath>Объект.ПособияПоСоциальномуСтрахованию.ДатаСтраховогоСлучая</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ПособияПоСоциальномуСтрахованиюДатаСтраховогоСлучаяКонтекстноеМеню" id="51"/>
-									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюДатаСтраховогоСлучаяРасширеннаяПодсказка" id="189"/>
+									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюДатаСтраховогоСлучаяExtendedTooltip" id="189"/>
 								</InputField>
 								<CheckBoxField name="ПособияПоСоциальномуСтрахованиюУчитыватьКакНовыйСтраховойСлучай" id="52">
 									<DataPath>Объект.ПособияПоСоциальномуСтрахованию.УчитыватьКакНовыйСтраховойСлучай</DataPath>
@@ -1074,16 +1033,15 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<CheckBoxType>CheckBox</CheckBoxType>
 									<ContextMenu name="ПособияПоСоциальномуСтрахованиюУчитыватьКакНовыйСтраховойСлучайКонтекстноеМеню" id="53"/>
-									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюУчитыватьКакНовыйСтраховойСлучайРасширеннаяПодсказка" id="190"/>
+									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюУчитыватьКакНовыйСтраховойСлучайExtendedTooltip" id="190"/>
 								</CheckBoxField>
 								<InputField name="ПособияПоСоциальномуСтрахованиюВидЗанятости" id="54">
 									<DataPath>Объект.ПособияПоСоциальномуСтрахованию.ВидЗанятости</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ПособияПоСоциальномуСтрахованиюВидЗанятостиКонтекстноеМеню" id="55"/>
-									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюВидЗанятостиРасширеннаяПодсказка" id="191"/>
+									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюВидЗанятостиExtendedTooltip" id="191"/>
 								</InputField>
 								<InputField name="ПособияПоСоциальномуСтрахованиюОплаченныеДни" id="56">
 									<DataPath>Объект.ПособияПоСоциальномуСтрахованию.ОплаченныеДни</DataPath>
@@ -1095,8 +1053,9 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<Width>9</Width>
 									<ContextMenu name="ПособияПоСоциальномуСтрахованиюОплаченныеДниКонтекстноеМеню" id="57"/>
-									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюОплаченныеДниРасширеннаяПодсказка" id="192"/>
+									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюОплаченныеДниExtendedTooltip" id="192"/>
 								</InputField>
 								<ColumnGroup name="СуммаПособияГруппа" id="259">
 									<Title>
@@ -1120,8 +1079,9 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<Width>13</Width>
 											<ContextMenu name="ПособияПоСоциальномуСтрахованиюСуммаВсегоКонтекстноеМеню" id="59"/>
-											<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюСуммаВсегоРасширеннаяПодсказка" id="193"/>
+											<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюСуммаВсегоExtendedTooltip" id="193"/>
 										</InputField>
 										<InputField name="ПособияПоСоциальномуСтрахованиюСуммаСверхНорм" id="62">
 											<DataPath>Объект.ПособияПоСоциальномуСтрахованию.СуммаСверхНорм</DataPath>
@@ -1134,8 +1094,9 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<Width>13</Width>
 											<ContextMenu name="ПособияПоСоциальномуСтрахованиюСуммаСверхНормКонтекстноеМеню" id="63"/>
-											<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюСуммаСверхНормРасширеннаяПодсказка" id="196"/>
+											<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюСуммаСверхНормExtendedTooltip" id="196"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -1148,7 +1109,7 @@
 									</Title>
 									<Group>Horizontal</Group>
 									<ShowInHeader>true</ShowInHeader>
-									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюФедБюджетРасширеннаяПодсказка" id="194"/>
+									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюФедБюджетExtendedTooltip" id="194"/>
 								</ColumnGroup>
 								<InputField name="ПособияПоСоциальномуСтрахованиюФинансированиеФедеральнымБюджетом" id="60">
 									<DataPath>Объект.ПособияПоСоциальномуСтрахованию.ФинансированиеФедеральнымБюджетом</DataPath>
@@ -1161,7 +1122,7 @@
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ПособияПоСоциальномуСтрахованиюФинансированиеФедеральнымБюджетомКонтекстноеМеню" id="61"/>
-									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюФинансированиеФедеральнымБюджетомРасширеннаяПодсказка" id="195"/>
+									<ExtendedTooltip name="ПособияПоСоциальномуСтрахованиюФинансированиеФедеральнымБюджетомExtendedTooltip" id="195"/>
 								</InputField>
 							</ChildItems>
 						</Table>
@@ -1176,7 +1137,7 @@
 					</Title>
 					<Group>Vertical</Group>
 					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="ГруппаПособияПоУходуЗаРебенкомРасширеннаяПодсказка" id="197"/>
+					<ExtendedTooltip name="ГруппаПособияПоУходуЗаРебенкомExtendedTooltip" id="197"/>
 					<ChildItems>
 						<Table name="ПособияПоУходуЗаРебенком" id="65">
 							<Representation>List</Representation>
@@ -1199,7 +1160,7 @@
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ПособияПоУходуЗаРебенкомКонтекстноеМеню" id="66"/>
 							<AutoCommandBar name="ПособияПоУходуЗаРебенкомКоманднаяПанель" id="67"/>
-							<ExtendedTooltip name="ПособияПоУходуЗаРебенкомРасширеннаяПодсказка" id="198"/>
+							<ExtendedTooltip name="ПособияПоУходуЗаРебенкомExtendedTooltip" id="198"/>
 							<SearchStringAddition name="ПособияПоУходуЗаРебенкомСтрокаПоиска" id="279">
 								<AdditionSource>
 									<Item>ПособияПоУходуЗаРебенком</Item>
@@ -1230,7 +1191,7 @@
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ПособияПоУходуЗаРебенкомНомерСтрокиКонтекстноеМеню" id="69"/>
-									<ExtendedTooltip name="ПособияПоУходуЗаРебенкомНомерСтрокиРасширеннаяПодсказка" id="199"/>
+									<ExtendedTooltip name="ПособияПоУходуЗаРебенкомНомерСтрокиExtendedTooltip" id="199"/>
 								</LabelField>
 								<InputField name="ПособияПоУходуЗаРебенкомНачалоОтпускаПоУходу" id="70">
 									<DataPath>Объект.ПособияПоУходуЗаРебенком.НачалоОтпускаПоУходу</DataPath>
@@ -1242,15 +1203,17 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<Width>12</Width>
 									<ContextMenu name="ПособияПоУходуЗаРебенкомНачалоОтпускаПоУходуКонтекстноеМеню" id="71"/>
-									<ExtendedTooltip name="ПособияПоУходуЗаРебенкомНачалоОтпускаПоУходуРасширеннаяПодсказка" id="200"/>
+									<ExtendedTooltip name="ПособияПоУходуЗаРебенкомНачалоОтпускаПоУходуExtendedTooltip" id="200"/>
 								</InputField>
 								<InputField name="ПособияПоУходуЗаРебенкомВидЗанятости" id="72">
 									<DataPath>Объект.ПособияПоУходуЗаРебенком.ВидЗанятости</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<Width>15</Width>
 									<ContextMenu name="ПособияПоУходуЗаРебенкомВидЗанятостиКонтекстноеМеню" id="73"/>
-									<ExtendedTooltip name="ПособияПоУходуЗаРебенкомВидЗанятостиРасширеннаяПодсказка" id="201"/>
+									<ExtendedTooltip name="ПособияПоУходуЗаРебенкомВидЗанятостиExtendedTooltip" id="201"/>
 								</InputField>
 								<ColumnGroup name="НаПервогоРебенкаГруппа" id="255">
 									<Title>
@@ -1274,8 +1237,9 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<Width>13</Width>
 											<ContextMenu name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаПервымРебенкомКонтекстноеМеню" id="75"/>
-											<ExtendedTooltip name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаПервымРебенкомРасширеннаяПодсказка" id="202"/>
+											<ExtendedTooltip name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаПервымРебенкомExtendedTooltip" id="202"/>
 										</InputField>
 										<InputField name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаПервымРебенкомСверхНорм" id="80">
 											<DataPath>Объект.ПособияПоУходуЗаРебенком.ПособиеПоУходуЗаПервымРебенкомСверхНорм</DataPath>
@@ -1288,8 +1252,9 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<Width>13</Width>
 											<ContextMenu name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаПервымРебенкомСверхНормКонтекстноеМеню" id="81"/>
-											<ExtendedTooltip name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаПервымРебенкомСверхНормРасширеннаяПодсказка" id="206"/>
+											<ExtendedTooltip name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаПервымРебенкомСверхНормExtendedTooltip" id="206"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -1315,8 +1280,9 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<Width>13</Width>
 											<ContextMenu name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаВторымРебенкомКонтекстноеМеню" id="77"/>
-											<ExtendedTooltip name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаВторымРебенкомРасширеннаяПодсказка" id="203"/>
+											<ExtendedTooltip name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаВторымРебенкомExtendedTooltip" id="203"/>
 										</InputField>
 										<InputField name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаВторымРебенкомСверхНорм" id="82">
 											<DataPath>Объект.ПособияПоУходуЗаРебенком.ПособиеПоУходуЗаВторымРебенкомСверхНорм</DataPath>
@@ -1329,8 +1295,9 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<AutoEditMode>true</AutoEditMode>
+											<Width>13</Width>
 											<ContextMenu name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаВторымРебенкомСверхНормКонтекстноеМеню" id="83"/>
-											<ExtendedTooltip name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаВторымРебенкомСверхНормРасширеннаяПодсказка" id="207"/>
+											<ExtendedTooltip name="ПособияПоУходуЗаРебенкомПособиеПоУходуЗаВторымРебенкомСверхНормExtendedTooltip" id="207"/>
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
@@ -1343,7 +1310,7 @@
 									</Title>
 									<Group>Horizontal</Group>
 									<ShowInHeader>true</ShowInHeader>
-									<ExtendedTooltip name="ПособияПоУходуЗаРебенкомФедБюджетРасширеннаяПодсказка" id="204"/>
+									<ExtendedTooltip name="ПособияПоУходуЗаРебенкомФедБюджетExtendedTooltip" id="204"/>
 								</ColumnGroup>
 								<InputField name="ПособияПоУходуЗаРебенкомФинансированиеФедеральнымБюджетом" id="78">
 									<DataPath>Объект.ПособияПоУходуЗаРебенком.ФинансированиеФедеральнымБюджетом</DataPath>
@@ -1356,74 +1323,61 @@
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ПособияПоУходуЗаРебенкомФинансированиеФедеральнымБюджетомКонтекстноеМеню" id="79"/>
-									<ExtendedTooltip name="ПособияПоУходуЗаРебенкомФинансированиеФедеральнымБюджетомРасширеннаяПодсказка" id="205"/>
+									<ExtendedTooltip name="ПособияПоУходуЗаРебенкомФинансированиеФедеральнымБюджетомExtendedTooltip" id="205"/>
 								</InputField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
 				</Page>
-				<Page name="ГруппаДополнительно" id="410">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Дополнительно</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
-					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="411"/>
-					<ChildItems>
-						<UsualGroup name="ГруппаДополнительныеРеквизиты" id="303">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Дополнительно</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ExtendedTooltip name="ГруппаДополнительныеРеквизитыРасширеннаяПодсказка" id="304"/>
-						</UsualGroup>
-						<UsualGroup name="КомментарийГруппа" id="133">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Комментарий группа</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="КомментарийГруппаРасширеннаяПодсказка" id="208"/>
-							<ChildItems>
-								<InputField name="Комментарий" id="136">
-									<DataPath>Объект.Комментарий</DataPath>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Height>2</Height>
-									<VerticalStretch>false</VerticalStretch>
-									<MultiLine>true</MultiLine>
-									<ExtendedEdit>true</ExtendedEdit>
-									<ContextMenu name="КомментарийКонтекстноеМеню" id="137"/>
-									<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="209"/>
-								</InputField>
-								<InputField name="Ответственный" id="134">
-									<DataPath>Объект.Ответственный</DataPath>
-									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<HorizontalStretch>true</HorizontalStretch>
-									<ContextMenu name="ОтветственныйКонтекстноеМеню" id="135"/>
-									<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="151"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
-				</Page>
 			</ChildItems>
 		</Pages>
+		<UsualGroup name="ГруппаДополнительныеРеквизиты" id="303">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительно</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаДополнительныеРеквизитыExtendedTooltip" id="304"/>
+		</UsualGroup>
+		<UsualGroup name="КомментарийГруппа" id="133">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий группа</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="КомментарийГруппаExtendedTooltip" id="208"/>
+			<ChildItems>
+				<InputField name="Комментарий" id="136">
+					<DataPath>Объект.Комментарий</DataPath>
+					<TitleLocation>Left</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Height>1</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<MultiLine>true</MultiLine>
+					<ExtendedEdit>true</ExtendedEdit>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="137"/>
+					<ExtendedTooltip name="КомментарийExtendedTooltip" id="209"/>
+				</InputField>
+				<InputField name="Ответственный" id="134">
+					<DataPath>Объект.Ответственный</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="135"/>
+					<ExtendedTooltip name="ОтветственныйExtendedTooltip" id="151"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -1440,7 +1394,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Месяц расчетного периода</v8:content>
+					<v8:content>Месяц расч. периода</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1476,5 +1430,15 @@
 				</Visible>
 			</Item>
 		</NavigationPanel>
+		<CommandBar>
+			<Item>
+				<Command>0:2baf6d7a-12ed-4f22-ad96-92bb31b747ff</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
 	</CommandInterface>
 </Form>

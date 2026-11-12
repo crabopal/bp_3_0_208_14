@@ -9,65 +9,129 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<RadioButtonField name="ПереключательОтбора" id="31">
-			<DataPath>ПереключательОтбора</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отбор</v8:content>
-				</v8:item>
-			</Title>
-			<TitleLocation>None</TitleLocation>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Для отображения уже загруженных сервис-провайдеров, необходимо выбрать режим отображения "Все".</v8:content>
-				</v8:item>
-			</ToolTip>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<RadioButtonType>Tumbler</RadioButtonType>
-			<ChoiceList>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Только новые</v8:content>
-							</v8:item>
-						</Presentation>
-						<Value xsi:type="xs:decimal">0</Value>
-					</xr:Value>
-				</xr:Item>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Все</v8:content>
-							</v8:item>
-						</Presentation>
-						<Value xsi:type="xs:decimal">1</Value>
-					</xr:Value>
-				</xr:Item>
-			</ChoiceList>
-			<ContextMenu name="ПереключательОтбораКонтекстноеМеню" id="32"/>
-			<ExtendedTooltip name="ПереключательОтбораРасширеннаяПодсказка" id="33"/>
-			<Events>
-				<Event name="OnChange">ПереключательОтбораПриИзменении</Event>
-			</Events>
-		</RadioButtonField>
+		<UsualGroup name="ГруппаКомандыСписка" id="7">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомандыСпискаРасширеннаяПодсказка" id="8"/>
+			<ChildItems>
+				<CommandBar name="ГруппаКомандыСпискаОсновные" id="9">
+					<HorizontalStretch>false</HorizontalStretch>
+					<ExtendedTooltip name="ГруппаКомандыСпискаОсновныеРасширеннаяПодсказка" id="10"/>
+					<ChildItems>
+						<Button name="Загрузить" id="11">
+							<Type>CommandBarButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<CommandName>Form.Command.Загрузить</CommandName>
+							<ButtonImportance>Main</ButtonImportance>
+							<ExtendedTooltip name="ЗагрузитьРасширеннаяПодсказка" id="12"/>
+						</Button>
+						<ButtonGroup name="ГруппаВыбратьИсключить" id="1">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа выбрать исключить</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа выбрать исключить</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаВыбратьИсключитьРасширеннаяПодсказка" id="2"/>
+							<ChildItems>
+								<Button name="ВыбратьВсе" id="3">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.ВыбратьВсе</CommandName>
+									<ExtendedTooltip name="ВыбратьВсеРасширеннаяПодсказка" id="4"/>
+								</Button>
+								<Button name="ИсключитьВсе" id="5">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.ИсключитьВсе</CommandName>
+									<ExtendedTooltip name="ИсключитьВсеРасширеннаяПодсказка" id="6"/>
+								</Button>
+							</ChildItems>
+						</ButtonGroup>
+						<Button name="ОбновитьСписок" id="13">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.ОбновитьСписок</CommandName>
+							<ExtendedTooltip name="ОбновитьСписокРасширеннаяПодсказка" id="14"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+				<RadioButtonField name="ПереключательОтбора" id="31">
+					<DataPath>ПереключательОтбора</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Для отображения уже загруженных сервис-провайдеров, необходимо выбрать режим отображения "Все".</v8:content>
+						</v8:item>
+					</ToolTip>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Только новые</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Все</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ПереключательОтбораКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ПереключательОтбораРасширеннаяПодсказка" id="33"/>
+					<Events>
+						<Event name="OnChange">ПереключательОтбораПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<CommandBar name="ГруппаСтандартныеКоманды" id="34">
+					<HorizontalLocation>Right</HorizontalLocation>
+					<CommandSource>Item.Список</CommandSource>
+					<ExtendedTooltip name="ГруппаСтандартныеКомандыРасширеннаяПодсказка" id="35"/>
+					<ChildItems>
+						<ButtonGroup name="КомандыФормы" id="38">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды формы</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSource>Form</CommandSource>
+							<ExtendedTooltip name="КомандыФормыРасширеннаяПодсказка" id="39"/>
+						</ButtonGroup>
+					</ChildItems>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
 		<Table name="Список" id="15">
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
@@ -78,40 +142,7 @@
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="СписокКонтекстноеМеню" id="17"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="16">
-				<ChildItems>
-					<Button name="Загрузить" id="11">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.Загрузить</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ЗагрузитьРасширеннаяПодсказка" id="12"/>
-					</Button>
-					<Button name="ВыбратьВсе" id="3">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ВыбратьВсе</CommandName>
-						<ExtendedTooltip name="ВыбратьВсеРасширеннаяПодсказка" id="4"/>
-					</Button>
-					<Button name="ИсключитьВсе" id="5">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ИсключитьВсе</CommandName>
-						<ExtendedTooltip name="ИсключитьВсеРасширеннаяПодсказка" id="6"/>
-					</Button>
-					<Button name="ОбновитьСписок" id="13">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ОбновитьСписок</CommandName>
-						<ExtendedTooltip name="ОбновитьСписокРасширеннаяПодсказка" id="14"/>
-					</Button>
-					<Button name="СписокИзменитьФорму" id="81">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ExtendedTooltip name="СписокИзменитьФормуРасширеннаяПодсказка" id="82"/>
-					</Button>
-					<Button name="СписокСправка" id="83">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="СписокСправкаРасширеннаяПодсказка" id="84"/>
-					</Button>
-				</ChildItems>
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="18"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="19">
@@ -142,24 +173,18 @@
 				<CheckBoxField name="СписокПометка" id="43">
 					<DataPath>Список.Пометка</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокПометкаКонтекстноеМеню" id="44"/>
 					<ExtendedTooltip name="СписокПометкаРасширеннаяПодсказка" id="45"/>
 				</CheckBoxField>
 				<InputField name="СписокНаименование" id="28">
 					<DataPath>Список.Наименование</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокНаименованиеКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="СписокНаименованиеРасширеннаяПодсказка" id="30"/>
 				</InputField>
 				<InputField name="СписокИНН" id="46">
 					<DataPath>Список.ИНН</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокИННКонтекстноеМеню" id="47"/>
 					<ExtendedTooltip name="СписокИННРасширеннаяПодсказка" id="48"/>
 				</InputField>
@@ -172,32 +197,24 @@
 							<v8:content>Вид</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокВидСервисПровайдераКонтекстноеМеню" id="50"/>
 					<ExtendedTooltip name="СписокВидСервисПровайдераРасширеннаяПодсказка" id="51"/>
 				</InputField>
 				<InputField name="СписокСтрана" id="52">
 					<DataPath>Список.Страна</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокСтранаКонтекстноеМеню" id="53"/>
 					<ExtendedTooltip name="СписокСтранаРасширеннаяПодсказка" id="54"/>
 				</InputField>
 				<InputField name="СписокИдентификатор" id="55">
 					<DataPath>Список.Идентификатор</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокИдентификаторКонтекстноеМеню" id="56"/>
 					<ExtendedTooltip name="СписокИдентификаторРасширеннаяПодсказка" id="57"/>
 				</InputField>
 				<InputField name="СписокСервисПровайдер" id="67">
 					<DataPath>Список.СервисПровайдер</DataPath>
 					<Visible>false</Visible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокСервисПровайдерКонтекстноеМеню" id="68"/>
 					<ExtendedTooltip name="СписокСервисПровайдерРасширеннаяПодсказка" id="69"/>
 				</InputField>
@@ -355,7 +372,6 @@
 				</v8:item>
 			</Title>
 			<Action>Загрузить</Action>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 		<Command name="ВыбратьВсе" id="3">
 			<Title>

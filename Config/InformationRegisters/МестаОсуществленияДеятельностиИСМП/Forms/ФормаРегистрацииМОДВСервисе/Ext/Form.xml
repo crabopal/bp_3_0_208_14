@@ -6,9 +6,9 @@
 			<v8:content>Регистрация МОД в ГИС МТ</v8:content>
 		</v8:item>
 	</Title>
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаЗарегистрироватьВГИСМТ" id="50">
@@ -96,8 +96,8 @@
 							<ChildItems>
 								<InputField name="Организация" id="7">
 									<DataPath>Организация</DataPath>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<TextSize>Enlarged</TextSize>
 									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="8"/>
 									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="9"/>
 									<Events>
@@ -106,7 +106,6 @@
 								</InputField>
 								<InputField name="Подразделение" id="13">
 									<DataPath>Подразделение</DataPath>
-									<TextSize>Enlarged</TextSize>
 									<ContextMenu name="ПодразделениеКонтекстноеМеню" id="14"/>
 									<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="15"/>
 									<Events>
@@ -130,7 +129,6 @@
 								<InputField name="АдресМОДСтрокой" id="43">
 									<DataPath>АдресМОДСтрокой</DataPath>
 									<ChoiceButton>true</ChoiceButton>
-									<TextSize>Enlarged</TextSize>
 									<ContextMenu name="АдресМОДСтрокойКонтекстноеМеню" id="44"/>
 									<ExtendedTooltip name="АдресМОДСтрокойРасширеннаяПодсказка" id="45"/>
 									<Events>
@@ -142,15 +140,14 @@
 								</InputField>
 								<InputField name="КодФИАС" id="16">
 									<DataPath>КодФИАС</DataPath>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<TextSize>Enlarged</TextSize>
 									<ContextMenu name="КодФИАСКонтекстноеМеню" id="17"/>
 									<ExtendedTooltip name="КодФИАСРасширеннаяПодсказка" id="18"/>
 								</InputField>
 								<InputField name="КПП" id="52">
 									<DataPath>КПП</DataPath>
 									<HorizontalStretch>true</HorizontalStretch>
-									<TextSize>Enlarged</TextSize>
 									<ContextMenu name="КППКонтекстноеМеню" id="53"/>
 									<ExtendedTooltip name="КППРасширеннаяПодсказка" id="54"/>
 								</InputField>
@@ -160,8 +157,8 @@
 				</UsualGroup>
 				<Table name="ТоварныеГруппы" id="22">
 					<Representation>List</Representation>
-					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
+					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
 					<EnableStartDrag>true</EnableStartDrag>
 					<EnableDrag>true</EnableDrag>
@@ -174,23 +171,18 @@
 						<ExcludedCommand>MoveDown</ExcludedCommand>
 						<ExcludedCommand>MoveUp</ExcludedCommand>
 					</CommandSet>
-					<AutoMaxCardHeight>false</AutoMaxCardHeight>
 					<RowFilter xsi:nil="true"/>
 					<ContextMenu name="ТоварныеГруппыКонтекстноеМеню" id="24"/>
 					<AutoCommandBar name="ТоварныеГруппыКоманднаяПанель" id="23">
 						<ChildItems>
 							<Button name="ТоварныеГруппыВыбратьВсе" id="46">
 								<Type>CommandBarButton</Type>
-								<DefaultButton>true</DefaultButton>
 								<CommandName>Form.Command.ВыбратьВсе</CommandName>
-								<ButtonImportance>Main</ButtonImportance>
 								<ExtendedTooltip name="ТоварныеГруппыВыбратьВсеРасширеннаяПодсказка" id="47"/>
 							</Button>
 							<Button name="ТоварныеГруппыИсключитьВсе" id="48">
 								<Type>CommandBarButton</Type>
-								<DefaultButton>true</DefaultButton>
 								<CommandName>Form.Command.ИсключитьВсе</CommandName>
-								<ButtonImportance>Main</ButtonImportance>
 								<ExtendedTooltip name="ТоварныеГруппыИсключитьВсеРасширеннаяПодсказка" id="49"/>
 							</Button>
 						</ChildItems>
@@ -229,20 +221,20 @@
 								</v8:item>
 							</Title>
 							<Group>InCell</Group>
-							<ShowTitle>true</ShowTitle>
 							<ExtendedTooltip name="ГруппаВыбранаТоварныеГруппыРасширеннаяПодсказка" id="42"/>
 							<ChildItems>
 								<CheckBoxField name="ТоварныеГруппыВыбрана" id="35">
 									<DataPath>ТоварныеГруппы.Выбрана</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ТоварныеГруппыВыбранаКонтекстноеМеню" id="36"/>
 									<ExtendedTooltip name="ТоварныеГруппыВыбранаРасширеннаяПодсказка" id="37"/>
 								</CheckBoxField>
 								<InputField name="ТоварныеГруппыТоварнаяГруппа" id="38">
 									<DataPath>ТоварныеГруппы.ТоварнаяГруппа</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<TextSize>Enlarged</TextSize>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ТоварныеГруппыТоварнаяГруппаКонтекстноеМеню" id="39"/>
 									<ExtendedTooltip name="ТоварныеГруппыТоварнаяГруппаРасширеннаяПодсказка" id="40"/>
 								</InputField>
@@ -268,13 +260,12 @@
 				<Table name="СписокМОДКРегистрации" id="95">
 					<Representation>List</Representation>
 					<ReadOnly>true</ReadOnly>
-					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
+					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
 					<EnableStartDrag>true</EnableStartDrag>
 					<EnableDrag>true</EnableDrag>
 					<DataPath>СписокМОДКРегистрации</DataPath>
-					<AutoMaxCardHeight>false</AutoMaxCardHeight>
 					<RowFilter xsi:nil="true"/>
 					<ContextMenu name="СписокМОДКРегистрацииКонтекстноеМеню" id="97"/>
 					<AutoCommandBar name="СписокМОДКРегистрацииКоманднаяПанель" id="96">
@@ -309,35 +300,35 @@
 						<InputField name="СписокМОДКРегистрацииДокумент" id="108">
 							<DataPath>СписокМОДКРегистрации.Документ</DataPath>
 							<EditMode>EnterOnInput</EditMode>
-							<TextSize>Enlarged</TextSize>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СписокМОДКРегистрацииДокументКонтекстноеМеню" id="109"/>
 							<ExtendedTooltip name="СписокМОДКРегистрацииДокументРасширеннаяПодсказка" id="110"/>
 						</InputField>
 						<InputField name="СписокМОДКРегистрацииТоварнаяГруппа" id="114">
 							<DataPath>СписокМОДКРегистрации.ТоварнаяГруппа</DataPath>
 							<EditMode>EnterOnInput</EditMode>
-							<TextSize>Enlarged</TextSize>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СписокМОДКРегистрацииТоварнаяГруппаКонтекстноеМеню" id="115"/>
 							<ExtendedTooltip name="СписокМОДКРегистрацииТоварнаяГруппаРасширеннаяПодсказка" id="116"/>
 						</InputField>
 						<InputField name="СписокМОДКРегистрацииДанныеАдресаСтрокой" id="126">
 							<DataPath>СписокМОДКРегистрации.ДанныеАдресаСтрокой</DataPath>
 							<EditMode>EnterOnInput</EditMode>
-							<TextSize>Enlarged</TextSize>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СписокМОДКРегистрацииДанныеАдресаСтрокойКонтекстноеМеню" id="127"/>
 							<ExtendedTooltip name="СписокМОДКРегистрацииДанныеАдресаСтрокойРасширеннаяПодсказка" id="128"/>
 						</InputField>
 						<InputField name="СписокМОДКРегистрацииКПП" id="111">
 							<DataPath>СписокМОДКРегистрации.КПП</DataPath>
 							<EditMode>EnterOnInput</EditMode>
-							<TextSize>Enlarged</TextSize>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СписокМОДКРегистрацииКППКонтекстноеМеню" id="112"/>
 							<ExtendedTooltip name="СписокМОДКРегистрацииКППРасширеннаяПодсказка" id="113"/>
 						</InputField>
 						<InputField name="СписокМОДКРегистрацииКодФИАС" id="117">
 							<DataPath>СписокМОДКРегистрации.КодФИАС</DataPath>
 							<EditMode>EnterOnInput</EditMode>
-							<TextSize>Enlarged</TextSize>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СписокМОДКРегистрацииКодФИАСКонтекстноеМеню" id="118"/>
 							<ExtendedTooltip name="СписокМОДКРегистрацииКодФИАСРасширеннаяПодсказка" id="119"/>
 						</InputField>
@@ -657,7 +648,6 @@
 			</Picture>
 			<Action>ВыбратьВсе</Action>
 			<Representation>Picture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ИсключитьВсе" id="2">
 			<Title>
@@ -672,7 +662,6 @@
 			</Picture>
 			<Action>ИсключитьВсе</Action>
 			<Representation>Picture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ЗарегистрироватьВГИСМТ" id="3">
 			<Title>
@@ -682,8 +671,6 @@
 				</v8:item>
 			</Title>
 			<Action>ЗарегистрироватьВГИСМТ</Action>
-			<ActionPurpose>Finish</ActionPurpose>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

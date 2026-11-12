@@ -2,8 +2,8 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ФормаВыбрать" id="25">
 				<Type>CommandBarButton</Type>
@@ -11,6 +11,16 @@
 				<CommandName>Form.Command.Выбрать</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="26"/>
+			</Button>
+			<Button name="ФормаВыбратьВсе" id="27">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ВыбратьВсе</CommandName>
+				<ExtendedTooltip name="ФормаВыбратьВсеРасширеннаяПодсказка" id="28"/>
+			</Button>
+			<Button name="ФормаИсключитьВсе" id="29">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ИсключитьВсе</CommandName>
+				<ExtendedTooltip name="ФормаИсключитьВсеРасширеннаяПодсказка" id="30"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -22,39 +32,12 @@
 			<Representation>Tree</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<DataPath>ДеревоОтклонений</DataPath>
 			<ContextMenu name="ДеревоОтклоненийКонтекстноеМеню" id="3"/>
 			<AutoCommandBar name="ДеревоОтклоненийКоманднаяПанель" id="2">
-				<ChildItems>
-					<Button name="ДеревоОтклоненийВыбрать" id="35">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Выбрать</CommandName>
-						<ExtendedTooltip name="ДеревоОтклоненийВыбратьРасширеннаяПодсказка" id="36"/>
-					</Button>
-					<Button name="ФормаВыбратьВсе" id="27">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ВыбратьВсе</CommandName>
-						<ExtendedTooltip name="ФормаВыбратьВсеРасширеннаяПодсказка" id="28"/>
-					</Button>
-					<Button name="ФормаИсключитьВсе" id="29">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ИсключитьВсе</CommandName>
-						<ExtendedTooltip name="ФормаИсключитьВсеРасширеннаяПодсказка" id="30"/>
-					</Button>
-					<Button name="ДеревоОтклоненийИзменитьФорму" id="39">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ExtendedTooltip name="ДеревоОтклоненийИзменитьФормуРасширеннаяПодсказка" id="40"/>
-					</Button>
-					<Button name="ДеревоОтклоненийСправка" id="37">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="ДеревоОтклоненийСправкаРасширеннаяПодсказка" id="38"/>
-					</Button>
-				</ChildItems>
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ДеревоОтклоненийРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="ДеревоОтклоненийСтрокаПоиска" id="5">
@@ -90,14 +73,11 @@
 						</v8:item>
 					</Title>
 					<Group>InCell</Group>
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ДеревоОтклоненийГруппа1РасширеннаяПодсказка" id="24"/>
 					<ChildItems>
 						<CheckBoxField name="ДеревоОтклоненийВыбрана" id="20">
 							<DataPath>ДеревоОтклонений.Выбрана</DataPath>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ДеревоОтклоненийВыбранаКонтекстноеМеню" id="21"/>
 							<ExtendedTooltip name="ДеревоОтклоненийВыбранаРасширеннаяПодсказка" id="22"/>
 							<Events>
@@ -113,8 +93,6 @@
 									<v8:content>Категория/вид отклонений</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ДеревоОтклоненийНаименованиеКонтекстноеМеню" id="18"/>
 							<ExtendedTooltip name="ДеревоОтклоненийНаименованиеРасширеннаяПодсказка" id="19"/>
 						</InputField>
@@ -211,7 +189,6 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВыбратьВсе" id="2">
 			<Title>

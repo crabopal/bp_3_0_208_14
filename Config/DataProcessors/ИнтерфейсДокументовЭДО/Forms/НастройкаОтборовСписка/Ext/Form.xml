@@ -8,29 +8,14 @@
 	</Title>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
+	<CommandBarLocation>None</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>EndEdit</ExcludedCommand>
 	</CommandSet>
+	<ShowCommandBar>false</ShowCommandBar>
 	<CustomSettingsFolder>ГруппаПользовательскихНастроек</CustomSettingsFolder>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
-		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ОтменитьРедактирование" id="75">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<ExtendedTooltip name="ОтменитьРедактированиеРасширеннаяПодсказка" id="76"/>
-			</Button>
-			<Button name="Применить" id="71">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<DefaultItem>true</DefaultItem>
-				<CommandName>Form.Command.Применить</CommandName>
-				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="72"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnUpdateUserSettingSetAtServer">ПриОбновленииСоставаПользовательскихНастроекНаСервере</Event>
@@ -91,6 +76,7 @@
 							<Representation>Tree</Representation>
 							<Autofill>true</Autofill>
 							<Width>30</Width>
+							<HeightInTableRows>15</HeightInTableRows>
 							<ChoiceMode>true</ChoiceMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -187,6 +173,33 @@
 				</Page>
 			</ChildItems>
 		</Pages>
+		<CommandBar name="ГруппаКоманды" id="73">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа команды</v8:content>
+				</v8:item>
+			</Title>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="74"/>
+			<ChildItems>
+				<Button name="Применить" id="71">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<DefaultItem>true</DefaultItem>
+					<CommandName>Form.Command.Применить</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="72"/>
+				</Button>
+				<Button name="ОтменитьРедактирование" id="75">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.CancelEdit</CommandName>
+					<ExtendedTooltip name="ОтменитьРедактированиеРасширеннаяПодсказка" id="76"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="КомпоновщикНастроек" id="1">
@@ -218,23 +231,6 @@
 			</ToolTip>
 			<Action>Применить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
-		</Command>
-		<Command name="Отмена" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отмена</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Отмена</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

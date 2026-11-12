@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
@@ -36,7 +35,6 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацииВЕТИСРасширеннаяПодсказка" id="64"/>
 							<ChildItems>
@@ -49,11 +47,10 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
+									<ChoiceButton>true</ChoiceButton>
 									<ClearButton>true</ClearButton>
 									<QuickChoice>false</QuickChoice>
 									<ChooseType>false</ChooseType>
@@ -92,7 +89,6 @@
 								</v8:item>
 							</Title>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацияВЕТИСРасширеннаяПодсказка" id="66"/>
 							<ChildItems>
@@ -105,11 +101,10 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
+									<ChoiceButton>true</ChoiceButton>
 									<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 									<ClearButton>true</ClearButton>
 									<OpenButton>false</OpenButton>
@@ -161,9 +156,7 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -174,7 +167,6 @@
 				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -191,7 +183,33 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<ChildItems>
+					<Button name="СписокНайти" id="50">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Find</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="СписокНайтиРасширеннаяПодсказка" id="51"/>
+					</Button>
+					<Button name="СписокОбновить" id="48">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<CommandName>Form.StandardCommand.Refresh</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="СписокОбновитьРасширеннаяПодсказка" id="49"/>
+					</Button>
+					<Button name="СписокИзменитьФорму" id="52">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+						<ExtendedTooltip name="СписокИзменитьФормуРасширеннаяПодсказка" id="53"/>
+					</Button>
+					<Button name="СписокСправка" id="54">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<ExtendedTooltip name="СписокСправкаРасширеннаяПодсказка" id="55"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -227,8 +245,6 @@
 							<v8:content>Дата</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>9</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="ДатаСозданияКонтекстноеМеню" id="35"/>
@@ -236,15 +252,11 @@
 				</LabelField>
 				<LabelField name="Наименование" id="56">
 					<DataPath>Список.Description</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="57"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="58"/>
 				</LabelField>
 				<LabelField name="Документ" id="40">
 					<DataPath>Список.Документ</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>28</MaxWidth>
 					<ContextMenu name="ДокументКонтекстноеМеню" id="41"/>
@@ -252,8 +264,6 @@
 				</LabelField>
 				<LabelField name="Операция" id="25">
 					<DataPath>Список.Операция</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>28</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="ОперацияКонтекстноеМеню" id="26"/>
@@ -261,8 +271,6 @@
 				</LabelField>
 				<LabelField name="ТипСообщения" id="28">
 					<DataPath>Список.ТипСообщения</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>14</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>false</HorizontalStretch>
@@ -271,8 +279,6 @@
 				</LabelField>
 				<LabelField name="ИдентификаторЗапроса" id="37">
 					<DataPath>Список.ИдентификаторЗапроса</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>28</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="ИдентификаторЗапросаКонтекстноеМеню" id="38"/>
@@ -286,8 +292,6 @@
 							<v8:content>Хозяйствующий субъект</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>28</MaxWidth>
 					<ContextMenu name="ХозяйствующийСубъектКонтекстноеМеню" id="20"/>
@@ -295,8 +299,6 @@
 				</LabelField>
 				<InputField name="Предприятие" id="74">
 					<DataPath>Список.Предприятие</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="75"/>
 					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="76"/>
 				</InputField>
@@ -305,8 +307,6 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="33"/>
 				</LabelField>

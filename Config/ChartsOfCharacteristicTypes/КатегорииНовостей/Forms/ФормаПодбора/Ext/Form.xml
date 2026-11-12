@@ -26,12 +26,12 @@
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="ФормаКомандаВыбрать" id="43">
+			<Button name="ФормаКомандаОК" id="43">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КомандаВыбрать</CommandName>
+				<CommandName>Form.Command.КомандаОК</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаКомандаВыбратьРасширеннаяПодсказка" id="45"/>
+				<ExtendedTooltip name="ФормаКомандаОКExtendedTooltip" id="45"/>
 			</Button>
 			<Button name="ФормаОтмена" id="33">
 				<Type>CommandBarButton</Type>
@@ -46,13 +46,24 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<LabelDecoration name="ДекорацияТребуетсяОбновлениеССервера" id="22">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<AutoMaxHeight>false</AutoMaxHeight>
+			<HorizontalStretch>true</HorizontalStretch>
+			<VerticalStretch>false</VerticalStretch>
+			<VerticalAlign>Top</VerticalAlign>
+			<ContextMenu name="ДекорацияТребуетсяОбновлениеССервераКонтекстноеМеню" id="23"/>
+			<ExtendedTooltip name="ДекорацияТребуетсяОбновлениеССервераExtendedTooltip" id="47"/>
+			<Events>
+				<Event name="URLProcessing">ДекорацияТребуетсяОбновлениеССервераОбработкаНавигационнойСсылки</Event>
+			</Events>
+		</LabelDecoration>
 		<Table name="КатегорииНовостей" id="25">
 			<Representation>List</Representation>
 			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Row</RowSelectionMode>
 			<Header>false</Header>
 			<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -72,10 +83,12 @@
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
 			</CommandSet>
-			<SearchStringLocation>FormCaption</SearchStringLocation>
+			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
 			<ContextMenu name="КатегорииНовостейКонтекстноеМеню" id="26"/>
 			<AutoCommandBar name="КатегорииНовостейКоманднаяПанель" id="27">
+				<Autofill>false</Autofill>
 				<ChildItems>
 					<Button name="КатегорииНовостейУстановитьФлажки" id="40">
 						<Type>CommandBarButton</Type>
@@ -131,7 +144,6 @@
 							<DataPath>КатегорииНовостей.Check</DataPath>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>CheckBox</CheckBoxType>
 							<ContextMenu name="КатегорииНовостейПометкаКонтекстноеМеню" id="37"/>
 							<ExtendedTooltip name="КатегорииНовостейПометкаExtendedTooltip" id="52"/>
 						</CheckBoxField>
@@ -187,11 +199,11 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="КомандаВыбрать" id="1">
+		<Command name="КомандаОК" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -200,9 +212,8 @@
 					<v8:content>Запомнить выбранные значения и закрыть форму</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>КомандаВыбрать</Action>
+			<Action>КомандаОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

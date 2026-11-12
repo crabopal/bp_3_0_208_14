@@ -2,8 +2,27 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗагрузитьИзСУЗ" id="45">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗагрузитьИзСУЗ</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаЗагрузитьИзСУЗРасширеннаяПодсказка" id="46"/>
+			</Button>
+			<Button name="ФормаСоздать" id="50">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Create</CommandName>
+				<ExtendedTooltip name="ФормаСоздатьРасширеннаяПодсказка" id="51"/>
+			</Button>
+			<Button name="ФормаСкопировать" id="52">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Copy</CommandName>
+				<ExtendedTooltip name="ФормаСкопироватьРасширеннаяПодсказка" id="53"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -24,14 +43,13 @@
 			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
 		</UsualGroup>
 		<Table name="Список" id="3">
-			<CommandBarLocation>Top</CommandBarLocation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -49,35 +67,7 @@
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<ChildItems>
-					<Button name="ФормаЗагрузитьИзСУЗ" id="45">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.ЗагрузитьИзСУЗ</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ФормаЗагрузитьИзСУЗРасширеннаяПодсказка" id="46"/>
-					</Button>
-					<Button name="СписокСоздать" id="61">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
-						<ExtendedTooltip name="СписокСоздатьРасширеннаяПодсказка" id="62"/>
-					</Button>
-					<Button name="СписокСкопировать" id="63">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.Copy</CommandName>
-						<ExtendedTooltip name="СписокСкопироватьРасширеннаяПодсказка" id="64"/>
-					</Button>
-					<Button name="СписокИзменитьФорму" id="65">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ExtendedTooltip name="СписокИзменитьФормуРасширеннаяПодсказка" id="66"/>
-					</Button>
-					<Button name="СписокСправка" id="67">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="СписокСправкаРасширеннаяПодсказка" id="68"/>
-					</Button>
-				</ChildItems>
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
@@ -108,29 +98,21 @@
 				<LabelField name="Наименование" id="16">
 					<DataPath>Список.Description</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="ВидСервисПровайдера" id="19">
 					<DataPath>Список.ВидСервисПровайдера</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ВидСервисПровайдераКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ВидСервисПровайдераРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Страна" id="22">
 					<DataPath>Список.Страна</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СтранаКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="СтранаРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<InputField name="ИНН" id="47">
 					<DataPath>Список.ИНН</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИННКонтекстноеМеню" id="48"/>
 					<ExtendedTooltip name="ИННРасширеннаяПодсказка" id="49"/>
 				</InputField>
@@ -139,8 +121,6 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="43"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="44"/>
 				</InputField>

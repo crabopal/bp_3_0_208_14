@@ -2,7 +2,12 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
+	<CommandSet>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Create</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -25,17 +30,15 @@
 		</UsualGroup>
 		<Table name="Список" id="70">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<ChangeRowSet>false</ChangeRowSet>
 			<ChoiceMode>true</ChoiceMode>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -52,7 +55,9 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="71"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="72"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="72">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="73"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="74">
 				<AdditionSource>
@@ -85,85 +90,61 @@
 			<ChildItems>
 				<InputField name="Статус" id="164">
 					<DataPath>Список.Статус</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СтатусКонтекстноеМеню" id="165"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="166"/>
 				</InputField>
 				<InputField name="Идентификатор" id="125">
 					<DataPath>Список.Идентификатор</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИдентификаторКонтекстноеМеню" id="126"/>
 					<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="127"/>
 				</InputField>
 				<InputField name="Товаропроизводитель" id="128">
 					<DataPath>Список.Товаропроизводитель</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТоваропроизводительКонтекстноеМеню" id="129"/>
 					<ExtendedTooltip name="ТоваропроизводительРасширеннаяПодсказка" id="130"/>
 				</InputField>
 				<InputField name="ОКПД2" id="131">
 					<DataPath>Список.ОКПД2</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОКПД2КонтекстноеМеню" id="132"/>
 					<ExtendedTooltip name="ОКПД2РасширеннаяПодсказка" id="133"/>
 				</InputField>
 				<InputField name="Лаборатория" id="137">
 					<DataPath>Список.Лаборатория</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ЛабораторияКонтекстноеМеню" id="138"/>
 					<ExtendedTooltip name="ЛабораторияРасширеннаяПодсказка" id="139"/>
 				</InputField>
 				<InputField name="МестоФормированияПартии" id="134">
 					<DataPath>Список.МестоФормированияПартии</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="МестоФормированияПартииКонтекстноеМеню" id="135"/>
 					<ExtendedTooltip name="МестоФормированияПартииРасширеннаяПодсказка" id="136"/>
 				</InputField>
 				<InputField name="ЦельИспользования" id="146">
 					<DataPath>Список.ЦельИспользования</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ЦельИспользованияКонтекстноеМеню" id="147"/>
 					<ExtendedTooltip name="ЦельИспользованияРасширеннаяПодсказка" id="148"/>
 				</InputField>
 				<InputField name="Количество" id="140">
 					<DataPath>Список.Количество</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КоличествоКонтекстноеМеню" id="141"/>
 					<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="142"/>
 				</InputField>
 				<InputField name="КоличествоНачальное" id="143">
 					<DataPath>Список.КоличествоНачальное</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КоличествоНачальноеКонтекстноеМеню" id="144"/>
 					<ExtendedTooltip name="КоличествоНачальноеРасширеннаяПодсказка" id="145"/>
 				</InputField>
 				<InputField name="МестоОтбораПроб" id="149">
 					<DataPath>Список.МестоОтбораПроб</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="МестоОтбораПробКонтекстноеМеню" id="150"/>
 					<ExtendedTooltip name="МестоОтбораПробРасширеннаяПодсказка" id="151"/>
 				</InputField>
 				<InputField name="ПротоколИсследований" id="152">
 					<DataPath>Список.ПротоколИсследований</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПротоколИсследованийКонтекстноеМеню" id="153"/>
 					<ExtendedTooltip name="ПротоколИсследованийРасширеннаяПодсказка" id="154"/>
 				</InputField>
 				<InputField name="АктОтбораПроб" id="155">
 					<DataPath>Список.АктОтбораПроб</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="АктОтбораПробКонтекстноеМеню" id="156"/>
 					<ExtendedTooltip name="АктОтбораПробРасширеннаяПодсказка" id="157"/>
 				</InputField>
@@ -172,8 +153,6 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="168"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="169"/>
 				</InputField>

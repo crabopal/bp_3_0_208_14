@@ -17,6 +17,7 @@
 	</CommandSet>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ФормаЗаписатьИЗакрыть" id="50">
 				<Type>CommandBarButton</Type>
@@ -25,31 +26,38 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="51"/>
 			</Button>
-			<Button name="ФормаЗаписать" id="62">
+			<ButtonGroup name="КомандыФормы" id="52">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Команды формы</v8:content>
+					</v8:item>
+				</Title>
+				<CommandSource>Form</CommandSource>
+				<Representation>Compact</Representation>
+				<ExtendedTooltip name="КомандыФормыРасширеннаяПодсказка" id="53"/>
+			</ButtonGroup>
+			<Button name="ФормаПроверитьПодключение" id="28">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Write</CommandName>
-				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="63"/>
+				<CommandName>Form.Command.ПроверитьПодключение</CommandName>
+				<ExtendedTooltip name="ФормаПроверитьПодключениеРасширеннаяПодсказка" id="29"/>
 			</Button>
 			<Button name="ФормаРеестрОперацийc2b" id="30">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.РеестрОперацийc2b</CommandName>
-				<ShapeRepresentation>None</ShapeRepresentation>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ФормаРеестрОперацийc2bРасширеннаяПодсказка" id="31"/>
 			</Button>
 			<Button name="ФормаСсылкаПеренаправления" id="46">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.СсылкаПеренаправления</CommandName>
-				<ShapeRepresentation>None</ShapeRepresentation>
 				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ButtonImportance>Supplementary</ButtonImportance>
 				<ExtendedTooltip name="ФормаСсылкаПеренаправленияРасширеннаяПодсказка" id="47"/>
 			</Button>
 			<Button name="ФормаСменитьУчастникаСБП" id="48">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.СменитьУчастникаСБП</CommandName>
-				<ShapeRepresentation>None</ShapeRepresentation>
 				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ButtonImportance>Supplementary</ButtonImportance>
 				<ExtendedTooltip name="ФормаСменитьУчастникаСБПРасширеннаяПодсказка" id="49"/>
 			</Button>
 		</ChildItems>
@@ -72,130 +80,83 @@
 			<ContextMenu name="ИспользуетсяКонтекстноеМеню" id="26"/>
 			<ExtendedTooltip name="ИспользуетсяРасширеннаяПодсказка" id="27"/>
 		</CheckBoxField>
-		<UsualGroup name="ГруппаКолонкиНастройкиОплаты" id="58">
+		<InputField name="Наименование" id="12">
+			<DataPath>Объект.Description</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа колонки настройки оплаты</v8:content>
+					<v8:content>Наименование</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКолонкиНастройкиОплатыРасширеннаяПодсказка" id="59"/>
-			<ChildItems>
-				<InputField name="Наименование" id="12">
-					<DataPath>Объект.Description</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Наименование</v8:content>
-						</v8:item>
-					</Title>
-					<HorizontalStretch>true</HorizontalStretch>
-					<ContextMenu name="НаименованиеКонтекстноеМеню" id="13"/>
-					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="14"/>
-				</InputField>
-			</ChildItems>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="13"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="14"/>
+		</InputField>
+		<UsualGroup name="ГруппаНастройкиПодключения" id="10" DisplayImportance="Usual">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки подключения</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<ControlRepresentation>Button</ControlRepresentation>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="ГруппаНастройкиПодключенияРасширеннаяПодсказка" id="11"/>
 		</UsualGroup>
-		<UsualGroup name="ГруппаКолонки" id="56">
+		<UsualGroup name="ГруппаНастройкиОплаты" id="23" DisplayImportance="Usual">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа колонки</v8:content>
+					<v8:content>Настройки приема оплат</v8:content>
 				</v8:item>
 			</Title>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКолонкиРасширеннаяПодсказка" id="57"/>
+			<Group>Vertical</Group>
+			<ControlRepresentation>Button</ControlRepresentation>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="ГруппаНастройкиОплатыРасширеннаяПодсказка" id="24"/>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДополнительныеНастройки" id="38">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные настройки</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Button</ControlRepresentation>
+			<Representation>WeakSeparation</Representation>
+			<ExtendedTooltip name="ГруппаДополнительныеНастройкиРасширеннаяПодсказка" id="39"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаПараметрыАвторизации" id="60">
-					<Title>
+				<LabelDecoration name="ДекорацияНастройкиШаблонов" id="35">
+					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Настройки подключения</v8:content>
+							<v8:content>Шаблоны назначения: &lt;link open:paymentPurpose&gt;Настроить&lt;/&gt;</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<Representation>None</Representation>
-					<ShowAsCard>true</ShowAsCard>
-					<ExtendedTooltip name="ГруппаПараметрыАвторизацииРасширеннаяПодсказка" id="61"/>
-					<ChildItems>
-						<UsualGroup name="ГруппаНастройкиПодключения" id="10" DisplayImportance="Usual">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Настройки подключения</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
-							<ControlRepresentation>Button</ControlRepresentation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаНастройкиПодключенияРасширеннаяПодсказка" id="11"/>
-						</UsualGroup>
-						<Button name="ФормаПроверитьПодключение" id="28">
-							<Type>UsualButton</Type>
-							<CommandName>Form.Command.ПроверитьПодключение</CommandName>
-							<ExtendedTooltip name="ФормаПроверитьПодключениеРасширеннаяПодсказка" id="29"/>
-						</Button>
-						<UsualGroup name="ГруппаДополнительныеНастройки" id="38">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Дополнительные настройки</v8:content>
-								</v8:item>
-							</Title>
-							<Group>AlwaysHorizontal</Group>
-							<Collapsed>true</Collapsed>
-							<ControlRepresentation>Button</ControlRepresentation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаДополнительныеНастройкиРасширеннаяПодсказка" id="39"/>
-							<ChildItems>
-								<LabelDecoration name="ДекорацияНастройкиШаблонов" id="35">
-									<Title formatted="true">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>&lt;link action&gt;Шаблоны назначения (%1)&lt;/&gt;</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTipRepresentation>ShowLeft</ToolTipRepresentation>
-									<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-									<ContextMenu name="ДекорацияНастройкиШаблоновКонтекстноеМеню" id="36"/>
-									<ExtendedTooltip name="ДекорацияНастройкиШаблоновРасширеннаяПодсказка" id="37"/>
-									<Events>
-										<Event name="URLProcessing">ДекорацияНастройкиШаблоновОбработкаНавигационнойСсылки</Event>
-									</Events>
-								</LabelDecoration>
-								<LabelDecoration name="ДекорацияКассовыеСсылки" id="40">
-									<Title formatted="true">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>&lt;link action&gt;Кассовые QR-коды (%1)&lt;/&gt;</v8:content>
-										</v8:item>
-									</Title>
-									<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-									<ContextMenu name="ДекорацияКассовыеСсылкиКонтекстноеМеню" id="41"/>
-									<ExtendedTooltip name="ДекорацияКассовыеСсылкиРасширеннаяПодсказка" id="42"/>
-									<Events>
-										<Event name="URLProcessing">ДекорацияКассовыеСсылкиОбработкаНавигационнойСсылки</Event>
-									</Events>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаНастройкиОплаты" id="23">
-					<Title>
+					<ToolTipRepresentation>ShowLeft</ToolTipRepresentation>
+					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+					<ContextMenu name="ДекорацияНастройкиШаблоновКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ДекорацияНастройкиШаблоновРасширеннаяПодсказка" id="37"/>
+					<Events>
+						<Event name="URLProcessing">ДекорацияНастройкиШаблоновОбработкаНавигационнойСсылки</Event>
+					</Events>
+				</LabelDecoration>
+				<LabelDecoration name="ДекорацияКассовыеСсылки" id="40">
+					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Настройки приема оплат</v8:content>
+							<v8:content>Кассовые QR-коды: &lt;link open:cashQrc&gt;Настроить&lt;/&gt;</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
-					<ControlRepresentation>Button</ControlRepresentation>
-					<ShowAsCard>true</ShowAsCard>
-					<ExtendedTooltip name="ГруппаНастройкиОплатыРасширеннаяПодсказка" id="24"/>
-				</UsualGroup>
+					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+					<ContextMenu name="ДекорацияКассовыеСсылкиКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ДекорацияКассовыеСсылкиРасширеннаяПодсказка" id="42"/>
+					<Events>
+						<Event name="URLProcessing">ДекорацияКассовыеСсылкиОбработкаНавигационнойСсылки</Event>
+					</Events>
+				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
 		<LabelDecoration name="ДекорацияДополнительнаяИнформация" id="32">
@@ -323,7 +284,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

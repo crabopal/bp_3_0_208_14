@@ -3,9 +3,10 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Параметры доступа в Национальный каталог</v8:content>
+			<v8:content>Ввод параметров доступа в Национальный каталог</v8:content>
 		</v8:item>
 	</Title>
+	<Width>40</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
@@ -16,6 +17,7 @@
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ОК" id="10">
 				<Type>CommandBarButton</Type>
@@ -24,11 +26,28 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="11"/>
 			</Button>
+			<Button name="Отмена" id="20">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отмена</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="21"/>
+			</Button>
 			<Button name="ФормаТестовыйРежим" id="51">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ТестовыйРежим</CommandName>
 				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ФормаТестовыйРежимРасширеннаяПодсказка" id="52"/>
+			</Button>
+			<Button name="Справка" id="49">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="50"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -59,15 +78,15 @@
 					<ExtendedTooltip name="ОсновноеРасширеннаяПодсказка" id="34"/>
 					<ChildItems>
 						<LabelDecoration name="ПараметрыДоступаПояснение" id="28">
-							<Visible>false</Visible>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>50</MaxWidth>
 							<HorizontalStretch>false</HorizontalStretch>
-							<Font ref="style:TextLevel3" kind="StyleItem"/>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Font ref="style:SmallTextFont" kind="StyleItem"/>
 							<Title formatted="true">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>apikey - это идентификатор организации-отправителя данных о номенклатуре в Национальном каталоге. Получить его можно по запросу в техническую поддержку на адрес &lt;link mailto:support@national-catalog.ru&gt;support@national-catalog.ru&lt;/&gt; (клик по гиперссылке скопирует адрес почты в буфер обмена)</v8:content>
+									<v8:content>apikey и party_id - это идентификаторы организации-отправителя данных о номенклатуре в Национальном каталоге. Получить их можно по запросу в техническую поддержку на адрес &lt;link mailto:support@national-catalog.ru&gt;support@national-catalog.ru&lt;/&gt; (клик по гиперссылке скопирует адрес почты в буфер обмена)</v8:content>
 								</v8:item>
 							</Title>
 							<ContextMenu name="ПараметрыДоступаПояснениеКонтекстноеМеню" id="29"/>
@@ -78,7 +97,7 @@
 						</LabelDecoration>
 						<InputField name="apikey" id="25">
 							<DataPath>apikey</DataPath>
-							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
 							<InputHint>
 								<v8:item>
@@ -87,18 +106,25 @@
 								</v8:item>
 							</InputHint>
 							<ContextMenu name="apikeyКонтекстноеМеню" id="26"/>
-							<ExtendedTooltip name="apikeyРасширеннаяПодсказка" id="27">
-								<Title formatted="true">
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>apikey - это идентификатор организации-отправителя данных о номенклатуре в Национальном каталоге. Получить его можно по запросу в техническую поддержку на адрес &lt;link mailto:support@national-catalog.ru&gt;support@national-catalog.ru&lt;/&gt; (клик по гиперссылке скопирует адрес почты в буфер обмена)</v8:content>
-									</v8:item>
-								</Title>
-								<Events>
-									<Event name="URLProcessing">ПараметрыДоступаПояснениеОбработкаНавигационнойСсылки</Event>
-								</Events>
-							</ExtendedTooltip>
+							<ExtendedTooltip name="apikeyРасширеннаяПодсказка" id="27"/>
 						</InputField>
+						<LabelDecoration name="ПолучитьШтрихкодыПояснение" id="43">
+							<Visible>false</Visible>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Font ref="style:SmallTextFont" kind="StyleItem"/>
+							<Title formatted="true">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Установка данного флажка имеет смысл только в том случае, если Ваша организация является членом ГС1 РУС (&lt;link http://www.gs1ru.org/&gt;Ассоциация автоматической идентификации "ЮНИСКАН/ГС1 РУС"&lt;/&gt; - добровольная некоммерческая организация).
+
+Если флажок установлен, то наличие у товара штрихкода не является обязательным условием выгрузки в "Национальный каталог". Для товаров без штрихкодов будут сгенерированы новые. В случае успешного добавления товарной позиции в "Национальный каталог" сгенерированный штрихкод закрепляется за этим товаром и возвращается в вашу информационную базу 1С вместе с подтверждением принятия в Каталог.
+</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПолучитьШтрихкодыПояснениеКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="ПолучитьШтрихкодыПояснениеРасширеннаяПодсказка" id="45"/>
+						</LabelDecoration>
 					</ChildItems>
 				</Page>
 				<Page name="Буфер" id="35">
@@ -124,7 +150,7 @@
 			</ChildItems>
 		</Pages>
 		<LabelDecoration name="ДекорацияТестовыйРежим" id="53">
-			<TextColor>pal:Red</TextColor>
+			<TextColor>style:ПоясняющийОшибкуТекст</TextColor>
 			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -214,7 +240,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -224,7 +250,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОК</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ТестовыйРежим" id="2">
 			<Title>

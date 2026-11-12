@@ -2,9 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<CommandSet>
-		<ExcludedCommand>Create</ExcludedCommand>
-	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
@@ -17,7 +14,6 @@
 			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<Width>120</Width>
 			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -29,7 +25,6 @@
 				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>false</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -75,6 +70,11 @@
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
 			</SearchControlAddition>
 			<ChildItems>
+				<LabelField name="ДокументОснование" id="46">
+					<DataPath>Список.ДокументОснование</DataPath>
+					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="48"/>
+				</LabelField>
 				<LabelField name="Дата" id="16">
 					<DataPath>Список.Дата</DataPath>
 					<DefaultItem>true</DefaultItem>
@@ -85,58 +85,34 @@
 				<LabelField name="ТипДокумента" id="40">
 					<DataPath>Список.ТипДокумента</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Тип</v8:content>
-						</v8:item>
-					</Title>
 					<Width>25</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="ТипДокументаКонтекстноеМеню" id="41"/>
 					<ExtendedTooltip name="ТипДокументаРасширеннаяПодсказка" id="42"/>
 				</LabelField>
+				<LabelField name="ТипРасчета" id="25">
+					<DataPath>Список.ТипРасчета</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ReadOnly>true</ReadOnly>
+					<Width>35</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ТипРасчетаКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ТипРасчетаРасширеннаяПодсказка" id="27"/>
+				</LabelField>
 				<LabelField name="НомерЧекаККМ" id="28">
 					<DataPath>Список.НомерЧекаККМ</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<ReadOnly>true</ReadOnly>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Чек</v8:content>
-						</v8:item>
-					</Title>
 					<Width>10</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>10</MaxWidth>
 					<ContextMenu name="НомерЧекаККМКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="НомерЧекаККМРасширеннаяПодсказка" id="30"/>
 				</LabelField>
-				<LabelField name="ТипРасчета" id="25">
-					<DataPath>Список.ТипРасчета</DataPath>
-					<DefaultItem>true</DefaultItem>
-					<ReadOnly>true</ReadOnly>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Расчет</v8:content>
-						</v8:item>
-					</Title>
-					<Width>35</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<ContextMenu name="ТипРасчетаКонтекстноеМеню" id="26"/>
-					<ExtendedTooltip name="ТипРасчетаРасширеннаяПодсказка" id="27"/>
-				</LabelField>
 				<LabelField name="НомерСменыККМ" id="31">
 					<DataPath>Список.НомерСменыККМ</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<ReadOnly>true</ReadOnly>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Смена</v8:content>
-						</v8:item>
-					</Title>
 					<Width>10</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>10</MaxWidth>
@@ -159,17 +135,11 @@
 					<ContextMenu name="ФискальныйПризнакКонтекстноеМеню" id="38"/>
 					<ExtendedTooltip name="ФискальныйПризнакРасширеннаяПодсказка" id="39"/>
 				</LabelField>
-				<LabelField name="ДокументОснование" id="46">
-					<DataPath>Список.ДокументОснование</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Основание</v8:content>
-						</v8:item>
-					</Title>
-					<Width>30</Width>
-					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="47"/>
-					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="48"/>
+				<LabelField name="ДополнительныйРеквизит" id="43">
+					<DataPath>Список.ДополнительныйРеквизит</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ДополнительныйРеквизитКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ДополнительныйРеквизитРасширеннаяПодсказка" id="45"/>
 				</LabelField>
 			</ChildItems>
 		</Table>

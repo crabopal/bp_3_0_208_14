@@ -9,7 +9,6 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<VerticalSpacing>Half</VerticalSpacing>
 	<AutoFillCheck>false</AutoFillCheck>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoTime>CurrentOrLast</AutoTime>
@@ -17,43 +16,6 @@
 	<RepostOnWrite>true</RepostOnWrite>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Отправить" id="108">
-				<Type>CommandBarButton</Type>
-				<Representation>Text</Representation>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Отправить</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОтправитьExtendedTooltip" id="123"/>
-			</Button>
-			<Button name="Записать" id="188">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Write</CommandName>
-				<ExtendedTooltip name="ЗаписатьРасширеннаяПодсказка" id="189"/>
-			</Button>
-			<Button name="Скопировать" id="190">
-				<Type>CommandBarButton</Type>
-				<Representation>Picture</Representation>
-				<CommandName>Form.StandardCommand.Copy</CommandName>
-				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="СкопироватьРасширеннаяПодсказка" id="191"/>
-			</Button>
-			<Button name="Выгрузить" id="103">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Выгрузить</CommandName>
-				<ExtendedTooltip name="ВыгрузитьРасширеннаяПодсказка" id="126"/>
-			</Button>
-			<Button name="Печать" id="12271">
-				<Type>CommandBarButton</Type>
-				<Representation>Picture</Representation>
-				<CommandName>Form.Command.Печать</CommandName>
-				<Picture>
-					<xr:Ref>StdPicture.Print</xr:Ref>
-					<xr:LoadTransparent>true</xr:LoadTransparent>
-				</Picture>
-				<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="12272"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="AfterWrite">ПослеЗаписи</Event>
@@ -64,6 +26,41 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<CommandBar name="КоманднаяПанель" id="167">
+			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="168"/>
+			<ChildItems>
+				<Button name="Отправить" id="108">
+					<Type>CommandBarButton</Type>
+					<Representation>Text</Representation>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Отправить</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ОтправитьExtendedTooltip" id="123"/>
+				</Button>
+				<Button name="Записать" id="188">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Write</CommandName>
+					<ExtendedTooltip name="ЗаписатьРасширеннаяПодсказка" id="189"/>
+				</Button>
+				<Button name="Скопировать" id="190">
+					<Type>CommandBarButton</Type>
+					<Representation>PictureAndText</Representation>
+					<CommandName>Form.StandardCommand.Copy</CommandName>
+					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="СкопироватьРасширеннаяПодсказка" id="191"/>
+				</Button>
+				<Button name="Выгрузить" id="103">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Выгрузить</CommandName>
+					<ExtendedTooltip name="ВыгрузитьРасширеннаяПодсказка" id="126"/>
+				</Button>
+				<Button name="Печать" id="12271">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Печать</CommandName>
+					<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="12272"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 		<UsualGroup name="ГруппаПанельОтправки" id="12112">
 			<EnableContentChange>true</EnableContentChange>
 			<HorizontalStretch>true</HorizontalStretch>
@@ -115,7 +112,8 @@
 							<ExtendedTooltip name="СостояниеОтправкиРасширеннаяПодсказка" id="12189"/>
 							<ChildItems>
 								<LabelDecoration name="НаименованиеЭтапа" id="12242">
-									<Font ref="style:TitleLevel3" kind="StyleItem"/>
+									<TextColor>style:FormTextColor</TextColor>
+									<Font ref="style:NormalTextFont" height="11" kind="StyleItem"/>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -220,7 +218,7 @@
 									<Height>1</Height>
 									<Picture>
 										<xr:Ref>CommonPicture.ПризнакНаличияКритическойОшибки</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="ЗначокКритическойОшибкиКонтекстноеМеню" id="12240"/>
@@ -289,7 +287,7 @@
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаШапка" id="169">
-			<Group>AlwaysHorizontal</Group>
+			<Group>Vertical</Group>
 			<VerticalSpacing>Half</VerticalSpacing>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
@@ -298,11 +296,9 @@
 			<ChildItems>
 				<InputField name="Организация" id="5">
 					<DataPath>Объект.Организация</DataPath>
-					<TitleLocation>Left</TitleLocation>
-					<TitleHeight>1</TitleHeight>
 					<EditMode>EnterOnInput</EditMode>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<AutoEditMode>true</AutoEditMode>
-					<Width>10</Width>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<TextEdit>false</TextEdit>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="6"/>
@@ -313,11 +309,18 @@
 				</InputField>
 				<InputField name="Получатель" id="7">
 					<DataPath>Объект.Получатель</DataPath>
-					<TitleLocation>Left</TitleLocation>
 					<EditMode>EnterOnInput</EditMode>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<AutoEditMode>true</AutoEditMode>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<TextEdit>false</TextEdit>
+					<ChoiceParameterLinks>
+						<xr:Link>
+							<xr:Name>Отбор.Владелец</xr:Name>
+							<xr:DataPath xsi:type="xs:string">1/0:d9eb8e77-e94e-422d-af21-85b1605dade4</xr:DataPath>
+							<xr:ValueChange>Clear</xr:ValueChange>
+						</xr:Link>
+					</ChoiceParameterLinks>
 					<ChoiceListButton>false</ChoiceListButton>
 					<ContextMenu name="ПолучательКонтекстноеМеню" id="8"/>
 					<ExtendedTooltip name="ПолучательExtendedTooltip" id="150"/>
@@ -328,7 +331,6 @@
 				</InputField>
 				<InputField name="НаДату" id="183">
 					<DataPath>Объект.НаДату</DataPath>
-					<Visible>false</Visible>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -341,6 +343,12 @@
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаЗастрахованныеЛица" id="39">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сотрудники, по которым проводится сверка</v8:content>
+				</v8:item>
+			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -434,7 +442,6 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="ЗастрахованныеЛицаНомерСтрокиКонтекстноеМеню" id="111"/>
 							<ExtendedTooltip name="ЗастрахованныеЛицаНомерСтрокиExtendedTooltip" id="162"/>
 						</LabelField>
@@ -448,7 +455,6 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>None</AutoWidthInTable>
 							<Width>28</Width>
 							<ContextMenu name="ЗастрахованныеЛицаФамилияКонтекстноеМеню" id="113"/>
 							<ExtendedTooltip name="ЗастрахованныеЛицаФамилияExtendedTooltip" id="163"/>
@@ -463,7 +469,6 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>None</AutoWidthInTable>
 							<Width>28</Width>
 							<ContextMenu name="ЗастрахованныеЛицаИмяКонтекстноеМеню" id="115"/>
 							<ExtendedTooltip name="ЗастрахованныеЛицаИмяExtendedTooltip" id="164"/>
@@ -478,7 +483,6 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>None</AutoWidthInTable>
 							<Width>28</Width>
 							<ContextMenu name="ЗастрахованныеЛицаОтчествоКонтекстноеМеню" id="117"/>
 							<ExtendedTooltip name="ЗастрахованныеЛицаОтчествоExtendedTooltip" id="165"/>
@@ -493,7 +497,6 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>None</AutoWidthInTable>
 							<Mask>999-999-999 99</Mask>
 							<ContextMenu name="ЗастрахованныеЛицаСтраховойНомерКонтекстноеМеню" id="119"/>
 							<ExtendedTooltip name="ЗастрахованныеЛицаСтраховойНомерExtendedTooltip" id="166"/>
@@ -509,7 +512,6 @@
 		</LabelDecoration>
 		<InputField name="Комментарий" id="12276">
 			<DataPath>Объект.Комментарий</DataPath>
-			<TitleLocation>Left</TitleLocation>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<InputHint>
 				<v8:item>
@@ -593,7 +595,6 @@
 			<Action>Выгрузить</Action>
 			<Representation>Text</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отправить" id="3">
 			<Title>
@@ -615,7 +616,6 @@
 			<Action>Отправить</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Заполнить" id="7">
 			<Title>
@@ -650,4 +650,45 @@
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>3:4664988c-e107-46d5-9815-ff4c01235e9c</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:d2b2b286-3464-4e99-98ce-b6d18290bca1</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<Index>1</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:3953cc60-6482-471c-9699-41c70c93335d</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<Index>2</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
 </Form>

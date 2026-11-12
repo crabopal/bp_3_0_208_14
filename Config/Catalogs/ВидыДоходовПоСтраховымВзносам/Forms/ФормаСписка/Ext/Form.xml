@@ -11,14 +11,7 @@
 		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаВосстановитьНачальныеЗначения" id="28">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ВосстановитьНачальныеЗначения</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаВосстановитьНачальныеЗначенияРасширеннаяПодсказка" id="29"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -49,8 +42,27 @@
 			<Representation>None</Representation>
 			<ExtendedTooltip name="СписокНастройкиОтбораРасширеннаяПодсказка" id="41"/>
 		</UsualGroup>
+		<CommandBar name="КоманднаяПанель" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="31"/>
+			<ChildItems>
+				<Button name="ФормаВосстановитьНачальныеЗначения" id="28">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.ВосстановитьНачальныеЗначения</CommandName>
+					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="ФормаВосстановитьНачальныеЗначенияРасширеннаяПодсказка" id="29"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -70,7 +82,6 @@
 				<ExcludedCommand>Delete</ExcludedCommand>
 				<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -87,8 +98,10 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="14"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="14"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="19">
 				<AdditionSource>
 					<Item>Список</Item>
@@ -125,7 +138,7 @@
 					<DefaultItem>true</DefaultItem>
 					<Height>2</Height>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="15"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="15"/>
 				</LabelField>
 				<CheckBoxField name="ВходитВБазу2023" id="52">
 					<DataPath>Список.ВходитВБазу2023</DataPath>
@@ -135,7 +148,6 @@
 							<v8:content>Облагается взносами с 2023 г.</v8:content>
 						</v8:item>
 					</Title>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ВходитВБазу2023КонтекстноеМеню" id="53"/>
 					<ExtendedTooltip name="ВходитВБазу2023РасширеннаяПодсказка" id="54"/>
 				</CheckBoxField>
@@ -147,7 +159,6 @@
 							<v8:content>на НС и ПЗ</v8:content>
 						</v8:item>
 					</Title>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ВходитВБазуФСС_НСКонтекстноеМеню" id="47"/>
 					<ExtendedTooltip name="ВходитВБазуФСС_НСРасширеннаяПодсказка" id="48"/>
 				</CheckBoxField>
@@ -159,9 +170,8 @@
 							<v8:content>ОПС</v8:content>
 						</v8:item>
 					</Title>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ВходитВБазуПФРКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="ВходитВБазуПФРРасширеннаяПодсказка" id="16"/>
+					<ExtendedTooltip name="ВходитВБазуПФРExtendedTooltip" id="16"/>
 				</CheckBoxField>
 				<CheckBoxField name="ВходитВБазуФСС" id="12">
 					<DataPath>Список.ВходитВБазуФСС</DataPath>
@@ -171,9 +181,8 @@
 							<v8:content>ОСС</v8:content>
 						</v8:item>
 					</Title>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ВходитВБазуФССКонтекстноеМеню" id="13"/>
-					<ExtendedTooltip name="ВходитВБазуФССРасширеннаяПодсказка" id="17"/>
+					<ExtendedTooltip name="ВходитВБазуФССExtendedTooltip" id="17"/>
 				</CheckBoxField>
 				<CheckBoxField name="ВходитВБазуФОМС" id="10">
 					<DataPath>Список.ВходитВБазуФОМС</DataPath>
@@ -183,9 +192,8 @@
 							<v8:content>ОМС</v8:content>
 						</v8:item>
 					</Title>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ВходитВБазуФОМСКонтекстноеМеню" id="11"/>
-					<ExtendedTooltip name="ВходитВБазуФОМСРасширеннаяПодсказка" id="18"/>
+					<ExtendedTooltip name="ВходитВБазуФОМСExtendedTooltip" id="18"/>
 				</CheckBoxField>
 				<LabelField name="Ссылка" id="49">
 					<DataPath>Список.Ref</DataPath>

@@ -3,15 +3,38 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
+	<CommandSet>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>CancelSearch</ExcludedCommand>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>Choose</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Create</ExcludedCommand>
+		<ExcludedCommand>CreateFolder</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>Find</ExcludedCommand>
+		<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+		<ExcludedCommand>HierarchicalList</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>LevelDown</ExcludedCommand>
+		<ExcludedCommand>LevelUp</ExcludedCommand>
+		<ExcludedCommand>List</ExcludedCommand>
+		<ExcludedCommand>ListSettings</ExcludedCommand>
+		<ExcludedCommand>MoveItem</ExcludedCommand>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>OutputList</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+		<ExcludedCommand>Tree</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаСоздать" id="116">
-				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
-				<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
-				<ExtendedTooltip name="ФормаСоздатьРасширеннаяПодсказка" id="117"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -33,6 +56,7 @@
 				<InputField name="Отбор" id="28">
 					<DataPath>Отбор</DataPath>
 					<TitleLocation>Left</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<DropListButton>true</DropListButton>
 					<ChoiceButtonRepresentation>ShowInDropList</ChoiceButtonRepresentation>
 					<ClearButton>true</ClearButton>
@@ -67,8 +91,8 @@
 						</v8:item>
 					</Title>
 					<Picture>
-						<xr:Ref>StdPicture.Information</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
+						<xr:Ref>CommonPicture.УдалитьИнформация</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
 					</Picture>
 					<FileDragMode>AsFile</FileDragMode>
 					<ContextMenu name="КартинкаКонтекстноеМеню" id="41"/>
@@ -144,13 +168,10 @@
 			<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="71"/>
 		</UsualGroup>
 		<Table name="Список" id="1">
-			<CommandBarLocation>None</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
 			<DefaultItem>true</DefaultItem>
-			<AutoMaxWidth>false</AutoMaxWidth>
 			<ChoiceMode>true</ChoiceMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
-			<VerticalScrollBar>DontUse</VerticalScrollBar>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
@@ -160,8 +181,11 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
-			<HierarchyPanelLocation>None</HierarchyPanelLocation>
-			<ShowCommandBar>false</ShowCommandBar>
+			<CommandSet>
+				<ExcludedCommand>DynamicListStandardSettings</ExcludedCommand>
+				<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
+				<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
+			</CommandSet>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -178,7 +202,53 @@
 			<UserSettingsGroup>ГруппаПользовательскихНастроек</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="СписокВыбрать" id="72">
+						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.Item.Список.StandardCommand.Choose</CommandName>
+						<ButtonImportance>Main</ButtonImportance>
+						<ExtendedTooltip name="СписокВыбратьРасширеннаяПодсказка" id="73"/>
+					</Button>
+					<ButtonGroup name="СписокГруппаКоманд" id="74">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Список группа команд</v8:content>
+							</v8:item>
+						</Title>
+						<CommandSource>Item.Список</CommandSource>
+						<ExtendedTooltip name="СписокГруппаКомандРасширеннаяПодсказка" id="75"/>
+					</ButtonGroup>
+					<ButtonGroup name="ГруппаГлобальныеКоманды" id="26">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<CommandSource>FormCommandPanelGlobalCommands</CommandSource>
+						<ExtendedTooltip name="ГруппаГлобальныеКомандыРасширеннаяПодсказка" id="46"/>
+					</ButtonGroup>
+					<ButtonGroup name="ГруппаКомандыФормы" id="25">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<CommandSource>Form</CommandSource>
+						<ExtendedTooltip name="ГруппаКомандыФормыРасширеннаяПодсказка" id="47"/>
+					</ButtonGroup>
+					<Button name="СписокСправка" id="58">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<ExtendedTooltip name="СписокСправкаРасширеннаяПодсказка" id="59"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="48"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="60">
 				<AdditionSource>

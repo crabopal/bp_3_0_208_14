@@ -2,17 +2,8 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаГотово" id="20">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Готово</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаГотовоРасширеннаяПодсказка" id="21"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -20,7 +11,6 @@
 	<ChildItems>
 		<Table name="Таблица" id="1">
 			<Representation>List</Representation>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<DataPath>Таблица</DataPath>
@@ -28,6 +18,13 @@
 			<ContextMenu name="ТаблицаКонтекстноеМеню" id="3"/>
 			<AutoCommandBar name="ТаблицаКоманднаяПанель" id="2">
 				<ChildItems>
+					<Button name="ФормаГотово" id="20">
+						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.Command.Готово</CommandName>
+						<ButtonImportance>Main</ButtonImportance>
+						<ExtendedTooltip name="ФормаГотовоРасширеннаяПодсказка" id="21"/>
+					</Button>
 					<Button name="ТаблицаДобавить" id="28">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Item.Таблица.StandardCommand.Add</CommandName>
@@ -43,16 +40,21 @@
 						<CommandName>Form.Item.Таблица.StandardCommand.MoveDown</CommandName>
 						<ExtendedTooltip name="ТаблицаПереместитьВнизРасширеннаяПодсказка" id="33"/>
 					</Button>
-					<Button name="ТаблицаИзменитьФорму" id="38">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ExtendedTooltip name="ТаблицаИзменитьФормуРасширеннаяПодсказка" id="39"/>
-					</Button>
-					<Button name="ТаблицаСправка" id="36">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="ТаблицаСправкаРасширеннаяПодсказка" id="37"/>
-					</Button>
+					<ButtonGroup name="КомандыФормы" id="34">
+						<ExtendedTooltip name="КомандыФормыРасширеннаяПодсказка" id="35"/>
+						<ChildItems>
+							<Button name="ТаблицаИзменитьФорму" id="38">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+								<ExtendedTooltip name="ТаблицаИзменитьФормуРасширеннаяПодсказка" id="39"/>
+							</Button>
+							<Button name="ТаблицаСправка" id="36">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.StandardCommand.Help</CommandName>
+								<ExtendedTooltip name="ТаблицаСправкаРасширеннаяПодсказка" id="37"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
 				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ТаблицаРасширеннаяПодсказка" id="4"/>
@@ -83,8 +85,6 @@
 			<ChildItems>
 				<InputField name="ТаблицаОрганизацияКонтрагентСтрокой" id="22">
 					<DataPath>Таблица.ОрганизацияКонтрагентСтрокой</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<DropListButton>true</DropListButton>
 					<ContextMenu name="ТаблицаОрганизацияКонтрагентСтрокойКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ТаблицаОрганизацияКонтрагентСтрокойРасширеннаяПодсказка" id="24"/>
@@ -97,8 +97,6 @@
 				</InputField>
 				<InputField name="ТаблицаСкладКонтрагентСтрокой" id="25">
 					<DataPath>Таблица.СкладКонтрагентСтрокой</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<DropListButton>true</DropListButton>
 					<ContextMenu name="ТаблицаСкладКонтрагентСтрокойКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ТаблицаСкладКонтрагентСтрокойРасширеннаяПодсказка" id="27"/>
@@ -188,7 +186,6 @@
 				</v8:item>
 			</Title>
 			<Action>Готово</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

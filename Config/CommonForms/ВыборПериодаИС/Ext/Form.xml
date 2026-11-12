@@ -10,6 +10,7 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
+	<CommandBarLocation>None</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
@@ -24,7 +25,7 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
+	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -38,26 +39,34 @@
 					<v8:content>Верхняя</v8:content>
 				</v8:item>
 			</Title>
-			<HorizontalStretch>false</HorizontalStretch>
-			<GroupHorizontalAlign>Center</GroupHorizontalAlign>
 			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаВерхняяРасширеннаяПодсказка" id="54"/>
 			<ChildItems>
-				<Button name="КомандаПролистатьГодВМинус" id="6">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.КомандаПролистатьГодВМинус</CommandName>
-					<ExtendedTooltip name="КомандаПролистатьГодВМинусРасширеннаяПодсказка" id="56"/>
-				</Button>
+				<CommandBar name="ГруппаКоманднаяПанельВерхняяЛевая" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель верхняя левая</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalLocation>Right</HorizontalLocation>
+					<ExtendedTooltip name="ГруппаКоманднаяПанельВерхняяЛеваяРасширеннаяПодсказка" id="55"/>
+					<ChildItems>
+						<Button name="КомандаПролистатьГодВМинус" id="6">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.КомандаПролистатьГодВМинус</CommandName>
+							<ExtendedTooltip name="КомандаПролистатьГодВМинусРасширеннаяПодсказка" id="56"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
 				<InputField name="ВыбираемыйПериод" id="50">
 					<DataPath>ВыбираемыйПериод</DataPath>
 					<TitleLocation>None</TitleLocation>
 					<HorizontalAlign>Center</HorizontalAlign>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<Width>6</Width>
+					<Width>4</Width>
 					<ChoiceButton>false</ChoiceButton>
 					<EditFormat>
 						<v8:item>
@@ -71,11 +80,22 @@
 						<Event name="OnChange">ВыбираемыйПериодПриИзменении</Event>
 					</Events>
 				</InputField>
-				<Button name="КомандаПролистатьГодВПлюс" id="7">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.КомандаПролистатьГодВПлюс</CommandName>
-					<ExtendedTooltip name="КомандаПролистатьГодВПлюсРасширеннаяПодсказка" id="59"/>
-				</Button>
+				<CommandBar name="ГруппаКоманднаяПанельВерхняяПравая" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель верхняя правая</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаКоманднаяПанельВерхняяПраваяРасширеннаяПодсказка" id="58"/>
+					<ChildItems>
+						<Button name="КомандаПролистатьГодВПлюс" id="7">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.КомандаПролистатьГодВПлюс</CommandName>
+							<ExtendedTooltip name="КомандаПролистатьГодВПлюсРасширеннаяПодсказка" id="59"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаМесяцы" id="10">
@@ -338,8 +358,6 @@
 					<DataPath>ПериодСтрокой</DataPath>
 					<TitleLocation>None</TitleLocation>
 					<HorizontalAlign>Center</HorizontalAlign>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>15</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
@@ -353,15 +371,12 @@
 							<v8:content>Отмена</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>false</HorizontalStretch>
-					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 					<HorizontalLocation>Right</HorizontalLocation>
 					<ExtendedTooltip name="ГруппаОтменаРасширеннаяПодсказка" id="88"/>
 					<ChildItems>
 						<Button name="КомандаВыбрать" id="30">
 							<Type>CommandBarButton</Type>
 							<DefaultButton>true</DefaultButton>
-							<HorizontalStretch>true</HorizontalStretch>
 							<CommandName>Form.Command.КомандаВыбрать</CommandName>
 							<ButtonImportance>Main</ButtonImportance>
 							<ExtendedTooltip name="КомандаВыбратьРасширеннаяПодсказка" id="87"/>
@@ -647,7 +662,6 @@
 			</Title>
 			<Action>КомандаВыбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КомандаОтмена" id="16">
 			<Title>

@@ -109,6 +109,7 @@
 													<DataPath>КоличествоУпаковок</DataPath>
 													<ReadOnly>true</ReadOnly>
 													<TitleLocation>None</TitleLocation>
+													<HorizontalAlign>Right</HorizontalAlign>
 													<ContextMenu name="КоличествоУпаковокКонтекстноеМеню" id="84"/>
 													<ExtendedTooltip name="КоличествоУпаковокРасширеннаяПодсказка" id="85"/>
 												</InputField>
@@ -161,6 +162,7 @@
 										<InputField name="НаименованиеБазовойЕдиницыИзмерения" id="40">
 											<DataPath>НаименованиеБазовойЕдиницыИзмерения</DataPath>
 											<TitleLocation>None</TitleLocation>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<MaxWidth>30</MaxWidth>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -278,6 +280,7 @@
 											<DataPath>КоличествоБазовойЕдиницыИзмерения</DataPath>
 											<ReadOnly>true</ReadOnly>
 											<TitleLocation>None</TitleLocation>
+											<HorizontalAlign>Right</HorizontalAlign>
 											<ContextMenu name="КоличествоБазовойЕдиницыИзмеренияРазупаковкиКонтекстноеМеню" id="110"/>
 											<ExtendedTooltip name="КоличествоБазовойЕдиницыИзмеренияРазупаковкиРасширеннаяПодсказка" id="111"/>
 										</InputField>
@@ -330,12 +333,23 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКнопокРасширеннаяПодсказка" id="52"/>
 			<ChildItems>
-				<Button name="Сохранить" id="49">
+				<Button name="СохранитьИзменения" id="49">
 					<Type>UsualButton</Type>
 					<DefaultButton>true</DefaultButton>
-					<CommandName>Form.Command.Сохранить</CommandName>
+					<CommandName>Form.Command.СохранитьИзменения</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ОК</v8:content>
+						</v8:item>
+					</Title>
 					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="СохранитьРасширеннаяПодсказка" id="50"/>
+					<ExtendedTooltip name="СохранитьИзмененияРасширеннаяПодсказка" id="50"/>
+				</Button>
+				<Button name="Отмена" id="53">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Отмена</CommandName>
+					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="54"/>
 				</Button>
 			</ChildItems>
 		</UsualGroup>
@@ -439,20 +453,35 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Сохранить" id="1">
+		<Command name="СохранитьИзменения" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить</v8:content>
+					<v8:content>Сохранить изменения</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить</v8:content>
+					<v8:content>Сохранить изменения</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>СохранитьИзменения</Action>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
 		</Command>
 	</Commands>
 </Form>

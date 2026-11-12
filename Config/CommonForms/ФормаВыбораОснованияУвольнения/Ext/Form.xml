@@ -3,13 +3,17 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Основания увольнения</v8:content>
+			<v8:content>Основания увольнений</v8:content>
 		</v8:item>
 	</Title>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
+	<CommandBarLocation>None</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ShowCommandBar>false</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -43,7 +47,9 @@
 		</UsualGroup>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
+			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
+			<Width>59</Width>
 			<ChoiceMode>true</ChoiceMode>
 			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
@@ -53,7 +59,7 @@
 			<RowPictureDataPath>Список.Картинка</RowPictureDataPath>
 			<RowsPicture>
 				<xr:Ref>CommonPicture.ПиктограммыЭлементов</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</RowsPicture>
 			<Title>
 				<v8:item>
@@ -61,7 +67,6 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -78,43 +83,47 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2">
+				<Autofill>false</Autofill>
 				<ChildItems>
-					<Button name="СписокСкопировать" id="41">
+					<Button name="СписокКонтекстноеМенюВыбрать" id="55">
 						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Скопировать</CommandName>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="СписокСкопироватьРасширеннаяПодсказка" id="42"/>
+						<CommandName>Form.StandardCommand.Choose</CommandName>
+						<ExtendedTooltip name="СписокКонтекстноеМенюВыбратьРасширеннаяПодсказка" id="56"/>
 					</Button>
-					<Button name="СписокИзменить" id="43">
+					<Button name="СписокКонтекстноеМенюИзменить" id="57">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.Изменить</CommandName>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="СписокИзменитьРасширеннаяПодсказка" id="44"/>
+						<ExtendedTooltip name="СписокКонтекстноеМенюИзменитьРасширеннаяПодсказка" id="58"/>
 					</Button>
-					<Button name="СписокПометитьНаУдаление" id="45">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ПометитьНаУдаление</CommandName>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="СписокПометитьНаУдалениеРасширеннаяПодсказка" id="46"/>
-					</Button>
+					<ButtonGroup name="СписокКонтекстноеМенюКомандыГруппа" id="59">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Список контекстное меню команды (группа)</v8:content>
+							</v8:item>
+						</Title>
+						<CommandSource>Item.Список</CommandSource>
+						<ExtendedTooltip name="СписокКонтекстноеМенюКомандыГруппаРасширеннаяПодсказка" id="60"/>
+					</ButtonGroup>
 				</ChildItems>
 			</ContextMenu>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
 				<ChildItems>
-					<ButtonGroup name="КомандыСписка" id="79">
+					<Button name="Выбрать" id="49">
+						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.Item.Список.StandardCommand.Choose</CommandName>
+						<ButtonImportance>Main</ButtonImportance>
+						<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="50"/>
+					</Button>
+					<ButtonGroup name="ОсновныеКомандыГруппа" id="53">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Команды списка</v8:content>
+								<v8:content>Основные команды (группа)</v8:content>
 							</v8:item>
 						</Title>
-						<ToolTip>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Команды списка</v8:content>
-							</v8:item>
-						</ToolTip>
-						<ExtendedTooltip name="КомандыСпискаРасширеннаяПодсказка" id="80"/>
+						<ExtendedTooltip name="ОсновныеКомандыГруппаРасширеннаяПодсказка" id="54"/>
 						<ChildItems>
 							<Button name="СписокСоздать" id="39">
 								<Type>CommandBarButton</Type>
@@ -122,80 +131,118 @@
 								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 								<ExtendedTooltip name="СписокСоздатьРасширеннаяПодсказка" id="40"/>
 							</Button>
-							<ButtonGroup name="НастройкиСпискаГруппа" id="61">
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Настройки списка</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="НастройкиСпискаГруппаРасширеннаяПодсказка" id="62"/>
-								<ChildItems>
-									<Button name="ФормаПоказатьНеИспользуемые" id="63">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ПоказатьНеИспользуемые</CommandName>
-										<RepresentationInContextMenu>None</RepresentationInContextMenu>
-										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-										<ExtendedTooltip name="ФормаПоказатьНеИспользуемыеРасширеннаяПодсказка" id="64"/>
-									</Button>
-									<Button name="ФормаТолькоДействующие" id="65">
-										<Type>CommandBarButton</Type>
-										<Check>true</Check>
-										<CommandName>Form.Command.ТолькоДействующие</CommandName>
-										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-										<ExtendedTooltip name="ФормаТолькоДействующиеРасширеннаяПодсказка" id="66"/>
-									</Button>
-								</ChildItems>
-							</ButtonGroup>
+							<Button name="СписокСкопировать" id="41">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Скопировать</CommandName>
+								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="СписокСкопироватьРасширеннаяПодсказка" id="42"/>
+							</Button>
+							<Button name="СписокИзменить" id="43">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Изменить</CommandName>
+								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="СписокИзменитьРасширеннаяПодсказка" id="44"/>
+							</Button>
+							<Button name="СписокПометитьНаУдаление" id="45">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПометитьНаУдаление</CommandName>
+								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="СписокПометитьНаУдалениеРасширеннаяПодсказка" id="46"/>
+							</Button>
 						</ChildItems>
 					</ButtonGroup>
+					<ButtonGroup name="СписокОтдельнаяНастройкаСпискаГруппа" id="61">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отдельная настройка списка группа</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="СписокОтдельнаяНастройкаСпискаГруппаРасширеннаяПодсказка" id="62"/>
+						<ChildItems>
+							<Button name="ФормаПоказатьНеИспользуемые" id="63">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПоказатьНеИспользуемые</CommandName>
+								<RepresentationInContextMenu>None</RepresentationInContextMenu>
+								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="ФормаПоказатьНеИспользуемыеРасширеннаяПодсказка" id="64"/>
+							</Button>
+							<Button name="ФормаТолькоДействующие" id="65">
+								<Type>CommandBarButton</Type>
+								<Check>true</Check>
+								<CommandName>Form.Command.ТолькоДействующие</CommandName>
+								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="ФормаТолькоДействующиеРасширеннаяПодсказка" id="66"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+					<Button name="СписокИзменитьФорму" id="67">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+						<ExtendedTooltip name="СписокИзменитьФормуРасширеннаяПодсказка" id="68"/>
+					</Button>
+					<Button name="Справка" id="51">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="52"/>
+					</Button>
 				</ChildItems>
 			</AutoCommandBar>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="8"/>
-			<SearchStringAddition name="СписокСтрокаПоиска" id="11">
+			<ExtendedTooltip name="СписокExtendedTooltip" id="8"/>
+			<SearchStringAddition name="СписокSearchString" id="11">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchStringRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="12"/>
-				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="13"/>
+				<ContextMenu name="СписокSearchStringContextMenu" id="12"/>
+				<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="13"/>
 			</SearchStringAddition>
-			<ViewStatusAddition name="СписокСостояниеПросмотра" id="14">
+			<ViewStatusAddition name="СписокViewStatus" id="14">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>ViewStatusRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="15"/>
-				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
+				<ContextMenu name="СписокViewStatusContextMenu" id="15"/>
+				<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="16"/>
 			</ViewStatusAddition>
-			<SearchControlAddition name="СписокУправлениеПоиском" id="17">
+			<SearchControlAddition name="СписокSearchControl" id="17">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchControl</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="18"/>
-				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="19"/>
+				<ContextMenu name="СписокSearchControlContextMenu" id="18"/>
+				<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="19"/>
 			</SearchControlAddition>
-			<Events>
-				<Event name="Selection">СписокВыбор</Event>
-			</Events>
 			<ChildItems>
-				<ColumnGroup name="ПредставлениеГруппа" id="82">
+				<ColumnGroup name="ПредставлениеГруппа" id="34">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Представление группа</v8:content>
+							<v8:content>Основание увольнения</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Представление группа</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>Horizontal</Group>
-					<ExtendedTooltip name="ПредставлениеГруппаРасширеннаяПодсказка" id="83"/>
+					<Group>InCell</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ПредставлениеГруппаРасширеннаяПодсказка" id="35"/>
 					<ChildItems>
+						<PictureField name="Картинка" id="36">
+							<DataPath>Список.Картинка</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>None</TitleLocation>
+							<ShowInHeader>false</ShowInHeader>
+							<ShowInFooter>false</ShowInFooter>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.ПиктограммыЭлементов</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<ContextMenu name="КартинкаКонтекстноеМеню" id="37"/>
+							<ExtendedTooltip name="КартинкаРасширеннаяПодсказка" id="38"/>
+						</PictureField>
 						<LabelField name="Наименование" id="4">
 							<DataPath>Список.Наименование</DataPath>
 							<DefaultItem>true</DefaultItem>
@@ -205,10 +252,10 @@
 									<v8:content>Наименование</v8:content>
 								</v8:item>
 							</Title>
+							<ShowInHeader>false</ShowInHeader>
 							<ShowInFooter>false</ShowInFooter>
-							<Width>30</Width>
 							<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
-							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="9"/>
+							<ExtendedTooltip name="НаименованиеExtendedTooltip" id="9"/>
 						</LabelField>
 						<LabelField name="ТекстДляПриказа" id="6">
 							<DataPath>Список.ТекстОснования</DataPath>
@@ -219,8 +266,9 @@
 								</v8:item>
 							</Title>
 							<AutoCellHeight>true</AutoCellHeight>
+							<ShowInHeader>false</ShowInHeader>
 							<ShowInFooter>false</ShowInFooter>
-							<Width>70</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<ContextMenu name="ТекстДляПриказаКонтекстноеМеню" id="7"/>
 							<ExtendedTooltip name="ТекстДляПриказаРасширеннаяПодсказка" id="10"/>
 						</LabelField>
@@ -371,182 +419,6 @@
 					ТОГДА ОснованияУвольненияПользовательские.НаименованиеДокументаОснования
 				ИНАЧЕ ОснованияУвольненияПользовательские.ДокументОснование
 			КОНЕЦ, ОснованияУвольненияПереопределяемый.ДокументОснование)).* КАК ПредставлениеДокументОснование}</QueryText>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Ссылка</dcssch:dataPath>
-					<dcssch:field>Ссылка</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Ссылка</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
-					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Имя предопределенных данных</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ДокументОснование</dcssch:dataPath>
-					<dcssch:field>ДокументОснование</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Документ основание</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
-					<dcssch:field>ПометкаУдаления</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Пометка удаления</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
-					<dcssch:field>Предопределенный</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Предопределенный</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ВерсияДанных</dcssch:dataPath>
-					<dcssch:field>ВерсияДанных</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Версия данных</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Наименование</dcssch:dataPath>
-					<dcssch:field>Наименование</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Наименование</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ТекстОснования</dcssch:dataPath>
-					<dcssch:field>ТекстОснования</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Текст основания</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Картинка</dcssch:dataPath>
-					<dcssch:field>Картинка</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Картинка</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Представление</dcssch:dataPath>
-					<dcssch:field>Представление</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Представление</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ПредставлениеДокументОснование</dcssch:dataPath>
-					<dcssch:field>ПредставлениеДокументОснование</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Представление документ основание</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>СрокДействия</dcssch:dataPath>
-					<dcssch:field>СрокДействия</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Срок действия</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ВАрхиве</dcssch:dataPath>
-					<dcssch:field>ВАрхиве</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>В архиве</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Parameter>
-					<dcssch:name>ВАрхиве</dcssch:name>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>В архиве</v8:content>
-						</v8:item>
-					</dcssch:title>
-					<dcssch:valueType>
-						<v8:Type>xs:boolean</v8:Type>
-					</dcssch:valueType>
-					<dcssch:value xsi:type="xs:boolean">false</dcssch:value>
-					<dcssch:useRestriction>false</dcssch:useRestriction>
-				</Parameter>
-				<Parameter>
-					<dcssch:name>ДокументОснование</dcssch:name>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Документ основание</v8:content>
-						</v8:item>
-					</dcssch:title>
-					<dcssch:valueType>
-						<v8:Type>cfg:EnumRef.НормативныеДокументыОснованийКадровыхПриказов</v8:Type>
-					</dcssch:valueType>
-					<dcssch:value xsi:nil="true"/>
-					<dcssch:useRestriction>false</dcssch:useRestriction>
-					<dcssch:valueListAllowed>true</dcssch:valueListAllowed>
-				</Parameter>
-				<Parameter>
-					<dcssch:name>РабочаяДата</dcssch:name>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Рабочая дата</v8:content>
-						</v8:item>
-					</dcssch:title>
-					<dcssch:valueType>
-						<v8:Type>xs:dateTime</v8:Type>
-						<v8:DateQualifiers>
-							<v8:DateFractions>DateTime</v8:DateFractions>
-						</v8:DateQualifiers>
-					</dcssch:valueType>
-					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
-					<dcssch:useRestriction>false</dcssch:useRestriction>
-				</Parameter>
 				<KeyType>FieldValue</KeyType>
 				<KeyField>Ссылка</KeyField>
 				<AutoSaveUserSettings>false</AutoSaveUserSettings>
@@ -559,9 +431,9 @@
 						<dcsset:item xsi:type="dcsset:OrderItemField">
 							<dcsset:field>Наименование</dcsset:field>
 							<dcsset:orderType>Asc</dcsset:orderType>
-							<dcsset:viewMode>Normal</dcsset:viewMode>
 						</dcsset:item>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
 					</dcsset:order>
 					<dcsset:conditionalAppearance>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
@@ -621,8 +493,8 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Создать</Action>
-			<Representation>TextPicture</Representation>
-			<ActionPurpose>Create</ActionPurpose>
+			<Representation>Text</Representation>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 		<Command name="Скопировать" id="2">
 			<Title>
@@ -637,9 +509,6 @@
 			</Picture>
 			<Action>Скопировать</Action>
 			<Representation>Picture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="Изменить" id="3">
 			<Title>
@@ -653,8 +522,6 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Изменить</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 		<Command name="ПометитьНаУдаление" id="4">
 			<Title>
@@ -668,8 +535,6 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ПометитьНаУдаление</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 		<Command name="ПоказатьНеИспользуемые" id="5">
 			<Title>
@@ -678,6 +543,12 @@
 					<v8:content>Показать не используемые</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать не используемые</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Action>ПоказатьНеИспользуемые</Action>
 		</Command>
 		<Command name="ТолькоДействующие" id="6">
@@ -687,6 +558,12 @@
 					<v8:content>Только действующие</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только действующие</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Action>ТолькоДействующие</Action>
 		</Command>
 	</Commands>

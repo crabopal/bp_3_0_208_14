@@ -7,7 +7,6 @@
 		<ExcludedCommand>Write</ExcludedCommand>
 		<ExcludedCommand>WriteAndClose</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
@@ -49,6 +48,15 @@
 					<ContextMenu name="СтатусКонтекстноеМеню" id="8"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="9"/>
 				</LabelField>
+				<CheckBoxField name="ТребуетсяЗагрузка" id="22">
+					<DataPath>Объект.ТребуетсяЗагрузка</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ТребуетсяЗагрузкаКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ТребуетсяЗагрузкаРасширеннаяПодсказка" id="24"/>
+				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
 		<Pages name="СтраницыФормы" id="49">
@@ -69,8 +77,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаДанныеРасширеннаяПодсказка" id="52"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаОбщиеРеквизиты" id="28">
@@ -86,49 +93,37 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаОбщиеРеквизитыРасширеннаяПодсказка" id="29"/>
 							<ChildItems>
-								<LabelField name="Идентификатор" id="4">
+								<InputField name="Идентификатор" id="4">
 									<DataPath>Объект.Идентификатор</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<UseCopy>true</UseCopy>
 									<ContextMenu name="ИдентификаторКонтекстноеМеню" id="5"/>
 									<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="6"/>
-								</LabelField>
-								<LabelField name="Наименование" id="1">
+								</InputField>
+								<InputField name="Наименование" id="1">
 									<DataPath>Объект.Description</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<UseCopy>true</UseCopy>
 									<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
 									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
-								</LabelField>
+								</InputField>
 								<LabelField name="ОрганизацияСтрокой" id="63">
 									<DataPath>ОрганизацияСтрокой</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<UseCopy>true</UseCopy>
 									<ContextMenu name="ОрганизацияСтрокойКонтекстноеМеню" id="64"/>
 									<ExtendedTooltip name="ОрганизацияСтрокойРасширеннаяПодсказка" id="65"/>
 									<Events>
 										<Event name="URLProcessing">ОрганизацияСтрокойОбработкаНавигационнойСсылки</Event>
 									</Events>
 								</LabelField>
-								<LabelField name="Адрес" id="32">
+								<InputField name="Адрес" id="32">
 									<DataPath>Объект.Адрес</DataPath>
 									<ReadOnly>true</ReadOnly>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<UseCopy>true</UseCopy>
 									<ContextMenu name="АдресКонтекстноеМеню" id="33"/>
 									<ExtendedTooltip name="АдресРасширеннаяПодсказка" id="34"/>
-								</LabelField>
-								<LabelField name="ЭтоПроизводственнаяПлощадка" id="13">
+								</InputField>
+								<CheckBoxField name="ЭтоПроизводственнаяПлощадка" id="13">
 									<DataPath>Объект.ЭтоПроизводственнаяПлощадка</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<Title>
@@ -137,19 +132,13 @@
 											<v8:content>Площадка производства</v8:content>
 										</v8:item>
 									</Title>
+									<TitleLocation>Right</TitleLocation>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<Format>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Л=ru_RU; БЛ=Нет; БИ=Да</v8:content>
-										</v8:item>
-									</Format>
-									<UseCopy>true</UseCopy>
 									<ContextMenu name="ЭтоПроизводственнаяПлощадкаКонтекстноеМеню" id="14"/>
 									<ExtendedTooltip name="ЭтоПроизводственнаяПлощадкаРасширеннаяПодсказка" id="15"/>
-								</LabelField>
-								<LabelField name="ЭтоСкладВременногоХранения" id="16">
+								</CheckBoxField>
+								<CheckBoxField name="ЭтоСкладВременногоХранения" id="16">
 									<DataPath>Объект.ЭтоСкладВременногоХранения</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<Title>
@@ -158,34 +147,14 @@
 											<v8:content>Склад временного хранения</v8:content>
 										</v8:item>
 									</Title>
+									<TitleLocation>Right</TitleLocation>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
-									<Format>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Л=ru_RU; БЛ=Нет; БИ=Да</v8:content>
-										</v8:item>
-									</Format>
-									<UseCopy>true</UseCopy>
 									<ContextMenu name="ЭтоСкладВременногоХраненияКонтекстноеМеню" id="17"/>
 									<ExtendedTooltip name="ЭтоСкладВременногоХраненияРасширеннаяПодсказка" id="18"/>
-								</LabelField>
+								</CheckBoxField>
 							</ChildItems>
 						</UsualGroup>
-						<LabelField name="ТребуетсяЗагрузка" id="22">
-							<DataPath>Объект.ТребуетсяЗагрузка</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<Format>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Л=ru_RU; БЛ=Нет; БИ=Да</v8:content>
-								</v8:item>
-							</Format>
-							<ContextMenu name="ТребуетсяЗагрузкаКонтекстноеМеню" id="23"/>
-							<ExtendedTooltip name="ТребуетсяЗагрузкаРасширеннаяПодсказка" id="24"/>
-						</LabelField>
 					</ChildItems>
 				</Page>
 				<Page name="СтраницаКомментарий" id="53">
@@ -200,19 +169,16 @@
 						<xr:LoadTransparent>false</xr:LoadTransparent>
 					</Picture>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаКомментарийРасширеннаяПодсказка" id="54"/>
 					<ChildItems>
 						<InputField name="Комментарий" id="19">
 							<DataPath>Объект.Комментарий</DataPath>
-							<ReadOnly>true</ReadOnly>
 							<TitleLocation>None</TitleLocation>
+							<GroupVerticalAlign>Bottom</GroupVerticalAlign>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
-							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 							<ContextMenu name="КомментарийКонтекстноеМеню" id="20"/>
 							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="21"/>
 						</InputField>
@@ -309,7 +275,6 @@
 				</v8:item>
 			</Title>
 			<Action>ОбновитьИзСервиса</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

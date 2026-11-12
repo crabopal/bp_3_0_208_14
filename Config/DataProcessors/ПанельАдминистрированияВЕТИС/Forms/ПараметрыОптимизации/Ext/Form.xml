@@ -9,20 +9,49 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Top</CommandBarLocation>
-	<CommandSet>
-		<ExcludedCommand>ChangeHistory</ExcludedCommand>
-		<ExcludedCommand>Write</ExcludedCommand>
-		<ExcludedCommand>WriteAndClose</ExcludedCommand>
-	</CommandSet>
-	<ShowTitle>true</ShowTitle>
-	<ShowCommandBar>true</ShowCommandBar>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 		<Event name="OnClose">ПриЗакрытии</Event>
 	</Events>
 	<ChildItems>
+		<UsualGroup name="ГруппаЗаголовок" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЗаголовокРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<LabelDecoration name="ОписаниеРаздела" id="3">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметры обмена с ФГИС Меркурий (ВетИС)</v8:content>
+						</v8:item>
+					</Title>
+					<VerticalAlign>Top</VerticalAlign>
+					<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ОписаниеРазделаРасширеннаяПодсказка" id="5"/>
+				</LabelDecoration>
+				<Button name="Справка" id="11">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="12"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 		<UsualGroup name="ГруппаВЕТИС" id="13">
 			<Title>
 				<v8:item>
@@ -59,11 +88,11 @@
 									<v8:content>Левая панель</v8:content>
 								</v8:item>
 							</Title>
+							<Width>41</Width>
 							<HorizontalStretch>false</HorizontalStretch>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
-							<United>false</United>
 							<ShowTitle>false</ShowTitle>
 							<ThroughAlign>Use</ThroughAlign>
 							<ExtendedTooltip name="ГруппаНастройкиЛеваяПанельРасширеннаяПодсказка" id="58"/>
@@ -88,12 +117,14 @@
 									<ShowTitle>false</ShowTitle>
 									<ThroughAlign>Use</ThroughAlign>
 									<ExtendedTooltip name="ГруппаИнтервалПолученияИзмененийРасширеннаяПодсказка" id="68">
-										<Height>3</Height>
+										<AutoMaxWidth>false</AutoMaxWidth>
+										<Height>4</Height>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
 												<v8:content>Рекомендуемый интервал: максимум 1 день.
-Если за установленный интервал передается (принимается) более 14000 ВСД, то интервал рекомендуется уменьшать. </v8:content>
+Если за установленный интервал передается (принимается)
+более 14000 ВСД, то интервал рекомендуется уменьшать. </v8:content>
 											</v8:item>
 										</Title>
 									</ExtendedTooltip>
@@ -108,9 +139,8 @@
 												</v8:item>
 											</Title>
 											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<HorizontalStretch>false</HorizontalStretch>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>12</MaxWidth>
 											<ListChoiceMode>true</ListChoiceMode>
 											<ChoiceList>
 												<xr:Item>
@@ -234,20 +264,23 @@
 									<ShowTitle>false</ShowTitle>
 									<ThroughAlign>Use</ThroughAlign>
 									<ExtendedTooltip name="ГруппаИнтервалМеждуЗапросамиСписковРасширеннаяПодсказка" id="75">
+										<AutoMaxWidth>false</AutoMaxWidth>
 										<Height>5</Height>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
 												<v8:content>Рекомендуемое значение: 10 секунд.
-Запросы списков ВСД и записей складского журнала - это тяжелая операция для системы Меркурий. Если при выполнении обмена проявляются ошибки APLM0012, то временной интервал между запросами рекомендуется увеличивать. </v8:content>
+Запросы списков ВСД и записей складского журнала - это тяжелая
+операция для системы Меркурий. Если при выполнении обмена
+проявляются ошибки APLM0012, то временной интервал между
+запросами рекомендуется увеличивать. </v8:content>
 											</v8:item>
 										</Title>
 									</ExtendedTooltip>
 									<ChildItems>
 										<InputField name="ИнтервалМеждуЗапросамиСписков" id="76">
 											<DataPath>ИнтервалМеждуЗапросамиСписков</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<Width>12</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ListChoiceMode>true</ListChoiceMode>
 											<ChoiceList>
@@ -353,12 +386,14 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<Width>12</Width>
 									<Group>HorizontalIfPossible</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ThroughAlign>Use</ThroughAlign>
 									<ExtendedTooltip name="ГруппаВремяОжиданияОбработкиЗаявкиРасширеннаяПодсказка" id="80">
+										<AutoMaxWidth>false</AutoMaxWidth>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -376,8 +411,8 @@
 													<v8:content>Ожидать обработки заявки</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<TitleLocation>Left</TitleLocation>
+											<Width>12</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ListChoiceMode>true</ListChoiceMode>
 											<ChoiceList>
@@ -509,18 +544,22 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<Width>12</Width>
 									<Group>HorizontalIfPossible</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ThroughAlign>Use</ThroughAlign>
 									<ExtendedTooltip name="ГруппаЗапрашиватьИзмененияЗаписейСкладскогоЖурналаРасширеннаяПодсказка" id="100">
-										<Height>5</Height>
+										<AutoMaxWidth>false</AutoMaxWidth>
+										<Height>6</Height>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
 												<v8:content>Значение по умолчанию: Нет.
-Необходимо использовать если ведется работа в Web-интерфейсе личного кабинета ФГИС Меркурий или если работа с Меркурием выполняется из разных информационных баз.</v8:content>
+Необходимо использовать если ведется работа в Web-интерфейсе
+личного кабинета ФГИС Меркурий или если работа с Меркурием
+выполняется из разных информационных баз.</v8:content>
 											</v8:item>
 										</Title>
 									</ExtendedTooltip>
@@ -534,9 +573,6 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>Right</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<CheckBoxType>Switcher</CheckBoxType>
 											<ContextMenu name="ЗапрашиватьИзмененияЗаписейСкладскогоЖурналаКонтекстноеМеню" id="102"/>
 											<ExtendedTooltip name="ЗапрашиватьИзмененияЗаписейСкладскогоЖурналаРасширеннаяПодсказка" id="103"/>
 											<Events>
@@ -559,18 +595,21 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<Width>12</Width>
 									<Group>HorizontalIfPossible</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ThroughAlign>Use</ThroughAlign>
 									<ExtendedTooltip name="ГруппаВыполнятьСинхронизацииТолькоВРегламентномЗаданииРасширеннаяПодсказка" id="105">
+										<AutoMaxWidth>false</AutoMaxWidth>
 										<Height>3</Height>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
 												<v8:content>Значение по умолчанию: Нет.
-Рекомендуется использовать при большой количестве пользователей, работающих с ВетИС.</v8:content>
+Рекомендуется использовать при большой количестве
+пользователей, работающих с ВетИС.</v8:content>
 											</v8:item>
 										</Title>
 									</ExtendedTooltip>
@@ -585,9 +624,6 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>Right</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<CheckBoxType>Switcher</CheckBoxType>
 											<ContextMenu name="ВыполнятьСинхронизацииТолькоВРегламентномЗаданииКонтекстноеМеню" id="107"/>
 											<ExtendedTooltip name="ВыполнятьСинхронизацииТолькоВРегламентномЗаданииРасширеннаяПодсказка" id="108"/>
 											<Events>
@@ -605,10 +641,10 @@
 									<v8:content>Правая панель</v8:content>
 								</v8:item>
 							</Title>
+							<Width>41</Width>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
-							<United>false</United>
 							<ShowTitle>false</ShowTitle>
 							<ThroughAlign>DontUse</ThroughAlign>
 							<ExtendedTooltip name="ГруппаНастройкиПраваяПанельРасширеннаяПодсказка" id="60"/>
@@ -633,20 +669,19 @@
 									<ShowTitle>false</ShowTitle>
 									<ThroughAlign>DontUse</ThroughAlign>
 									<ExtendedTooltip name="ГруппаКоличествоЭлементовРасширеннаяПодсказка" id="70">
-										<Height>3</Height>
+										<Height>4</Height>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
 												<v8:content>Рекомендуемое количество: 500 элементов.
-Количество ВСД или записей складского журнала, запрашиваемых в   одном запросе.</v8:content>
+Количество ВСД или записей складского журнала, запрашиваемых в одном запросе.</v8:content>
 											</v8:item>
 										</Title>
 									</ExtendedTooltip>
 									<ChildItems>
 										<InputField name="КоличествоЭлементов" id="71">
 											<DataPath>КоличествоЭлементов</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<Width>12</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ListChoiceMode>true</ListChoiceMode>
 											<ChoiceList>
@@ -726,27 +761,30 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<Width>12</Width>
 									<Group>HorizontalIfPossible</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ThroughAlign>Use</ThroughAlign>
 									<ExtendedTooltip name="ГруппаКоличествоПовторныхЗапросовРасширеннаяПодсказка" id="85">
-										<Height>4</Height>
+										<AutoMaxWidth>false</AutoMaxWidth>
+										<Height>5</Height>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
 												<v8:content>Рекомендуемое количество: 15 раз.
-Если в ответ на запросы списков ВСД или записей складского журнала возвращатся ошибки APLM0012, то такие запросы рекомендуется отправлять повторно.</v8:content>
+Если в ответ на запросы списков ВСД или записей складского
+журнала возвращатся ошибки APLM0012, то такие запросы
+рекомендуется отправлять повторно.</v8:content>
 											</v8:item>
 										</Title>
 									</ExtendedTooltip>
 									<ChildItems>
 										<InputField name="КоличествоПовторныхЗапросов" id="86">
 											<DataPath>КоличествоПовторныхЗапросов</DataPath>
+											<TitleLocation>Left</TitleLocation>
 											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ListChoiceMode>true</ListChoiceMode>
 											<MinValue xsi:type="xs:string">1</MinValue>
@@ -853,6 +891,7 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<Width>12</Width>
 									<Group>HorizontalIfPossible</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
@@ -871,9 +910,6 @@
 										<CheckBoxField name="ОтправлятьЗависшиеЗапросыПовторно" id="91">
 											<DataPath>ОтправлятьЗависшиеЗапросыПовторно</DataPath>
 											<TitleLocation>Right</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<CheckBoxType>Switcher</CheckBoxType>
 											<ContextMenu name="ОтправлятьЗависшиеЗапросыПовторноКонтекстноеМеню" id="92"/>
 											<ExtendedTooltip name="ОтправлятьЗависшиеЗапросыПовторноРасширеннаяПодсказка" id="93"/>
 											<Events>
@@ -889,22 +925,23 @@
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаКоличествоПопытокВосстановленияДокументовРасширеннаяПодсказка" id="95">
+										<AutoMaxWidth>false</AutoMaxWidth>
 										<Height>6</Height>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
 												<v8:content>Рекомендуемое количество: 3 раза.
-Если при отправке документов в сервис возвращаются ошибки APLM0012, если возникают ошибки HTTP 408 (таймаут), если ответы на отправленные запросы еще не получены, но эти запросы уже помещены в архив, то для предотвращения рассинхронизации данных необходимо проводить попытку восстановления данных.</v8:content>
+Если при отправке документов в сервис возвращаются
+ошибки APLM0012, если возникают ошибки HTTP 408 (таймаут),
+если ответы на отправленные запросы еще не получены, но эти
+запросы уже помещены в архив, то для предотвращения рассинхронизации
+данных необходимо проводить попытку восстановления данных.</v8:content>
 											</v8:item>
 										</Title>
 									</ExtendedTooltip>
 									<ChildItems>
 										<InputField name="КоличествоПопытокВосстановленияДокументов" id="96">
 											<DataPath>КоличествоПопытокВосстановленияДокументов</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Width>12</Width>
-											<HorizontalStretch>false</HorizontalStretch>
 											<SpinButton>true</SpinButton>
 											<ChooseType>false</ChooseType>
 											<MinValue xsi:type="xs:string">1</MinValue>
@@ -949,9 +986,6 @@
 										<CheckBoxField name="ЗагружатьДокументыСозданныеЧерезWeb" id="116">
 											<DataPath>ЗагружатьДокументыСозданныеЧерезWeb</DataPath>
 											<TitleLocation>Right</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<CheckBoxType>Switcher</CheckBoxType>
 											<ContextMenu name="ЗагружатьДокументыСозданныеЧерезWebКонтекстноеМеню" id="117"/>
 											<ExtendedTooltip name="ЗагружатьДокументыСозданныеЧерезWebРасширеннаяПодсказка" id="118"/>
 											<Events>
@@ -980,10 +1014,16 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
+				<Field>НаборКонстант.ВалютаРегламентированногоУчета</Field>
 				<Field>НаборКонстант.ВестиУчетПодконтрольныхТоваровВЕТИС</Field>
 				<Field>НаборКонстант.ИнтервалЗапросаИзмененныхДанныхВЕТИС</Field>
 				<Field>НаборКонстант.ИспользоватьАвтоматическуюОтправкуПолучениеДанныхВЕТИС</Field>
+				<Field>НаборКонстант.ОтключитьКонтрольОтрицательныхОстатков</Field>
 				<Field>НаборКонстант.РежимРаботыСТестовымКонтуромВЕТИС</Field>
+				<Field>НаборКонстант.СрокОплатыПокупателей</Field>
+				<Field>НаборКонстант.СрокОплатыПоставщикам</Field>
+				<Field>НаборКонстант.ТипЦенПлановойСебестоимостиНоменклатуры</Field>
+				<Field>НаборКонстант.УдалитьНастройкиКолонтитулов</Field>
 			</UseAlways>
 		</Attribute>
 		<Attribute name="КоличествоЭлементов" id="1">

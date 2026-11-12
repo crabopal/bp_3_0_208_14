@@ -3,7 +3,6 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
@@ -60,7 +59,7 @@
 					<Button name="ФормаКомандаВыгрузитьУведомлениеВXML" id="102">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.КомандаВыгрузитьУведомлениеВXML</CommandName>
-						<ExtendedTooltip name="ФормаКомандаВыгрузитьУведомлениеВXMLРасширеннаяПодсказка" id="103"/>
+						<ExtendedTooltip name="ФормаКомандаВыгрузитьУведомлениеВXMLExtendedTooltip" id="103"/>
 					</Button>
 					<Popup name="Отправка" id="104">
 						<Title>
@@ -77,18 +76,13 @@
 						</ToolTip>
 						<Picture>
 							<xr:Ref>CommonPicture.ЗначокОбновлениеКонфигурацииЧерезИнтернет16</xr:Ref>
-							<xr:LoadTransparent>false</xr:LoadTransparent>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+							<xr:TransparentPixel x="14" y="1"/>
 						</Picture>
-						<ExtendedTooltip name="ОтправкаРасширеннаяПодсказка" id="105"/>
+						<ExtendedTooltip name="ОтправкаExtendedTooltip" id="105"/>
 						<ChildItems>
 							<ButtonGroup name="ГруппаОтправкаВКонтролирующийОрган" id="106">
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Отправка в контролирующий орган</v8:content>
-									</v8:item>
-								</Title>
-								<ExtendedTooltip name="ГруппаОтправкаВКонтролирующийОрганРасширеннаяПодсказка" id="107"/>
+								<ExtendedTooltip name="ГруппаОтправкаВКонтролирующийОрганExtendedTooltip" id="107"/>
 								<ChildItems>
 									<Button name="ПроверитьВИнтернете" id="108">
 										<Type>CommandBarButton</Type>
@@ -118,7 +112,7 @@
 												<v8:content>Отправить в ФНС</v8:content>
 											</v8:item>
 										</Title>
-										<ExtendedTooltip name="ОтправитьВКонтролирующийОрганРасширеннаяПодсказка" id="111"/>
+										<ExtendedTooltip name="ОтправитьВКонтролирующийОрганExtendedTooltip" id="111"/>
 									</Button>
 								</ChildItems>
 							</ButtonGroup>
@@ -135,23 +129,18 @@
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаПанельОтправки" id="112">
 			<EnableContentChange>true</EnableContentChange>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Панель отправки</v8:content>
-				</v8:item>
-			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПанельОтправкиРасширеннаяПодсказка" id="113"/>
+			<ExtendedTooltip name="ГруппаПанельОтправкиExtendedTooltip" id="113"/>
 			<ChildItems>
 				<UsualGroup name="БлокСостоянияОтправки" id="114">
 					<Title>
@@ -281,12 +270,6 @@
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="БлокОшибокИИзвещений" id="134">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Блок ошибок и извещений</v8:content>
-						</v8:item>
-					</Title>
 					<HorizontalStretch>true</HorizontalStretch>
 					<Group>Horizontal</Group>
 					<Behavior>Usual</Behavior>
@@ -296,12 +279,6 @@
 					<ExtendedTooltip name="БлокОшибокИИзвещенийРасширеннаяПодсказка" id="135"/>
 					<ChildItems>
 						<UsualGroup name="БлокКритическихОшибок" id="136">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Блок критических ошибок</v8:content>
-								</v8:item>
-							</Title>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -318,7 +295,7 @@
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
 									<Picture>
 										<xr:Ref>CommonPicture.ПризнакНаличияКритическойОшибки</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="ЗначокКритическойОшибкиКонтекстноеМеню" id="139"/>
@@ -381,12 +358,6 @@
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаШапка" id="74">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Шапка</v8:content>
-				</v8:item>
-			</Title>
 			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
@@ -394,12 +365,6 @@
 			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="75"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаШапкаЛевая" id="76">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Шапка левая</v8:content>
-						</v8:item>
-					</Title>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
@@ -410,7 +375,7 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Номер дата</v8:content>
+									<v8:content>Группа номер дата</v8:content>
 								</v8:item>
 							</Title>
 							<ToolTip>
@@ -444,15 +409,13 @@
 									<DataPath>СостояниеДокумента</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>2</Width>
 									<Height>1</Height>
 									<HorizontalStretch>false</HorizontalStretch>
 									<VerticalStretch>false</VerticalStretch>
 									<ValuesPicture>
-										<xr:Ref>CommonPicture.СостоянияДокументаБП</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:Ref>CommonPicture.СостоянияДокумента</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</ValuesPicture>
 									<Border width="1">
 										<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
@@ -466,12 +429,6 @@
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаНадписьОснование" id="270">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Надпись основание</v8:content>
-								</v8:item>
-							</Title>
 							<HorizontalStretch>false</HorizontalStretch>
 							<Group>AlwaysHorizontal</Group>
 							<Behavior>Usual</Behavior>
@@ -481,8 +438,6 @@
 							<ChildItems>
 								<LabelField name="НадписьДокументОснование" id="272">
 									<DataPath>НадписьПервичногоДокумента</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>25</Width>
 									<Hiperlink>true</Hiperlink>
 									<ContextMenu name="НадписьДокументОснованиеКонтекстноеМеню" id="273"/>
@@ -524,8 +479,6 @@
 									<v8:content>Единица измерения</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ЕдиницаИзмеренияКонтекстноеМеню" id="159"/>
 							<ExtendedTooltip name="ЕдиницаИзмеренияРасширеннаяПодсказка" id="160"/>
 							<Events>
@@ -535,12 +488,6 @@
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаШапкаПравая" id="78">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Шапка правая</v8:content>
-						</v8:item>
-					</Title>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
@@ -562,12 +509,6 @@
 							<ExtendedTooltip name="РНПТРасширеннаяПодсказка" id="18"/>
 						</InputField>
 						<UsualGroup name="ГруппаДополнительныеСведения" id="178">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Дополнительные сведения</v8:content>
-								</v8:item>
-							</Title>
 							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
@@ -579,8 +520,6 @@
 									<TitleLocation>None</TitleLocation>
 									<HorizontalAlign>Left</HorizontalAlign>
 									<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<Hiperlink>true</Hiperlink>
 									<ContextMenu name="НадписьДополнительныеСведенияКонтекстноеМеню" id="176"/>
@@ -596,24 +535,11 @@
 			</ChildItems>
 		</UsualGroup>
 		<Pages name="ГруппаСтраницы" id="189">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Страницы</v8:content>
-				</v8:item>
-			</Title>
 			<PagesRepresentation>None</PagesRepresentation>
 			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="190"/>
 			<ChildItems>
 				<Page name="ГруппаТовары" id="191">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Товары</v8:content>
-						</v8:item>
-					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>false</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаТоварыРасширеннаяПодсказка" id="192"/>
 					<ChildItems>
@@ -642,7 +568,7 @@
 												<v8:content>Товары подменю заполнить</v8:content>
 											</v8:item>
 										</ToolTip>
-										<ExtendedTooltip name="ТоварыПодменюЗаполнитьРасширеннаяПодсказка" id="97"/>
+										<ExtendedTooltip name="ТоварыПодменюЗаполнитьExtendedTooltip" id="97"/>
 										<ChildItems>
 											<Button name="ТоварыЗаполнитьТНВЭД" id="98">
 												<Type>CommandBarButton</Type>
@@ -713,20 +639,6 @@
 										<Event name="StartChoice">ТоварыНоменклатураНачалоВыбора</Event>
 									</Events>
 								</InputField>
-								<InputField name="ТоварыХарактеристика" id="289">
-									<DataPath>Объект.Товары.Характеристика</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ТоварыХарактеристикаКонтекстноеМеню" id="290"/>
-									<ExtendedTooltip name="ТоварыХарактеристикаРасширеннаяПодсказка" id="291"/>
-								</InputField>
-								<InputField name="ТоварыПартия" id="292">
-									<DataPath>Объект.Товары.Партия</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ТоварыПартияКонтекстноеМеню" id="293"/>
-									<ExtendedTooltip name="ТоварыПартияРасширеннаяПодсказка" id="294"/>
-								</InputField>
 								<InputField name="ТоварыКодОКПД2" id="56">
 									<DataPath>Объект.Товары.КодОКПД2</DataPath>
 									<ReadOnly>true</ReadOnly>
@@ -748,7 +660,6 @@
 											<v8:content>Товары группа единицы измерения</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="ТоварыГруппаЕдиницыИзмеренияРасширеннаяПодсказка" id="83"/>
 									<ChildItems>
 										<InputField name="ТоварыЕдиницаИзмерения" id="161">
@@ -782,7 +693,6 @@
 											<v8:content>Товары группа общая количество</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="ТоварыГруппаОбщаяКоличествоРасширеннаяПодсказка" id="85"/>
 									<ChildItems>
 										<InputField name="ТоварыКоличество" id="62">
@@ -808,6 +718,7 @@
 								<InputField name="ТоварыСумма" id="71">
 									<DataPath>Объект.Товары.Сумма</DataPath>
 									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="ТоварыСуммаКонтекстноеМеню" id="72"/>
@@ -816,6 +727,7 @@
 								<InputField name="ТоварыСтранаПроисхождения" id="180">
 									<DataPath>Объект.Товары.СтранаПроисхождения</DataPath>
 									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="ТоварыСтранаПроисхожденияКонтекстноеМеню" id="181"/>
@@ -853,7 +765,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Основные средства</v8:content>
+							<v8:content>Группа основные средства</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
@@ -863,7 +775,6 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>false</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаОсновныеСредстваРасширеннаяПодсказка" id="194"/>
 					<ChildItems>
@@ -919,6 +830,7 @@
 								<InputField name="ОсновныеСредстваОсновноеСредство" id="226">
 									<DataPath>Объект.Товары.ОсновноеСредство</DataPath>
 									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ChoiceParameters>
@@ -938,6 +850,7 @@
 								<InputField name="ОсновныеСредстваСумма" id="229">
 									<DataPath>Объект.Товары.Сумма</DataPath>
 									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>false</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
 									<AutoMarkIncomplete>false</AutoMarkIncomplete>
 									<ContextMenu name="ОсновныеСредстваСуммаКонтекстноеМеню" id="230"/>
@@ -946,6 +859,7 @@
 								<InputField name="ОсновныеСредстваСтранаПроисхождения" id="232">
 									<DataPath>Объект.Товары.СтранаПроисхождения</DataPath>
 									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="ОсновныеСредстваСтранаПроисхожденияКонтекстноеМеню" id="233"/>
@@ -965,14 +879,7 @@
 					</ChildItems>
 				</Page>
 				<Page name="ГруппаКомплектующиеОС" id="235">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Комплектующие ОС</v8:content>
-						</v8:item>
-					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>false</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаКомплектующиеОСРасширеннаяПодсказка" id="236"/>
 					<ChildItems>
@@ -1034,6 +941,7 @@
 										</v8:item>
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ChoiceParameters>
@@ -1064,19 +972,12 @@
 									<ExtendedTooltip name="ТоварыВСоставеОСОсновноеСредствоРасширеннаяПодсказка" id="267"/>
 								</InputField>
 								<ColumnGroup name="ТоварыВСоставеОСГруппаКоличество" id="268">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Товары в составе ОС группа количество</v8:content>
-										</v8:item>
-									</Title>
 									<ToolTip>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
 											<v8:content>Товары в составе ОСГруппа количество</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="ТоварыВСоставеОСГруппаКоличествоРасширеннаяПодсказка" id="269"/>
 									<ChildItems>
 										<InputField name="ТоварыВСоставеОСКоличество" id="253">
@@ -1101,6 +1002,7 @@
 								<InputField name="ТоварыВСоставеОССумма" id="259">
 									<DataPath>Объект.Товары.Сумма</DataPath>
 									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>false</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
 									<AutoMarkIncomplete>false</AutoMarkIncomplete>
 									<ContextMenu name="ТоварыВСоставеОССуммаКонтекстноеМеню" id="260"/>
@@ -1109,6 +1011,7 @@
 								<InputField name="ТоварыВСоставеОССтранаПроисхождения" id="262">
 									<DataPath>Объект.Товары.СтранаПроисхождения</DataPath>
 									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="ТоварыВСоставеОССтранаПроисхожденияКонтекстноеМеню" id="263"/>
@@ -1133,7 +1036,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Комментарий ответственный</v8:content>
+					<v8:content>Группа комментарий ответственный</v8:content>
 				</v8:item>
 			</Title>
 			<Group>AlwaysHorizontal</Group>
@@ -1151,8 +1054,6 @@
 				</InputField>
 				<InputField name="Ответственный" id="170">
 					<DataPath>Объект.Ответственный</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="171"/>
 					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="172"/>
 				</InputField>

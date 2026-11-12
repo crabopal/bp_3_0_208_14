@@ -3,22 +3,71 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandSet>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
 		<ExcludedCommand>Create</ExcludedCommand>
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="СписокСоздать" id="72">
+			<Button name="ФормаСоздать" id="22">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Создать</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Добавить</v8:content>
+						<v8:content>Добавить язык</v8:content>
 					</v8:item>
 				</Title>
-				<ExtendedTooltip name="СписокСоздатьРасширеннаяПодсказка" id="73"/>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаСоздатьРасширеннаяПодсказка" id="23"/>
 			</Button>
+			<ButtonGroup name="НастройкаПорядкаЭлементов" id="58">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Настройка порядка элементов</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="НастройкаПорядкаЭлементовРасширеннаяПодсказка" id="59"/>
+			</ButtonGroup>
+			<ButtonGroup name="СтандартныеКомандыФормы" id="48">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Стандартные команды формы</v8:content>
+					</v8:item>
+				</Title>
+				<CommandSource>Form</CommandSource>
+				<ExtendedTooltip name="СтандартныеКомандыФормыРасширеннаяПодсказка" id="49"/>
+			</ButtonGroup>
+			<Button name="ФормаСправка" id="50">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="51"/>
+			</Button>
+			<SearchStringAddition name="СтрокаПоиска" id="52">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="53"/>
+				<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="54"/>
+			</SearchStringAddition>
+			<SearchControlAddition name="УправлениеПоиском" id="55">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="УправлениеПоискомКонтекстноеМеню" id="56"/>
+				<ExtendedTooltip name="УправлениеПоискомРасширеннаяПодсказка" id="57"/>
+			</SearchControlAddition>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -36,7 +85,6 @@
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<BackColor>pal:LightBlue</BackColor>
 			<ExtendedTooltip name="ГруппаДополнительнаяИнформацияРасширеннаяПодсказка" id="41"/>
 			<ChildItems>
 				<PictureDecoration name="КартинкаИнформации" id="42">
@@ -88,6 +136,7 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -103,7 +152,6 @@
 			<CommandSet>
 				<ExcludedCommand>Copy</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -122,27 +170,6 @@
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
 				<Autofill>false</Autofill>
-				<ChildItems>
-					<ButtonGroup name="НастройкаПорядкаЭлементов" id="58">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Настройка порядка элементов</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="НастройкаПорядкаЭлементовРасширеннаяПодсказка" id="59"/>
-					</ButtonGroup>
-					<ButtonGroup name="КомандыСписка" id="69">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Команды списка</v8:content>
-							</v8:item>
-						</Title>
-						<CommandSource>Item.Список</CommandSource>
-						<ExtendedTooltip name="КомандыСпискаРасширеннаяПодсказка" id="70"/>
-					</ButtonGroup>
-				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
@@ -173,7 +200,6 @@
 				<Event name="BeforeAddRow">СписокПередНачаломДобавления</Event>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
 				<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
-				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="Наименование" id="16">
@@ -185,15 +211,11 @@
 							<v8:content>Наименование</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="Код" id="19">
 					<DataPath>Список.Code</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КодКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="21"/>
 				</LabelField>
@@ -202,8 +224,6 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="27"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="28"/>
 				</LabelField>
@@ -256,4 +276,21 @@
 			</Settings>
 		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="Создать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Создать</Action>
+		</Command>
+	</Commands>
 </Form>

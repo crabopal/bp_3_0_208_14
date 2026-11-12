@@ -7,43 +7,94 @@
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="62">
+		<UsualGroup name="ГруппаБыстрыеОтборы" id="68">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа пользовательских настроек</v8:content>
+					<v8:content>Быстрые отборы</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Быстрые отборы</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="63"/>
+			<ExtendedTooltip name="ГруппаБыстрыеОтборыРасширеннаяПодсказка" id="69"/>
 		</UsualGroup>
-		<UsualGroup name="СписокНастройкиОтбора" id="64">
+		<CommandBar name="ГруппаКоманднаяПанель" id="70">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Дополнительные условия</v8:content>
+					<v8:content>Группа командная панель</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ExtendedTooltip name="СписокНастройкиОтбораРасширеннаяПодсказка" id="65"/>
-		</UsualGroup>
-		<CommandBar name="КоманднаяПанельФормы" id="66">
-			<Title>
+			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Командная панель формы</v8:content>
+					<v8:content>Группа командная панель</v8:content>
 				</v8:item>
-			</Title>
+			</ToolTip>
 			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="КоманднаяПанельФормыРасширеннаяПодсказка" id="67"/>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельExtendedTooltip" id="71"/>
+			<ChildItems>
+				<Popup name="ПодменюПечать" id="72">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Печать</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>StdPicture.Print</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<Representation>PictureAndText</Representation>
+					<ExtendedTooltip name="ПодменюПечатьРасширеннаяПодсказка" id="73"/>
+				</Popup>
+				<Popup name="ПодменюЗаполнить" id="79">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заполнить</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>CommonPicture.ЗаполнитьФорму</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<Representation>PictureAndText</Representation>
+					<ExtendedTooltip name="ПодменюДополнительныхОбработокЗаполненияРасширеннаяПодсказка" id="80"/>
+				</Popup>
+				<Popup name="ПодменюОтчеты" id="77">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отчеты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подменю отчеты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.Отчеты</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<Representation>PictureAndText</Representation>
+					<ExtendedTooltip name="ПодменюОтчетыРасширеннаяПодсказка" id="78"/>
+				</Popup>
+			</ChildItems>
 		</CommandBar>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
@@ -55,12 +106,6 @@
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Список</v8:content>
-				</v8:item>
-			</Title>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -74,102 +119,111 @@
 			<ShowRoot>true</ShowRoot>
 			<AllowRootChoice>false</AllowRootChoice>
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
-			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<UserSettingsGroup>ГруппаБыстрыеОтборы</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
 			</AutoCommandBar>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="40"/>
-			<SearchStringAddition name="СписокСтрокаПоиска" id="53">
+			<ExtendedTooltip name="СписокExtendedTooltip" id="40"/>
+			<SearchStringAddition name="СписокSearchString" id="53">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchStringRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="54"/>
-				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="55"/>
+				<ContextMenu name="СписокSearchStringContextMenu" id="54"/>
+				<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="55"/>
 			</SearchStringAddition>
-			<ViewStatusAddition name="СписокСостояниеПросмотра" id="56">
+			<ViewStatusAddition name="СписокViewStatus" id="56">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>ViewStatusRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="57"/>
-				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="58"/>
+				<ContextMenu name="СписокViewStatusContextMenu" id="57"/>
+				<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="58"/>
 			</ViewStatusAddition>
-			<SearchControlAddition name="СписокУправлениеПоиском" id="59">
+			<SearchControlAddition name="СписокSearchControl" id="59">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchControl</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="60"/>
-				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="61"/>
+				<ContextMenu name="СписокSearchControlContextMenu" id="60"/>
+				<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="61"/>
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
 				<Event name="BeforeLoadUserSettingsAtServer">СписокПередЗагрузкойПользовательскихНастроекНаСервере</Event>
-				<Event name="OnUpdateUserSettingSetAtServer">СписокПриОбновленииСоставаПользовательскихНастроекНаСервере</Event>
 				<Event name="OnChange">СписокПриИзменении</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="Дата" id="4">
 					<DataPath>Список.Date</DataPath>
 					<DefaultItem>true</DefaultItem>
+					<Width>7</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЛФ=D</v8:content>
+						</v8:item>
+					</Format>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="41"/>
+					<ExtendedTooltip name="ДатаExtendedTooltip" id="41"/>
 				</LabelField>
 				<LabelField name="Номер" id="6">
 					<DataPath>Список.Number</DataPath>
 					<ContextMenu name="НомерКонтекстноеМеню" id="7"/>
-					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="42"/>
+					<ExtendedTooltip name="НомерExtendedTooltip" id="42"/>
 				</LabelField>
 				<LabelField name="НалоговыйПериод" id="8">
 					<DataPath>Список.НалоговыйПериод</DataPath>
+					<Width>13</Width>
 					<ContextMenu name="НалоговыйПериодКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="НалоговыйПериодРасширеннаяПодсказка" id="43"/>
-				</LabelField>
-				<LabelField name="Организация" id="10">
-					<DataPath>Список.Организация</DataPath>
-					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="11"/>
-					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="44"/>
+					<ExtendedTooltip name="НалоговыйПериодExtendedTooltip" id="43"/>
 				</LabelField>
 				<CheckBoxField name="ДокументПринятВНалоговыйОрган" id="26">
 					<DataPath>Список.ДокументПринятВНалоговыйОрган</DataPath>
 					<ContextMenu name="ДокументПринятВНалоговыйОрганКонтекстноеМеню" id="27"/>
-					<ExtendedTooltip name="ДокументПринятВНалоговыйОрганРасширеннаяПодсказка" id="47"/>
+					<ExtendedTooltip name="ДокументПринятВНалоговыйОрганExtendedTooltip" id="47"/>
 				</CheckBoxField>
 				<LabelField name="НалоговыйПериодДата" id="30">
 					<DataPath>Список.НалоговыйПериодДата</DataPath>
+					<Width>17</Width>
 					<ContextMenu name="НалоговыйПериодДатаКонтекстноеМеню" id="31"/>
-					<ExtendedTooltip name="НалоговыйПериодДатаРасширеннаяПодсказка" id="48"/>
+					<ExtendedTooltip name="НалоговыйПериодДатаExtendedTooltip" id="48"/>
 				</LabelField>
 				<LabelField name="КодИФНС" id="32">
 					<DataPath>Список.КодИФНС</DataPath>
 					<ContextMenu name="КодИФНСКонтекстноеМеню" id="33"/>
-					<ExtendedTooltip name="КодИФНСРасширеннаяПодсказка" id="49"/>
+					<ExtendedTooltip name="КодИФНСExtendedTooltip" id="49"/>
 				</LabelField>
 				<LabelField name="КраткийСоставДокумента" id="34">
 					<DataPath>Список.КраткийСоставДокумента</DataPath>
 					<ContextMenu name="КраткийСоставДокументаКонтекстноеМеню" id="35"/>
-					<ExtendedTooltip name="КраткийСоставДокументаРасширеннаяПодсказка" id="50"/>
+					<ExtendedTooltip name="КраткийСоставДокументаExtendedTooltip" id="50"/>
+				</LabelField>
+				<LabelField name="Организация" id="10">
+					<DataPath>Список.Организация</DataPath>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="44"/>
 				</LabelField>
 				<LabelField name="Ответственный" id="36">
 					<DataPath>Список.Ответственный</DataPath>
 					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="37"/>
-					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="51"/>
+					<ExtendedTooltip name="ОтветственныйExtendedTooltip" id="51"/>
 				</LabelField>
 				<LabelField name="Комментарий" id="38">
 					<DataPath>Список.Комментарий</DataPath>
 					<ContextMenu name="КомментарийКонтекстноеМеню" id="39"/>
-					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="52"/>
+					<ExtendedTooltip name="КомментарийExtendedTooltip" id="52"/>
 				</LabelField>
-				<LabelField name="Ссылка" id="68">
+				<LabelField name="Ссылка" id="74">
 					<DataPath>Список.Ref</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<ContextMenu name="СсылкаКонтекстноеМеню" id="69"/>
-					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="70"/>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="75"/>
+					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="76"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -184,31 +238,8 @@
 				<Field>Список.Ref</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>true</ManualQuery>
+				<ManualQuery>false</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
-				<QueryText>ВЫБРАТЬ
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.Ссылка,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.ПометкаУдаления,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.Номер,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.Дата,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.Проведен,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.НалоговыйПериод,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.Организация,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.ИдентификаторФайла,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.ФайлСформирован,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.НалоговыйПериодДата,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.КодИФНС,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.КраткийСоставДокумента,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.Ответственный,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.Комментарий,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.КоличествоПодтверждающихДокументов,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.Руководитель,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.ДокументПринятВНалоговыйОрган,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.Телефон,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.Сотрудники,
-	ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ.МоментВремени
-ИЗ
-	Документ.ЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ КАК ДокументЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ</QueryText>
 				<MainTable>Document.ЗаявлениеОПодтвержденииПраваНаЗачетАвансовПоНДФЛ</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -229,7 +260,36 @@
 			</Settings>
 		</Attribute>
 		<Attribute name="ПараметрыПодключаемыхКоманд" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры подключаемых команд</v8:content>
+				</v8:item>
+			</Title>
 			<Type/>
 		</Attribute>
+		<Attribute name="ОтслеживатьПометкуУдаления" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отслеживать пометку удаления</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
 	</Attributes>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>0:2baf6d7a-12ed-4f22-ad96-92bb31b747ff</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
 </Form>

@@ -18,10 +18,10 @@
 				</Picture>
 				<ExtendedTooltip name="ГруппаСоздатьРасширеннаяПодсказка" id="55"/>
 				<ChildItems>
-					<Button name="СоздатьЧерезОблачныйЭДО" id="83">
+					<Button name="СоздатьЧерезЦентрЭДО" id="83">
 						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.СоздатьЧерезОблачныйЭДО</CommandName>
-						<ExtendedTooltip name="СоздатьЧерезОблачныйЭДОРасширеннаяПодсказка" id="84"/>
+						<CommandName>Form.Command.СоздатьЧерезЦентрЭДО</CommandName>
+						<ExtendedTooltip name="СоздатьЧерезЦентрЭДОРасширеннаяПодсказка" id="84"/>
 					</Button>
 					<Button name="СоздатьОбменЧерезСервисЭДО" id="28">
 						<Type>CommandBarButton</Type>
@@ -79,10 +79,10 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -93,7 +93,6 @@
 				<xr:Ref>CommonPicture.СостоянияУчетныхЗаписейЭДО</xr:Ref>
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</RowsPicture>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -110,7 +109,9 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -203,19 +204,19 @@
 					<ContextMenu name="ИдентификаторЭДОКонтекстноеМеню" id="52"/>
 					<ExtendedTooltip name="ИдентификаторЭДОРасширеннаяПодсказка" id="53"/>
 				</LabelField>
-				<CheckBoxField name="ЭтоОблачныйЭДО" id="85">
-					<DataPath>Список.ЭтоОблачныйЭДО</DataPath>
+				<CheckBoxField name="ИспользоватьЦентрЭДО" id="85">
+					<DataPath>Список.ИспользоватьЦентрЭДО</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Облачный ЭДО</v8:content>
+							<v8:content>Использовать центр ЭДО</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ЭтоОблачныйЭДОКонтекстноеМеню" id="86"/>
-					<ExtendedTooltip name="ЭтоОблачныйЭДОРасширеннаяПодсказка" id="87"/>
+					<ContextMenu name="ИспользоватьЦентрЭДОКонтекстноеМеню" id="86"/>
+					<ExtendedTooltip name="ИспользоватьЦентрЭДОРасширеннаяПодсказка" id="87"/>
 				</CheckBoxField>
 			</ChildItems>
 		</Table>
@@ -273,7 +274,7 @@
 	ПРЕДСТАВЛЕНИЕ(РегистрСведенийУчетныеЗаписиЭДО.СпособОбменаЭД) КАК СпособОбменаПредставление,
 	&amp;ИспользоватьПрямойОбмен
 	И РегистрСведенийУчетныеЗаписиЭДО.СпособОбменаЭД В (&amp;СпособыПрямогоОбмена) КАК ЭтоПрямойОбмен,
-	РегистрСведенийУчетныеЗаписиЭДО.ЭтоОблачныйЭДО КАК ЭтоОблачныйЭДО,
+	РегистрСведенийУчетныеЗаписиЭДО.ИспользоватьЦентрЭДО КАК ИспользоватьЦентрЭДО,
 	ВЫБОР
 		КОГДА ОператорыЭДО.Представление ЕСТЬ НЕ NULL
 			ТОГДА ОператорыЭДО.Представление
@@ -392,8 +393,8 @@
 					<dcssch:field>Остановлено</dcssch:field>
 				</Field>
 				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ЭтоОблачныйЭДО</dcssch:dataPath>
-					<dcssch:field>ЭтоОблачныйЭДО</dcssch:field>
+					<dcssch:dataPath>ИспользоватьЦентрЭДО</dcssch:dataPath>
+					<dcssch:field>ИспользоватьЦентрЭДО</dcssch:field>
 				</Field>
 				<Field xsi:type="dcssch:DataSetFieldField">
 					<dcssch:dataPath>ЕстьОшибки</dcssch:dataPath>
@@ -647,7 +648,6 @@
 			</ToolTip>
 			<Action>СоздатьОбменЧерезСервисЭДО</Action>
 			<Representation>TextPicture</Representation>
-			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="СоздатьПрямойОбмен" id="2">
 			<Title>
@@ -666,20 +666,18 @@
 			<FunctionalOptions>
 				<Item>FunctionalOption.ИспользоватьПрямойОбменЭлектроннымиДокументами</Item>
 			</FunctionalOptions>
-			<ActionPurpose>Create</ActionPurpose>
 		</Command>
-		<Command name="СоздатьЧерезОблачныйЭДО" id="3">
+		<Command name="СоздатьЧерезЦентрЭДО" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>через облачный ЭДО</v8:content>
+					<v8:content>через центр ЭДО</v8:content>
 				</v8:item>
 			</Title>
-			<Action>СоздатьЧерезОблачныйЭДО</Action>
+			<Action>СоздатьЧерезЦентрЭДО</Action>
 			<FunctionalOptions>
-				<Item>FunctionalOption.ИспользоватьИнтеграциюОблачногоЭДО</Item>
+				<Item>FunctionalOption.ИспользоватьИнтеграциюЦентраЭДО</Item>
 			</FunctionalOptions>
-			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

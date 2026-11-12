@@ -3,9 +3,7 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -40,24 +38,26 @@
 									<v8:content>Шапка</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AlwaysHorizontal</Group>
+							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ШапкаРасширеннаяПодсказка" id="14"/>
 							<ChildItems>
-								<LabelField name="КодКлассификатора" id="4">
+								<InputField name="КодКлассификатора" id="4">
 									<DataPath>Объект.КодКлассификатора</DataPath>
-									<UseCopy>true</UseCopy>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="КодКлассификатораКонтекстноеМеню" id="5"/>
 									<ExtendedTooltip name="КодКлассификатораРасширеннаяПодсказка" id="6"/>
-								</LabelField>
-								<LabelField name="ТипОтношений" id="10">
+								</InputField>
+								<InputField name="ТипОтношений" id="10">
 									<DataPath>Объект.ТипОтношений</DataPath>
-									<UseCopy>true</UseCopy>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ТипОтношенийКонтекстноеМеню" id="11"/>
 									<ExtendedTooltip name="ТипОтношенийРасширеннаяПодсказка" id="12"/>
-								</LabelField>
+								</InputField>
 							</ChildItems>
 						</UsualGroup>
 						<InputField name="Полномочие" id="18">
@@ -91,12 +91,12 @@
 							</Title>
 							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
+							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ГруппаНастройкаРасширеннаяПодсказка" id="78"/>
 							<ChildItems>
 								<Table name="ДеревоОтбора" id="79">
 									<Representation>Tree</Representation>
 									<CommandBarLocation>None</CommandBarLocation>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<Header>false</Header>
 									<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -142,6 +142,8 @@
 									<ChildItems>
 										<InputField name="ДеревоОтбораДанные" id="98">
 											<DataPath>ДеревоОтбора.Данные</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<Width>60</Width>
 											<ChooseType>false</ChooseType>
 											<ContextMenu name="ДеревоОтбораДанныеКонтекстноеМеню" id="99"/>
@@ -175,6 +177,7 @@
 							</Title>
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
+							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ГруппаСкриптРасширеннаяПодсказка" id="70"/>
 							<ChildItems>
 								<InputField name="Скрипт" id="74">
@@ -215,7 +218,7 @@
 							<ChildItems>
 								<LabelDecoration name="ДекорацияИнформацияОДополнительнойПроверкеПолномочий" id="138">
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<Font ref="style:TextLevel2" kind="StyleItem"/>
+									<Font ref="style:УвеличенныйШрифтБЭД" kind="StyleItem"/>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -228,7 +231,7 @@
 								</LabelDecoration>
 								<LabelDecoration name="ДекорацияОписаниеСкрипта" id="135">
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<Font ref="style:TextLevel3" kind="StyleItem"/>
+									<Font ref="style:МелкийНаклонныйШрифтБЭД" kind="StyleItem"/>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>

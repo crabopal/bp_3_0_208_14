@@ -19,32 +19,30 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<ChildItems>
-			<Button name="Применить" id="8">
+			<Button name="Ок" id="8">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
 				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.Command.КнопкаПрименить</CommandName>
+				<CommandName>Form.Command.КнопкаОК</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Применить</v8:content>
+						<v8:content>ОК</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="43"/>
+				<ExtendedTooltip name="ОкРасширеннаяПодсказка" id="43"/>
 			</Button>
-			<Button name="ДополнительныеПараметрыПроксиСервера" id="26">
+			<Button name="КнопкаОтмена" id="34">
 				<Type>CommandBarButton</Type>
-				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-				<CommandName>Form.Command.ДополнительныеПараметрыПроксиСервера</CommandName>
+				<CommandName>Form.Command.КнопкаОтмена</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Дополнительно</v8:content>
+						<v8:content>Отмена</v8:content>
 					</v8:item>
 				</Title>
-				<ButtonImportance>Supplementary</ButtonImportance>
-				<ExtendedTooltip name="ДополнительныеПараметрыПроксиСервераРасширеннаяПодсказка" id="56"/>
+				<ExtendedTooltip name="КнопкаОтменаРасширеннаяПодсказка" id="44"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -64,8 +62,6 @@
 				</v8:item>
 			</Title>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<RadioButtonType>Auto</RadioButtonType>
 			<ColumnsCount>1</ColumnsCount>
 			<ChoiceList>
@@ -135,7 +131,7 @@
 							<v8:content>Адрес сервера</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>NormalSeparation</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -155,8 +151,6 @@
 									<v8:content>IP адрес или имя прокси сервера</v8:content>
 								</v8:item>
 							</ToolTip>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Wrap>false</Wrap>
 							<ContextMenu name="ПроксиСерверКонтекстноеМеню" id="10"/>
 							<ExtendedTooltip name="ПроксиСерверРасширеннаяПодсказка" id="48"/>
@@ -175,8 +169,6 @@
 									<v8:content>Порт прокси сервера</v8:content>
 								</v8:item>
 							</ToolTip>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Wrap>false</Wrap>
 							<EditFormat>
 								<v8:item>
@@ -213,8 +205,6 @@
 								</v8:item>
 							</Title>
 							<ToolTipRepresentation>Button</ToolTipRepresentation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ListChoiceMode>true</ListChoiceMode>
 							<ChooseType>false</ChooseType>
 							<TextEdit>false</TextEdit>
@@ -272,8 +262,6 @@
 									<v8:content>Логин для авторизации на прокси сервере</v8:content>
 								</v8:item>
 							</ToolTip>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Wrap>false</Wrap>
 							<ContextMenu name="ПользовательКонтекстноеМеню" id="6"/>
 							<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="51"/>
@@ -292,8 +280,6 @@
 									<v8:content>Пароль для авторизации на прокси сервере</v8:content>
 								</v8:item>
 							</ToolTip>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Wrap>false</Wrap>
 							<PasswordMode>true</PasswordMode>
 							<ContextMenu name="ПарольКонтекстноеМеню" id="4"/>
@@ -323,11 +309,21 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>Right</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="НеИспользоватьПроксиДляЛокальныхАдресовКонтекстноеМеню" id="12"/>
 							<ExtendedTooltip name="НеИспользоватьПроксиДляЛокальныхАдресовРасширеннаяПодсказка" id="54"/>
 						</CheckBoxField>
+						<Button name="ДополнительныеПараметрыПроксиСервера" id="26">
+							<Type>UsualButton</Type>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<CommandName>Form.Command.ДополнительныеПараметрыПроксиСервера</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дополнительно</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ДополнительныеПараметрыПроксиСервераРасширеннаяПодсказка" id="56"/>
+						</Button>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -539,24 +535,17 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="КнопкаПрименить" id="1">
+		<Command name="КнопкаОК" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Применить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Кнопка применить</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Action>КнопкаОК</Action>
 			<Representation>TextPicture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ДополнительныеПараметрыПроксиСервера" id="2">
 			<Title>
@@ -573,7 +562,22 @@
 			</ToolTip>
 			<Action>ДополнительныеПараметрыПроксиСервера</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="КнопкаОтмена" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопка отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КнопкаОтмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 	<Parameters>

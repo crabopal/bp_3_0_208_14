@@ -8,68 +8,44 @@
 	</Title>
 	<Width>85</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
-	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ДанныеЧековСохранитьЧек" id="61">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.СохранитьЧек</CommandName>
-				<ExtendedTooltip name="ДанныеЧековСохранитьЧекРасширеннаяПодсказка" id="62"/>
-			</Button>
-			<Button name="ДанныеЧековПросмотретьЧек" id="63">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ПросмотретьЧек</CommandName>
-				<ExtendedTooltip name="ДанныеЧековПросмотретьЧекРасширеннаяПодсказка" id="64"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<LabelField name="Документ" id="1">
+			<DataPath>Документ</DataPath>
+			<Width>40</Width>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Hiperlink>true</Hiperlink>
+			<ContextMenu name="ДокументКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ДокументРасширеннаяПодсказка" id="3"/>
+		</LabelField>
 		<Table name="ДанныеЧеков" id="4">
 			<Representation>List</Representation>
-			<SelectionMode>SingleRow</SelectionMode>
+			<ReadOnly>true</ReadOnly>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<DataPath>ЧекиПоДокументу</DataPath>
-			<CommandSet>
-				<ExcludedCommand>Add</ExcludedCommand>
-				<ExcludedCommand>CancelSearch</ExcludedCommand>
-				<ExcludedCommand>Change</ExcludedCommand>
-				<ExcludedCommand>Copy</ExcludedCommand>
-				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
-				<ExcludedCommand>Delete</ExcludedCommand>
-				<ExcludedCommand>EndEdit</ExcludedCommand>
-				<ExcludedCommand>Find</ExcludedCommand>
-				<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
-				<ExcludedCommand>MoveDown</ExcludedCommand>
-				<ExcludedCommand>MoveUp</ExcludedCommand>
-				<ExcludedCommand>OutputList</ExcludedCommand>
-				<ExcludedCommand>SearchEverywhere</ExcludedCommand>
-				<ExcludedCommand>SearchHistory</ExcludedCommand>
-				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
-				<ExcludedCommand>SortListAsc</ExcludedCommand>
-				<ExcludedCommand>SortListDesc</ExcludedCommand>
-			</CommandSet>
-			<SearchStringLocation>Top</SearchStringLocation>
+			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="ДанныеЧековКонтекстноеМеню" id="5"/>
-			<AutoCommandBar name="ДанныеЧековКоманднаяПанель" id="6"/>
+			<AutoCommandBar name="ДанныеЧековКоманднаяПанель" id="6">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="ДанныеЧековРасширеннаяПодсказка" id="7"/>
 			<SearchStringAddition name="ДанныеЧековСтрокаПоиска" id="8">
-				<ToolTipRepresentation>Button</ToolTipRepresentation>
 				<AdditionSource>
 					<Item>ДанныеЧеков</Item>
 					<Type>SearchStringRepresentation</Type>
 				</AdditionSource>
-				<HorizontalStretch>true</HorizontalStretch>
 				<ContextMenu name="ДанныеЧековСтрокаПоискаКонтекстноеМеню" id="9"/>
 				<ExtendedTooltip name="ДанныеЧековСтрокаПоискаРасширеннаяПодсказка" id="10"/>
 			</SearchStringAddition>
@@ -95,7 +71,6 @@
 			<ChildItems>
 				<InputField name="ДанныеЧековПредставлениеЧека" id="17">
 					<DataPath>ЧекиПоДокументу.ПредставлениеЧека</DataPath>
-					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<Width>20</Width>
@@ -105,92 +80,90 @@
 				</InputField>
 				<InputField name="ДанныеЧековСуммаНаличными" id="20">
 					<DataPath>ЧекиПоДокументу.СуммаНаличными</DataPath>
-					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<Width>10</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<Format>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ЧГ=0; ЧФ='Ч руб.'</v8:content>
-						</v8:item>
-					</Format>
-					<EditFormat>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ЧГ=0; ЧФ='Ч руб.'</v8:content>
-						</v8:item>
-					</EditFormat>
 					<ContextMenu name="ДанныеЧековСуммаНаличнымиКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="ДанныеЧековСуммаНаличнымиРасширеннаяПодсказка" id="22"/>
 				</InputField>
 				<InputField name="ДанныеЧековСуммаЭлектронными" id="23">
 					<DataPath>ЧекиПоДокументу.СуммаЭлектронными</DataPath>
-					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<Width>10</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<Format>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ЧГ=0; ЧФ='Ч руб.'</v8:content>
-						</v8:item>
-					</Format>
-					<EditFormat>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ЧГ=0; ЧФ='Ч руб.'</v8:content>
-						</v8:item>
-					</EditFormat>
 					<ContextMenu name="ДанныеЧековСуммаЭлектроннымиКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="ДанныеЧековСуммаЭлектроннымиРасширеннаяПодсказка" id="25"/>
 				</InputField>
 				<InputField name="ДанныеЧековСуммаПредоплатами" id="26">
 					<DataPath>ЧекиПоДокументу.СуммаПредоплатами</DataPath>
-					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<Width>10</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<Format>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ЧГ=0; ЧФ='Ч руб.'</v8:content>
-						</v8:item>
-					</Format>
-					<EditFormat>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ЧГ=0; ЧФ='Ч руб.'</v8:content>
-						</v8:item>
-					</EditFormat>
 					<ContextMenu name="ДанныеЧековСуммаПредоплатамиКонтекстноеМеню" id="27"/>
 					<ExtendedTooltip name="ДанныеЧековСуммаПредоплатамиРасширеннаяПодсказка" id="28"/>
 				</InputField>
 				<InputField name="ДанныеЧековСуммаПостоплатами" id="29">
 					<DataPath>ЧекиПоДокументу.СуммаПостоплатами</DataPath>
-					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<Width>10</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<Format>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ЧГ=0; ЧФ='Ч руб.'</v8:content>
-						</v8:item>
-					</Format>
-					<EditFormat>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ЧГ=0; ЧФ='Ч руб.'</v8:content>
-						</v8:item>
-					</EditFormat>
 					<ContextMenu name="ДанныеЧековСуммаПостоплатамиКонтекстноеМеню" id="30"/>
 					<ExtendedTooltip name="ДанныеЧековСуммаПостоплатамиРасширеннаяПодсказка" id="31"/>
 				</InputField>
+				<ColumnGroup name="ДанныеЧековОперации" id="41">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Операции</v8:content>
+						</v8:item>
+					</Title>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ДанныеЧековОперацииРасширеннаяПодсказка" id="42"/>
+					<ChildItems>
+						<InputField name="ДанныеЧековПросмотр" id="38">
+							<DataPath>ЧекиПоДокументу.Просмотр</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Просмотр</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<CellHyperlink>true</CellHyperlink>
+							<ShowInHeader>false</ShowInHeader>
+							<ShowInFooter>false</ShowInFooter>
+							<AutoEditMode>true</AutoEditMode>
+							<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
+							<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
+							<TextColor>style:ГиперссылкаЦвет</TextColor>
+							<ContextMenu name="ДанныеЧековПросмотрКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ДанныеЧековПросмотрРасширеннаяПодсказка" id="40"/>
+						</InputField>
+						<InputField name="ДанныеЧековСохранение" id="35">
+							<DataPath>ЧекиПоДокументу.Сохранение</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сохранение</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<CellHyperlink>true</CellHyperlink>
+							<ShowInHeader>false</ShowInHeader>
+							<ShowInFooter>false</ShowInFooter>
+							<AutoEditMode>true</AutoEditMode>
+							<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
+							<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
+							<TextColor>style:ГиперссылкаЦвет</TextColor>
+							<ContextMenu name="ДанныеЧековСохранениеКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ДанныеЧековСохранениеРасширеннаяПодсказка" id="37"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -359,48 +332,4 @@
 			</Columns>
 		</Attribute>
 	</Attributes>
-	<Commands>
-		<Command name="ПросмотретьЧек" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Просмотреть чек</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Просмотреть чек</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.ShowPassword</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>Просмотреть</Action>
-			<Representation>TextPicture</Representation>
-			<AssociatedTableElementId xsi:type="xs:string">ДанныеЧеков</AssociatedTableElementId>
-		</Command>
-		<Command name="СохранитьЧек" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить чек</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить чек</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>CommonPicture.СохранитьФайлКак</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
-			<Action>СохранитьЧек</Action>
-			<Representation>TextPicture</Representation>
-			<AssociatedTableElementId xsi:type="xs:string">ДанныеЧеков</AssociatedTableElementId>
-		</Command>
-	</Commands>
 </Form>

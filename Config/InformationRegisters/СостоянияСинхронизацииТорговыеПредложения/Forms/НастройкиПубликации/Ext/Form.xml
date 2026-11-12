@@ -8,20 +8,12 @@
 	</Title>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<Group>Vertical</Group>
 	<CommandSet>
 		<ExcludedCommand>Copy</ExcludedCommand>
 		<ExcludedCommand>Delete</ExcludedCommand>
 	</CommandSet>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаСправка" id="124">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="125"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="AfterWrite">ПослеЗаписи</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -39,437 +31,405 @@
 			<ContextMenu name="ТорговоеПредложениеКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="ТорговоеПредложениеРасширеннаяПодсказка" id="3"/>
 		</LabelField>
-		<Pages name="Страницы" id="118">
+		<InputField name="АдресЭлектроннойПочты" id="7">
+			<DataPath>Запись.АдресЭлектроннойПочты</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Страницы</v8:content>
+					<v8:content>Уведомление о заказах по эл.почте</v8:content>
 				</v8:item>
 			</Title>
-			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="119"/>
+			<TitleLocation>Top</TitleLocation>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Позволяет получать уведомления по электронной почте о заказах выставленных на опубликованные торговые предложения. Можно выбрать почту указанную в контактной информации организации, или ввести произвольную.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<MarkRequiredComplete>true</MarkRequiredComplete>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ClearButton>true</ClearButton>
+			<AutoChoiceIncomplete>false</AutoChoiceIncomplete>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Введите адрес или выберите из списка</v8:content>
+				</v8:item>
+			</InputHint>
+			<ContextMenu name="АдресЭлектроннойПочтыКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="АдресЭлектроннойПочтыРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<UsualGroup name="ГруппаЦеныОформление" id="84">
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ЦветФонаСкидкиТорговыхПредложенийОсветление</BackColor>
+			<ExtendedTooltip name="ГруппаЦеныОформлениеРасширеннаяПодсказка" id="85"/>
 			<ChildItems>
-				<Page name="СтраницаОсновное" id="120">
+				<UsualGroup name="ГруппаЦены" id="38">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Основное</v8:content>
+							<v8:content>Цены</v8:content>
 						</v8:item>
 					</Title>
-					<ExtendedTooltip name="СтраницаОсновноеРасширеннаяПодсказка" id="121"/>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>WeakSeparation</Representation>
+					<BackColor>style:ЦветФонаСкидкиТорговыхПредложений</BackColor>
+					<ExtendedTooltip name="ГруппаЦеныРасширеннаяПодсказка" id="39"/>
 					<ChildItems>
-						<InputField name="АдресЭлектроннойПочты" id="7">
-							<DataPath>Запись.АдресЭлектроннойПочты</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Уведомление о заказах по эл.почте</v8:content>
-								</v8:item>
-							</Title>
-							<TitleLocation>Top</TitleLocation>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Позволяет получать уведомления по электронной почте о заказах выставленных на опубликованные торговые предложения. Можно выбрать почту указанную в контактной информации организации, или ввести произвольную.</v8:content>
-								</v8:item>
-							</ToolTip>
-							<ToolTipRepresentation>Button</ToolTipRepresentation>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<ClearButton>true</ClearButton>
-							<AutoChoiceIncomplete>false</AutoChoiceIncomplete>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<InputHint>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Введите адрес или выберите из списка</v8:content>
-								</v8:item>
-							</InputHint>
-							<ContextMenu name="АдресЭлектроннойПочтыКонтекстноеМеню" id="8"/>
-							<ExtendedTooltip name="АдресЭлектроннойПочтыРасширеннаяПодсказка" id="9"/>
-						</InputField>
-						<CheckBoxField name="ПубликоватьСрокиПоставки" id="22">
-							<DataPath>Запись.ПубликоватьСрокиПоставки</DataPath>
-							<TitleLocation>Right</TitleLocation>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Выгрузка информации о сроках поставки товаров в сервис для просмотра покупателями. При отключении, сроки поставки в торговых предложениях будут отображаться "По запросу".</v8:content>
-								</v8:item>
-							</ToolTip>
-							<ToolTipRepresentation>Button</ToolTipRepresentation>
-							<ContextMenu name="ПубликоватьСрокиПоставкиКонтекстноеМеню" id="23"/>
-							<ExtendedTooltip name="ПубликоватьСрокиПоставкиРасширеннаяПодсказка" id="24"/>
-						</CheckBoxField>
-						<UsualGroup name="ГруппаЦеныОформление" id="84">
-							<HorizontalStretch>true</HorizontalStretch>
+						<UsualGroup name="ГруппаШапка" id="91">
 							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
-							<Representation>NormalSeparation</Representation>
+							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ShowAsCard>true</ShowAsCard>
-							<ExtendedTooltip name="ГруппаЦеныОформлениеРасширеннаяПодсказка" id="85"/>
+							<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="92"/>
 							<ChildItems>
-								<UsualGroup name="ГруппаЦены" id="38">
+								<CheckBoxField name="ПубликоватьЦены" id="16">
+									<DataPath>Запись.ПубликоватьЦены</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Цены</v8:content>
+											<v8:content>Публиковать цены на товары</v8:content>
 										</v8:item>
 									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Выгрузка цен товаров в сервис для просмотра покупателями. При отключении режима публикации цен, в форме поиска торговых предложений будет отображаться "По запросу".</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<ContextMenu name="ПубликоватьЦеныКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="ПубликоватьЦеныРасширеннаяПодсказка" id="18"/>
+									<Events>
+										<Event name="OnChange">ПубликоватьЦеныПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаСкидкиГруппировка" id="89">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСкидкиГруппировкаРасширеннаяПодсказка" id="90"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация1" id="86">
+									<Width>1</Width>
+									<Height>2</Height>
+									<ContextMenu name="Декорация1КонтекстноеМеню" id="87"/>
+									<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="88"/>
+								</PictureDecoration>
+								<UsualGroup name="ГруппаСкидки" id="50">
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
-									<ExtendedTooltip name="ГруппаЦеныРасширеннаяПодсказка" id="39"/>
+									<Representation>WeakSeparation</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСкидкиРасширеннаяПодсказка" id="51"/>
 									<ChildItems>
-										<UsualGroup name="ГруппаШапка" id="91">
-											<Group>AutoScreenTypeSensitive</Group>
+										<UsualGroup name="ГруппаЦенаДоСкидки" id="63">
+											<Group>HorizontalIfPossible</Group>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="92"/>
+											<ExtendedTooltip name="ГруппаЦенаДоСкидкиРасширеннаяПодсказка" id="64"/>
 											<ChildItems>
-												<CheckBoxField name="ПубликоватьЦены" id="16">
-													<DataPath>Запись.ПубликоватьЦены</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Публиковать цены на товары</v8:content>
-														</v8:item>
-													</Title>
-													<TitleLocation>Right</TitleLocation>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Выгрузка цен товаров в сервис для просмотра покупателями. При отключении режима публикации цен, в форме поиска торговых предложений будет отображаться "По запросу".</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ToolTipRepresentation>Button</ToolTipRepresentation>
-													<CheckBoxType>Switcher</CheckBoxType>
-													<ContextMenu name="ПубликоватьЦеныКонтекстноеМеню" id="17"/>
-													<ExtendedTooltip name="ПубликоватьЦеныРасширеннаяПодсказка" id="18"/>
+												<UsualGroup name="ИспользоватьСкидку" id="77">
+													<Width>11</Width>
+													<Group>HorizontalIfPossible</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ИспользоватьСкидкуРасширеннаяПодсказка" id="78"/>
+													<ChildItems>
+														<CheckBoxField name="ПубликоватьЦенуДоСкидки" id="45">
+															<DataPath>Запись.ПубликоватьЦенуДоСкидки</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Скидка</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>Right</TitleLocation>
+															<ContextMenu name="ПубликоватьЦенуДоСкидкиКонтекстноеМеню" id="46"/>
+															<ExtendedTooltip name="ПубликоватьЦенуДоСкидкиРасширеннаяПодсказка" id="47"/>
+															<Events>
+																<Event name="OnChange">ПубликоватьЦенуДоСкидкиПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+													</ChildItems>
+												</UsualGroup>
+												<InputField name="ВариантПубликацииСкидки" id="65">
+													<DataPath>Запись.ВариантПубликацииСкидки</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ClearButton>true</ClearButton>
+													<ListChoiceMode>true</ListChoiceMode>
+													<ContextMenu name="ВариантПубликацииСкидкиКонтекстноеМеню" id="66"/>
+													<ExtendedTooltip name="ВариантПубликацииСкидкиРасширеннаяПодсказка" id="67"/>
 													<Events>
-														<Event name="OnChange">ПубликоватьЦеныПриИзменении</Event>
+														<Event name="OnChange">ВариантПубликацииСкидкиПриИзменении</Event>
 													</Events>
-												</CheckBoxField>
+												</InputField>
+												<InputField name="Скидка" id="81">
+													<DataPath>Скидка</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ChoiceButton>true</ChoiceButton>
+													<ContextMenu name="СкидкаКонтекстноеМеню" id="82"/>
+													<ExtendedTooltip name="СкидкаРасширеннаяПодсказка" id="83">
+														<Title formatted="false">
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Текущая скидка (акция)</v8:content>
+															</v8:item>
+														</Title>
+													</ExtendedTooltip>
+												</InputField>
 											</ChildItems>
 										</UsualGroup>
-										<UsualGroup name="ГруппаСкидкиГруппировка" id="89">
-											<Group>AlwaysHorizontal</Group>
+										<UsualGroup name="ГруппаМатрицаЦен" id="55">
+											<Group>HorizontalIfPossible</Group>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаСкидкиГруппировкаРасширеннаяПодсказка" id="90"/>
+											<ExtendedTooltip name="ГруппаМатрицаЦенРасширеннаяПодсказка" id="56"/>
 											<ChildItems>
-												<PictureDecoration name="ДекорацияОтступЦены" id="86">
-													<Width>1</Width>
-													<Height>2</Height>
+												<UsualGroup name="ИспользоватьСкидкуЗаОпт" id="79">
+													<Width>11</Width>
+													<Group>HorizontalIfPossible</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ИспользоватьСкидкуЗаОптРасширеннаяПодсказка" id="80"/>
+													<ChildItems>
+														<CheckBoxField name="ПубликоватьСкидкиЗаОпт" id="42">
+															<DataPath>Запись.ПубликоватьСкидкиЗаРазовыйОбъемПродаж</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Скидки за опт</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>Right</TitleLocation>
+															<ContextMenu name="ПубликоватьСкидкиЗаОптКонтекстноеМеню" id="43"/>
+															<ExtendedTooltip name="ПубликоватьСкидкиЗаОптРасширеннаяПодсказка" id="44"/>
+															<Events>
+																<Event name="OnChange">ПубликоватьСкидкиЗаРазовыйОбъемПродажПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+													</ChildItems>
+												</UsualGroup>
+												<InputField name="ВариантПубликацииСкидкиЗаОпт" id="60">
+													<DataPath>Запись.ВариантПубликацииСкидкиЗаОпт</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ClearButton>true</ClearButton>
+													<ListChoiceMode>true</ListChoiceMode>
+													<ContextMenu name="ВариантПубликацииСкидкиЗаОптКонтекстноеМеню" id="61"/>
+													<ExtendedTooltip name="ВариантПубликацииСкидкиЗаОптРасширеннаяПодсказка" id="62">
+														<Title formatted="false">
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Скидки за разовый объем продаж.</v8:content>
+															</v8:item>
+														</Title>
+													</ExtendedTooltip>
+													<Events>
+														<Event name="OnChange">ВариантПубликацииСкидкиЗаОптПриИзменении</Event>
+													</Events>
+												</InputField>
+												<LabelDecoration name="ВариантыПубликацииСкидокЗаОпт" id="57">
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Декорация отступ цены</v8:content>
+															<v8:content>&lt;не указаны&gt;</v8:content>
 														</v8:item>
 													</Title>
-													<ContextMenu name="ДекорацияОтступЦеныКонтекстноеМеню" id="87"/>
-													<ExtendedTooltip name="ДекорацияОтступЦеныРасширеннаяПодсказка" id="88"/>
-												</PictureDecoration>
-												<UsualGroup name="ГруппаСкидки" id="50">
-													<Group>Vertical</Group>
-													<Behavior>Usual</Behavior>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаСкидкиРасширеннаяПодсказка" id="51"/>
-													<ChildItems>
-														<UsualGroup name="ГруппаЦенаДоСкидки" id="63">
-															<Group>HorizontalIfPossible</Group>
-															<Behavior>Usual</Behavior>
-															<Representation>None</Representation>
-															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаЦенаДоСкидкиРасширеннаяПодсказка" id="64"/>
-															<ChildItems>
-																<UsualGroup name="ИспользоватьСкидку" id="77">
-																	<Group>HorizontalIfPossible</Group>
-																	<Behavior>Usual</Behavior>
-																	<Representation>None</Representation>
-																	<ShowTitle>false</ShowTitle>
-																	<ExtendedTooltip name="ИспользоватьСкидкуРасширеннаяПодсказка" id="78"/>
-																	<ChildItems>
-																		<CheckBoxField name="ПубликоватьЦенуДоСкидки" id="45">
-																			<DataPath>Запись.ПубликоватьЦенуДоСкидки</DataPath>
-																			<Title>
-																				<v8:item>
-																					<v8:lang>ru</v8:lang>
-																					<v8:content>Скидка</v8:content>
-																				</v8:item>
-																			</Title>
-																			<TitleLocation>Right</TitleLocation>
-																			<CheckBoxType>Switcher</CheckBoxType>
-																			<ContextMenu name="ПубликоватьЦенуДоСкидкиКонтекстноеМеню" id="46"/>
-																			<ExtendedTooltip name="ПубликоватьЦенуДоСкидкиРасширеннаяПодсказка" id="47"/>
-																			<Events>
-																				<Event name="OnChange">ПубликоватьЦенуДоСкидкиПриИзменении</Event>
-																			</Events>
-																		</CheckBoxField>
-																	</ChildItems>
-																</UsualGroup>
-																<InputField name="ВариантПубликацииСкидки" id="65">
-																	<DataPath>Запись.ВариантПубликацииСкидки</DataPath>
-																	<TitleLocation>None</TitleLocation>
-																	<HorizontalStretch>false</HorizontalStretch>
-																	<ClearButton>true</ClearButton>
-																	<ListChoiceMode>true</ListChoiceMode>
-																	<ContextMenu name="ВариантПубликацииСкидкиКонтекстноеМеню" id="66"/>
-																	<ExtendedTooltip name="ВариантПубликацииСкидкиРасширеннаяПодсказка" id="67"/>
-																	<Events>
-																		<Event name="OnChange">ВариантПубликацииСкидкиПриИзменении</Event>
-																	</Events>
-																</InputField>
-																<InputField name="Скидка" id="81">
-																	<DataPath>Скидка</DataPath>
-																	<TitleLocation>None</TitleLocation>
-																	<ToolTipRepresentation>Button</ToolTipRepresentation>
-																	<HorizontalStretch>false</HorizontalStretch>
-																	<ChoiceButton>true</ChoiceButton>
-																	<ContextMenu name="СкидкаКонтекстноеМеню" id="82"/>
-																	<ExtendedTooltip name="СкидкаРасширеннаяПодсказка" id="83">
-																		<Title formatted="false">
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Текущая скидка (акция)</v8:content>
-																			</v8:item>
-																		</Title>
-																	</ExtendedTooltip>
-																</InputField>
-															</ChildItems>
-														</UsualGroup>
-														<UsualGroup name="ГруппаМатрицаЦен" id="55">
-															<Group>HorizontalIfPossible</Group>
-															<Behavior>Usual</Behavior>
-															<Representation>None</Representation>
-															<ShowTitle>false</ShowTitle>
-															<ExtendedTooltip name="ГруппаМатрицаЦенРасширеннаяПодсказка" id="56"/>
-															<ChildItems>
-																<UsualGroup name="ИспользоватьСкидкуЗаОпт" id="79">
-																	<Group>HorizontalIfPossible</Group>
-																	<Behavior>Usual</Behavior>
-																	<Representation>None</Representation>
-																	<ShowTitle>false</ShowTitle>
-																	<ExtendedTooltip name="ИспользоватьСкидкуЗаОптРасширеннаяПодсказка" id="80"/>
-																	<ChildItems>
-																		<CheckBoxField name="ПубликоватьСкидкиЗаОпт" id="42">
-																			<DataPath>Запись.ПубликоватьСкидкиЗаРазовыйОбъемПродаж</DataPath>
-																			<Title>
-																				<v8:item>
-																					<v8:lang>ru</v8:lang>
-																					<v8:content>Скидки за опт</v8:content>
-																				</v8:item>
-																			</Title>
-																			<TitleLocation>Right</TitleLocation>
-																			<CheckBoxType>Switcher</CheckBoxType>
-																			<ContextMenu name="ПубликоватьСкидкиЗаОптКонтекстноеМеню" id="43"/>
-																			<ExtendedTooltip name="ПубликоватьСкидкиЗаОптРасширеннаяПодсказка" id="44"/>
-																			<Events>
-																				<Event name="OnChange">ПубликоватьСкидкиЗаРазовыйОбъемПродажПриИзменении</Event>
-																			</Events>
-																		</CheckBoxField>
-																	</ChildItems>
-																</UsualGroup>
-																<InputField name="ВариантПубликацииСкидкиЗаОпт" id="60">
-																	<DataPath>Запись.ВариантПубликацииСкидкиЗаОпт</DataPath>
-																	<TitleLocation>None</TitleLocation>
-																	<HorizontalStretch>false</HorizontalStretch>
-																	<ClearButton>true</ClearButton>
-																	<ListChoiceMode>true</ListChoiceMode>
-																	<ContextMenu name="ВариантПубликацииСкидкиЗаОптКонтекстноеМеню" id="61"/>
-																	<ExtendedTooltip name="ВариантПубликацииСкидкиЗаОптРасширеннаяПодсказка" id="62">
-																		<Title formatted="false">
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Скидки за разовый объем продаж.</v8:content>
-																			</v8:item>
-																		</Title>
-																	</ExtendedTooltip>
-																	<Events>
-																		<Event name="OnChange">ВариантПубликацииСкидкиЗаОптПриИзменении</Event>
-																	</Events>
-																</InputField>
-																<LabelDecoration name="ВариантыПубликацииСкидокЗаОпт" id="57">
-																	<Title formatted="false">
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>&lt;не указаны&gt;</v8:content>
-																		</v8:item>
-																	</Title>
-																	<ToolTipRepresentation>Button</ToolTipRepresentation>
-																	<Hyperlink>true</Hyperlink>
-																	<ContextMenu name="ВариантыПубликацииСкидокЗаОптКонтекстноеМеню" id="58"/>
-																	<ExtendedTooltip name="ВариантыПубликацииСкидокЗаОптРасширеннаяПодсказка" id="59">
-																		<Title formatted="false">
-																			<v8:item>
-																				<v8:lang>ru</v8:lang>
-																				<v8:content>Выгрузка данных о скидках за разовый объем продаж на товары в сервис 1С:Бизнес-сеть.
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<Hyperlink>true</Hyperlink>
+													<ContextMenu name="ВариантыПубликацииСкидокЗаОптКонтекстноеМеню" id="58"/>
+													<ExtendedTooltip name="ВариантыПубликацииСкидокЗаОптРасширеннаяПодсказка" id="59">
+														<Title formatted="false">
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Выгрузка данных о скидках за разовый объем продаж на товары в сервис 1С:Бизнес-сеть.
 Возможные варианты публикации данных о скидках:
 - Виды цен. Скидки настраиваются в учетной системе с помощью видов цен;
 - Скидки. Скидки настраиваются в учетной системе с помощью механизмов скидок;</v8:content>
-																			</v8:item>
-																		</Title>
-																	</ExtendedTooltip>
-																	<Events>
-																		<Event name="Click">ВариантыПубликацииСкидкиЗаОптНажатие</Event>
-																	</Events>
-																</LabelDecoration>
-															</ChildItems>
-														</UsualGroup>
-													</ChildItems>
-												</UsualGroup>
+															</v8:item>
+														</Title>
+													</ExtendedTooltip>
+													<Events>
+														<Event name="Click">ВариантыПубликацииСкидкиЗаОптНажатие</Event>
+													</Events>
+												</LabelDecoration>
 											</ChildItems>
 										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-						<UsualGroup name="ГруппаРегионы" id="28">
-							<Group>HorizontalIfPossible</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаРегионыРасширеннаяПодсказка" id="29"/>
-							<ChildItems>
-								<CheckBoxField name="ПубликоватьРегионы" id="25">
-									<DataPath>Запись.ПубликоватьРегионыДоступностиТоваров</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Публиковать регионы доступности товаров</v8:content>
-										</v8:item>
-									</Title>
-									<TitleLocation>Right</TitleLocation>
-									<CheckBoxType>Switcher</CheckBoxType>
-									<ContextMenu name="ПубликоватьРегионыКонтекстноеМеню" id="26"/>
-									<ExtendedTooltip name="ПубликоватьРегионыРасширеннаяПодсказка" id="27"/>
-									<Events>
-										<Event name="OnChange">ПубликоватьРегионыПриИзменении</Event>
-									</Events>
-								</CheckBoxField>
-								<LabelDecoration name="СоставРегионов" id="30">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>&lt;не указаны&gt;</v8:content>
-										</v8:item>
-									</Title>
-									<Hyperlink>true</Hyperlink>
-									<ContextMenu name="СоставРегионовКонтекстноеМеню" id="31"/>
-									<ExtendedTooltip name="СоставРегионовРасширеннаяПодсказка" id="32"/>
-									<Events>
-										<Event name="Click">СоставРегионовНажатие</Event>
-									</Events>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаОстатки" id="33">
-							<Group>HorizontalIfPossible</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаОстаткиРасширеннаяПодсказка" id="34"/>
-							<ChildItems>
-								<CheckBoxField name="ПубликоватьОстатки" id="19">
-									<DataPath>Запись.ПубликоватьОстатки</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Публиковать остатки товаров</v8:content>
-										</v8:item>
-									</Title>
-									<TitleLocation>Right</TitleLocation>
-									<CheckBoxType>Switcher</CheckBoxType>
-									<ContextMenu name="ПубликоватьОстаткиКонтекстноеМеню" id="20"/>
-									<ExtendedTooltip name="ПубликоватьОстаткиРасширеннаяПодсказка" id="21"/>
-									<Events>
-										<Event name="OnChange">ПубликоватьОстаткиПриИзменении</Event>
-									</Events>
-								</CheckBoxField>
-								<InputField name="ВариантПубликацииОстатков" id="35">
-									<DataPath>ВариантПубликацииОстатков</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<ToolTipRepresentation>Button</ToolTipRepresentation>
-									<ListChoiceMode>true</ListChoiceMode>
-									<ContextMenu name="ВариантПубликацииОстатковКонтекстноеМеню" id="36"/>
-									<ExtendedTooltip name="ВариантПубликацииОстатковРасширеннаяПодсказка" id="37">
-										<Title formatted="false">
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Выгрузка данных об остатках товаров в сервис 1С:Бизнес-сеть.
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРегионы" id="28">
+			<Width>40</Width>
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРегионыРасширеннаяПодсказка" id="29"/>
+			<ChildItems>
+				<CheckBoxField name="ПубликоватьРегионы" id="25">
+					<DataPath>Запись.ПубликоватьРегионыДоступностиТоваров</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Публиковать регионы доступности товаров</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<ContextMenu name="ПубликоватьРегионыКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ПубликоватьРегионыРасширеннаяПодсказка" id="27"/>
+					<Events>
+						<Event name="OnChange">ПубликоватьРегионыПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<LabelDecoration name="СоставРегионов" id="30">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;не указаны&gt;</v8:content>
+						</v8:item>
+					</Title>
+					<Hyperlink>true</Hyperlink>
+					<ContextMenu name="СоставРегионовКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="СоставРегионовРасширеннаяПодсказка" id="32"/>
+					<Events>
+						<Event name="Click">СоставРегионовНажатие</Event>
+					</Events>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="ПубликоватьСрокиПоставки" id="22">
+			<DataPath>Запись.ПубликоватьСрокиПоставки</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузка информации о сроках поставки товаров в сервис для просмотра покупателями. При отключении, сроки поставки в торговых предложениях будут отображаться "По запросу".</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<ContextMenu name="ПубликоватьСрокиПоставкиКонтекстноеМеню" id="23"/>
+			<ExtendedTooltip name="ПубликоватьСрокиПоставкиРасширеннаяПодсказка" id="24"/>
+		</CheckBoxField>
+		<UsualGroup name="ГруппаОстатки" id="33">
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОстаткиРасширеннаяПодсказка" id="34"/>
+			<ChildItems>
+				<CheckBoxField name="ПубликоватьОстатки" id="19">
+					<DataPath>Запись.ПубликоватьОстатки</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Публиковать остатки товаров</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<ContextMenu name="ПубликоватьОстаткиКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ПубликоватьОстаткиРасширеннаяПодсказка" id="21"/>
+					<Events>
+						<Event name="OnChange">ПубликоватьОстаткиПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="ВариантПубликацииОстатков" id="35">
+					<DataPath>ВариантПубликацииОстатков</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ContextMenu name="ВариантПубликацииОстатковКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ВариантПубликацииОстатковРасширеннаяПодсказка" id="37">
+						<Title formatted="false">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выгрузка данных об остатках товаров в сервис 1С:Бизнес-сеть.
 Варианты публикации данных об остатках:
 - Наличие. Данные об остатках публикуются в значениях "Мало", "Много", "Достаточно";
 - Количество. Данные об остатках публикуются в числовом выражении;
 - Количество и наличие. Комбинация обоих вариантов.</v8:content>
-											</v8:item>
-										</Title>
-									</ExtendedTooltip>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаКратностьУпаковок" id="96">
-							<Group>AlwaysHorizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаКратностьУпаковокРасширеннаяПодсказка" id="97"/>
-							<ChildItems>
-								<CheckBoxField name="ПубликоватьКратностьУпаковок" id="98">
-									<DataPath>Запись.ПубликоватьКратностьУпаковок</DataPath>
-									<TitleLocation>Right</TitleLocation>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Выгружать кратность количества логистических упаковок в торговом предложении.  Минимальное количество товаров в заказе, которое сможет оформить контрагент, а так же это шаг заказа.</v8:content>
-										</v8:item>
-									</ToolTip>
-									<ToolTipRepresentation>Button</ToolTipRepresentation>
-									<CheckBoxType>Switcher</CheckBoxType>
-									<ContextMenu name="ПубликоватьКратностьУпаковокКонтекстноеМеню" id="99"/>
-									<ExtendedTooltip name="ПубликоватьКратностьУпаковокРасширеннаяПодсказка" id="100"/>
-									<Events>
-										<Event name="OnChange">ПубликоватьКратностьУпаковокПриИзменении</Event>
-									</Events>
-								</CheckBoxField>
-								<LabelDecoration name="НастройкиКратностиУпаковок" id="101">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>&lt;не указаны&gt;</v8:content>
-										</v8:item>
-									</Title>
-									<Hyperlink>true</Hyperlink>
-									<ContextMenu name="НастройкиКратностиУпаковокКонтекстноеМеню" id="102"/>
-									<ExtendedTooltip name="НастройкиКратностиУпаковокРасширеннаяПодсказка" id="103"/>
-									<Events>
-										<Event name="Click">НастройкиКратностиУпаковокНажатие</Event>
-									</Events>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
-				</Page>
-				<Page name="СтраницаДополнительно" id="122">
-					<Title>
+							</v8:item>
+						</Title>
+					</ExtendedTooltip>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКратностьУпаковок" id="96">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКратностьУпаковокРасширеннаяПодсказка" id="97"/>
+			<ChildItems>
+				<CheckBoxField name="ПубликоватьКратностьУпаковок" id="98">
+					<DataPath>Запись.ПубликоватьКратностьУпаковок</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Дополнительные условия продаж, отгрузки</v8:content>
+							<v8:content>Выгружать кратность количества логистических упаковок в торговом предложении.  Минимальное количество товаров в заказе, которое сможет оформить контрагент, а так же это шаг заказа.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<ContextMenu name="ПубликоватьКратностьУпаковокКонтекстноеМеню" id="99"/>
+					<ExtendedTooltip name="ПубликоватьКратностьУпаковокРасширеннаяПодсказка" id="100"/>
+					<Events>
+						<Event name="OnChange">ПубликоватьКратностьУпаковокПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<LabelDecoration name="НастройкиКратностиУпаковок" id="101">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;не указаны&gt;</v8:content>
 						</v8:item>
 					</Title>
-					<ExtendedTooltip name="СтраницаДополнительноРасширеннаяПодсказка" id="123"/>
-					<ChildItems>
-						<InputField name="ДополнительноеОписание" id="10">
-							<DataPath>Запись.ДополнительноеОписание</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MultiLine>true</MultiLine>
-							<ContextMenu name="ДополнительноеОписаниеКонтекстноеМеню" id="11"/>
-							<ExtendedTooltip name="ДополнительноеОписаниеРасширеннаяПодсказка" id="12"/>
-						</InputField>
-					</ChildItems>
-				</Page>
+					<Hyperlink>true</Hyperlink>
+					<ContextMenu name="НастройкиКратностиУпаковокКонтекстноеМеню" id="102"/>
+					<ExtendedTooltip name="НастройкиКратностиУпаковокРасширеннаяПодсказка" id="103"/>
+					<Events>
+						<Event name="Click">НастройкиКратностиУпаковокНажатие</Event>
+					</Events>
+				</LabelDecoration>
 			</ChildItems>
-		</Pages>
+		</UsualGroup>
+		<InputField name="ДополнительноеОписание" id="10">
+			<DataPath>Запись.ДополнительноеОписание</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные условия продаж, отгрузки</v8:content>
+				</v8:item>
+			</Title>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="ДополнительноеОписаниеКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ДополнительноеОписаниеРасширеннаяПодсказка" id="12"/>
+		</InputField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Запись" id="1">

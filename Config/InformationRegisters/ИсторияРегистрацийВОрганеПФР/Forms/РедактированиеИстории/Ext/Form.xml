@@ -30,17 +30,17 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<ChildItems>
-			<Button name="ФормаКомандаПрименить" id="14">
+			<Button name="ФормаКомандаОК" id="14">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КомандаПрименить</CommandName>
+				<CommandName>Form.Command.КомандаОК</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаКомандаПрименитьРасширеннаяПодсказка" id="36"/>
+				<ExtendedTooltip name="ФормаКомандаОКExtendedTooltip" id="36"/>
 			</Button>
 			<Button name="ФормаКомандаОтмена" id="16">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.КомандаОтмена</CommandName>
-				<ExtendedTooltip name="ФормаКомандаОтменаРасширеннаяПодсказка" id="37"/>
+				<ExtendedTooltip name="ФормаКомандаОтменаExtendedTooltip" id="37"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -74,7 +74,7 @@
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="НаборЗаписейКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="НаборЗаписейКоманднаяПанель" id="3"/>
-			<ExtendedTooltip name="НаборЗаписейРасширеннаяПодсказка" id="38"/>
+			<ExtendedTooltip name="НаборЗаписейExtendedTooltip" id="38"/>
 			<SearchStringAddition name="НаборЗаписейСтрокаПоиска" id="41">
 				<AdditionSource>
 					<Item>НаборЗаписей</Item>
@@ -109,18 +109,20 @@
 				<InputField name="НаборЗаписейРегистрационныйНомерПФР" id="28">
 					<DataPath>НаборЗаписей.РегистрационныйНомерПФР</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="НаборЗаписейРегистрационныйНомерПФРКонтекстноеМеню" id="29"/>
-					<ExtendedTooltip name="НаборЗаписейРегистрационныйНомерПФРРасширеннаяПодсказка" id="39"/>
+					<ExtendedTooltip name="НаборЗаписейРегистрационныйНомерПФРExtendedTooltip" id="39"/>
 				</InputField>
 				<InputField name="НаборЗаписейРегистрационныйНомерСФР" id="50">
 					<DataPath>НаборЗаписей.РегистрационныйНомерСФР</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="НаборЗаписейРегистрационныйНомерСФРКонтекстноеМеню" id="51"/>
 					<ExtendedTooltip name="НаборЗаписейРегистрационныйНомерСФРРасширеннаяПодсказка" id="52"/>
 				</InputField>
-				<InputField name="НаборЗаписейПериод" id="34">
+				<InputField name="НаборЗаписейПериод" id="53">
 					<DataPath>НаборЗаписей.Period</DataPath>
 					<Title>
 						<v8:item>
@@ -129,10 +131,11 @@
 						</v8:item>
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>10</Width>
-					<HorizontalStretch>false</HorizontalStretch>
-					<ContextMenu name="НаборЗаписейПериодКонтекстноеМеню" id="35"/>
-					<ExtendedTooltip name="НаборЗаписейПериодРасширеннаяПодсказка" id="40"/>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="НаборЗаписейПериодКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="НаборЗаписейПериодРасширеннаяПодсказка" id="55"/>
 				</InputField>
 			</ChildItems>
 		</Table>
@@ -247,11 +250,11 @@
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="КомандаПрименить" id="1">
+		<Command name="КомандаОК" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Применить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -265,9 +268,8 @@
 				<xr:Value name="Role.ДобавлениеИзменениеДанныхФизическихЛицЗарплатаКадры">true</xr:Value>
 				<xr:Value name="Role.ПолныеПрава">true</xr:Value>
 			</Use>
-			<Action>КомандаПрименить</Action>
+			<Action>КомандаОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КомандаОтмена" id="2">
 			<Title>
@@ -284,7 +286,6 @@
 			</ToolTip>
 			<Action>КомандаОтмена</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

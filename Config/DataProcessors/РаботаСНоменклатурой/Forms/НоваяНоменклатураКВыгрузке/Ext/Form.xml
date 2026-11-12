@@ -13,6 +13,7 @@
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="Готово" id="199">
 				<Type>CommandBarButton</Type>
@@ -32,6 +33,74 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="178">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</Title>
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="179"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаПояснениеКФорме" id="72">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пояснение к форме</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<VerticalAlign>Center</VerticalAlign>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПояснениеКФормеРасширеннаяПодсказка" id="73"/>
+					<ChildItems>
+						<PictureDecoration name="КартинкаИнформация" id="74">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка информация</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.Информация32</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КартинкаИнформацияКонтекстноеМеню" id="75"/>
+							<ExtendedTooltip name="КартинкаИнформацияРасширеннаяПодсказка" id="76"/>
+						</PictureDecoration>
+						<LabelDecoration name="ПояснениеКФорме" id="77">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Для того, чтобы выбрать ранее не выгружавшуюся в каталоги номенклатуру, воспользуйтесь кнопками, чтобы добавить все или выделенные позиции.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеКФормеКонтекстноеМеню" id="78"/>
+							<ExtendedTooltip name="ПояснениеКФормеРасширеннаяПодсказка" id="79"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<CommandBar name="КоманднаяПанельФормы" id="176">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель формы</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="КоманднаяПанельФормыРасширеннаяПодсказка" id="177"/>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
 		<UsualGroup name="ГруппаНастройка" id="61">
 			<Title>
 				<v8:item>
@@ -132,7 +201,6 @@
 		</UsualGroup>
 		<LabelDecoration name="ДекорацияОтбор" id="85">
 			<AutoMaxWidth>false</AutoMaxWidth>
-			<HorizontalStretch>true</HorizontalStretch>
 			<Title formatted="true">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -160,9 +228,9 @@
 							<v8:content>Не выгружавшаяся ранее номенклатура</v8:content>
 						</v8:item>
 					</Title>
-					<Width>50</Width>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
 					<ExtendedTooltip name="ГруппаЛевоРасширеннаяПодсказка" id="162"/>
 					<ChildItems>
 						<UsualGroup name="СписокНоваяПользовательскиеНастройки" id="201">
@@ -212,7 +280,6 @@
 									<Button name="СписокНоваяУбратьИзВыгрузки" id="247">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.УбратьИзВыгрузки</CommandName>
-										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 										<ExtendedTooltip name="СписокНоваяУбратьИзВыгрузкиРасширеннаяПодсказка" id="248"/>
 									</Button>
 								</ChildItems>
@@ -288,6 +355,7 @@
 											<v8:content>Состояние</v8:content>
 										</v8:item>
 									</Title>
+									<Width>10</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<Group>InCell</Group>
 									<ShowInHeader>true</ShowInHeader>
@@ -309,6 +377,7 @@
 											<ShowInHeader>false</ShowInHeader>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
+											<Width>20</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="СписокНоваяСостояниеКонтекстноеМеню" id="216"/>
 											<ExtendedTooltip name="СписокНоваяСостояниеРасширеннаяПодсказка" id="217"/>
@@ -326,9 +395,9 @@
 							<v8:content>Выбранная номенклатура</v8:content>
 						</v8:item>
 					</Title>
-					<Width>50</Width>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
 					<ExtendedTooltip name="ГруппаПравоРасширеннаяПодсказка" id="91"/>
 					<ChildItems>
 						<Pages name="ГруппаСтраницы" id="155">
@@ -438,7 +507,9 @@
 														</v8:item>
 													</Title>
 													<Group>AlwaysHorizontal</Group>
+													<VerticalAlign>Center</VerticalAlign>
 													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
 													<ExtendedTooltip name="ГруппаПояснениеОжидаетВыгрузкиРасширеннаяПодсказка" id="164"/>
 													<ChildItems>
@@ -451,7 +522,7 @@
 															</Title>
 															<PictureSize>Proportionally</PictureSize>
 															<Picture>
-																<xr:Ref>CommonPicture.ВажноеСообщениеИнформация</xr:Ref>
+																<xr:Ref>CommonPicture.ИнформацияБЭД</xr:Ref>
 																<xr:LoadTransparent>false</xr:LoadTransparent>
 															</Picture>
 															<FileDragMode>AsFile</FileDragMode>
@@ -461,13 +532,13 @@
 														<LabelDecoration name="ПояснениеОжидаетВыгрузки" id="168">
 															<AutoMaxWidth>false</AutoMaxWidth>
 															<MaxHeight>4</MaxHeight>
+															<TextColor>style:ПоясняющийТекст</TextColor>
 															<Title formatted="false">
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
 																	<v8:content>Эта номенклатура будет выгружена автоматически при очередной синхронизации, либо интерактивно по кнопке "Выгрузить сейчас"</v8:content>
 																</v8:item>
 															</Title>
-															<HorizontalAlign>Auto</HorizontalAlign>
 															<ContextMenu name="ПояснениеОжидаетВыгрузкиКонтекстноеМеню" id="169"/>
 															<ExtendedTooltip name="ПояснениеОжидаетВыгрузкиРасширеннаяПодсказка" id="170"/>
 														</LabelDecoration>
@@ -646,7 +717,9 @@
 														</v8:item>
 													</Title>
 													<Group>AlwaysHorizontal</Group>
+													<VerticalAlign>Center</VerticalAlign>
 													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
 													<ExtendedTooltip name="ГруппаПояснениеИсключенияРасширеннаяПодсказка" id="206"/>
 													<ChildItems>
@@ -659,7 +732,7 @@
 															</Title>
 															<PictureSize>Proportionally</PictureSize>
 															<Picture>
-																<xr:Ref>CommonPicture.ВажноеСообщениеИнформация</xr:Ref>
+																<xr:Ref>CommonPicture.ИнформацияБЭД</xr:Ref>
 																<xr:LoadTransparent>false</xr:LoadTransparent>
 															</Picture>
 															<FileDragMode>AsFile</FileDragMode>
@@ -669,6 +742,7 @@
 														<LabelDecoration name="ПояснениеИсключения" id="210">
 															<AutoMaxWidth>false</AutoMaxWidth>
 															<AutoMaxHeight>false</AutoMaxHeight>
+															<TextColor>style:ПоясняющийТекст</TextColor>
 															<Title formatted="false">
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -1186,7 +1260,6 @@
 			</Picture>
 			<Action>УбратьИзВыгрузки</Action>
 			<Representation>TextPicture</Representation>
-			<AssociatedTableElementId xsi:type="xs:string">СписокНовая</AssociatedTableElementId>
 		</Command>
 	</Commands>
 </Form>

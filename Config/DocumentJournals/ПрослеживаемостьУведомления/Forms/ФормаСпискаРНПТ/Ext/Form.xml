@@ -4,7 +4,6 @@
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<Group>Vertical</Group>
 	<CommandBarLocation>None</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -50,7 +49,7 @@
 				</v8:item>
 			</Title>
 			<CommandSource>Form</CommandSource>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="39"/>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельExtendedTooltip" id="39"/>
 			<ChildItems>
 				<ButtonGroup name="ГруппаВажныеКоманды" id="40">
 					<Title>
@@ -63,8 +62,8 @@
 					<ChildItems>
 						<Button name="ФормаОбщаяКомандаПоказатьДвиженияДокумента" id="44">
 							<Type>CommandBarButton</Type>
-							<CommandName>0</CommandName>
-							<DataPath>Items.Список.CurrentData.DeletionMark</DataPath>
+							<CommandName>CommonCommand.ПоказатьДвиженияДокумента</CommandName>
+							<DataPath>Items.Список.CurrentData.ПометкаУдаления</DataPath>
 							<ExtendedTooltip name="ФормаОбщаяКомандаПоказатьДвиженияДокументаРасширеннаяПодсказка" id="45"/>
 						</Button>
 						<Popup name="ПодменюПечать" id="42">
@@ -117,7 +116,7 @@
 								</v8:item>
 							</Title>
 							<Picture>
-								<xr:Ref>CommonPicture.ЗаполнитьФормуБРУ</xr:Ref>
+								<xr:Ref>CommonPicture.ЗаполнитьФорму</xr:Ref>
 								<xr:LoadTransparent>false</xr:LoadTransparent>
 							</Picture>
 							<Representation>Picture</Representation>
@@ -137,7 +136,7 @@
 								</v8:item>
 							</ToolTip>
 							<Picture>
-								<xr:Ref>CommonPicture.ОтчетыБРУ</xr:Ref>
+								<xr:Ref>CommonPicture.Отчеты</xr:Ref>
 								<xr:LoadTransparent>false</xr:LoadTransparent>
 							</Picture>
 							<Representation>PictureAndText</Representation>
@@ -240,15 +239,11 @@
 			<ChildItems>
 				<LabelField name="РНПТ" id="31">
 					<DataPath>Список.РНПТ</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="РНПТКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="РНПТРасширеннаяПодсказка" id="33"/>
 				</LabelField>
 				<LabelField name="ТНВЭД" id="25">
 					<DataPath>Список.ТНВЭД</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТНВЭДКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ТНВЭДРасширеннаяПодсказка" id="27"/>
 				</LabelField>
@@ -260,29 +255,21 @@
 							<v8:content>Тип</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПредставлениеТипДокументаКонтекстноеМеню" id="67"/>
 					<ExtendedTooltip name="ПредставлениеТипДокументаРасширеннаяПодсказка" id="68"/>
 				</LabelField>
 				<LabelField name="Основание" id="28">
 					<DataPath>Список.Основание</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОснованиеКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ОснованиеРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<LabelField name="Дата" id="16">
-					<DataPath>Список.Date</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<DataPath>Список.Дата</DataPath>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="Номер" id="19">
-					<DataPath>Список.Number</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<DataPath>Список.Номер</DataPath>
 					<ContextMenu name="НомерКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="21"/>
 				</LabelField>
@@ -296,9 +283,9 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
-				<Field>Список.Ref</Field>
 				<Field>Список.НомерКорректировки</Field>
 				<Field>Список.ПредставлениеТипДокумента</Field>
+				<Field>Список.Ссылка</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
@@ -325,7 +312,96 @@
 	ЖурналДокументовПрослеживаемостьУведомления.Тип
 ИЗ
 	ЖурналДокументов.ПрослеживаемостьУведомления КАК ЖурналДокументовПрослеживаемостьУведомления
+ГДЕ
+	ЖурналДокументовПрослеживаемостьУведомления.Тип В (&amp;ТипыДокументов)
 </QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Дата</dcssch:dataPath>
+					<dcssch:field>Дата</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Номер</dcssch:dataPath>
+					<dcssch:field>Номер</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Проведен</dcssch:dataPath>
+					<dcssch:field>Проведен</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Тип</dcssch:dataPath>
+					<dcssch:field>Тип</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПредставлениеТипДокумента</dcssch:dataPath>
+					<dcssch:field>ПредставлениеТипДокумента</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление тип документа</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТНВЭД</dcssch:dataPath>
+					<dcssch:field>ТНВЭД</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Основание</dcssch:dataPath>
+					<dcssch:field>Основание</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основание</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>РНПТ</dcssch:dataPath>
+					<dcssch:field>РНПТ</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДокументУведомление</dcssch:dataPath>
+					<dcssch:field>ДокументУведомление</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НомерКорректировки</dcssch:dataPath>
+					<dcssch:field>НомерКорректировки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ответственный</dcssch:dataPath>
+					<dcssch:field>Ответственный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Комментарий</dcssch:dataPath>
+					<dcssch:field>Комментарий</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПервичныйДокумент</dcssch:dataPath>
+					<dcssch:field>ПервичныйДокумент</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>ТипыДокументов</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Типы документов</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+					<dcssch:valueListAllowed>true</dcssch:valueListAllowed>
+				</Parameter>
 				<MainTable>DocumentJournal.ПрослеживаемостьУведомления</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -409,9 +485,16 @@
 	<CommandInterface>
 		<CommandBar>
 			<Item>
+				<Command>CommonCommand.ПоказатьДвиженияДокумента</Command>
+				<Type>Added</Type>
+				<Attribute>Items.Список.CurrentData.Ссылка</Attribute>
+				<CommandGroup>FormCommandBarImportant</CommandGroup>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
 				<Command>CommonCommand.СвязанныеДокументы</Command>
 				<Type>Added</Type>
-				<Attribute>Items.Список.CurrentData.Ref</Attribute>
+				<Attribute>Items.Список.CurrentData.Ссылка</Attribute>
 				<CommandGroup>FormCommandBarImportant</CommandGroup>
 				<Index>1</Index>
 				<DefaultVisible>false</DefaultVisible>

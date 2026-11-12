@@ -12,22 +12,6 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Закрыть" id="48">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<Width>16</Width>
-				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Записать и закрыть</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="49"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NewWriteProcessing">ОбработкаЗаписиНового</Event>
@@ -35,48 +19,117 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаПояснениеКФорме" id="107">
+		<UsualGroup name="ГруппаОсновныеКоманды" id="76">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Пояснение к форме (группа)</v8:content>
+					<v8:content>Основные команды</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПояснениеКФормеРасширеннаяПодсказка" id="108"/>
+			<ExtendedTooltip name="ГруппаОсновныеКомандыРасширеннаяПодсказка" id="77"/>
 			<ChildItems>
-				<PictureDecoration name="КартинкаПояснениеКОперации" id="109">
-					<Title formatted="false">
+				<Button name="Закрыть" id="48">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<Width>16</Width>
+					<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Пояснение к операции (Картинка)</v8:content>
+							<v8:content>Записать и закрыть</v8:content>
 						</v8:item>
 					</Title>
-					<Picture>
-						<xr:Ref>CommonPicture.ВажноеСообщениеИнформация</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<ContextMenu name="КартинкаПояснениеКОперацииКонтекстноеМеню" id="110"/>
-					<ExtendedTooltip name="КартинкаПояснениеКОперацииРасширеннаяПодсказка" id="111"/>
-				</PictureDecoration>
-				<LabelDecoration name="ПояснениеКОперации" id="66">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="true">
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="49"/>
+				</Button>
+				<UsualGroup name="ГруппаДекорацииДлительнойОперации" id="78">
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Сопоставление значений реквизита Реквизит вида номенклатуры &lt;link ВидНоменклатуры&gt;Вид&lt;/&gt; и категории 1С:Номенклатуры &lt;link Категория&gt;Категория&lt;/&gt;</v8:content>
+							<v8:content>Группа декорации длительной операции</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalAlign>Auto</HorizontalAlign>
-					<ContextMenu name="ПояснениеКОперацииКонтекстноеМеню" id="67"/>
-					<ExtendedTooltip name="ПояснениеКОперацииРасширеннаяПодсказка" id="68"/>
-					<Events>
-						<Event name="URLProcessing">ПояснениеКОперацииОбработкаНавигационнойСсылки</Event>
-					</Events>
-				</LabelDecoration>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДекорацииДлительнойОперацииРасширеннаяПодсказка" id="79"/>
+					<ChildItems>
+						<PictureDecoration name="КартинкаДлительнойОперации" id="80">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка длительной операции</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Picture>
+								<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КартинкаДлительнойОперацииКонтекстноеМеню" id="81"/>
+							<ExtendedTooltip name="КартинкаДлительнойОперацииРасширеннаяПодсказка" id="82"/>
+						</PictureDecoration>
+						<LabelDecoration name="НадписьДлительнойОперации" id="83">
+							<TextColor>style:ЦветПустойГиперссылки</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сопоставление значений</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьДлительнойОперацииКонтекстноеМеню" id="84"/>
+							<ExtendedTooltip name="НадписьДлительнойОперацииРасширеннаяПодсказка" id="85"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<CommandBar name="ГруппаКоманднаяПанель" id="74">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="75"/>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
+		<LabelDecoration name="ПояснениеКФорме" id="63">
+			<Width>90</Width>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>false</HorizontalStretch>
+			<TextColor>style:ПоясняющийТекст</TextColor>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сопоставьте значения реквизитов текущей информационной базы и сервиса 1С:Номенклатура. Для автоматического сопоставления нажмите кнопку Выбрать все.</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ПояснениеКФормеКонтекстноеМеню" id="64"/>
+			<ExtendedTooltip name="ПояснениеКФормеРасширеннаяПодсказка" id="65"/>
+		</LabelDecoration>
+		<LabelDecoration name="ПояснениеКОперации" id="66">
+			<Width>90</Width>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Title formatted="true">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сопоставление значений реквизита Реквизит вида номенклатуры &lt;link ВидНоменклатуры&gt;Вид&lt;/&gt; и категории 1С:Номенклатуры &lt;link Категория&gt;Категория&lt;/&gt;</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ПояснениеКОперацииКонтекстноеМеню" id="67"/>
+			<ExtendedTooltip name="ПояснениеКОперацииРасширеннаяПодсказка" id="68"/>
+			<Events>
+				<Event name="URLProcessing">ПояснениеКОперацииОбработкаНавигационнойСсылки</Event>
+			</Events>
+		</LabelDecoration>
 		<Pages name="ГруппаСтраницДанныхСервиса" id="86">
 			<Title>
 				<v8:item>
@@ -98,6 +151,53 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаЗначенийРасширеннаяПодсказка" id="89"/>
 					<ChildItems>
+						<UsualGroup name="ГруппаКнопкиТаблиц" id="55">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Кнопки таблиц</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКнопкиТаблицРасширеннаяПодсказка" id="56"/>
+							<ChildItems>
+								<LabelDecoration name="Заглушка" id="57">
+									<Width>54</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="ЗаглушкаКонтекстноеМеню" id="58"/>
+									<ExtendedTooltip name="ЗаглушкаРасширеннаяПодсказка" id="59"/>
+								</LabelDecoration>
+								<Button name="СоздатьЗначение" id="53">
+									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
+									<CommandName>Form.Command.СоздатьЗначение</CommandName>
+									<Picture>
+										<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ExtendedTooltip name="СоздатьЗначениеРасширеннаяПодсказка" id="54"/>
+								</Button>
+								<LabelField name="ОтборПохожихЗначений" id="60">
+									<DataPath>ОтборПохожихЗначений</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отобрать похожие на</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<Hiperlink>true</Hiperlink>
+									<ContextMenu name="ОтборПохожихЗначенийКонтекстноеМеню" id="61"/>
+									<ExtendedTooltip name="ОтборПохожихЗначенийРасширеннаяПодсказка" id="62"/>
+									<Events>
+										<Event name="Click">ОтборПохожихЗначенийНажатие</Event>
+									</Events>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
 						<UsualGroup name="ГруппаТаблицыРеквизитов" id="36">
 							<Title>
 								<v8:item>
@@ -114,15 +214,12 @@
 								<Table name="ЗначенияРеквизитаВидаНоменклатуры" id="1">
 									<Representation>List</Representation>
 									<ReadOnly>true</ReadOnly>
-									<ChangeRowSet>false</ChangeRowSet>
-									<ChangeRowOrder>false</ChangeRowOrder>
-									<Width>35</Width>
-									<SelectionMode>SingleRow</SelectionMode>
+									<Width>40</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<HorizontalLinesBWA>false</HorizontalLinesBWA>
 									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
-									<RowActionsShowType>ShowOnHover</RowActionsShowType>
 									<HorizontalStretch>false</HorizontalStretch>
 									<FileDragMode>AsFile</FileDragMode>
 									<DataPath>ЗначенияРеквизитаВидаНоменклатуры</DataPath>
@@ -132,54 +229,10 @@
 											<v8:content>Значения реквизита вида номенклатуры</v8:content>
 										</v8:item>
 									</Title>
-									<CommandSet>
-										<ExcludedCommand>Add</ExcludedCommand>
-										<ExcludedCommand>CancelSearch</ExcludedCommand>
-										<ExcludedCommand>Change</ExcludedCommand>
-										<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
-										<ExcludedCommand>Copy</ExcludedCommand>
-										<ExcludedCommand>CopyToClipboard</ExcludedCommand>
-										<ExcludedCommand>Delete</ExcludedCommand>
-										<ExcludedCommand>EndEdit</ExcludedCommand>
-										<ExcludedCommand>Find</ExcludedCommand>
-										<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
-										<ExcludedCommand>MoveDown</ExcludedCommand>
-										<ExcludedCommand>MoveUp</ExcludedCommand>
-										<ExcludedCommand>OutputList</ExcludedCommand>
-										<ExcludedCommand>SearchEverywhere</ExcludedCommand>
-										<ExcludedCommand>SearchHistory</ExcludedCommand>
-										<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
-										<ExcludedCommand>SortListAsc</ExcludedCommand>
-										<ExcludedCommand>SortListDesc</ExcludedCommand>
-									</CommandSet>
 									<RowFilter xsi:nil="true"/>
 									<ContextMenu name="ЗначенияРеквизитаВидаНоменклатурыКонтекстноеМеню" id="2"/>
 									<AutoCommandBar name="ЗначенияРеквизитаВидаНоменклатурыКоманднаяПанель" id="3">
-										<ChildItems>
-											<Button name="СоздатьЗначение" id="53">
-												<Type>CommandBarButton</Type>
-												<Representation>PictureAndText</Representation>
-												<CommandName>Form.Command.СоздатьЗначение</CommandName>
-												<Picture>
-													<xr:Ref>StdPicture.CreateListItem</xr:Ref>
-													<xr:LoadTransparent>true</xr:LoadTransparent>
-												</Picture>
-												<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-												<ExtendedTooltip name="СоздатьЗначениеРасширеннаяПодсказка" id="54"/>
-											</Button>
-											<Button name="ЗначенияРеквизитаВидаНоменклатурыОтобратьПохожие" id="112">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ОтобратьПохожие</CommandName>
-												<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-												<ExtendedTooltip name="ЗначенияРеквизитаВидаНоменклатурыОтобратьПохожиеРасширеннаяПодсказка" id="113"/>
-											</Button>
-											<Button name="ЗначенияРеквизитаВидаНоменклатурыСнятьОтборПохожих" id="114">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.СнятьОтборПохожих</CommandName>
-												<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-												<ExtendedTooltip name="ЗначенияРеквизитаВидаНоменклатурыСнятьОтборПохожихРасширеннаяПодсказка" id="115"/>
-											</Button>
-										</ChildItems>
+										<Autofill>false</Autofill>
 									</AutoCommandBar>
 									<ExtendedTooltip name="ЗначенияРеквизитаВидаНоменклатурыРасширеннаяПодсказка" id="4"/>
 									<SearchStringAddition name="ЗначенияРеквизитаВидаНоменклатурыСтрокаПоиска" id="5">
@@ -209,7 +262,7 @@
 									<Events>
 										<Event name="Selection">ЗначенияРеквизитаВидаНоменклатурыВыбор</Event>
 										<Event name="BeforeDeleteRow">ЗначенияРеквизитаВидаНоменклатурыПередУдалением</Event>
-										<Event name="OnHover">ЗначенияРеквизитаВидаНоменклатурыПриНаведении</Event>
+										<Event name="OnActivateRow">ЗначенияРеквизитаВидаНоменклатурыПриАктивизацииСтроки</Event>
 									</Events>
 									<ChildItems>
 										<InputField name="ЗначенияРеквизитаВидаНоменклатурыЗначениеРеквизита" id="14">
@@ -217,14 +270,15 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Значение справочника</v8:content>
+													<v8:content>Значение информационной базы</v8:content>
 												</v8:item>
 											</Title>
+											<EditMode>EnterOnInput</EditMode>
 											<HeaderPicture>
 												<xr:Ref>StdPicture.Catalog</xr:Ref>
 												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
-											<AutoWidthInTable>None</AutoWidthInTable>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ЗначенияРеквизитаВидаНоменклатурыЗначениеРеквизитаКонтекстноеМеню" id="15"/>
 											<ExtendedTooltip name="ЗначенияРеквизитаВидаНоменклатурыЗначениеРеквизитаРасширеннаяПодсказка" id="16"/>
 										</InputField>
@@ -259,17 +313,12 @@
 										</Button>
 										<Button name="УбратьЗначение" id="46">
 											<Type>UsualButton</Type>
-											<Representation>PictureAndText</Representation>
 											<GroupHorizontalAlign>Center</GroupHorizontalAlign>
 											<CommandName>Form.Command.УбратьЗначение</CommandName>
-											<Picture>
-												<xr:Ref>StdPicture.GoBack</xr:Ref>
-												<xr:LoadTransparent>true</xr:LoadTransparent>
-											</Picture>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Убрать</v8:content>
+													<v8:content>&lt; Убрать</v8:content>
 												</v8:item>
 											</Title>
 											<ExtendedTooltip name="УбратьЗначениеРасширеннаяПодсказка" id="47"/>
@@ -303,10 +352,6 @@
 								<Table name="ЗначенияРеквизитаКатегории" id="17">
 									<Representation>List</Representation>
 									<ReadOnly>true</ReadOnly>
-									<ChangeRowSet>false</ChangeRowSet>
-									<ChangeRowOrder>false</ChangeRowOrder>
-									<Width>60</Width>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -320,7 +365,9 @@
 									</Title>
 									<RowFilter xsi:nil="true"/>
 									<ContextMenu name="ЗначенияРеквизитаКатегорииКонтекстноеМеню" id="18"/>
-									<AutoCommandBar name="ЗначенияРеквизитаКатегорииКоманднаяПанель" id="19"/>
+									<AutoCommandBar name="ЗначенияРеквизитаКатегорииКоманднаяПанель" id="19">
+										<Autofill>false</Autofill>
+									</AutoCommandBar>
 									<ExtendedTooltip name="ЗначенияРеквизитаКатегорииРасширеннаяПодсказка" id="20"/>
 									<SearchStringAddition name="ЗначенияРеквизитаКатегорииСтрокаПоиска" id="21">
 										<AdditionSource>
@@ -356,14 +403,15 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Значение справочника</v8:content>
+													<v8:content>Значение информационной базы</v8:content>
 												</v8:item>
 											</Title>
+											<EditMode>EnterOnInput</EditMode>
 											<HeaderPicture>
 												<xr:Ref>StdPicture.Change</xr:Ref>
 												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
-											<AutoWidthInTable>None</AutoWidthInTable>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ЗначенияРеквизитаКатегорииЗначениеРеквизитаВидаНоменклатурыКонтекстноеМеню" id="34"/>
 											<ExtendedTooltip name="ЗначенияРеквизитаКатегорииЗначениеРеквизитаВидаНоменклатурыРасширеннаяПодсказка" id="35"/>
 										</InputField>
@@ -375,11 +423,12 @@
 													<v8:content>Значение категории</v8:content>
 												</v8:item>
 											</Title>
+											<EditMode>EnterOnInput</EditMode>
 											<HeaderPicture>
 												<xr:Ref>CommonPicture.ИконкаБелыйФонРаботаСНоменклатурой</xr:Ref>
 												<xr:LoadTransparent>false</xr:LoadTransparent>
 											</HeaderPicture>
-											<AutoWidthInTable>None</AutoWidthInTable>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ЗначенияРеквизитаКатегорииЗначениеРеквизитаКатегорииКонтекстноеМеню" id="31"/>
 											<ExtendedTooltip name="ЗначенияРеквизитаКатегорииЗначениеРеквизитаКатегорииРасширеннаяПодсказка" id="32"/>
 										</InputField>
@@ -387,47 +436,42 @@
 								</Table>
 							</ChildItems>
 						</UsualGroup>
-						<UsualGroup name="ГруппаДекорацииДлительнойОперации" id="78">
-							<Visible>false</Visible>
+						<UsualGroup name="ГруппаОсталосьСопоставить" id="69">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа декорации длительной операции</v8:content>
+									<v8:content>Осталось сопоставить</v8:content>
 								</v8:item>
 							</Title>
 							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаДекорацииДлительнойОперацииРасширеннаяПодсказка" id="79"/>
+							<ExtendedTooltip name="ГруппаОсталосьСопоставитьРасширеннаяПодсказка" id="70"/>
 							<ChildItems>
-								<PictureDecoration name="КартинкаДлительнойОперации" id="80">
+								<LabelDecoration name="НадписьОсталосьСопоставить" id="71">
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Картинка длительной операции</v8:content>
+											<v8:content>Осталось сопоставить значений:</v8:content>
 										</v8:item>
 									</Title>
-									<GroupVerticalAlign>Center</GroupVerticalAlign>
-									<Picture>
-										<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
-									</Picture>
-									<FileDragMode>AsFile</FileDragMode>
-									<ContextMenu name="КартинкаДлительнойОперацииКонтекстноеМеню" id="81"/>
-									<ExtendedTooltip name="КартинкаДлительнойОперацииРасширеннаяПодсказка" id="82"/>
-								</PictureDecoration>
-								<LabelDecoration name="НадписьДлительнойОперации" id="83">
-									<TextColor>style:ЦветПустойГиперссылки</TextColor>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Сопоставление значений</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="НадписьДлительнойОперацииКонтекстноеМеню" id="84"/>
-									<ExtendedTooltip name="НадписьДлительнойОперацииРасширеннаяПодсказка" id="85"/>
+									<ContextMenu name="НадписьОсталосьСопоставитьКонтекстноеМеню" id="72"/>
+									<ExtendedTooltip name="НадписьОсталосьСопоставитьРасширеннаяПодсказка" id="73"/>
 								</LabelDecoration>
+								<LabelField name="ОсталосьСопоставитьЗначений" id="50">
+									<DataPath>ОсталосьСопоставитьЗначений</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<HorizontalAlign>Left</HorizontalAlign>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧН=0</v8:content>
+										</v8:item>
+									</Format>
+									<ContextMenu name="ОсталосьСопоставитьЗначенийКонтекстноеМеню" id="51"/>
+									<ExtendedTooltip name="ОсталосьСопоставитьЗначенийРасширеннаяПодсказка" id="52"/>
+								</LabelField>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
@@ -464,6 +508,7 @@
 							<ExtendedTooltip name="КартинкаДлительнойОперацииЧтенияРасширеннаяПодсказка" id="94"/>
 						</PictureDecoration>
 						<LabelDecoration name="НадписьДлительнойОперацииЧтения" id="95">
+							<TextColor>style:ПоясняющийТекст</TextColor>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -781,7 +826,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Создать</v8:content>
+					<v8:content>Создать значение</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -792,7 +837,6 @@
 			</ToolTip>
 			<Action>СоздатьЗначение</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="ЗаписатьИЗакрыть" id="6">
 			<Title>
@@ -809,53 +853,6 @@
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
-		</Command>
-		<Command name="ОтобратьПохожие" id="7">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отобрать похожие</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отобрать похожие</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.FilterByCurrentValue</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>ОтобратьПохожие</Action>
-			<Representation>Picture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ЗначенияРеквизитаВидаНоменклатуры</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
-		</Command>
-		<Command name="СнятьОтборПохожих" id="8">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Снять отбор похожих</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Снять отбор похожих</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.ClearFilter</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>СнятьОтборПохожих</Action>
-			<Representation>Picture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ЗначенияРеквизитаВидаНоменклатуры</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 	</Commands>
 </Form>

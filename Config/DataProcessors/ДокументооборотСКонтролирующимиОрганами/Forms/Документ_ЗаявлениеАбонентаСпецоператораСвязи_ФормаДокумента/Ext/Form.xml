@@ -18,7 +18,7 @@
 			<Button name="ПеречитатьЗаявление" id="235">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.StandardCommand.Reread</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ПеречитатьЗаявлениеExtendedTooltip" id="335"/>
 			</Button>
 			<Button name="СкопироватьЗаявление" id="179">
@@ -128,17 +128,33 @@
 				<DataPath>Объект.Ref</DataPath>
 				<Picture>
 					<xr:Ref>CommonPicture.Скрепка</xr:Ref>
-					<xr:LoadTransparent>false</xr:LoadTransparent>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
 				</Picture>
 				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ФормаОбщаяКомандаПрисоединенныеФайлыКОбъектуРасширеннаяПодсказка" id="609"/>
 			</Button>
-			<Button name="ФормаПоказатьПриглашения" id="617">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ПоказатьПриглашения</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаПоказатьПриглашенияРасширеннаяПодсказка" id="618"/>
-			</Button>
+			<Popup name="КнопкиДополнительно" id="615" DisplayImportance="Low">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Дополнительно</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Кнопки дополнительно</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="КнопкиДополнительноРасширеннаяПодсказка" id="616"/>
+				<ChildItems>
+					<Button name="ФормаПоказатьПриглашения" id="617">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПоказатьПриглашения</CommandName>
+						<ExtendedTooltip name="ФормаПоказатьПриглашенияРасширеннаяПодсказка" id="618"/>
+					</Button>
+				</ChildItems>
+			</Popup>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -200,7 +216,8 @@
 							<ExtendedTooltip name="СостояниеОтправкиРасширеннаяПодсказка" id="489"/>
 							<ChildItems>
 								<LabelDecoration name="НаименованиеЭтапа" id="490">
-									<Font ref="style:TitleLevel3" kind="StyleItem"/>
+									<TextColor>style:FormTextColor</TextColor>
+									<Font ref="style:NormalTextFont" height="11" kind="StyleItem"/>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -310,7 +327,7 @@
 									<Height>1</Height>
 									<Picture>
 										<xr:Ref>CommonPicture.ПризнакНаличияКритическойОшибки</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="ЗначокКритическойОшибкиКонтекстноеМеню" id="518"/>
@@ -457,6 +474,21 @@
 					<ContextMenu name="ДатаКонтекстноеМеню" id="88"/>
 					<ExtendedTooltip name="ДатаExtendedTooltip" id="351"/>
 				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="грОрганизация" id="181">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гр организация</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="грОрганизацияExtendedTooltip" id="352"/>
+			<ChildItems>
 				<InputField name="Организация" id="246">
 					<DataPath>Объект.Организация</DataPath>
 					<ToolTip>
@@ -494,7 +526,7 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ПервичноеЗаявлениеExtendedTooltip" id="355"/>
 					<ChildItems>
 						<Pages name="ОсновнаяПанельПервичногоЗаявления" id="29">
@@ -540,6 +572,7 @@
 											</ToolTip>
 											<Group>Vertical</Group>
 											<Behavior>Usual</Behavior>
+											<Representation>WeakSeparation</Representation>
 											<ExtendedTooltip name="ОсновныеСведенияExtendedTooltip" id="358"/>
 											<ChildItems>
 												<InputField name="КраткоеНаименование" id="1">
@@ -551,6 +584,7 @@
 															<v8:content>Краткое наименование</v8:content>
 														</v8:item>
 													</ToolTip>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ContextMenu name="КраткоеНаименованиеКонтекстноеМеню" id="2"/>
 													<ExtendedTooltip name="КраткоеНаименованиеExtendedTooltip" id="359"/>
@@ -564,6 +598,7 @@
 															<v8:content>Полное наименование</v8:content>
 														</v8:item>
 													</ToolTip>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ContextMenu name="ПолноеНаименованиеКонтекстноеМеню" id="4"/>
 													<ExtendedTooltip name="ПолноеНаименованиеExtendedTooltip" id="360"/>
@@ -597,6 +632,7 @@
 																			<v8:content>ИНН</v8:content>
 																		</v8:item>
 																	</ToolTip>
+																	<MarkRequiredComplete>true</MarkRequiredComplete>
 																	<Width>16</Width>
 																	<HorizontalStretch>false</HorizontalStretch>
 																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -789,6 +825,7 @@
 											</ToolTip>
 											<Group>Vertical</Group>
 											<Behavior>Usual</Behavior>
+											<Representation>WeakSeparation</Representation>
 											<ExtendedTooltip name="ГруппаКонтактнаяИнформацияExtendedTooltip" id="378"/>
 											<ChildItems>
 												<InputField name="АдресЮридический" id="18">
@@ -805,6 +842,7 @@
 															<v8:content>Юридический адрес организации</v8:content>
 														</v8:item>
 													</ToolTip>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<TextEdit>false</TextEdit>
 													<ChoiceButtonPicture>
@@ -833,6 +871,7 @@
 															<v8:content>Фактический адрес организации</v8:content>
 														</v8:item>
 													</ToolTip>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<TextEdit>false</TextEdit>
 													<ChoiceButtonPicture>
@@ -875,6 +914,7 @@
 																	<v8:content>Телефон организации</v8:content>
 																</v8:item>
 															</ToolTip>
+															<MarkRequiredComplete>true</MarkRequiredComplete>
 															<HorizontalStretch>false</HorizontalStretch>
 															<AutoMarkIncomplete>true</AutoMarkIncomplete>
 															<ContextMenu name="ТелефонОсновнойКонтекстноеМеню" id="26"/>
@@ -1116,6 +1156,7 @@
 															<v8:content>Фамилия сотрудника</v8:content>
 														</v8:item>
 													</ToolTip>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ContextMenu name="ВладелецЭЦПФамилияКонтекстноеМеню" id="54"/>
 													<ExtendedTooltip name="ВладелецЭЦПФамилияExtendedTooltip" id="401"/>
@@ -1135,6 +1176,7 @@
 															<v8:content>Имя сотрудника</v8:content>
 														</v8:item>
 													</ToolTip>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ContextMenu name="ВладелецЭЦПИмяКонтекстноеМеню" id="56"/>
 													<ExtendedTooltip name="ВладелецЭЦПИмяExtendedTooltip" id="402"/>
@@ -1215,6 +1257,7 @@
 															<v8:content>Пол</v8:content>
 														</v8:item>
 													</Title>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<Width>20</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -1239,6 +1282,7 @@
 											</ToolTip>
 											<Group>Horizontal</Group>
 											<Behavior>Usual</Behavior>
+											<Representation>WeakSeparation</Representation>
 											<ExtendedTooltip name="КадровыеДанныеExtendedTooltip" id="409"/>
 											<ChildItems>
 												<LabelDecoration name="Декорация19" id="204">
@@ -1318,6 +1362,7 @@
 											<HorizontalStretch>true</HorizontalStretch>
 											<Group>Vertical</Group>
 											<Behavior>Usual</Behavior>
+											<Representation>WeakSeparation</Representation>
 											<ExtendedTooltip name="ДокументУдостоверяющийЛичностьExtendedTooltip" id="414"/>
 											<ChildItems>
 												<InputField name="ВладелецЭЦПГражданство" id="586">
@@ -1328,6 +1373,7 @@
 															<v8:content>Гражданство</v8:content>
 														</v8:item>
 													</Title>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<Width>30</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -1348,6 +1394,7 @@
 															<v8:content>Вид документа</v8:content>
 														</v8:item>
 													</ToolTip>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<Width>30</Width>
 													<HorizontalStretch>false</HorizontalStretch>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -1378,6 +1425,7 @@
 																	<v8:content>Серия документа</v8:content>
 																</v8:item>
 															</ToolTip>
+															<MarkRequiredComplete>true</MarkRequiredComplete>
 															<Width>30</Width>
 															<AutoMaxWidth>false</AutoMaxWidth>
 															<HorizontalStretch>false</HorizontalStretch>
@@ -1399,6 +1447,7 @@
 																	<v8:content>Номер документа</v8:content>
 																</v8:item>
 															</ToolTip>
+															<MarkRequiredComplete>true</MarkRequiredComplete>
 															<HorizontalStretch>false</HorizontalStretch>
 															<AutoMarkIncomplete>true</AutoMarkIncomplete>
 															<ContextMenu name="ВладелецЭЦПНомерДокументаКонтекстноеМеню" id="71"/>
@@ -1420,6 +1469,7 @@
 															<v8:content>Кем выдан документ</v8:content>
 														</v8:item>
 													</ToolTip>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMaxWidth>false</AutoMaxWidth>
 													<HorizontalStretch>true</HorizontalStretch>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -1447,12 +1497,14 @@
 																	<v8:content>Дата выдачи документа</v8:content>
 																</v8:item>
 															</ToolTip>
+															<MarkRequiredComplete>true</MarkRequiredComplete>
 															<AutoMarkIncomplete>true</AutoMarkIncomplete>
 															<ContextMenu name="ВладелецЭЦПДатаВыдачиДокументаКонтекстноеМеню" id="73"/>
 															<ExtendedTooltip name="ВладелецЭЦПДатаВыдачиДокументаExtendedTooltip" id="419"/>
 														</InputField>
 														<InputField name="ВладелецЭЦПКодПодразделения" id="594">
 															<DataPath>Объект.ВладелецЭЦПКодПодразделения</DataPath>
+															<MarkRequiredComplete>true</MarkRequiredComplete>
 															<AutoMarkIncomplete>true</AutoMarkIncomplete>
 															<ContextMenu name="ВладелецЭЦПКодПодразделенияКонтекстноеМеню" id="595"/>
 															<ExtendedTooltip name="ВладелецЭЦПКодПодразделенияРасширеннаяПодсказка" id="596"/>
@@ -1474,6 +1526,7 @@
 																	<v8:content>Дата рождения</v8:content>
 																</v8:item>
 															</Title>
+															<MarkRequiredComplete>true</MarkRequiredComplete>
 															<AutoMarkIncomplete>true</AutoMarkIncomplete>
 															<ContextMenu name="ВладелецЭЦПДатаРожденияКонтекстноеМеню" id="600"/>
 															<ExtendedTooltip name="ВладелецЭЦПДатаРожденияРасширеннаяПодсказка" id="601"/>
@@ -1486,6 +1539,7 @@
 																	<v8:content>Место рождения</v8:content>
 																</v8:item>
 															</Title>
+															<MarkRequiredComplete>true</MarkRequiredComplete>
 															<AutoMarkIncomplete>true</AutoMarkIncomplete>
 															<ContextMenu name="ВладелецЭЦПМестоРожденияКонтекстноеМеню" id="603"/>
 															<ExtendedTooltip name="ВладелецЭЦПМестоРожденияРасширеннаяПодсказка" id="604"/>
@@ -1679,6 +1733,7 @@
 															<v8:content>Удостоверяющий центр</v8:content>
 														</v8:item>
 													</ToolTip>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ChooseType>false</ChooseType>
 													<TextEdit>false</TextEdit>
@@ -1716,6 +1771,7 @@
 													<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
 													<Group>Vertical</Group>
 													<Behavior>Usual</Behavior>
+													<Representation>WeakSeparation</Representation>
 													<ExtendedTooltip name="Группа10ExtendedTooltip" id="437"/>
 													<ChildItems>
 														<HTMLDocumentField name="ПолеHTMLСоглашения" id="105">
@@ -1900,6 +1956,7 @@
 											<HorizontalStretch>true</HorizontalStretch>
 											<Group>Horizontal</Group>
 											<Behavior>Usual</Behavior>
+											<Representation>WeakSeparation</Representation>
 											<ExtendedTooltip name="СправочнаяИнформацияExtendedTooltip" id="450"/>
 											<ChildItems>
 												<PictureDecoration name="ПолеКартинкиВнимание48" id="229">
@@ -1910,8 +1967,9 @@
 														</v8:item>
 													</Title>
 													<Picture>
-														<xr:Ref>CommonPicture.ВниманиеКрасноБелое</xr:Ref>
-														<xr:LoadTransparent>false</xr:LoadTransparent>
+														<xr:Ref>CommonPicture.Внимание48</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+														<xr:TransparentPixel x="40" y="8"/>
 													</Picture>
 													<FileDragMode>AsFile</FileDragMode>
 													<ContextMenu name="ПолеКартинкиВнимание48КонтекстноеМеню" id="230"/>
@@ -2128,6 +2186,7 @@
 													<v8:content>Рег. номер программы или абонента сервиса</v8:content>
 												</v8:item>
 											</Title>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ContextMenu name="НомерОсновнойПоставки1сКонтекстноеМеню" id="250"/>
 											<ExtendedTooltip name="НомерОсновнойПоставки1сExtendedTooltip" id="463"/>
@@ -2152,7 +2211,7 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ВторичноеЗаявлениеExtendedTooltip" id="466"/>
 					<ChildItems>
 						<UsualGroup name="ОсновнаяПанельВторичногоЗаявления" id="316">
@@ -2210,7 +2269,6 @@
 												<Table name="ТаблицаДанныхЗаявленияНаПодключение" id="319">
 													<Representation>List</Representation>
 													<ReadOnly>true</ReadOnly>
-													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Row</RowSelectionMode>
 													<Header>false</Header>
 													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -2260,7 +2318,6 @@
 															<DataPath>ТаблицаДанныхЗаявленияНаПодключение.НазваниеРеквизита</DataPath>
 															<EditMode>EnterOnInput</EditMode>
 															<AutoEditMode>true</AutoEditMode>
-															<AutoWidthInTable>None</AutoWidthInTable>
 															<Width>45</Width>
 															<HorizontalStretch>false</HorizontalStretch>
 															<ContextMenu name="ТаблицаДанныхЗаявленияНаПодключениеНазваниеРеквизитаКонтекстноеМеню" id="323"/>
@@ -2270,7 +2327,6 @@
 															<DataPath>ТаблицаДанныхЗаявленияНаПодключение.ЗначениеРеквизита</DataPath>
 															<EditMode>EnterOnInput</EditMode>
 															<AutoEditMode>true</AutoEditMode>
-															<AutoWidthInTable>None</AutoWidthInTable>
 															<ContextMenu name="ТаблицаДанныхЗаявленияНаПодключениеЗначениеРеквизитаКонтекстноеМеню" id="325"/>
 															<ExtendedTooltip name="ТаблицаДанныхЗаявленияНаПодключениеЗначениеРеквизитаExtendedTooltip" id="472"/>
 														</InputField>
@@ -2968,7 +3024,10 @@
 			<dcsset:item>
 				<dcsset:selection>
 					<dcsset:item>
-						<dcsset:field>ТаблицаДанныхЗаявленияНаПодключение</dcsset:field>
+						<dcsset:field>ТаблицаДанныхЗаявленияНаПодключениеНазваниеРеквизита</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТаблицаДанныхЗаявленияНаПодключениеЗначениеРеквизита</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
@@ -2996,7 +3055,10 @@
 			<dcsset:item>
 				<dcsset:selection>
 					<dcsset:item>
-						<dcsset:field>ТаблицаДанныхЗаявленияНаПодключение</dcsset:field>
+						<dcsset:field>ТаблицаДанныхЗаявленияНаПодключениеНазваниеРеквизита</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТаблицаДанныхЗаявленияНаПодключениеЗначениеРеквизита</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
@@ -3016,7 +3078,10 @@
 			<dcsset:item>
 				<dcsset:selection>
 					<dcsset:item>
-						<dcsset:field>ТаблицаДанныхЗаявленияНаПодключение</dcsset:field>
+						<dcsset:field>ТаблицаДанныхЗаявленияНаПодключениеНазваниеРеквизита</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТаблицаДанныхЗаявленияНаПодключениеЗначениеРеквизита</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
@@ -3075,7 +3140,6 @@
 			</ToolTip>
 			<Action>РедактироватьНаправление</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Получатели</AssociatedTableElementId>
 		</Command>
 		<Command name="УдалитьНаправление" id="4">
 			<Title>
@@ -3294,6 +3358,15 @@
 	</Parameters>
 	<CommandInterface>
 		<NavigationPanel>
+			<Item>
+				<Command>0:e7d51ada-f286-4519-bfae-ece95dd4d7b0</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
 			<Item>
 				<Command>CommonCommand.ПрисоединенныеФайлы</Command>
 				<Type>Auto</Type>

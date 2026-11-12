@@ -9,26 +9,8 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Top</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ФормаВыбрать" id="57">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Выбрать</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Выбрать</v8:content>
-					</v8:item>
-				</Title>
-				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="58"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -67,7 +49,24 @@
 			</CommandSet>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="СписокАдресныхОбъектовКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокАдресныхОбъектовКоманднаяПанель" id="5"/>
+			<AutoCommandBar name="СписокАдресныхОбъектовКоманднаяПанель" id="5">
+				<ChildItems>
+					<Button name="ФормаВыбрать" id="57">
+						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.Command.Выбрать</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выбрать</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<ButtonImportance>Main</ButtonImportance>
+						<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="58"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокАдресныхОбъектовРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокАдресныхОбъектовСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -95,7 +94,6 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="Selection">СписокДомовВыбор</Event>
-				<Event name="OnActivateRow">СписокАдресныхОбъектовПриАктивизацииСтроки</Event>
 			</Events>
 			<ChildItems>
 				<InputField name="СписокДомовДом" id="16">
@@ -242,7 +240,6 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Найти" id="2">
 			<Title>

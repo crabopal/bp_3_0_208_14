@@ -20,9 +20,19 @@
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.ОтправитьПриглашения</CommandName>
-				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ОтправитьПриглашенияРасширеннаяПодсказка" id="38"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="52">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="53"/>
+			</Button>
+			<Button name="ФормаСправка" id="50">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="51"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -37,60 +47,42 @@
 					<v8:content>Шапка</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
+			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="107"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаОрганизации" id="123">
+				<InputField name="Организация" id="56">
+					<DataPath>Организация</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Регистрация организации</v8:content>
+							<v8:content>От организации</v8:content>
 						</v8:item>
 					</Title>
+					<TitleLocation>Left</TitleLocation>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа организации</v8:content>
+							<v8:content>Организация, от имени которой будете приглашать.</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаОрганизацииРасширеннаяПодсказка" id="124"/>
-					<ChildItems>
-						<InputField name="Организация" id="56">
-							<DataPath>Организация</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>От организации</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Организация, от имени которой будете приглашать.</v8:content>
-								</v8:item>
-							</ToolTip>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<InputHint>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Организация, от имени которой будете приглашать.</v8:content>
-								</v8:item>
-							</InputHint>
-							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="57"/>
-							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="58"/>
-							<Events>
-								<Event name="OnChange">ОрганизацияПриИзменении</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация, от имени которой будете приглашать.</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="58"/>
+					<Events>
+						<Event name="OnChange">ОрганизацияПриИзменении</Event>
+					</Events>
+				</InputField>
 				<InputField name="РежимОтправки" id="114">
 					<DataPath>РежимОтправки</DataPath>
 					<Title>
@@ -105,6 +97,8 @@
 							<v8:content>Режим приглашения определяет текст приглашения контрагентов - общее, к поставщику, к покупателю.</v8:content>
 						</v8:item>
 					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<Width>7</Width>
 					<ListChoiceMode>true</ListChoiceMode>
 					<ChoiceList>
 						<xr:Item>
@@ -155,65 +149,6 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<RadioButtonField name="ФильтрСписка" id="158">
-			<DataPath>ФильтрСписка</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Контрагенты</v8:content>
-				</v8:item>
-			</Title>
-			<TitleLocation>None</TitleLocation>
-			<VerticalAlign>Center</VerticalAlign>
-			<GroupVerticalAlign>Center</GroupVerticalAlign>
-			<RadioButtonType>Tumbler</RadioButtonType>
-			<ChoiceList>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Все</v8:content>
-							</v8:item>
-						</Presentation>
-						<Value xsi:type="xs:decimal">0</Value>
-					</xr:Value>
-				</xr:Item>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Подключенные</v8:content>
-							</v8:item>
-						</Presentation>
-						<Value xsi:type="xs:decimal">1</Value>
-					</xr:Value>
-				</xr:Item>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Не подключенные</v8:content>
-							</v8:item>
-						</Presentation>
-						<Value xsi:type="xs:decimal">2</Value>
-					</xr:Value>
-				</xr:Item>
-			</ChoiceList>
-			<ContextMenu name="ФильтрСпискаКонтекстноеМеню" id="159"/>
-			<ExtendedTooltip name="ФильтрСпискаРасширеннаяПодсказка" id="160"/>
-			<Events>
-				<Event name="OnChange">ФильтрСпискаПриИзменении</Event>
-			</Events>
-		</RadioButtonField>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
 			<RowSelectionMode>Cell</RowSelectionMode>
@@ -224,17 +159,8 @@
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<CommandSet>
-				<ExcludedCommand>Add</ExcludedCommand>
-				<ExcludedCommand>CancelSearch</ExcludedCommand>
-				<ExcludedCommand>ClearTableMarksAppearance</ExcludedCommand>
-				<ExcludedCommand>Copy</ExcludedCommand>
-				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
-				<ExcludedCommand>Find</ExcludedCommand>
-				<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
-				<ExcludedCommand>SearchEverywhere</ExcludedCommand>
-				<ExcludedCommand>SearchHistory</ExcludedCommand>
-				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
-				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
 			</CommandSet>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
@@ -299,17 +225,26 @@
 						</Title>
 						<ExtendedTooltip name="СписокЗаполнитьПоставщиковРасширеннаяПодсказка" id="120"/>
 					</Button>
-					<Button name="СписокПереместитьВверх" id="162">
+					<ButtonGroup name="ЕщеДополнительная" id="136">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Еще (дополнительная)</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Еще дополнительная</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Form</CommandSource>
+						<ExtendedTooltip name="ЕщеДополнительнаяРасширеннаяПодсказка" id="137"/>
+					</ButtonGroup>
+					<Button name="Справка" id="138">
 						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.MoveUp</CommandName>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="СписокПереместитьВверхРасширеннаяПодсказка" id="163"/>
-					</Button>
-					<Button name="СписокПереместитьВниз" id="164">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Item.Список.StandardCommand.MoveDown</CommandName>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="СписокПереместитьВнизРасширеннаяПодсказка" id="165"/>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="139"/>
 					</Button>
 				</ChildItems>
 			</AutoCommandBar>
@@ -351,6 +286,9 @@
 							<v8:content>Контрагент</v8:content>
 						</v8:item>
 					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<AutoEditMode>true</AutoEditMode>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="СписокСсылкаКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="СписокСсылкаРасширеннаяПодсказка" id="16"/>
@@ -377,6 +315,8 @@
 								</v8:item>
 							</Title>
 							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
 							<ValuesPicture>
 								<xr:Ref>CommonPicture.БизнесСеть</xr:Ref>
 								<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -387,6 +327,9 @@
 						</PictureField>
 						<InputField name="СписокЭлектроннаяПочта" id="27">
 							<DataPath>Список.ЭлектроннаяПочта</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoEditMode>true</AutoEditMode>
 							<Wrap>false</Wrap>
 							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
 							<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -399,11 +342,39 @@
 				<InputField name="СписокПодключен" id="111">
 					<DataPath>Список.Зарегистрирован</DataPath>
 					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокПодключенКонтекстноеМеню" id="112"/>
 					<ExtendedTooltip name="СписокПодключенРасширеннаяПодсказка" id="113"/>
 				</InputField>
 			</ChildItems>
 		</Table>
+		<UsualGroup name="ГруппаРегистрацииОрганизации" id="123">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистрация организации</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРегистрацииОрганизацииРасширеннаяПодсказка" id="124"/>
+			<ChildItems>
+				<LabelDecoration name="НадписьЗарегистрироватьОрганизацию" id="125">
+					<TextColor>style:ПоясняющийОшибкуТекст</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация не подключена к сервису 1С:Бизнес-сеть.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьЗарегистрироватьОрганизациюКонтекстноеМеню" id="126"/>
+					<ExtendedTooltip name="НадписьЗарегистрироватьОрганизациюРасширеннаяПодсказка" id="127"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Список" id="1">
@@ -529,16 +500,6 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ФильтрСписка" id="5">
-			<Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>1</v8:Digits>
-					<v8:FractionDigits>0</v8:FractionDigits>
-					<v8:AllowedSign>Any</v8:AllowedSign>
-				</v8:NumberQualifiers>
-			</Type>
-		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="ВыбратьВсе" id="1">
@@ -594,7 +555,6 @@
 			</ToolTip>
 			<Action>ОтправитьПриглашения</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитОтбор" id="4">
 			<Title>

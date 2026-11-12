@@ -3,11 +3,10 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ФормаФорматировать" id="199">
 				<Type>CommandBarButton</Type>
@@ -19,6 +18,19 @@
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.СохранитьПротоколВФайл</CommandName>
 				<ExtendedTooltip name="ФормаСохранитьПротоколВФайлРасширеннаяПодсказка" id="189"/>
+			</Button>
+			<Button name="Закрыть" id="89">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="90"/>
+			</Button>
+			<Button name="ФормаСправка" id="186">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="187"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -35,7 +47,6 @@
 			<ChildItems>
 				<LabelField name="Документ" id="193">
 					<DataPath>Документ</DataPath>
-					<TitleLocation>None</TitleLocation>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
@@ -52,147 +63,141 @@
 					<v8:content>Страницы</v8:content>
 				</v8:item>
 			</Title>
-			<PagesRepresentation>None</PagesRepresentation>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
 			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="108"/>
 			<ChildItems>
-				<Page name="СтраницаПротокол" id="212">
+				<Page name="Протокол" id="109">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Страница протокол</v8:content>
+							<v8:content>Протокол</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Страница протокол</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ShowTitle>true</ShowTitle>
-					<ExtendedTooltip name="СтраницаПротоколРасширеннаяПодсказка" id="213"/>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ПротоколРасширеннаяПодсказка" id="110"/>
 					<ChildItems>
-						<UsualGroup name="Протокол" id="109">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Протокол</v8:content>
-								</v8:item>
-							</Title>
-							<Group>AlwaysHorizontal</Group>
-							<United>false</United>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ПротоколРасширеннаяПодсказка" id="110"/>
+						<Table name="ЭтапыОбмена" id="129">
+							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<ReadOnly>true</ReadOnly>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<DataPath>ЭтапыОбмена</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ЭтапыОбменаКонтекстноеМеню" id="131"/>
+							<AutoCommandBar name="ЭтапыОбменаКоманднаяПанель" id="130"/>
+							<ExtendedTooltip name="ЭтапыОбменаРасширеннаяПодсказка" id="132"/>
+							<SearchStringAddition name="ЭтапыОбменаСтрокаПоиска" id="133">
+								<AdditionSource>
+									<Item>ЭтапыОбмена</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЭтапыОбменаСтрокаПоискаКонтекстноеМеню" id="134"/>
+								<ExtendedTooltip name="ЭтапыОбменаСтрокаПоискаРасширеннаяПодсказка" id="135"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ЭтапыОбменаСостояниеПросмотра" id="139">
+								<AdditionSource>
+									<Item>ЭтапыОбмена</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="ЭтапыОбменаСостояниеПросмотраКонтекстноеМеню" id="140"/>
+								<ExtendedTooltip name="ЭтапыОбменаСостояниеПросмотраРасширеннаяПодсказка" id="141"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ЭтапыОбменаУправлениеПоиском" id="136">
+								<AdditionSource>
+									<Item>ЭтапыОбмена</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ЭтапыОбменаУправлениеПоискомКонтекстноеМеню" id="137"/>
+								<ExtendedTooltip name="ЭтапыОбменаУправлениеПоискомРасширеннаяПодсказка" id="138"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnActivateRow">ЭтапыОбменаПриАктивизацииСтроки</Event>
+							</Events>
 							<ChildItems>
-								<Table name="ЭтапыОбмена" id="129">
-									<Representation>List</Representation>
-									<CommandBarLocation>None</CommandBarLocation>
-									<ReadOnly>true</ReadOnly>
-									<SelectionMode>SingleRow</SelectionMode>
-									<RowSelectionMode>Cell</RowSelectionMode>
-									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-									<InitialRowActivation>Activate</InitialRowActivation>
-									<DataPath>ЭтапыОбмена</DataPath>
-									<CommandSet>
-										<ExcludedCommand>Add</ExcludedCommand>
-										<ExcludedCommand>Change</ExcludedCommand>
-										<ExcludedCommand>Copy</ExcludedCommand>
-										<ExcludedCommand>Delete</ExcludedCommand>
-										<ExcludedCommand>EndEdit</ExcludedCommand>
-										<ExcludedCommand>MoveDown</ExcludedCommand>
-										<ExcludedCommand>MoveUp</ExcludedCommand>
-										<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
-										<ExcludedCommand>SortListAsc</ExcludedCommand>
-										<ExcludedCommand>SortListDesc</ExcludedCommand>
-									</CommandSet>
-									<RowFilter xsi:nil="true"/>
-									<ContextMenu name="ЭтапыОбменаКонтекстноеМеню" id="131"/>
-									<AutoCommandBar name="ЭтапыОбменаКоманднаяПанель" id="130"/>
-									<ExtendedTooltip name="ЭтапыОбменаРасширеннаяПодсказка" id="132"/>
-									<SearchStringAddition name="ЭтапыОбменаСтрокаПоиска" id="133">
-										<AdditionSource>
-											<Item>ЭтапыОбмена</Item>
-											<Type>SearchStringRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ЭтапыОбменаСтрокаПоискаКонтекстноеМеню" id="134"/>
-										<ExtendedTooltip name="ЭтапыОбменаСтрокаПоискаРасширеннаяПодсказка" id="135"/>
-									</SearchStringAddition>
-									<ViewStatusAddition name="ЭтапыОбменаСостояниеПросмотра" id="139">
-										<AdditionSource>
-											<Item>ЭтапыОбмена</Item>
-											<Type>ViewStatusRepresentation</Type>
-										</AdditionSource>
-										<HorizontalLocation>Left</HorizontalLocation>
-										<ContextMenu name="ЭтапыОбменаСостояниеПросмотраКонтекстноеМеню" id="140"/>
-										<ExtendedTooltip name="ЭтапыОбменаСостояниеПросмотраРасширеннаяПодсказка" id="141"/>
-									</ViewStatusAddition>
-									<SearchControlAddition name="ЭтапыОбменаУправлениеПоиском" id="136">
-										<AdditionSource>
-											<Item>ЭтапыОбмена</Item>
-											<Type>SearchControl</Type>
-										</AdditionSource>
-										<ContextMenu name="ЭтапыОбменаУправлениеПоискомКонтекстноеМеню" id="137"/>
-										<ExtendedTooltip name="ЭтапыОбменаУправлениеПоискомРасширеннаяПодсказка" id="138"/>
-									</SearchControlAddition>
-									<Events>
-										<Event name="OnActivateRow">ЭтапыОбменаПриАктивизацииСтроки</Event>
-									</Events>
-									<ChildItems>
-										<InputField name="ЭтапыОбменаПредставлениеОперации" id="196">
-											<DataPath>ЭтапыОбмена.ПредставлениеОперации</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="ЭтапыОбменаПредставлениеОперацииКонтекстноеМеню" id="197"/>
-											<ExtendedTooltip name="ЭтапыОбменаПредставлениеОперацииРасширеннаяПодсказка" id="198"/>
-										</InputField>
-										<InputField name="ЭтапыОбменаОперация" id="145">
-											<DataPath>ЭтапыОбмена.Операция</DataPath>
-											<Visible>false</Visible>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Этап</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="ЭтапыОбменаОперацияКонтекстноеМеню" id="146"/>
-											<ExtendedTooltip name="ЭтапыОбменаОперацияРасширеннаяПодсказка" id="147"/>
-										</InputField>
-										<InputField name="ЭтапыОбменаДата" id="142">
-											<DataPath>ЭтапыОбмена.Дата</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="ЭтапыОбменаДатаКонтекстноеМеню" id="143"/>
-											<ExtendedTooltip name="ЭтапыОбменаДатаРасширеннаяПодсказка" id="144"/>
-										</InputField>
-									</ChildItems>
-								</Table>
-								<UsualGroup name="ЗапросОтвет" id="166">
+								<InputField name="ЭтапыОбменаПредставлениеОперации" id="196">
+									<DataPath>ЭтапыОбмена.ПредставлениеОперации</DataPath>
+									<ContextMenu name="ЭтапыОбменаПредставлениеОперацииКонтекстноеМеню" id="197"/>
+									<ExtendedTooltip name="ЭтапыОбменаПредставлениеОперацииРасширеннаяПодсказка" id="198"/>
+								</InputField>
+								<InputField name="ЭтапыОбменаОперация" id="145">
+									<DataPath>ЭтапыОбмена.Операция</DataPath>
+									<Visible>false</Visible>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Запрос ответ</v8:content>
+											<v8:content>Этап</v8:content>
 										</v8:item>
 									</Title>
-									<Group>AlwaysHorizontal</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ЗапросОтветРасширеннаяПодсказка" id="167"/>
-									<ChildItems>
-										<TextDocumentField name="ТекстовыйДокумент" id="183">
-											<DataPath>ТекстовыйДокумент</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="ТекстовыйДокументКонтекстноеМеню" id="184"/>
-											<ExtendedTooltip name="ТекстовыйДокументРасширеннаяПодсказка" id="185"/>
-										</TextDocumentField>
-									</ChildItems>
-								</UsualGroup>
+									<ContextMenu name="ЭтапыОбменаОперацияКонтекстноеМеню" id="146"/>
+									<ExtendedTooltip name="ЭтапыОбменаОперацияРасширеннаяПодсказка" id="147"/>
+								</InputField>
+								<InputField name="ЭтапыОбменаДата" id="142">
+									<DataPath>ЭтапыОбмена.Дата</DataPath>
+									<ContextMenu name="ЭтапыОбменаДатаКонтекстноеМеню" id="143"/>
+									<ExtendedTooltip name="ЭтапыОбменаДатаРасширеннаяПодсказка" id="144"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<UsualGroup name="ЗапросОтвет" id="166">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Запрос ответ</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ЗапросОтветРасширеннаяПодсказка" id="167"/>
+							<ChildItems>
+								<TextDocumentField name="ТекстовыйДокумент" id="183">
+									<DataPath>ТекстовыйДокумент</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>None</TitleLocation>
+									<ContextMenu name="ТекстовыйДокументКонтекстноеМеню" id="184"/>
+									<ExtendedTooltip name="ТекстовыйДокументРасширеннаяПодсказка" id="185"/>
+								</TextDocumentField>
 							</ChildItems>
 						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="Дополнительно" id="111">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="ДополнительноРасширеннаяПодсказка" id="112"/>
+					<ChildItems>
+						<LabelField name="ДатаСоздания" id="100">
+							<DataPath>ДатаСоздания</DataPath>
+							<ContextMenu name="ДатаСозданияКонтекстноеМеню" id="101"/>
+							<ExtendedTooltip name="ДатаСозданияРасширеннаяПодсказка" id="102"/>
+						</LabelField>
+						<LabelField name="Операция" id="180">
+							<DataPath>Операция</DataPath>
+							<ContextMenu name="ОперацияКонтекстноеМеню" id="181"/>
+							<ExtendedTooltip name="ОперацияРасширеннаяПодсказка" id="182"/>
+						</LabelField>
 					</ChildItems>
 				</Page>
 			</ChildItems>

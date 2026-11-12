@@ -9,14 +9,12 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаЗакрытьФорму" id="7">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
+				<CommandName>Form.Command.ЗакрытьФорму</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаЗакрытьФормуРасширеннаяПодсказка" id="8"/>
 			</Button>
@@ -35,8 +33,8 @@
 					<v8:content>Тип токена</v8:content>
 				</v8:item>
 			</Title>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>28</MaxWidth>
 			<ContextMenu name="ТипТокенаАвторизацииКонтекстноеМеню" id="13"/>
 			<ExtendedTooltip name="ТипТокенаАвторизацииРасширеннаяПодсказка" id="14"/>
 			<Events>
@@ -44,7 +42,7 @@
 			</Events>
 		</InputField>
 		<UsualGroup name="ГруппаОрганизацияПроизводственныйОбъект" id="15">
-			<Group>Vertical</Group>
+			<Group>AlwaysHorizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -52,8 +50,9 @@
 			<ChildItems>
 				<InputField name="Организация" id="9">
 					<DataPath>Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>28</MaxWidth>
 					<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="10"/>
@@ -61,8 +60,8 @@
 				</InputField>
 				<InputField name="ПроизводственныйОбъект" id="17">
 					<DataPath>ПроизводственныйОбъект</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>28</MaxWidth>
 					<ContextMenu name="ПроизводственныйОбъектКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="ПроизводственныйОбъектРасширеннаяПодсказка" id="19"/>
 				</InputField>
@@ -70,9 +69,7 @@
 		</UsualGroup>
 		<InputField name="Токен" id="1">
 			<DataPath>Токен</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<HorizontalStretch>true</HorizontalStretch>
+			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="ТокенКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="ТокенРасширеннаяПодсказка" id="3"/>
 			<Events>
@@ -81,8 +78,6 @@
 		</InputField>
 		<InputField name="ДействуетДо" id="20">
 			<DataPath>ДействуетДо</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<ContextMenu name="ДействуетДоКонтекстноеМеню" id="21"/>
 			<ExtendedTooltip name="ДействуетДоРасширеннаяПодсказка" id="22"/>
 		</InputField>
@@ -90,8 +85,9 @@
 			<DataPath>РасшифрованныйТокен</DataPath>
 			<ReadOnly>true</ReadOnly>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
+			<Width>70</Width>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Height>5</Height>
 			<MultiLine>true</MultiLine>
 			<ContextMenu name="РасшифрованныйТокенКонтекстноеМеню" id="5"/>
 			<ExtendedTooltip name="РасшифрованныйТокенРасширеннаяПодсказка" id="6"/>
@@ -224,21 +220,14 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ЗаписатьИЗакрыть" id="1">
+		<Command name="ЗакрытьФорму" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Записать и закрыть</v8:content>
+					<v8:content>Закрыть форму</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Записать и закрыть</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Action>ЗакрытьФорму</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

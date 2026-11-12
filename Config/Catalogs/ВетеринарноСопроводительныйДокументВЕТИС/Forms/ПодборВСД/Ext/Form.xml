@@ -9,7 +9,7 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Top</CommandBarLocation>
+	<CommandBarLocation>None</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
@@ -21,25 +21,8 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
-	<ShowCommandBar>true</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="Оформить" id="276">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Выбрать</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Выбрать</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОформитьРасширеннаяПодсказка" id="277"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<ShowCommandBar>false</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -53,14 +36,12 @@
 			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
-			<ShowTitle>false</ShowTitle>
+			<Representation>None</Representation>
 			<ExtendedTooltip name="ГруппаОтборРасширеннаяПодсказка" id="320"/>
 			<ChildItems>
 				<LabelField name="ПредставлениеОтбораПоГрузоотправителю" id="394">
 					<DataPath>ПредставлениеОтбораПоГрузоотправителю</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="ПредставлениеОтбораПоГрузоотправителюКонтекстноеМеню" id="395"/>
 					<ExtendedTooltip name="ПредставлениеОтбораПоГрузоотправителюРасширеннаяПодсказка" id="396"/>
@@ -68,8 +49,6 @@
 				<LabelField name="ПредставлениеОтбораПоГрузополучателю" id="397">
 					<DataPath>ПредставлениеОтбораПоГрузополучателю</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="ПредставлениеОтбораПоГрузополучателюКонтекстноеМеню" id="398"/>
 					<ExtendedTooltip name="ПредставлениеОтбораПоГрузополучателюРасширеннаяПодсказка" id="399"/>
@@ -77,8 +56,6 @@
 				<LabelField name="ПредставлениеОтбораПоДругимРеквизитам" id="400">
 					<DataPath>ПредставлениеОтбораПоДругимРеквизитам</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="ПредставлениеОтбораПоДругимРеквизитамКонтекстноеМеню" id="401"/>
 					<ExtendedTooltip name="ПредставлениеОтбораПоДругимРеквизитамРасширеннаяПодсказка" id="402"/>
@@ -86,8 +63,6 @@
 				<LabelField name="ПредставлениеОтбораПоТТН" id="406">
 					<DataPath>ПредставлениеОтбораПоТТН</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="ПредставлениеОтбораПоТТНКонтекстноеМеню" id="407"/>
 					<ExtendedTooltip name="ПредставлениеОтбораПоТТНРасширеннаяПодсказка" id="408"/>
@@ -95,8 +70,6 @@
 				<LabelField name="ПредставлениеОтбораПоТранспортномуСредству" id="403">
 					<DataPath>ПредставлениеОтбораПоТранспортномуСредству</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="ПредставлениеОтбораПоТранспортномуСредствуКонтекстноеМеню" id="404"/>
 					<ExtendedTooltip name="ПредставлениеОтбораПоТранспортномуСредствуРасширеннаяПодсказка" id="405"/>
@@ -104,7 +77,6 @@
 			</ChildItems>
 		</UsualGroup>
 		<CommandBar name="КоманднаяПанельФормы" id="315">
-			<Visible>false</Visible>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -113,12 +85,31 @@
 			</Title>
 			<CommandSource>Form</CommandSource>
 			<ExtendedTooltip name="КоманднаяПанельФормыРасширеннаяПодсказка" id="316"/>
+			<ChildItems>
+				<Button name="Оформить" id="276">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Выбрать</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбрать</v8:content>
+						</v8:item>
+					</Title>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ОформитьРасширеннаяПодсказка" id="277"/>
+				</Button>
+				<Button name="Закрыть" id="317">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="318"/>
+				</Button>
+			</ChildItems>
 		</CommandBar>
 		<Table name="ДоступныеВСД" id="278">
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<MultipleChoice>true</MultipleChoice>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -134,7 +125,9 @@
 			</CommandSet>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="ДоступныеВСДКонтекстноеМеню" id="279"/>
-			<AutoCommandBar name="ДоступныеВСДКоманднаяПанель" id="280"/>
+			<AutoCommandBar name="ДоступныеВСДКоманднаяПанель" id="280">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="ДоступныеВСДРасширеннаяПодсказка" id="281"/>
 			<SearchStringAddition name="ДоступныеВСДСтрокаПоиска" id="282">
 				<AdditionSource>
@@ -676,7 +669,6 @@
 			<Action>Выбрать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

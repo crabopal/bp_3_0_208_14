@@ -3,7 +3,6 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
@@ -12,9 +11,14 @@
 			<Button name="ФормаКомандаОК" id="11">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Сохранить</CommandName>
+				<CommandName>Form.Command.КомандаОК</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаКомандаОКРасширеннаяПодсказка" id="12"/>
+			</Button>
+			<Button name="ФормаКомандаОтмена" id="13">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаОтмена</CommandName>
+				<ExtendedTooltip name="ФормаКомандаОтменаРасширеннаяПодсказка" id="14"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -33,49 +37,12 @@
 			<EnableDrag>true</EnableDrag>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Спецификации</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="СпецификацииКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СпецификацииКоманднаяПанель" id="3">
-				<ChildItems>
-					<ButtonGroup name="ГруппаСпецификации" id="35">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Группа спецификации</v8:content>
-							</v8:item>
-						</Title>
-						<ToolTip>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Группа спецификации</v8:content>
-							</v8:item>
-						</ToolTip>
-						<Representation>Compact</Representation>
-						<ExtendedTooltip name="ГруппаСпецификацииРасширеннаяПодсказка" id="36"/>
-						<ChildItems>
-							<Button name="СпецификацииПереместитьВверх" id="28">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Item.Спецификации.StandardCommand.MoveUp</CommandName>
-								<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-								<ExtendedTooltip name="СпецификацииПереместитьВверхРасширеннаяПодсказка" id="29"/>
-							</Button>
-							<Button name="СпецификацииПереместитьВниз" id="30">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Item.Спецификации.StandardCommand.MoveDown</CommandName>
-								<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-								<ExtendedTooltip name="СпецификацииПереместитьВнизРасширеннаяПодсказка" id="31"/>
-							</Button>
-						</ChildItems>
-					</ButtonGroup>
-					<Button name="СпецификацииУдалить" id="33">
-						<Type>CommandBarButton</Type>
-						<Representation>Picture</Representation>
-						<CommandName>Form.Item.Спецификации.StandardCommand.Delete</CommandName>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-						<ExtendedTooltip name="СпецификацииУдалитьРасширеннаяПодсказка" id="34"/>
-					</Button>
-				</ChildItems>
-			</AutoCommandBar>
+			<AutoCommandBar name="СпецификацииКоманднаяПанель" id="3"/>
 			<ExtendedTooltip name="СпецификацииРасширеннаяПодсказка" id="4"/>
 			<SearchStringAddition name="СпецификацииСтрокаПоиска" id="15">
 				<AdditionSource>
@@ -204,11 +171,11 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Сохранить" id="1">
+		<Command name="КомандаОК" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -219,7 +186,22 @@
 			</ToolTip>
 			<Action>КомандаОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="КомандаОтмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 </Form>

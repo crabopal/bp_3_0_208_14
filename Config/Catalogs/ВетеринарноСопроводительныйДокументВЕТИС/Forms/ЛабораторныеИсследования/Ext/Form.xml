@@ -9,7 +9,6 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="Готово" id="48">
@@ -19,6 +18,16 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="49"/>
 			</Button>
+			<ButtonGroup name="Стандартные" id="50">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Стандартные</v8:content>
+					</v8:item>
+				</Title>
+				<CommandSource>Item.ЛабораторныеИсследования</CommandSource>
+				<ExtendedTooltip name="СтандартныеРасширеннаяПодсказка" id="51"/>
+			</ButtonGroup>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -28,301 +37,230 @@
 	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаЛабораторныеИсследования" id="44">
-			<Group>Vertical</Group>
+			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
+			<Representation>WeakSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаЛабораторныеИсследованияРасширеннаяПодсказка" id="45"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаИследованияДетализация" id="100">
+				<Table name="ЛабораторныеИсследования" id="1">
+					<Representation>List</Representation>
+					<RowSelectionMode>Cell</RowSelectionMode>
+					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ЛабораторныеИсследования</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ЛабораторныеИсследованияКонтекстноеМеню" id="2"/>
+					<AutoCommandBar name="ЛабораторныеИсследованияКоманднаяПанель" id="3">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ЛабораторныеИсследованияРасширеннаяПодсказка" id="4"/>
+					<SearchStringAddition name="ЛабораторныеИсследованияСтрокаПоиска" id="5">
+						<AdditionSource>
+							<Item>ЛабораторныеИсследования</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ЛабораторныеИсследованияСтрокаПоискаКонтекстноеМеню" id="6"/>
+						<ExtendedTooltip name="ЛабораторныеИсследованияСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ЛабораторныеИсследованияСостояниеПросмотра" id="8">
+						<AdditionSource>
+							<Item>ЛабораторныеИсследования</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<HorizontalLocation>Left</HorizontalLocation>
+						<ContextMenu name="ЛабораторныеИсследованияСостояниеПросмотраКонтекстноеМеню" id="9"/>
+						<ExtendedTooltip name="ЛабораторныеИсследованияСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ЛабораторныеИсследованияУправлениеПоиском" id="11">
+						<AdditionSource>
+							<Item>ЛабораторныеИсследования</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ЛабораторныеИсследованияУправлениеПоискомКонтекстноеМеню" id="12"/>
+						<ExtendedTooltip name="ЛабораторныеИсследованияУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnEditEnd">ЛабораторныеИсследованияПриОкончанииРедактирования</Event>
+						<Event name="AfterDeleteRow">ЛабораторныеИсследованияПослеУдаления</Event>
+						<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
+					</Events>
+					<ChildItems>
+						<InputField name="ЛабораторныеИсследованияНомерСтроки" id="79">
+							<DataPath>ЛабораторныеИсследования.НомерСтроки</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>N</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>4</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ЛабораторныеИсследованияНомерСтрокиКонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="ЛабораторныеИсследованияНомерСтрокиРасширеннаяПодсказка" id="81"/>
+						</InputField>
+						<InputField name="ЛабораторныеИсследованияНаименованиеПоказателя" id="52">
+							<DataPath>ЛабораторныеИсследования.НаименованиеПоказателя</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>10</Width>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ЛабораторныеИсследованияНаименованиеПоказателяКонтекстноеМеню" id="53"/>
+							<ExtendedTooltip name="ЛабораторныеИсследованияНаименованиеПоказателяРасширеннаяПодсказка" id="54"/>
+						</InputField>
+						<InputField name="ЛабораторныеИсследованияРезультатИсследования" id="55">
+							<DataPath>ЛабораторныеИсследования.РезультатИсследования</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Результат</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Нет данных</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.РезультатыЛабораторныхИсследованийВЕТИС.EnumValue.НетДанных</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Положительный</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.РезультатыЛабораторныхИсследованийВЕТИС.EnumValue.Положительный</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Отрицательный</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.РезультатыЛабораторныхИсследованийВЕТИС.EnumValue.Отрицательный</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ЛабораторныеИсследованияРезультатИсследованияКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="ЛабораторныеИсследованияРезультатИсследованияРасширеннаяПодсказка" id="57"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<UsualGroup name="ГруппаПанель" id="46">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа иследования детализация</v8:content>
+							<v8:content>Информация об исследовании</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаИследованияДетализацияРасширеннаяПодсказка" id="101"/>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>WeakSeparation</Representation>
+					<ExtendedTooltip name="ГруппаПанельРасширеннаяПодсказка" id="47"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаИсследования" id="95">
+						<InputField name="ЛабораторныеИсследованияНомерАктаОтбораПроб" id="58">
+							<DataPath>Items.ЛабораторныеИсследования.CurrentData.НомерАктаОтбораПроб</DataPath>
+							<ContextMenu name="ЛабораторныеИсследованияНомерАктаОтбораПробКонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="ЛабораторныеИсследованияНомерАктаОтбораПробРасширеннаяПодсказка" id="60"/>
+							<Events>
+								<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ЛабораторныеИсследованияДатаОтбораПроб" id="61">
+							<DataPath>Items.ЛабораторныеИсследования.CurrentData.ДатаОтбораПроб</DataPath>
+							<ContextMenu name="ЛабораторныеИсследованияДатаОтбораПробКонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="ЛабораторныеИсследованияДатаОтбораПробРасширеннаяПодсказка" id="63"/>
+							<Events>
+								<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ЛабораторныеИсследованияНаименованиеЛаборатории" id="64">
+							<DataPath>Items.ЛабораторныеИсследования.CurrentData.НаименованиеЛаборатории</DataPath>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<Width>10</Width>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ЛабораторныеИсследованияНаименованиеЛабораторииКонтекстноеМеню" id="65"/>
+							<ExtendedTooltip name="ЛабораторныеИсследованияНаименованиеЛабораторииРасширеннаяПодсказка" id="66"/>
+							<Events>
+								<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ЛабораторныеИсследованияДатаПолученияРезультата" id="67">
+							<DataPath>Items.ЛабораторныеИсследования.CurrentData.ДатаПолученияРезультата</DataPath>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ЛабораторныеИсследованияДатаПолученияРезультатаКонтекстноеМеню" id="68"/>
+							<ExtendedTooltip name="ЛабораторныеИсследованияДатаПолученияРезультатаРасширеннаяПодсказка" id="69"/>
+							<Events>
+								<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ЛабораторныеИсследованияМетодИсследования" id="70">
+							<DataPath>Items.ЛабораторныеИсследования.CurrentData.МетодИсследования</DataPath>
+							<ContextMenu name="ЛабораторныеИсследованияМетодИсследованияКонтекстноеМеню" id="71"/>
+							<ExtendedTooltip name="ЛабораторныеИсследованияМетодИсследованияРасширеннаяПодсказка" id="72"/>
+							<Events>
+								<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ЛабораторныеИсследованияНомерЭкспертизы" id="73">
+							<DataPath>Items.ЛабораторныеИсследования.CurrentData.НомерЭкспертизы</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Исследования</v8:content>
+									<v8:content>№ экспертизы</v8:content>
 								</v8:item>
 							</Title>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаИсследованияРасширеннаяПодсказка" id="96"/>
-							<ChildItems>
-								<Table name="ЛабораторныеИсследования" id="1">
-									<Representation>List</Representation>
-									<SelectionMode>SingleRow</SelectionMode>
-									<RowSelectionMode>Cell</RowSelectionMode>
-									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-									<InitialRowActivation>Activate</InitialRowActivation>
-									<EnableStartDrag>true</EnableStartDrag>
-									<EnableDrag>true</EnableDrag>
-									<FileDragMode>AsFile</FileDragMode>
-									<DataPath>ЛабораторныеИсследования</DataPath>
-									<RowFilter xsi:nil="true"/>
-									<ContextMenu name="ЛабораторныеИсследованияКонтекстноеМеню" id="2"/>
-									<AutoCommandBar name="ЛабораторныеИсследованияКоманднаяПанель" id="3">
-										<Autofill>false</Autofill>
-										<ChildItems>
-											<Button name="ЛабораторныеИсследованияГотово" id="103">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.Готово</CommandName>
-												<ExtendedTooltip name="ЛабораторныеИсследованияГотовоРасширеннаяПодсказка" id="104"/>
-											</Button>
-											<ButtonGroup name="ЛабораторныеИсследованияСтандартные" id="105">
-												<Title>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Лабораторные исследования стандартные</v8:content>
-													</v8:item>
-												</Title>
-												<ToolTip>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Лабораторные исследования стандартные</v8:content>
-													</v8:item>
-												</ToolTip>
-												<CommandSource>Item.ЛабораторныеИсследования</CommandSource>
-												<ExtendedTooltip name="ЛабораторныеИсследованияСтандартныеРасширеннаяПодсказка" id="106"/>
-											</ButtonGroup>
-										</ChildItems>
-									</AutoCommandBar>
-									<ExtendedTooltip name="ЛабораторныеИсследованияРасширеннаяПодсказка" id="4"/>
-									<SearchStringAddition name="ЛабораторныеИсследованияСтрокаПоиска" id="5">
-										<AdditionSource>
-											<Item>ЛабораторныеИсследования</Item>
-											<Type>SearchStringRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ЛабораторныеИсследованияСтрокаПоискаКонтекстноеМеню" id="6"/>
-										<ExtendedTooltip name="ЛабораторныеИсследованияСтрокаПоискаРасширеннаяПодсказка" id="7"/>
-									</SearchStringAddition>
-									<ViewStatusAddition name="ЛабораторныеИсследованияСостояниеПросмотра" id="8">
-										<AdditionSource>
-											<Item>ЛабораторныеИсследования</Item>
-											<Type>ViewStatusRepresentation</Type>
-										</AdditionSource>
-										<HorizontalLocation>Left</HorizontalLocation>
-										<ContextMenu name="ЛабораторныеИсследованияСостояниеПросмотраКонтекстноеМеню" id="9"/>
-										<ExtendedTooltip name="ЛабораторныеИсследованияСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
-									</ViewStatusAddition>
-									<SearchControlAddition name="ЛабораторныеИсследованияУправлениеПоиском" id="11">
-										<AdditionSource>
-											<Item>ЛабораторныеИсследования</Item>
-											<Type>SearchControl</Type>
-										</AdditionSource>
-										<ContextMenu name="ЛабораторныеИсследованияУправлениеПоискомКонтекстноеМеню" id="12"/>
-										<ExtendedTooltip name="ЛабораторныеИсследованияУправлениеПоискомРасширеннаяПодсказка" id="13"/>
-									</SearchControlAddition>
-									<Events>
-										<Event name="OnEditEnd">ЛабораторныеИсследованияПриОкончанииРедактирования</Event>
-										<Event name="AfterDeleteRow">ЛабораторныеИсследованияПослеУдаления</Event>
-										<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
-									</Events>
-									<ChildItems>
-										<InputField name="ЛабораторныеИсследованияНомерСтроки" id="79">
-											<DataPath>ЛабораторныеИсследования.НомерСтроки</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>N</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Width>4</Width>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<MaxWidth>4</MaxWidth>
-											<HorizontalStretch>false</HorizontalStretch>
-											<ContextMenu name="ЛабораторныеИсследованияНомерСтрокиКонтекстноеМеню" id="80"/>
-											<ExtendedTooltip name="ЛабораторныеИсследованияНомерСтрокиРасширеннаяПодсказка" id="81"/>
-										</InputField>
-										<InputField name="ЛабораторныеИсследованияНаименованиеПоказателя" id="52">
-											<DataPath>ЛабораторныеИсследования.НаименованиеПоказателя</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Наименование</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<MarkRequiredComplete>true</MarkRequiredComplete>
-											<AutoEditMode>true</AutoEditMode>
-											<Width>10</Width>
-											<AutoMarkIncomplete>true</AutoMarkIncomplete>
-											<ContextMenu name="ЛабораторныеИсследованияНаименованиеПоказателяКонтекстноеМеню" id="53"/>
-											<ExtendedTooltip name="ЛабораторныеИсследованияНаименованиеПоказателяРасширеннаяПодсказка" id="54"/>
-										</InputField>
-										<InputField name="ЛабораторныеИсследованияРезультатИсследования" id="55">
-											<DataPath>ЛабораторныеИсследования.РезультатИсследования</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Результат</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ListChoiceMode>true</ListChoiceMode>
-											<ChoiceList>
-												<xr:Item>
-													<xr:Presentation/>
-													<xr:CheckState>0</xr:CheckState>
-													<xr:Value xsi:type="FormChoiceListDesTimeValue">
-														<Presentation>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Нет данных</v8:content>
-															</v8:item>
-														</Presentation>
-														<Value xsi:type="xr:DesignTimeRef">Enum.РезультатыЛабораторныхИсследованийВЕТИС.EnumValue.НетДанных</Value>
-													</xr:Value>
-												</xr:Item>
-												<xr:Item>
-													<xr:Presentation/>
-													<xr:CheckState>0</xr:CheckState>
-													<xr:Value xsi:type="FormChoiceListDesTimeValue">
-														<Presentation>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Положительный</v8:content>
-															</v8:item>
-														</Presentation>
-														<Value xsi:type="xr:DesignTimeRef">Enum.РезультатыЛабораторныхИсследованийВЕТИС.EnumValue.Положительный</Value>
-													</xr:Value>
-												</xr:Item>
-												<xr:Item>
-													<xr:Presentation/>
-													<xr:CheckState>0</xr:CheckState>
-													<xr:Value xsi:type="FormChoiceListDesTimeValue">
-														<Presentation>
-															<v8:item>
-																<v8:lang>ru</v8:lang>
-																<v8:content>Отрицательный</v8:content>
-															</v8:item>
-														</Presentation>
-														<Value xsi:type="xr:DesignTimeRef">Enum.РезультатыЛабораторныхИсследованийВЕТИС.EnumValue.Отрицательный</Value>
-													</xr:Value>
-												</xr:Item>
-											</ChoiceList>
-											<ContextMenu name="ЛабораторныеИсследованияРезультатИсследованияКонтекстноеМеню" id="56"/>
-											<ExtendedTooltip name="ЛабораторныеИсследованияРезультатИсследованияРасширеннаяПодсказка" id="57"/>
-										</InputField>
-									</ChildItems>
-								</Table>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаПанель" id="46">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Информация об исследовании</v8:content>
-								</v8:item>
-							</Title>
-							<Group>HorizontalIfPossible</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>true</ShowTitle>
-							<ShowAsCard>true</ShowAsCard>
-							<ExtendedTooltip name="ГруппаПанельРасширеннаяПодсказка" id="47"/>
-							<ChildItems>
-								<InputField name="ЛабораторныеИсследованияНомерАктаОтбораПроб" id="58">
-									<DataPath>Items.ЛабораторныеИсследования.CurrentData.НомерАктаОтбораПроб</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ЛабораторныеИсследованияНомерАктаОтбораПробКонтекстноеМеню" id="59"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияНомерАктаОтбораПробРасширеннаяПодсказка" id="60"/>
-									<Events>
-										<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ЛабораторныеИсследованияДатаОтбораПроб" id="61">
-									<DataPath>Items.ЛабораторныеИсследования.CurrentData.ДатаОтбораПроб</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ЛабораторныеИсследованияДатаОтбораПробКонтекстноеМеню" id="62"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияДатаОтбораПробРасширеннаяПодсказка" id="63"/>
-									<Events>
-										<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ЛабораторныеИсследованияНаименованиеЛаборатории" id="64">
-									<DataPath>Items.ЛабораторныеИсследования.CurrentData.НаименованиеЛаборатории</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>10</Width>
-									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<ContextMenu name="ЛабораторныеИсследованияНаименованиеЛабораторииКонтекстноеМеню" id="65"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияНаименованиеЛабораторииРасширеннаяПодсказка" id="66"/>
-									<Events>
-										<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ЛабораторныеИсследованияДатаПолученияРезультата" id="67">
-									<DataPath>Items.ЛабораторныеИсследования.CurrentData.ДатаПолученияРезультата</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<ContextMenu name="ЛабораторныеИсследованияДатаПолученияРезультатаКонтекстноеМеню" id="68"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияДатаПолученияРезультатаРасширеннаяПодсказка" id="69"/>
-									<Events>
-										<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ЛабораторныеИсследованияМетодИсследования" id="70">
-									<DataPath>Items.ЛабораторныеИсследования.CurrentData.МетодИсследования</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ЛабораторныеИсследованияМетодИсследованияКонтекстноеМеню" id="71"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияМетодИсследованияРасширеннаяПодсказка" id="72"/>
-									<Events>
-										<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ЛабораторныеИсследованияНомерЭкспертизы" id="73">
-									<DataPath>Items.ЛабораторныеИсследования.CurrentData.НомерЭкспертизы</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>№ экспертизы</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>10</Width>
-									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<ContextMenu name="ЛабораторныеИсследованияНомерЭкспертизыКонтекстноеМеню" id="74"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияНомерЭкспертизыРасширеннаяПодсказка" id="75"/>
-									<Events>
-										<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ЛабораторныеИсследованияЗаключение" id="76">
-									<DataPath>Items.ЛабораторныеИсследования.CurrentData.Заключение</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<MarkRequiredComplete>true</MarkRequiredComplete>
-									<AutoEditMode>true</AutoEditMode>
-									<Height>2</Height>
-									<VerticalStretch>false</VerticalStretch>
-									<MultiLine>true</MultiLine>
-									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<ContextMenu name="ЛабораторныеИсследованияЗаключениеКонтекстноеМеню" id="77"/>
-									<ExtendedTooltip name="ЛабораторныеИсследованияЗаключениеРасширеннаяПодсказка" id="78"/>
-									<Events>
-										<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<Width>10</Width>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ЛабораторныеИсследованияНомерЭкспертизыКонтекстноеМеню" id="74"/>
+							<ExtendedTooltip name="ЛабораторныеИсследованияНомерЭкспертизыРасширеннаяПодсказка" id="75"/>
+							<Events>
+								<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ЛабораторныеИсследованияЗаключение" id="76">
+							<DataPath>Items.ЛабораторныеИсследования.CurrentData.Заключение</DataPath>
+							<TitleLocation>Left</TitleLocation>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<MaxHeight>4</MaxHeight>
+							<MultiLine>true</MultiLine>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ЛабораторныеИсследованияЗаключениеКонтекстноеМеню" id="77"/>
+							<ExtendedTooltip name="ЛабораторныеИсследованияЗаключениеРасширеннаяПодсказка" id="78"/>
+							<Events>
+								<Event name="OnChange">ЛабораторныеИсследованияПриИзменении</Event>
+							</Events>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -482,7 +420,6 @@
 			<Action>Готово</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

@@ -5,29 +5,29 @@
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
-		<ExcludedCommand>Create</ExcludedCommand>
+		<ExcludedCommand>CancelSearch</ExcludedCommand>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>DynamicListStandardSettings</ExcludedCommand>
+		<ExcludedCommand>Find</ExcludedCommand>
+		<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
 		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>ListSettings</ExcludedCommand>
+		<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
 		<ExcludedCommand>No</ExcludedCommand>
 		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>OutputList</ExcludedCommand>
+		<ExcludedCommand>Post</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
 		<ExcludedCommand>RestoreValues</ExcludedCommand>
 		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
 		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>SetDateInterval</ExcludedCommand>
+		<ExcludedCommand>UndoPosting</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаСоздатьДокументИмпортаИзЕАЭС" id="158">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.СоздатьДокументИмпортаИзЕАЭС</CommandName>
-				<ExtendedTooltip name="ФормаСоздатьДокументИмпортаИзЕАЭСРасширеннаяПодсказка" id="159"/>
-			</Button>
-			<Button name="ФормаСоздатьДокументПредварительногоУведомления" id="160">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.СоздатьДокументПредварительногоУведомления</CommandName>
-				<ExtendedTooltip name="ФормаСоздатьДокументПредварительногоУведомленияРасширеннаяПодсказка" id="161"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -47,7 +47,7 @@
 					<v8:content>Группа быстрые отборы</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Group>AutoScreenTypeSensitive</Group>
+			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -56,6 +56,7 @@
 				<InputField name="ОтборСтатус" id="128">
 					<DataPath>Статус</DataPath>
 					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>28</MaxWidth>
 					<ClearButton>true</ClearButton>
 					<InputHint>
@@ -73,6 +74,7 @@
 				<InputField name="ОтборДальнейшееДействие" id="131">
 					<DataPath>ДальнейшееДействие</DataPath>
 					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>28</MaxWidth>
 					<ChoiceButton>false</ChoiceButton>
 					<ClearButton>true</ClearButton>
@@ -119,7 +121,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацииРасширеннаяПодсказка" id="58"/>
 							<ChildItems>
@@ -132,8 +133,10 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
+									<ChoiceButton>true</ChoiceButton>
 									<ClearButton>true</ClearButton>
 									<QuickChoice>false</QuickChoice>
 									<ChooseType>false</ChooseType>
@@ -177,7 +180,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацияРасширеннаяПодсказка" id="63"/>
 							<ChildItems>
@@ -190,11 +192,12 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
+									<ChoiceButton>true</ChoiceButton>
 									<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 									<ClearButton>true</ClearButton>
-									<OpenButton>false</OpenButton>
 									<QuickChoice>false</QuickChoice>
 									<ChooseType>false</ChooseType>
 									<ChoiceParameters>
@@ -227,9 +230,9 @@
 				<InputField name="ОтветственныйОтбор" id="67">
 					<DataPath>Ответственный</DataPath>
 					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>28</MaxWidth>
 					<ClearButton>true</ClearButton>
-					<OpenButton>false</OpenButton>
 					<InputHint>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -266,7 +269,6 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -278,7 +280,6 @@
 				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -310,7 +311,6 @@
 							<xr:LoadTransparent>true</xr:LoadTransparent>
 						</Picture>
 						<Representation>PictureAndText</Representation>
-						<Importance>Main</Importance>
 						<ExtendedTooltip name="КнопкиСоздатьРасширеннаяПодсказка" id="135"/>
 						<ChildItems>
 							<Button name="СписокСоздатьИмпортИзЕАЭС" id="138">
@@ -497,7 +497,6 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
-				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="Номер" id="16">
@@ -513,7 +512,6 @@
 				</LabelField>
 				<InputField name="Операция" id="142">
 					<DataPath>Список.Операция</DataPath>
-					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="ОперацияКонтекстноеМеню" id="143"/>
 					<ExtendedTooltip name="ОперацияРасширеннаяПодсказка" id="144"/>
 				</InputField>
@@ -864,7 +862,7 @@
 			</ToolTip>
 			<Action>ИзменитьВыделенные</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ЗапроситьИмпорт" id="2">
 			<Title>
@@ -909,8 +907,6 @@
 				</v8:item>
 			</Title>
 			<Action>СоздатьДокументИмпортаИзЕАЭС</Action>
-			<ActionPurpose>Create</ActionPurpose>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="СоздатьДокументПредварительногоУведомления" id="7">
 			<Title>
@@ -920,8 +916,6 @@
 				</v8:item>
 			</Title>
 			<Action>СоздатьДокументПредварительногоУведомления</Action>
-			<ActionPurpose>Create</ActionPurpose>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 </Form>

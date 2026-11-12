@@ -2,28 +2,13 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ОбновитьКлючАвторизации" id="25">
 				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
 				<CommandName>Form.Command.ОбновитьКлючАвторизации</CommandName>
 				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ОбновитьКлючАвторизацииРасширеннаяПодсказка" id="26"/>
-			</Button>
-			<Button name="ФормаЗаписатьИЗакрыть" id="57">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.StandardCommand.WriteAndClose</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="58"/>
-			</Button>
-			<Button name="ФормаЗаписать" id="59">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Write</CommandName>
-				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="60"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -34,139 +19,62 @@
 		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаРеквизиты" id="53">
-			<Title>
+		<InputField name="КлючАвторизации" id="7">
+			<DataPath>Запись.КлючАвторизации</DataPath>
+			<PasswordMode>true</PasswordMode>
+			<OpenButton>true</OpenButton>
+			<InputHint>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа реквизиты</v8:content>
+					<v8:content>введите Токен</v8:content>
 				</v8:item>
-			</Title>
+			</InputHint>
+			<ContextMenu name="КлючАвторизацииКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="КлючАвторизацииРасширеннаяПодсказка" id="9"/>
+			<Events>
+				<Event name="OnChange">КлючАвторизацииПриИзменении</Event>
+				<Event name="Opening">КлючАвторизацииОткрытие</Event>
+			</Events>
+		</InputField>
+		<InputField name="КлючОбновления" id="19">
+			<DataPath>Запись.КлючОбновления</DataPath>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа реквизиты</v8:content>
+					<v8:content>Используется для автоматического обновления ключа авторизации за 3 дня до окончания срока его действия</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаРеквизитыРасширеннаяПодсказка" id="54"/>
-			<ChildItems>
-				<UsualGroup name="ГруппаКлючи" id="49">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа ключи</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа ключи</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>Vertical</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаКлючиРасширеннаяПодсказка" id="50"/>
-					<ChildItems>
-						<InputField name="КлючАвторизации" id="7">
-							<DataPath>Запись.КлючАвторизации</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<PasswordMode>true</PasswordMode>
-							<ChoiceButton>true</ChoiceButton>
-							<OpenButton>false</OpenButton>
-							<ChoiceButtonPicture>
-								<xr:Ref>StdPicture.ShowPassword</xr:Ref>
-								<xr:LoadTransparent>true</xr:LoadTransparent>
-							</ChoiceButtonPicture>
-							<InputHint>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>введите Токен</v8:content>
-								</v8:item>
-							</InputHint>
-							<ContextMenu name="КлючАвторизацииКонтекстноеМеню" id="8"/>
-							<ExtendedTooltip name="КлючАвторизацииРасширеннаяПодсказка" id="9"/>
-							<Events>
-								<Event name="OnChange">КлючАвторизацииПриИзменении</Event>
-								<Event name="StartChoice">КлючАвторизацииНачалоВыбора</Event>
-							</Events>
-						</InputField>
-						<InputField name="КлючОбновления" id="19">
-							<DataPath>Запись.КлючОбновления</DataPath>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Используется для автоматического обновления ключа авторизации за 3 дня до окончания срока его действия</v8:content>
-								</v8:item>
-							</ToolTip>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<PasswordMode>true</PasswordMode>
-							<ChoiceButton>true</ChoiceButton>
-							<OpenButton>false</OpenButton>
-							<ChoiceButtonPicture>
-								<xr:Ref>StdPicture.ShowPassword</xr:Ref>
-								<xr:LoadTransparent>true</xr:LoadTransparent>
-							</ChoiceButtonPicture>
-							<InputHint>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>введите refresh-токен</v8:content>
-								</v8:item>
-							</InputHint>
-							<ContextMenu name="КлючОбновленияКонтекстноеМеню" id="20"/>
-							<ExtendedTooltip name="КлючОбновленияРасширеннаяПодсказка" id="21"/>
-							<Events>
-								<Event name="OnChange">КлючОбновленияПриИзменении</Event>
-								<Event name="StartChoice">КлючОбновленияНачалоВыбора</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаОрганизацияПользователь" id="51">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа организация пользователь</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа организация пользователь</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>Vertical</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаОрганизацияПользовательРасширеннаяПодсказка" id="52"/>
-					<ChildItems>
-						<InputField name="Организация" id="10">
-							<DataPath>Запись.Организация</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="11"/>
-							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="12"/>
-						</InputField>
-						<InputField name="Пользователь" id="1">
-							<DataPath>Запись.Пользователь</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<InputHint>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>&lt;для всех пользователей&gt;</v8:content>
-								</v8:item>
-							</InputHint>
-							<ContextMenu name="ПользовательКонтекстноеМеню" id="2"/>
-							<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="3"/>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
+			<PasswordMode>true</PasswordMode>
+			<OpenButton>true</OpenButton>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>введите refresh-токен</v8:content>
+				</v8:item>
+			</InputHint>
+			<ContextMenu name="КлючОбновленияКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="КлючОбновленияРасширеннаяПодсказка" id="21"/>
+			<Events>
+				<Event name="OnChange">КлючОбновленияПриИзменении</Event>
+				<Event name="Opening">КлючОбновленияОткрытие</Event>
+			</Events>
+		</InputField>
+		<InputField name="Организация" id="10">
+			<DataPath>Запись.Организация</DataPath>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="Пользователь" id="1">
+			<DataPath>Запись.Пользователь</DataPath>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>&lt;для всех пользователей&gt;</v8:content>
+				</v8:item>
+			</InputHint>
+			<ContextMenu name="ПользовательКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="3"/>
+		</InputField>
 		<Pages name="СтраницыДанныеКлючей" id="27">
 			<Title>
 				<v8:item>
@@ -184,56 +92,28 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаДанныеКлючаАвторизацииРасширеннаяПодсказка" id="30"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаЛогинСрокДействия" id="55">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа логин срок действия</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа логин срок действия</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаЛогинСрокДействияРасширеннаяПодсказка" id="56"/>
-							<ChildItems>
-								<LabelField name="Логин" id="4">
-									<DataPath>Запись.Логин</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<UseCopy>true</UseCopy>
-									<ContextMenu name="ЛогинКонтекстноеМеню" id="5"/>
-									<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="6"/>
-								</LabelField>
-								<LabelField name="СрокДействияКлючаАвторизации" id="16">
-									<DataPath>СрокДействияКлючаАвторизации</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<UseCopy>true</UseCopy>
-									<ContextMenu name="СрокДействияКлючаАвторизацииКонтекстноеМеню" id="17"/>
-									<ExtendedTooltip name="СрокДействияКлючаАвторизацииРасширеннаяПодсказка" id="18"/>
-								</LabelField>
-							</ChildItems>
-						</UsualGroup>
+						<InputField name="СрокДействияКлючаАвторизации" id="16">
+							<DataPath>СрокДействияКлючаАвторизации</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+							<ContextMenu name="СрокДействияКлючаАвторизацииКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="СрокДействияКлючаАвторизацииРасширеннаяПодсказка" id="18"/>
+						</InputField>
+						<InputField name="Логин" id="4">
+							<DataPath>Запись.Логин</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="ЛогинКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="6"/>
+						</InputField>
 						<InputField name="ДанныеДекодированияКлючаАвторизации" id="13">
 							<DataPath>ДанныеДекодированияКлючаАвторизации</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MultiLine>true</MultiLine>
-							<TextSize>Enlarged</TextSize>
 							<ContextMenu name="ДанныеДекодированияКлючаАвторизацииКонтекстноеМеню" id="14"/>
 							<ExtendedTooltip name="ДанныеДекодированияКлючаАвторизацииРасширеннаяПодсказка" id="15"/>
 						</InputField>
@@ -247,28 +127,22 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаДанныеКлючаОбновленияРасширеннаяПодсказка" id="32"/>
 					<ChildItems>
-						<LabelField name="СрокДействияКлючаОбновления" id="22">
+						<InputField name="СрокДействияКлючаОбновления" id="22">
 							<DataPath>СрокДействияКлючаОбновления</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<UseCopy>true</UseCopy>
 							<ContextMenu name="СрокДействияКлючаОбновленияКонтекстноеМеню" id="23"/>
 							<ExtendedTooltip name="СрокДействияКлючаОбновленияРасширеннаяПодсказка" id="24"/>
-						</LabelField>
+						</InputField>
 						<InputField name="ДанныеДекодированияКлючаОбновления" id="33">
 							<DataPath>ДанныеДекодированияКлючаОбновления</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MultiLine>true</MultiLine>
-							<TextSize>Enlarged</TextSize>
 							<ContextMenu name="ДанныеДекодированияКлючаОбновленияКонтекстноеМеню" id="34"/>
 							<ExtendedTooltip name="ДанныеДекодированияКлючаОбновленияРасширеннаяПодсказка" id="35"/>
 						</InputField>
@@ -278,18 +152,14 @@
 		</Pages>
 		<Button name="ПерейтиВФормуАвторизации" id="36">
 			<Type>Hyperlink</Type>
-			<DefaultButton>true</DefaultButton>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<CommandName>Form.Command.ПерейтиВФормуАвторизации</CommandName>
-			<ButtonImportance>Main</ButtonImportance>
 			<ExtendedTooltip name="ПерейтиВФормуАвторизацииРасширеннаяПодсказка" id="37"/>
 		</Button>
 		<Button name="ПерейтиВФормуАвторизацииТестовыйКонтур" id="38">
 			<Type>Hyperlink</Type>
-			<DefaultButton>true</DefaultButton>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<CommandName>Form.Command.ПерейтиВФормуАвторизацииТестовыйКонтур</CommandName>
-			<ButtonImportance>Main</ButtonImportance>
 			<ExtendedTooltip name="ПерейтиВФормуАвторизацииТестовыйКонтурРасширеннаяПодсказка" id="39"/>
 		</Button>
 	</ChildItems>
@@ -395,7 +265,6 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ОбновитьКлючАвторизации</Action>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ПерейтиВФормуАвторизации" id="2">
 			<Title>
@@ -405,7 +274,6 @@
 				</v8:item>
 			</Title>
 			<Action>ПерейтиВФормуАвторизации</Action>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ПерейтиВФормуАвторизацииТестовыйКонтур" id="3">
 			<Title>
@@ -415,7 +283,6 @@
 				</v8:item>
 			</Title>
 			<Action>ПерейтиВФормуАвторизацииТестовыйКонтур</Action>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 </Form>

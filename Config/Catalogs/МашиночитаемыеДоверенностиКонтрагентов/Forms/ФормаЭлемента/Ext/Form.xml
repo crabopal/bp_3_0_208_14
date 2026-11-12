@@ -12,16 +12,17 @@
 	<Customizable>false</Customizable>
 	<CommandSet>
 		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
 		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
 	</CommandSet>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<Button name="ФормаУстановитьСнятьПометкуУдаления" id="480">
+			<Button name="ФормаУстановитьСнятьПометкуУдаления" id="455">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.УстановитьСнятьПометкуУдаления</CommandName>
 				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаУстановитьСнятьПометкуУдаленияРасширеннаяПодсказка" id="481"/>
+				<ExtendedTooltip name="ФормаУстановитьСнятьПометкуУдаленияРасширеннаяПодсказка" id="456"/>
 			</Button>
 			<ButtonGroup name="ФормаГруппаДополнительныеДействия" id="118">
 				<ExtendedTooltip name="ФормаГруппаДополнительныеДействияРасширеннаяПодсказка" id="119"/>
@@ -49,6 +50,12 @@
 						<CommandName>Form.Command.Посмотреть</CommandName>
 						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 						<ExtendedTooltip name="ФормаПосмотретьРасширеннаяПодсказка" id="352"/>
+					</Button>
+					<Button name="ФормаПерепроверитьПодпись" id="491">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПерепроверитьПодпись</CommandName>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ФормаПерепроверитьПодписьРасширеннаяПодсказка" id="492"/>
 					</Button>
 				</ChildItems>
 			</ButtonGroup>
@@ -278,6 +285,29 @@
 														</LabelDecoration>
 													</ChildItems>
 												</UsualGroup>
+												<UsualGroup name="ГруппаНастройки" id="493">
+													<Visible>false</Visible>
+													<Group>HorizontalIfPossible</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="494"/>
+													<ChildItems>
+														<LabelDecoration name="НастройкаПроверки" id="495">
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Настроить проверку</v8:content>
+																</v8:item>
+															</Title>
+															<Hyperlink>true</Hyperlink>
+															<ContextMenu name="НастройкаПроверкиКонтекстноеМеню" id="496"/>
+															<ExtendedTooltip name="НастройкаПроверкиРасширеннаяПодсказка" id="497"/>
+															<Events>
+																<Event name="Click">НастройкаПроверкиНажатие</Event>
+															</Events>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
 											</ChildItems>
 										</UsualGroup>
 										<UsualGroup name="ГруппаСтатусВРеестреФНС" id="163">
@@ -327,7 +357,7 @@
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Подпись доверенности не верифицирована.</v8:content>
+															<v8:content>Подпись доверенности не прошла проверку.</v8:content>
 														</v8:item>
 													</Title>
 													<ContextMenu name="ДекорацияТекстОшибкиПроверкиПодписиКонтекстноеМеню" id="359"/>
@@ -450,18 +480,6 @@
 										<Event name="OnChange">ПравилаВключеныПриИзменении</Event>
 									</Events>
 								</CheckBoxField>
-								<LabelDecoration name="ДекорацияВариацииНастроекПравил" id="335">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>&lt;Текст настройки&gt;</v8:content>
-										</v8:item>
-									</Title>
-									<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-									<HorizontalAlign>Center</HorizontalAlign>
-									<ContextMenu name="ДекорацияВариацииНастроекПравилКонтекстноеМеню" id="336"/>
-									<ExtendedTooltip name="ДекорацияВариацииНастроекПравилРасширеннаяПодсказка" id="337"/>
-								</LabelDecoration>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаСкрипт" id="242">
@@ -523,143 +541,90 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаНастройкаРасширеннаяПодсказка" id="251"/>
 							<ChildItems>
-								<Table name="ДеревоОтбора" id="289">
+								<Table name="ДеревоПолномочийСОграничениями" id="453">
 									<Representation>Tree</Representation>
-									<RowInputMode>AfterCurrentRow</RowInputMode>
-									<RowSelectionMode>Row</RowSelectionMode>
-									<Header>false</Header>
-									<HorizontalLinesBWA>false</HorizontalLinesBWA>
-									<VerticalLinesBWA>false</VerticalLinesBWA>
+									<RowSelectionMode>Cell</RowSelectionMode>
 									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-									<InitialTreeView>ExpandAllLevels</InitialTreeView>
-									<DataPath>ДеревоОтбора</DataPath>
-									<RowPictureDataPath>ДеревоОтбора.Картинка</RowPictureDataPath>
-									<RowsPicture>
-										<xr:Ref>CommonPicture.ПравилаПроверкиПолномочийМчдБЭД</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
-									</RowsPicture>
+									<DataPath>ДеревоПолномочийСОграничениями</DataPath>
 									<CommandSet>
-										<ExcludedCommand>CancelSearch</ExcludedCommand>
 										<ExcludedCommand>Copy</ExcludedCommand>
-										<ExcludedCommand>CopyToClipboard</ExcludedCommand>
-										<ExcludedCommand>EndEdit</ExcludedCommand>
-										<ExcludedCommand>Find</ExcludedCommand>
-										<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
-										<ExcludedCommand>HierarchicalList</ExcludedCommand>
-										<ExcludedCommand>List</ExcludedCommand>
 										<ExcludedCommand>MoveDown</ExcludedCommand>
 										<ExcludedCommand>MoveUp</ExcludedCommand>
-										<ExcludedCommand>OutputList</ExcludedCommand>
-										<ExcludedCommand>SearchEverywhere</ExcludedCommand>
-										<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
-										<ExcludedCommand>SortListAsc</ExcludedCommand>
-										<ExcludedCommand>SortListDesc</ExcludedCommand>
-										<ExcludedCommand>Tree</ExcludedCommand>
 									</CommandSet>
-									<ContextMenu name="ДеревоОтбораКонтекстноеМеню" id="290"/>
-									<AutoCommandBar name="ДеревоОтбораКоманднаяПанель" id="291">
-										<ChildItems>
-											<Button name="ДеревоОтбораДобавить" id="314">
-												<Type>CommandBarButton</Type>
-												<Representation>Picture</Representation>
-												<CommandName>Form.Item.ДеревоОтбора.StandardCommand.Add</CommandName>
-												<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-												<ExtendedTooltip name="ДеревоОтбораДобавитьРасширеннаяПодсказка" id="315"/>
-											</Button>
-											<Button name="ДеревоОтбораУдалить" id="312">
-												<Type>CommandBarButton</Type>
-												<Representation>Picture</Representation>
-												<CommandName>Form.Item.ДеревоОтбора.StandardCommand.Delete</CommandName>
-												<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-												<ExtendedTooltip name="ДеревоОтбораУдалитьРасширеннаяПодсказка" id="313"/>
-											</Button>
-											<Button name="ДеревоОтбораИзменить" id="316">
-												<Type>CommandBarButton</Type>
-												<Representation>Picture</Representation>
-												<CommandName>Form.Item.ДеревоОтбора.StandardCommand.Change</CommandName>
-												<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-												<ExtendedTooltip name="ДеревоОтбораИзменитьРасширеннаяПодсказка" id="317"/>
-											</Button>
-											<Button name="ДеревоОтбораДополнитьТиповымиПравилами" id="338">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ДополнитьТиповымиПравилами</CommandName>
-												<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-												<ExtendedTooltip name="ДеревоОтбораДополнитьТиповымиПравиламиРасширеннаяПодсказка" id="339"/>
-											</Button>
-										</ChildItems>
-									</AutoCommandBar>
-									<ExtendedTooltip name="ДеревоОтбораРасширеннаяПодсказка" id="296"/>
-									<SearchStringAddition name="ДеревоОтбораСтрокаПоиска" id="297">
+									<SearchStringLocation>CommandBar</SearchStringLocation>
+									<ContextMenu name="ДеревоПолномочийСОграничениямиКонтекстноеМеню" id="498"/>
+									<AutoCommandBar name="ДеревоПолномочийСОграничениямиКоманднаяПанель" id="454"/>
+									<ExtendedTooltip name="ДеревоПолномочийСОграничениямиРасширеннаяПодсказка" id="499"/>
+									<SearchStringAddition name="ДеревоПолномочийСОграничениямиСтрокаПоиска" id="457">
 										<AdditionSource>
-											<Item>ДеревоОтбора</Item>
+											<Item>ДеревоПолномочийСОграничениями</Item>
 											<Type>SearchStringRepresentation</Type>
 										</AdditionSource>
-										<ContextMenu name="ДеревоОтбораСтрокаПоискаКонтекстноеМеню" id="298"/>
-										<ExtendedTooltip name="ДеревоОтбораСтрокаПоискаРасширеннаяПодсказка" id="299"/>
+										<ContextMenu name="ДеревоПолномочийСОграничениямиСтрокаПоискаКонтекстноеМеню" id="458"/>
+										<ExtendedTooltip name="ДеревоПолномочийСОграничениямиСтрокаПоискаРасширеннаяПодсказка" id="459"/>
 									</SearchStringAddition>
-									<ViewStatusAddition name="ДеревоОтбораСостояниеПросмотра" id="300">
+									<ViewStatusAddition name="ДеревоПолномочийСОграничениямиСостояниеПросмотра" id="463">
 										<AdditionSource>
-											<Item>ДеревоОтбора</Item>
+											<Item>ДеревоПолномочийСОграничениями</Item>
 											<Type>ViewStatusRepresentation</Type>
 										</AdditionSource>
-										<ContextMenu name="ДеревоОтбораСостояниеПросмотраКонтекстноеМеню" id="301"/>
-										<ExtendedTooltip name="ДеревоОтбораСостояниеПросмотраРасширеннаяПодсказка" id="302"/>
+										<ContextMenu name="ДеревоПолномочийСОграничениямиСостояниеПросмотраКонтекстноеМеню" id="464"/>
+										<ExtendedTooltip name="ДеревоПолномочийСОграничениямиСостояниеПросмотраРасширеннаяПодсказка" id="465"/>
 									</ViewStatusAddition>
-									<SearchControlAddition name="ДеревоОтбораУправлениеПоиском" id="303">
+									<SearchControlAddition name="ДеревоПолномочийСОграничениямиУправлениеПоиском" id="460">
 										<AdditionSource>
-											<Item>ДеревоОтбора</Item>
+											<Item>ДеревоПолномочийСОграничениями</Item>
 											<Type>SearchControl</Type>
 										</AdditionSource>
-										<ContextMenu name="ДеревоОтбораУправлениеПоискомКонтекстноеМеню" id="304"/>
-										<ExtendedTooltip name="ДеревоОтбораУправлениеПоискомРасширеннаяПодсказка" id="305"/>
+										<ContextMenu name="ДеревоПолномочийСОграничениямиУправлениеПоискомКонтекстноеМеню" id="461"/>
+										<ExtendedTooltip name="ДеревоПолномочийСОграничениямиУправлениеПоискомРасширеннаяПодсказка" id="462"/>
 									</SearchControlAddition>
 									<Events>
-										<Event name="BeforeAddRow">ДеревоОтбораПередНачаломДобавления</Event>
-										<Event name="BeforeDeleteRow">ДеревоОтбораПередУдалением</Event>
-										<Event name="OnActivateRow">ДеревоОтбораПриАктивизацииСтроки</Event>
-										<Event name="ChoiceProcessing">ДеревоОтбораОбработкаВыбора</Event>
-										<Event name="BeforeRowChange">ДеревоОтбораПередНачаломИзменения</Event>
-										<Event name="OnStartEdit">ДеревоОтбораПриНачалеРедактирования</Event>
+										<Event name="Selection">ДеревоПолномочийСОграничениямиВыбор</Event>
+										<Event name="BeforeAddRow">ДеревоПолномочийСОграничениямиПередНачаломДобавления</Event>
+										<Event name="BeforeDeleteRow">ДеревоПолномочийСОграничениямиПередУдалением</Event>
+										<Event name="BeforeRowChange">ДеревоПолномочийСОграничениямиПередНачаломИзменения</Event>
+										<Event name="AfterDeleteRow">ДеревоПолномочийСОграничениямиПослеУдаления</Event>
 									</Events>
 									<ChildItems>
-										<ColumnGroup name="ДеревоОтбораГруппа" id="343">
-											<Group>InCell</Group>
-											<ExtendedTooltip name="ДеревоОтбораГруппаРасширеннаяПодсказка" id="344"/>
-											<ChildItems>
-												<InputField name="ДеревоОтбораДанные" id="309">
-													<DataPath>ДеревоОтбора.Данные</DataPath>
-													<Width>60</Width>
-													<MaxWidth>40</MaxWidth>
-													<ChooseType>false</ChooseType>
-													<ContextMenu name="ДеревоОтбораДанныеКонтекстноеМеню" id="310"/>
-													<ExtendedTooltip name="ДеревоОтбораДанныеРасширеннаяПодсказка" id="311"/>
-													<Events>
-														<Event name="OnChange">ДеревоОтбораДанныеПриИзменении</Event>
-													</Events>
-												</InputField>
-												<InputField name="ДеревоОтбораКомментарийКТиповомуПравилу" id="340">
-													<DataPath>ДеревоОтбора.КомментарийКТиповомуПравилу</DataPath>
-													<ReadOnly>true</ReadOnly>
-													<ContextMenu name="ДеревоОтбораКомментарийКТиповомуПравилуКонтекстноеМеню" id="341"/>
-													<ExtendedTooltip name="ДеревоОтбораКомментарийКТиповомуПравилуРасширеннаяПодсказка" id="342"/>
-												</InputField>
-											</ChildItems>
-										</ColumnGroup>
-										<InputField name="ДеревоОтбораДекорация" id="318">
-											<DataPath>ДеревоОтбора.Декорация</DataPath>
-											<Enabled>false</Enabled>
-											<ReadOnly>true</ReadOnly>
+										<InputField name="ДеревоПолномочийСОграничениямиОграничение" id="466">
+											<DataPath>ДеревоПолномочийСОграничениями.Ограничение</DataPath>
+											<ContextMenu name="ДеревоПолномочийСОграничениямиОграничениеКонтекстноеМеню" id="467"/>
+											<ExtendedTooltip name="ДеревоПолномочийСОграничениямиОграничениеРасширеннаяПодсказка" id="468"/>
+										</InputField>
+										<InputField name="ДеревоПолномочийСОграничениямиЗначение" id="469">
+											<DataPath>ДеревоПолномочийСОграничениями.Значение</DataPath>
+											<ContextMenu name="ДеревоПолномочийСОграничениямиЗначениеКонтекстноеМеню" id="470"/>
+											<ExtendedTooltip name="ДеревоПолномочийСОграничениямиЗначениеРасширеннаяПодсказка" id="471"/>
+										</InputField>
+										<ColumnGroup name="ДеревоПолномочийСОграничениямиГруппаКартинкаИНадпись" id="487">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Декорация</v8:content>
+													<v8:content>Дерево полномочий с ограничениями группа картинка и надпись</v8:content>
 												</v8:item>
 											</Title>
-											<Width>90</Width>
-											<MaxWidth>120</MaxWidth>
-											<ContextMenu name="ДеревоОтбораДекорацияКонтекстноеМеню" id="319"/>
-											<ExtendedTooltip name="ДеревоОтбораДекорацияРасширеннаяПодсказка" id="320"/>
-										</InputField>
+											<Group>InCell</Group>
+											<ExtendedTooltip name="ДеревоПолномочийСОграничениямиГруппаКартинкаИНадписьРасширеннаяПодсказка" id="488"/>
+											<ChildItems>
+												<PictureField name="ДеревоПолномочийСОграничениямиКартинка" id="484">
+													<DataPath>ДеревоПолномочийСОграничениями.Картинка</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ValuesPicture>
+														<xr:Ref>CommonPicture.ЗакрытьПринудительноБЭД</xr:Ref>
+														<xr:LoadTransparent>false</xr:LoadTransparent>
+													</ValuesPicture>
+													<ContextMenu name="ДеревоПолномочийСОграничениямиКартинкаКонтекстноеМеню" id="485"/>
+													<ExtendedTooltip name="ДеревоПолномочийСОграничениямиКартинкаРасширеннаяПодсказка" id="486"/>
+												</PictureField>
+												<InputField name="ДеревоПолномочийСОграничениямиОписание" id="472">
+													<DataPath>ДеревоПолномочийСОграничениями.Описание</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ДеревоПолномочийСОграничениямиОписаниеКонтекстноеМеню" id="473"/>
+													<ExtendedTooltip name="ДеревоПолномочийСОграничениямиОписаниеРасширеннаяПодсказка" id="474"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
 									</ChildItems>
 								</Table>
 							</ChildItems>
@@ -743,11 +708,11 @@
 											</Button>
 										</ChildItems>
 									</ButtonGroup>
-									<Button name="ОбновитьСписок" id="453">
+									<Button name="ОбновитьСписок" id="489">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.ОбновитьСписокПодписанныеДокументы</CommandName>
 										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-										<ExtendedTooltip name="ОбновитьСписокРасширеннаяПодсказка" id="454"/>
+										<ExtendedTooltip name="ОбновитьСписокРасширеннаяПодсказка" id="490"/>
 									</Button>
 									<Button name="ПроверитьПодписи" id="388">
 										<Type>CommandBarButton</Type>
@@ -876,6 +841,12 @@
 								</InputField>
 								<InputField name="ПодписанныеДокументыИнформацияОПроверке" id="444">
 									<DataPath>ПодписанныеДокументы.ИнформацияОПроверке</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Пояснения к проверке</v8:content>
+										</v8:item>
+									</Title>
 									<ContextMenu name="ПодписанныеДокументыИнформацияОПроверкеКонтекстноеМеню" id="445"/>
 									<ExtendedTooltip name="ПодписанныеДокументыИнформацияОПроверкеРасширеннаяПодсказка" id="446"/>
 								</InputField>
@@ -1191,183 +1162,6 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="ДеревоОтбора" id="28">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Дерево отбора</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>v8:ValueTree</v8:Type>
-			</Type>
-			<Columns>
-				<Column name="Данные" id="1">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Данные</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:TypeSet>cfg:AnyIBRef</v8:TypeSet>
-						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
-				<Column name="Тип" id="2">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Тип</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>v8:TypeDescription</v8:Type>
-					</Type>
-				</Column>
-				<Column name="ДоступенСписок" id="4">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Доступен список</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:boolean</v8:Type>
-					</Type>
-				</Column>
-				<Column name="КонечноеЗначение" id="5">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Конечное значение</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:boolean</v8:Type>
-						<v8:Type>xs:decimal</v8:Type>
-						<v8:NumberQualifiers>
-							<v8:Digits>15</v8:Digits>
-							<v8:FractionDigits>0</v8:FractionDigits>
-							<v8:AllowedSign>Any</v8:AllowedSign>
-						</v8:NumberQualifiers>
-					</Type>
-				</Column>
-				<Column name="НачальноеЗначение" id="6">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Начальное значение</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:boolean</v8:Type>
-						<v8:Type>xs:decimal</v8:Type>
-						<v8:NumberQualifiers>
-							<v8:Digits>15</v8:Digits>
-							<v8:FractionDigits>0</v8:FractionDigits>
-							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
-						</v8:NumberQualifiers>
-					</Type>
-				</Column>
-				<Column name="ЗаголовокПоля" id="7">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Заголовок поля</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
-				<Column name="Картинка" id="8">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Картинка</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:decimal</v8:Type>
-						<v8:NumberQualifiers>
-							<v8:Digits>1</v8:Digits>
-							<v8:FractionDigits>0</v8:FractionDigits>
-							<v8:AllowedSign>Any</v8:AllowedSign>
-						</v8:NumberQualifiers>
-					</Type>
-				</Column>
-				<Column name="ИмяПоляДанных" id="29">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Имя поля данных</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
-				<Column name="ИдСтроки" id="17">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Ид строки</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:decimal</v8:Type>
-						<v8:NumberQualifiers>
-							<v8:Digits>5</v8:Digits>
-							<v8:FractionDigits>0</v8:FractionDigits>
-							<v8:AllowedSign>Any</v8:AllowedSign>
-						</v8:NumberQualifiers>
-					</Type>
-				</Column>
-				<Column name="Декорация" id="19">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Декорация</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
-				<Column name="КомментарийКТиповомуПравилу" id="39">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Комментарий к типовому правилу</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
-			</Columns>
-		</Attribute>
 		<Attribute name="ПроверенаВручную" id="33">
 			<Title>
 				<v8:item>
@@ -1509,6 +1303,340 @@
 				<v8:Type>cfg:CatalogRef.СертификатыКлючейЭлектроннойПодписиИШифрования</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="НастройкиПроверкиРасширенные" id="45">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки проверки расширенные</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ПорядковыйНомер" id="46">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Порядковый номер</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>4</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="МнемоникаПолномочия" id="47">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Мнемоника полномочия</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="КодПолномочия" id="48">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код полномочия</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="НаименованиеПолномочия" id="49">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование полномочия</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИдентификаторОграничения" id="50">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор ограничения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КодОграничения" id="51">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код ограничения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="НаименованиеОграничения" id="52">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование ограничения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="КодЗначенияОграничения" id="53">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код значения ограничения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="НаименованиеЗначенияОграничения" id="54">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование значения ограничения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТекстовоеОписаниеОграничения" id="55">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текстовое описание ограничения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОбъектСопоставления" id="56">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объект сопоставления</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ВидыДокументовЭДО</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Основное" id="57">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основное</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="КонтекстПолномочия" id="66">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контекст полномочия</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДеревоПолномочийСОграничениями" id="58">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево полномочий с ограничениями</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Ограничение" id="59">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ограничение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Значение" id="60">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Описание" id="61">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Описание</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Предопределенное" id="62">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предопределенное</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Уровень" id="63">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уровень</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПорядковыйНомер" id="64">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Порядковый номер</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>4</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Картинка" id="65">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ЕстьПравоИзмененияМЧД" id="67">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть право изменения МЧД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПротоколПроверкиМЧД" id="68">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Протокол проверки МЧД</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="Обновить" id="2">
@@ -1538,16 +1666,6 @@
 				</v8:item>
 			</Title>
 			<Action>ПометитьВерной</Action>
-			<ModifiesSavedData>true</ModifiesSavedData>
-		</Command>
-		<Command name="ДополнитьТиповымиПравилами" id="6">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Дополнить типовыми правилами</v8:content>
-				</v8:item>
-			</Title>
-			<Action>ДополнитьТиповымиПравилами</Action>
 		</Command>
 		<Command name="Посмотреть" id="7">
 			<Title>
@@ -1613,6 +1731,15 @@
 			</Picture>
 			<Action>ОбновитьСписокПодписанныеДокументы</Action>
 			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="ПерепроверитьПодпись" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перепроверить подпись доверенности</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ПерепроверитьПодпись</Action>
 		</Command>
 		<Command name="УстановитьСнятьПометкуУдаления" id="12">
 			<Title>

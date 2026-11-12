@@ -15,21 +15,7 @@
 	</CommandSet>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="Отправить" id="110">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Отправить</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Отправить</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОтправитьРасширеннаяПодсказка" id="111"/>
-			</Button>
 			<Button name="ФормаЗаписатьИЗакрыть" id="11273">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
@@ -42,26 +28,15 @@
 				<CommandName>Form.StandardCommand.Write</CommandName>
 				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="11276"/>
 			</Button>
-			<Button name="Печать" id="108">
-				<Type>CommandBarButton</Type>
-				<Representation>Picture</Representation>
-				<CommandName>Form.Command.Печать</CommandName>
-				<Picture>
-					<xr:Ref>StdPicture.Print</xr:Ref>
-					<xr:LoadTransparent>true</xr:LoadTransparent>
-				</Picture>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Печать</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="109"/>
-			</Button>
 			<Button name="ФормаСкопировать" id="11279">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.StandardCommand.Copy</CommandName>
 				<ExtendedTooltip name="ФормаСкопироватьРасширеннаяПодсказка" id="11280"/>
+			</Button>
+			<Button name="ФормаУстановитьПометкуУдаления" id="11277">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.SetDeletionMark</CommandName>
+				<ExtendedTooltip name="ФормаУстановитьПометкуУдаленияРасширеннаяПодсказка" id="11278"/>
 			</Button>
 			<Popup name="ГруппаПроверка" id="112">
 				<Title>
@@ -79,11 +54,33 @@
 					</Button>
 				</ChildItems>
 			</Popup>
+			<Button name="Печать" id="108">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Печать</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Печать</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="109"/>
+			</Button>
 			<Button name="ВыгрузитьПакет" id="152">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ВыгрузитьПакет</CommandName>
 				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ВыгрузитьПакетРасширеннаяПодсказка" id="153"/>
+			</Button>
+			<Button name="Отправить" id="110">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Отправить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отправить</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ОтправитьРасширеннаяПодсказка" id="111"/>
 			</Button>
 			<Button name="Выгрузить" id="12289">
 				<Type>CommandBarButton</Type>
@@ -272,7 +269,7 @@
 									<Height>1</Height>
 									<Picture>
 										<xr:Ref>CommonPicture.ПризнакНаличияКритическойОшибки</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="ЗначокКритическойОшибкиКонтекстноеМеню" id="12240"/>
@@ -390,12 +387,10 @@
 					<v8:content>Группа шапка</v8:content>
 				</v8:item>
 			</Title>
-			<VerticalStretch>true</VerticalStretch>
-			<Group>AlwaysHorizontal</Group>
+			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ThroughAlign>DontUse</ThroughAlign>
 			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="2"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаЛеваяКолонка" id="3">
@@ -405,13 +400,10 @@
 							<v8:content>Группа левая колонка</v8:content>
 						</v8:item>
 					</Title>
-					<Width>50</Width>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
-					<United>false</United>
 					<ShowTitle>false</ShowTitle>
-					<ThroughAlign>Use</ThroughAlign>
 					<ExtendedTooltip name="ГруппаЛеваяКолонкаРасширеннаяПодсказка" id="4"/>
 					<ChildItems>
 						<InputField name="ВидОтчета" id="19">
@@ -425,6 +417,26 @@
 								<Event name="OnChange">ВидОтчетаПриИзменении</Event>
 							</Events>
 						</InputField>
+						<InputField name="ПредставлениеПериода" id="16">
+							<DataPath>Объект.ПредставлениеПериода</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Период</v8:content>
+								</v8:item>
+							</Title>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<Width>1</Width>
+							<ChoiceButton>true</ChoiceButton>
+							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ChooseType>false</ChooseType>
+							<ContextMenu name="ПредставлениеПериодаКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ПредставлениеПериодаРасширеннаяПодсказка" id="18"/>
+							<Events>
+								<Event name="StartChoice">ПредставлениеПериодаНачалоВыбора</Event>
+							</Events>
+						</InputField>
 						<UsualGroup name="ГруппаКорректировка" id="34">
 							<Title>
 								<v8:item>
@@ -433,15 +445,14 @@
 								</v8:item>
 							</Title>
 							<Group>Horizontal</Group>
-							<VerticalAlign>Center</VerticalAlign>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаКорректировкаРасширеннаяПодсказка" id="35"/>
 							<ChildItems>
-								<RadioButtonField name="ВидДокументаПервичный" id="12329">
+								<RadioButtonField name="ВидДокумента" id="31">
 									<DataPath>ВидДокумента</DataPath>
-									<RadioButtonType>Tumbler</RadioButtonType>
+									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
 											<xr:Presentation/>
@@ -463,15 +474,15 @@
 												<Presentation>
 													<v8:item>
 														<v8:lang>ru</v8:lang>
-														<v8:content>Корректирующий</v8:content>
+														<v8:content>Корректирующий:</v8:content>
 													</v8:item>
 												</Presentation>
 												<Value xsi:type="xs:decimal">1</Value>
 											</xr:Value>
 										</xr:Item>
 									</ChoiceList>
-									<ContextMenu name="ВидДокументаПервичныйКонтекстноеМеню" id="12330"/>
-									<ExtendedTooltip name="ВидДокументаПервичныйРасширеннаяПодсказка" id="12331"/>
+									<ContextMenu name="ВидДокументаКонтекстноеМеню" id="32"/>
+									<ExtendedTooltip name="ВидДокументаExtendedTooltip" id="33"/>
 									<Events>
 										<Event name="OnChange">ВидДокументаПриИзменении</Event>
 									</Events>
@@ -479,7 +490,6 @@
 								<InputField name="НомерКорректировки" id="25">
 									<DataPath>НомерКорректировки</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<HorizontalStretch>false</HorizontalStretch>
 									<ChoiceButton>false</ChoiceButton>
 									<ClearButton>false</ClearButton>
 									<SpinButton>true</SpinButton>
@@ -496,26 +506,32 @@
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
-						<InputField name="ПредставлениеПериода" id="16">
-							<DataPath>Объект.ПредставлениеПериода</DataPath>
-							<Title>
+						<InputField name="ФайлПояснительнойЗаписки" id="45">
+							<DataPath>ФайлПояснительнойЗаписки</DataPath>
+							<TitleLocation>Left</TitleLocation>
+							<TitleHeight>2</TitleHeight>
+							<ChoiceButton>true</ChoiceButton>
+							<ClearButton>true</ClearButton>
+							<OpenButton>true</OpenButton>
+							<TextEdit>false</TextEdit>
+							<InputHint>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Период</v8:content>
+									<v8:content>Выберите файл</v8:content>
 								</v8:item>
-							</Title>
-							<ChoiceButton>true</ChoiceButton>
-							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ChooseType>false</ChooseType>
-							<ContextMenu name="ПредставлениеПериодаКонтекстноеМеню" id="17"/>
-							<ExtendedTooltip name="ПредставлениеПериодаРасширеннаяПодсказка" id="18"/>
+							</InputHint>
+							<ContextMenu name="ФайлПояснительнойЗапискиКонтекстноеМеню" id="46"/>
+							<ExtendedTooltip name="ФайлПояснительнойЗапискиExtendedTooltip" id="47"/>
 							<Events>
-								<Event name="StartChoice">ПредставлениеПериодаНачалоВыбора</Event>
+								<Event name="OnChange">ФайлПояснительнойЗапискиПриИзменении</Event>
+								<Event name="StartChoice">ФайлПояснительнойЗапискиНачалоВыбора</Event>
+								<Event name="Opening">ФайлПояснительнойЗапискиОткрытие</Event>
 							</Events>
 						</InputField>
 						<InputField name="ФайлАудиторскогоЗаключения" id="42">
 							<DataPath>ФайлАудиторскогоЗаключения</DataPath>
+							<TitleLocation>Left</TitleLocation>
+							<TitleHeight>2</TitleHeight>
 							<ChoiceButton>true</ChoiceButton>
 							<ClearButton>true</ClearButton>
 							<OpenButton>true</OpenButton>
@@ -543,13 +559,10 @@
 							<v8:content>Группа правая колонка</v8:content>
 						</v8:item>
 					</Title>
-					<Width>50</Width>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
-					<United>false</United>
 					<ShowTitle>false</ShowTitle>
-					<ThroughAlign>Use</ThroughAlign>
 					<ExtendedTooltip name="ГруппаПраваяКолонкаРасширеннаяПодсказка" id="6"/>
 					<ChildItems>
 						<InputField name="Организация" id="13">
@@ -568,6 +581,15 @@
 								<Event name="OnChange">ПолучательПриИзменении</Event>
 							</Events>
 						</InputField>
+						<LabelDecoration name="ОтступФайлДополнительный" id="192">
+							<Visible>false</Visible>
+							<ContextMenu name="ОтступФайлДополнительныйКонтекстноеМеню" id="193"/>
+							<ExtendedTooltip name="ОтступФайлДополнительныйРасширеннаяПодсказка" id="194"/>
+						</LabelDecoration>
+						<LabelDecoration name="ОтступФайл" id="48">
+							<ContextMenu name="ОтступФайлКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="ОтступФайлРасширеннаяПодсказка" id="50"/>
+						</LabelDecoration>
 						<InputField name="ФайлЗаявленияРевизионногоСоюза" id="39">
 							<DataPath>ФайлЗаявленияРевизионногоСоюза</DataPath>
 							<Title>
@@ -576,6 +598,8 @@
 									<v8:content>Заявление (для с/х производителей)</v8:content>
 								</v8:item>
 							</Title>
+							<TitleLocation>Left</TitleLocation>
+							<TitleHeight>2</TitleHeight>
 							<ChoiceButton>true</ChoiceButton>
 							<ClearButton>true</ClearButton>
 							<OpenButton>true</OpenButton>
@@ -594,26 +618,6 @@
 								<Event name="Opening">ФайлЗаявленияРевизионногоСоюзаОткрытие</Event>
 							</Events>
 						</InputField>
-						<InputField name="ФайлПояснительнойЗаписки" id="45">
-							<DataPath>ФайлПояснительнойЗаписки</DataPath>
-							<ChoiceButton>true</ChoiceButton>
-							<ClearButton>true</ClearButton>
-							<OpenButton>true</OpenButton>
-							<TextEdit>false</TextEdit>
-							<InputHint>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Выберите файл</v8:content>
-								</v8:item>
-							</InputHint>
-							<ContextMenu name="ФайлПояснительнойЗапискиКонтекстноеМеню" id="46"/>
-							<ExtendedTooltip name="ФайлПояснительнойЗапискиExtendedTooltip" id="47"/>
-							<Events>
-								<Event name="OnChange">ФайлПояснительнойЗапискиПриИзменении</Event>
-								<Event name="StartChoice">ФайлПояснительнойЗапискиНачалоВыбора</Event>
-								<Event name="Opening">ФайлПояснительнойЗапискиОткрытие</Event>
-							</Events>
-						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -625,7 +629,6 @@
 					<v8:content>Группа страницы</v8:content>
 				</v8:item>
 			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
 			<PagesRepresentation>None</PagesRepresentation>
 			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="55"/>
 			<ChildItems>
@@ -636,20 +639,19 @@
 							<v8:content>Отчет</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>true</HorizontalStretch>
 					<Group>Vertical</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаПрочаяОтчетностьРасширеннаяПодсказка" id="61"/>
 					<ChildItems>
-						<InputField name="ПредставлениеТекст" id="12372">
+						<InputField name="ПредставлениеТекст" id="51">
 							<DataPath>ПредставлениеТекст</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<TitleLocation>None</TitleLocation>
 							<AutoMaxWidth>false</AutoMaxWidth>
-							<HorizontalStretch>true</HorizontalStretch>
-							<VerticalStretch>true</VerticalStretch>
+							<Height>10</Height>
 							<MultiLine>true</MultiLine>
-							<ContextMenu name="ПредставлениеТекстКонтекстноеМеню" id="12373"/>
-							<ExtendedTooltip name="ПредставлениеТекстРасширеннаяПодсказка" id="12374"/>
+							<ContextMenu name="ПредставлениеТекстКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="ПредставлениеТекстРасширеннаяПодсказка" id="53"/>
 						</InputField>
 					</ChildItems>
 				</Page>
@@ -660,7 +662,6 @@
 							<v8:content>Страница комплект ПФР</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>true</HorizontalStretch>
 					<Group>Vertical</Group>
 					<ShowTitle>false</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
@@ -686,7 +687,6 @@
 							<ChildItems>
 								<Table name="ФайлыКомплектаПФР" id="62">
 									<Representation>List</Representation>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<EnableStartDrag>true</EnableStartDrag>
@@ -703,6 +703,7 @@
 										<ExcludedCommand>MoveDown</ExcludedCommand>
 										<ExcludedCommand>MoveUp</ExcludedCommand>
 										<ExcludedCommand>OutputList</ExcludedCommand>
+										<ExcludedCommand>SelectAll</ExcludedCommand>
 										<ExcludedCommand>SortListAsc</ExcludedCommand>
 										<ExcludedCommand>SortListDesc</ExcludedCommand>
 									</CommandSet>
@@ -772,7 +773,6 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
-											<AutoWidthInTable>None</AutoWidthInTable>
 											<ContextMenu name="ФайлыКомплектаНомерСтрокиКонтекстноеМеню" id="11243"/>
 											<ExtendedTooltip name="ФайлыКомплектаНомерСтрокиРасширеннаяПодсказка" id="11244"/>
 										</InputField>
@@ -780,7 +780,6 @@
 											<DataPath>ФайлыКомплекта.Имя</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
-											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>2</Width>
 											<ContextMenu name="ФайлыКомплектаИмяКонтекстноеМеню" id="67"/>
 											<ExtendedTooltip name="ФайлыКомплектаИмяРасширеннаяПодсказка" id="68"/>
@@ -789,7 +788,6 @@
 											<DataPath>ФайлыКомплекта.Тип</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
-											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>1</Width>
 											<ContextMenu name="ФайлыКомплектаТипКонтекстноеМеню" id="70"/>
 											<ExtendedTooltip name="ФайлыКомплектаТипРасширеннаяПодсказка" id="71"/>
@@ -799,7 +797,6 @@
 											<EditMode>EnterOnInput</EditMode>
 											<CellHyperlink>true</CellHyperlink>
 											<AutoEditMode>true</AutoEditMode>
-											<AutoWidthInTable>None</AutoWidthInTable>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 											<Width>1</Width>
@@ -812,7 +809,6 @@
 											<Visible>false</Visible>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
-											<AutoWidthInTable>None</AutoWidthInTable>
 											<ContextMenu name="ФайлыКомплектаАдресДанныхКонтекстноеМеню" id="76"/>
 											<ExtendedTooltip name="ФайлыКомплектаАдресДанныхРасширеннаяПодсказка" id="77"/>
 										</InputField>
@@ -875,7 +871,6 @@
 							<v8:content>Страница комлекта уведомлений</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>true</HorizontalStretch>
 					<Group>Vertical</Group>
 					<ShowTitle>false</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
@@ -901,7 +896,6 @@
 							<ChildItems>
 								<Table name="ФайлыКомплектаУведомлений" id="78">
 									<Representation>List</Representation>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<EnableStartDrag>true</EnableStartDrag>
@@ -918,6 +912,7 @@
 										<ExcludedCommand>MoveDown</ExcludedCommand>
 										<ExcludedCommand>MoveUp</ExcludedCommand>
 										<ExcludedCommand>OutputList</ExcludedCommand>
+										<ExcludedCommand>SelectAll</ExcludedCommand>
 										<ExcludedCommand>SortListAsc</ExcludedCommand>
 										<ExcludedCommand>SortListDesc</ExcludedCommand>
 									</CommandSet>
@@ -980,7 +975,6 @@
 											<DataPath>ФайлыКомплекта.Имя</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
-											<AutoWidthInTable>None</AutoWidthInTable>
 											<Width>2</Width>
 											<ContextMenu name="ФайлыКомплектаУведомленийИмяКонтекстноеМеню" id="89"/>
 											<ExtendedTooltip name="ФайлыКомплектаУведомленийИмяРасширеннаяПодсказка" id="90"/>
@@ -990,7 +984,6 @@
 											<EditMode>EnterOnInput</EditMode>
 											<CellHyperlink>true</CellHyperlink>
 											<AutoEditMode>true</AutoEditMode>
-											<AutoWidthInTable>None</AutoWidthInTable>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 											<Width>1</Width>
@@ -1003,7 +996,6 @@
 											<Visible>false</Visible>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
-											<AutoWidthInTable>None</AutoWidthInTable>
 											<ContextMenu name="ФайлыКомплектаУведомленийАдресДанныхКонтекстноеМеню" id="98"/>
 											<ExtendedTooltip name="ФайлыКомплектаУведомленийАдресДанныхРасширеннаяПодсказка" id="99"/>
 										</InputField>
@@ -1017,14 +1009,7 @@
 		</Pages>
 		<InputField name="Комментарий" id="36">
 			<DataPath>Объект.Комментарий</DataPath>
-			<TitleLocation>Left</TitleLocation>
 			<AutoMaxWidth>false</AutoMaxWidth>
-			<InputHint>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Текст комментария не отправляется в контролирующий орган</v8:content>
-				</v8:item>
-			</InputHint>
 			<ContextMenu name="КомментарийКонтекстноеМеню" id="37"/>
 			<ExtendedTooltip name="КомментарийExtendedTooltip" id="38"/>
 		</InputField>
@@ -1532,7 +1517,6 @@
 			</ToolTip>
 			<Action>Отправить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПроверитьВИнтернете" id="7">
 			<Title>
@@ -1646,4 +1630,33 @@
 			</Type>
 		</Parameter>
 	</Parameters>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>3:e07e82f5-3363-42db-8ebc-d4a751a5b818</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:8dbe8796-a037-44ae-b35d-5593aa85f601</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:3953cc60-6482-471c-9699-41c70c93335d</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
 </Form>

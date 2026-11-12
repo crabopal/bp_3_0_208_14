@@ -7,7 +7,6 @@
 		</v8:item>
 	</Title>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
-	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
 	<ShowCommandBar>true</ShowCommandBar>
@@ -22,101 +21,138 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="18"/>
 			</Button>
+			<Button name="ФормаОтмена" id="19">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="20"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<RadioButtonField name="РежимПолученияНовыхШтрихкодов" id="1">
-			<DataPath>РежимПолученияНовыхШтрихкодов</DataPath>
-			<TitleLocation>Top</TitleLocation>
-			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-			<RadioButtonType>Tumbler</RadioButtonType>
-			<ChoiceList>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation>
+		<UsualGroup name="РежимПолученияНовыхШтрихкодовГруппа" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим получения новых штрихкодов</v8:content>
+				</v8:item>
+			</Title>
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="РежимПолученияНовыхШтрихкодовГруппаРасширеннаяПодсказка" id="33"/>
+			<ChildItems>
+				<RadioButtonField name="РежимПолученияНовыхШтрихкодов" id="1">
+					<DataPath>РежимПолученияНовыхШтрихкодов</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Не получать</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Получать, если нет</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Получать для всех</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">2</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="РежимПолученияНовыхШтрихкодовКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="РежимПолученияНовыхШтрихкодовРасширеннаяПодсказка" id="3">
+						<Height>2</Height>
+						<Title formatted="false">
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Не получать</v8:content>
+								<v8:content>Использовать только уже имеющиеся штрихкоды</v8:content>
 							</v8:item>
-						</Presentation>
-						<Value xsi:type="xs:decimal">0</Value>
-					</xr:Value>
-				</xr:Item>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Получать, если нет</v8:content>
-							</v8:item>
-						</Presentation>
-						<Value xsi:type="xs:decimal">1</Value>
-					</xr:Value>
-				</xr:Item>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Получать для всех</v8:content>
-							</v8:item>
-						</Presentation>
-						<Value xsi:type="xs:decimal">2</Value>
-					</xr:Value>
-				</xr:Item>
-			</ChoiceList>
-			<ContextMenu name="РежимПолученияНовыхШтрихкодовКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="РежимПолученияНовыхШтрихкодовРасширеннаяПодсказка" id="3">
-				<Height>2</Height>
-				<Title formatted="false">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Использовать только уже имеющиеся штрихкоды</v8:content>
-					</v8:item>
-				</Title>
-			</ExtendedTooltip>
-			<Events>
-				<Event name="OnChange">РежимПриИзменении</Event>
-			</Events>
-		</RadioButtonField>
-		<CheckBoxField name="ПолучитьТехническиеШтрихкоды" id="27">
-			<DataPath>ПолучитьТехническиеШтрихкоды</DataPath>
+						</Title>
+					</ExtendedTooltip>
+					<Events>
+						<Event name="OnChange">РежимПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ПолучитьТехническиеШтрихкодыГруппа" id="30">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Какие штрихкоды получать</v8:content>
 				</v8:item>
 			</Title>
-			<TitleLocation>Top</TitleLocation>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Технические штрихкоды выпускает Национальный каталог, членство в ГС1 РУС не требуется.</v8:content>
-				</v8:item>
-			</ToolTip>
-			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-			<CheckBoxType>Tumbler</CheckBoxType>
-			<EditFormat>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>БЛ='Российские (GS46)'; БИ=Технические</v8:content>
-				</v8:item>
-			</EditFormat>
-			<ContextMenu name="ПолучитьТехническиеШтрихкодыКонтекстноеМеню" id="28"/>
-			<ExtendedTooltip name="ПолучитьТехническиеШтрихкодыРасширеннаяПодсказка" id="29"/>
-			<Events>
-				<Event name="OnChange">ПолучитьТехническиеШтрихкодыПриИзменении</Event>
-			</Events>
-		</CheckBoxField>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ПолучитьТехническиеШтрихкодыГруппаРасширеннаяПодсказка" id="31"/>
+			<ChildItems>
+				<CheckBoxField name="ПолучитьТехническиеШтрихкоды" id="27">
+					<DataPath>ПолучитьТехническиеШтрихкоды</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Какие штрихкоды получать</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<CheckBoxType>Tumbler</CheckBoxType>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>БЛ='Российские (GS46)'; БИ=Технические</v8:content>
+						</v8:item>
+					</EditFormat>
+					<ContextMenu name="ПолучитьТехническиеШтрихкодыКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="ПолучитьТехническиеШтрихкодыРасширеннаяПодсказка" id="29"/>
+					<Events>
+						<Event name="OnChange">ПолучитьТехническиеШтрихкодыПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<LabelDecoration name="ПолучитьТехническиеШтрихкодыПояснение" id="7">
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Технические штрихкоды выпускает Национальный каталог, членство в ГС1 РУС не требуется.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ПолучитьТехническиеШтрихкодыПояснениеКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ПолучитьТехническиеШтрихкодыПояснениеРасширеннаяПодсказка" id="9"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -180,11 +216,10 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<Action>КомандаОК</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

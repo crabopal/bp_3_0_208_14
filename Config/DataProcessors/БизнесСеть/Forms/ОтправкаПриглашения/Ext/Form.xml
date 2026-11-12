@@ -10,19 +10,8 @@
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Right</HorizontalAlign>
-		<ChildItems>
-			<Button name="Отправить" id="17">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ОтправитьПриглашение</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОтправитьРасширеннаяПодсказка" id="18"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -43,6 +32,7 @@
 			<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="27"/>
 			<ChildItems>
 				<PictureDecoration name="Логотип" id="23">
+					<TextColor>style:BorderColor</TextColor>
 					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -55,16 +45,18 @@
 						<xr:LoadTransparent>false</xr:LoadTransparent>
 					</Picture>
 					<FileDragMode>AsFile</FileDragMode>
+					<PictureColor>style:BorderColor</PictureColor>
 					<ContextMenu name="ЛоготипКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="ЛоготипРасширеннаяПодсказка" id="25"/>
 				</PictureDecoration>
 				<LabelDecoration name="ДекорацияОписание" id="1">
 					<AutoMaxWidth>false</AutoMaxWidth>
+					<Height>5</Height>
 					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Приглашение контрагенту для
-регистрации в сервисе &lt;link https://1cbn.ru/&gt;1С:Бизнес-сеть&lt;/&gt;.
+регистрации в сервисе &lt;link https://1cbn.ru&gt;1С:Бизнес-сеть&lt;/&gt;.
 
 Письмо будет направлено на адрес электронной почты.</v8:content>
 						</v8:item>
@@ -118,7 +110,8 @@
 							<ChildItems>
 								<LabelField name="Контрагент" id="4">
 									<DataPath>Контрагент</DataPath>
-									<AutoMaxWidth>false</AutoMaxWidth>
+									<Width>42</Width>
+									<HorizontalStretch>false</HorizontalStretch>
 									<Hiperlink>true</Hiperlink>
 									<ContextMenu name="КонтрагентКонтекстноеМеню" id="5"/>
 									<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="6"/>
@@ -147,7 +140,8 @@
 											<v8:content>Email</v8:content>
 										</v8:item>
 									</Title>
-									<AutoMaxWidth>false</AutoMaxWidth>
+									<Width>42</Width>
+									<HorizontalStretch>false</HorizontalStretch>
 									<InputHint>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -177,7 +171,8 @@
 					<ChildItems>
 						<InputField name="Организация" id="10">
 							<DataPath>Организация</DataPath>
-							<AutoMaxWidth>false</AutoMaxWidth>
+							<Width>42</Width>
+							<HorizontalStretch>false</HorizontalStretch>
 							<CreateButton>false</CreateButton>
 							<ListChoiceMode>true</ListChoiceMode>
 							<InputHint>
@@ -193,6 +188,35 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
+		<CommandBar name="Команды" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команды</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="КомандыРасширеннаяПодсказка" id="20"/>
+			<ChildItems>
+				<Button name="Отправить" id="17">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.ОтправитьПриглашение</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ОтправитьРасширеннаяПодсказка" id="18"/>
+				</Button>
+				<Button name="Отмена" id="21">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="22"/>
+				</Button>
+				<Button name="Справка" id="64">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="65"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -259,7 +283,6 @@
 			</ToolTip>
 			<Action>ОтправитьПриглашение</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

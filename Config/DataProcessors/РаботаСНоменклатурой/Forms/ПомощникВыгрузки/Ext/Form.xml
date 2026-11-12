@@ -3,7 +3,7 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Помощник выгрузки данных номенклатуры в каталоги</v8:content>
+			<v8:content>Выгрузка данных номенклатуры</v8:content>
 		</v8:item>
 	</Title>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
@@ -20,7 +20,6 @@
 	</Events>
 	<ChildItems>
 		<UsualGroup name="Шапка" id="1">
-			<Visible>false</Visible>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -47,29 +46,60 @@
 				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
-		<Pages name="ГруппаСтраницы" id="501">
-			<PagesRepresentation>TabsOnLeftHorizontal</PagesRepresentation>
-			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="502"/>
+		<UsualGroup name="Шаги" id="315">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шаги</v8:content>
+				</v8:item>
+			</Title>
+			<Width>70</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ШагиРасширеннаяПодсказка" id="316"/>
 			<ChildItems>
-				<Page name="ОрганизацияИКонтакты" id="503">
+				<UsualGroup name="Шаг1Организация" id="263">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Организация и контакты</v8:content>
+							<v8:content>Шаг 1 организация</v8:content>
 						</v8:item>
 					</Title>
-					<Picture>
-						<xr:Ref>CommonPicture.Этап1СинийБЭД</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<ExtendedTooltip name="ОрганизацияИКонтактыРасширеннаяПодсказка" id="504"/>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Шаг1ОрганизацияРасширеннаяПодсказка" id="264"/>
 					<ChildItems>
-						<UsualGroup name="УказатьОрганизациюИКонтактнуюИнформацию" id="513">
-							<HorizontalStretch>true</HorizontalStretch>
+						<PictureDecoration name="Шаг1" id="265">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Шаг1</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.Этап1СинийБЭД</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Шаг1КонтекстноеМеню" id="266"/>
+							<ExtendedTooltip name="Шаг1РасширеннаяПодсказка" id="267"/>
+						</PictureDecoration>
+						<UsualGroup name="ОрганизацияИКонтактнаяИнформация" id="200">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Указать организацию и контактную информацию</v8:content>
+								</v8:item>
+							</Title>
 							<Group>Vertical</Group>
-							<ShowTitle>false</ShowTitle>
-							<ShowAsCard>true</ShowAsCard>
-							<ExtendedTooltip name="УказатьОрганизациюИКонтактнуюИнформациюРасширеннаяПодсказка" id="514"/>
+							<Behavior>Usual</Behavior>
+							<Representation>WeakSeparation</Representation>
+							<ExtendedTooltip name="ОрганизацияИКонтактнаяИнформацияРасширеннаяПодсказка" id="201"/>
 							<ChildItems>
 								<UsualGroup name="ГруппаОрганизация" id="454">
 									<Title>
@@ -86,7 +116,12 @@
 									<ChildItems>
 										<InputField name="Организация" id="63">
 											<DataPath>Организация</DataPath>
-											<ToolTipRepresentation>None</ToolTipRepresentation>
+											<TitleLocation>None</TitleLocation>
+											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
+											<Width>30</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>38</MaxWidth>
 											<ChoiceButton>true</ChoiceButton>
 											<ClearButton>false</ClearButton>
 											<QuickChoice>false</QuickChoice>
@@ -110,6 +145,7 @@
 											<DataPath>ДатаПредставление</DataPath>
 											<Visible>false</Visible>
 											<TitleLocation>None</TitleLocation>
+											<TextColor>style:ПоясняющийТекст</TextColor>
 											<ContextMenu name="ДатаПредставлениеКонтекстноеМеню" id="468"/>
 											<ExtendedTooltip name="ДатаПредставлениеРасширеннаяПодсказка" id="469"/>
 										</LabelField>
@@ -117,6 +153,17 @@
 								</UsualGroup>
 								<InputField name="ТипОрганизации" id="366">
 									<DataPath>ТипОрганизации</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Тип</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
+									<Width>30</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>38</MaxWidth>
 									<DropListButton>true</DropListButton>
 									<ListChoiceMode>true</ListChoiceMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -215,6 +262,10 @@
 								<InputField name="ТипОрганизацииДругое" id="384">
 									<DataPath>ТипОрганизацииДругое</DataPath>
 									<Visible>false</Visible>
+									<TitleLocation>None</TitleLocation>
+									<Width>30</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>38</MaxWidth>
 									<Height>2</Height>
 									<AutoMaxHeight>false</AutoMaxHeight>
 									<MaxHeight>2</MaxHeight>
@@ -231,19 +282,17 @@
 										<Event name="OnChange">ТипОрганизацииДругоеПриИзменении</Event>
 									</Events>
 								</InputField>
-								<Button name="ЗаполнитьКонтактнуюИнформацию" id="499">
-									<Type>Hyperlink</Type>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<CommandName>Form.Command.ЗаполнитьКонтактнуюИнформацию</CommandName>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Контактная информация (не заполнена)</v8:content>
-										</v8:item>
-									</Title>
+								<LabelField name="ВводКонтактнойИнформации" id="428">
+									<DataPath>ВводКонтактнойИнформации</DataPath>
+									<TitleLocation>None</TitleLocation>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-									<ExtendedTooltip name="ЗаполнитьКонтактнуюИнформациюРасширеннаяПодсказка" id="500">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>60</MaxWidth>
+									<Hiperlink>true</Hiperlink>
+									<ContextMenu name="ВводКонтактнойИнформацииКонтекстноеМеню" id="429"/>
+									<ExtendedTooltip name="ВводКонтактнойИнформацииРасширеннаяПодсказка" id="430">
 										<AutoMaxWidth>false</AutoMaxWidth>
+										<MaxWidth>60</MaxWidth>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -251,56 +300,62 @@
 											</v8:item>
 										</Title>
 									</ExtendedTooltip>
-								</Button>
+									<Events>
+										<Event name="Click">ВводКонтактнойИнформацииНажатие</Event>
+									</Events>
+								</LabelField>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
-				</Page>
-				<Page name="Выгрузка" id="505">
+				</UsualGroup>
+				<UsualGroup name="Шаг2Каталоги" id="268">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Выгрузка</v8:content>
+							<v8:content>Шаг 2 каталоги</v8:content>
 						</v8:item>
 					</Title>
-					<Picture>
-						<xr:Ref>CommonPicture.Этап2СинийБЭД</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<ExtendedTooltip name="ВыгрузкаРасширеннаяПодсказка" id="506"/>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Шаг2КаталогиРасширеннаяПодсказка" id="269"/>
 					<ChildItems>
-						<UsualGroup name="ВыбратьКаталогиВКоторыеБудутВыгружатьсяДанные" id="515">
+						<PictureDecoration name="Шаг2" id="270">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Шаг2</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.Этап2СинийБЭД</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Шаг2КонтекстноеМеню" id="271"/>
+							<ExtendedTooltip name="Шаг2РасширеннаяПодсказка" id="272"/>
+						</PictureDecoration>
+						<UsualGroup name="ГруппаКаталоги" id="72">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Выбрать каталоги, в которые будут выгружаться данные</v8:content>
 								</v8:item>
 							</Title>
-							<HorizontalStretch>true</HorizontalStretch>
 							<Group>Vertical</Group>
-							<ShowAsCard>true</ShowAsCard>
-							<ExtendedTooltip name="ВыбратьКаталогиВКоторыеБудутВыгружатьсяДанныеРасширеннаяПодсказка" id="516"/>
+							<Behavior>Usual</Behavior>
+							<Representation>WeakSeparation</Representation>
+							<ExtendedTooltip name="ГруппаКаталогиРасширеннаяПодсказка" id="73"/>
 							<ChildItems>
 								<UsualGroup name="ГруппаНоменклатура" id="80">
-									<Group>AlwaysHorizontal</Group>
+									<Group>HorizontalIfPossible</Group>
 									<VerticalAlign>Center</VerticalAlign>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаНоменклатураРасширеннаяПодсказка" id="81"/>
 									<ChildItems>
-										<UsualGroup name="ГруппаЛоготипНоменклатура" id="491">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа логотип номенклатура</v8:content>
-												</v8:item>
-											</Title>
-											<VerticalAlign>Center</VerticalAlign>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаЛоготипНоменклатураРасширеннаяПодсказка" id="492"/>
-										</UsualGroup>
 										<CheckBoxField name="ВыгружатьНоменклатуру" id="74">
 											<DataPath>ВыгружатьНоменклатуру</DataPath>
 											<TitleLocation>None</TitleLocation>
@@ -327,7 +382,6 @@
 											<ExtendedTooltip name="ЛоготипНоменклатураРасширеннаяПодсказка" id="84"/>
 										</PictureDecoration>
 										<LabelDecoration name="НадписьНоменклатура" id="369">
-											<AutoMaxWidth>false</AutoMaxWidth>
 											<Title formatted="true">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -361,127 +415,189 @@
 												</v8:item>
 											</Title>
 											<Group>AlwaysHorizontal</Group>
-											<VerticalAlign>Top</VerticalAlign>
+											<VerticalAlign>Center</VerticalAlign>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаНациональныйКаталогОсновноеРасширеннаяПодсказка" id="183"/>
 											<ChildItems>
-												<UsualGroup name="ГруппаЛоготипНациональныйКаталог" id="489">
-													<Title>
+												<CheckBoxField name="ВыгружатьВНациональныйКаталог" id="101">
+													<DataPath>ВыгружатьВНациональныйКаталог</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="ВыгружатьВНациональныйКаталогКонтекстноеМеню" id="102"/>
+													<ExtendedTooltip name="ВыгружатьВНациональныйКаталогРасширеннаяПодсказка" id="103"/>
+													<Events>
+														<Event name="OnChange">ЭлементВыгружатьВНациональныйКаталогПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<PictureDecoration name="ЛоготипНациональныйКаталог" id="104">
+													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Группа логотип национальный каталог</v8:content>
+															<v8:content>Логотип картинка</v8:content>
 														</v8:item>
 													</Title>
-													<VerticalAlign>Center</VerticalAlign>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаЛоготипНациональныйКаталогРасширеннаяПодсказка" id="490"/>
-													<ChildItems>
-														<CheckBoxField name="ВыгружатьВНациональныйКаталог" id="101">
-															<DataPath>ВыгружатьВНациональныйКаталог</DataPath>
-															<TitleLocation>None</TitleLocation>
-															<ContextMenu name="ВыгружатьВНациональныйКаталогКонтекстноеМеню" id="102"/>
-															<ExtendedTooltip name="ВыгружатьВНациональныйКаталогРасширеннаяПодсказка" id="103"/>
-															<Events>
-																<Event name="OnChange">ЭлементВыгружатьВНациональныйКаталогПриИзменении</Event>
-															</Events>
-														</CheckBoxField>
-														<PictureDecoration name="ЛоготипНациональныйКаталог" id="104">
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Логотип картинка</v8:content>
-																</v8:item>
-															</Title>
-															<PictureSize>Stretch</PictureSize>
-															<Picture>
-																<xr:Ref>CommonPicture.ЛоготипНациональныйКаталог48</xr:Ref>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
-															</Picture>
-															<FileDragMode>AsFile</FileDragMode>
-															<ContextMenu name="ЛоготипНациональныйКаталогКонтекстноеМеню" id="105"/>
-															<ExtendedTooltip name="ЛоготипНациональныйКаталогРасширеннаяПодсказка" id="106"/>
-														</PictureDecoration>
-													</ChildItems>
-												</UsualGroup>
-												<UsualGroup name="ГруппаНациональныйКаталогДетали" id="286">
-													<Title>
+													<PictureSize>Stretch</PictureSize>
+													<Picture>
+														<xr:Ref>CommonPicture.ЛоготипНациональныйКаталог48</xr:Ref>
+														<xr:LoadTransparent>false</xr:LoadTransparent>
+													</Picture>
+													<FileDragMode>AsFile</FileDragMode>
+													<ContextMenu name="ЛоготипНациональныйКаталогКонтекстноеМеню" id="105"/>
+													<ExtendedTooltip name="ЛоготипНациональныйКаталогРасширеннаяПодсказка" id="106"/>
+												</PictureDecoration>
+												<LabelDecoration name="НадписьНациональныйКаталог" id="372">
+													<Title formatted="true">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Группа национальный каталог детали</v8:content>
-														</v8:item>
-													</Title>
-													<TitleTextColor>style:ПоясняющийТекст</TitleTextColor>
-													<Group>Vertical</Group>
-													<VerticalAlign>Center</VerticalAlign>
-													<Behavior>Usual</Behavior>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаНациональныйКаталогДеталиРасширеннаяПодсказка" id="287"/>
-													<ChildItems>
-														<LabelDecoration name="НадписьНациональныйКаталог" id="372">
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<Title formatted="true">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>&lt;b&gt;Национальный каталог&lt;/&gt; - &lt;font Arial&gt;&lt;fontsize 8&gt;&lt;color #807A59&gt;&lt;bgcolor #FFFFFF&gt;Важная составляющая национальной системы цифровой маркировки Честный ЗНАК&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Arial&gt;&lt;fontsize 8&gt;&lt;color #807A59&gt;&lt;bgcolor #FFFFFF&gt;
+															<v8:content>&lt;b&gt;Национальный каталог&lt;/&gt; - &lt;font Arial&gt;&lt;fontsize 8&gt;&lt;color #807A59&gt;&lt;bgcolor #FFFFFF&gt;Важная составляющая национальной системы цифровой маркировки Честный ЗНАК&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;font Arial&gt;&lt;fontsize 8&gt;&lt;color #807A59&gt;&lt;bgcolor #FFFFFF&gt;
 &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;link https://национальный-каталог.рф/page/about&gt;Подробнее&lt;/&gt;</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="НадписьНациональныйКаталогКонтекстноеМеню" id="373"/>
-															<ExtendedTooltip name="НадписьНациональныйКаталогРасширеннаяПодсказка" id="374"/>
-														</LabelDecoration>
-														<Button name="УстановитьПараметрыДоступаНациональныйКаталог" id="493">
-															<Type>Hyperlink</Type>
-															<CommandName>Form.Command.УстановитьПараметрыДоступаНациональныйКаталог</CommandName>
-															<ExtendedTooltip name="УстановитьПараметрыДоступаНациональныйКаталогРасширеннаяПодсказка" id="494"/>
-														</Button>
-														<Button name="ВыбратьРежимПолученияНовыхШтрихкодов" id="473">
-															<Type>Hyperlink</Type>
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<CommandName>Form.Command.ВыбратьРежимПолученияНовыхШтрихкодов</CommandName>
-															<ExtendedTooltip name="ВыбратьРежимПолученияНовыхШтрихкодовРасширеннаяПодсказка" id="474"/>
-														</Button>
-														<CheckBoxField name="ПодписыватьЭлектроннойПодписью" id="528">
-															<DataPath>ПодписыватьЭлектроннойПодписью</DataPath>
-															<TitleLocation>Right</TitleLocation>
-															<ToolTip>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>При отключенной опции подписание карточек товаров выполняется пользователем самостоятельно в личном кабинете Национального каталога.
+														</v8:item>
+													</Title>
+													<ContextMenu name="НадписьНациональныйКаталогКонтекстноеМеню" id="373"/>
+													<ExtendedTooltip name="НадписьНациональныйКаталогРасширеннаяПодсказка" id="374"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаНациональныйКаталогДетали" id="286">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа национальный каталог детали</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>style:ПоясняющийТекст</TitleTextColor>
+											<Group>HorizontalIfPossible</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
+											<VerticalAlign>Center</VerticalAlign>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаНациональныйКаталогДеталиРасширеннаяПодсказка" id="287"/>
+											<ChildItems>
+												<LabelDecoration name="ДекорацияОтступ" id="217">
+													<Width>2</Width>
+													<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="218"/>
+													<ExtendedTooltip name="ДекорацияОтступРасширеннаяПодсказка" id="219"/>
+												</LabelDecoration>
+												<PictureDecoration name="ИконкаПараметров" id="283">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Иконка параметров</v8:content>
+														</v8:item>
+													</Title>
+													<Picture>
+														<xr:Ref>CommonPicture.НастройкаБЭД</xr:Ref>
+														<xr:LoadTransparent>false</xr:LoadTransparent>
+													</Picture>
+													<FileDragMode>AsFile</FileDragMode>
+													<ContextMenu name="ИконкаПараметровКонтекстноеМеню" id="284"/>
+													<ExtendedTooltip name="ИконкаПараметровРасширеннаяПодсказка" id="285"/>
+												</PictureDecoration>
+												<LabelField name="НадписьПараметрыДоступаНациональныйКаталог" id="431">
+													<DataPath>НадписьПараметрыДоступаНациональныйКаталог</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<Hiperlink>true</Hiperlink>
+													<ContextMenu name="НадписьПараметрыДоступаНациональныйКаталогКонтекстноеМеню" id="432"/>
+													<ExtendedTooltip name="НадписьПараметрыДоступаНациональныйКаталогРасширеннаяПодсказка" id="433"/>
+													<Events>
+														<Event name="Click">ПараметрыДоступаНациональныйКаталогНажатие</Event>
+													</Events>
+												</LabelField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаНациональныйКаталогЭлектроннаяПодпись" id="475">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа национальный каталог электронная подпись</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>style:ПоясняющийТекст</TitleTextColor>
+											<Group>HorizontalIfPossible</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
+											<VerticalAlign>Center</VerticalAlign>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаНациональныйКаталогЭлектроннаяПодписьРасширеннаяПодсказка" id="476"/>
+											<ChildItems>
+												<LabelDecoration name="ДекорацияОтступ1" id="477">
+													<Width>2</Width>
+													<ContextMenu name="ДекорацияОтступ1КонтекстноеМеню" id="478"/>
+													<ExtendedTooltip name="ДекорацияОтступ1РасширеннаяПодсказка" id="479"/>
+												</LabelDecoration>
+												<CheckBoxField name="ПодписыватьЭлектроннойПодписью" id="480">
+													<DataPath>ПодписыватьЭлектроннойПодписью</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>При отключенной опции подписание карточек товаров выполняется пользователем самостоятельно в личном кабинете Национального каталога.
 В этом случае, товары, прошедшие модерацию, отображаются в состоянии "Принята".</v8:content>
-																</v8:item>
-															</ToolTip>
-															<ToolTipRepresentation>Button</ToolTipRepresentation>
-															<CheckBoxType>CheckBox</CheckBoxType>
-															<ContextMenu name="ПодписыватьЭлектроннойПодписьюКонтекстноеМеню" id="529"/>
-															<ExtendedTooltip name="ПодписыватьЭлектроннойПодписьюРасширеннаяПодсказка" id="530"/>
-															<Events>
-																<Event name="OnChange">ПодписыватьЭлектроннойПодписьюПриИзменении</Event>
-															</Events>
-														</CheckBoxField>
-													</ChildItems>
-												</UsualGroup>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<ContextMenu name="ПодписыватьЭлектроннойПодписьюКонтекстноеМеню" id="481"/>
+													<ExtendedTooltip name="ПодписыватьЭлектроннойПодписьюРасширеннаяПодсказка" id="482"/>
+													<Events>
+														<Event name="OnChange">ПодписыватьЭлектроннойПодписьюПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
 											</ChildItems>
 										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-						<UsualGroup name="ВыбратьИПодготовитьНоменклатуруДляВыгрузки" id="517">
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Шаг3Номенклатура" id="273">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаг 3 номенклатура</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Шаг3НоменклатураРасширеннаяПодсказка" id="274"/>
+					<ChildItems>
+						<PictureDecoration name="Шаг3" id="275">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Шаг3</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.Этап3СинийБЭД</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Шаг3КонтекстноеМеню" id="276"/>
+							<ExtendedTooltip name="Шаг3РасширеннаяПодсказка" id="277"/>
+						</PictureDecoration>
+						<UsualGroup name="ГруппаПараметрыВыгрузки" id="162">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Выбрать и подготовить номенклатуру для выгрузки</v8:content>
 								</v8:item>
 							</Title>
-							<HorizontalStretch>true</HorizontalStretch>
 							<Group>Vertical</Group>
-							<ShowAsCard>true</ShowAsCard>
-							<ExtendedTooltip name="ВыбратьИПодготовитьНоменклатуруДляВыгрузкиРасширеннаяПодсказка" id="518"/>
+							<Behavior>Usual</Behavior>
+							<Representation>WeakSeparation</Representation>
+							<ExtendedTooltip name="ГруппаПараметрыВыгрузкиРасширеннаяПодсказка" id="163"/>
 							<ChildItems>
+								<Button name="ВыбратьНоменклатуру" id="452">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.ВыбратьНоменклатуру</CommandName>
+									<ExtendedTooltip name="ВыбратьНоменклатуруРасширеннаяПодсказка" id="453"/>
+								</Button>
 								<UsualGroup name="ГруппаОтбор" id="180">
 									<Visible>false</Visible>
 									<Title>
@@ -525,31 +641,159 @@
 										</LabelDecoration>
 									</ChildItems>
 								</UsualGroup>
-								<Button name="ВыбратьНоменклатуру" id="452">
-									<Type>Hyperlink</Type>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<CommandName>Form.Command.ВыбратьНоменклатуру</CommandName>
-									<ExtendedTooltip name="ВыбратьНоменклатуруРасширеннаяПодсказка" id="453"/>
-								</Button>
 								<Button name="СопоставитьНоменклатуру" id="375">
 									<Type>Hyperlink</Type>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<CommandName>Form.Command.СопоставитьНоменклатуру</CommandName>
 									<ExtendedTooltip name="СопоставитьНоменклатуруРасширеннаяПодсказка" id="376"/>
 								</Button>
+								<Button name="ВыбратьРежимПолученияНовыхШтрихкодов" id="473">
+									<Type>Hyperlink</Type>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<CommandName>Form.Command.ВыбратьРежимПолученияНовыхШтрихкодов</CommandName>
+									<ExtendedTooltip name="ВыбратьРежимПолученияНовыхШтрихкодовРасширеннаяПодсказка" id="474"/>
+								</Button>
+								<UsualGroup name="СопоставлениеНоменклатуры" id="390">
+									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сопоставление номенклатуры</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="СопоставлениеНоменклатурыРасширеннаяПодсказка" id="391"/>
+									<ChildItems>
+										<UsualGroup name="СопоставлениеНоменклатурыДлительнаяОперация" id="442">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сопоставление номенклатуры длительная операция</v8:content>
+												</v8:item>
+											</Title>
+											<Group>HorizontalIfPossible</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="СопоставлениеНоменклатурыДлительнаяОперацияРасширеннаяПодсказка" id="443"/>
+											<ChildItems>
+												<PictureDecoration name="СопоставлениеНоменклатурыДлительнаяОперацияКартинка" id="387">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Сопоставление номенклатуры длительная операция картинка</v8:content>
+														</v8:item>
+													</Title>
+													<Picture>
+														<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
+														<xr:LoadTransparent>false</xr:LoadTransparent>
+													</Picture>
+													<FileDragMode>AsFile</FileDragMode>
+													<ContextMenu name="СопоставлениеНоменклатурыДлительнаяОперацияКартинкаКонтекстноеМеню" id="388"/>
+													<ExtendedTooltip name="СопоставлениеНоменклатурыДлительнаяОперацияКартинкаРасширеннаяПодсказка" id="389"/>
+												</PictureDecoration>
+												<LabelField name="СопоставлениеНоменклатурыДлительнаяОперацияТекст" id="449">
+													<DataPath>СопоставлениеНоменклатурыДлительнаяОперацияТекст</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<TextColor>style:ПоясняющийТекст</TextColor>
+													<ContextMenu name="СопоставлениеНоменклатурыДлительнаяОперацияТекстКонтекстноеМеню" id="450"/>
+													<ExtendedTooltip name="СопоставлениеНоменклатурыДлительнаяОперацияТекстРасширеннаяПодсказка" id="451"/>
+												</LabelField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="СопоставлениеНоменклатурыГотово" id="444">
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сопоставление номенклатуры готово</v8:content>
+												</v8:item>
+											</Title>
+											<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+											<Group>HorizontalIfPossible</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="СопоставлениеНоменклатурыГотовоРасширеннаяПодсказка" id="445"/>
+											<ChildItems>
+												<LabelField name="СопоставлениеНоменклатурыГотовоТекст" id="434">
+													<DataPath>СопоставлениеНоменклатурыГотовоТекст</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<Width>4</Width>
+													<MaxWidth>4</MaxWidth>
+													<HorizontalStretch>false</HorizontalStretch>
+													<TextColor>style:ПоясняющийТекст</TextColor>
+													<ContextMenu name="СопоставлениеНоменклатурыГотовоТекстКонтекстноеМеню" id="435"/>
+													<ExtendedTooltip name="СопоставлениеНоменклатурыГотовоТекстРасширеннаяПодсказка" id="436"/>
+												</LabelField>
+												<LabelDecoration name="СопоставлениеНоменклатурыГотовоСтатистика" id="446">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<HorizontalStretch>true</HorizontalStretch>
+													<TextColor>style:ПоясняющийТекст</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>к выгрузке 5 из 10 (50%)</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="СопоставлениеНоменклатурыГотовоСтатистикаКонтекстноеМеню" id="447"/>
+													<ExtendedTooltip name="СопоставлениеНоменклатурыГотовоСтатистикаРасширеннаяПодсказка" id="448"/>
+													<Events>
+														<Event name="URLProcessing">СопоставлениеНоменклатурыГотовоСтатистикаОбработкаНавигационнойСсылки</Event>
+													</Events>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-						<UsualGroup name="ВыгрузитьНоменклатуруИНастроитьРасписание" id="519">
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Шаг4Выгрузка" id="278">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаг 4 выгрузка</v8:content>
+						</v8:item>
+					</Title>
+					<Height>1</Height>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Шаг4ВыгрузкаРасширеннаяПодсказка" id="279"/>
+					<ChildItems>
+						<PictureDecoration name="Шаг4" id="350">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Шаг4</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.Этап4СинийБЭД</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Шаг4КонтекстноеМеню" id="351"/>
+							<ExtendedTooltip name="Шаг4РасширеннаяПодсказка" id="352"/>
+						</PictureDecoration>
+						<UsualGroup name="ГруппаВыгрузить" id="377">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Выгрузить номенклатуру</v8:content>
 								</v8:item>
 							</Title>
-							<HorizontalStretch>true</HorizontalStretch>
 							<Group>Vertical</Group>
-							<ShowAsCard>true</ShowAsCard>
-							<ExtendedTooltip name="ВыгрузитьНоменклатуруИНастроитьРасписаниеРасширеннаяПодсказка" id="520"/>
+							<Behavior>Usual</Behavior>
+							<Representation>WeakSeparation</Representation>
+							<ExtendedTooltip name="ГруппаВыгрузитьРасширеннаяПодсказка" id="378"/>
 							<ChildItems>
 								<UsualGroup name="ГруппаВыгрузитьНоменклатуру" id="418">
 									<Title>
@@ -559,12 +803,13 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<HorizontalStretch>true</HorizontalStretch>
 									<Group>HorizontalIfPossible</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаВыгрузитьНоменклатуруРасширеннаяПодсказка" id="419">
-										<AutoMaxWidth>false</AutoMaxWidth>
+										<Font ref="style:SmallTextFont" kind="StyleItem"/>
 										<Title formatted="true">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -599,6 +844,7 @@
 										<LabelField name="ВыгруженоПредставление" id="470">
 											<DataPath>ВыгруженоПредставление</DataPath>
 											<TitleLocation>None</TitleLocation>
+											<TextColor>style:ПоясняющийТекст</TextColor>
 											<ContextMenu name="ВыгруженоПредставлениеКонтекстноеМеню" id="471"/>
 											<ExtendedTooltip name="ВыгруженоПредставлениеРасширеннаяПодсказка" id="472"/>
 										</LabelField>
@@ -618,6 +864,7 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<Height>4</Height>
 									<Group>Vertical</Group>
 									<VerticalSpacing>Single</VerticalSpacing>
 									<VerticalAlign>Bottom</VerticalAlign>
@@ -626,6 +873,7 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаРасписаниеРасширеннаяПодсказка" id="291">
 										<AutoMaxWidth>false</AutoMaxWidth>
+										<MaxWidth>60</MaxWidth>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -652,6 +900,7 @@
 										</CheckBoxField>
 										<Button name="НастроитьРасписание" id="410">
 											<Type>Hyperlink</Type>
+											<AutoMaxWidth>false</AutoMaxWidth>
 											<CommandName>Form.Command.НастроитьРасписание</CommandName>
 											<ExtendedTooltip name="НастроитьРасписаниеРасширеннаяПодсказка" id="411"/>
 										</Button>
@@ -660,55 +909,77 @@
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
-				</Page>
-				<Page name="РезультатыВыгрузки" id="507">
+				</UsualGroup>
+				<UsualGroup name="Шаг5Результаты" id="353">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Результаты выгрузки</v8:content>
+							<v8:content>Шаг 5 результаты</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>true</HorizontalStretch>
-					<Picture>
-						<xr:Ref>CommonPicture.Этап3СинийБЭД</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<ExtendedTooltip name="РезультатыВыгрузкиРасширеннаяПодсказка" id="508"/>
+					<Height>1</Height>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Шаг5РезультатыРасширеннаяПодсказка" id="354"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаРезультаты" id="521">
+						<PictureDecoration name="Шаг5" id="355">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Шаг5</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.Этап5СинийБЭД</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Шаг5КонтекстноеМеню" id="356"/>
+							<ExtendedTooltip name="Шаг5РасширеннаяПодсказка" id="357"/>
+						</PictureDecoration>
+						<UsualGroup name="ГруппаРезультаты" id="358">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Ознакомиться с результатами, подписать</v8:content>
 								</v8:item>
 							</Title>
-							<ShowAsCard>true</ShowAsCard>
-							<ExtendedTooltip name="ГруппаРезультатыРасширеннаяПодсказка" id="522"/>
-						</UsualGroup>
-						<UsualGroup name="ГруппаРезультатыНациональныйКаталог" id="360">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Национальный каталог</v8:content>
-								</v8:item>
-							</Title>
-							<TitleTextColor>style:ГиперссылкаЦвет</TitleTextColor>
-							<HorizontalStretch>true</HorizontalStretch>
-							<Group>Vertical</Group>
-							<ShowAsCard>true</ShowAsCard>
-							<ExtendedTooltip name="ГруппаРезультатыНациональныйКаталогРасширеннаяПодсказка" id="361"/>
+							<Group>AlwaysHorizontal</Group>
+							<VerticalAlign>Bottom</VerticalAlign>
+							<Behavior>Usual</Behavior>
+							<Representation>WeakSeparation</Representation>
+							<ExtendedTooltip name="ГруппаРезультатыРасширеннаяПодсказка" id="359"/>
 							<ChildItems>
-								<Button name="ВсеРезультаты" id="379">
-									<Type>Hyperlink</Type>
-									<CommandName>Form.Command.ВсеРезультаты</CommandName>
-									<ExtendedTooltip name="ВсеРезультатыРасширеннаяПодсказка" id="380"/>
-								</Button>
+								<UsualGroup name="ГруппаРезультатыНациональныйКаталог" id="360">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Национальный каталог</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>style:ГиперссылкаЦвет</TitleTextColor>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаРезультатыНациональныйКаталогРасширеннаяПодсказка" id="361"/>
+									<ChildItems>
+										<Button name="ВсеРезультаты" id="379">
+											<Type>Hyperlink</Type>
+											<Height>1</Height>
+											<CommandName>Form.Command.ВсеРезультаты</CommandName>
+											<ExtendedTooltip name="ВсеРезультатыРасширеннаяПодсказка" id="380"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
-				</Page>
+				</UsualGroup>
 			</ChildItems>
-		</Pages>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -902,6 +1173,15 @@
 			</Title>
 			<Type/>
 		</Attribute>
+		<Attribute name="ЦветОсновной" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет основной</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
 		<Attribute name="ЦветОшибки" id="11">
 			<Title>
 				<v8:item>
@@ -909,9 +1189,7 @@
 					<v8:content>Цвет ошибки</v8:content>
 				</v8:item>
 			</Title>
-			<Type>
-				<v8:Type>v8ui:Color</v8:Type>
-			</Type>
+			<Type/>
 		</Attribute>
 		<Attribute name="ВводКонтактнойИнформации" id="2">
 			<Title>
@@ -921,7 +1199,26 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>v8ui:FormattedString</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьПараметрыДоступаНациональныйКаталог" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись параметры доступа национальный каталог</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 		<Attribute name="ГотовоКВыгрузке" id="17">
@@ -1074,7 +1371,7 @@
 			<Type>
 				<v8:Type>xs:string</v8:Type>
 				<v8:StringQualifiers>
-					<v8:Length>30</v8:Length>
+					<v8:Length>0</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
@@ -1224,7 +1521,7 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ПодписыватьЭлектроннойПодписью" id="9">
+		<Attribute name="ПодписыватьЭлектроннойПодписью" id="27">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1235,7 +1532,7 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ИспользоватьЭлектронныеПодписи" id="13">
+		<Attribute name="ИспользоватьЭлектронныеПодписи" id="45">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1348,40 +1645,6 @@
 			</Picture>
 			<Action>ВыбратьРежимПолученияНовыхШтрихкодов</Action>
 			<Representation>TextPicture</Representation>
-		</Command>
-		<Command name="УстановитьПараметрыДоступаНациональныйКаталог" id="7">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Установить параметры доступа национальный каталог</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Установить параметры доступа национальный каталог</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Setting</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>УстановитьПараметрыДоступаНациональныйКаталог</Action>
-		</Command>
-		<Command name="ЗаполнитьКонтактнуюИнформацию" id="8">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнить контактную информацию</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнить контактную информацию</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ЗаполнитьКонтактнуюИнформацию</Action>
 		</Command>
 	</Commands>
 </Form>

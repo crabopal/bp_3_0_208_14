@@ -11,35 +11,6 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ФормаВыбрать" id="71">
-				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Выбрать</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="72"/>
-			</Button>
-			<ButtonGroup name="ГруппаСоздатьОдинТип85" id="73">
-				<Visible>false</Visible>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Создать</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ГруппаСоздатьОдинТип85РасширеннаяПодсказка" id="74"/>
-			</ButtonGroup>
-			<Popup name="ГруппаСоздать85" id="75">
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Создать</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ГруппаСоздать85РасширеннаяПодсказка" id="76"/>
-			</Popup>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -51,9 +22,9 @@
 			<Representation>Tree</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<SelectionMode>SingleRow</SelectionMode>
-			<RowSelectionMode>Row</RowSelectionMode>
-			<Header>false</Header>
+			<RowSelectionMode>Cell</RowSelectionMode>
+			<HorizontalLinesBWA>false</HorizontalLinesBWA>
+			<VerticalLinesBWA>false</VerticalLinesBWA>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<InitialTreeView>ExpandAllLevels</InitialTreeView>
 			<DataPath>Список</DataPath>
@@ -74,6 +45,8 @@
 				<ExcludedCommand>MoveDown</ExcludedCommand>
 				<ExcludedCommand>MoveUp</ExcludedCommand>
 				<ExcludedCommand>OutputList</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 				<ExcludedCommand>SortListAsc</ExcludedCommand>
 				<ExcludedCommand>SortListDesc</ExcludedCommand>
@@ -136,29 +109,6 @@
 						</Title>
 						<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="38"/>
 					</Popup>
-					<Button name="СписокСкопировать" id="80">
-						<Type>CommandBarButton</Type>
-						<Visible>false</Visible>
-						<CommandName>Form.Command.Скопировать</CommandName>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-						<ExtendedTooltip name="СписокСкопироватьРасширеннаяПодсказка" id="81"/>
-					</Button>
-					<Button name="СписокИзменить" id="78">
-						<Type>CommandBarButton</Type>
-						<Visible>false</Visible>
-						<CommandName>Form.Command.Изменить</CommandName>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-						<ExtendedTooltip name="СписокИзменитьРасширеннаяПодсказка" id="79"/>
-					</Button>
-					<Popup name="ГруппаДополнительно85" id="88">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Настройки</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="ГруппаДополнительно85РасширеннаяПодсказка" id="89"/>
-					</Popup>
 					<SearchStringAddition name="ДополнениеПоиск" id="63">
 						<AdditionSource>
 							<Item>Список</Item>
@@ -207,7 +157,6 @@
 			<ChildItems>
 				<InputField name="СписокСсылка" id="57">
 					<DataPath>Список.Ссылка</DataPath>
-					<ReadOnly>true</ReadOnly>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -381,14 +330,7 @@
 					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Action>Выбрать</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Скопировать" id="8">
 			<Title>
@@ -397,20 +339,12 @@
 					<v8:content>Скопировать</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Скопировать</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Picture>
 				<xr:Ref>StdPicture.CloneListItem</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Скопировать</Action>
 			<Representation>Picture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 		<Command name="Обновить" id="9">
 			<Title>
@@ -419,6 +353,7 @@
 					<v8:content>Обновить</v8:content>
 				</v8:item>
 			</Title>
+			<Shortcut>F5</Shortcut>
 			<Picture>
 				<xr:Ref>StdPicture.Refresh</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
@@ -432,19 +367,11 @@
 					<v8:content>Изменить</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Изменить</v8:content>
-				</v8:item>
-			</ToolTip>
 			<Picture>
 				<xr:Ref>StdPicture.Change</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>Изменить</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

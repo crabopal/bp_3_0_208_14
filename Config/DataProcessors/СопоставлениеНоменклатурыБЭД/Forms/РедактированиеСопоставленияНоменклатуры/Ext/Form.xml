@@ -13,7 +13,6 @@
 	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
-		<Event name="BeforeClose">ПередЗакрытием</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -47,6 +46,8 @@
 								</v8:item>
 							</Title>
 							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>WeakSeparation</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаПодсказкиСпискаДокументовРасширеннаяПодсказка" id="24"/>
 							<ChildItems>
@@ -58,8 +59,8 @@
 										</v8:item>
 									</Title>
 									<Picture>
-										<xr:Ref>StdPicture.Information</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
+										<xr:Ref>CommonPicture.Информация32</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="КартинкаИнформацииКонтекстноеМеню" id="26"/>
@@ -67,10 +68,11 @@
 								</PictureDecoration>
 								<LabelDecoration name="НадписьПодсказкиСпискаДокументов" id="28">
 									<AutoMaxWidth>false</AutoMaxWidth>
-									<Title formatted="false">
+									<Title formatted="true">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>В документах не установлено соответствие с номенклатурой &lt;Владельца&gt;.</v8:content>
+											<v8:content>&lt;colorstyle 0:ad87bd29-0ad1-4da4-ac62-38e714e0cb9f&gt;В документах не установлено соответствие с номенклатурой &lt;&lt;Владельца&gt;&gt;.&lt;/&gt;&lt;colorstyle 0&gt;
+&lt;/&gt;</v8:content>
 										</v8:item>
 									</Title>
 									<GroupVerticalAlign>Center</GroupVerticalAlign>
@@ -85,7 +87,6 @@
 							<CommandBarLocation>None</CommandBarLocation>
 							<ReadOnly>true</ReadOnly>
 							<ChangeRowSet>false</ChangeRowSet>
-							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -129,23 +130,31 @@
 							<ChildItems>
 								<CheckBoxField name="ТаблицаДокументовОбработано" id="39">
 									<DataPath>ТаблицаДокументов.Обработано</DataPath>
+									<EditMode>EnterOnInput</EditMode>
 									<ShowInHeader>false</ShowInHeader>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ТаблицаДокументовОбработаноКонтекстноеМеню" id="40"/>
 									<ExtendedTooltip name="ТаблицаДокументовОбработаноРасширеннаяПодсказка" id="41"/>
 								</CheckBoxField>
 								<InputField name="ТаблицаДокументовВладелец" id="14">
 									<DataPath>ТаблицаДокументов.Владелец</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ТаблицаДокументовВладелецКонтекстноеМеню" id="15"/>
 									<ExtendedTooltip name="ТаблицаДокументовВладелецРасширеннаяПодсказка" id="16"/>
 								</InputField>
 								<InputField name="ТаблицаДокументовСсылкаНаДокумент" id="20">
 									<DataPath>ТаблицаДокументов.СсылкаНаДокумент</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ТаблицаДокументовСсылкаНаДокументКонтекстноеМеню" id="21"/>
 									<ExtendedTooltip name="ТаблицаДокументовСсылкаНаДокументРасширеннаяПодсказка" id="22"/>
 								</InputField>
 								<InputField name="ТаблицаДокументовПроблемы" id="17">
 									<DataPath>ТаблицаДокументов.Проблемы</DataPath>
+									<EditMode>EnterOnInput</EditMode>
 									<CellHyperlink>true</CellHyperlink>
+									<AutoEditMode>true</AutoEditMode>
 									<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 									<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 									<ContextMenu name="ТаблицаДокументовПроблемыКонтекстноеМеню" id="18"/>
@@ -173,13 +182,11 @@
 									<v8:content>Группа подсказки</v8:content>
 								</v8:item>
 							</Title>
-							<HorizontalStretch>true</HorizontalStretch>
 							<Group>Horizontal</Group>
 							<VerticalAlign>Center</VerticalAlign>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<BackColor>pal:LightBlue</BackColor>
 							<ExtendedTooltip name="ГруппаПодсказкиРасширеннаяПодсказка" id="49"/>
 							<ChildItems>
 								<PictureDecoration name="КартинкаИнформацииДокумента" id="50">
@@ -189,39 +196,63 @@
 											<v8:content>Картинка информации документа</v8:content>
 										</v8:item>
 									</Title>
-									<PictureSize>ByFontSize</PictureSize>
 									<Picture>
-										<xr:Ref>StdPicture.Information</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
+										<xr:Ref>CommonPicture.Информация32</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="КартинкаИнформацииДокументаКонтекстноеМеню" id="51"/>
 									<ExtendedTooltip name="КартинкаИнформацииДокументаРасширеннаяПодсказка" id="52"/>
 								</PictureDecoration>
-								<LabelDecoration name="НадписьПодсказка" id="58">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>true</HorizontalStretch>
-									<Title formatted="false">
+								<UsualGroup name="ГруппаНадписиДокумента" id="53">
+									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Укажите номенклатуру &lt;Владельца&gt; для документа</v8:content>
+											<v8:content>Группа надписи документа</v8:content>
 										</v8:item>
 									</Title>
-									<ContextMenu name="НадписьПодсказкаКонтекстноеМеню" id="59"/>
-									<ExtendedTooltip name="НадписьПодсказкаРасширеннаяПодсказка" id="60"/>
-								</LabelDecoration>
+									<Group>Horizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаНадписиДокументаРасширеннаяПодсказка" id="54"/>
+									<ChildItems>
+										<LabelDecoration name="НадписьПодсказка" id="58">
+											<Title formatted="true">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>&lt;colorstyle 0:ad87bd29-0ad1-4da4-ac62-38e714e0cb9f&gt;Укажите номенклатуру &lt;&lt;Владельца&gt;&gt; для документа&lt;/&gt;&lt;colorstyle 0:ad87bd29-0ad1-4da4-ac62-38e714e0cb9f&gt;
+&lt;/&gt;</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="НадписьПодсказкаКонтекстноеМеню" id="59"/>
+											<ExtendedTooltip name="НадписьПодсказкаРасширеннаяПодсказка" id="60"/>
+										</LabelDecoration>
+										<LabelDecoration name="ГиперссылкаДокумент" id="55">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Заказ поставщику №...</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ГиперссылкаДокументКонтекстноеМеню" id="56"/>
+											<ExtendedTooltip name="ГиперссылкаДокументРасширеннаяПодсказка" id="57"/>
+											<Events>
+												<Event name="Click">ГиперссылкаДокументНажатие</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
 						<Table name="ТаблицаСопоставлений" id="101">
 							<Representation>List</Representation>
 							<CommandBarLocation>None</CommandBarLocation>
 							<ChangeRowSet>false</ChangeRowSet>
-							<ChangeRowOrder>false</ChangeRowOrder>
-							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
-							<RowActionsShowType>DontShow</RowActionsShowType>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>ТаблицаСопоставлений</DataPath>
@@ -259,44 +290,60 @@
 								<Event name="OnActivateCell">ТаблицаСопоставленийПриАктивизацииЯчейки</Event>
 							</Events>
 							<ChildItems>
-								<InputField name="ТаблицаСопоставленийНомерСтроки" id="114">
-									<DataPath>ТаблицаСопоставлений.НомерСтроки</DataPath>
+								<CheckBoxField name="ТаблицаСопоставленийСопоставлено" id="131">
+									<DataPath>ТаблицаСопоставлений.Сопоставлено</DataPath>
 									<ReadOnly>true</ReadOnly>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>№</v8:content>
-										</v8:item>
-									</Title>
-									<AutoWidthInTable>ByData</AutoWidthInTable>
-									<ContextMenu name="ТаблицаСопоставленийНомерСтрокиКонтекстноеМеню" id="115"/>
-									<ExtendedTooltip name="ТаблицаСопоставленийНомерСтрокиРасширеннаяПодсказка" id="116"/>
-								</InputField>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ContextMenu name="ТаблицаСопоставленийСопоставленоКонтекстноеМеню" id="132"/>
+									<ExtendedTooltip name="ТаблицаСопоставленийСопоставленоРасширеннаяПодсказка" id="133"/>
+								</CheckBoxField>
 								<ColumnGroup name="ДанныеДокумента" id="129">
+									<ReadOnly>true</ReadOnly>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
 											<v8:content>Данные документа</v8:content>
 										</v8:item>
 									</Title>
-									<Group>InCell</Group>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
 									<ExtendedTooltip name="ДанныеДокументаРасширеннаяПодсказка" id="130"/>
 									<ChildItems>
+										<InputField name="ТаблицаСопоставленийНомерСтроки" id="114">
+											<DataPath>ТаблицаСопоставлений.НомерСтроки</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>№</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<Width>2</Width>
+											<ContextMenu name="ТаблицаСопоставленийНомерСтрокиКонтекстноеМеню" id="115"/>
+											<ExtendedTooltip name="ТаблицаСопоставленийНомерСтрокиРасширеннаяПодсказка" id="116"/>
+										</InputField>
 										<InputField name="ТаблицаСопоставленийНоменклатура" id="117">
 											<DataPath>ТаблицаСопоставлений.Номенклатура</DataPath>
-											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ТаблицаСопоставленийНоменклатураКонтекстноеМеню" id="118"/>
 											<ExtendedTooltip name="ТаблицаСопоставленийНоменклатураРасширеннаяПодсказка" id="119"/>
 										</InputField>
 										<InputField name="ТаблицаСопоставленийХарактеристика" id="120">
 											<DataPath>ТаблицаСопоставлений.Характеристика</DataPath>
-											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ТаблицаСопоставленийХарактеристикаКонтекстноеМеню" id="121"/>
 											<ExtendedTooltip name="ТаблицаСопоставленийХарактеристикаРасширеннаяПодсказка" id="122"/>
 										</InputField>
 										<InputField name="ТаблицаСопоставленийУпаковка" id="123">
 											<DataPath>ТаблицаСопоставлений.Упаковка</DataPath>
-											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ТаблицаСопоставленийУпаковкаКонтекстноеМеню" id="124"/>
 											<ExtendedTooltip name="ТаблицаСопоставленийУпаковкаРасширеннаяПодсказка" id="125"/>
 										</InputField>
@@ -310,8 +357,10 @@
 											<v8:content>Номенклатура &lt;Владельца&gt;</v8:content>
 										</v8:item>
 									</Title>
+									<EditMode>EnterOnInput</EditMode>
 									<MarkRequiredComplete>true</MarkRequiredComplete>
-									<AutoWidthInTable>None</AutoWidthInTable>
+									<AutoEditMode>true</AutoEditMode>
+									<Width>25</Width>
 									<DropListButton>false</DropListButton>
 									<ChoiceButton>true</ChoiceButton>
 									<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
@@ -386,6 +435,12 @@
 							<CommandName>Form.Command.ЗавершитьРедактирование</CommandName>
 							<ButtonImportance>Main</ButtonImportance>
 							<ExtendedTooltip name="ЗавершитьРедактированиеРасширеннаяПодсказка" id="98"/>
+						</Button>
+						<Button name="ОтменитьРедактирование" id="99">
+							<Type>UsualButton</Type>
+							<Width>8</Width>
+							<CommandName>Form.Command.ОтменитьРедактирование</CommandName>
+							<ExtendedTooltip name="ОтменитьРедактированиеРасширеннаяПодсказка" id="100"/>
 						</Button>
 					</ChildItems>
 				</UsualGroup>
@@ -493,7 +548,6 @@
 			<Type>
 				<v8:Type>v8:ValueTable</v8:Type>
 			</Type>
-			<SavedData>true</SavedData>
 			<Columns>
 				<Column name="НомерСтроки" id="1">
 					<Title>
@@ -754,17 +808,6 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="ПринудительноеЗавершение" id="9">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Принудительное завершение</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="Назад" id="2">
@@ -784,6 +827,15 @@
 				</v8:item>
 			</Title>
 			<Action>ЗавершитьРедактирование</Action>
+		</Command>
+		<Command name="ОтменитьРедактирование" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ОтменитьРедактирование</Action>
 		</Command>
 	</Commands>
 </Form>

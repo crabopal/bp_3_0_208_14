@@ -62,7 +62,7 @@
 								<v8:content>Доверенность</v8:content>
 							</v8:item>
 						</Title>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 						<ExtendedTooltip name="СоздатьЗаявлениеНаРегистрациюРасширеннаяПодсказка" id="320"/>
 					</Button>
 					<Button name="СоздатьЗаявлениеНаРегистрациюПередоверия" id="406">
@@ -75,7 +75,7 @@
 								<v8:content>Передоверие</v8:content>
 							</v8:item>
 						</Title>
-						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 						<ExtendedTooltip name="СоздатьЗаявлениеНаРегистрациюПередоверияРасширеннаяПодсказка" id="407"/>
 					</Button>
 				</ChildItems>
@@ -184,10 +184,10 @@
 					<ChildItems>
 						<Table name="Список" id="3">
 							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
 							<ReadOnly>true</ReadOnly>
 							<DefaultItem>true</DefaultItem>
 							<ChangeRowSet>false</ChangeRowSet>
-							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<HeaderHeight>2</HeaderHeight>
 							<SearchOnInput>DontUse</SearchOnInput>
@@ -204,12 +204,13 @@
 								<ExcludedCommand>CancelSearch</ExcludedCommand>
 								<ExcludedCommand>Change</ExcludedCommand>
 								<ExcludedCommand>Find</ExcludedCommand>
+								<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
 								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+								<ExcludedCommand>SearchHistory</ExcludedCommand>
 							</CommandSet>
 							<SearchStringLocation>None</SearchStringLocation>
 							<ViewStatusLocation>None</ViewStatusLocation>
 							<SearchControlLocation>None</SearchControlLocation>
-							<ShowCommandBar>auto</ShowCommandBar>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -235,22 +236,7 @@
 								</ChildItems>
 							</ContextMenu>
 							<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-								<ChildItems>
-									<SearchStringAddition name="ПоисковаяСтрокаСписка" id="439">
-										<AdditionSource>
-											<Item>Список</Item>
-											<Type>SearchStringRepresentation</Type>
-										</AdditionSource>
-										<Title>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Поисковая строка списка</v8:content>
-											</v8:item>
-										</Title>
-										<ContextMenu name="ПоисковаяСтрокаСпискаКонтекстноеМеню" id="440"/>
-										<ExtendedTooltip name="ПоисковаяСтрокаСпискаРасширеннаяПодсказка" id="441"/>
-									</SearchStringAddition>
-								</ChildItems>
+								<Autofill>false</Autofill>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 							<SearchStringAddition name="СписокСтрокаПоиска" id="7">
@@ -320,6 +306,7 @@
 выдачи</v8:content>
 												</v8:item>
 											</Title>
+											<Width>6</Width>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<MaxWidth>6</MaxWidth>
 											<HorizontalStretch>false</HorizontalStretch>
@@ -341,6 +328,7 @@
 действия</v8:content>
 												</v8:item>
 											</Title>
+											<Width>7</Width>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<MaxWidth>6</MaxWidth>
 											<HorizontalStretch>false</HorizontalStretch>
@@ -570,6 +558,29 @@
 														</LabelDecoration>
 													</ChildItems>
 												</UsualGroup>
+												<UsualGroup name="ГруппаНастройки" id="427">
+													<Visible>false</Visible>
+													<Group>HorizontalIfPossible</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="428"/>
+													<ChildItems>
+														<LabelDecoration name="НастройкаПроверки" id="429">
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Настроить проверку</v8:content>
+																</v8:item>
+															</Title>
+															<Hyperlink>true</Hyperlink>
+															<ContextMenu name="НастройкаПроверкиКонтекстноеМеню" id="430"/>
+															<ExtendedTooltip name="НастройкаПроверкиРасширеннаяПодсказка" id="431"/>
+															<Events>
+																<Event name="Click">НастройкаПроверкиНажатие</Event>
+															</Events>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
 											</ChildItems>
 										</UsualGroup>
 										<UsualGroup name="ГруппаСтатусВРеестреФНС" id="393">
@@ -619,7 +630,7 @@
 													<Title formatted="false">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Подпись доверенности не верифицирована.</v8:content>
+															<v8:content>Подпись доверенности не прошла проверку.</v8:content>
 														</v8:item>
 													</Title>
 													<ContextMenu name="ДекорацияТекстОшибкиПроверкиПодписиКонтекстноеМеню" id="422"/>
@@ -1092,6 +1103,15 @@
 			</Title>
 			<Type/>
 		</Attribute>
+		<Attribute name="ПротоколПроверкиМЧД" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Протокол проверки МЧД</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="СоздатьЗаявлениеНаРегистрацию" id="1">
@@ -1103,7 +1123,6 @@
 			</Title>
 			<Action>СоздатьЗаявлениеНаРегистрацию</Action>
 			<Representation>Picture</Representation>
-			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="ЗагрузитьИзФайла" id="3">
 			<Title>
@@ -1206,7 +1225,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СоздатьЗаявлениеНаРегистрациюПередоверия</Action>
-			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="Обновить" id="21">
 			<Title>

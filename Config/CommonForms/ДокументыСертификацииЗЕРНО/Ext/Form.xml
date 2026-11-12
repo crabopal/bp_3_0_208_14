@@ -2,28 +2,8 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ДокументыСертификацииСохранить" id="12">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Сохранить</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Готово</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ДокументыСертификацииСохранитьРасширеннаяПодсказка" id="13"/>
-			</Button>
-			<Button name="ДокументыСертификацииОтмена" id="14">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<ExtendedTooltip name="ДокументыСертификацииОтменаРасширеннаяПодсказка" id="15"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -37,7 +17,6 @@
 					<v8:content>Группа реквизиты документов</v8:content>
 				</v8:item>
 			</Title>
-			<HorizontalStretch>false</HorizontalStretch>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
@@ -47,9 +26,6 @@
 				<CheckBoxField name="УказатьДекларациюСоответствия" id="4">
 					<DataPath>УказатьДекларациюСоответствия</DataPath>
 					<TitleLocation>Right</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<CheckBoxType>Switcher</CheckBoxType>
 					<ContextMenu name="УказатьДекларациюСоответствияКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="УказатьДекларациюСоответствияРасширеннаяПодсказка" id="6">
 						<Title formatted="false">
@@ -91,8 +67,8 @@
 							<ChildItems>
 								<InputField name="НомерДекларации" id="46">
 									<DataPath>НомерДекларации</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>14</MaxWidth>
 									<ContextMenu name="НомерДекларацииКонтекстноеМеню" id="47"/>
 									<ExtendedTooltip name="НомерДекларацииРасширеннаяПодсказка" id="48"/>
 								</InputField>
@@ -104,8 +80,6 @@
 											<v8:content>от</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ДатаДекларацииКонтекстноеМеню" id="50"/>
 									<ExtendedTooltip name="ДатаДекларацииРасширеннаяПодсказка" id="51"/>
 								</InputField>
@@ -113,8 +87,6 @@
 						</UsualGroup>
 						<InputField name="СрокДействияДекларации" id="52">
 							<DataPath>СрокДействияДекларации</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СрокДействияДекларацииКонтекстноеМеню" id="53"/>
 							<ExtendedTooltip name="СрокДействияДекларацииРасширеннаяПодсказка" id="54"/>
 						</InputField>
@@ -124,9 +96,6 @@
 					<DataPath>УказатьФитосанитарныйСертификат</DataPath>
 					<TitleLocation>Right</TitleLocation>
 					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<CheckBoxType>Switcher</CheckBoxType>
 					<ContextMenu name="УказатьФитосанитарныйСертификатКонтекстноеМеню" id="8"/>
 					<ExtendedTooltip name="УказатьФитосанитарныйСертификатРасширеннаяПодсказка" id="9">
 						<Title formatted="false">
@@ -155,8 +124,8 @@
 					<ChildItems>
 						<InputField name="НомерФитоСертификата" id="55">
 							<DataPath>НомерФитоСертификата</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>14</MaxWidth>
 							<ContextMenu name="НомерФитоСертификатаКонтекстноеМеню" id="56"/>
 							<ExtendedTooltip name="НомерФитоСертификатаРасширеннаяПодсказка" id="57"/>
 						</InputField>
@@ -168,8 +137,6 @@
 									<v8:content>от</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ДатаФитоСертификатаКонтекстноеМеню" id="59"/>
 							<ExtendedTooltip name="ДатаФитоСертификатаРасширеннаяПодсказка" id="60"/>
 						</InputField>
@@ -179,9 +146,6 @@
 					<DataPath>УказатьВСД</DataPath>
 					<TitleLocation>Right</TitleLocation>
 					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<CheckBoxType>Switcher</CheckBoxType>
 					<ContextMenu name="УказатьВСДКонтекстноеМеню" id="2"/>
 					<ExtendedTooltip name="УказатьВСДРасширеннаяПодсказка" id="3">
 						<Title formatted="false">
@@ -208,65 +172,57 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаВСДРасширеннаяПодсказка" id="17"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаВидДокументаВСД" id="77">
+						<InputField name="ВидДокументаВСД" id="22">
+							<DataPath>ВидДокументаВСД</DataPath>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Электронный</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">ELECTRONIC</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Бумажный</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">PAPER</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ВидДокументаВСДКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="ВидДокументаВСДРасширеннаяПодсказка" id="24"/>
+							<Events>
+								<Event name="OnChange">ВидДокументаВСДПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ИдентификаторПроисхожденияВЕТИССтрокой" id="37">
+							<DataPath>ИдентификаторПроисхожденияВЕТИССтрокой</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа вид документа ВСД</v8:content>
+									<v8:content>Идентификатор ВСД</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа вид документа ВСД</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаВидДокументаВСДРасширеннаяПодсказка" id="78"/>
-							<ChildItems>
-								<RadioButtonField name="ВидДокументаВСД" id="22">
-									<DataPath>ВидДокументаВСД</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<RadioButtonType>Tumbler</RadioButtonType>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ChoiceList>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Электронный</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:string">ELECTRONIC</Value>
-											</xr:Value>
-										</xr:Item>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Бумажный</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:string">PAPER</Value>
-											</xr:Value>
-										</xr:Item>
-									</ChoiceList>
-									<ContextMenu name="ВидДокументаВСДКонтекстноеМеню" id="23"/>
-									<ExtendedTooltip name="ВидДокументаВСДРасширеннаяПодсказка" id="24"/>
-									<Events>
-										<Event name="OnChange">ВидДокументаВСДПриИзменении</Event>
-									</Events>
-								</RadioButtonField>
-							</ChildItems>
-						</UsualGroup>
+							<ContextMenu name="ИдентификаторПроисхожденияВЕТИССтрокойКонтекстноеМеню" id="38"/>
+							<ExtendedTooltip name="ИдентификаторПроисхожденияВЕТИССтрокойРасширеннаяПодсказка" id="39"/>
+							<Events>
+								<Event name="OnChange">ИдентификаторПроисхожденияВЕТИССтрокойПриИзменении</Event>
+							</Events>
+						</InputField>
 						<UsualGroup name="ГруппаНомерДатаВСД" id="40">
 							<Title>
 								<v8:item>
@@ -288,8 +244,8 @@
 											<v8:content>Номер</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>14</MaxWidth>
 									<ContextMenu name="НомерВСДКонтекстноеМеню" id="26"/>
 									<ExtendedTooltip name="НомерВСДРасширеннаяПодсказка" id="27"/>
 								</InputField>
@@ -301,8 +257,6 @@
 											<v8:content>от</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ДатаВСДКонтекстноеМеню" id="29"/>
 									<ExtendedTooltip name="ДатаВСДРасширеннаяПодсказка" id="30"/>
 								</InputField>
@@ -317,63 +271,60 @@
 									<v8:content>Идентификатор происхождения ВЕТИС</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ИдентификаторПроисхожденияВЕТИСКонтекстноеМеню" id="35"/>
 							<ExtendedTooltip name="ИдентификаторПроисхожденияВЕТИСРасширеннаяПодсказка" id="36"/>
 						</InputField>
-						<UsualGroup name="ГруппаИдентификаторСерияВСД" id="79">
+						<InputField name="СерияВСД" id="31">
+							<DataPath>СерияВСД</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа идентификатор серия ВСД</v8:content>
+									<v8:content>Серия</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа идентификатор серия ВСД</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаИдентификаторСерияВСДРасширеннаяПодсказка" id="80"/>
-							<ChildItems>
-								<InputField name="ИдентификаторПроисхожденияВЕТИССтрокой" id="37">
-									<DataPath>ИдентификаторПроисхожденияВЕТИССтрокой</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Идентификатор ВСД</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ИдентификаторПроисхожденияВЕТИССтрокойКонтекстноеМеню" id="38"/>
-									<ExtendedTooltip name="ИдентификаторПроисхожденияВЕТИССтрокойРасширеннаяПодсказка" id="39"/>
-									<Events>
-										<Event name="OnChange">ИдентификаторПроисхожденияВЕТИССтрокойПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="СерияВСД" id="31">
-									<DataPath>СерияВСД</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Серия</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="СерияВСДКонтекстноеМеню" id="32"/>
-									<ExtendedTooltip name="СерияВСДРасширеннаяПодсказка" id="33"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
+							<ContextMenu name="СерияВСДКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="СерияВСДРасширеннаяПодсказка" id="33"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
+		<CommandBar name="КоманднаяПанель" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="11"/>
+			<ChildItems>
+				<Button name="ДокументыСертификацииСохранить" id="12">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Сохранить</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Готово</v8:content>
+						</v8:item>
+					</Title>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ДокументыСертификацииСохранитьРасширеннаяПодсказка" id="13"/>
+				</Button>
+				<Button name="ДокументыСертификацииОтмена" id="14">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Отмена</CommandName>
+					<ExtendedTooltip name="ДокументыСертификацииОтменаРасширеннаяПодсказка" id="15"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="УказатьВСД" id="1">
@@ -604,7 +555,6 @@
 			</ToolTip>
 			<Action>Отмена</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Сохранить" id="2">
 			<Title>
@@ -621,7 +571,6 @@
 			</ToolTip>
 			<Action>Сохранить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

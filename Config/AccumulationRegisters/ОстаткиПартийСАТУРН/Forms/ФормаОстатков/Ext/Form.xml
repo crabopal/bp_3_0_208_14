@@ -12,8 +12,9 @@
 	<CommandSet>
 		<ExcludedCommand>CancelSearch</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -69,7 +70,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОрганизацииРасширеннаяПодсказка" id="297"/>
 							<ChildItems>
@@ -82,10 +82,10 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
+									<ChoiceButton>true</ChoiceButton>
 									<ClearButton>true</ClearButton>
 									<QuickChoice>false</QuickChoice>
 									<ChooseType>false</ChooseType>
@@ -130,7 +130,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОрганизацияРасширеннаяПодсказка" id="302"/>
 							<ChildItems>
@@ -143,13 +142,12 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
+									<ChoiceButton>true</ChoiceButton>
 									<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 									<ClearButton>true</ClearButton>
-									<OpenButton>false</OpenButton>
 									<QuickChoice>false</QuickChoice>
 									<ChooseType>false</ChooseType>
 									<InputHint>
@@ -174,8 +172,6 @@
 				<RadioButtonField name="ОтборСтрок" id="317">
 					<DataPath>ОтборСтрок</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<RadioButtonType>Tumbler</RadioButtonType>
 					<ChoiceList>
 						<xr:Item>
@@ -205,16 +201,12 @@
 		</UsualGroup>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
-			<ChangeRowSet>false</ChangeRowSet>
-			<ChangeRowOrder>false</ChangeRowOrder>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<DataPath>Список</DataPath>
 			<CommandSet>
 				<ExcludedCommand>CancelSearch</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -231,17 +223,26 @@
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="3"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="2">
+				<Autofill>false</Autofill>
 				<ChildItems>
-					<Button name="СписокИзменитьФорму" id="334">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ExtendedTooltip name="СписокИзменитьФормуРасширеннаяПодсказка" id="335"/>
-					</Button>
-					<Button name="СписокСправка" id="336">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="СписокСправкаРасширеннаяПодсказка" id="337"/>
-					</Button>
+					<ButtonGroup name="КомандыФормы" id="72">
+						<CommandSource>Form</CommandSource>
+						<ExtendedTooltip name="КомандыФормыРасширеннаяПодсказка" id="73"/>
+					</ButtonGroup>
+					<SearchStringAddition name="СтрокаПоискаСписка" id="85">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Строка поиска списка</v8:content>
+							</v8:item>
+						</Title>
+						<ContextMenu name="СтрокаПоискаСпискаКонтекстноеМеню" id="86"/>
+						<ExtendedTooltip name="СтрокаПоискаСпискаРасширеннаяПодсказка" id="87"/>
+					</SearchStringAddition>
 				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="4"/>
@@ -284,8 +285,6 @@
 							<v8:content>Партия</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокПартияКонтекстноеМеню" id="237"/>
 					<ExtendedTooltip name="СписокПартияРасширеннаяПодсказка" id="238"/>
 				</InputField>
@@ -297,8 +296,6 @@
 							<v8:content>Организация</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокОрганизацияКонтекстноеМеню" id="228"/>
 					<ExtendedTooltip name="СписокОрганизацияРасширеннаяПодсказка" id="229"/>
 				</InputField>
@@ -310,15 +307,11 @@
 							<v8:content>Место хранения</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокМестоХраненияКонтекстноеМеню" id="231"/>
 					<ExtendedTooltip name="СписокМестоХраненияРасширеннаяПодсказка" id="232"/>
 				</InputField>
 				<InputField name="СписокПАТ" id="233">
 					<DataPath>Список.ПАТ</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокПАТКонтекстноеМеню" id="234"/>
 					<ExtendedTooltip name="СписокПАТРасширеннаяПодсказка" id="235"/>
 				</InputField>
@@ -330,7 +323,6 @@
 						</v8:item>
 					</Title>
 					<Group>InCell</Group>
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ДоступныйОстатокВЕдиницахСАТУРНРасширеннаяПодсказка" id="307"/>
 					<ChildItems>
 						<InputField name="СписокДоступныйОстаток" id="248">
@@ -341,8 +333,6 @@
 									<v8:content>Доступный остаток, кг/л</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>3</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<HorizontalStretch>false</HorizontalStretch>
@@ -352,8 +342,6 @@
 						<InputField name="СписокТипИзмеряемойВеличины" id="308">
 							<DataPath>Список.ТипИзмеряемойВеличины</DataPath>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="СписокТипИзмеряемойВеличиныКонтекстноеМеню" id="309"/>
 							<ExtendedTooltip name="СписокТипИзмеряемойВеличиныРасширеннаяПодсказка" id="310"/>
 						</InputField>
@@ -367,7 +355,6 @@
 						</v8:item>
 					</Title>
 					<Group>InCell</Group>
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ДоступныйОстатокВУпаковкахСАТУРНРасширеннаяПодсказка" id="321"/>
 					<ChildItems>
 						<InputField name="СписокДоступныйОстатокВУпаковкахСатурн" id="322">
@@ -381,14 +368,12 @@
 							<Width>3</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<HorizontalStretch>false</HorizontalStretch>
-							<TextSize>Enlarged</TextSize>
 							<ContextMenu name="СписокДоступныйОстатокВУпаковкахСатурнКонтекстноеМеню" id="323"/>
 							<ExtendedTooltip name="СписокДоступныйОстатокВУпаковкахСатурнРасширеннаяПодсказка" id="324"/>
 						</InputField>
 						<InputField name="СписокУпаковкаСатурн" id="325">
 							<DataPath>Список.УпаковкаСатурн</DataPath>
 							<TitleLocation>None</TitleLocation>
-							<TextSize>Enlarged</TextSize>
 							<ContextMenu name="СписокУпаковкаСатурнКонтекстноеМеню" id="326"/>
 							<ExtendedTooltip name="СписокУпаковкаСатурнРасширеннаяПодсказка" id="327"/>
 						</InputField>
@@ -403,22 +388,16 @@
 							<v8:content>Доступный остаток упаковок</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СписокДоступныйОстатокУпаковокКонтекстноеМеню" id="312"/>
 					<ExtendedTooltip name="СписокДоступныйОстатокУпаковокРасширеннаяПодсказка" id="313"/>
 				</InputField>
 				<InputField name="ДатаПроизводства" id="277">
 					<DataPath>Список.ДатаПроизводства</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаПроизводстваКонтекстноеМеню" id="278"/>
 					<ExtendedTooltip name="ДатаПроизводстваРасширеннаяПодсказка" id="279"/>
 				</InputField>
 				<InputField name="СрокГодности" id="274">
 					<DataPath>Список.СрокГодности</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СрокГодностиКонтекстноеМеню" id="275"/>
 					<ExtendedTooltip name="СрокГодностиРасширеннаяПодсказка" id="276"/>
 				</InputField>
@@ -968,6 +947,15 @@
 					<v8:content>Наименование упаковки</v8:content>
 				</v8:item>
 			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Реквизит1" id="31">
 			<Type>
 				<v8:Type>xs:string</v8:Type>
 				<v8:StringQualifiers>

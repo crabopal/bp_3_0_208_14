@@ -23,85 +23,37 @@
 				</v8:item>
 			</InputHint>
 			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="5"/>
+			<ExtendedTooltip name="НаименованиеExtendedTooltip" id="5"/>
 		</InputField>
-		<UsualGroup name="ДокументОснованиеГруппа" id="71">
+		<InputField name="ДокументОснование" id="20">
+			<DataPath>Объект.ДокументОснование</DataPath>
+			<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="21"/>
+			<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="22"/>
+			<Events>
+				<Event name="OnChange">ДокументОснованиеПриИзменении</Event>
+			</Events>
+		</InputField>
+		<CheckBoxField name="НормативныйДокументОтсутствуетВКлассификаторе" id="37">
+			<DataPath>НормативныйДокументОтсутствуетВКлассификаторе</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Документ основание группа</v8:content>
+					<v8:content>Документ основание отсутствует в классификаторе</v8:content>
 				</v8:item>
 			</Title>
-			<HorizontalSpacing>Half</HorizontalSpacing>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ДокументОснованиеГруппаРасширеннаяПодсказка" id="72"/>
-			<ChildItems>
-				<RadioButtonField name="ПоКлассификатору" id="75">
-					<DataPath>ПоКлассификатору</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Документ-основание</v8:content>
-						</v8:item>
-					</Title>
-					<RadioButtonType>Tumbler</RadioButtonType>
-					<ChoiceList>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Другой</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:string">ПРОИЗ</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>По классификатору</v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xs:string">КЛАСС</Value>
-							</xr:Value>
-						</xr:Item>
-					</ChoiceList>
-					<ContextMenu name="ПоКлассификаторуКонтекстноеМеню" id="76"/>
-					<ExtendedTooltip name="ПоКлассификаторуРасширеннаяПодсказка" id="77"/>
-					<Events>
-						<Event name="OnChange">ПоКлассификаторуПриИзменении</Event>
-					</Events>
-				</RadioButtonField>
-				<InputField name="ДокументОснование" id="20">
-					<DataPath>Объект.ДокументОснование</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Основание по классификатору</v8:content>
-						</v8:item>
-					</Title>
-					<TitleLocation>None</TitleLocation>
-					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="21"/>
-					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="22"/>
-					<Events>
-						<Event name="OnChange">ДокументОснованиеПриИзменении</Event>
-					</Events>
-				</InputField>
-			</ChildItems>
-		</UsualGroup>
+			<TitleLocation>Right</TitleLocation>
+			<ContextMenu name="НормативныйДокументОтсутствуетВКлассификатореКонтекстноеМеню" id="38"/>
+			<ExtendedTooltip name="НормативныйДокументОтсутствуетВКлассификатореРасширеннаяПодсказка" id="39"/>
+			<Events>
+				<Event name="OnChange">НормативныйДокументОтсутствуетВКлассификатореПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
 		<InputField name="НаименованиеДокументаОснования" id="40">
 			<DataPath>Объект.НаименованиеДокументаОснования</DataPath>
+			<TitleLocation>Left</TitleLocation>
+			<TitleHeight>2</TitleHeight>
 			<ToolTipRepresentation>Button</ToolTipRepresentation>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<MaxWidth>107</MaxWidth>
+			<VerticalStretch>false</VerticalStretch>
 			<InputHint>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -113,9 +65,10 @@
 		</InputField>
 		<InputField name="НаименованиеДокументаОснованияВРодительномПадеже" id="43">
 			<DataPath>Объект.НаименованиеДокументаОснованияВРодительномПадеже</DataPath>
+			<TitleLocation>Left</TitleLocation>
+			<TitleHeight>2</TitleHeight>
 			<ToolTipRepresentation>Button</ToolTipRepresentation>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<MaxWidth>107</MaxWidth>
+			<VerticalStretch>false</VerticalStretch>
 			<InputHint>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -132,9 +85,14 @@
 					<v8:content>Адрес в нормативном документе (группа)</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Если в наименовании написать слово "Абзац", то при подготовке представления адреса статьи в нормативном документе не будет выведено представление той части в которую оно введено.</v8:content>
+				</v8:item>
+			</ToolTip>
 			<ToolTipRepresentation>Button</ToolTipRepresentation>
 			<Group>AlwaysHorizontal</Group>
-			<HorizontalSpacing>Half</HorizontalSpacing>
 			<Behavior>Usual</Behavior>
 			<Representation>NormalSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -143,9 +101,7 @@
 			<ChildItems>
 				<InputField name="Статья" id="28">
 					<DataPath>Объект.Статья</DataPath>
-					<TitleLocation>Top</TitleLocation>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>20</MaxWidth>
+					<Width>5</Width>
 					<ContextMenu name="СтатьяКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="СтатьяРасширеннаяПодсказка" id="30"/>
 					<Events>
@@ -154,9 +110,7 @@
 				</InputField>
 				<InputField name="Часть" id="25">
 					<DataPath>Объект.Часть</DataPath>
-					<TitleLocation>Top</TitleLocation>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>20</MaxWidth>
+					<Width>5</Width>
 					<ContextMenu name="ЧастьКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ЧастьРасширеннаяПодсказка" id="27"/>
 					<Events>
@@ -165,9 +119,7 @@
 				</InputField>
 				<InputField name="Пункт" id="31">
 					<DataPath>Объект.Пункт</DataPath>
-					<TitleLocation>Top</TitleLocation>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>20</MaxWidth>
+					<Width>5</Width>
 					<ContextMenu name="ПунктКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="ПунктРасширеннаяПодсказка" id="33"/>
 					<Events>
@@ -176,9 +128,7 @@
 				</InputField>
 				<InputField name="Подпункт" id="34">
 					<DataPath>Объект.Подпункт</DataPath>
-					<TitleLocation>Top</TitleLocation>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>20</MaxWidth>
+					<Width>5</Width>
 					<ContextMenu name="ПодпунктКонтекстноеМеню" id="35"/>
 					<ExtendedTooltip name="ПодпунктРасширеннаяПодсказка" id="36"/>
 					<Events>
@@ -187,16 +137,7 @@
 				</InputField>
 				<InputField name="Абзац" id="46">
 					<DataPath>Объект.Абзац</DataPath>
-					<TitleLocation>Top</TitleLocation>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Если в наименовании написать слово "Абзац", то при подготовке представления адреса статьи в нормативном документе не будет выведено представление той части в которую оно введено.</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ToolTipRepresentation>Button</ToolTipRepresentation>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>20</MaxWidth>
+					<Width>5</Width>
 					<ContextMenu name="АбзацКонтекстноеМеню" id="47"/>
 					<ExtendedTooltip name="АбзацРасширеннаяПодсказка" id="48"/>
 					<Events>
@@ -210,11 +151,9 @@
 			<EditMode>EnterOnInput</EditMode>
 			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
-			<MaxWidth>64</MaxWidth>
-			<Height>2</Height>
 			<MultiLine>true</MultiLine>
 			<ContextMenu name="ТекстОснованияКонтекстноеМеню" id="4"/>
-			<ExtendedTooltip name="ТекстОснованияРасширеннаяПодсказка" id="6"/>
+			<ExtendedTooltip name="ТекстОснованияExtendedTooltip" id="6"/>
 		</InputField>
 		<InputField name="ПричинаУвольненияПФР" id="55">
 			<DataPath>Объект.ПричинаУвольненияПФР</DataPath>
@@ -265,21 +204,6 @@
 			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="ПоКлассификатору" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Есьть в  классификаторе</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 	</Attributes>

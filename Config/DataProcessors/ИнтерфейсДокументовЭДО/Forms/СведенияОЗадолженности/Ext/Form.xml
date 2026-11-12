@@ -6,30 +6,13 @@
 			<v8:content>Сведения о задолженности</v8:content>
 		</v8:item>
 	</Title>
-	<Width>60</Width>
+	<Width>50</Width>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Понятно" id="23">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Понятно</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ПонятноРасширеннаяПодсказка" id="24"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -39,7 +22,6 @@
 			<TitleLocation>Top</TitleLocation>
 			<CommandBarLocation>None</CommandBarLocation>
 			<ReadOnly>true</ReadOnly>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<Header>false</Header>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -50,7 +32,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Организации</v8:content>
+					<v8:content>Организация</v8:content>
 				</v8:item>
 			</Title>
 			<RowFilter xsi:nil="true"/>
@@ -87,6 +69,8 @@
 			<ChildItems>
 				<InputField name="СведенияОЗадолженностиНаименование" id="14">
 					<DataPath>СведенияОЗадолженности.Наименование</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="СведенияОЗадолженностиНаименованиеКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="СведенияОЗадолженностиНаименованиеРасширеннаяПодсказка" id="16"/>
@@ -94,6 +78,8 @@
 				<InputField name="СведенияОЗадолженностиИнформационноеПоле" id="17">
 					<DataPath>СведенияОЗадолженности.ИнформационноеПоле</DataPath>
 					<HorizontalAlign>Center</HorizontalAlign>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<Width>17</Width>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>17</MaxWidth>
@@ -105,7 +91,9 @@
 				<InputField name="СведенияОЗадолженностиСсылкаНаPDF" id="20">
 					<DataPath>СведенияОЗадолженности.СсылкаНаPDF</DataPath>
 					<HorizontalAlign>Center</HorizontalAlign>
+					<EditMode>EnterOnInput</EditMode>
 					<CellHyperlink>true</CellHyperlink>
+					<AutoEditMode>true</AutoEditMode>
 					<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 					<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 					<Width>7</Width>
@@ -118,6 +106,19 @@
 				</InputField>
 			</ChildItems>
 		</Table>
+		<Button name="Понятно" id="23">
+			<Type>UsualButton</Type>
+			<DefaultButton>true</DefaultButton>
+			<CommandName>Form.StandardCommand.Close</CommandName>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Понятно</v8:content>
+				</v8:item>
+			</Title>
+			<ButtonImportance>Main</ButtonImportance>
+			<ExtendedTooltip name="ПонятноРасширеннаяПодсказка" id="24"/>
+		</Button>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -184,6 +185,56 @@
 				</Column>
 			</Columns>
 		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СведенияОЗадолженностиСсылкаНаPDF</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СведенияОЗадолженности.СсылкаНаPDF</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подробнее</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СведенияОЗадолженностиИнформационноеПоле</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СведенияОЗадолженности.ИнформационноеПоле</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Имеется задолженность</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
 	</Attributes>
 	<Parameters>
 		<Parameter name="Задолженность">

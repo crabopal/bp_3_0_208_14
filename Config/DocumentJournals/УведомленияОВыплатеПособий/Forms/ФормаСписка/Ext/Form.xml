@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<Group>Vertical</Group>
 	<CommandSet>
 		<ExcludedCommand>Create</ExcludedCommand>
@@ -10,11 +11,198 @@
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
+		<Event name="OnSaveDataInSettingsAtServer">ПриСохраненииДанныхВНастройкахНаСервере</Event>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
-		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<UsualGroup name="ИнформационнаяПанельБРО" id="171">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Информационная панель БРО</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Информационная панель БРО</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ИнформационнаяПанельБРОРасширеннаяПодсказка" id="172"/>
+		</UsualGroup>
+		<UsualGroup name="ОтборыВШапке" id="231">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отборы в шапке</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отборы в шапке</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ОтборыВШапкеРасширеннаяПодсказка" id="232"/>
+			<ChildItems>
+				<UsualGroup name="ОтборыВШапке1" id="173">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отборы в шапке1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отборы в шапке1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ОтборыВШапке1РасширеннаяПодсказка" id="174"/>
+					<ChildItems>
+						<InputField name="ГоловнаяОрганизация" id="258">
+							<DataPath>ГоловнаяОрганизация</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>60</MaxWidth>
+							<DropListButton>true</DropListButton>
+							<ChoiceButton>false</ChoiceButton>
+							<ChoiceButtonRepresentation>ShowInDropList</ChoiceButtonRepresentation>
+							<ClearButton>true</ClearButton>
+							<SpinButton>false</SpinButton>
+							<OpenButton>true</OpenButton>
+							<CreateButton>false</CreateButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<QuickChoice>true</QuickChoice>
+							<ChooseType>false</ChooseType>
+							<IncompleteChoiceMode>OnActivate</IncompleteChoiceMode>
+							<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+							<ContextMenu name="ГоловнаяОрганизацияКонтекстноеМеню" id="259"/>
+							<ExtendedTooltip name="ГоловнаяОрганизацияРасширеннаяПодсказка" id="260"/>
+							<Events>
+								<Event name="OnChange">ГоловнаяОрганизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="Организации" id="250">
+							<DataPath>Организации</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>60</MaxWidth>
+							<ClearButton>true</ClearButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<QuickChoice>true</QuickChoice>
+							<ContextMenu name="ОрганизацииКонтекстноеМеню" id="251"/>
+							<ExtendedTooltip name="ОрганизацииРасширеннаяПодсказка" id="252"/>
+							<Events>
+								<Event name="OnChange">ОрганизацииПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ФизическиеЛица" id="261">
+							<DataPath>ФизическиеЛица</DataPath>
+							<WarningOnEditRepresentation>DontShow</WarningOnEditRepresentation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>60</MaxWidth>
+							<ExtendedEdit>false</ExtendedEdit>
+							<DropListButton>true</DropListButton>
+							<ChoiceButton>true</ChoiceButton>
+							<ChoiceButtonRepresentation>ShowInDropList</ChoiceButtonRepresentation>
+							<ClearButton>true</ClearButton>
+							<SpinButton>false</SpinButton>
+							<OpenButton>false</OpenButton>
+							<CreateButton>true</CreateButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ShowCheckBoxesInDropList>true</ShowCheckBoxesInDropList>
+							<ChooseType>false</ChooseType>
+							<IncompleteChoiceMode>OnActivate</IncompleteChoiceMode>
+							<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+							<ContextMenu name="ФизическиеЛицаКонтекстноеМеню" id="262"/>
+							<ExtendedTooltip name="ФизическиеЛицаРасширеннаяПодсказка" id="263"/>
+							<Events>
+								<Event name="OnChange">ФизическиеЛицаПриИзменении</Event>
+								<Event name="StartChoice">ФизическиеЛицаНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ОтборыВШапке2" id="229">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отборы в шапке2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отборы в шапке2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ОтборыВШапке2РасширеннаяПодсказка" id="230"/>
+					<ChildItems>
+						<CheckBoxField name="ДокументыВРаботе" id="267">
+							<DataPath>ДокументыВРаботе</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ContextMenu name="ДокументыВРаботеКонтекстноеМеню" id="268"/>
+							<ExtendedTooltip name="ДокументыВРаботеРасширеннаяПодсказка" id="269"/>
+							<Events>
+								<Event name="OnChange">ДокументыВРаботеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="ТипыДокументов" id="247">
+							<DataPath>ТипыДокументов</DataPath>
+							<DropListButton>true</DropListButton>
+							<ChoiceButton>false</ChoiceButton>
+							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+							<ClearButton>true</ClearButton>
+							<SpinButton>false</SpinButton>
+							<OpenButton>false</OpenButton>
+							<CreateButton>false</CreateButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ShowCheckBoxesInDropList>true</ShowCheckBoxesInDropList>
+							<QuickChoice>true</QuickChoice>
+							<ChooseType>false</ChooseType>
+							<IncompleteChoiceMode>OnActivate</IncompleteChoiceMode>
+							<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+							<ContextMenu name="ТипыДокументовКонтекстноеМеню" id="248"/>
+							<ExtendedTooltip name="ТипыДокументовРасширеннаяПодсказка" id="249"/>
+							<Events>
+								<Event name="OnChange">ТипыДокументовПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ВидыДокументов" id="264">
+							<DataPath>ВидыДокументов</DataPath>
+							<ClearButton>true</ClearButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ChooseType>false</ChooseType>
+							<ContextMenu name="ВидыДокументовКонтекстноеМеню" id="265"/>
+							<ExtendedTooltip name="ВидыДокументовРасширеннаяПодсказка" id="266"/>
+							<Events>
+								<Event name="OnChange">ВидыДокументовПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
 		<UsualGroup name="СписокКритерииОтбора" id="80">
 			<Title>
 				<v8:item>
@@ -164,6 +352,11 @@
 							<Type>CommandBarButton</Type>
 							<CommandName>Document.ДанныеСФРДляРасчетаПособия.StandardCommand.OpenList</CommandName>
 							<ExtendedTooltip name="ДокументДанныеСФРДляРасчетаПособияОткрытьСписокРасширеннаяПодсказка" id="170"/>
+						</Button>
+						<Button name="ДокументУведомлениеОбОтсутствииОтветаСЭДООткрытьСписок" id="270">
+							<Type>CommandBarButton</Type>
+							<CommandName>Document.УведомлениеОбОтсутствииОтветаСЭДО.StandardCommand.OpenList</CommandName>
+							<ExtendedTooltip name="ДокументУведомлениеОбОтсутствииОтветаСЭДООткрытьСписокРасширеннаяПодсказка" id="271"/>
 						</Button>
 						<ButtonGroup name="Группа1" id="161">
 							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="162"/>
@@ -364,9 +557,6 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
-				<Event name="OnSaveUserSettingsAtServer">СписокПриСохраненииПользовательскихНастроекНаСервере</Event>
-				<Event name="BeforeLoadUserSettingsAtServer">СписокПередЗагрузкойПользовательскихНастроекНаСервере</Event>
-				<Event name="OnUpdateUserSettingSetAtServer">СписокПриОбновленииСоставаПользовательскихНастроекНаСервере</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="Дата" id="19">
@@ -377,27 +567,30 @@
 					<ContextMenu name="ДатаКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="21"/>
 				</LabelField>
-				<LabelField name="Тип" id="25">
-					<DataPath>Список.Тип</DataPath>
+				<LabelField name="ДатаСообщения" id="70">
+					<DataPath>Список.ДатаСообщения</DataPath>
+					<Width>4</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>8</MaxWidth>
+					<ContextMenu name="ДатаСообщенияКонтекстноеМеню" id="71"/>
+					<ExtendedTooltip name="ДатаСообщенияРасширеннаяПодсказка" id="72"/>
+				</LabelField>
+				<LabelField name="СписокТипДокумента" id="25">
+					<DataPath>Список.ТипДокумента</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<Width>15</Width>
-					<ContextMenu name="ТипКонтекстноеМеню" id="26"/>
-					<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="27"/>
+					<ContextMenu name="СписокТипДокументаКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="СписокТипДокументаРасширеннаяПодсказка" id="27"/>
 				</LabelField>
-				<LabelField name="Вид" id="67">
-					<DataPath>Список.Вид</DataPath>
-					<ContextMenu name="ВидКонтекстноеМеню" id="68"/>
-					<ExtendedTooltip name="ВидРасширеннаяПодсказка" id="69"/>
-				</LabelField>
-				<LabelField name="Страхователь" id="34">
-					<DataPath>Список.Страхователь</DataPath>
-					<ContextMenu name="СтраховательКонтекстноеМеню" id="35"/>
-					<ExtendedTooltip name="СтраховательРасширеннаяПодсказка" id="36"/>
-				</LabelField>
-				<LabelField name="ФизическоеЛицо" id="43">
+				<LabelField name="СписокФизическоеЛицо" id="43">
 					<DataPath>Список.ФизическоеЛицо</DataPath>
-					<ContextMenu name="ФизическоеЛицоКонтекстноеМеню" id="44"/>
-					<ExtendedTooltip name="ФизическоеЛицоРасширеннаяПодсказка" id="45"/>
+					<ContextMenu name="СписокФизическоеЛицоКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="СписокФизическоеЛицоРасширеннаяПодсказка" id="45"/>
+				</LabelField>
+				<LabelField name="СписокОрганизация" id="226">
+					<DataPath>Список.Организация</DataPath>
+					<ContextMenu name="СписокОрганизацияКонтекстноеМеню" id="227"/>
+					<ExtendedTooltip name="СписокОрганизацияРасширеннаяПодсказка" id="228"/>
 				</LabelField>
 				<LabelField name="ОсталосьДней" id="104">
 					<DataPath>Список.ОсталосьДней</DataPath>
@@ -428,14 +621,6 @@
 					<ContextMenu name="НомерПроцессаКонтекстноеМеню" id="65"/>
 					<ExtendedTooltip name="НомерПроцессаРасширеннаяПодсказка" id="66"/>
 				</LabelField>
-				<LabelField name="ДатаСообщения" id="70">
-					<DataPath>Список.ДатаСообщения</DataPath>
-					<Width>4</Width>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MaxWidth>8</MaxWidth>
-					<ContextMenu name="ДатаСообщенияКонтекстноеМеню" id="71"/>
-					<ExtendedTooltip name="ДатаСообщенияРасширеннаяПодсказка" id="72"/>
-				</LabelField>
 				<LabelField name="ИдентификаторСообщения" id="40">
 					<DataPath>Список.ИдентификаторСообщения</DataPath>
 					<Width>10</Width>
@@ -451,6 +636,24 @@
 					<MaxWidth>35</MaxWidth>
 					<ContextMenu name="ИдентификаторРеестраКонтекстноеМеню" id="59"/>
 					<ExtendedTooltip name="ИдентификаторРеестраРасширеннаяПодсказка" id="60"/>
+				</LabelField>
+				<LabelField name="СписокВид" id="67">
+					<DataPath>Список.Вид</DataPath>
+					<ContextMenu name="СписокВидКонтекстноеМеню" id="68"/>
+					<ExtendedTooltip name="СписокВидРасширеннаяПодсказка" id="69"/>
+				</LabelField>
+				<LabelField name="СписокТипСообщения" id="272">
+					<DataPath>Список.ТипСообщения</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип СЭДО</v8:content>
+						</v8:item>
+					</Title>
+					<Width>5</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СписокТипСообщенияКонтекстноеМеню" id="273"/>
+					<ExtendedTooltip name="СписокТипСообщенияРасширеннаяПодсказка" id="274"/>
 				</LabelField>
 				<LabelField name="Ссылка" id="16">
 					<DataPath>Список.Ссылка</DataPath>
@@ -479,10 +682,15 @@
 					<Group>Horizontal</Group>
 					<ExtendedTooltip name="ПрочиеПоляРасширеннаяПодсказка" id="150"/>
 					<ChildItems>
-						<LabelField name="ГоловнаяОрганизация" id="37">
+						<LabelField name="СписокГоловнаяОрганизация" id="37">
 							<DataPath>Список.ГоловнаяОрганизация</DataPath>
-							<ContextMenu name="ГоловнаяОрганизацияКонтекстноеМеню" id="38"/>
-							<ExtendedTooltip name="ГоловнаяОрганизацияРасширеннаяПодсказка" id="39"/>
+							<ContextMenu name="СписокГоловнаяОрганизацияКонтекстноеМеню" id="38"/>
+							<ExtendedTooltip name="СписокГоловнаяОрганизацияРасширеннаяПодсказка" id="39"/>
+						</LabelField>
+						<LabelField name="СписокСтрахователь" id="34">
+							<DataPath>Список.Страхователь</DataPath>
+							<ContextMenu name="СписокСтраховательКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="СписокСтраховательРасширеннаяПодсказка" id="36"/>
 						</LabelField>
 						<CheckBoxField name="Загружен" id="73">
 							<DataPath>Список.Загружен</DataPath>
@@ -536,8 +744,10 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
+				<Field>~Список.Тип</Field>
+				<Field>Список.ВРаботе</Field>
+				<Field>Список.Вид</Field>
 				<Field>Список.Ссылка</Field>
-				<Field>Список.Тип</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
@@ -549,6 +759,15 @@
 	Шапка.Номер КАК Номер,
 	Шапка.Проведен КАК Проведен,
 	ВЫБОР
+		КОГДА НЕ Шапка.Обработан ЕСТЬ NULL
+			ТОГДА НЕ Шапка.Обработан
+					И НЕ Шапка.ПометкаУдаления
+		КОГДА НЕ Шапка.ДатаОтправки ЕСТЬ NULL
+			ТОГДА Шапка.ДатаОтправки &gt; ДАТАВРЕМЯ(1, 1, 1)
+					И НЕ Шапка.ПометкаУдаления
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ВРаботе,
+	ВЫБОР
 		КОГДА Шапка.Обработан
 				ИЛИ Шапка.МаксимальнаяДатаОбработки = ДАТАВРЕМЯ(1, 1, 1)
 			ТОГДА ""
@@ -556,6 +775,7 @@
 			ТОГДА РАЗНОСТЬДАТ(&amp;ТекущаяДатаСеанса, Шапка.МаксимальнаяДатаОбработки, ДЕНЬ)
 		ИНАЧЕ 0
 	КОНЕЦ КАК ОсталосьДней,
+	Шапка.Организация КАК Организация,
 	Шапка.Страхователь КАК Страхователь,
 	Шапка.ГоловнаяОрганизация КАК ГоловнаяОрганизация,
 	Шапка.ИдентификаторСообщения КАК ИдентификаторСообщения,
@@ -575,7 +795,14 @@
 	КОНЕЦ КАК ДатаСообщения,
 	Шапка.Загружен КАК Загружен,
 	Шапка.МаксимальнаяДатаОбработки КАК МаксимальнаяДатаОбработки,
-	Шапка.Тип КАК Тип
+	Шапка.Тип КАК ТипДокумента,
+	ВЫБОР
+		КОГДА НЕ Шапка.ТипСообщения ЕСТЬ NULL
+			ТОГДА Шапка.ТипСообщения
+		КОГДА &amp;УсловиеТипСообщения
+			ТОГДА &amp;РезультатТипСообщения
+		ИНАЧЕ 0
+	КОНЕЦ КАК ТипСообщения
 ИЗ
 	ЖурналДокументов.УведомленияОВыплатеПособий КАК Шапка</QueryText>
 				<Field xsi:type="dcssch:DataSetFieldField">
@@ -672,6 +899,46 @@
 						</v8:item>
 					</dcssch:title>
 				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НомерЛН</dcssch:dataPath>
+					<dcssch:field>НомерЛН</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВРаботе</dcssch:dataPath>
+					<dcssch:field>ВРаботе</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>В работе</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТипСообщения</dcssch:dataPath>
+					<dcssch:field>ТипСообщения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТипДокумента</dcssch:dataPath>
+					<dcssch:field>ТипДокумента</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип документа</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаСоздания</dcssch:dataPath>
+					<dcssch:field>ДатаСоздания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаОтправки</dcssch:dataPath>
+					<dcssch:field>ДатаОтправки</dcssch:field>
+				</Field>
 				<Parameter>
 					<dcssch:name>ТекущаяДатаСеанса</dcssch:name>
 					<dcssch:title xsi:type="v8:LocalStringType">
@@ -689,46 +956,34 @@
 					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
 					<dcssch:useRestriction>true</dcssch:useRestriction>
 				</Parameter>
+				<Parameter>
+					<dcssch:name>РезультатТипСообщения</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Результат тип сообщения</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>УсловиеТипСообщения</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Условие тип сообщения</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:boolean</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:boolean">false</dcssch:value>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
 				<MainTable>DocumentJournal.УведомленияОВыплатеПособий</MainTable>
 				<ListSettings>
 					<dcsset:filter>
-						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:use>false</dcsset:use>
-							<dcsset:left xsi:type="dcscor:Field">ГоловнаяОрганизация</dcsset:left>
-							<dcsset:comparisonType>Equal</dcsset:comparisonType>
-							<dcsset:userSettingID>bb5365cf-afdf-4fb4-9e58-97b675ea3fce</dcsset:userSettingID>
-						</dcsset:item>
-						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:use>false</dcsset:use>
-							<dcsset:left xsi:type="dcscor:Field">Страхователь</dcsset:left>
-							<dcsset:comparisonType>Equal</dcsset:comparisonType>
-							<dcsset:userSettingID>6056c3c8-70b1-4a98-a9b4-9a2d365a58aa</dcsset:userSettingID>
-						</dcsset:item>
-						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:use>false</dcsset:use>
-							<dcsset:left xsi:type="dcscor:Field">Тип</dcsset:left>
-							<dcsset:comparisonType>Equal</dcsset:comparisonType>
-							<dcsset:userSettingID>e4bb6e50-dc9b-476f-93b5-a4a30c941831</dcsset:userSettingID>
-						</dcsset:item>
-						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:use>false</dcsset:use>
-							<dcsset:left xsi:type="dcscor:Field">ФизическоеЛицо</dcsset:left>
-							<dcsset:comparisonType>Equal</dcsset:comparisonType>
-							<dcsset:userSettingID>6ef42e48-8ca4-4c95-b0ba-1c44a149931f</dcsset:userSettingID>
-						</dcsset:item>
-						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:use>false</dcsset:use>
-							<dcsset:left xsi:type="dcscor:Field">Обработан</dcsset:left>
-							<dcsset:comparisonType>Equal</dcsset:comparisonType>
-							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
-							<dcsset:userSettingID>bf8c3d1d-d161-4e5b-a3f5-cd11f777a2df</dcsset:userSettingID>
-						</dcsset:item>
-						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:use>false</dcsset:use>
-							<dcsset:left xsi:type="dcscor:Field">Вид</dcsset:left>
-							<dcsset:comparisonType>Equal</dcsset:comparisonType>
-							<dcsset:userSettingID>621fb2bc-8216-48c4-b191-fe23659a46bf</dcsset:userSettingID>
-						</dcsset:item>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
 					</dcsset:filter>
@@ -756,37 +1011,183 @@
 		<Attribute name="ПараметрыПодключаемыхКоманд" id="2">
 			<Type/>
 		</Attribute>
-		<Attribute name="ПараметрыПолей" id="7">
+		<Attribute name="ТипыДокументов" id="8">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Параметры полей</v8:content>
-				</v8:item>
-			</Title>
-			<Type/>
-		</Attribute>
-		<Attribute name="СписокТиповДокументов" id="8">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Список типов документов</v8:content>
+					<v8:content>Типы документов</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
+			<Save>
+				<Field>ТипыДокументов</Field>
+			</Save>
 			<Settings xsi:type="v8:TypeDescription"/>
 		</Attribute>
-		<Attribute name="ИзменениеТипа" id="3">
+		<Attribute name="ИдентификаторОтбораГоловнаяОрганизация" id="4">
+			<Type/>
+		</Attribute>
+		<Attribute name="ИдентификаторОтбораОрганизация" id="5">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Изменение типа</v8:content>
+					<v8:content>Идентификатор отбора организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="Организации" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Филиалы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Save>
+				<Field>Организации</Field>
+			</Save>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПоказыватьГоловныеОрганизации" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать головные организации</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
+		</Attribute>
+		<Attribute name="ПоказыватьОрганизации" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать организации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокОрганизацийДляВыбора" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список организаций для выбора</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Save>
+				<Field>СписокОрганизацийДляВыбора</Field>
+			</Save>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="ИдентификаторОтбораФизлица" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор отбора физлица</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ГоловнаяОрганизация" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+			<Save>
+				<Field>ГоловнаяОрганизация</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ФизическиеЛица" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Физические лица</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Save>
+				<Field>ФизическиеЛица</Field>
+			</Save>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:CatalogRef.ФизическиеЛица</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="ДокументыВРаботе" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документы в работе</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ДокументыВРаботе</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ВидыДокументов" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Save>
+				<Field>ВидыДокументов</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ИдентификаторОтбораДокументыВРаботе" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор отбора документы в работе</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ИдентификаторОтбораТипыДокументов" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор отбора типы документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ИдентификаторОтбораВидыДокументов" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор отбора виды документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
 		</Attribute>
 	</Attributes>
 	<Commands>

@@ -18,30 +18,19 @@
 	</Events>
 	<ChildItems>
 		<Table name="СписокОборудования" id="8">
-			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
 			<ChangeRowSet>false</ChangeRowSet>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>СписокОборудования</DataPath>
+			<RowPictureDataPath>СписокОборудования.DefaultPicture</RowPictureDataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Список оборудования</v8:content>
 				</v8:item>
 			</Title>
-			<CommandSet>
-				<ExcludedCommand>Change</ExcludedCommand>
-				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
-				<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
-				<ExcludedCommand>GetURL</ExcludedCommand>
-				<ExcludedCommand>Refresh</ExcludedCommand>
-				<ExcludedCommand>SearchEverywhere</ExcludedCommand>
-			</CommandSet>
-			<ShowCommandBar>true</ShowCommandBar>
-			<AutoRefresh>true</AutoRefresh>
+			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
 				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
@@ -58,26 +47,24 @@
 			<ContextMenu name="СписокОборудованияКонтекстноеМеню" id="9"/>
 			<AutoCommandBar name="СписокОборудованияКоманднаяПанель" id="10">
 				<ChildItems>
-					<Button name="ВыгрузитьДанные" id="49" DisplayImportance="VeryHigh">
+					<Button name="ВыгрузитьДанные" id="49">
 						<Type>CommandBarButton</Type>
 						<Representation>PictureAndText</Representation>
 						<CommandName>Form.Command.ВыгрузитьДанные</CommandName>
 						<Picture>
-							<xr:Ref>StdPicture.MoveUp</xr:Ref>
+							<xr:Ref>CommonPicture.ТоварыВыгрузить</xr:Ref>
 							<xr:LoadTransparent>true</xr:LoadTransparent>
 						</Picture>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 						<ExtendedTooltip name="ВыгрузитьДанныеРасширеннаяПодсказка" id="50"/>
 					</Button>
-					<Button name="ЗагрузитьДанные" id="47" DisplayImportance="High">
+					<Button name="ЗагрузитьДанные" id="47">
 						<Type>CommandBarButton</Type>
 						<Representation>PictureAndText</Representation>
 						<CommandName>Form.Command.ЗагрузитьДанные</CommandName>
 						<Picture>
-							<xr:Ref>StdPicture.MoveDown</xr:Ref>
+							<xr:Ref>CommonPicture.ТоварыЗагрузить</xr:Ref>
 							<xr:LoadTransparent>true</xr:LoadTransparent>
 						</Picture>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 						<ExtendedTooltip name="ЗагрузитьДанныеРасширеннаяПодсказка" id="48"/>
 					</Button>
 					<Popup name="ПрочиеКоманды" id="51">
@@ -169,6 +156,11 @@
 		</Table>
 	</ChildItems>
 	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ОбменСОфлайнОборудованием</v8:Type>
+			</Type>
+		</Attribute>
 		<Attribute name="Оборудование" id="2">
 			<Title>
 				<v8:item>
@@ -178,6 +170,7 @@
 			</Title>
 			<Type>
 				<v8:Type>cfg:CatalogRef.ОфлайнОборудование</v8:Type>
+				<v8:Type>cfg:CatalogRef.ПодключаемоеОборудование</v8:Type>
 			</Type>
 			<Save>
 				<Field>Оборудование</Field>

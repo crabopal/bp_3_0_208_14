@@ -2,11 +2,11 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<ChildItems>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<SkipOnInput>false</SkipOnInput>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
@@ -15,7 +15,6 @@
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -31,8 +30,10 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="40"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="40"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="71">
 				<AdditionSource>
 					<Item>Список</Item>
@@ -73,31 +74,25 @@
 							<v8:content>Вид налога (платежа)</v8:content>
 						</v8:item>
 					</ToolTip>
-					<EditMode>EnterOnInput</EditMode>
 					<FixingInTable>Left</FixingInTable>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>18</Width>
 					<ContextMenu name="ВидПлатежаКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="ВидПлатежаРасширеннаяПодсказка" id="42"/>
+					<ExtendedTooltip name="ВидПлатежаExtendedTooltip" id="42"/>
 				</LabelField>
 				<InputField name="КБК" id="28">
 					<DataPath>Список.ВидПлатежа.КодБК</DataPath>
-					<EditMode>EnterOnInput</EditMode>
 					<FixingInTable>Left</FixingInTable>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>20</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="КБККонтекстноеМеню" id="29"/>
-					<ExtendedTooltip name="КБКРасширеннаяПодсказка" id="44"/>
+					<ExtendedTooltip name="КБКExtendedTooltip" id="44"/>
 				</InputField>
 				<InputField name="СчетУчета" id="32">
 					<DataPath>Список.ВидПлатежа.СчетУчета</DataPath>
-					<EditMode>EnterOnInput</EditMode>
 					<FixingInTable>Left</FixingInTable>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>9</Width>
 					<ContextMenu name="СчетУчетаКонтекстноеМеню" id="33"/>
-					<ExtendedTooltip name="СчетУчетаРасширеннаяПодсказка" id="45"/>
+					<ExtendedTooltip name="СчетУчетаExtendedTooltip" id="45"/>
 				</InputField>
 				<LabelField name="НазначениеПлатежа" id="24">
 					<DataPath>Список.НазначениеПлатежа</DataPath>
@@ -114,12 +109,10 @@
 							<v8:content>Наименование налога (взноса)</v8:content>
 						</v8:item>
 					</ToolTip>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>24</Width>
 					<Height>1</Height>
 					<ContextMenu name="НазначениеПлатежаКонтекстноеМеню" id="25"/>
-					<ExtendedTooltip name="НазначениеПлатежаРасширеннаяПодсказка" id="53"/>
+					<ExtendedTooltip name="НазначениеПлатежаExtendedTooltip" id="53"/>
 				</LabelField>
 				<LabelField name="СтатусСоставителя" id="16">
 					<DataPath>Список.СтатусСоставителя</DataPath>
@@ -136,11 +129,9 @@
 							<v8:content>Статус составителя</v8:content>
 						</v8:item>
 					</ToolTip>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>10</Width>
 					<ContextMenu name="СтатусСоставителяКонтекстноеМеню" id="17"/>
-					<ExtendedTooltip name="СтатусСоставителяРасширеннаяПодсказка" id="56"/>
+					<ExtendedTooltip name="СтатусСоставителяExtendedTooltip" id="56"/>
 				</LabelField>
 				<LabelField name="ВидПеречисленияВБюджет" id="14">
 					<DataPath>Список.ВидПеречисленияВБюджет</DataPath>
@@ -157,12 +148,10 @@
 							<v8:content>Вид перечисления в бюджет</v8:content>
 						</v8:item>
 					</ToolTip>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>14</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="ВидПеречисленияВБюджетКонтекстноеМеню" id="15"/>
-					<ExtendedTooltip name="ВидПеречисленияВБюджетРасширеннаяПодсказка" id="55"/>
+					<ExtendedTooltip name="ВидПеречисленияВБюджетExtendedTooltip" id="55"/>
 				</LabelField>
 				<LabelField name="СтатьяДвиженияДенежныхСредств" id="38">
 					<DataPath>Список.СтатьяДвиженияДенежныхСредств</DataPath>
@@ -175,10 +164,8 @@
 							<v8:content>Статья ДДС</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СтатьяДвиженияДенежныхСредствКонтекстноеМеню" id="39"/>
-					<ExtendedTooltip name="СтатьяДвиженияДенежныхСредствРасширеннаяПодсказка" id="61"/>
+					<ExtendedTooltip name="СтатьяДвиженияДенежныхСредствExtendedTooltip" id="61"/>
 				</LabelField>
 				<LabelField name="ПоказательОснования" id="65">
 					<DataPath>Список.ПоказательОснования</DataPath>
@@ -188,22 +175,18 @@
 							<v8:content>Основание платежа</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
 					<FooterText>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Показатель основания платежа в бюджет</v8:content>
 						</v8:item>
 					</FooterText>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>15</Width>
 					<ContextMenu name="ПоказательОснованияКонтекстноеМеню" id="66"/>
 					<ExtendedTooltip name="ПоказательОснованияРасширеннаяПодсказка" id="67"/>
 				</LabelField>
 				<LabelField name="ПоказательПериода" id="68">
 					<DataPath>Список.ПоказательПериода</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>9</Width>
 					<ContextMenu name="ПоказательПериодаКонтекстноеМеню" id="69"/>
 					<ExtendedTooltip name="ПоказательПериодаРасширеннаяПодсказка" id="70"/>
@@ -213,8 +196,6 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>12</Width>
 					<ContextMenu name="ПоказательТипаКонтекстноеМеню" id="63"/>
 					<ExtendedTooltip name="ПоказательТипаРасширеннаяПодсказка" id="64"/>
@@ -222,10 +203,8 @@
 				<LabelField name="Организация" id="6">
 					<DataPath>Список.Организация</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="7"/>
-					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="47"/>
+					<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="47"/>
 				</LabelField>
 				<LabelField name="РегистрацияВНалоговомОргане" id="8">
 					<DataPath>Список.РегистрацияВНалоговомОргане</DataPath>
@@ -236,19 +215,15 @@
 							<v8:content>Регистрация в ИФНС</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>22</Width>
 					<ContextMenu name="РегистрацияВНалоговомОрганеКонтекстноеМеню" id="9"/>
-					<ExtendedTooltip name="РегистрацияВНалоговомОрганеРасширеннаяПодсказка" id="48"/>
+					<ExtendedTooltip name="РегистрацияВНалоговомОрганеExtendedTooltip" id="48"/>
 				</LabelField>
 				<LabelField name="Получатель" id="10">
 					<DataPath>Список.Получатель</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПолучательКонтекстноеМеню" id="11"/>
-					<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="50"/>
+					<ExtendedTooltip name="ПолучательExtendedTooltip" id="50"/>
 				</LabelField>
 			</ChildItems>
 		</Table>

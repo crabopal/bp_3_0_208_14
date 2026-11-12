@@ -2,8 +2,9 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -12,8 +13,6 @@
 		<InputField name="Ответственный" id="57">
 			<DataPath>Ответственный</DataPath>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<MaxWidth>28</MaxWidth>
 			<ClearButton>true</ClearButton>
@@ -25,7 +24,6 @@
 		</InputField>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -33,7 +31,6 @@
 			<EnableDrag>true</EnableDrag>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -78,29 +75,21 @@
 			<ChildItems>
 				<LabelField name="Организация" id="19">
 					<DataPath>Список.Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<InputField name="Подразделение" id="60">
 					<DataPath>Список.Подразделение</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПодразделениеКонтекстноеМеню" id="61"/>
 					<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="62"/>
 				</InputField>
 				<LabelField name="ОтветственныеСтрокой" id="22">
 					<DataPath>Список.ОтветственныеСтрокой</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОтветственныеСтрокойКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ОтветственныеСтрокойРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="ОповещениеСтрокой" id="25">
 					<DataPath>Список.ОповещениеСтрокой</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОповещениеСтрокойКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ОповещениеСтрокойРасширеннаяПодсказка" id="27"/>
 				</LabelField>
@@ -110,8 +99,6 @@
 						<xr:Common>false</xr:Common>
 					</UserVisible>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="18"/>
 				</LabelField>
@@ -136,7 +123,12 @@
 							<dcsset:comparisonType>Equal</dcsset:comparisonType>
 						</dcsset:item>
 						<dcsset:userSettingID>e42308fa-e52a-4887-ae4e-b43b7fdaf4ce</dcsset:userSettingID>
-						<dcsset:userSettingPresentation xsi:type="xs:string">Ответственный</dcsset:userSettingPresentation>
+						<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Ответственный</v8:content>
+							</v8:item>
+						</dcsset:userSettingPresentation>
 					</dcsset:filter>
 					<dcsset:order>
 						<dcsset:viewMode>Normal</dcsset:viewMode>

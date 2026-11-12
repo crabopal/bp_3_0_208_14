@@ -4,15 +4,7 @@
 	<Group>Vertical</Group>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="СписокКнопкаВыбрать" id="26">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КомандаСписокВыбрать</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="СписокКнопкаВыбратьExtendedTooltip" id="36"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -21,8 +13,6 @@
 	</Events>
 	<ChildItems>
 		<Table name="Список" id="1">
-			<CommandBarLocation>Top</CommandBarLocation>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
@@ -31,7 +21,6 @@
 			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -50,6 +39,11 @@
 			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
 				<ChildItems>
+					<Button name="СписокКнопкаВыбрать" id="26">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.КомандаСписокВыбрать</CommandName>
+						<ExtendedTooltip name="СписокКнопкаВыбратьExtendedTooltip" id="36"/>
+					</Button>
 					<Button name="СписокКнопкаСоздать" id="27">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
@@ -283,7 +277,6 @@
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
-			<Settings xsi:type="v8:TypeDescription"/>
 		</Attribute>
 		<Attribute name="ПараметрТекущаяСтрока" id="3">
 			<Title>
@@ -309,10 +302,13 @@
 					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>КомандаСписокВыбрать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

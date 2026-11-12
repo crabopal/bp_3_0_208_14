@@ -3,22 +3,22 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
-	<CommandSet>
-		<ExcludedCommand>CustomizeForm</ExcludedCommand>
-		<ExcludedCommand>Help</ExcludedCommand>
-	</CommandSet>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ОК" id="29">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Сохранить</CommandName>
-				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+				<CommandName>Form.Command.КомандаОК</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="30"/>
+			</Button>
+			<Button name="Отмена" id="31">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаОтмена</CommandName>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="32"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -28,152 +28,359 @@
 		<Event name="OnClose">ПриЗакрытии</Event>
 	</Events>
 	<ChildItems>
-		<Table name="УчастникиСделки" id="33">
+		<Table name="УчастникиСделки" id="1">
 			<Representation>List</Representation>
+			<RowSelectionMode>Cell</RowSelectionMode>
+			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>УчастникиСделки</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
 			<RowFilter xsi:nil="true"/>
-			<ContextMenu name="УчастникиСделкиКонтекстноеМеню" id="34"/>
-			<AutoCommandBar name="УчастникиСделкиКоманднаяПанель" id="35">
-				<ChildItems>
-					<ButtonGroup name="ГруппаУчастникиСделки" id="97">
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Группа участники сделки</v8:content>
-							</v8:item>
-						</Title>
-						<ToolTip>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Группа участники сделки</v8:content>
-							</v8:item>
-						</ToolTip>
-						<Representation>Compact</Representation>
-						<ExtendedTooltip name="ГруппаУчастникиСделкиРасширеннаяПодсказка" id="98"/>
-						<ChildItems>
-							<Button name="УчастникиСделкиПереместитьВверх" id="89">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Item.УчастникиСделки.StandardCommand.MoveUp</CommandName>
-								<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-								<ExtendedTooltip name="УчастникиСделкиПереместитьВверхРасширеннаяПодсказка" id="90"/>
-							</Button>
-							<Button name="УчастникиСделкиПереместитьВниз" id="91">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Item.УчастникиСделки.StandardCommand.MoveDown</CommandName>
-								<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-								<ExtendedTooltip name="УчастникиСделкиПереместитьВнизРасширеннаяПодсказка" id="92"/>
-							</Button>
-						</ChildItems>
-					</ButtonGroup>
-					<Button name="УчастникиСделкиУдалить" id="95">
-						<Type>CommandBarButton</Type>
-						<Representation>Picture</Representation>
-						<CommandName>Form.Item.УчастникиСделки.StandardCommand.Delete</CommandName>
-						<Picture>
-							<xr:Ref>StdPicture.Delete</xr:Ref>
-							<xr:LoadTransparent>true</xr:LoadTransparent>
-						</Picture>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-						<ExtendedTooltip name="УчастникиСделкиУдалитьРасширеннаяПодсказка" id="96"/>
-					</Button>
-				</ChildItems>
-			</AutoCommandBar>
-			<ExtendedTooltip name="УчастникиСделкиРасширеннаяПодсказка" id="36"/>
-			<SearchStringAddition name="УчастникиСделкиСтрокаПоиска" id="37">
+			<ContextMenu name="УчастникиСделкиКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="УчастникиСделкиКоманднаяПанель" id="3"/>
+			<ExtendedTooltip name="УчастникиСделкиРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="УчастникиСделкиСтрокаПоиска" id="49">
 				<AdditionSource>
 					<Item>УчастникиСделки</Item>
 					<Type>SearchStringRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="УчастникиСделкиСтрокаПоискаКонтекстноеМеню" id="38"/>
-				<ExtendedTooltip name="УчастникиСделкиСтрокаПоискаРасширеннаяПодсказка" id="39"/>
+				<ContextMenu name="УчастникиСделкиСтрокаПоискаКонтекстноеМеню" id="50"/>
+				<ExtendedTooltip name="УчастникиСделкиСтрокаПоискаРасширеннаяПодсказка" id="51"/>
 			</SearchStringAddition>
-			<ViewStatusAddition name="УчастникиСделкиСостояниеПросмотра" id="40">
+			<ViewStatusAddition name="УчастникиСделкиСостояниеПросмотра" id="52">
 				<AdditionSource>
 					<Item>УчастникиСделки</Item>
 					<Type>ViewStatusRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="УчастникиСделкиСостояниеПросмотраКонтекстноеМеню" id="41"/>
-				<ExtendedTooltip name="УчастникиСделкиСостояниеПросмотраРасширеннаяПодсказка" id="42"/>
+				<ContextMenu name="УчастникиСделкиСостояниеПросмотраКонтекстноеМеню" id="53"/>
+				<ExtendedTooltip name="УчастникиСделкиСостояниеПросмотраРасширеннаяПодсказка" id="54"/>
 			</ViewStatusAddition>
-			<SearchControlAddition name="УчастникиСделкиУправлениеПоиском" id="43">
+			<SearchControlAddition name="УчастникиСделкиУправлениеПоиском" id="55">
 				<AdditionSource>
 					<Item>УчастникиСделки</Item>
 					<Type>SearchControl</Type>
 				</AdditionSource>
-				<ContextMenu name="УчастникиСделкиУправлениеПоискомКонтекстноеМеню" id="44"/>
-				<ExtendedTooltip name="УчастникиСделкиУправлениеПоискомРасширеннаяПодсказка" id="45"/>
+				<ContextMenu name="УчастникиСделкиУправлениеПоискомКонтекстноеМеню" id="56"/>
+				<ExtendedTooltip name="УчастникиСделкиУправлениеПоискомРасширеннаяПодсказка" id="57"/>
 			</SearchControlAddition>
 			<ChildItems>
-				<InputField name="УчастникиСделкиРольПродавца" id="48">
-					<DataPath>УчастникиСделки.РольПродавца</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-					<ContextMenu name="УчастникиСделкиРольПродавцаКонтекстноеМеню" id="49"/>
-					<ExtendedTooltip name="УчастникиСделкиРольПродавцаРасширеннаяПодсказка" id="50"/>
-					<Events>
-						<Event name="OnChange">УчастникиСделкиРольПродавцаПриИзменении</Event>
-					</Events>
-				</InputField>
-				<InputField name="УчастникиСделкиПродавец" id="52">
-					<DataPath>УчастникиСделки.Продавец</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-					<ContextMenu name="УчастникиСделкиПродавецКонтекстноеМеню" id="53"/>
-					<ExtendedTooltip name="УчастникиСделкиПродавецРасширеннаяПодсказка" id="54"/>
-				</InputField>
-				<InputField name="УчастникиСделкиРольПокупателя" id="56">
-					<DataPath>УчастникиСделки.РольПокупателя</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-					<ContextMenu name="УчастникиСделкиРольПокупателяКонтекстноеМеню" id="57"/>
-					<ExtendedTooltip name="УчастникиСделкиРольПокупателяРасширеннаяПодсказка" id="58"/>
-				</InputField>
-				<InputField name="УчастникиСделкиПокупатель" id="60">
-					<DataPath>УчастникиСделки.Покупатель</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-					<ContextMenu name="УчастникиСделкиПокупательКонтекстноеМеню" id="61"/>
-					<ExtendedTooltip name="УчастникиСделкиПокупательРасширеннаяПодсказка" id="62"/>
-				</InputField>
-				<InputField name="УчастникиСделкиНомерДоговора" id="64">
-					<DataPath>УчастникиСделки.НомерДоговора</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-					<ContextMenu name="УчастникиСделкиНомерДоговораКонтекстноеМеню" id="65"/>
-					<ExtendedTooltip name="УчастникиСделкиНомерДоговораРасширеннаяПодсказка" id="66"/>
-				</InputField>
-				<InputField name="УчастникиСделкиДатаДоговора" id="68">
-					<DataPath>УчастникиСделки.ДатаДоговора</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-					<ContextMenu name="УчастникиСделкиДатаДоговораКонтекстноеМеню" id="69"/>
-					<ExtendedTooltip name="УчастникиСделкиДатаДоговораРасширеннаяПодсказка" id="70"/>
-				</InputField>
-				<InputField name="УчастникиСделкиНомерСпецификации" id="72">
-					<DataPath>УчастникиСделки.НомерСпецификации</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-					<ContextMenu name="УчастникиСделкиНомерСпецификацииКонтекстноеМеню" id="73"/>
-					<ExtendedTooltip name="УчастникиСделкиНомерСпецификацииРасширеннаяПодсказка" id="74"/>
-				</InputField>
-				<InputField name="УчастникиСделкиДатаСпецификации" id="76">
-					<DataPath>УчастникиСделки.ДатаСпецификации</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-					<ContextMenu name="УчастникиСделкиДатаСпецификацииКонтекстноеМеню" id="77"/>
-					<ExtendedTooltip name="УчастникиСделкиДатаСпецификацииРасширеннаяПодсказка" id="78"/>
-				</InputField>
+				<ColumnGroup name="УчастникиСделкиГруппаПродавец" id="33">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участники сделки группа продавец</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участники сделки группа продавец</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="УчастникиСделкиГруппаПродавецРасширеннаяПодсказка" id="34"/>
+					<ChildItems>
+						<InputField name="УчастникиСделкиРольПродавца" id="5">
+							<DataPath>УчастникиСделки.РольПродавца</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ShowInHeader>false</ShowInHeader>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>20</Width>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Продавец</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Комитент</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Комиссионер</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Принципал</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Агент</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Доверитель</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Поверенный</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="УчастникиСделкиРольПродавцаКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="УчастникиСделкиРольПродавцаРасширеннаяПодсказка" id="7"/>
+							<Events>
+								<Event name="OnChange">УчастникиСделкиРольПродавцаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="УчастникиСделкиПродавец" id="8">
+							<DataPath>УчастникиСделки.Продавец</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>20</Width>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ContextMenu name="УчастникиСделкиПродавецКонтекстноеМеню" id="9"/>
+							<ExtendedTooltip name="УчастникиСделкиПродавецРасширеннаяПодсказка" id="10"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="УчастникиСделкиГруппаПокупатель" id="35">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участники сделки группа покупатель</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участники сделки группа покупатель</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="УчастникиСделкиГруппаПокупательРасширеннаяПодсказка" id="36"/>
+					<ChildItems>
+						<InputField name="УчастникиСделкиРольПокупателя" id="11">
+							<DataPath>УчастникиСделки.РольПокупателя</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ShowInHeader>false</ShowInHeader>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>20</Width>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Покупатель</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Комитент</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Комиссионер</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Принципал</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Агент</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Доверитель</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.СубъектыГражданскоПравовыхОтношений.EnumValue.Поверенный</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="УчастникиСделкиРольПокупателяКонтекстноеМеню" id="12"/>
+							<ExtendedTooltip name="УчастникиСделкиРольПокупателяРасширеннаяПодсказка" id="13"/>
+						</InputField>
+						<InputField name="УчастникиСделкиПокупатель" id="14">
+							<DataPath>УчастникиСделки.Покупатель</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>20</Width>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<ContextMenu name="УчастникиСделкиПокупательКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="УчастникиСделкиПокупательРасширеннаяПодсказка" id="16"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="УчастникиСделкиГруппаНаименованиеКолонок" id="41">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участники сделки группа наименование колонок</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участники сделки группа наименование колонок</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ShowTitle>false</ShowTitle>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="УчастникиСделкиГруппаНаименованиеКолонокРасширеннаяПодсказка" id="42"/>
+					<ChildItems>
+						<InputField name="УчастникиСделкиНадписьНомерДокумента" id="43">
+							<DataPath>УчастникиСделки.НадписьНомерДокумента</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ShowInHeader>false</ShowInHeader>
+							<ShowInFooter>false</ShowInFooter>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>4</Width>
+							<Font ref="style:ЗаголовкиСтрокШрифт" kind="StyleItem"/>
+							<ContextMenu name="УчастникиСделкиНадписьНомерДокументаКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="УчастникиСделкиНадписьНомерДокументаРасширеннаяПодсказка" id="45"/>
+						</InputField>
+						<InputField name="УчастникиСделкиНадписьДатаДокумента" id="46">
+							<DataPath>УчастникиСделки.НадписьДатаДокумента</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ShowInHeader>false</ShowInHeader>
+							<ShowInFooter>false</ShowInFooter>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>4</Width>
+							<Font ref="style:ЗаголовкиСтрокШрифт" kind="StyleItem"/>
+							<ContextMenu name="УчастникиСделкиНадписьДатаДокументаКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="УчастникиСделкиНадписьДатаДокументаРасширеннаяПодсказка" id="48"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="УчастникиСделкиГруппаДоговор" id="37">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участники сделки группа договор</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участники сделки группа договор</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="УчастникиСделкиГруппаДоговорРасширеннаяПодсказка" id="38"/>
+					<ChildItems>
+						<InputField name="УчастникиСделкиНомерДоговора" id="17">
+							<DataPath>УчастникиСделки.НомерДоговора</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Договор</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>15</Width>
+							<ContextMenu name="УчастникиСделкиНомерДоговораКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="УчастникиСделкиНомерДоговораРасширеннаяПодсказка" id="19"/>
+						</InputField>
+						<InputField name="УчастникиСделкиДатаДоговора" id="20">
+							<DataPath>УчастникиСделки.ДатаДоговора</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ShowInHeader>false</ShowInHeader>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="УчастникиСделкиДатаДоговораКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="УчастникиСделкиДатаДоговораРасширеннаяПодсказка" id="22"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="УчастникиСделкиГруппаСпецификация" id="39">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участники сделки группа спецификация</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участники сделки группа спецификация</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="УчастникиСделкиГруппаСпецификацияРасширеннаяПодсказка" id="40"/>
+					<ChildItems>
+						<InputField name="УчастникиСделкиНомерСпецификации" id="23">
+							<DataPath>УчастникиСделки.НомерСпецификации</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Спецификация</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>15</Width>
+							<ContextMenu name="УчастникиСделкиНомерСпецификацииКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="УчастникиСделкиНомерСпецификацииРасширеннаяПодсказка" id="25"/>
+						</InputField>
+						<InputField name="УчастникиСделкиДатаСпецификации" id="26">
+							<DataPath>УчастникиСделки.ДатаСпецификации</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ShowInHeader>false</ShowInHeader>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="УчастникиСделкиДатаСпецификацииКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="УчастникиСделкиДатаСпецификацииРасширеннаяПодсказка" id="28"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -351,22 +558,37 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Сохранить" id="1">
+		<Command name="КомандаОК" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить</v8:content>
+					<v8:content>Команда ОК</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>КомандаОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="КомандаОтмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 </Form>

@@ -3,10 +3,15 @@
 	<Width>80</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Закрыть" id="79">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="80"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
@@ -33,6 +38,39 @@
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаШапкаЛевоРасширеннаяПодсказка" id="112"/>
+					<ChildItems>
+						<InputField name="Наименование" id="108">
+							<DataPath>Объект.Description</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>28</MaxWidth>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="109"/>
+							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="110"/>
+						</InputField>
+						<InputField name="Документ" id="7">
+							<DataPath>Объект.Документ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Документ</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>28</MaxWidth>
+							<ContextMenu name="ДокументКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ДокументРасширеннаяПодсказка" id="9"/>
+						</InputField>
+						<InputField name="Операция" id="49">
+							<DataPath>Объект.Операция</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>28</MaxWidth>
+							<ContextMenu name="ОперацияКонтекстноеМеню" id="50"/>
+							<ExtendedTooltip name="ОперацияРасширеннаяПодсказка" id="51"/>
+						</InputField>
+					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаШапкаПраво" id="84">
 					<Title>
@@ -46,6 +84,33 @@
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаШапкаПравоРасширеннаяПодсказка" id="85"/>
+					<ChildItems>
+						<InputField name="ВладелецФайла" id="113">
+							<DataPath>Объект.ВладелецФайла</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Хозяйствующий субъект</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ВладелецФайлаКонтекстноеМеню" id="114"/>
+							<ExtendedTooltip name="ВладелецФайлаРасширеннаяПодсказка" id="115"/>
+						</InputField>
+						<InputField name="Предприятие" id="116">
+							<DataPath>Объект.Предприятие</DataPath>
+							<ContextMenu name="ПредприятиеКонтекстноеМеню" id="117"/>
+							<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="118"/>
+						</InputField>
+						<InputField name="ТипСообщения" id="52">
+							<DataPath>Объект.ТипСообщения</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>28</MaxWidth>
+							<ContextMenu name="ТипСообщенияКонтекстноеМеню" id="53"/>
+							<ExtendedTooltip name="ТипСообщенияРасширеннаяПодсказка" id="54"/>
+						</InputField>
+					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
@@ -67,7 +132,6 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ОтправленноеСообщениеРасширеннаяПодсказка" id="67"/>
 					<ChildItems>
@@ -75,8 +139,6 @@
 							<DataPath>ТекстовыйДокументТекстСообщенияXML</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>56</Width>
 							<ContextMenu name="ТекстовыйДокументТекстСообщенияXMLКонтекстноеМеню" id="62"/>
 							<ExtendedTooltip name="ТекстовыйДокументТекстСообщенияXMLРасширеннаяПодсказка" id="63"/>
@@ -91,7 +153,6 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ДополнительноРасширеннаяПодсказка" id="71"/>
 					<ChildItems>
@@ -121,75 +182,16 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ПравоРасширеннаяПодсказка" id="105"/>
 									<ChildItems>
-										<LabelField name="Операция" id="49">
-											<DataPath>Объект.Операция</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<UseCopy>true</UseCopy>
-											<ContextMenu name="ОперацияКонтекстноеМеню" id="50"/>
-											<ExtendedTooltip name="ОперацияРасширеннаяПодсказка" id="51"/>
-										</LabelField>
-										<LabelField name="ВладелецФайла" id="113">
-											<DataPath>Объект.ВладелецФайла</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Хозяйствующий субъект</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Hiperlink>true</Hiperlink>
-											<UseCopy>true</UseCopy>
-											<ContextMenu name="ВладелецФайлаКонтекстноеМеню" id="114"/>
-											<ExtendedTooltip name="ВладелецФайлаРасширеннаяПодсказка" id="115"/>
-										</LabelField>
-										<LabelField name="Предприятие" id="116">
-											<DataPath>Объект.Предприятие</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Hiperlink>true</Hiperlink>
-											<UseCopy>true</UseCopy>
-											<ContextMenu name="ПредприятиеКонтекстноеМеню" id="117"/>
-											<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="118"/>
-										</LabelField>
-										<InputField name="ФорматОбмена" id="97">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Формат</v8:content>
-												</v8:item>
-											</Title>
+										<InputField name="Автор" id="4">
+											<DataPath>Объект.Автор</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<MaxWidth>28</MaxWidth>
-											<ContextMenu name="ФорматОбменаКонтекстноеМеню" id="98"/>
-											<ExtendedTooltip name="ФорматОбменаРасширеннаяПодсказка" id="99"/>
+											<ContextMenu name="АвторКонтекстноеМеню" id="5"/>
+											<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="6"/>
 										</InputField>
-										<LabelField name="СтатусОбработки" id="89">
-											<DataPath>Объект.СтатусОбработки</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Статус</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<UseCopy>true</UseCopy>
-											<ContextMenu name="СтатусОбработкиКонтекстноеМеню" id="90"/>
-											<ExtendedTooltip name="СтатусОбработкиРасширеннаяПодсказка" id="91"/>
-										</LabelField>
-										<LabelField name="ТипСообщения" id="52">
-											<DataPath>Объект.ТипСообщения</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<UseCopy>true</UseCopy>
-											<ContextMenu name="ТипСообщенияКонтекстноеМеню" id="53"/>
-											<ExtendedTooltip name="ТипСообщенияРасширеннаяПодсказка" id="54"/>
-										</LabelField>
-										<LabelField name="СообщениеОснование" id="55">
+										<InputField name="СообщениеОснование" id="55">
 											<DataPath>Объект.СообщениеОснование</DataPath>
 											<Title>
 												<v8:item>
@@ -199,10 +201,23 @@
 											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<AutoEditMode>true</AutoEditMode>
-											<Hiperlink>true</Hiperlink>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>28</MaxWidth>
 											<ContextMenu name="СообщениеОснованиеКонтекстноеМеню" id="56"/>
 											<ExtendedTooltip name="СообщениеОснованиеРасширеннаяПодсказка" id="57"/>
-										</LabelField>
+										</InputField>
+										<InputField name="ФорматОбмена" id="97">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Формат</v8:content>
+												</v8:item>
+											</Title>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>28</MaxWidth>
+											<ContextMenu name="ФорматОбменаКонтекстноеМеню" id="98"/>
+											<ExtendedTooltip name="ФорматОбменаРасширеннаяПодсказка" id="99"/>
+										</InputField>
 									</ChildItems>
 								</UsualGroup>
 								<UsualGroup name="Лево" id="106">
@@ -218,46 +233,7 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ЛевоРасширеннаяПодсказка" id="107"/>
 									<ChildItems>
-										<LabelField name="Наименование" id="108">
-											<DataPath>Объект.Description</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<UseCopy>true</UseCopy>
-											<ContextMenu name="НаименованиеКонтекстноеМеню" id="109"/>
-											<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="110"/>
-										</LabelField>
-										<LabelField name="Документ" id="7">
-											<DataPath>Объект.Документ</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Документ</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Hiperlink>true</Hiperlink>
-											<ContextMenu name="ДокументКонтекстноеМеню" id="8"/>
-											<ExtendedTooltip name="ДокументРасширеннаяПодсказка" id="9"/>
-										</LabelField>
-										<LabelField name="Автор" id="4">
-											<DataPath>Объект.Автор</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Hiperlink>true</Hiperlink>
-											<ContextMenu name="АвторКонтекстноеМеню" id="5"/>
-											<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="6"/>
-										</LabelField>
-										<LabelField name="ДатаСоздания" id="13">
-											<DataPath>Объект.ДатаСоздания</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<HorizontalStretch>false</HorizontalStretch>
-											<UseCopy>true</UseCopy>
-											<ContextMenu name="ДатаСозданияКонтекстноеМеню" id="14"/>
-											<ExtendedTooltip name="ДатаСозданияРасширеннаяПодсказка" id="15"/>
-										</LabelField>
-										<LabelField name="ИдентификаторЗапроса" id="94">
+										<InputField name="ИдентификаторЗапроса" id="94">
 											<DataPath>Объект.ИдентификаторЗапроса</DataPath>
 											<Title>
 												<v8:item>
@@ -265,12 +241,34 @@
 													<v8:content>ID</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<UseCopy>true</UseCopy>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>28</MaxWidth>
 											<ContextMenu name="ИдентификаторЗапросаКонтекстноеМеню" id="95"/>
 											<ExtendedTooltip name="ИдентификаторЗапросаРасширеннаяПодсказка" id="96"/>
-										</LabelField>
+										</InputField>
+										<InputField name="СтатусОбработки" id="89">
+											<DataPath>Объект.СтатусОбработки</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Статус</v8:content>
+												</v8:item>
+											</Title>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>28</MaxWidth>
+											<ContextMenu name="СтатусОбработкиКонтекстноеМеню" id="90"/>
+											<ExtendedTooltip name="СтатусОбработкиРасширеннаяПодсказка" id="91"/>
+										</InputField>
+										<InputField name="ДатаСоздания" id="13">
+											<DataPath>Объект.ДатаСоздания</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>14</MaxWidth>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ДатаСозданияКонтекстноеМеню" id="14"/>
+											<ExtendedTooltip name="ДатаСозданияРасширеннаяПодсказка" id="15"/>
+										</InputField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -290,10 +288,7 @@
 						</UsualGroup>
 						<InputField name="Описание" id="86">
 							<DataPath>Объект.Описание</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
-							<AutoMaxHeight>false</AutoMaxHeight>
 							<ContextMenu name="ОписаниеКонтекстноеМеню" id="87"/>
 							<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="88"/>
 						</InputField>

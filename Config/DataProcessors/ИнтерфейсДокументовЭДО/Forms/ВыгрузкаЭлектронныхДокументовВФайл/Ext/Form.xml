@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
-	<WindowOpeningMode>LockOwner</WindowOpeningMode>
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
@@ -45,51 +45,23 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ПанельРасширеннаяПодсказка" id="179"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаИнформационноеСообщение" id="203">
-					<HorizontalStretch>true</HorizontalStretch>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<BackColor>pal:LightBlue</BackColor>
-					<ExtendedTooltip name="ГруппаИнформационноеСообщениеРасширеннаяПодсказка" id="204"/>
-					<ChildItems>
-						<PictureDecoration name="КартинкаИнформация" id="205">
-							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<Picture>
-								<xr:Ref>StdPicture.Information</xr:Ref>
-								<xr:LoadTransparent>true</xr:LoadTransparent>
-							</Picture>
-							<ContextMenu name="КартинкаИнформацияКонтекстноеМеню" id="206"/>
-							<ExtendedTooltip name="КартинкаИнформацияРасширеннаяПодсказка" id="207"/>
-						</PictureDecoration>
-						<LabelDecoration name="НадписьИнформация" id="197">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>65</MaxWidth>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Выгружаемые документы не являются юридически значимыми, используются только для информационного обмена с учетной программой контрагента</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="НадписьИнформацияКонтекстноеМеню" id="198"/>
-							<ExtendedTooltip name="НадписьИнформацияРасширеннаяПодсказка" id="199"/>
-						</LabelDecoration>
-						<Button name="ЗакрытьИнформационноеСообщение" id="208">
-							<Type>Hyperlink</Type>
-							<Representation>Picture</Representation>
-							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-							<CommandName>Form.Command.ЗакрытьИнформационноеСообщение</CommandName>
-							<Picture>
-								<xr:Ref>StdPicture.Close</xr:Ref>
-								<xr:LoadTransparent>true</xr:LoadTransparent>
-							</Picture>
-							<ExtendedTooltip name="ЗакрытьИнформационноеСообщениеРасширеннаяПодсказка" id="209"/>
-						</Button>
-					</ChildItems>
-				</UsualGroup>
+				<LabelDecoration name="НадписьИнформация" id="197">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>65</MaxWidth>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выгружаемые документы не являются юридически значимыми, используются только для информационного обмена с учетной программой контрагента, т.е. носят уведомительный характер.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьИнформацияКонтекстноеМеню" id="198"/>
+					<ExtendedTooltip name="НадписьИнформацияРасширеннаяПодсказка" id="199"/>
+				</LabelDecoration>
 				<RadioButtonField name="СпособВыгрузки" id="132">
 					<DataPath>СпособВыгрузки</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<RadioButtonType>Tumbler</RadioButtonType>
+					<RadioButtonType>Auto</RadioButtonType>
 					<ColumnsCount>1</ColumnsCount>
 					<ChoiceList>
 						<xr:Item>
@@ -148,7 +120,8 @@
 							<ChildItems>
 								<InputField name="АдресПолучателя" id="139">
 									<DataPath>АдресПолучателя</DataPath>
-									<HorizontalStretch>true</HorizontalStretch>
+									<Width>31</Width>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ChooseType>false</ChooseType>
 									<ContextMenu name="АдресПолучателяКонтекстноеМеню" id="140"/>
 									<ExtendedTooltip name="АдресПолучателяРасширеннаяПодсказка" id="189"/>
@@ -191,7 +164,6 @@
 													<v8:content>Предупреждение картинка</v8:content>
 												</v8:item>
 											</Title>
-											<GroupVerticalAlign>Center</GroupVerticalAlign>
 											<Picture>
 												<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
 												<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -538,16 +510,6 @@
 			</ToolTip>
 			<Action>ВыполнитьДействие</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
-		</Command>
-		<Command name="ЗакрытьИнформационноеСообщение" id="16">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Закрыть информационное сообщение</v8:content>
-				</v8:item>
-			</Title>
-			<Action>ЗакрытьИнформационноеСообщение</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>

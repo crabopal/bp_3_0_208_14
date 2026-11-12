@@ -9,8 +9,9 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 		<Event name="OnClose">ПриЗакрытии</Event>
@@ -43,6 +44,12 @@
 					<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="4"/>
 					<ExtendedTooltip name="ОписаниеРазделаРасширеннаяПодсказка" id="5"/>
 				</LabelDecoration>
+				<Button name="Справка" id="6">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="7"/>
+				</Button>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаСАТУРН" id="8">
@@ -67,7 +74,7 @@
 							<v8:content>Настройки</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AutoScreenTypeSensitive</Group>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -86,7 +93,6 @@
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
-							<United>false</United>
 							<ShowTitle>false</ShowTitle>
 							<ThroughAlign>Use</ThroughAlign>
 							<ExtendedTooltip name="ГруппаНастройкиЛеваяПанельРасширеннаяПодсказка" id="13"/>
@@ -105,6 +111,7 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<Width>12</Width>
 									<Group>HorizontalIfPossible</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
@@ -125,19 +132,14 @@
 									<ChildItems>
 										<InputField name="ТаймаутHTTPЗапросов" id="68">
 											<DataPath>ТаймаутHTTPЗапросов</DataPath>
+											<TitleLocation>Left</TitleLocation>
 											<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Width>12</Width>
+											<Width>5</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>12</MaxWidth>
 											<HorizontalStretch>false</HorizontalStretch>
 											<DropListButton>true</DropListButton>
 											<ChoiceButton>true</ChoiceButton>
-											<EditFormat>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>ЧФ='Ч с'</v8:content>
-												</v8:item>
-											</EditFormat>
 											<MinValue xsi:type="xs:decimal">1</MinValue>
 											<MaxValue xsi:type="xs:decimal">300</MaxValue>
 											<ChoiceList>
@@ -223,6 +225,12 @@
 											<ContextMenu name="ТаймаутHTTPЗапросовКонтекстноеМеню" id="69"/>
 											<ExtendedTooltip name="ТаймаутHTTPЗапросовРасширеннаяПодсказка" id="70">
 												<Height>1</Height>
+												<Title formatted="false">
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>секунд</v8:content>
+													</v8:item>
+												</Title>
 												<VerticalAlign>Center</VerticalAlign>
 											</ExtendedTooltip>
 											<Events>
@@ -245,6 +253,7 @@
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаДатаОграниченияДереваПартийРасширеннаяПодсказка" id="110">
+										<AutoMaxWidth>false</AutoMaxWidth>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -255,10 +264,6 @@
 									<ChildItems>
 										<InputField name="ДатаОграниченияГлубиныДереваПартий" id="111">
 											<DataPath>ДатаОграниченияГлубиныДереваПартий</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Width>12</Width>
-											<HorizontalStretch>false</HorizontalStretch>
 											<ContextMenu name="ДатаОграниченияГлубиныДереваПартийКонтекстноеМеню" id="112"/>
 											<ExtendedTooltip name="ДатаОграниченияГлубиныДереваПартийРасширеннаяПодсказка" id="113"/>
 											<Events>
@@ -281,7 +286,6 @@
 							<Group>Vertical</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
-							<United>false</United>
 							<ShowTitle>false</ShowTitle>
 							<ThroughAlign>DontUse</ThroughAlign>
 							<ExtendedTooltip name="ГруппаНастройкиПраваяПанельРасширеннаяПодсказка" id="40"/>
@@ -306,6 +310,8 @@
 									<ShowTitle>false</ShowTitle>
 									<ThroughAlign>Use</ThroughAlign>
 									<ExtendedTooltip name="ГруппаИнтервалКоличествоЗапросовВМинутуРасширеннаяПодсказка" id="15">
+										<Width>48</Width>
+										<Height>4</Height>
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -324,18 +330,12 @@
 													<v8:content>Максимальное количество запросов</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Width>12</Width>
-											<HorizontalStretch>false</HorizontalStretch>
+											<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+											<Width>5</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>12</MaxWidth>
 											<DropListButton>true</DropListButton>
 											<ChoiceButton>true</ChoiceButton>
-											<EditFormat>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>ЧФ='Ч в минуту'</v8:content>
-												</v8:item>
-											</EditFormat>
 											<MinValue xsi:type="xs:decimal">1</MinValue>
 											<ChoiceList>
 												<xr:Item>
@@ -393,6 +393,12 @@
 											</ChoiceList>
 											<ContextMenu name="КоличествоЗапросовВМинутуКонтекстноеМеню" id="17"/>
 											<ExtendedTooltip name="КоличествоЗапросовВМинутуРасширеннаяПодсказка" id="18">
+												<Title formatted="false">
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>в минуту</v8:content>
+													</v8:item>
+												</Title>
 												<VerticalAlign>Center</VerticalAlign>
 											</ExtendedTooltip>
 											<Events>
@@ -416,6 +422,7 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<Width>12</Width>
 									<Group>HorizontalIfPossible</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
@@ -436,19 +443,14 @@
 									<ChildItems>
 										<InputField name="КоличествоЭлементовСтраницыОтвета" id="106">
 											<DataPath>КоличествоЭлементовСтраницыОтвета</DataPath>
+											<TitleLocation>Left</TitleLocation>
 											<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Width>12</Width>
+											<Width>5</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>12</MaxWidth>
 											<HorizontalStretch>false</HorizontalStretch>
 											<DropListButton>true</DropListButton>
 											<ChoiceButton>true</ChoiceButton>
-											<EditFormat>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>ЧФ='Ч элементов'</v8:content>
-												</v8:item>
-											</EditFormat>
 											<MinValue xsi:type="xs:decimal">1</MinValue>
 											<MaxValue xsi:type="xs:decimal">100</MaxValue>
 											<ChoiceList>
@@ -507,6 +509,12 @@
 											</ChoiceList>
 											<ContextMenu name="КоличествоЭлементовСтраницыОтветаКонтекстноеМеню" id="107"/>
 											<ExtendedTooltip name="КоличествоЭлементовСтраницыОтветаРасширеннаяПодсказка" id="108">
+												<Title formatted="false">
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>элементов</v8:content>
+													</v8:item>
+												</Title>
 												<VerticalAlign>Center</VerticalAlign>
 											</ExtendedTooltip>
 											<Events>
@@ -534,6 +542,14 @@
 			<Type>
 				<v8:Type>cfg:ConstantsSet</v8:Type>
 			</Type>
+			<UseAlways>
+				<Field>НаборКонстант.ВалютаРегламентированногоУчета</Field>
+				<Field>НаборКонстант.ОтключитьКонтрольОтрицательныхОстатков</Field>
+				<Field>НаборКонстант.СрокОплатыПокупателей</Field>
+				<Field>НаборКонстант.СрокОплатыПоставщикам</Field>
+				<Field>НаборКонстант.ТипЦенПлановойСебестоимостиНоменклатуры</Field>
+				<Field>НаборКонстант.УдалитьНастройкиКолонтитулов</Field>
+			</UseAlways>
 		</Attribute>
 		<Attribute name="КоличествоЗапросовВМинуту" id="2">
 			<Title>

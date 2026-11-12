@@ -70,7 +70,7 @@
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПанельОтправкиРасширеннаяПодсказка" id="488"/>
+			<ExtendedTooltip name="ГруппаПанельОтправкиExtendedTooltip" id="488"/>
 			<ChildItems>
 				<UsualGroup name="БлокСостоянияОтправки" id="489">
 					<Title>
@@ -221,7 +221,7 @@
 									<Height>1</Height>
 									<Picture>
 										<xr:Ref>CommonPicture.ПризнакНаличияКритическойОшибки</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="ЗначокКритическойОшибкиКонтекстноеМеню" id="521"/>
@@ -298,32 +298,33 @@
 					<v8:content>Шапка</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
+			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ШапкаРасширеннаяПодсказка" id="210"/>
+			<ExtendedTooltip name="ШапкаExtendedTooltip" id="210"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаШапка" id="184">
+				<UsualGroup name="ГруппаШапкаЛевая" id="184">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Шапка левая</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа шапка</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Width>30</Width>
-					<Group>AlwaysHorizontal</Group>
+					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="211"/>
+					<ExtendedTooltip name="ГруппаШапкаЛеваяExtendedTooltip" id="211"/>
 					<ChildItems>
+						<InputField name="Организация" id="26">
+							<DataPath>Объект.Организация</DataPath>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="212"/>
+							<Events>
+								<Event name="OnChange">ОрганизацияПриИзменении</Event>
+							</Events>
+						</InputField>
 						<InputField name="ОтчетныйПериод" id="24">
 							<DataPath>ПериодСтрока</DataPath>
 							<Title>
@@ -335,63 +336,245 @@
 							<SpinButton>true</SpinButton>
 							<TextEdit>false</TextEdit>
 							<ContextMenu name="ОтчетныйПериодКонтекстноеМеню" id="25"/>
-							<ExtendedTooltip name="ОтчетныйПериодРасширеннаяПодсказка" id="213"/>
+							<ExtendedTooltip name="ОтчетныйПериодExtendedTooltip" id="213"/>
 							<Events>
 								<Event name="Tuning">ОтчетныйПериодРегулирование</Event>
 							</Events>
 						</InputField>
-						<InputField name="Организация" id="26">
-							<DataPath>Объект.Организация</DataPath>
-							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="27"/>
-							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="212"/>
-							<Events>
-								<Event name="OnChange">ОрганизацияПриИзменении</Event>
-							</Events>
-						</InputField>
-						<UsualGroup name="ГруппаНомерДата" id="626">
+						<InputField name="ТипСведений" id="39">
+							<DataPath>Объект.ТипСведений</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа номер дата</v8:content>
+									<v8:content>Тип сведений</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTip>
+							<ContextMenu name="ТипСведенийКонтекстноеМеню" id="40"/>
+							<ExtendedTooltip name="ТипСведенийExtendedTooltip" id="219"/>
+							<Events>
+								<Event name="OnChange">ТипСведенийПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаШапкаСредняя" id="315">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шапка средняя</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаСредняяРасширеннаяПодсказка" id="316"/>
+					<ChildItems>
+						<InputField name="КорректируемыйПериод" id="44">
+							<DataPath>КорректируемыйПериодСтрока</DataPath>
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа номер дата</v8:content>
+									<v8:content>Корректир. период</v8:content>
 								</v8:item>
-							</ToolTip>
-							<Group>AlwaysHorizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаНомерДатаРасширеннаяПодсказка" id="627"/>
-							<ChildItems>
-								<InputField name="Номер" id="12">
-									<DataPath>Объект.Number</DataPath>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<MaxWidth>16</MaxWidth>
-									<ContextMenu name="НомерКонтекстноеМеню" id="13"/>
-									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="224"/>
-								</InputField>
-								<InputField name="Дата" id="10">
-									<DataPath>Объект.Date</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>от</v8:content>
-										</v8:item>
-									</Title>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<MaxWidth>20</MaxWidth>
-									<ContextMenu name="ДатаКонтекстноеМеню" id="11"/>
-									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="223"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
+							</Title>
+							<SpinButton>true</SpinButton>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="КорректируемыйПериодКонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="КорректируемыйПериодExtendedTooltip" id="220"/>
+							<Events>
+								<Event name="Tuning">КорректируемыйПериодРегулирование</Event>
+							</Events>
+						</InputField>
+						<InputField name="РегистрационныйНомерПФРвКорректируемыйПериод" id="208">
+							<DataPath>Объект.РегистрационныйНомерПФРвКорректируемыйПериод</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Рег. номер в корр. период</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="РегистрационныйНомерПФРвКорректируемыйПериодКонтекстноеМеню" id="209"/>
+							<ExtendedTooltip name="РегистрационныйНомерПФРвКорректируемыйПериодExtendedTooltip" id="215"/>
+							<Events>
+								<Event name="OnChange">РегистрационныйНомерПФРвКорректируемыйПериодПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ИННвКорректируемыйПериод" id="363">
+							<DataPath>Объект.ИННвКорректируемыйПериод</DataPath>
+							<ContextMenu name="ИННвКорректируемыйПериодКонтекстноеМеню" id="364"/>
+							<ExtendedTooltip name="ИННвКорректируемыйПериодРасширеннаяПодсказка" id="365"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаШапкаПравая" id="366">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шапка правая</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаПраваяРасширеннаяПодсказка" id="367"/>
+					<ChildItems>
+						<InputField name="Дата" id="10">
+							<DataPath>Объект.Date</DataPath>
+							<Width>10</Width>
+							<ContextMenu name="ДатаКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ДатаExtendedTooltip" id="223"/>
+						</InputField>
+						<InputField name="Номер" id="12">
+							<DataPath>Объект.Number</DataPath>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="НомерКонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="НомерExtendedTooltip" id="224"/>
+						</InputField>
+						<InputField name="КППвКорректируемыйПериод" id="360">
+							<DataPath>Объект.КППвКорректируемыйПериод</DataPath>
+							<ContextMenu name="КППвКорректируемыйПериодКонтекстноеМеню" id="361"/>
+							<ExtendedTooltip name="КППвКорректируемыйПериодРасширеннаяПодсказка" id="362"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
+		<UsualGroup name="ГруппаПрежнийСтрахователь" id="536">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сведения о работодателе, правопреемником которого является страхователь</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Collapsible</Behavior>
+			<Collapsed>true</Collapsed>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаПрежнийСтраховательРасширеннаяПодсказка" id="537"/>
+			<ChildItems>
+				<InputField name="ПрежнийСтраховательНаименованиеПолное" id="538">
+					<DataPath>Объект.ПрежнийСтраховательНаименованиеПолное</DataPath>
+					<TitleLocation>Left</TitleLocation>
+					<MultiLine>true</MultiLine>
+					<ContextMenu name="ПрежнийСтраховательНаименованиеПолноеКонтекстноеМеню" id="539"/>
+					<ExtendedTooltip name="ПрежнийСтраховательНаименованиеПолноеРасширеннаяПодсказка" id="540"/>
+					<Events>
+						<Event name="OnChange">ПрежнийСтраховательНаименованиеПолноеПриИзменении</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="ГруппаПрежнийСтраховательДанные" id="541">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа прежний страхователь данные</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПрежнийСтраховательДанныеРасширеннаяПодсказка" id="542"/>
+					<ChildItems>
+						<InputField name="ПрежнийСтраховательРегистрационныйНомерПФР" id="547">
+							<DataPath>Объект.ПрежнийСтраховательРегистрационныйНомерПФР</DataPath>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПрежнийСтраховательРегистрационныйНомерПФРКонтекстноеМеню" id="548"/>
+							<ExtendedTooltip name="ПрежнийСтраховательРегистрационныйНомерПФРРасширеннаяПодсказка" id="549"/>
+							<Events>
+								<Event name="OnChange">ПрежнийСтраховательРегистрационныйНомерПФРПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПрежнийСтраховательИНН" id="550">
+							<DataPath>Объект.ПрежнийСтраховательИНН</DataPath>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПрежнийСтраховательИННКонтекстноеМеню" id="551"/>
+							<ExtendedTooltip name="ПрежнийСтраховательИННРасширеннаяПодсказка" id="552"/>
+							<Events>
+								<Event name="OnChange">ПрежнийСтраховательИННПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПрежнийСтраховательКПП" id="553">
+							<DataPath>Объект.ПрежнийСтраховательКПП</DataPath>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПрежнийСтраховательКППКонтекстноеМеню" id="554"/>
+							<ExtendedTooltip name="ПрежнийСтраховательКППРасширеннаяПодсказка" id="555"/>
+							<Events>
+								<Event name="OnChange">ПрежнийСтраховательКПППриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПрежнийСтраховательВтораяСтрока" id="543">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа прежний страхователь вторая строка</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПрежнийСтраховательВтораяСтрокаРасширеннаяПодсказка" id="544"/>
+					<ChildItems>
+						<InputField name="ПрежнийСтраховательОКФС" id="556">
+							<DataPath>Объект.ПрежнийСтраховательОКФС</DataPath>
+							<ContextMenu name="ПрежнийСтраховательОКФСКонтекстноеМеню" id="557"/>
+							<ExtendedTooltip name="ПрежнийСтраховательОКФСРасширеннаяПодсказка" id="558"/>
+						</InputField>
+						<InputField name="ПрежнийСтраховательОКОГУ" id="559">
+							<DataPath>Объект.ПрежнийСтраховательОКОГУ</DataPath>
+							<ContextMenu name="ПрежнийСтраховательОКОГУКонтекстноеМеню" id="560"/>
+							<ExtendedTooltip name="ПрежнийСтраховательОКОГУРасширеннаяПодсказка" id="561"/>
+						</InputField>
+						<InputField name="ПрежнийСтраховательОКПО" id="562">
+							<DataPath>Объект.ПрежнийСтраховательОКПО</DataPath>
+							<ContextMenu name="ПрежнийСтраховательОКПОКонтекстноеМеню" id="563"/>
+							<ExtendedTooltip name="ПрежнийСтраховательОКПОРасширеннаяПодсказка" id="564"/>
+						</InputField>
+						<InputField name="ПрежнийСтраховательОКВЭД" id="565">
+							<DataPath>Объект.ПрежнийСтраховательОКВЭД</DataPath>
+							<ContextMenu name="ПрежнийСтраховательОКВЭДКонтекстноеМеню" id="566"/>
+							<ExtendedTooltip name="ПрежнийСтраховательОКВЭДРасширеннаяПодсказка" id="567"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПрежнийСтраховательТретьяСтрока" id="545">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа прежний страхователь третья строка</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПрежнийСтраховательТретьяСтрокаРасширеннаяПодсказка" id="546"/>
+					<ChildItems>
+						<InputField name="ПрежнийСтраховательОГРН" id="568">
+							<DataPath>Объект.ПрежнийСтраховательОГРН</DataPath>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПрежнийСтраховательОГРНКонтекстноеМеню" id="569"/>
+							<ExtendedTooltip name="ПрежнийСтраховательОГРНРасширеннаяПодсказка" id="570"/>
+						</InputField>
+						<InputField name="ПрежнийСтраховательКодКатегории" id="571">
+							<DataPath>Объект.ПрежнийСтраховательКодКатегории</DataPath>
+							<ContextMenu name="ПрежнийСтраховательКодКатегорииКонтекстноеМеню" id="572"/>
+							<ExtendedTooltip name="ПрежнийСтраховательКодКатегорииРасширеннаяПодсказка" id="573"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="ФлагБлокировкиДокумента" id="389">
+			<DataPath>ФлагБлокировкиДокумента</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<ContextMenu name="ФлагБлокировкиДокументаКонтекстноеМеню" id="390"/>
+			<ExtendedTooltip name="ФлагБлокировкиДокументаРасширеннаяПодсказка" id="391"/>
+			<Events>
+				<Event name="OnChange">ФлагБлокировкиДокументаПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
 		<UsualGroup name="ГруппаТребуетсяПерезаполнение" id="479">
 			<Visible>false</Visible>
 			<Title>
@@ -415,7 +598,7 @@
 					</Title>
 					<Picture>
 						<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</Picture>
 					<FileDragMode>AsFile</FileDragMode>
 					<ContextMenu name="ТребуетсяПерезаполнениеКартинкаКонтекстноеМеню" id="482"/>
@@ -445,154 +628,6 @@
 			<PagesRepresentation>TabsOnTop</PagesRepresentation>
 			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="393"/>
 			<ChildItems>
-				<Page name="ГлавноеСтраница" id="634">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Главное</v8:content>
-						</v8:item>
-					</Title>
-					<ScrollOnCompress>true</ScrollOnCompress>
-					<ExtendedTooltip name="ГлавноеСтраницаРасширеннаяПодсказка" id="635"/>
-					<ChildItems>
-						<UsualGroup name="ГруппаОсновное" id="638">
-							<Group>AlwaysHorizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="639"/>
-							<ChildItems>
-								<UsualGroup name="ГруппаОсновноеПравая" id="366">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Шапка правая</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа основное правая</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Width>30</Width>
-									<Group>Vertical</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаОсновноеПраваяРасширеннаяПодсказка" id="367"/>
-									<ChildItems>
-										<InputField name="ТипСведений" id="39">
-											<DataPath>Объект.ТипСведений</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Тип сведений</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ТипСведенийКонтекстноеМеню" id="40"/>
-											<ExtendedTooltip name="ТипСведенийРасширеннаяПодсказка" id="219"/>
-											<Events>
-												<Event name="OnChange">ТипСведенийПриИзменении</Event>
-											</Events>
-										</InputField>
-										<InputField name="КорректируемыйПериод" id="44">
-											<DataPath>КорректируемыйПериодСтрока</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Корректир. период</v8:content>
-												</v8:item>
-											</Title>
-											<SpinButton>true</SpinButton>
-											<TextEdit>false</TextEdit>
-											<ContextMenu name="КорректируемыйПериодКонтекстноеМеню" id="45"/>
-											<ExtendedTooltip name="КорректируемыйПериодРасширеннаяПодсказка" id="220"/>
-											<Events>
-												<Event name="Tuning">КорректируемыйПериодРегулирование</Event>
-											</Events>
-										</InputField>
-									</ChildItems>
-								</UsualGroup>
-								<UsualGroup name="ГруппаОсновноеЛевая" id="636">
-									<Group>Vertical</Group>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаОсновноеЛеваяРасширеннаяПодсказка" id="637"/>
-									<ChildItems>
-										<InputField name="РегистрационныйНомерПФРвКорректируемыйПериод" id="208">
-											<DataPath>Объект.РегистрационныйНомерПФРвКорректируемыйПериод</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Рег. номер в корр. период</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="РегистрационныйНомерПФРвКорректируемыйПериодКонтекстноеМеню" id="209"/>
-											<ExtendedTooltip name="РегистрационныйНомерПФРвКорректируемыйПериодРасширеннаяПодсказка" id="215"/>
-											<Events>
-												<Event name="OnChange">РегистрационныйНомерПФРвКорректируемыйПериодПриИзменении</Event>
-											</Events>
-										</InputField>
-										<InputField name="ИННвКорректируемыйПериод" id="363">
-											<DataPath>Объект.ИННвКорректируемыйПериод</DataPath>
-											<ContextMenu name="ИННвКорректируемыйПериодКонтекстноеМеню" id="364"/>
-											<ExtendedTooltip name="ИННвКорректируемыйПериодРасширеннаяПодсказка" id="365"/>
-										</InputField>
-										<InputField name="КППвКорректируемыйПериод" id="360">
-											<DataPath>Объект.КППвКорректируемыйПериод</DataPath>
-											<ContextMenu name="КППвКорректируемыйПериодКонтекстноеМеню" id="361"/>
-											<ExtendedTooltip name="КППвКорректируемыйПериодРасширеннаяПодсказка" id="362"/>
-										</InputField>
-									</ChildItems>
-								</UsualGroup>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="Подписи" id="459">
-							<Group>Horizontal</Group>
-							<Collapsed>true</Collapsed>
-							<ControlRepresentation>Button</ControlRepresentation>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ПодписиРасширеннаяПодсказка" id="460"/>
-							<ChildItems>
-								<InputField name="Руководитель" id="461">
-									<DataPath>Объект.Руководитель</DataPath>
-									<ContextMenu name="РуководительКонтекстноеМеню" id="462"/>
-									<ExtendedTooltip name="РуководительРасширеннаяПодсказка" id="463"/>
-								</InputField>
-								<InputField name="ДолжностьРуководителя" id="464">
-									<DataPath>Объект.ДолжностьРуководителя</DataPath>
-									<ContextMenu name="ДолжностьРуководителяКонтекстноеМеню" id="465"/>
-									<ExtendedTooltip name="ДолжностьРуководителяРасширеннаяПодсказка" id="466"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ФлагБлокировкиДокументаГруппа" id="652">
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ФлагБлокировкиДокументаГруппаРасширеннаяПодсказка" id="653"/>
-							<ChildItems>
-								<CheckBoxField name="ФлагБлокировкиДокумента" id="389">
-									<DataPath>ФлагБлокировкиДокумента</DataPath>
-									<TitleLocation>Right</TitleLocation>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Установите флажок, если документ принят в СФР. Возможность редактирования данных будет отключена.</v8:content>
-										</v8:item>
-									</ToolTip>
-									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-									<CheckBoxType>CheckBox</CheckBoxType>
-									<ContextMenu name="ФлагБлокировкиДокументаКонтекстноеМеню" id="390"/>
-									<ExtendedTooltip name="ФлагБлокировкиДокументаРасширеннаяПодсказка" id="391"/>
-									<Events>
-										<Event name="OnChange">ФлагБлокировкиДокументаПриИзменении</Event>
-									</Events>
-								</CheckBoxField>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
-				</Page>
 				<Page name="СотрудникиСтраница" id="394">
 					<Title>
 						<v8:item>
@@ -601,13 +636,14 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СотрудникиСтраницаРасширеннаяПодсказка" id="395"/>
 					<ChildItems>
 						<Table name="Сотрудники" id="47">
 							<Height>5</Height>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<FileDragMode>AsFile</FileDragMode>
@@ -628,6 +664,7 @@
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="СотрудникиКонтекстноеМеню" id="48"/>
 							<AutoCommandBar name="СотрудникиКоманднаяПанель" id="49">
+								<Autofill>false</Autofill>
 								<ChildItems>
 									<Button name="СотрудникиПодбор" id="340">
 										<Type>CommandBarButton</Type>
@@ -690,7 +727,7 @@
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
-							<ExtendedTooltip name="СотрудникиРасширеннаяПодсказка" id="239"/>
+							<ExtendedTooltip name="СотрудникиExtendedTooltip" id="239"/>
 							<SearchStringAddition name="СотрудникиСтрокаПоиска" id="331">
 								<AdditionSource>
 									<Item>Сотрудники</Item>
@@ -732,7 +769,7 @@
 									<Width>1</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="СотрудникиНомерСтрокиКонтекстноеМеню" id="162"/>
-									<ExtendedTooltip name="СотрудникиНомерСтрокиРасширеннаяПодсказка" id="240"/>
+									<ExtendedTooltip name="СотрудникиНомерСтрокиExtendedTooltip" id="240"/>
 								</InputField>
 								<InputField name="СотрудникиСотрудник" id="377">
 									<DataPath>Объект.Сотрудники.Сотрудник</DataPath>
@@ -804,7 +841,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ДанныеПоСтрахователюСтраницаРасширеннаяПодсказка" id="397"/>
 					<ChildItems>
 						<Table name="НачисленныеУплаченныеВзносы" id="398">
@@ -990,189 +1027,80 @@
 						</UsualGroup>
 					</ChildItems>
 				</Page>
-				<Page name="СведенияОРаботодателеСтраница" id="642">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Сведения о работодателе</v8:content>
-						</v8:item>
-					</Title>
-					<ScrollOnCompress>true</ScrollOnCompress>
-					<ExtendedTooltip name="СведенияОРаботодателеСтраницаРасширеннаяПодсказка" id="643"/>
-					<ChildItems>
-						<UsualGroup name="ГруппаПрежнийСтрахователь" id="536">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Сведения о работодателе, правопреемником которого является страхователь</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
-							<Collapsed>true</Collapsed>
-							<ControlRepresentation>Button</ControlRepresentation>
-							<Representation>None</Representation>
-							<ExtendedTooltip name="ГруппаПрежнийСтраховательРасширеннаяПодсказка" id="537"/>
-							<ChildItems>
-								<UsualGroup name="ГруппаПрежнийСтраховательВерхняя" id="628">
-									<Group>AlwaysHorizontal</Group>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаПрежнийСтраховательВерхняяРасширеннаяПодсказка" id="629"/>
-									<ChildItems>
-										<InputField name="ПрежнийСтраховательНаименованиеПолное" id="538">
-											<DataPath>Объект.ПрежнийСтраховательНаименованиеПолное</DataPath>
-											<Height>2</Height>
-											<AutoMaxHeight>false</AutoMaxHeight>
-											<MaxHeight>2</MaxHeight>
-											<MultiLine>true</MultiLine>
-											<ContextMenu name="ПрежнийСтраховательНаименованиеПолноеКонтекстноеМеню" id="539"/>
-											<ExtendedTooltip name="ПрежнийСтраховательНаименованиеПолноеРасширеннаяПодсказка" id="540"/>
-											<Events>
-												<Event name="OnChange">ПрежнийСтраховательНаименованиеПолноеПриИзменении</Event>
-											</Events>
-										</InputField>
-										<InputField name="ПрежнийСтраховательРегистрационныйНомерПФР" id="547">
-											<DataPath>Объект.ПрежнийСтраховательРегистрационныйНомерПФР</DataPath>
-											<ContextMenu name="ПрежнийСтраховательРегистрационныйНомерПФРКонтекстноеМеню" id="548"/>
-											<ExtendedTooltip name="ПрежнийСтраховательРегистрационныйНомерПФРРасширеннаяПодсказка" id="549"/>
-											<Events>
-												<Event name="OnChange">ПрежнийСтраховательРегистрационныйНомерПФРПриИзменении</Event>
-											</Events>
-										</InputField>
-									</ChildItems>
-								</UsualGroup>
-								<UsualGroup name="ГруппаПрежнийСтраховательВтораяСтрока" id="543">
-									<Group>AlwaysHorizontal</Group>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаПрежнийСтраховательВтораяСтрокаРасширеннаяПодсказка" id="544"/>
-									<ChildItems>
-										<UsualGroup name="ГруппаПрежнийСтраховательВтораяСтрокаЛевая" id="632">
-											<Group>Vertical</Group>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаПрежнийСтраховательВтораяСтрокаЛеваяРасширеннаяПодсказка" id="633"/>
-											<ChildItems>
-												<InputField name="ПрежнийСтраховательИНН" id="550">
-													<DataPath>Объект.ПрежнийСтраховательИНН</DataPath>
-													<ContextMenu name="ПрежнийСтраховательИННКонтекстноеМеню" id="551"/>
-													<ExtendedTooltip name="ПрежнийСтраховательИННРасширеннаяПодсказка" id="552"/>
-													<Events>
-														<Event name="OnChange">ПрежнийСтраховательИННПриИзменении</Event>
-													</Events>
-												</InputField>
-												<InputField name="ПрежнийСтраховательОКФС" id="556">
-													<DataPath>Объект.ПрежнийСтраховательОКФС</DataPath>
-													<ContextMenu name="ПрежнийСтраховательОКФСКонтекстноеМеню" id="557"/>
-													<ExtendedTooltip name="ПрежнийСтраховательОКФСРасширеннаяПодсказка" id="558"/>
-												</InputField>
-												<InputField name="ПрежнийСтраховательОКОГУ" id="559">
-													<DataPath>Объект.ПрежнийСтраховательОКОГУ</DataPath>
-													<ContextMenu name="ПрежнийСтраховательОКОГУКонтекстноеМеню" id="560"/>
-													<ExtendedTooltip name="ПрежнийСтраховательОКОГУРасширеннаяПодсказка" id="561"/>
-												</InputField>
-												<InputField name="ПрежнийСтраховательОКПО" id="562">
-													<DataPath>Объект.ПрежнийСтраховательОКПО</DataPath>
-													<ContextMenu name="ПрежнийСтраховательОКПОКонтекстноеМеню" id="563"/>
-													<ExtendedTooltip name="ПрежнийСтраховательОКПОРасширеннаяПодсказка" id="564"/>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
-										<UsualGroup name="ГруппаПрежнийСтраховательВтораяСтрокаПравая" id="630">
-											<Group>Vertical</Group>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаПрежнийСтраховательВтораяСтрокаПраваяРасширеннаяПодсказка" id="631"/>
-											<ChildItems>
-												<InputField name="ПрежнийСтраховательКПП" id="553">
-													<DataPath>Объект.ПрежнийСтраховательКПП</DataPath>
-													<ContextMenu name="ПрежнийСтраховательКППКонтекстноеМеню" id="554"/>
-													<ExtendedTooltip name="ПрежнийСтраховательКППРасширеннаяПодсказка" id="555"/>
-													<Events>
-														<Event name="OnChange">ПрежнийСтраховательКПППриИзменении</Event>
-													</Events>
-												</InputField>
-												<InputField name="ПрежнийСтраховательОКВЭД" id="565">
-													<DataPath>Объект.ПрежнийСтраховательОКВЭД</DataPath>
-													<ContextMenu name="ПрежнийСтраховательОКВЭДКонтекстноеМеню" id="566"/>
-													<ExtendedTooltip name="ПрежнийСтраховательОКВЭДРасширеннаяПодсказка" id="567"/>
-												</InputField>
-												<InputField name="ПрежнийСтраховательОГРН" id="568">
-													<DataPath>Объект.ПрежнийСтраховательОГРН</DataPath>
-													<ContextMenu name="ПрежнийСтраховательОГРНКонтекстноеМеню" id="569"/>
-													<ExtendedTooltip name="ПрежнийСтраховательОГРНРасширеннаяПодсказка" id="570"/>
-												</InputField>
-												<InputField name="ПрежнийСтраховательКодКатегории" id="571">
-													<DataPath>Объект.ПрежнийСтраховательКодКатегории</DataPath>
-													<ContextMenu name="ПрежнийСтраховательКодКатегорииКонтекстноеМеню" id="572"/>
-													<ExtendedTooltip name="ПрежнийСтраховательКодКатегорииРасширеннаяПодсказка" id="573"/>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
-									</ChildItems>
-								</UsualGroup>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
-				</Page>
-				<Page name="ДополнительноГруппа" id="644">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Дополнительно</v8:content>
-						</v8:item>
-					</Title>
-					<ScrollOnCompress>true</ScrollOnCompress>
-					<ExtendedTooltip name="ДополнительноГруппаРасширеннаяПодсказка" id="645"/>
-					<ChildItems>
-						<UsualGroup name="ГруппаДополнительныеРеквизиты" id="477">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Дополнительно</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ExtendedTooltip name="ГруппаДополнительныеРеквизитыРасширеннаяПодсказка" id="478"/>
-						</UsualGroup>
-						<UsualGroup name="КомментарийГруппа" id="205">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Комментарий группа</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Horizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="КомментарийГруппаРасширеннаяПодсказка" id="293"/>
-							<ChildItems>
-								<InputField name="Комментарий" id="206">
-									<DataPath>Объект.Комментарий</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<MultiLine>false</MultiLine>
-									<ExtendedEdit>false</ExtendedEdit>
-									<ChoiceButton>false</ChoiceButton>
-									<ContextMenu name="КомментарийКонтекстноеМеню" id="207"/>
-									<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="294"/>
-								</InputField>
-								<InputField name="Ответственный" id="180">
-									<DataPath>Объект.Ответственный</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ОтветственныйКонтекстноеМеню" id="181"/>
-									<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="225"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
-				</Page>
 			</ChildItems>
 		</Pages>
+		<UsualGroup name="Подписи" id="459">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подписи</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ПодписиРасширеннаяПодсказка" id="460"/>
+			<ChildItems>
+				<InputField name="Руководитель" id="461">
+					<DataPath>Объект.Руководитель</DataPath>
+					<ContextMenu name="РуководительКонтекстноеМеню" id="462"/>
+					<ExtendedTooltip name="РуководительРасширеннаяПодсказка" id="463"/>
+				</InputField>
+				<InputField name="ДолжностьРуководителя" id="464">
+					<DataPath>Объект.ДолжностьРуководителя</DataPath>
+					<ContextMenu name="ДолжностьРуководителяКонтекстноеМеню" id="465"/>
+					<ExtendedTooltip name="ДолжностьРуководителяРасширеннаяПодсказка" id="466"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДополнительныеРеквизиты" id="477">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительно</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаДополнительныеРеквизитыExtendedTooltip" id="478"/>
+		</UsualGroup>
+		<UsualGroup name="КомментарийГруппа" id="205">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий группа</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="КомментарийГруппаExtendedTooltip" id="293"/>
+			<ChildItems>
+				<InputField name="Комментарий" id="206">
+					<DataPath>Объект.Комментарий</DataPath>
+					<TitleLocation>Left</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Height>1</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<ChoiceButton>false</ChoiceButton>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="207"/>
+					<ExtendedTooltip name="КомментарийExtendedTooltip" id="294"/>
+				</InputField>
+				<InputField name="Ответственный" id="180">
+					<DataPath>Объект.Ответственный</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="181"/>
+					<ExtendedTooltip name="ОтветственныйExtendedTooltip" id="225"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -1275,7 +1203,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Документ принят в СФР</v8:content>
+					<v8:content>Документ принят в СФР (не редактируется)</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1301,6 +1229,12 @@
 			</Type>
 		</Attribute>
 		<Attribute name="ОрганизацияДляПодбора" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация для подбора</v8:content>
+				</v8:item>
+			</Title>
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
@@ -1514,5 +1448,49 @@
 				</Visible>
 			</Item>
 		</NavigationPanel>
+		<CommandBar>
+			<Item>
+				<Command>0:beaaa5ef-f76c-4dc8-9dd0-d6b920d3deec</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormCommandBarImportant</CommandGroup>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0:e7688ecd-969d-4e2c-955b-47f23758422a</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.Печать</CommandGroup>
+				<Index>3</Index>
+			</Item>
+			<Item>
+				<Command>0:bc20af90-aefd-446f-bd32-0b64f2935081</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.Печать</CommandGroup>
+				<Index>1</Index>
+			</Item>
+			<Item>
+				<Command>0:2baf6d7a-12ed-4f22-ad96-92bb31b747ff</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.Печать</CommandGroup>
+				<Index>4</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0:043467f4-78fa-400c-8ec3-86402ba8d01b</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.Печать</CommandGroup>
+			</Item>
+			<Item>
+				<Command>0:35def2d9-7dbf-4b13-8349-20ea6452eb1a</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.Печать</CommandGroup>
+				<Index>2</Index>
+			</Item>
+		</CommandBar>
 	</CommandInterface>
 </Form>

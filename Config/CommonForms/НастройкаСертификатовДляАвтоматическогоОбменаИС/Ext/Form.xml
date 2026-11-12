@@ -3,14 +3,14 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Настройка сертификатов для обмена по расписанию и запроса сведений ГИС МТ</v8:content>
+			<v8:content>Настройка сертификатов организаций для автоматического обмена по расписанию и запроса сведений ГИС МТ</v8:content>
 		</v8:item>
 	</Title>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ЗаписатьИЗакрыть" id="20">
 				<Type>CommandBarButton</Type>
@@ -21,14 +21,12 @@
 			</Button>
 			<Button name="ФормаЗакрыть" id="78">
 				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
 				<Representation>Text</Representation>
 				<CommandName>Form.StandardCommand.Close</CommandName>
 				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="79"/>
 			</Button>
 			<Button name="ФормаСправка" id="70">
 				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
 				<CommandName>Form.StandardCommand.Help</CommandName>
 				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="71"/>
@@ -43,11 +41,13 @@
 	<ChildItems>
 		<Table name="Настройки" id="1">
 			<Representation>List</Representation>
-			<ChangeRowOrder>false</ChangeRowOrder>
+			<Width>60</Width>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Настройки</DataPath>
 			<Title>
 				<v8:item>
@@ -93,13 +93,13 @@
 				<ExtendedTooltip name="НастройкиУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 			</SearchControlAddition>
 			<Events>
-				<Event name="Selection">НастройкиВыбор</Event>
 				<Event name="OnChange">НастройкиПриИзменении</Event>
 			</Events>
 			<ChildItems>
 				<InputField name="НастройкиОрганизация" id="14">
 					<DataPath>Настройки.Организация</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<AutoEditMode>true</AutoEditMode>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="НастройкиОрганизацияКонтекстноеМеню" id="15"/>
@@ -115,6 +115,7 @@
 				<InputField name="НастройкиСертификат" id="17">
 					<DataPath>Настройки.Сертификат</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<AutoEditMode>true</AutoEditMode>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="НастройкиСертификатКонтекстноеМеню" id="18"/>
@@ -140,7 +141,7 @@
 			<HorizontalStretch>true</HorizontalStretch>
 			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
-			<ShowTitle>false</ShowTitle>
+			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаПояснениеРасширеннаяПодсказка" id="23"/>
 			<ChildItems>
 				<LabelDecoration name="Пояснение" id="60">
@@ -267,7 +268,6 @@
 			<Action>ЗаписатьИЗакрыть</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитьПароль" id="2">
 			<Title>
@@ -284,9 +284,7 @@
 			</ToolTip>
 			<Action>УстановитьПароль</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Настройки</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 	<Parameters>

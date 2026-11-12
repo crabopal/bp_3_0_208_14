@@ -3,7 +3,7 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Открытие профиля организации в 1С:Бизнес-сеть</v8:content>
+			<v8:content>Открытие профиля организации в сервисе 1С:Бизнес-сеть</v8:content>
 		</v8:item>
 	</Title>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
@@ -17,10 +17,10 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<ChildItems>
-			<Button name="ФормаВыбрать" id="27">
+			<Button name="ПерейтиВПрофиль" id="17">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Item.Список.StandardCommand.Choose</CommandName>
+				<CommandName>Form.Command.ОткрытьПрофильОрганизации</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
@@ -28,31 +28,36 @@
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="28"/>
+				<ExtendedTooltip name="ПерейтиВПрофильРасширеннаяПодсказка" id="18"/>
+			</Button>
+			<Button name="Отмена" id="19">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="20"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<ChildItems>
-		<Table name="Список" id="1">
-			<Representation>List</Representation>
-			<TitleLocation>Auto</TitleLocation>
-			<CommandBarLocation>None</CommandBarLocation>
-			<ReadOnly>true</ReadOnly>
-			<Height>5</Height>
-			<ChoiceMode>true</ChoiceMode>
-			<SelectionMode>SingleRow</SelectionMode>
-			<RowSelectionMode>Row</RowSelectionMode>
-			<Header>false</Header>
-			<VerticalScrollBar>DontUse</VerticalScrollBar>
-			<EnableStartDrag>true</EnableStartDrag>
-			<DataPath>Список</DataPath>
-			<RowPictureDataPath>~Список.DefaultPicture</RowPictureDataPath>
-			<Title>
+		<LabelDecoration name="ЗаголовокСписка" id="21">
+			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Выберите организацию</v8:content>
 				</v8:item>
 			</Title>
+			<ContextMenu name="ЗаголовокСпискаКонтекстноеМеню" id="22"/>
+			<ExtendedTooltip name="ЗаголовокСпискаРасширеннаяПодсказка" id="23"/>
+		</LabelDecoration>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<Height>5</Height>
+			<RowSelectionMode>Cell</RowSelectionMode>
+			<Header>false</Header>
+			<VerticalScrollBar>DontUse</VerticalScrollBar>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>~Список.DefaultPicture</RowPictureDataPath>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -104,9 +109,6 @@
 				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="12"/>
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 			</SearchControlAddition>
-			<Events>
-				<Event name="ValueChoice">СписокВыборЗначения</Event>
-			</Events>
 			<ChildItems>
 				<LabelField name="СписокОрганизация" id="14">
 					<DataPath>Список.Организация</DataPath>
@@ -163,4 +165,21 @@
 			</Settings>
 		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="ОткрытьПрофильОрганизации" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть профиль организации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть профиль организации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьПрофильОрганизации</Action>
+		</Command>
+	</Commands>
 </Form>

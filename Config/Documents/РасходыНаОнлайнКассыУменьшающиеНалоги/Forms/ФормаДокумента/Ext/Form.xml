@@ -9,43 +9,74 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ScaleVariant>Compact</ScaleVariant>
-	<CommandSet>
-		<ExcludedCommand>Copy</ExcludedCommand>
-		<ExcludedCommand>Delete</ExcludedCommand>
-		<ExcludedCommand>Post</ExcludedCommand>
-		<ExcludedCommand>ShowInList</ExcludedCommand>
-		<ExcludedCommand>UndoPosting</ExcludedCommand>
-	</CommandSet>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
 		<ChildItems>
-			<ButtonGroup name="ГруппаГлобальныеКоманды" id="127">
+			<ButtonGroup name="ГруппаКнопокКоманднойПанели" id="82">
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Глобальные команды</v8:content>
+						<v8:content>Группа кнопок командной панели</v8:content>
 					</v8:item>
 				</Title>
-				<CommandSource>FormCommandPanelGlobalCommands</CommandSource>
-				<ExtendedTooltip name="ГруппаГлобальныеКомандыРасширеннаяПодсказка" id="128"/>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Группа кнопок командной панели</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ГруппаКнопокКоманднойПанелиРасширеннаяПодсказка" id="83"/>
 				<ChildItems>
-					<Button name="ФормаОбщаяКомандаОтчетПоДвижениям" id="129">
-						<Type>CommandBarButton</Type>
-						<CommandName>CommonCommand.ОтчетПоДвижениям</CommandName>
-						<DataPath>Объект.Ref</DataPath>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ФормаОбщаяКомандаОтчетПоДвижениямРасширеннаяПодсказка" id="130"/>
-					</Button>
-					<Button name="ФормаОбщаяКомандаИсторияИзменений" id="131">
-						<Type>CommandBarButton</Type>
-						<CommandName>CommonCommand.ИсторияИзменений</CommandName>
-						<DataPath>Объект.Ref</DataPath>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ФормаОбщаяКомандаИсторияИзмененийРасширеннаяПодсказка" id="132"/>
-					</Button>
+					<ButtonGroup name="ГруппаОсновныеКоманды" id="84">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Основные команды</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ГруппаОсновныеКомандыРасширеннаяПодсказка" id="85"/>
+						<ChildItems>
+							<Button name="ФормаПровестиИЗакрыть" id="86">
+								<Type>CommandBarButton</Type>
+								<DefaultButton>true</DefaultButton>
+								<CommandName>Form.StandardCommand.PostAndClose</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Записать и закрыть</v8:content>
+									</v8:item>
+								</Title>
+								<ButtonImportance>Main</ButtonImportance>
+								<ExtendedTooltip name="ФормаПровестиИЗакрытьРасширеннаяПодсказка" id="87">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Записать документ и закрыть форму</v8:content>
+										</v8:item>
+									</Title>
+								</ExtendedTooltip>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+					<ButtonGroup name="ГруппаДополнительныеКоманды" id="88">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Дополнительные команды</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ГруппаДополнительныеКомандыРасширеннаяПодсказка" id="89"/>
+						<ChildItems>
+							<Button name="ФормаИзменитьФорму" id="90">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+								<ExtendedTooltip name="ФормаИзменитьФормуРасширеннаяПодсказка" id="91"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
 				</ChildItems>
 			</ButtonGroup>
 		</ChildItems>
@@ -64,7 +95,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Шапка</v8:content>
+					<v8:content>Группа шапка</v8:content>
 				</v8:item>
 			</Title>
 			<Group>Vertical</Group>
@@ -104,23 +135,20 @@
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<HorizontalStretch>false</HorizontalStretch>
 							<ContextMenu name="ДатаКонтекстноеМеню" id="100"/>
 							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="101"/>
 						</InputField>
 						<PictureField name="СостояниеДокумента" id="102">
 							<DataPath>СостояниеДокумента</DataPath>
-							<Visible>false</Visible>
+							<TitleLocation>None</TitleLocation>
 							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>2</Width>
 							<Height>1</Height>
 							<HorizontalStretch>false</HorizontalStretch>
 							<VerticalStretch>false</VerticalStretch>
 							<ValuesPicture>
 								<xr:Ref>CommonPicture.СостоянияДокумента</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
 							</ValuesPicture>
 							<Border width="1">
 								<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
@@ -135,22 +163,16 @@
 				</UsualGroup>
 				<InputField name="УменьшаемыйНалог" id="111">
 					<DataPath>Объект.УменьшаемыйНалог</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="УменьшаемыйНалогКонтекстноеМеню" id="112"/>
 					<ExtendedTooltip name="УменьшаемыйНалогРасширеннаяПодсказка" id="113"/>
 				</InputField>
 				<InputField name="Организация" id="105">
 					<DataPath>Объект.Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="106"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="107"/>
 				</InputField>
 				<InputField name="РегистрацияВНалоговомОргане" id="108">
 					<DataPath>Объект.РегистрацияВНалоговомОргане</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="РегистрацияВНалоговомОрганеКонтекстноеМеню" id="109"/>
 					<ExtendedTooltip name="РегистрацияВНалоговомОрганеРасширеннаяПодсказка" id="110"/>
 				</InputField>
@@ -224,8 +246,6 @@
 									<v8:content>Дата регистрации кассы</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ДатаРегистрацииКонтекстноеМеню" id="80"/>
 							<ExtendedTooltip name="ДатаРегистрацииРасширеннаяПодсказка" id="81"/>
 						</InputField>
@@ -258,6 +278,7 @@
 					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
+					<Width>11</Width>
 					<ChoiceButton>true</ChoiceButton>
 					<ContextMenu name="СуммаРасходовКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="СуммаРасходовРасширеннаяПодсказка" id="18"/>

@@ -6,10 +6,15 @@
 		<ExcludedCommand>Copy</ExcludedCommand>
 		<ExcludedCommand>Create</ExcludedCommand>
 	</CommandSet>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
-	<Events>
-		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
-	</Events>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗагрузитьСертификатИзФайла" id="64">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗагрузитьСертификатИзФайла</CommandName>
+				<ExtendedTooltip name="ФормаЗагрузитьСертификатИзФайлаРасширеннаяПодсказка" id="65"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<ChildItems>
 		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
 			<Title>
@@ -27,10 +32,10 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
-			<InitialRowActivation>Activate</InitialRowActivation>
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
@@ -39,7 +44,6 @@
 				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -57,14 +61,7 @@
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<ChildItems>
-					<Button name="ФормаЗагрузитьСертификатИзФайла" id="64">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ЗагрузитьСертификатИзФайла</CommandName>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-						<ExtendedTooltip name="ФормаЗагрузитьСертификатИзФайлаРасширеннаяПодсказка" id="65"/>
-					</Button>
-				</ChildItems>
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
@@ -97,44 +94,32 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="Наименование" id="19">
 					<DataPath>Список.Description</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Код" id="22">
 					<DataPath>Список.Code</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КодКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="ДатаНачала" id="34">
 					<DataPath>Список.ДатаНачала</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="35"/>
 					<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="36"/>
 				</LabelField>
 				<LabelField name="ДатаОкончания" id="37">
 					<DataPath>Список.ДатаОкончания</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаОкончанияКонтекстноеМеню" id="38"/>
 					<ExtendedTooltip name="ДатаОкончанияРасширеннаяПодсказка" id="39"/>
 				</LabelField>
 				<LabelField name="Идентификатор" id="40">
 					<DataPath>Список.Идентификатор</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИдентификаторКонтекстноеМеню" id="41"/>
 					<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="42"/>
 				</LabelField>
@@ -146,8 +131,6 @@
 							<v8:content>Отпечаток</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОтпечатокПредставлениеКонтекстноеМеню" id="50"/>
 					<ExtendedTooltip name="ОтпечатокПредставлениеРасширеннаяПодсказка" id="51"/>
 				</LabelField>
@@ -159,15 +142,11 @@
 							<v8:content>Серийный номер</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СерийныйНомерПредставлениеКонтекстноеМеню" id="53"/>
 					<ExtendedTooltip name="СерийныйНомерПредставлениеРасширеннаяПодсказка" id="54"/>
 				</LabelField>
 				<LabelField name="Криптопровайдер" id="55">
 					<DataPath>Список.Криптопровайдер</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КриптопровайдерКонтекстноеМеню" id="56"/>
 					<ExtendedTooltip name="КриптопровайдерРасширеннаяПодсказка" id="57"/>
 				</LabelField>
@@ -180,9 +159,6 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
-			<UseAlways>
-				<Field>Список.Ref</Field>
-			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>false</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
@@ -222,10 +198,10 @@
 			</ToolTip>
 			<Picture>
 				<xr:Ref>CommonPicture.ЗагрузитьФайлСертификата</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ЗагрузитьСертификатИзФайла</Action>
-			<Representation>Text</Representation>
+			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>

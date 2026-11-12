@@ -8,7 +8,12 @@
 	</Title>
 	<WindowOpeningMode>LockWholeInterface</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
+	<Group>Vertical</Group>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ФормаПерезапустить" id="9">
 				<Type>CommandBarButton</Type>
@@ -38,21 +43,43 @@
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
-		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаПредупреждение" id="1">
+		<UsualGroup name="КартинкаИНадпись" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Предупреждение</v8:content>
+					<v8:content>Картинка и надпись</v8:content>
 				</v8:item>
 			</Title>
-			<Width>40</Width>
-			<Group>Vertical</Group>
-			<Representation>None</Representation>
+			<Group>AlwaysHorizontal</Group>
+			<VerticalAlign>Center</VerticalAlign>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПредупреждениеРасширеннаяПодсказка" id="2"/>
+			<ExtendedTooltip name="КартинкаИНадписьРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<PictureDecoration name="Картинка" id="3">
+					<Picture>
+						<xr:Ref>StdPicture.DialogInformation</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="КартинкаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="КартинкаРасширеннаяПодсказка" id="5"/>
+				</PictureDecoration>
+				<LabelDecoration name="Надпись" id="6">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Администратор изменил права доступа.
+Перезапустите приложение, чтобы они вступили в силу.</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<ContextMenu name="НадписьКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="НадписьРасширеннаяПодсказка" id="8"/>
+				</LabelDecoration>
+			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
 	<Attributes/>
@@ -71,7 +98,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Перезапустить</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="НапомнитьЗавтра" id="2">
 			<Title>
@@ -87,7 +113,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>НапомнитьЗавтра</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

@@ -27,24 +27,6 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<CheckBoxField name="ПоказыватьТолькоОсновныеКодировки" id="8">
-			<DataPath>ПоказыватьТолькоОсновныеКодировки</DataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Показывать только основные кодировки</v8:content>
-				</v8:item>
-			</Title>
-			<TitleLocation>Right</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<CheckBoxType>Switcher</CheckBoxType>
-			<ContextMenu name="ПоказыватьТолькоОсновныеКодировкиКонтекстноеМеню" id="9"/>
-			<ExtendedTooltip name="ПоказыватьТолькоОсновныеКодировкиРасширеннаяПодсказка" id="13"/>
-			<Events>
-				<Event name="OnChange">ПоказыватьТолькоОсновныеКодировкиПриИзменении</Event>
-			</Events>
-		</CheckBoxField>
 		<Table name="СписокКодировок" id="1">
 			<Representation>List</Representation>
 			<ReadOnly>true</ReadOnly>
@@ -72,29 +54,29 @@
 				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокКодировокРасширеннаяПодсказка" id="11"/>
-			<SearchStringAddition name="СписокКодировокСтрокаПоиска" id="14">
+			<SearchStringAddition name="СписокКодировокSearchString" id="14">
 				<AdditionSource>
 					<Item>СписокКодировок</Item>
 					<Type>SearchStringRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокКодировокСтрокаПоискаКонтекстноеМеню" id="15"/>
-				<ExtendedTooltip name="СписокКодировокСтрокаПоискаРасширеннаяПодсказка" id="16"/>
+				<ContextMenu name="СписокКодировокSearchStringContextMenu" id="15"/>
+				<ExtendedTooltip name="СписокКодировокSearchStringExtendedTooltip" id="16"/>
 			</SearchStringAddition>
-			<ViewStatusAddition name="СписокКодировокСостояниеПросмотра" id="17">
+			<ViewStatusAddition name="СписокКодировокViewStatus" id="17">
 				<AdditionSource>
 					<Item>СписокКодировок</Item>
 					<Type>ViewStatusRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокКодировокСостояниеПросмотраКонтекстноеМеню" id="18"/>
-				<ExtendedTooltip name="СписокКодировокСостояниеПросмотраРасширеннаяПодсказка" id="19"/>
+				<ContextMenu name="СписокКодировокViewStatusContextMenu" id="18"/>
+				<ExtendedTooltip name="СписокКодировокViewStatusExtendedTooltip" id="19"/>
 			</ViewStatusAddition>
-			<SearchControlAddition name="СписокКодировокУправлениеПоиском" id="20">
+			<SearchControlAddition name="СписокКодировокSearchControl" id="20">
 				<AdditionSource>
 					<Item>СписокКодировок</Item>
 					<Type>SearchControl</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокКодировокУправлениеПоискомКонтекстноеМеню" id="21"/>
-				<ExtendedTooltip name="СписокКодировокУправлениеПоискомРасширеннаяПодсказка" id="22"/>
+				<ContextMenu name="СписокКодировокSearchControlContextMenu" id="21"/>
+				<ExtendedTooltip name="СписокКодировокSearchControlExtendedTooltip" id="22"/>
 			</SearchControlAddition>
 			<Events>
 				<Event name="Selection">СписокКодировокВыбор</Event>
@@ -115,6 +97,21 @@
 				</InputField>
 			</ChildItems>
 		</Table>
+		<CheckBoxField name="ПоказыватьТолькоОсновныеКодировки" id="8">
+			<DataPath>ПоказыватьТолькоОсновныеКодировки</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать только основные кодировки</v8:content>
+				</v8:item>
+			</Title>
+			<TitleLocation>Right</TitleLocation>
+			<ContextMenu name="ПоказыватьТолькоОсновныеКодировкиКонтекстноеМеню" id="9"/>
+			<ExtendedTooltip name="ПоказыватьТолькоОсновныеКодировкиРасширеннаяПодсказка" id="13"/>
+			<Events>
+				<Event name="OnChange">ПоказыватьТолькоОсновныеКодировкиПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="СписокКодировок" id="1">
@@ -166,7 +163,6 @@
 			</ToolTip>
 			<Action>ВыбратьКодировку</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

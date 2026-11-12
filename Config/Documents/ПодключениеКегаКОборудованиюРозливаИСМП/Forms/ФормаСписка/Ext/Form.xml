@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<ChildItems>
 		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
@@ -21,15 +20,14 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<ChangeRowSet>false</ChangeRowSet>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -46,7 +44,9 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -76,71 +76,51 @@
 				<LabelField name="Номер" id="16">
 					<DataPath>Список.Number</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НомерКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="Дата" id="19">
 					<DataPath>Список.Date</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Организация" id="22">
 					<DataPath>Список.Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="Подразделение" id="25">
 					<DataPath>Список.Подразделение</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПодразделениеКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 				<LabelField name="ДатаПодключения" id="28">
 					<DataPath>Список.ДатаПодключения</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаПодключенияКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ДатаПодключенияРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<InputField name="Склад" id="49">
 					<DataPath>Список.Склад</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СкладКонтекстноеМеню" id="50"/>
 					<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="51"/>
 				</InputField>
 				<LabelField name="КодМаркировки" id="31">
 					<DataPath>Список.КодМаркировки</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="КодМаркировкиКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="КодМаркировкиРасширеннаяПодсказка" id="33"/>
 				</LabelField>
 				<LabelField name="СрокРеализации" id="37">
 					<DataPath>Список.СрокРеализации</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СрокРеализацииКонтекстноеМеню" id="38"/>
 					<ExtendedTooltip name="СрокРеализацииРасширеннаяПодсказка" id="39"/>
 				</LabelField>
 				<LabelField name="АдресПодключенияСтрокой" id="40">
 					<DataPath>Список.АдресПодключенияСтрокой</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="АдресПодключенияСтрокойКонтекстноеМеню" id="41"/>
 					<ExtendedTooltip name="АдресПодключенияСтрокойРасширеннаяПодсказка" id="42"/>
 				</LabelField>
 				<LabelField name="Ответственный" id="46">
 					<DataPath>Список.Ответственный</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="47"/>
 					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="48"/>
 				</LabelField>
@@ -149,7 +129,6 @@
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
-					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="53"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="54"/>
 				</InputField>

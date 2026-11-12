@@ -9,7 +9,6 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
@@ -18,6 +17,13 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<LabelField name="Документ" id="4">
+			<DataPath>Документ</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Hiperlink>true</Hiperlink>
+			<ContextMenu name="ДокументКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ДокументРасширеннаяПодсказка" id="6"/>
+		</LabelField>
 		<Pages name="ГруппаСтраницы" id="7">
 			<Title>
 				<v8:item>
@@ -36,17 +42,14 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаОписанияСРазделениемРасширеннаяПодсказка" id="12"/>
 					<ChildItems>
 						<Table name="СписокОшибок" id="13">
 							<Representation>List</Representation>
 							<ReadOnly>true</ReadOnly>
-							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-							<RowActionsShowType>ShowOnHover</RowActionsShowType>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>СписокОшибок</DataPath>
 							<RowsPicture>
@@ -72,7 +75,7 @@
 												<v8:content>Перейти к строке</v8:content>
 											</v8:item>
 										</Title>
-										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+										<RepresentationInContextMenu>None</RepresentationInContextMenu>
 										<ExtendedTooltip name="СписокОшибокПоказатьОшибкуРасширеннаяПодсказка" id="39"/>
 									</Button>
 								</ChildItems>
@@ -109,10 +112,7 @@
 							<ChildItems>
 								<PictureField name="СписокОшибокКартинка" id="40">
 									<DataPath>СписокОшибок.Картинка</DataPath>
-									<Visible>false</Visible>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>24</Width>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<HorizontalStretch>false</HorizontalStretch>
@@ -125,35 +125,17 @@
 								</PictureField>
 								<InputField name="СписокОшибокКодОшибки" id="32">
 									<DataPath>СписокОшибок.КодОшибки</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Код</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокОшибокКодОшибкиКонтекстноеМеню" id="33"/>
 									<ExtendedTooltip name="СписокОшибокКодОшибкиРасширеннаяПодсказка" id="34"/>
 								</InputField>
 								<InputField name="СписокОшибокОписаниеОшибки" id="29">
 									<DataPath>СписокОшибок.ОписаниеОшибки</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Описание</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокОшибокОписаниеОшибкиКонтекстноеМеню" id="30"/>
 									<ExtendedTooltip name="СписокОшибокОписаниеОшибкиРасширеннаяПодсказка" id="31"/>
 								</InputField>
 								<InputField name="СписокОшибокНомерСтрокиСОшибкой" id="43">
 									<DataPath>СписокОшибок.НомерСтрокиСОшибкой</DataPath>
 									<Visible>false</Visible>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокОшибокНомерСтрокиСОшибкойКонтекстноеМеню" id="44"/>
 									<ExtendedTooltip name="СписокОшибокНомерСтрокиСОшибкойРасширеннаяПодсказка" id="45"/>
 								</InputField>
@@ -169,7 +151,6 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаОписаниеБезРазделенияРасширеннаяПодсказка" id="10"/>
 					<ChildItems>
@@ -177,8 +158,6 @@
 							<DataPath>ОписаниеОшибки</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<Width>50</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<Height>6</Height>
@@ -301,8 +280,6 @@
 				</v8:item>
 			</Title>
 			<Action>ПоказатьОшибку</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">СписокОшибок</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

@@ -3,7 +3,6 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
@@ -17,10 +16,10 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="13"/>
 			</Button>
-			<Button name="ФормаЗакрыть" id="44">
+			<Button name="Отмена" id="16">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="45"/>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="17"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -30,110 +29,44 @@
 	<ChildItems>
 		<CheckBoxField name="Оплачен" id="18">
 			<DataPath>Оплачен</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<CheckBoxType>Switcher</CheckBoxType>
 			<ContextMenu name="ОплаченКонтекстноеМеню" id="19"/>
 			<ExtendedTooltip name="ОплаченРасширеннаяПодсказка" id="20"/>
 			<Events>
 				<Event name="OnChange">ОплаченПриИзменении</Event>
 			</Events>
 		</CheckBoxField>
-		<UsualGroup name="ГруппаОсновное" id="46">
+		<InputField name="ВидПервичногоДокумента" id="21">
+			<DataPath>ВидПервичногоДокумента</DataPath>
+			<DropListButton>true</DropListButton>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ContextMenu name="ВидПервичногоДокументаКонтекстноеМеню" id="22"/>
+			<ExtendedTooltip name="ВидПервичногоДокументаРасширеннаяПодсказка" id="23"/>
+			<Events>
+				<Event name="OnChange">ВидПервичногоДокументаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="ПервичныйДокумент" id="35">
+			<DataPath>ПервичныйДокумент</DataPath>
+			<OpenButton>true</OpenButton>
+			<ContextMenu name="ПервичныйДокументКонтекстноеМеню" id="36"/>
+			<ExtendedTooltip name="ПервичныйДокументРасширеннаяПодсказка" id="37"/>
+			<Events>
+				<Event name="OnChange">ПервичныйДокументПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="НаименованиеПервичногоДокумента" id="24">
+			<DataPath>НаименованиеПервичногоДокумента</DataPath>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа основное</v8:content>
+					<v8:content>Наименование документа</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа основное</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="47"/>
-			<ChildItems>
-				<UsualGroup name="ГруппаРеквизитыЛево" id="48">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа реквизиты лево</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа реквизиты лево</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаРеквизитыЛевоРасширеннаяПодсказка" id="49"/>
-					<ChildItems>
-						<InputField name="ВидПервичногоДокумента" id="21">
-							<DataPath>ВидПервичногоДокумента</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<DropListButton>true</DropListButton>
-							<ListChoiceMode>true</ListChoiceMode>
-							<ContextMenu name="ВидПервичногоДокументаКонтекстноеМеню" id="22"/>
-							<ExtendedTooltip name="ВидПервичногоДокументаРасширеннаяПодсказка" id="23"/>
-							<Events>
-								<Event name="OnChange">ВидПервичногоДокументаПриИзменении</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаРеквизитыПраво" id="50">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа реквизиты право</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа реквизиты право</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>Vertical</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаРеквизитыПравоРасширеннаяПодсказка" id="51"/>
-					<ChildItems>
-						<InputField name="ПервичныйДокумент" id="35">
-							<DataPath>ПервичныйДокумент</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<OpenButton>true</OpenButton>
-							<ContextMenu name="ПервичныйДокументКонтекстноеМеню" id="36"/>
-							<ExtendedTooltip name="ПервичныйДокументРасширеннаяПодсказка" id="37"/>
-							<Events>
-								<Event name="OnChange">ПервичныйДокументПриИзменении</Event>
-							</Events>
-						</InputField>
-						<InputField name="НаименованиеПервичногоДокумента" id="24">
-							<DataPath>НаименованиеПервичногоДокумента</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Наименование документа</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<AutoMarkIncomplete>true</AutoMarkIncomplete>
-							<ContextMenu name="НаименованиеПервичногоДокументаКонтекстноеМеню" id="25"/>
-							<ExtendedTooltip name="НаименованиеПервичногоДокументаРасширеннаяПодсказка" id="26"/>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
+			<MarkRequiredComplete>true</MarkRequiredComplete>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="НаименованиеПервичногоДокументаКонтекстноеМеню" id="25"/>
+			<ExtendedTooltip name="НаименованиеПервичногоДокументаРасширеннаяПодсказка" id="26"/>
+		</InputField>
 		<UsualGroup name="ГруппаДатаНомер" id="33">
 			<Group>AlwaysHorizontal</Group>
 			<Behavior>Usual</Behavior>
@@ -149,8 +82,6 @@
 							<v8:content>№</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="НомерПервичногоДокументаКонтекстноеМеню" id="31"/>
 					<ExtendedTooltip name="НомерПервичногоДокументаРасширеннаяПодсказка" id="32"/>
 				</InputField>
@@ -162,8 +93,6 @@
 							<v8:content>от</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДатаПервичногоДокументаКонтекстноеМеню" id="28"/>
 					<ExtendedTooltip name="ДатаПервичногоДокументаРасширеннаяПодсказка" id="29"/>
 				</InputField>
@@ -307,7 +236,15 @@
 				</v8:item>
 			</Title>
 			<Action>Готово</Action>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<Action>Отмена</Action>
 		</Command>
 	</Commands>
 	<Parameters>

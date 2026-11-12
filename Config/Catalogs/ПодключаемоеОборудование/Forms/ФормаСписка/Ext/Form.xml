@@ -27,29 +27,6 @@
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ФормаСоздать" id="134">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Item.СписокУстройств.StandardCommand.Create</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Подключить новое</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаСоздатьРасширеннаяПодсказка" id="135"/>
-			</Button>
-			<Button name="СписокУстройствНастроитьОборудование" id="94">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.НастроитьОборудование</CommandName>
-				<ExtendedTooltip name="СписокУстройствНастроитьОборудованиеРасширеннаяПодсказка" id="95"/>
-			</Button>
-			<Button name="СписокУстройствСообщениеВТехническуюПоддержку" id="118">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.СообщениеВТехническуюПоддержку</CommandName>
-				<ExtendedTooltip name="СписокУстройствСообщениеВТехническуюПоддержкуРасширеннаяПодсказка" id="119"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -212,7 +189,7 @@
 							<ChildItems>
 								<Button name="ВывестиСписок" id="109">
 									<Type>CommandBarButton</Type>
-									<CommandName>0</CommandName>
+									<CommandName>Form.StandardCommand.OutputList</CommandName>
 									<ExtendedTooltip name="ВывестиСписокРасширеннаяПодсказка" id="110"/>
 								</Button>
 								<Button name="ИзменитьФорму" id="111">
@@ -228,7 +205,6 @@
 		</UsualGroup>
 		<Table name="СписокУстройств" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<SelectionMode>SingleRow</SelectionMode>
@@ -254,7 +230,6 @@
 				<ExcludedCommand>SearchHistory</ExcludedCommand>
 			</CommandSet>
 			<SearchStringLocation>None</SearchStringLocation>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>true</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -272,6 +247,30 @@
 			<ContextMenu name="СписокУстройствКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокУстройствКоманднаяПанель" id="5">
 				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаПодключитьНовое" id="72">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Create</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подключить новое</v8:content>
+							</v8:item>
+						</Title>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ФормаПодключитьНовоеРасширеннаяПодсказка" id="73"/>
+					</Button>
+					<Button name="СписокУстройствНастроитьОборудование" id="94">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.НастроитьОборудование</CommandName>
+						<ExtendedTooltip name="СписокУстройствНастроитьОборудованиеРасширеннаяПодсказка" id="95"/>
+					</Button>
+					<Button name="СписокУстройствСообщениеВТехническуюПоддержку" id="118">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СообщениеВТехническуюПоддержку</CommandName>
+						<ExtendedTooltip name="СписокУстройствСообщениеВТехническуюПоддержкуРасширеннаяПодсказка" id="119"/>
+					</Button>
+				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокУстройствРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокУстройствСтрокаПоиска" id="7">
@@ -304,7 +303,6 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnActivateRow">СписокУстройствПриАктивизацииСтроки</Event>
-				<Event name="OnHover">СписокУстройствПриНаведении</Event>
 				<Event name="OnChange">СписокУстройствПриИзменении</Event>
 			</Events>
 			<ChildItems>
@@ -487,8 +485,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>НастроитьОборудование</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">СписокУстройств</AssociatedTableElementId>
 		</Command>
 		<Command name="ВыборРабочегоМеста" id="3">
 			<Title>
@@ -534,7 +530,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СообщениеВТехническуюПоддержку</Action>
-			<AssociatedTableElementId xsi:type="xs:string">СписокУстройств</AssociatedTableElementId>
 		</Command>
 	</Commands>
 </Form>

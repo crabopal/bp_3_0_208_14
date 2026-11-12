@@ -1,28 +1,60 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<Group>Vertical</Group>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
-		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+		<UsualGroup name="ГруппаБыстрыеОтборы" id="23">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа пользовательских настроек</v8:content>
+					<v8:content>Быстрые отборы</v8:content>
 				</v8:item>
 			</Title>
-			<VerticalStretch>false</VerticalStretch>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Быстрые отборы</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Group>Vertical</Group>
-			<Representation>WeakSeparation</Representation>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+			<ExtendedTooltip name="ГруппаБыстрыеОтборыРасширеннаяПодсказка" id="24"/>
 		</UsualGroup>
-		<Table name="Список" id="3">
+		<CommandBar name="ГруппаКоманднаяПанель" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель</v8:content>
+				</v8:item>
+			</ToolTip>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельExtendedTooltip" id="26"/>
+		</CommandBar>
+		<Table name="Список" id="1">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
+			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -36,73 +68,56 @@
 			<ShowRoot>true</ShowRoot>
 			<AllowRootChoice>false</AllowRootChoice>
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
-			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<UserSettingsGroup>ГруппаБыстрыеОтборы</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
-			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
-			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="10"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="11">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchStringRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="8"/>
-				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="13"/>
 			</SearchStringAddition>
-			<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="14">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>ViewStatusRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="11"/>
-				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
 			</ViewStatusAddition>
-			<SearchControlAddition name="СписокУправлениеПоиском" id="13">
+			<SearchControlAddition name="СписокУправлениеПоиском" id="17">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchControl</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="14"/>
-				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="19"/>
 			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeLoadUserSettingsAtServer">СписокПередЗагрузкойПользовательскихНастроекНаСервере</Event>
+			</Events>
 			<ChildItems>
-				<LabelField name="Период" id="18">
+				<LabelField name="Период" id="4">
 					<DataPath>Список.Period</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ПериодКонтекстноеМеню" id="19"/>
+					<ContextMenu name="ПериодКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="20"/>
 				</LabelField>
-				<LabelField name="ГоловнаяОрганизация" id="22">
+				<LabelField name="ГоловнаяОрганизация" id="6">
 					<DataPath>Список.ГоловнаяОрганизация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ГоловнаяОрганизацияКонтекстноеМеню" id="23"/>
-					<ExtendedTooltip name="ГоловнаяОрганизацияРасширеннаяПодсказка" id="24"/>
+					<ContextMenu name="ГоловнаяОрганизацияКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="ГоловнаяОрганизацияРасширеннаяПодсказка" id="21"/>
 				</LabelField>
-				<LabelField name="ВидТарифа" id="26">
+				<LabelField name="ВидТарифа" id="8">
 					<DataPath>Список.ВидТарифа</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ВидТарифаКонтекстноеМеню" id="27"/>
-					<ExtendedTooltip name="ВидТарифаРасширеннаяПодсказка" id="28"/>
-				</LabelField>
-				<CheckBoxField name="ОрганизацияИнвалидов" id="30">
-					<DataPath>Список.ОрганизацияИнвалидов</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
-					<ContextMenu name="ОрганизацияИнвалидовКонтекстноеМеню" id="31"/>
-					<ExtendedTooltip name="ОрганизацияИнвалидовРасширеннаяПодсказка" id="32"/>
-				</CheckBoxField>
-				<LabelField name="ДатаРегистрацииИзменений" id="34">
-					<DataPath>Список.ДатаРегистрацииИзменений</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
-					<ContextMenu name="ДатаРегистрацииИзмененийКонтекстноеМеню" id="35"/>
-					<ExtendedTooltip name="ДатаРегистрацииИзмененийРасширеннаяПодсказка" id="36"/>
+					<ContextMenu name="ВидТарифаКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="ВидТарифаРасширеннаяПодсказка" id="22"/>
 				</LabelField>
 			</ChildItems>
 		</Table>

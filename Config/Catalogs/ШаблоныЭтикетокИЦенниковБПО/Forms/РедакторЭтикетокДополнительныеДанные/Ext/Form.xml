@@ -10,7 +10,6 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ФормаЗаписатьИЗакрыть" id="26">
 				<Type>CommandBarButton</Type>
@@ -18,11 +17,6 @@
 				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="27"/>
-			</Button>
-			<Button name="ДополнительныеДанныеДобавитьПоле" id="31">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ДобавитьПоле</CommandName>
-				<ExtendedTooltip name="ДополнительныеДанныеДобавитьПолеРасширеннаяПодсказка" id="32"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -34,7 +28,6 @@
 		<Table name="ДополнительныеДанные" id="1">
 			<Representation>List</Representation>
 			<ReadOnly>true</ReadOnly>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -47,6 +40,11 @@
 			<AutoCommandBar name="ДополнительныеДанныеКоманднаяПанель" id="3">
 				<Autofill>false</Autofill>
 				<ChildItems>
+					<Button name="ДополнительныеДанныеДобавитьПоле" id="31">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДобавитьПоле</CommandName>
+						<ExtendedTooltip name="ДополнительныеДанныеДобавитьПолеРасширеннаяПодсказка" id="32"/>
+					</Button>
 					<Button name="ДополнительныеДанныеИзменитьПоле" id="33">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.ИзменитьПоле</CommandName>
@@ -94,13 +92,11 @@
 					<Visible>false</Visible>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="ДополнительныеДанныеНаименованиеКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="ДополнительныеДанныеНаименованиеРасширеннаяПодсказка" id="22"/>
 				</InputField>
 				<InputField name="ДополнительныеДанныеПредставление" id="28">
 					<DataPath>ДополнительныеДанные.Представление</DataPath>
-					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="ДополнительныеДанныеПредставлениеКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ДополнительныеДанныеПредставлениеРасширеннаяПодсказка" id="30"/>
 				</InputField>
@@ -598,7 +594,6 @@
 			</ToolTip>
 			<Action>ЗаписатьИЗакрыть</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ДобавитьПоле" id="2">
 			<Title>
@@ -618,8 +613,8 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ДобавитьПоле</Action>
-			<Representation>TextPicture</Representation>
-			<ActionPurpose>Create</ActionPurpose>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ИзменитьПоле" id="3">
 			<Title>
@@ -639,7 +634,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ИзменитьПоле</Action>
-			<AssociatedTableElementId xsi:type="xs:string">ДополнительныеДанные</AssociatedTableElementId>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="УдалитьПоле" id="4">
 			<Title>
@@ -659,8 +654,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>УдалитьПоле</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ДополнительныеДанные</AssociatedTableElementId>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 	<Parameters>

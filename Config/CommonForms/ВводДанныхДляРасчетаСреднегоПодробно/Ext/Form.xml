@@ -10,6 +10,7 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
+	<CommandBarLocation>Bottom</CommandBarLocation>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
@@ -24,22 +25,10 @@
 		<ExcludedCommand>SaveValues</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
-		<ChildItems>
-			<ButtonGroup name="ГруппаКнопокРедактирование" id="36">
-				<ExtendedTooltip name="ГруппаКнопокРедактированиеРасширеннаяПодсказка" id="37"/>
-				<ChildItems>
-					<Button name="ФормаПрименить" id="28">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.Применить</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ФормаПрименитьРасширеннаяПодсказка" id="29"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -47,7 +36,7 @@
 	<ChildItems>
 		<Table name="СреднийЗаработок" id="1">
 			<Representation>List</Representation>
-			<TitleLocation>Auto</TitleLocation>
+			<HeightInTableRows>4</HeightInTableRows>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -118,7 +107,7 @@
 				</InputField>
 			</ChildItems>
 		</Table>
-		<UsualGroup name="ПремииГруппа" id="76">
+		<UsualGroup name="ПремииГруппа" id="40">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -135,9 +124,9 @@
 			<Behavior>Usual</Behavior>
 			<ControlRepresentation>Button</ControlRepresentation>
 			<Representation>None</Representation>
-			<ExtendedTooltip name="ПремииГруппаРасширеннаяПодсказка" id="77"/>
+			<ExtendedTooltip name="ПремииГруппаРасширеннаяПодсказка" id="41"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаПремияПроцентом" id="78">
+				<UsualGroup name="ГруппаПремияПроцентом" id="42">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -147,26 +136,38 @@
 					<Group>AlwaysHorizontal</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПремияПроцентомРасширеннаяПодсказка" id="79"/>
+					<ExtendedTooltip name="ГруппаПремияПроцентомРасширеннаяПодсказка" id="43"/>
 					<ChildItems>
-						<InputField name="ПремияПроцентом" id="80">
+						<InputField name="ПремияПроцентом" id="44">
 							<DataPath>ПремияПроцентом</DataPath>
-							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-							<EditFormat>
+							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>ЧЦ=15; ЧДЦ=2; ЧФ='Ч руб.'</v8:content>
+									<v8:content>Премия, которая была начислена как процент от суммы заработка за выбранный период</v8:content>
 								</v8:item>
-							</EditFormat>
-							<ContextMenu name="ПремияПроцентомКонтекстноеМеню" id="81"/>
-							<ExtendedTooltip name="ПремияПроцентомРасширеннаяПодсказка" id="82"/>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ПремияПроцентомКонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="ПремияПроцентомРасширеннаяПодсказка" id="46"/>
 							<Events>
 								<Event name="OnChange">ПремияПроцентомПриИзменении</Event>
 							</Events>
 						</InputField>
+						<LabelDecoration name="ПремияПроцентомДекорация" id="47">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>руб.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПремияПроцентомДекорацияКонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="ПремияПроцентомДекорацияРасширеннаяПодсказка" id="49"/>
+						</LabelDecoration>
 					</ChildItems>
 				</UsualGroup>
-				<UsualGroup name="ГруппаПремияСуммой" id="87">
+				<UsualGroup name="ГруппаПремияСуммой" id="50">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -176,27 +177,76 @@
 					<Group>AlwaysHorizontal</Group>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПремияСуммойРасширеннаяПодсказка" id="88"/>
+					<ExtendedTooltip name="ГруппаПремияСуммойРасширеннаяПодсказка" id="51"/>
 					<ChildItems>
-						<InputField name="ПремияСуммой" id="89">
+						<InputField name="ПремияСуммой" id="52">
 							<DataPath>ПремияФиксированнойСуммой</DataPath>
-							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-							<EditFormat>
+							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>ЧЦ=15; ЧДЦ=2; ЧФ='Ч руб.'</v8:content>
+									<v8:content>Премия, которая была выплачена фиксированной суммой</v8:content>
 								</v8:item>
-							</EditFormat>
-							<ContextMenu name="ПремияСуммойКонтекстноеМеню" id="90"/>
-							<ExtendedTooltip name="ПремияСуммойРасширеннаяПодсказка" id="91"/>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ПремияСуммойКонтекстноеМеню" id="53"/>
+							<ExtendedTooltip name="ПремияСуммойРасширеннаяПодсказка" id="54"/>
 							<Events>
 								<Event name="OnChange">ПремияСуммойПриИзменении</Event>
 							</Events>
 						</InputField>
+						<LabelDecoration name="ПремияСуммойДекорация" id="55">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>руб.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПремияСуммойДекорацияКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="ПремияСуммойДекорацияРасширеннаяПодсказка" id="57"/>
+						</LabelDecoration>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
+		<CommandBar name="ГруппаКоманднаяПанель" id="30">
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="31"/>
+			<ChildItems>
+				<ButtonGroup name="ГруппаКнопокПросмотр" id="32">
+					<ExtendedTooltip name="ГруппаКнопокПросмотрРасширеннаяПодсказка" id="33"/>
+					<ChildItems>
+						<Button name="ФормаЗакрыть1" id="38">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.Close</CommandName>
+							<ExtendedTooltip name="ФормаЗакрыть1РасширеннаяПодсказка" id="39"/>
+						</Button>
+					</ChildItems>
+				</ButtonGroup>
+				<ButtonGroup name="ГруппаКнопокРедактирование" id="36">
+					<ExtendedTooltip name="ГруппаКнопокРедактированиеРасширеннаяПодсказка" id="37"/>
+					<ChildItems>
+						<Button name="ФормаОк" id="28">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.Ок</CommandName>
+							<ExtendedTooltip name="ФормаОкРасширеннаяПодсказка" id="29"/>
+						</Button>
+						<Button name="ФормаЗакрыть" id="26">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.Close</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отмена</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="27"/>
+						</Button>
+					</ChildItems>
+				</ButtonGroup>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="СреднийЗаработок" id="1">
@@ -333,7 +383,85 @@
 				</Column>
 			</Columns>
 		</Attribute>
-		<Attribute name="СреднийЗаработокПремии" id="2">
+		<Attribute name="ПремияПроцентом" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полностью учитываемая</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПремияФиксированнойСуммой" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитываемая частично</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПремияПроцентомЗаГод" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полностью учитываемая</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПремияСуммойЗаГод" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитываемая частично</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидыГодовыхПремий" id="6">
+			<Type/>
+		</Attribute>
+		<Attribute name="ВидыПремий" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды премий</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="СреднийЗаработокПремии" id="8">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -467,7 +595,7 @@
 				</Column>
 			</Columns>
 		</Attribute>
-		<Attribute name="СреднийЗаработокГодовыеПремии" id="3">
+		<Attribute name="СреднийЗаработокГодовыеПремии" id="9">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -601,19 +729,7 @@
 				</Column>
 			</Columns>
 		</Attribute>
-		<Attribute name="ВидыГодовыхПремий" id="4">
-			<Type/>
-		</Attribute>
-		<Attribute name="ВидыПремий" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Виды премий</v8:content>
-				</v8:item>
-			</Title>
-			<Type/>
-		</Attribute>
-		<Attribute name="ВидыПремийПроцентом" id="6">
+		<Attribute name="ВидыПремийПроцентом" id="10">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -622,7 +738,7 @@
 			</Title>
 			<Type/>
 		</Attribute>
-		<Attribute name="Период" id="7">
+		<Attribute name="Период" id="11">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -636,83 +752,33 @@
 				</v8:DateQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="ПремияПроцентом" id="8">
+		<Attribute name="ЕстьПремии" id="12">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Полностью учитываемая</v8:content>
+					<v8:content>Есть премии</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>15</v8:Digits>
-					<v8:FractionDigits>2</v8:FractionDigits>
-					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
-				</v8:NumberQualifiers>
-			</Type>
-			<SavedData>true</SavedData>
-		</Attribute>
-		<Attribute name="ПремияПроцентомЗаГод" id="9">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Полностью учитываемая</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>15</v8:Digits>
-					<v8:FractionDigits>2</v8:FractionDigits>
-					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
-				</v8:NumberQualifiers>
-			</Type>
-			<SavedData>true</SavedData>
-		</Attribute>
-		<Attribute name="ПремияСуммойЗаГод" id="10">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Учитываемая частично</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>15</v8:Digits>
-					<v8:FractionDigits>2</v8:FractionDigits>
-					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
-				</v8:NumberQualifiers>
-			</Type>
-		</Attribute>
-		<Attribute name="ПремияФиксированнойСуммой" id="11">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Учитываемая частично</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>15</v8:Digits>
-					<v8:FractionDigits>2</v8:FractionDigits>
-					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
-				</v8:NumberQualifiers>
+				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Применить" id="1">
+		<Command name="Ок" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Применить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
-			<Action>Применить</Action>
-			<ActionPurpose>Finish</ActionPurpose>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Ок</Action>
 		</Command>
 	</Commands>
 	<Parameters>

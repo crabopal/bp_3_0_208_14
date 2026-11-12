@@ -2,186 +2,61 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="МаркируемаяПродукцияВыполнитьОбмен" id="77">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ВыполнитьОбмен</CommandName>
-				<ExtendedTooltip name="МаркируемаяПродукцияВыполнитьОбменРасширеннаяПодсказка" id="78"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаОсновное" id="86">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа основное</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа основное</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Group>Vertical</Group>
+		<InputField name="Организация" id="3">
+			<DataPath>Организация</DataPath>
+			<MarkRequiredComplete>true</MarkRequiredComplete>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="5"/>
+			<Events>
+				<Event name="OnChange">ОрганизацияПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаОтсутствуетПодключениеИСМП" id="57">
+			<Visible>false</Visible>
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ScrollOnCompress>false</ScrollOnCompress>
-			<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="87"/>
+			<ExtendedTooltip name="ГруппаОтсутствуетПодключениеИСМПРасширеннаяПодсказка" id="58"/>
 			<ChildItems>
-				<InputField name="Организация" id="3">
-					<DataPath>Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<AutoMarkIncomplete>true</AutoMarkIncomplete>
-					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="4"/>
-					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="5"/>
-					<Events>
-						<Event name="OnChange">ОрганизацияПриИзменении</Event>
-					</Events>
-				</InputField>
-				<UsualGroup name="ГруппаОтсутствуетПодключениеИСМП" id="57">
-					<Visible>false</Visible>
-					<HorizontalStretch>true</HorizontalStretch>
-					<Group>HorizontalIfPossible</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаОтсутствуетПодключениеИСМПРасширеннаяПодсказка" id="58"/>
-					<ChildItems>
-						<PictureDecoration name="КартинкаОтсутствуетПодключениеИСМП" id="59">
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Синхронизация с Честным Знаком не выполнена</v8:content>
-								</v8:item>
-							</Title>
-							<Picture>
-								<xr:Ref>CommonPicture.ВниманиеКрасный</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</Picture>
-							<FileDragMode>AsFile</FileDragMode>
-							<ContextMenu name="КартинкаОтсутствуетПодключениеИСМПКонтекстноеМеню" id="60"/>
-							<ExtendedTooltip name="КартинкаОтсутствуетПодключениеИСМПРасширеннаяПодсказка" id="61"/>
-						</PictureDecoration>
-						<LabelDecoration name="ДекорацияОтсутствуетПодключениеИСМП" id="62">
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<Title formatted="true">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>&lt;colorstyle -16&gt;Синхронизация&lt;/&gt;&lt;colorstyle -16&gt; &lt;/&gt;&lt;colorstyle -16&gt;с&lt;/&gt;&lt;colorstyle -16&gt; &lt;/&gt;&lt;colorstyle -16&gt;Честным&lt;/&gt;&lt;colorstyle -16&gt; &lt;/&gt;&lt;colorstyle -16&gt;Знаком&lt;/&gt;&lt;colorstyle -16&gt; &lt;/&gt;&lt;colorstyle -16&gt;не&lt;/&gt;&lt;colorstyle -16&gt; &lt;/&gt;&lt;colorstyle -16&gt;выполнена.&lt;/&gt; &lt;link ВыполнитьПодключениеИСМП&gt;Обновить&lt;/&gt;
+				<PictureDecoration name="КартинкаОтсутствуетПодключениеИСМП" id="59">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Синхронизация с Честным Знаком не выполнена</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>CommonPicture.ВниманиеКрасный</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="КартинкаОтсутствуетПодключениеИСМПКонтекстноеМеню" id="60"/>
+					<ExtendedTooltip name="КартинкаОтсутствуетПодключениеИСМПРасширеннаяПодсказка" id="61"/>
+				</PictureDecoration>
+				<LabelDecoration name="ДекорацияОтсутствуетПодключениеИСМП" id="62">
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;colorstyle -16&gt;Синхронизация&lt;/&gt;&lt;colorstyle -16&gt; &lt;/&gt;&lt;colorstyle -16&gt;с&lt;/&gt;&lt;colorstyle -16&gt; &lt;/&gt;&lt;colorstyle -16&gt;Честным&lt;/&gt;&lt;colorstyle -16&gt; &lt;/&gt;&lt;colorstyle -16&gt;Знаком&lt;/&gt;&lt;colorstyle -16&gt; &lt;/&gt;&lt;colorstyle -16&gt;не&lt;/&gt;&lt;colorstyle -16&gt; &lt;/&gt;&lt;colorstyle -16&gt;выполнена.&lt;/&gt; &lt;link ВыполнитьПодключениеИСМП&gt;Обновить&lt;/&gt;
 </v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ДекорацияОтсутствуетПодключениеИСМПКонтекстноеМеню" id="63"/>
-							<ExtendedTooltip name="ДекорацияОтсутствуетПодключениеИСМПРасширеннаяПодсказка" id="64"/>
-							<Events>
-								<Event name="URLProcessing">ДекорацияОтсутствуетПодключениеИСМПОбработкаНавигационнойСсылки</Event>
-							</Events>
-						</LabelDecoration>
-					</ChildItems>
-				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаМаркируемаяПродукция" id="88">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа маркируемая продукция</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа маркируемая продукция</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаМаркируемаяПродукцияРасширеннаяПодсказка" id="89"/>
-			<ChildItems>
-				<Table name="МаркируемаяПродукция" id="23">
-					<Representation>List</Representation>
-					<ChangeRowSet>false</ChangeRowSet>
-					<ChangeRowOrder>false</ChangeRowOrder>
-					<Width>50</Width>
-					<RowSelectionMode>Cell</RowSelectionMode>
-					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-					<DataPath>МаркируемаяПродукция</DataPath>
-					<RowFilter xsi:nil="true"/>
-					<ContextMenu name="МаркируемаяПродукцияКонтекстноеМеню" id="25"/>
-					<AutoCommandBar name="МаркируемаяПродукцияКоманднаяПанель" id="24">
-						<Autofill>false</Autofill>
-						<ChildItems>
-							<Button name="МаркируемаяПродукцияЗагрузитьНоменклатуру" id="81">
-								<Type>CommandBarButton</Type>
-								<DefaultButton>true</DefaultButton>
-								<CommandName>Form.Command.ЗагрузитьНоменклатуру</CommandName>
-								<ButtonImportance>Main</ButtonImportance>
-								<ExtendedTooltip name="МаркируемаяПродукцияЗагрузитьНоменклатуруРасширеннаяПодсказка" id="82"/>
-							</Button>
-							<Button name="МаркируемаяПродукцияОбновить" id="75">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.Обновить</CommandName>
-								<ExtendedTooltip name="МаркируемаяПродукцияОбновитьРасширеннаяПодсказка" id="76"/>
-							</Button>
-						</ChildItems>
-					</AutoCommandBar>
-					<ExtendedTooltip name="МаркируемаяПродукцияРасширеннаяПодсказка" id="26"/>
-					<SearchStringAddition name="МаркируемаяПродукцияСтрокаПоиска" id="27">
-						<AdditionSource>
-							<Item>МаркируемаяПродукция</Item>
-							<Type>SearchStringRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="МаркируемаяПродукцияСтрокаПоискаКонтекстноеМеню" id="28"/>
-						<ExtendedTooltip name="МаркируемаяПродукцияСтрокаПоискаРасширеннаяПодсказка" id="29"/>
-					</SearchStringAddition>
-					<ViewStatusAddition name="МаркируемаяПродукцияСостояниеПросмотра" id="33">
-						<AdditionSource>
-							<Item>МаркируемаяПродукция</Item>
-							<Type>ViewStatusRepresentation</Type>
-						</AdditionSource>
-						<ContextMenu name="МаркируемаяПродукцияСостояниеПросмотраКонтекстноеМеню" id="34"/>
-						<ExtendedTooltip name="МаркируемаяПродукцияСостояниеПросмотраРасширеннаяПодсказка" id="35"/>
-					</ViewStatusAddition>
-					<SearchControlAddition name="МаркируемаяПродукцияУправлениеПоиском" id="30">
-						<AdditionSource>
-							<Item>МаркируемаяПродукция</Item>
-							<Type>SearchControl</Type>
-						</AdditionSource>
-						<ContextMenu name="МаркируемаяПродукцияУправлениеПоискомКонтекстноеМеню" id="31"/>
-						<ExtendedTooltip name="МаркируемаяПродукцияУправлениеПоискомРасширеннаяПодсказка" id="32"/>
-					</SearchControlAddition>
-					<ChildItems>
-						<InputField name="МаркируемаяПродукцияВидПродукции" id="36">
-							<DataPath>МаркируемаяПродукция.ВидПродукции</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>18</MaxWidth>
-							<ContextMenu name="МаркируемаяПродукцияВидПродукцииКонтекстноеМеню" id="37"/>
-							<ExtendedTooltip name="МаркируемаяПродукцияВидПродукцииРасширеннаяПодсказка" id="38"/>
-						</InputField>
-						<LabelField name="МаркируемаяПродукцияРекомендуемыеДействия" id="48">
-							<DataPath>МаркируемаяПродукция.РекомендуемыеДействия</DataPath>
-							<HorizontalAlign>Left</HorizontalAlign>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<Width>28</Width>
-							<ContextMenu name="МаркируемаяПродукцияРекомендуемыеДействияКонтекстноеМеню" id="49"/>
-							<ExtendedTooltip name="МаркируемаяПродукцияРекомендуемыеДействияРасширеннаяПодсказка" id="50"/>
-						</LabelField>
-					</ChildItems>
-				</Table>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияОтсутствуетПодключениеИСМПКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="ДекорацияОтсутствуетПодключениеИСМПРасширеннаяПодсказка" id="64"/>
+					<Events>
+						<Event name="URLProcessing">ДекорацияОтсутствуетПодключениеИСМПОбработкаНавигационнойСсылки</Event>
+					</Events>
+				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
 		<CommandBar name="ГруппаКоманднаяПанель" id="79">
@@ -194,15 +69,80 @@
 			<CommandSource>Form</CommandSource>
 			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="80"/>
 			<ChildItems>
-				<Button name="МаркируемаяПродуцияЗагрузитьНоменклатуру" id="53">
+				<Button name="МаркируемаяПродукцияЗагрузитьНоменклатуру" id="81">
 					<Type>CommandBarButton</Type>
 					<DefaultButton>true</DefaultButton>
 					<CommandName>Form.Command.ЗагрузитьНоменклатуру</CommandName>
 					<ButtonImportance>Main</ButtonImportance>
-					<ExtendedTooltip name="МаркируемаяПродуцияЗагрузитьНоменклатуруРасширеннаяПодсказка" id="54"/>
+					<ExtendedTooltip name="МаркируемаяПродукцияЗагрузитьНоменклатуруРасширеннаяПодсказка" id="82"/>
+				</Button>
+				<Button name="МаркируемаяПродукцияВыполнитьОбмен" id="77">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.ВыполнитьОбмен</CommandName>
+					<ExtendedTooltip name="МаркируемаяПродукцияВыполнитьОбменРасширеннаяПодсказка" id="78"/>
+				</Button>
+				<Button name="МаркируемаяПродукцияОбновить" id="75">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Обновить</CommandName>
+					<ExtendedTooltip name="МаркируемаяПродукцияОбновитьРасширеннаяПодсказка" id="76"/>
 				</Button>
 			</ChildItems>
 		</CommandBar>
+		<Table name="МаркируемаяПродукция" id="23">
+			<Representation>List</Representation>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<RowSelectionMode>Cell</RowSelectionMode>
+			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+			<DataPath>МаркируемаяПродукция</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="МаркируемаяПродукцияКонтекстноеМеню" id="25"/>
+			<AutoCommandBar name="МаркируемаяПродукцияКоманднаяПанель" id="24">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="МаркируемаяПродукцияРасширеннаяПодсказка" id="26"/>
+			<SearchStringAddition name="МаркируемаяПродукцияСтрокаПоиска" id="27">
+				<AdditionSource>
+					<Item>МаркируемаяПродукция</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="МаркируемаяПродукцияСтрокаПоискаКонтекстноеМеню" id="28"/>
+				<ExtendedTooltip name="МаркируемаяПродукцияСтрокаПоискаРасширеннаяПодсказка" id="29"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="МаркируемаяПродукцияСостояниеПросмотра" id="33">
+				<AdditionSource>
+					<Item>МаркируемаяПродукция</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="МаркируемаяПродукцияСостояниеПросмотраКонтекстноеМеню" id="34"/>
+				<ExtendedTooltip name="МаркируемаяПродукцияСостояниеПросмотраРасширеннаяПодсказка" id="35"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="МаркируемаяПродукцияУправлениеПоиском" id="30">
+				<AdditionSource>
+					<Item>МаркируемаяПродукция</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="МаркируемаяПродукцияУправлениеПоискомКонтекстноеМеню" id="31"/>
+				<ExtendedTooltip name="МаркируемаяПродукцияУправлениеПоискомРасширеннаяПодсказка" id="32"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="МаркируемаяПродукцияВидПродукции" id="36">
+					<DataPath>МаркируемаяПродукция.ВидПродукции</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>18</MaxWidth>
+					<ContextMenu name="МаркируемаяПродукцияВидПродукцииКонтекстноеМеню" id="37"/>
+					<ExtendedTooltip name="МаркируемаяПродукцияВидПродукцииРасширеннаяПодсказка" id="38"/>
+				</InputField>
+				<LabelField name="МаркируемаяПродукцияРекомендуемыеДействия" id="48">
+					<DataPath>МаркируемаяПродукция.РекомендуемыеДействия</DataPath>
+					<HorizontalAlign>Left</HorizontalAlign>
+					<Width>28</Width>
+					<ContextMenu name="МаркируемаяПродукцияРекомендуемыеДействияКонтекстноеМеню" id="49"/>
+					<ExtendedTooltip name="МаркируемаяПродукцияРекомендуемыеДействияРасширеннаяПодсказка" id="50"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">

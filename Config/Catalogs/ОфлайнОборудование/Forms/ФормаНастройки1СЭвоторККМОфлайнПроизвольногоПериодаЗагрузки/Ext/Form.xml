@@ -33,7 +33,7 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаДатыЗагрузки" id="13" DisplayImportance="Usual">
+		<UsualGroup name="ГруппаДатыЗагрузки" id="13">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -52,67 +52,89 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаДатыЗагрузкиРасширеннаяПодсказка" id="14"/>
 			<ChildItems>
-				<LabelDecoration name="ДекорацияИнформация" id="46">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Облако Эвотор хранит информацию не более 6 месяцев.
-Рекомендуем загрузить данные о продажах, произведенных на данной кассе до ее подключения к программе 1С.</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-					<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="47"/>
-					<ExtendedTooltip name="ДекорацияИнформацияРасширеннаяПодсказка" id="48">
-						<HorizontalStretch>true</HorizontalStretch>
-					</ExtendedTooltip>
-				</LabelDecoration>
-				<UsualGroup name="ГруппаДаты" id="24">
+				<UsualGroup name="ГруппаИнформацияНачальнаяЗагрузка" id="44">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа даты</v8:content>
+							<v8:content>Группа информация начальная загрузка</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа даты</v8:content>
+							<v8:content>Информация о начальной загрузке</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Group>AlwaysHorizontal</Group>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИнформацияНачальнаяЗагрузкаРасширеннаяПодсказка" id="45"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияИнформация" id="46">
+							<TextColor>style:ReportLineColor</TextColor>
+							<ToolTipRepresentation>ShowAuto</ToolTipRepresentation>
+							<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="ДекорацияИнформацияРасширеннаяПодсказка" id="48">
+								<Title formatted="false">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Облако Эвотор хранит информацию не более 6 месяцев.
+Рекомендуем загрузить данные о продажах, произведенных на данной кассе до ее подключения к программе 1С.</v8:content>
+									</v8:item>
+								</Title>
+							</ExtendedTooltip>
+						</LabelDecoration>
+						<CheckBoxField name="ЗагрузитьИсториюПродаж" id="49">
+							<DataPath>ЗагрузитьИсториюПродаж</DataPath>
+							<Visible>false</Visible>
+							<TitleLocation>Right</TitleLocation>
+							<ContextMenu name="ЗагрузитьИсториюПродажКонтекстноеМеню" id="50"/>
+							<ExtendedTooltip name="ЗагрузитьИсториюПродажРасширеннаяПодсказка" id="51"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа1" id="24">
+					<HorizontalStretch>true</HorizontalStretch>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>WeakSeparation</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаДатыРасширеннаяПодсказка" id="25"/>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="25"/>
 					<ChildItems>
-						<InputField name="ДатаНачалаЗагрузки" id="1">
-							<DataPath>ДатаНачалаЗагрузки</DataPath>
-							<Title>
+						<LabelDecoration name="Декорация1" id="26">
+							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Дата начала</v8:content>
+									<v8:content>С:</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Top</TitleLocation>
-							<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
-							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="Декорация1КонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="28"/>
+						</LabelDecoration>
+						<InputField name="ДатаНачалаЗагрузки" id="1">
+							<DataPath>ДатаНачалаЗагрузки</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>16</Width>
 							<ContextMenu name="ДатаНачалаЗагрузкиКонтекстноеМеню" id="2"/>
 							<ExtendedTooltip name="ДатаНачалаЗагрузкиРасширеннаяПодсказка" id="3"/>
 							<Events>
 								<Event name="ChoiceProcessing">ДатаНачалаЗагрузкиОбработкаВыбора</Event>
 							</Events>
 						</InputField>
-						<InputField name="ДатаОкончанияЗагрузки" id="4">
-							<DataPath>ДатаОкончанияЗагрузки</DataPath>
-							<Title>
+						<LabelDecoration name="Декорация3" id="29">
+							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Дата окончания</v8:content>
+									<v8:content>по:</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Top</TitleLocation>
-							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="Декорация3КонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="31"/>
+						</LabelDecoration>
+						<InputField name="ДатаОкончанияЗагрузки" id="4">
+							<DataPath>ДатаОкончанияЗагрузки</DataPath>
+							<TitleLocation>None</TitleLocation>
 							<ContextMenu name="ДатаОкончанияЗагрузкиКонтекстноеМеню" id="5"/>
 							<ExtendedTooltip name="ДатаОкончанияЗагрузкиРасширеннаяПодсказка" id="6"/>
 							<Events>
@@ -231,7 +253,6 @@
 			</ToolTip>
 			<Action>ЗагрузитьДанные</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отменить" id="2">
 			<Title>
@@ -248,7 +269,6 @@
 			</ToolTip>
 			<Action>Отменить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
@@ -14,18 +13,18 @@
 		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаПодсказкаВводаВремениШапка" id="53">
-			<Title>
+		<LabelDecoration name="ПодсказкаВводаВремениШапка" id="32">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<TextColor>style:ТекстИнформационнойНадписиИС</TextColor>
+			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа подсказка ввода времени шапка</v8:content>
+					<v8:content>Изменения настроек у ответственных, вступят в силу в течение часа, либо сразу после запуска / перезапуска сеанса ответственным.</v8:content>
 				</v8:item>
 			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПодсказкаВводаВремениШапкаРасширеннаяПодсказка" id="54"/>
-		</UsualGroup>
+			<ContextMenu name="ПодсказкаВводаВремениШапкаКонтекстноеМеню" id="33"/>
+			<ExtendedTooltip name="ПодсказкаВводаВремениШапкаРасширеннаяПодсказка" id="34"/>
+		</LabelDecoration>
 		<UsualGroup name="ГруппаОрганизация" id="41">
 			<Title>
 				<v8:item>
@@ -51,8 +50,6 @@
 				</InputField>
 				<InputField name="Подразделение" id="43">
 					<DataPath>Объект.Подразделение</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>28</MaxWidth>
 					<InputHint>
@@ -112,8 +109,7 @@
 				</InputField>
 				<InputField name="ОтветственныеВремя" id="23">
 					<DataPath>Объект.Ответственные.Время</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<Width>10</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -127,8 +123,7 @@
 				</InputField>
 				<InputField name="ОтветственныеТипВремени" id="26">
 					<DataPath>Объект.Ответственные.ТипВремени</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<Width>10</Width>
 					<HorizontalStretch>false</HorizontalStretch>
 					<ListChoiceMode>true</ListChoiceMode>
@@ -141,51 +136,18 @@
 				</InputField>
 			</ChildItems>
 		</Table>
-		<UsualGroup name="ГруппаПодсказкаВводаВремениПодвал" id="55">
-			<Title>
+		<LabelDecoration name="ПодсказкаВводаВремени" id="29">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<TextColor>style:ТекстИнформационнойНадписиИС</TextColor>
+			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа подсказка ввода времени подвал</v8:content>
+					<v8:content>Время оповещения менее чем через час, указывается в целых минутах. Если требуется оповестить через час или позже, то время указывается в целых часах.</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа подсказка ввода времени подвал</v8:content>
-				</v8:item>
-			</ToolTip>
-			<HorizontalStretch>true</HorizontalStretch>
-			<Group>Vertical</Group>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПодсказкаВводаВремениПодвалРасширеннаяПодсказка" id="56"/>
-			<ChildItems>
-				<LabelDecoration name="ПодсказкаВводаВремениШапка" id="32">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<TextColor>style:ТекстИнформационнойНадписиИС</TextColor>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Изменения настроек у ответственных, вступят в силу в течение часа, либо сразу после запуска / перезапуска сеанса ответственным.</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ПодсказкаВводаВремениШапкаКонтекстноеМеню" id="33"/>
-					<ExtendedTooltip name="ПодсказкаВводаВремениШапкаРасширеннаяПодсказка" id="34"/>
-				</LabelDecoration>
-				<LabelDecoration name="ПодсказкаВводаВремени" id="29">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<TextColor>style:ТекстИнформационнойНадписиИС</TextColor>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Время оповещения менее чем через час, указывается в целых минутах. Если требуется оповестить через час или позже, то время указывается в целых часах.</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ПодсказкаВводаВремениКонтекстноеМеню" id="30"/>
-					<ExtendedTooltip name="ПодсказкаВводаВремениРасширеннаяПодсказка" id="31"/>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
+			<ContextMenu name="ПодсказкаВводаВремениКонтекстноеМеню" id="30"/>
+			<ExtendedTooltip name="ПодсказкаВводаВремениРасширеннаяПодсказка" id="31"/>
+		</LabelDecoration>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">

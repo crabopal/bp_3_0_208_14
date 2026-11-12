@@ -23,33 +23,6 @@
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="КнопкаОтправить" id="61">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.КомандаОтправить</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="КнопкаОтправитьExtendedTooltip" id="73"/>
-			</Button>
-			<Button name="ФормаЗаписать" id="139">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Write</CommandName>
-				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="140"/>
-			</Button>
-			<Button name="ФормаСкопировать" id="62">
-				<Type>CommandBarButton</Type>
-				<Representation>Picture</Representation>
-				<CommandName>Form.StandardCommand.Copy</CommandName>
-				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаСкопироватьExtendedTooltip" id="72"/>
-			</Button>
-			<Button name="ИзменитьФорму" id="12519">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-				<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="12520"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="AfterWrite">ПослеЗаписи</Event>
@@ -62,6 +35,48 @@
 		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<CommandBar name="ГруппаКоманднаяПанель" id="148">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа командная панель</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="149"/>
+			<ChildItems>
+				<Button name="КнопкаОтправить" id="61">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.КомандаОтправить</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="КнопкаОтправитьExtendedTooltip" id="73"/>
+				</Button>
+				<Button name="ФормаЗаписать" id="139">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Write</CommandName>
+					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="140"/>
+				</Button>
+				<Button name="ФормаСкопировать" id="62">
+					<Type>CommandBarButton</Type>
+					<Representation>PictureAndText</Representation>
+					<CommandName>Form.StandardCommand.Copy</CommandName>
+					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="ФормаСкопироватьExtendedTooltip" id="72"/>
+				</Button>
+				<Button name="ИзменитьФорму" id="12519">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+					<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="12520"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 		<UsualGroup name="ГруппаПанельОтправки" id="12112">
 			<EnableContentChange>true</EnableContentChange>
 			<HorizontalStretch>true</HorizontalStretch>
@@ -113,7 +128,8 @@
 							<ExtendedTooltip name="СостояниеОтправкиРасширеннаяПодсказка" id="12189"/>
 							<ChildItems>
 								<LabelDecoration name="НаименованиеЭтапа" id="12242">
-									<Font ref="style:TitleLevel3" kind="StyleItem"/>
+									<TextColor>style:FormTextColor</TextColor>
+									<Font ref="style:NormalTextFont" height="11" kind="StyleItem"/>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -208,7 +224,6 @@
 							</ToolTip>
 							<Width>27</Width>
 							<Group>Horizontal</Group>
-							<VerticalAlign>Center</VerticalAlign>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -219,7 +234,7 @@
 									<Height>1</Height>
 									<Picture>
 										<xr:Ref>CommonPicture.ПризнакНаличияКритическойОшибки</xr:Ref>
-										<xr:LoadTransparent>false</xr:LoadTransparent>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
 									<ContextMenu name="ЗначокКритическойОшибкиКонтекстноеМеню" id="12240"/>
@@ -341,6 +356,7 @@
 					<v8:content>Основание</v8:content>
 				</v8:item>
 			</Title>
+			<MarkRequiredComplete>true</MarkRequiredComplete>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<HorizontalStretch>true</HorizontalStretch>
 			<ChoiceButton>true</ChoiceButton>
@@ -354,26 +370,28 @@
 				<Event name="Clearing">ПредставлениеОснованияОчистка</Event>
 			</Events>
 		</InputField>
-		<UsualGroup name="Группа4" id="12592">
+		<InputField name="Организация" id="133">
+			<DataPath>Объект.Организация</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>От кого</v8:content>
+				</v8:item>
+			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoEditMode>true</AutoEditMode>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="134"/>
+			<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="135"/>
+		</InputField>
+		<UsualGroup name="Группа2" id="12527">
+			<HorizontalStretch>true</HorizontalStretch>
 			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="12593"/>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="12528"/>
 			<ChildItems>
-				<InputField name="Организация" id="133">
-					<DataPath>Объект.Организация</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>От кого</v8:content>
-						</v8:item>
-					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="134"/>
-					<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="135"/>
-				</InputField>
 				<InputField name="НалоговыйОрган" id="136">
 					<DataPath>Объект.НалоговыйОрган</DataPath>
 					<Title>
@@ -384,76 +402,64 @@
 					</Title>
 					<EditMode>EnterOnInput</EditMode>
 					<AutoEditMode>true</AutoEditMode>
-					<Width>14</Width>
-					<HorizontalStretch>false</HorizontalStretch>
+					<HorizontalStretch>true</HorizontalStretch>
 					<ContextMenu name="НалоговыйОрганКонтекстноеМеню" id="137"/>
 					<ExtendedTooltip name="НалоговыйОрганExtendedTooltip" id="138"/>
 				</InputField>
-				<UsualGroup name="Группа2" id="12527">
+				<LabelDecoration name="Отступ" id="12544">
+					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>true</HorizontalStretch>
-					<Group>AlwaysHorizontal</Group>
-					<HorizontalSpacing>Half</HorizontalSpacing>
+					<ContextMenu name="ОтступКонтекстноеМеню" id="12545"/>
+					<ExtendedTooltip name="ОтступРасширеннаяПодсказка" id="12546"/>
+				</LabelDecoration>
+				<UsualGroup name="ГруппаРазмерыОписи" id="107">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа размеры описи</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>true</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<Group>Horizontal</Group>
+					<HorizontalAlign>Center</HorizontalAlign>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="12528"/>
+					<ExtendedTooltip name="ГруппаРазмерыОписиРасширеннаяПодсказка" id="108"/>
 					<ChildItems>
-						<LabelDecoration name="Отступ" id="12544">
+						<LabelDecoration name="НадписьРазмерыОписи" id="112">
 							<AutoMaxWidth>false</AutoMaxWidth>
-							<HorizontalStretch>true</HorizontalStretch>
-							<ContextMenu name="ОтступКонтекстноеМеню" id="12545"/>
-							<ExtendedTooltip name="ОтступРасширеннаяПодсказка" id="12546"/>
-						</LabelDecoration>
-						<UsualGroup name="ГруппаРазмерыОписи" id="107">
-							<EnableContentChange>true</EnableContentChange>
-							<Title>
+							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа размеры описи</v8:content>
+									<v8:content>Количество файлов и размер ответа</v8:content>
 								</v8:item>
 							</Title>
-							<HorizontalStretch>true</HorizontalStretch>
-							<VerticalStretch>false</VerticalStretch>
-							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<Group>Horizontal</Group>
-							<HorizontalAlign>Center</HorizontalAlign>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаРазмерыОписиРасширеннаяПодсказка" id="108"/>
-							<ChildItems>
-								<LabelDecoration name="НадписьРазмерыОписи" id="112">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Количество файлов и размер ответа</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalAlign>Right</HorizontalAlign>
-									<ContextMenu name="НадписьРазмерыОписиКонтекстноеМеню" id="113"/>
-									<ExtendedTooltip name="НадписьРазмерыОписиРасширеннаяПодсказка" id="114"/>
-								</LabelDecoration>
-								<LabelDecoration name="НадписьРазбитьНаНесколько" id="130">
-									<HorizontalStretch>false</HorizontalStretch>
-									<TextColor>style:ЦветГиперссылкиБРО</TextColor>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Разбить на несколько</v8:content>
-										</v8:item>
-									</Title>
-									<Hyperlink>true</Hyperlink>
-									<HorizontalAlign>Right</HorizontalAlign>
-									<ContextMenu name="НадписьРазбитьНаНесколькоКонтекстноеМеню" id="131"/>
-									<ExtendedTooltip name="НадписьРазбитьНаНесколькоРасширеннаяПодсказка" id="132"/>
-									<Events>
-										<Event name="Click">РазбитьНаНесколько</Event>
-									</Events>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
+							<HorizontalAlign>Right</HorizontalAlign>
+							<ContextMenu name="НадписьРазмерыОписиКонтекстноеМеню" id="113"/>
+							<ExtendedTooltip name="НадписьРазмерыОписиРасширеннаяПодсказка" id="114"/>
+						</LabelDecoration>
+						<LabelDecoration name="НадписьРазбитьНаНесколько" id="130">
+							<HorizontalStretch>false</HorizontalStretch>
+							<TextColor>style:ЦветГиперссылкиБРО</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Разбить на несколько</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<HorizontalAlign>Right</HorizontalAlign>
+							<ContextMenu name="НадписьРазбитьНаНесколькоКонтекстноеМеню" id="131"/>
+							<ExtendedTooltip name="НадписьРазбитьНаНесколькоРасширеннаяПодсказка" id="132"/>
+							<Events>
+								<Event name="Click">РазбитьНаНесколько</Event>
+							</Events>
+						</LabelDecoration>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -481,7 +487,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Текстовое пояснение</v8:content>
+							<v8:content>Текст пояснения</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
@@ -490,12 +496,10 @@
 							<v8:content>Текстовое пояснение</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Width>75</Width>
 					<Group>Vertical</Group>
 					<VerticalSpacing>Half</VerticalSpacing>
 					<Behavior>Usual</Behavior>
 					<Representation>WeakSeparation</Representation>
-					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ТекстовоеПояснениеРасширеннаяПодсказка" id="12358"/>
 					<ChildItems>
 						<UsualGroup name="КнопкиПоясненияСФоном" id="12420">
@@ -514,253 +518,13 @@
 							<VerticalStretch>false</VerticalStretch>
 							<GroupVerticalAlign>Center</GroupVerticalAlign>
 							<Group>Vertical</Group>
-							<VerticalSpacing>Half</VerticalSpacing>
 							<VerticalAlign>Center</VerticalAlign>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
+							<BackColor>#FCEB9F</BackColor>
 							<ExtendedTooltip name="КнопкиПоясненияСФономРасширеннаяПодсказка" id="12421"/>
 							<ChildItems>
-								<CommandBar name="ПанельКнопкиРаботыСШаблонами" id="12586">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Панель кнопки работы с шаблонами</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Панель кнопки работы с шаблонами</v8:content>
-										</v8:item>
-									</ToolTip>
-									<AppearanceMode>CommandBar</AppearanceMode>
-									<ExtendedTooltip name="ПанельКнопкиРаботыСШаблонамиРасширеннаяПодсказка" id="12587"/>
-									<ChildItems>
-										<Button name="ЗаполнитьПоШаблону" id="12414" DisplayImportance="VeryHigh">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.ЗаполнитьПоШаблону</CommandName>
-											<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-											<ExtendedTooltip name="ЗаполнитьПоШаблонуРасширеннаяПодсказка" id="12415"/>
-										</Button>
-										<Button name="ИзменитьШаблон" id="12416" DisplayImportance="VeryHigh">
-											<Type>CommandBarButton</Type>
-											<CommandName>Form.Command.ИзменитьШаблон</CommandName>
-											<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-											<ExtendedTooltip name="ИзменитьШаблонРасширеннаяПодсказка" id="12417"/>
-										</Button>
-										<Popup name="ВставитьВТекст" id="12477">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Вставить в текст</v8:content>
-												</v8:item>
-											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Вставить в текст</v8:content>
-												</v8:item>
-											</ToolTip>
-											<ExtendedTooltip name="ВставитьВТекстРасширеннаяПодсказка" id="12478"/>
-											<ChildItems>
-												<Popup name="РеквизитыОрганизации" id="12479">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Реквизиты организации</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Реквизиты организации</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ExtendedTooltip name="РеквизитыОрганизацииРасширеннаяПодсказка" id="12480"/>
-													<ChildItems>
-														<Button name="НаименованиеОрганизации" id="12481">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.НаименованиеОрганизации</CommandName>
-															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-															<ExtendedTooltip name="НаименованиеОрганизацииРасширеннаяПодсказка" id="12482"/>
-														</Button>
-														<Button name="ИНН" id="12483">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.ИНН</CommandName>
-															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-															<ExtendedTooltip name="ИННРасширеннаяПодсказка" id="12484"/>
-														</Button>
-														<Button name="КПП" id="12485">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.КПП</CommandName>
-															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-															<ExtendedTooltip name="КППРасширеннаяПодсказка" id="12486"/>
-														</Button>
-														<Button name="ОГРН" id="12487">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.ОГРН</CommandName>
-															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-															<ExtendedTooltip name="ОГРНРасширеннаяПодсказка" id="12488"/>
-														</Button>
-														<ButtonGroup name="ГруппаКонтакты" id="12489">
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Группа контакты</v8:content>
-																</v8:item>
-															</Title>
-															<ToolTip>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Группа контакты</v8:content>
-																</v8:item>
-															</ToolTip>
-															<ExtendedTooltip name="ГруппаКонтактыРасширеннаяПодсказка" id="12490"/>
-															<ChildItems>
-																<Button name="Адрес" id="12491">
-																	<Type>CommandBarButton</Type>
-																	<CommandName>Form.Command.Адрес</CommandName>
-																	<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-																	<ExtendedTooltip name="АдресРасширеннаяПодсказка" id="12492"/>
-																</Button>
-																<Button name="Телефон" id="12493">
-																	<Type>CommandBarButton</Type>
-																	<CommandName>Form.Command.Телефон</CommandName>
-																	<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-																	<ExtendedTooltip name="ТелефонРасширеннаяПодсказка" id="12494"/>
-																</Button>
-															</ChildItems>
-														</ButtonGroup>
-														<ButtonGroup name="ГруппаРуководитель" id="12495">
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Группа руководитель</v8:content>
-																</v8:item>
-															</Title>
-															<ToolTip>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Группа руководитель</v8:content>
-																</v8:item>
-															</ToolTip>
-															<ExtendedTooltip name="ГруппаРуководительРасширеннаяПодсказка" id="12496"/>
-															<ChildItems>
-																<Button name="Руководитель" id="12497">
-																	<Type>CommandBarButton</Type>
-																	<CommandName>Form.Command.Руководитель</CommandName>
-																	<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-																	<ExtendedTooltip name="РуководительРасширеннаяПодсказка" id="12498"/>
-																</Button>
-																<Button name="ДолжностьРуководителя" id="12499">
-																	<Type>CommandBarButton</Type>
-																	<CommandName>Form.Command.ДолжностьРуководителя</CommandName>
-																	<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-																	<ExtendedTooltip name="ДолжностьРуководителяРасширеннаяПодсказка" id="12500"/>
-																</Button>
-															</ChildItems>
-														</ButtonGroup>
-													</ChildItems>
-												</Popup>
-												<Popup name="ИзТребования" id="12515">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Из требования</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Из требования</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ExtendedTooltip name="ИзТребованияРасширеннаяПодсказка" id="12516"/>
-													<ChildItems>
-														<Button name="Требование" id="12501">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.Требование</CommandName>
-															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-															<ExtendedTooltip name="ТребованиеРасширеннаяПодсказка" id="12502"/>
-														</Button>
-														<Button name="ИФНС" id="12503">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.ИФНС</CommandName>
-															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-															<ExtendedTooltip name="ИФНСРасширеннаяПодсказка" id="12504"/>
-														</Button>
-													</ChildItems>
-												</Popup>
-												<Popup name="ГруппаДаты" id="12517">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Даты</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Группа даты</v8:content>
-														</v8:item>
-													</ToolTip>
-													<ExtendedTooltip name="ГруппаДатыРасширеннаяПодсказка" id="12518"/>
-													<ChildItems>
-														<Button name="Сегодня" id="12507">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.Сегодня</CommandName>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Текущая дата</v8:content>
-																</v8:item>
-															</Title>
-															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-															<ExtendedTooltip name="СегодняРасширеннаяПодсказка" id="12508"/>
-														</Button>
-														<Button name="ВставитьПериод" id="12509">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.ВставитьПериод</CommandName>
-															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-															<ExtendedTooltip name="ВставитьПериодРасширеннаяПодсказка" id="12510"/>
-														</Button>
-													</ChildItems>
-												</Popup>
-												<Button name="ВставитьЧислоПрописью" id="12523">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.ВставитьЧислоПрописью</CommandName>
-													<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-													<ExtendedTooltip name="ВставитьЧислоПрописьюРасширеннаяПодсказка" id="12524"/>
-												</Button>
-												<Button name="ВставитьОтчет" id="12511">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.ВставитьОтчет</CommandName>
-													<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-													<ExtendedTooltip name="ВставитьОтчетРасширеннаяПодсказка" id="12512"/>
-												</Button>
-												<Button name="ВставитьКонтрагента" id="12513">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.ВставитьКонтрагента</CommandName>
-													<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-													<ExtendedTooltip name="ВставитьКонтрагентаРасширеннаяПодсказка" id="12514"/>
-												</Button>
-												<Button name="Исполнитель" id="12505">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Command.Исполнитель</CommandName>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Исполнитель</v8:content>
-														</v8:item>
-													</Title>
-													<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-													<ExtendedTooltip name="ИсполнительРасширеннаяПодсказка" id="12506"/>
-												</Button>
-											</ChildItems>
-										</Popup>
-									</ChildItems>
-								</CommandBar>
 								<UsualGroup name="ГруппаКнопкиРаботыСШаблонами" id="12540">
 									<Title>
 										<v8:item>
@@ -779,8 +543,249 @@
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаКнопкиРаботыСШаблонамиРасширеннаяПодсказка" id="12541"/>
+									<ChildItems>
+										<CommandBar name="ПанельКнопкиРаботыСШаблонами" id="12531">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Панель кнопки работы с шаблонами</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Панель кнопки работы с шаблонами</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="ПанельКнопкиРаботыСШаблонамиРасширеннаяПодсказка" id="12532"/>
+											<ChildItems>
+												<Button name="ЗаполнитьПоШаблону" id="12414" DisplayImportance="VeryHigh">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Command.ЗаполнитьПоШаблону</CommandName>
+													<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+													<ExtendedTooltip name="ЗаполнитьПоШаблонуРасширеннаяПодсказка" id="12415"/>
+												</Button>
+												<Button name="ИзменитьШаблон" id="12416" DisplayImportance="VeryHigh">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Command.ИзменитьШаблон</CommandName>
+													<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+													<ExtendedTooltip name="ИзменитьШаблонРасширеннаяПодсказка" id="12417"/>
+												</Button>
+												<Popup name="ВставитьВТекст" id="12477">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Вставить в текст</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Вставить в текст</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ExtendedTooltip name="ВставитьВТекстРасширеннаяПодсказка" id="12478"/>
+													<ChildItems>
+														<Popup name="РеквизитыОрганизации" id="12479">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Реквизиты организации</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Реквизиты организации</v8:content>
+																</v8:item>
+															</ToolTip>
+															<ExtendedTooltip name="РеквизитыОрганизацииРасширеннаяПодсказка" id="12480"/>
+															<ChildItems>
+																<Button name="НаименованиеОрганизации" id="12481">
+																	<Type>CommandBarButton</Type>
+																	<CommandName>Form.Command.НаименованиеОрганизации</CommandName>
+																	<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																	<ExtendedTooltip name="НаименованиеОрганизацииРасширеннаяПодсказка" id="12482"/>
+																</Button>
+																<Button name="ИНН" id="12483">
+																	<Type>CommandBarButton</Type>
+																	<CommandName>Form.Command.ИНН</CommandName>
+																	<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																	<ExtendedTooltip name="ИННРасширеннаяПодсказка" id="12484"/>
+																</Button>
+																<Button name="КПП" id="12485">
+																	<Type>CommandBarButton</Type>
+																	<CommandName>Form.Command.КПП</CommandName>
+																	<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																	<ExtendedTooltip name="КППРасширеннаяПодсказка" id="12486"/>
+																</Button>
+																<Button name="ОГРН" id="12487">
+																	<Type>CommandBarButton</Type>
+																	<CommandName>Form.Command.ОГРН</CommandName>
+																	<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																	<ExtendedTooltip name="ОГРНРасширеннаяПодсказка" id="12488"/>
+																</Button>
+																<ButtonGroup name="ГруппаКонтакты" id="12489">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа контакты</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа контакты</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<ExtendedTooltip name="ГруппаКонтактыРасширеннаяПодсказка" id="12490"/>
+																	<ChildItems>
+																		<Button name="Адрес" id="12491">
+																			<Type>CommandBarButton</Type>
+																			<CommandName>Form.Command.Адрес</CommandName>
+																			<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																			<ExtendedTooltip name="АдресРасширеннаяПодсказка" id="12492"/>
+																		</Button>
+																		<Button name="Телефон" id="12493">
+																			<Type>CommandBarButton</Type>
+																			<CommandName>Form.Command.Телефон</CommandName>
+																			<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																			<ExtendedTooltip name="ТелефонРасширеннаяПодсказка" id="12494"/>
+																		</Button>
+																	</ChildItems>
+																</ButtonGroup>
+																<ButtonGroup name="ГруппаРуководитель" id="12495">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа руководитель</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа руководитель</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<ExtendedTooltip name="ГруппаРуководительРасширеннаяПодсказка" id="12496"/>
+																	<ChildItems>
+																		<Button name="Руководитель" id="12497">
+																			<Type>CommandBarButton</Type>
+																			<CommandName>Form.Command.Руководитель</CommandName>
+																			<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																			<ExtendedTooltip name="РуководительРасширеннаяПодсказка" id="12498"/>
+																		</Button>
+																		<Button name="ДолжностьРуководителя" id="12499">
+																			<Type>CommandBarButton</Type>
+																			<CommandName>Form.Command.ДолжностьРуководителя</CommandName>
+																			<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																			<ExtendedTooltip name="ДолжностьРуководителяРасширеннаяПодсказка" id="12500"/>
+																		</Button>
+																	</ChildItems>
+																</ButtonGroup>
+															</ChildItems>
+														</Popup>
+														<Popup name="ИзТребования" id="12515">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Из требования</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Из требования</v8:content>
+																</v8:item>
+															</ToolTip>
+															<ExtendedTooltip name="ИзТребованияРасширеннаяПодсказка" id="12516"/>
+															<ChildItems>
+																<Button name="Требование" id="12501">
+																	<Type>CommandBarButton</Type>
+																	<CommandName>Form.Command.Требование</CommandName>
+																	<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																	<ExtendedTooltip name="ТребованиеРасширеннаяПодсказка" id="12502"/>
+																</Button>
+																<Button name="ИФНС" id="12503">
+																	<Type>CommandBarButton</Type>
+																	<CommandName>Form.Command.ИФНС</CommandName>
+																	<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																	<ExtendedTooltip name="ИФНСРасширеннаяПодсказка" id="12504"/>
+																</Button>
+															</ChildItems>
+														</Popup>
+														<Popup name="ГруппаДаты" id="12517">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Даты</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа даты</v8:content>
+																</v8:item>
+															</ToolTip>
+															<ExtendedTooltip name="ГруппаДатыРасширеннаяПодсказка" id="12518"/>
+															<ChildItems>
+																<Button name="Сегодня" id="12507">
+																	<Type>CommandBarButton</Type>
+																	<CommandName>Form.Command.Сегодня</CommandName>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Текущая дата</v8:content>
+																		</v8:item>
+																	</Title>
+																	<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																	<ExtendedTooltip name="СегодняРасширеннаяПодсказка" id="12508"/>
+																</Button>
+																<Button name="ВставитьПериод" id="12509">
+																	<Type>CommandBarButton</Type>
+																	<CommandName>Form.Command.ВставитьПериод</CommandName>
+																	<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																	<ExtendedTooltip name="ВставитьПериодРасширеннаяПодсказка" id="12510"/>
+																</Button>
+															</ChildItems>
+														</Popup>
+														<Button name="ВставитьЧислоПрописью" id="12523">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Command.ВставитьЧислоПрописью</CommandName>
+															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+															<ExtendedTooltip name="ВставитьЧислоПрописьюРасширеннаяПодсказка" id="12524"/>
+														</Button>
+														<Button name="ВставитьОтчет" id="12511">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Command.ВставитьОтчет</CommandName>
+															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+															<ExtendedTooltip name="ВставитьОтчетРасширеннаяПодсказка" id="12512"/>
+														</Button>
+														<Button name="ВставитьКонтрагента" id="12513">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Command.ВставитьКонтрагента</CommandName>
+															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+															<ExtendedTooltip name="ВставитьКонтрагентаРасширеннаяПодсказка" id="12514"/>
+														</Button>
+														<Button name="Исполнитель" id="12505">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Command.Исполнитель</CommandName>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Исполнитель</v8:content>
+																</v8:item>
+															</Title>
+															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+															<ExtendedTooltip name="ИсполнительРасширеннаяПодсказка" id="12506"/>
+														</Button>
+													</ChildItems>
+												</Popup>
+											</ChildItems>
+										</CommandBar>
+									</ChildItems>
 								</UsualGroup>
-								<CommandBar name="ГруппаКнопкиРедактированияТекста" id="12583">
+								<UsualGroup name="ГруппаКнопкиРедактированияТекста" id="12529">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -793,168 +798,188 @@
 											<v8:content>Группа кнопки редактирования текста</v8:content>
 										</v8:item>
 									</ToolTip>
-									<AppearanceMode>CommandBar</AppearanceMode>
-									<ExtendedTooltip name="ГруппаКнопкиРедактированияТекстаРасширеннаяПодсказка" id="12584"/>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаКнопкиРедактированияТекстаРасширеннаяПодсказка" id="12530"/>
 									<ChildItems>
-										<ButtonGroup name="ПояснениеГруппа1" id="12422">
-											<Representation>Compact</Representation>
-											<ExtendedTooltip name="ПояснениеГруппа1РасширеннаяПодсказка" id="12423"/>
-											<ChildItems>
-												<Button name="ПояснениеШрифт" id="12424">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.Font</CommandName>
-													<ExtendedTooltip name="ПояснениеШрифтРасширеннаяПодсказка" id="12425"/>
-												</Button>
-												<Button name="ПояснениеУвеличитьРазмерШрифта" id="12426">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.IncreaseFontSize</CommandName>
-													<ExtendedTooltip name="ПояснениеУвеличитьРазмерШрифтаРасширеннаяПодсказка" id="12427"/>
-												</Button>
-												<Button name="ПояснениеУменьшитьРазмерШрифта" id="12428">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.DecreaseFontSize</CommandName>
-													<ExtendedTooltip name="ПояснениеУменьшитьРазмерШрифтаРасширеннаяПодсказка" id="12429"/>
-												</Button>
-											</ChildItems>
-										</ButtonGroup>
-										<ButtonGroup name="ПояснениеГруппа2" id="12430">
-											<Representation>Compact</Representation>
-											<ExtendedTooltip name="ПояснениеГруппа2РасширеннаяПодсказка" id="12431"/>
-											<ChildItems>
-												<Button name="ПояснениеЦветФона" id="12432">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.BackColor</CommandName>
-													<ExtendedTooltip name="ПояснениеЦветФонаРасширеннаяПодсказка" id="12433"/>
-												</Button>
-												<Button name="ПояснениеЦветТекста" id="12434">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.TextColor</CommandName>
-													<ExtendedTooltip name="ПояснениеЦветТекстаРасширеннаяПодсказка" id="12435"/>
-												</Button>
-											</ChildItems>
-										</ButtonGroup>
-										<ButtonGroup name="ПояснениеГруппа3" id="12436">
-											<Representation>Compact</Representation>
-											<ExtendedTooltip name="ПояснениеГруппа3РасширеннаяПодсказка" id="12437"/>
-											<ChildItems>
-												<Button name="ПояснениеПолужирный" id="12438">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.Bold</CommandName>
-													<ExtendedTooltip name="ПояснениеПолужирныйРасширеннаяПодсказка" id="12439"/>
-												</Button>
-												<Button name="ПояснениеНаклонный" id="12440">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.Italic</CommandName>
-													<ExtendedTooltip name="ПояснениеНаклонныйРасширеннаяПодсказка" id="12441"/>
-												</Button>
-												<Button name="ПояснениеПодчеркивание" id="12442">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.Underline</CommandName>
-													<ExtendedTooltip name="ПояснениеПодчеркиваниеРасширеннаяПодсказка" id="12443"/>
-												</Button>
-											</ChildItems>
-										</ButtonGroup>
-										<ButtonGroup name="ПояснениеГруппа4" id="12444">
-											<Representation>Compact</Representation>
-											<ExtendedTooltip name="ПояснениеГруппа4РасширеннаяПодсказка" id="12445"/>
-											<ChildItems>
-												<Button name="ПояснениеМаркированныйСписок" id="12446">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.BulletedList</CommandName>
-													<ExtendedTooltip name="ПояснениеМаркированныйСписокРасширеннаяПодсказка" id="12447"/>
-												</Button>
-												<Button name="ПояснениеНумерованныйСписок" id="12448">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.NumberedList</CommandName>
-													<ExtendedTooltip name="ПояснениеНумерованныйСписокРасширеннаяПодсказка" id="12449"/>
-												</Button>
-											</ChildItems>
-										</ButtonGroup>
-										<ButtonGroup name="ПояснениеГруппа5" id="12450">
-											<Representation>Compact</Representation>
-											<ExtendedTooltip name="ПояснениеГруппа5РасширеннаяПодсказка" id="12451"/>
-											<ChildItems>
-												<Button name="ПояснениеВыровнятьВлево" id="12452">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.AlignLeft</CommandName>
-													<ExtendedTooltip name="ПояснениеВыровнятьВлевоРасширеннаяПодсказка" id="12453"/>
-												</Button>
-												<Button name="ПояснениеВыровнятьПоЦентру" id="12454">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.AlignCenter</CommandName>
-													<ExtendedTooltip name="ПояснениеВыровнятьПоЦентруРасширеннаяПодсказка" id="12455"/>
-												</Button>
-												<Button name="ПояснениеВыровнятьВправо" id="12456">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.AlignRight</CommandName>
-													<ExtendedTooltip name="ПояснениеВыровнятьВправоРасширеннаяПодсказка" id="12457"/>
-												</Button>
-												<Button name="ПояснениеВыровнятьПоШирине" id="12458">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.AlignJustify</CommandName>
-													<ExtendedTooltip name="ПояснениеВыровнятьПоШиринеРасширеннаяПодсказка" id="12459"/>
-												</Button>
-											</ChildItems>
-										</ButtonGroup>
-										<ButtonGroup name="ПояснениеГруппа6" id="12460">
-											<Representation>Compact</Representation>
-											<ExtendedTooltip name="ПояснениеГруппа6РасширеннаяПодсказка" id="12461"/>
-											<ChildItems>
-												<Button name="ПояснениеУвеличитьОтступ" id="12462">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.IncreaseIndent</CommandName>
-													<ExtendedTooltip name="ПояснениеУвеличитьОтступРасширеннаяПодсказка" id="12463"/>
-												</Button>
-												<Button name="ПояснениеУменьшитьОтступ" id="12464">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.DecreaseIndent</CommandName>
-													<ExtendedTooltip name="ПояснениеУменьшитьОтступРасширеннаяПодсказка" id="12465"/>
-												</Button>
-											</ChildItems>
-										</ButtonGroup>
-										<ButtonGroup name="ПояснениеГруппа7" id="12471">
+										<CommandBar name="ПанельКнопкиРедактированияТекста" id="12533">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Пояснение группа7</v8:content>
+													<v8:content>Панель кнопки редактирования текста</v8:content>
 												</v8:item>
 											</Title>
 											<ToolTip>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Пояснение группа7</v8:content>
+													<v8:content>Панель кнопки редактирования текста</v8:content>
 												</v8:item>
 											</ToolTip>
-											<Representation>Compact</Representation>
-											<ExtendedTooltip name="ПояснениеГруппа7РасширеннаяПодсказка" id="12472"/>
+											<ExtendedTooltip name="ПанельКнопкиРедактированияТекстаРасширеннаяПодсказка" id="12534"/>
 											<ChildItems>
-												<Button name="СохранитьКак" id="12469">
-													<Type>CommandBarButton</Type>
-													<Representation>Picture</Representation>
-													<CommandName>Form.Item.Пояснение.StandardCommand.SaveAs</CommandName>
-													<Picture>
-														<xr:Ref>StdPicture.SaveFile</xr:Ref>
-														<xr:LoadTransparent>true</xr:LoadTransparent>
-													</Picture>
-													<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-													<ExtendedTooltip name="СохранитьКакРасширеннаяПодсказка" id="12470"/>
-												</Button>
-												<Button name="ПредварительныйПросмотр" id="12521">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.Preview</CommandName>
-													<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-													<ExtendedTooltip name="ПредварительныйПросмотрРасширеннаяПодсказка" id="12522"/>
-												</Button>
-												<Button name="Печать" id="12473">
-													<Type>CommandBarButton</Type>
-													<CommandName>Form.Item.Пояснение.StandardCommand.Print</CommandName>
-													<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-													<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="12474"/>
-												</Button>
+												<ButtonGroup name="ПояснениеГруппа1" id="12422">
+													<Representation>Compact</Representation>
+													<ExtendedTooltip name="ПояснениеГруппа1РасширеннаяПодсказка" id="12423"/>
+													<ChildItems>
+														<Button name="ПояснениеШрифт" id="12424">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.Font</CommandName>
+															<ExtendedTooltip name="ПояснениеШрифтРасширеннаяПодсказка" id="12425"/>
+														</Button>
+														<Button name="ПояснениеУвеличитьРазмерШрифта" id="12426">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.IncreaseFontSize</CommandName>
+															<ExtendedTooltip name="ПояснениеУвеличитьРазмерШрифтаРасширеннаяПодсказка" id="12427"/>
+														</Button>
+														<Button name="ПояснениеУменьшитьРазмерШрифта" id="12428">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.DecreaseFontSize</CommandName>
+															<ExtendedTooltip name="ПояснениеУменьшитьРазмерШрифтаРасширеннаяПодсказка" id="12429"/>
+														</Button>
+													</ChildItems>
+												</ButtonGroup>
+												<ButtonGroup name="ПояснениеГруппа2" id="12430">
+													<Representation>Compact</Representation>
+													<ExtendedTooltip name="ПояснениеГруппа2РасширеннаяПодсказка" id="12431"/>
+													<ChildItems>
+														<Button name="ПояснениеЦветФона" id="12432">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.BackColor</CommandName>
+															<ExtendedTooltip name="ПояснениеЦветФонаРасширеннаяПодсказка" id="12433"/>
+														</Button>
+														<Button name="ПояснениеЦветТекста" id="12434">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.TextColor</CommandName>
+															<ExtendedTooltip name="ПояснениеЦветТекстаРасширеннаяПодсказка" id="12435"/>
+														</Button>
+													</ChildItems>
+												</ButtonGroup>
+												<ButtonGroup name="ПояснениеГруппа3" id="12436">
+													<Representation>Compact</Representation>
+													<ExtendedTooltip name="ПояснениеГруппа3РасширеннаяПодсказка" id="12437"/>
+													<ChildItems>
+														<Button name="ПояснениеПолужирный" id="12438">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.Bold</CommandName>
+															<ExtendedTooltip name="ПояснениеПолужирныйРасширеннаяПодсказка" id="12439"/>
+														</Button>
+														<Button name="ПояснениеНаклонный" id="12440">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.Italic</CommandName>
+															<ExtendedTooltip name="ПояснениеНаклонныйРасширеннаяПодсказка" id="12441"/>
+														</Button>
+														<Button name="ПояснениеПодчеркивание" id="12442">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.Underline</CommandName>
+															<ExtendedTooltip name="ПояснениеПодчеркиваниеРасширеннаяПодсказка" id="12443"/>
+														</Button>
+													</ChildItems>
+												</ButtonGroup>
+												<ButtonGroup name="ПояснениеГруппа4" id="12444">
+													<Representation>Compact</Representation>
+													<ExtendedTooltip name="ПояснениеГруппа4РасширеннаяПодсказка" id="12445"/>
+													<ChildItems>
+														<Button name="ПояснениеМаркированныйСписок" id="12446">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.BulletedList</CommandName>
+															<ExtendedTooltip name="ПояснениеМаркированныйСписокРасширеннаяПодсказка" id="12447"/>
+														</Button>
+														<Button name="ПояснениеНумерованныйСписок" id="12448">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.NumberedList</CommandName>
+															<ExtendedTooltip name="ПояснениеНумерованныйСписокРасширеннаяПодсказка" id="12449"/>
+														</Button>
+													</ChildItems>
+												</ButtonGroup>
+												<ButtonGroup name="ПояснениеГруппа5" id="12450">
+													<Representation>Compact</Representation>
+													<ExtendedTooltip name="ПояснениеГруппа5РасширеннаяПодсказка" id="12451"/>
+													<ChildItems>
+														<Button name="ПояснениеВыровнятьВлево" id="12452">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.AlignLeft</CommandName>
+															<ExtendedTooltip name="ПояснениеВыровнятьВлевоРасширеннаяПодсказка" id="12453"/>
+														</Button>
+														<Button name="ПояснениеВыровнятьПоЦентру" id="12454">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.AlignCenter</CommandName>
+															<ExtendedTooltip name="ПояснениеВыровнятьПоЦентруРасширеннаяПодсказка" id="12455"/>
+														</Button>
+														<Button name="ПояснениеВыровнятьВправо" id="12456">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.AlignRight</CommandName>
+															<ExtendedTooltip name="ПояснениеВыровнятьВправоРасширеннаяПодсказка" id="12457"/>
+														</Button>
+														<Button name="ПояснениеВыровнятьПоШирине" id="12458">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.AlignJustify</CommandName>
+															<ExtendedTooltip name="ПояснениеВыровнятьПоШиринеРасширеннаяПодсказка" id="12459"/>
+														</Button>
+													</ChildItems>
+												</ButtonGroup>
+												<ButtonGroup name="ПояснениеГруппа6" id="12460">
+													<Representation>Compact</Representation>
+													<ExtendedTooltip name="ПояснениеГруппа6РасширеннаяПодсказка" id="12461"/>
+													<ChildItems>
+														<Button name="ПояснениеУвеличитьОтступ" id="12462">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.IncreaseIndent</CommandName>
+															<ExtendedTooltip name="ПояснениеУвеличитьОтступРасширеннаяПодсказка" id="12463"/>
+														</Button>
+														<Button name="ПояснениеУменьшитьОтступ" id="12464">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.DecreaseIndent</CommandName>
+															<ExtendedTooltip name="ПояснениеУменьшитьОтступРасширеннаяПодсказка" id="12465"/>
+														</Button>
+													</ChildItems>
+												</ButtonGroup>
+												<ButtonGroup name="ПояснениеГруппа7" id="12471">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Пояснение группа7</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Пояснение группа7</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Representation>Compact</Representation>
+													<ExtendedTooltip name="ПояснениеГруппа7РасширеннаяПодсказка" id="12472"/>
+													<ChildItems>
+														<Button name="СохранитьКак" id="12469">
+															<Type>CommandBarButton</Type>
+															<Representation>Picture</Representation>
+															<CommandName>Form.Item.Пояснение.StandardCommand.SaveAs</CommandName>
+															<Picture>
+																<xr:Ref>StdPicture.SaveFile</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</Picture>
+															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+															<ExtendedTooltip name="СохранитьКакРасширеннаяПодсказка" id="12470"/>
+														</Button>
+														<Button name="ПредварительныйПросмотр" id="12521">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.Preview</CommandName>
+															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+															<ExtendedTooltip name="ПредварительныйПросмотрРасширеннаяПодсказка" id="12522"/>
+														</Button>
+														<Button name="Печать" id="12473">
+															<Type>CommandBarButton</Type>
+															<CommandName>Form.Item.Пояснение.StandardCommand.Print</CommandName>
+															<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+															<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="12474"/>
+														</Button>
+													</ChildItems>
+												</ButtonGroup>
 											</ChildItems>
-										</ButtonGroup>
+										</CommandBar>
 									</ChildItems>
-								</CommandBar>
+								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
 						<FormattedDocumentField name="Пояснение" id="12403">
@@ -962,7 +987,6 @@
 							<TitleLocation>None</TitleLocation>
 							<Width>100</Width>
 							<AutoMaxHeight>false</AutoMaxHeight>
-							<Font ref="style:TitleLevel2" kind="StyleItem"/>
 							<ContextMenu name="ПояснениеКонтекстноеМеню" id="12404">
 								<Autofill>false</Autofill>
 								<ChildItems>
@@ -1007,20 +1031,18 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Документы</v8:content>
+							<v8:content>Вложения</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Документы</v8:content>
+							<v8:content>Вложения</v8:content>
 						</v8:item>
 					</ToolTip>
-					<Width>25</Width>
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>WeakSeparation</Representation>
-					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ДокументыРасширеннаяПодсказка" id="12356"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаКоманднаяПанельПредставляемыеДокументы" id="11242">
@@ -1041,10 +1063,11 @@
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
+							<BackColor>#FCEB9F</BackColor>
 							<ExtendedTooltip name="ГруппаКоманднаяПанельПредставляемыеДокументыРасширеннаяПодсказка" id="11243"/>
 							<ChildItems>
-								<CommandBar name="Группа3" id="12588">
-									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="12589"/>
+								<CommandBar name="ГруппаКнопок1" id="12309">
+									<ExtendedTooltip name="ГруппаКнопок1РасширеннаяПодсказка" id="12310"/>
 									<ChildItems>
 										<Popup name="ПодменюЗагрузить" id="12311">
 											<Title>
@@ -1128,7 +1151,6 @@
 												<Button name="ВыбратьСканыИзПредыдущихОтветов" id="12542">
 													<Type>CommandBarButton</Type>
 													<CommandName>Form.Command.ВыбратьСканыИзПредыдущихОтветов</CommandName>
-													<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 													<ExtendedTooltip name="ВыбратьСканыИзПредыдущихОтветовРасширеннаяПодсказка" id="12543"/>
 												</Button>
 												<Button name="ПрисоединенныеФайлы" id="12349">
@@ -1183,8 +1205,7 @@
 						</UsualGroup>
 						<Table name="ПредставляемыеДокументы" id="9">
 							<Representation>Tree</Representation>
-							<SelectionMode>SingleRow</SelectionMode>
-							<RowSelectionMode>Row</RowSelectionMode>
+							<RowSelectionMode>Cell</RowSelectionMode>
 							<Header>false</Header>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -1201,6 +1222,7 @@
 								<ExcludedCommand>HierarchicalList</ExcludedCommand>
 								<ExcludedCommand>List</ExcludedCommand>
 								<ExcludedCommand>OutputList</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
 								<ExcludedCommand>SortListAsc</ExcludedCommand>
 								<ExcludedCommand>SortListDesc</ExcludedCommand>
 								<ExcludedCommand>Tree</ExcludedCommand>
@@ -1261,13 +1283,12 @@
 											<ChildItems>
 												<PictureField name="ПредставляемыеДокументыИсточникДокумента2" id="12279">
 													<DataPath>ДеревоДокументов.ИсточникДокумента</DataPath>
-													<ReadOnly>true</ReadOnly>
 													<TitleLocation>None</TitleLocation>
 													<EditMode>EnterOnInput</EditMode>
 													<AutoEditMode>true</AutoEditMode>
 													<ValuesPicture>
 														<xr:Ref>CommonPicture.ИсточникиДокументов</xr:Ref>
-														<xr:LoadTransparent>false</xr:LoadTransparent>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
 													</ValuesPicture>
 													<FileDragMode>AsFile</FileDragMode>
 													<ContextMenu name="ПредставляемыеДокументыИсточникДокумента2КонтекстноеМеню" id="12280"/>
@@ -1275,7 +1296,6 @@
 												</PictureField>
 												<InputField name="ПредставляемыеДокументыСоставноеПоле2" id="12282">
 													<DataPath>ДеревоДокументов.СоставноеПоле</DataPath>
-													<ReadOnly>true</ReadOnly>
 													<EditMode>EnterOnInput</EditMode>
 													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="ПредставляемыеДокументыСоставноеПоле2КонтекстноеМеню" id="12283"/>
@@ -1314,7 +1334,7 @@
 															<HorizontalStretch>false</HorizontalStretch>
 															<ValuesPicture>
 																<xr:Ref>CommonPicture.ИсточникиДокументов</xr:Ref>
-																<xr:LoadTransparent>false</xr:LoadTransparent>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
 															</ValuesPicture>
 															<FileDragMode>AsFile</FileDragMode>
 															<ContextMenu name="ПредставляемыеДокументыИсточникДокументаКонтекстноеМеню" id="142"/>
@@ -1359,7 +1379,6 @@
 								</ColumnGroup>
 								<InputField name="ПредставляемыеДокументыФайлы" id="127">
 									<DataPath>ДеревоДокументов.Файлы</DataPath>
-									<ReadOnly>true</ReadOnly>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -1388,7 +1407,6 @@
 		</UsualGroup>
 		<InputField name="Комментарий" id="12335">
 			<DataPath>Объект.Комментарий</DataPath>
-			<TitleLocation>Left</TitleLocation>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<InputHint>
 				<v8:item>
@@ -2226,7 +2244,6 @@
 			<Action>КомандаОтправить</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="РазбитьНаНесколько" id="7">
 			<Title>
@@ -2706,4 +2723,27 @@
 			<Action>ВыбратьСканыИзПредыдущихОтветов</Action>
 		</Command>
 	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>3:e07e82f5-3363-42db-8ebc-d4a751a5b818</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:3953cc60-6482-471c-9699-41c70c93335d</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<Index>1</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
 </Form>

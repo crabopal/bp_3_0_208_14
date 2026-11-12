@@ -10,32 +10,8 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Применить" id="32">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<DefaultItem>true</DefaultItem>
-				<CommandName>Form.Command.Применить</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Применить</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="33"/>
-			</Button>
-			<Button name="ФормаСправка" id="48">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="49"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -64,9 +40,6 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Right</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<CheckBoxType>Switcher</CheckBoxType>
 					<ContextMenu name="ТолькоРоссийскийАдресКонтекстноеМеню" id="6"/>
 					<ExtendedTooltip name="ТолькоРоссийскийАдресРасширеннаяПодсказка" id="7"/>
 					<Events>
@@ -114,9 +87,6 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>Right</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<CheckBoxType>Switcher</CheckBoxType>
 									<ContextMenu name="ПроверятьКорректностьАдресаКонтекстноеМеню" id="16"/>
 									<ExtendedTooltip name="ПроверятьКорректностьАдресаРасширеннаяПодсказка" id="17"/>
 								</CheckBoxField>
@@ -130,8 +100,6 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>Right</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СкрыватьНеактуальныеАдресаКонтекстноеМеню" id="22"/>
 									<ExtendedTooltip name="СкрыватьНеактуальныеАдресаРасширеннаяПодсказка" id="23"/>
 								</CheckBoxField>
@@ -144,9 +112,6 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>Right</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<CheckBoxType>Switcher</CheckBoxType>
 									<ContextMenu name="УказыватьОКТМОВручнуюКонтекстноеМеню" id="25"/>
 									<ExtendedTooltip name="УказыватьОКТМОВручнуюРасширеннаяПодсказка" id="26"/>
 								</CheckBoxField>
@@ -185,14 +150,47 @@
 						</v8:item>
 					</ToolTip>
 					<ToolTipRepresentation>Button</ToolTipRepresentation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<CheckBoxType>Switcher</CheckBoxType>
 					<ContextMenu name="АвтоматическиИсправлятьУстаревшиеАдресаКонтекстноеМеню" id="39"/>
 					<ExtendedTooltip name="АвтоматическиИсправлятьУстаревшиеАдресаРасширеннаяПодсказка" id="40"/>
 				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
+		<CommandBar name="ГруппаКоманднаяПанель" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="31"/>
+			<ChildItems>
+				<Button name="ОК" id="32">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<DefaultItem>true</DefaultItem>
+					<CommandName>Form.Command.ОК</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ОК</v8:content>
+						</v8:item>
+					</Title>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="33"/>
+				</Button>
+				<Button name="Отмена" id="34">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Cancel</CommandName>
+					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="35"/>
+				</Button>
+				<Button name="Справка" id="36">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="37"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -258,22 +256,21 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Применить" id="1">
+		<Command name="ОК" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Применить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Применить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>Применить</Action>
+			<Action>ОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

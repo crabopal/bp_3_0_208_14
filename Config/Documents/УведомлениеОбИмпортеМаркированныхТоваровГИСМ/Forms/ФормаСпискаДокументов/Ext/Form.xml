@@ -3,11 +3,8 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<Group>Vertical</Group>
-	<CommandSet>
-		<ExcludedCommand>Copy</ExcludedCommand>
-		<ExcludedCommand>Create</ExcludedCommand>
-	</CommandSet>
-	<ShowTitle>true</ShowTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -52,7 +49,6 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаОформленоРасширеннаяПодсказка" id="34"/>
 					<ChildItems>
@@ -72,8 +68,9 @@
 								<InputField name="СтатусГИСМОтбор" id="78">
 									<DataPath>СтатусГИСМ</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>30</MaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ClearButton>true</ClearButton>
 									<InputHint>
 										<v8:item>
@@ -90,8 +87,9 @@
 								<InputField name="ДальнейшееДействиеГИСМОтбор" id="157">
 									<DataPath>ДальнейшееДействиеГИСМ</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>30</MaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ClearButton>true</ClearButton>
 									<ListChoiceMode>true</ListChoiceMode>
 									<ChooseType>false</ChooseType>
@@ -110,10 +108,10 @@
 								<InputField name="ОрганизацияОтбор" id="81">
 									<DataPath>Организация</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>30</MaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ClearButton>true</ClearButton>
-									<OpenButton>false</OpenButton>
 									<InputHint>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -129,10 +127,9 @@
 								<InputField name="ОтветственныйОтбор" id="108">
 									<DataPath>Ответственный</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ClearButton>true</ClearButton>
-									<OpenButton>false</OpenButton>
 									<InputHint>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -156,12 +153,11 @@
 							</Title>
 							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
-							<ShowTitle>true</ShowTitle>
+							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ГруппаПользовательскихНастроекРасширеннаяПодсказка" id="166"/>
 						</UsualGroup>
 						<Table name="Список" id="3">
 							<Representation>List</Representation>
-							<CommandBarLocation>Top</CommandBarLocation>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<InitialTreeView>ExpandTopLevel</InitialTreeView>
 							<EnableStartDrag>true</EnableStartDrag>
@@ -178,7 +174,9 @@
 								<ExcludedCommand>Copy</ExcludedCommand>
 								<ExcludedCommand>Create</ExcludedCommand>
 							</CommandSet>
-							<ShowCommandBar>true</ShowCommandBar>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>67</AutoRefreshPeriod>
 							<Period>
@@ -196,7 +194,22 @@
 							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 							<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 							<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+								<Autofill>false</Autofill>
 								<ChildItems>
+									<Button name="СписокПередатьДанные" id="146">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПередатьДанные</CommandName>
+										<ExtendedTooltip name="СписокПередатьДанныеРасширеннаяПодсказка" id="147"/>
+									</Button>
+									<Popup name="СписокГруппаВыполнить" id="144">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Выполнить</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="СписокГруппаВыполнитьРасширеннаяПодсказка" id="145"/>
+									</Popup>
 									<ButtonGroup name="СписокГруппаОбменГИСМ" id="148">
 										<Title>
 											<v8:item>
@@ -214,22 +227,21 @@
 											<Button name="СписокОбщаяКомандаПротоколОбменаГИСМ" id="152">
 												<Type>CommandBarButton</Type>
 												<CommandName>CommonCommand.ПротоколОбменаГИСМ</CommandName>
-												<DataPath>Items.Список.CurrentData.Ссылка</DataPath>
-												<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+												<DataPath>Items.Список.CurrentData.Ref</DataPath>
 												<ExtendedTooltip name="СписокОбщаяКомандаПротоколОбменаГИСМРасширеннаяПодсказка" id="153"/>
-											</Button>
-											<Button name="СписокПередатьДанные" id="146">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.ПередатьДанные</CommandName>
-												<ExtendedTooltip name="СписокПередатьДанныеРасширеннаяПодсказка" id="147"/>
 											</Button>
 										</ChildItems>
 									</ButtonGroup>
-									<Button name="СписокАрхивироватьДокументы" id="180">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.АрхивироватьДокументы</CommandName>
-										<ExtendedTooltip name="СписокАрхивироватьДокументыРасширеннаяПодсказка" id="181"/>
-									</Button>
+									<ButtonGroup name="ГруппаКомандыСписка" id="134">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Команды списка</v8:content>
+											</v8:item>
+										</Title>
+										<CommandSource>Item.Список</CommandSource>
+										<ExtendedTooltip name="ГруппаКомандыСпискаРасширеннаяПодсказка" id="135"/>
+									</ButtonGroup>
 									<Popup name="ПодменюОтчеты" id="172">
 										<Title>
 											<v8:item>
@@ -285,15 +297,21 @@
 											</ButtonGroup>
 										</ChildItems>
 									</Popup>
-									<Button name="СписокСправка" id="76">
+									<Button name="СписокАрхивироватьДокументы" id="180">
 										<Type>CommandBarButton</Type>
-										<CommandName>Form.StandardCommand.Help</CommandName>
-										<ExtendedTooltip name="СписокСправкаРасширеннаяПодсказка" id="77"/>
+										<CommandName>Form.Command.АрхивироватьДокументы</CommandName>
+										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="СписокАрхивироватьДокументыРасширеннаяПодсказка" id="181"/>
 									</Button>
 									<Button name="СписокИзменитьФорму" id="74">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
 										<ExtendedTooltip name="СписокИзменитьФормуРасширеннаяПодсказка" id="75"/>
+									</Button>
+									<Button name="СписокСправка" id="76">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.StandardCommand.Help</CommandName>
+										<ExtendedTooltip name="СписокСправкаРасширеннаяПодсказка" id="77"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -327,23 +345,18 @@
 								<Event name="Selection">СписокВыбор</Event>
 								<Event name="BeforeAddRow">СписокПередНачаломДобавления</Event>
 								<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
-								<Event name="OnHover">СписокПриНаведении</Event>
 							</Events>
 							<ChildItems>
 								<LabelField name="Номер" id="139">
-									<DataPath>Список.Номер</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<DataPath>Список.Number</DataPath>
 									<Width>10</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="НомерКонтекстноеМеню" id="140"/>
 									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="141"/>
 								</LabelField>
 								<LabelField name="Дата" id="16">
-									<DataPath>Список.Дата</DataPath>
+									<DataPath>Список.Date</DataPath>
 									<DefaultItem>true</DefaultItem>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>9</Width>
 									<ContextMenu name="ДатаКонтекстноеМеню" id="17"/>
 									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="18"/>
@@ -356,8 +369,6 @@
 											<v8:content>Статус</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СтатусГИСМКонтекстноеМеню" id="23"/>
 									<ExtendedTooltip name="СтатусГИСМРасширеннаяПодсказка" id="24"/>
 								</LabelField>
@@ -369,32 +380,24 @@
 											<v8:content>Дальнейшее действие</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ДальнейшееДействиеГИСМКонтекстноеМеню" id="155"/>
 									<ExtendedTooltip name="ДальнейшееДействиеГИСМРасширеннаяПодсказка" id="156"/>
 								</LabelField>
 								<LabelField name="Организация" id="117">
 									<DataPath>Список.Организация</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="118"/>
 									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="119"/>
 								</LabelField>
 								<LabelField name="Ответственный" id="111">
 									<DataPath>Список.Ответственный</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ОтветственныйКонтекстноеМеню" id="112"/>
 									<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="113"/>
 								</LabelField>
 								<LabelField name="Ссылка" id="169">
-									<DataPath>Список.Ссылка</DataPath>
+									<DataPath>Список.Ref</DataPath>
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СсылкаКонтекстноеМеню" id="170"/>
 									<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="171"/>
 								</LabelField>
@@ -416,7 +419,6 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаКОформлениюРасширеннаяПодсказка" id="36"/>
 					<ChildItems>
@@ -436,8 +438,9 @@
 								<InputField name="СтатусГИСМУведомленияКОформлениюОтбор" id="105">
 									<DataPath>СтатусГИСМУведомленияКОформлению</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>30</MaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ClearButton>true</ClearButton>
 									<ListChoiceMode>true</ListChoiceMode>
 									<ChooseType>false</ChooseType>
@@ -482,10 +485,10 @@
 								<InputField name="ОрганизацияКОформлениюОтбор" id="162">
 									<DataPath>Организация</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>30</MaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ClearButton>true</ClearButton>
-									<OpenButton>false</OpenButton>
 									<InputHint>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -509,7 +512,7 @@
 							</Title>
 							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
-							<ShowTitle>true</ShowTitle>
+							<Representation>WeakSeparation</Representation>
 							<ExtendedTooltip name="ГруппаПользовательскихНастроекКОформлениюРасширеннаяПодсказка" id="168"/>
 						</UsualGroup>
 						<Table name="СписокКОформлению" id="37">
@@ -550,11 +553,11 @@
 							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 							<ContextMenu name="СписокКОформлениюКонтекстноеМеню" id="38"/>
 							<AutoCommandBar name="СписокКОформлениюКоманднаяПанель" id="39">
+								<Autofill>false</Autofill>
 								<ChildItems>
 									<Button name="СписокКОформлениюОформитьУведомлениеОВвозе" id="142">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.ОформитьУведомлениеОбИмпорте</CommandName>
-										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 										<ExtendedTooltip name="СписокКОформлениюОформитьУведомлениеОВвозеРасширеннаяПодсказка" id="143"/>
 									</Button>
 									<Button name="СписокКОформлениюАрхивировать" id="182">
@@ -562,6 +565,16 @@
 										<CommandName>Form.Command.АрхивироватьОснования</CommandName>
 										<ExtendedTooltip name="СписокКОформлениюАрхивироватьРасширеннаяПодсказка" id="183"/>
 									</Button>
+									<ButtonGroup name="СписокУведомленияГруппаСтандартные" id="92">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Список уведомления группа стандартные</v8:content>
+											</v8:item>
+										</Title>
+										<CommandSource>Item.СписокКОформлению</CommandSource>
+										<ExtendedTooltip name="СписокУведомленияГруппаСтандартныеРасширеннаяПодсказка" id="93"/>
+									</ButtonGroup>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокКОформлениюРасширеннаяПодсказка" id="40"/>
@@ -596,8 +609,6 @@
 							<ChildItems>
 								<LabelField name="СписокКОформлениюДокумент" id="62">
 									<DataPath>СписокКОформлению.Документ</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокКОформлениюДокументКонтекстноеМеню" id="63"/>
 									<ExtendedTooltip name="СписокКОформлениюДокументРасширеннаяПодсказка" id="64"/>
 								</LabelField>
@@ -609,8 +620,6 @@
 											<v8:content>Текущее уведомление</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокКОформлениюУведомлениеКонтекстноеМеню" id="54"/>
 									<ExtendedTooltip name="СписокКОформлениюУведомлениеРасширеннаяПодсказка" id="55"/>
 								</LabelField>
@@ -622,8 +631,6 @@
 											<v8:content>Статус</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СтатусГИСМУведомленияКОформлениюКонтекстноеМеню" id="69"/>
 									<ExtendedTooltip name="СтатусГИСМУведомленияКОформлениюРасширеннаяПодсказка" id="70"/>
 								</LabelField>
@@ -635,8 +642,6 @@
 											<v8:content>Организация</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СписокКОформлениюОрганизацияКонтекстноеМеню" id="57"/>
 									<ExtendedTooltip name="СписокКОформлениюОрганизацияРасширеннаяПодсказка" id="58"/>
 								</LabelField>
@@ -655,8 +660,8 @@
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
 				<Field>~Список.ДальнейшееДействие</Field>
+				<Field>Список.Ref</Field>
 				<Field>Список.ДальнейшееДействиеГИСМ</Field>
-				<Field>Список.Ссылка</Field>
 				<Field>Список.СтатусГИСМ</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
@@ -682,114 +687,81 @@
 	(Таблица.Основание В (&amp;ПустойДокументОснование)
 //%ОтборПоДоступнымОснованиям%
 	)</QueryText>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Основание</dcssch:dataPath>
-					<dcssch:field>Основание</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
-					<dcssch:field>ПометкаУдаления</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Проведен</dcssch:dataPath>
-					<dcssch:field>Проведен</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>МоментВремени</dcssch:dataPath>
-					<dcssch:field>МоментВремени</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Подразделение</dcssch:dataPath>
-					<dcssch:field>Подразделение</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>НомераКиЗ</dcssch:dataPath>
-					<dcssch:field>НомераКиЗ</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Ссылка</dcssch:dataPath>
-					<dcssch:field>Ссылка</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Номер</dcssch:dataPath>
-					<dcssch:field>Номер</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Комментарий</dcssch:dataPath>
-					<dcssch:field>Комментарий</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Товары</dcssch:dataPath>
-					<dcssch:field>Товары</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Дата</dcssch:dataPath>
-					<dcssch:field>Дата</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Организация</dcssch:dataPath>
-					<dcssch:field>Организация</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Ответственный</dcssch:dataPath>
-					<dcssch:field>Ответственный</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>СтатусГИСМ</dcssch:dataPath>
-					<dcssch:field>СтатусГИСМ</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Статус ГИСМ</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Документ</dcssch:dataPath>
-					<dcssch:field>Документ</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ДальнейшееДействиеГИСМ</dcssch:dataPath>
-					<dcssch:field>ДальнейшееДействиеГИСМ</dcssch:field>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Дальнейшее действие ГИСМ</v8:content>
-						</v8:item>
-					</dcssch:title>
-				</Field>
-				<Parameter>
-					<dcssch:name>ПустойДокументОснование</dcssch:name>
-					<dcssch:title xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Пустой документ основание</v8:content>
-						</v8:item>
-					</dcssch:title>
-					<dcssch:valueType>
-						<v8:TypeId>70645c54-b25e-42c6-90e0-60ee78eef237</v8:TypeId>
-					</dcssch:valueType>
-					<dcssch:value xsi:nil="true"/>
-					<dcssch:useRestriction>true</dcssch:useRestriction>
-					<dcssch:valueListAllowed>true</dcssch:valueListAllowed>
-				</Parameter>
 				<MainTable>Document.УведомлениеОбИмпортеМаркированныхТоваровГИСМ</MainTable>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
 					</dcsset:filter>
-					<dcsset:dataParameters>
-						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-							<dcscor:use>false</dcscor:use>
-							<dcscor:parameter>ПустойДокументОснование</dcscor:parameter>
-						</dcscor:item>
-					</dcsset:dataParameters>
 					<dcsset:order>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
 					</dcsset:order>
 					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Состояние</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Состояние</dcsset:left>
+									<dcsset:comparisonType>InList</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияУведомленийОбОтгрузкеМаркированныхТоваровГИСМ.ОтклоненоКлиентом</dcsset:right>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияУведомленийОбОтгрузкеМаркированныхТоваровГИСМ.ОтклоненоКлиентом</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Состояние</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Состояние</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияУведомленийОбОтгрузкеМаркированныхТоваровГИСМ.Закрыто</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">auto</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Состояние</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Состояние</dcsset:left>
+									<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">auto</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Текст</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string">&lt;не оформлена&gt;</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
 					</dcsset:conditionalAppearance>
@@ -963,8 +935,6 @@
 			<Action>ПередатьДанные</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ОформитьУведомлениеОбИмпорте" id="3">
 			<Title>
@@ -976,7 +946,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Оформить уведомление об импорте</v8:content>
+					<v8:content>Оформить заявку на выпуск КиЗ</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
@@ -985,9 +955,7 @@
 			</Picture>
 			<Action>ОформитьУведомлениеОбИмпорте</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">СписокКОформлению</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ВыполнитьОбмен" id="5">
 			<Title>
@@ -1009,8 +977,6 @@
 			<Action>ВыполнитьОбмен</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="АрхивироватьДокументы" id="6">
 			<Title>
@@ -1025,9 +991,6 @@
 			</Picture>
 			<Action>АрхивироватьДокументы</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="АрхивироватьОснования" id="7">
 			<Title>
@@ -1048,9 +1011,6 @@
 			</Picture>
 			<Action>Архивировать</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">СписокКОформлению</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

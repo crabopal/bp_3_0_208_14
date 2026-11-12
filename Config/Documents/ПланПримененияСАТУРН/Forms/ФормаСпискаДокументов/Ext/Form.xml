@@ -5,16 +5,34 @@
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>CancelSearch</ExcludedCommand>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Create</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>DynamicListStandardSettings</ExcludedCommand>
+		<ExcludedCommand>Find</ExcludedCommand>
+		<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
 		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>ListSettings</ExcludedCommand>
+		<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
 		<ExcludedCommand>No</ExcludedCommand>
 		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>OutputList</ExcludedCommand>
+		<ExcludedCommand>Post</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
 		<ExcludedCommand>RestoreValues</ExcludedCommand>
 		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
 		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>SetDateInterval</ExcludedCommand>
+		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+		<ExcludedCommand>UndoPosting</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -66,7 +84,6 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаОформленоРасширеннаяПодсказка" id="27"/>
 					<ChildItems>
@@ -83,7 +100,7 @@
 									<v8:content>Группа оформлено отбор</v8:content>
 								</v8:item>
 							</ToolTip>
-							<Group>AutoScreenTypeSensitive</Group>
+							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -92,6 +109,7 @@
 								<InputField name="СтраницаОформленоОтборСтатус" id="71">
 									<DataPath>Статус</DataPath>
 									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<ClearButton>true</ClearButton>
 									<InputHint>
@@ -109,6 +127,7 @@
 								<InputField name="СтраницаОформленоОтборДальнейшееДействие" id="68">
 									<DataPath>ДальнейшееДействие</DataPath>
 									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<ChoiceButton>false</ChoiceButton>
 									<ClearButton>true</ClearButton>
@@ -155,7 +174,6 @@
 												</v8:item>
 											</ToolTip>
 											<Group>Vertical</Group>
-											<ShowTitle>true</ShowTitle>
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаОформленоОрганизацииРасширеннаяПодсказка" id="39"/>
 											<ChildItems>
@@ -168,6 +186,7 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>28</MaxWidth>
 													<DropListButton>true</DropListButton>
 													<ChoiceButton>true</ChoiceButton>
@@ -214,7 +233,6 @@
 												</v8:item>
 											</ToolTip>
 											<Group>Vertical</Group>
-											<ShowTitle>true</ShowTitle>
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаОформленоОрганизацияРасширеннаяПодсказка" id="44"/>
 											<ChildItems>
@@ -227,12 +245,12 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>28</MaxWidth>
 													<DropListButton>true</DropListButton>
 													<ChoiceButton>true</ChoiceButton>
 													<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 													<ClearButton>true</ClearButton>
-													<OpenButton>false</OpenButton>
 													<QuickChoice>false</QuickChoice>
 													<ChooseType>false</ChooseType>
 													<InputHint>
@@ -257,9 +275,9 @@
 								<InputField name="СтраницаОформленоОтборОтветственный" id="48">
 									<DataPath>Ответственный</DataPath>
 									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<ClearButton>true</ClearButton>
-									<OpenButton>false</OpenButton>
 									<InputHint>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -275,14 +293,12 @@
 							</ChildItems>
 						</UsualGroup>
 						<Table name="Список" id="74">
-							<CommandBarLocation>Top</CommandBarLocation>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<FileDragMode>AsFile</FileDragMode>
 							<DataPath>Список</DataPath>
 							<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-							<ShowCommandBar>true</ShowCommandBar>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -501,7 +517,6 @@
 							</SearchControlAddition>
 							<Events>
 								<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
-								<Event name="OnHover">СписокПриНаведении</Event>
 							</Events>
 							<ChildItems>
 								<InputField name="Номер" id="153">
@@ -576,7 +591,6 @@
 						</v8:item>
 					</ToolTip>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаКОформлениюРасширеннаяПодсказка" id="25"/>
 					<ChildItems>
@@ -593,7 +607,7 @@
 									<v8:content>Группа оформлено отбор</v8:content>
 								</v8:item>
 							</ToolTip>
-							<Group>AutoScreenTypeSensitive</Group>
+							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -629,7 +643,6 @@
 												</v8:item>
 											</ToolTip>
 											<Group>Vertical</Group>
-											<ShowTitle>true</ShowTitle>
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаКОформлениюОрганизацииРасширеннаяПодсказка" id="56"/>
 											<ChildItems>
@@ -642,11 +655,11 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>28</MaxWidth>
 													<DropListButton>true</DropListButton>
 													<ChoiceButton>true</ChoiceButton>
 													<ClearButton>true</ClearButton>
-													<OpenButton>false</OpenButton>
 													<QuickChoice>false</QuickChoice>
 													<ChooseType>false</ChooseType>
 													<TextEdit>false</TextEdit>
@@ -689,7 +702,6 @@
 												</v8:item>
 											</ToolTip>
 											<Group>Vertical</Group>
-											<ShowTitle>true</ShowTitle>
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаКОформлениюОрганизацияРасширеннаяПодсказка" id="61"/>
 											<ChildItems>
@@ -702,12 +714,12 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
+													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>28</MaxWidth>
 													<DropListButton>true</DropListButton>
 													<ChoiceButton>true</ChoiceButton>
 													<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 													<ClearButton>true</ClearButton>
-													<OpenButton>false</OpenButton>
 													<QuickChoice>false</QuickChoice>
 													<ChooseType>false</ChooseType>
 													<InputHint>
@@ -730,6 +742,19 @@
 									</ChildItems>
 								</Pages>
 							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="СписокКОформлениюКоманднаяПанельГруппа" id="261">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Список к оформлению командная панель</v8:content>
+								</v8:item>
+							</Title>
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="СписокКОформлениюКоманднаяПанельГруппаРасширеннаяПодсказка" id="262"/>
 						</UsualGroup>
 						<Table name="СписокКОформлению" id="327">
 							<ChangeRowSet>false</ChangeRowSet>
@@ -763,7 +788,6 @@
 									<Button name="СписокКОформлениюОформить" id="330">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.Оформить</CommandName>
-										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 										<ExtendedTooltip name="СписокКОформлениюОформитьРасширеннаяПодсказка" id="331"/>
 									</Button>
 									<Button name="СписокКОформлениюАрхивировать" id="332">
@@ -782,6 +806,28 @@
 										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 										<ExtendedTooltip name="СписокКОформлениюСправкаРасширеннаяПодсказка" id="337"/>
 									</Button>
+									<ButtonGroup name="СписокКОформлениюГруппа" id="338">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Список к оформлению группа</v8:content>
+											</v8:item>
+										</Title>
+										<CommandSource>Item.СписокКОформлению</CommandSource>
+										<ExtendedTooltip name="СписокКОформлениюГруппаРасширеннаяПодсказка" id="339"/>
+										<ChildItems>
+											<Button name="Найти" id="340">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.СписокКОформлению.StandardCommand.Find</CommandName>
+												<ExtendedTooltip name="НайтиРасширеннаяПодсказка" id="341"/>
+											</Button>
+											<Button name="ОтменитьПоиск" id="342">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.СписокКОформлению.StandardCommand.CancelSearch</CommandName>
+												<ExtendedTooltip name="ОтменитьПоискРасширеннаяПодсказка" id="343"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокКОформлениюРасширеннаяПодсказка" id="344"/>
@@ -1222,7 +1268,7 @@
 			</ToolTip>
 			<Action>ИзменитьВыделенные</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ВыполнитьОбмен" id="2">
 			<Title>
@@ -1255,7 +1301,7 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Оформить план применения</v8:content>
+					<v8:content>Оформить вывод из оборота</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
@@ -1264,7 +1310,7 @@
 			</Picture>
 			<Action>Оформить</Action>
 			<Representation>TextPicture</Representation>
-			<AssociatedTableElementId xsi:type="xs:string">СписокКОформлению</AssociatedTableElementId>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="АрхивироватьОснования" id="7">
 			<Title>
@@ -1285,7 +1331,6 @@
 			</Picture>
 			<Action>Архивировать</Action>
 			<Representation>TextPicture</Representation>
-			<AssociatedTableElementId xsi:type="xs:string">СписокКОформлению</AssociatedTableElementId>
 		</Command>
 		<Command name="АрхивироватьДокументы" id="8">
 			<Title>
@@ -1300,7 +1345,6 @@
 			</Picture>
 			<Action>АрхивироватьДокументы</Action>
 			<Representation>TextPicture</Representation>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 		<Command name="ПередатьДанные" id="9">
 			<Title>
@@ -1314,7 +1358,6 @@
 				<xr:LoadTransparent>false</xr:LoadTransparent>
 			</Picture>
 			<Action>ПередатьДанные</Action>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<Parameters>

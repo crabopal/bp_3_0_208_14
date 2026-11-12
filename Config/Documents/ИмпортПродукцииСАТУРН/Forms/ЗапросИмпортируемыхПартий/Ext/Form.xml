@@ -2,34 +2,9 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<Customizable>false</Customizable>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
-	<ShowCommandBar>true</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<HorizontalAlign>Right</HorizontalAlign>
-		<ChildItems>
-			<Button name="НачалоДалее" id="29">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Далее</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="НачалоДалееРасширеннаяПодсказка" id="30"/>
-			</Button>
-			<Button name="ФормаЗакрыть" id="43">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Close</CommandName>
-				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="44"/>
-			</Button>
-			<Button name="ФормаСправка" id="47">
-				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="48"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
@@ -37,22 +12,12 @@
 	<ChildItems>
 		<InputField name="ОрганизацияСАТУРН" id="1">
 			<DataPath>ОрганизацияСАТУРН</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<DropListButton>false</DropListButton>
-			<ChoiceButton>true</ChoiceButton>
-			<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
-			<ClearButton>true</ClearButton>
-			<OpenButton>false</OpenButton>
 			<CreateButton>false</CreateButton>
-			<ChooseType>false</ChooseType>
 			<ContextMenu name="ОрганизацияСАТУРНКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="ОрганизацияСАТУРНРасширеннаяПодсказка" id="3"/>
 		</InputField>
 		<InputField name="Статус" id="13">
 			<DataPath>Статус</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<ListChoiceMode>true</ListChoiceMode>
 			<ChoiceList>
 				<xr:Item>
@@ -109,9 +74,7 @@
 		</InputField>
 		<RadioButtonField name="ВариантЗагрузки" id="24">
 			<DataPath>ВариантЗагрузки</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<RadioButtonType>Tumbler</RadioButtonType>
+			<RadioButtonType>Auto</RadioButtonType>
 			<ChoiceList>
 				<xr:Item>
 					<xr:Presentation/>
@@ -155,8 +118,6 @@
 			<ChildItems>
 				<InputField name="ИдентификаторОтбора" id="10">
 					<DataPath>ИдентификаторОтбора</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИдентификаторОтбораКонтекстноеМеню" id="11"/>
 					<ExtendedTooltip name="ИдентификаторОтбораРасширеннаяПодсказка" id="12"/>
 				</InputField>
@@ -181,14 +142,9 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Дата начала</v8:content>
+									<v8:content>С</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<Width>12</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>19</MaxWidth>
 							<ContextMenu name="НачалоПериодаОтбораКонтекстноеМеню" id="17"/>
 							<ExtendedTooltip name="НачалоПериодаОтбораРасширеннаяПодсказка" id="18"/>
 						</InputField>
@@ -197,14 +153,9 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Дата окончания</v8:content>
+									<v8:content>по</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<Width>12</Width>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<MaxWidth>19</MaxWidth>
 							<ContextMenu name="КонецПериодаОтбораКонтекстноеМеню" id="20"/>
 							<ExtendedTooltip name="КонецПериодаОтбораРасширеннаяПодсказка" id="21"/>
 						</InputField>
@@ -217,6 +168,46 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
+		<CommandBar name="НавигацияНачалоКоманднаяПанель" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Навигация начало командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="НавигацияНачалоКоманднаяПанельРасширеннаяПодсказка" id="28"/>
+			<ChildItems>
+				<Button name="НачалоДалее" id="29">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Далее</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="НачалоДалееРасширеннаяПодсказка" id="30"/>
+				</Button>
+				<Button name="НачалоЗакрыть" id="31">
+					<Type>CommandBarButton</Type>
+					<Representation>Text</Representation>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отмена</v8:content>
+						</v8:item>
+					</Title>
+					<RepresentationInContextMenu>None</RepresentationInContextMenu>
+					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="НачалоЗакрытьРасширеннаяПодсказка" id="32"/>
+				</Button>
+				<Button name="НачалоСправка" id="33">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<RepresentationInContextMenu>None</RepresentationInContextMenu>
+					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="НачалоСправкаРасширеннаяПодсказка" id="34"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="ОрганизацияСАТУРН" id="1">
@@ -303,11 +294,10 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Далее</v8:content>
+					<v8:content>Далее &gt;&gt;</v8:content>
 				</v8:item>
 			</Title>
 			<Action>Далее</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УказатьПериод" id="2">
 			<Title>

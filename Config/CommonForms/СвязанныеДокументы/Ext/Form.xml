@@ -12,31 +12,34 @@
 	<CommandBarLocation>Top</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<ShowCommandBar>true</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаКоманднаяПанельСПолями" id="51">
+		<UsualGroup name="ГруппаКоманднаяПанельСПолями" id="40">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Командная панель с полями</v8:content>
 				</v8:item>
 			</Title>
+			<Group>HorizontalIfPossible</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКоманднаяПанельСПолямиРасширеннаяПодсказка" id="52"/>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельСПолямиРасширеннаяПодсказка" id="41"/>
 			<ChildItems>
-				<CommandBar name="КоманднаяПанель" id="38">
+				<CommandBar name="КоманднаяПанель" id="42">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Командная панель</v8:content>
 						</v8:item>
 					</Title>
-					<AppearanceMode>CommandBar</AppearanceMode>
-					<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="39"/>
+					<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="43"/>
 					<ChildItems>
 						<Button name="Обновить" id="10">
 							<Type>CommandBarButton</Type>
@@ -121,7 +124,7 @@
 						</ButtonGroup>
 					</ChildItems>
 				</CommandBar>
-				<UsualGroup name="Поиск" id="41">
+				<UsualGroup name="Поиск" id="31">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -134,9 +137,9 @@
 					<HorizontalSpacing>Half</HorizontalSpacing>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ПоискРасширеннаяПодсказка" id="42"/>
+					<ExtendedTooltip name="ПоискРасширеннаяПодсказка" id="32"/>
 					<ChildItems>
-						<InputField name="СтрокаПоиска" id="47">
+						<InputField name="СтрокаПоиска" id="33">
 							<DataPath>СтрокаПоиска</DataPath>
 							<Title>
 								<v8:item>
@@ -159,13 +162,13 @@
 									<v8:content>Поиск</v8:content>
 								</v8:item>
 							</InputHint>
-							<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="48"/>
-							<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="49"/>
+							<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="34"/>
+							<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="35"/>
 							<Events>
 								<Event name="TextEditEnd">СтрокаПоискаОкончаниеВводаТекста</Event>
 							</Events>
 						</InputField>
-						<Button name="НайтиСледующуюСтроку" id="45">
+						<Button name="НайтиСледующуюСтроку" id="36">
 							<Type>UsualButton</Type>
 							<Representation>Picture</Representation>
 							<CommandName>Form.Command.НайтиСледующуюСтроку</CommandName>
@@ -175,12 +178,11 @@
 									<v8:content>Найти следующую строку</v8:content>
 								</v8:item>
 							</Title>
-							<ButtonImportance>Supplementary</ButtonImportance>
-							<ExtendedTooltip name="НайтиСледующуюСтрокуРасширеннаяПодсказка" id="46"/>
+							<ExtendedTooltip name="НайтиСледующуюСтрокуРасширеннаяПодсказка" id="37"/>
 						</Button>
 					</ChildItems>
 				</UsualGroup>
-				<CommandBar name="КоманднаяПанельЕще" id="53">
+				<CommandBar name="КоманднаяПанельЕще" id="38">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -188,8 +190,9 @@
 						</v8:item>
 					</Title>
 					<HorizontalStretch>false</HorizontalStretch>
-					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<ExtendedTooltip name="КоманднаяПанельЕщеРасширеннаяПодсказка" id="54"/>
+					<HorizontalLocation>Right</HorizontalLocation>
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="КоманднаяПанельЕщеРасширеннаяПодсказка" id="39"/>
 				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
@@ -221,8 +224,6 @@
 						<ExcludedCommand>FindNext</ExcludedCommand>
 						<ExcludedCommand>FindPrevious</ExcludedCommand>
 					</CommandSet>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<VerticalScrollBar>true</VerticalScrollBar>
 					<HorizontalScrollBar>true</HorizontalScrollBar>
 					<EnableStartDrag>false</EnableStartDrag>
@@ -273,6 +274,7 @@
 				<Column name="Ссылка" id="4">
 					<Type>
 						<v8:TypeSet>cfg:DocumentRef</v8:TypeSet>
+						<v8:TypeSet>cfg:TaskRef</v8:TypeSet>
 						<v8:TypeSet>cfg:ChartOfCharacteristicTypesRef</v8:TypeSet>
 						<v8:TypeSet>cfg:CatalogRef</v8:TypeSet>
 					</Type>
@@ -292,6 +294,7 @@
 		<Attribute name="ОсновнойОбъект" id="2">
 			<Type>
 				<v8:TypeSet>cfg:DocumentRef</v8:TypeSet>
+				<v8:TypeSet>cfg:TaskRef</v8:TypeSet>
 				<v8:TypeSet>cfg:ChartOfCharacteristicTypesRef</v8:TypeSet>
 				<v8:TypeSet>cfg:CatalogRef</v8:TypeSet>
 			</Type>
@@ -299,6 +302,7 @@
 		<Attribute name="ИсходныйОбъект" id="3">
 			<Type>
 				<v8:TypeSet>cfg:DocumentRef</v8:TypeSet>
+				<v8:TypeSet>cfg:TaskRef</v8:TypeSet>
 				<v8:TypeSet>cfg:ChartOfCharacteristicTypesRef</v8:TypeSet>
 				<v8:TypeSet>cfg:CatalogRef</v8:TypeSet>
 			</Type>
@@ -350,6 +354,7 @@
 				<Column name="Ссылка" id="4">
 					<Type>
 						<v8:TypeSet>cfg:DocumentRef</v8:TypeSet>
+						<v8:TypeSet>cfg:TaskRef</v8:TypeSet>
 						<v8:TypeSet>cfg:ChartOfCharacteristicTypesRef</v8:TypeSet>
 						<v8:TypeSet>cfg:CatalogRef</v8:TypeSet>
 					</Type>

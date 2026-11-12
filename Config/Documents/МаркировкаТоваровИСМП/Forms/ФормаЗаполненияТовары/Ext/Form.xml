@@ -9,7 +9,6 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаЗаполнить" id="1">
@@ -18,6 +17,12 @@
 				<CommandName>Form.Command.Заполнить</CommandName>
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаЗаполнитьРасширеннаяПодсказка" id="2"/>
+			</Button>
+			<Button name="ФормаСправка" id="3">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="4"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -28,121 +33,76 @@
 	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаОсновная" id="5">
-			<Group>AlwaysHorizontal</Group>
+			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="6"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаПереключатели" id="31">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа переключатели</v8:content>
-						</v8:item>
-					</Title>
-					<Group>Vertical</Group>
+				<UsualGroup name="ГруппаСтранаПроизводства" id="7">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
-					<United>false</United>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПереключателиРасширеннаяПодсказка" id="32"/>
+					<ExtendedTooltip name="ГруппаСтранаПроизводстваРасширеннаяПодсказка" id="8"/>
 					<ChildItems>
 						<CheckBoxField name="ЗаполнятьСтранаПроизводства" id="9">
 							<DataPath>ЗаполнятьСтранаПроизводства</DataPath>
 							<TitleLocation>Right</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ЗаполнятьСтранаПроизводстваКонтекстноеМеню" id="10"/>
 							<ExtendedTooltip name="ЗаполнятьСтранаПроизводстваРасширеннаяПодсказка" id="11"/>
 							<Events>
 								<Event name="OnChange">ЗаполнятьСтранаПроизводстваПриИзменении</Event>
 							</Events>
 						</CheckBoxField>
+						<InputField name="СтранаПроизводства" id="12">
+							<DataPath>СтранаПроизводства</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="СтранаПроизводстваКонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="СтранаПроизводстваРасширеннаяПодсказка" id="14"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаДекларация" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Декларация</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДекларацияРасширеннаяПодсказка" id="16"/>
+					<ChildItems>
 						<CheckBoxField name="ЗаполнятьДекларацию" id="17">
 							<DataPath>ЗаполнятьДекларацию</DataPath>
 							<TitleLocation>Right</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ЗаполнятьДекларациюКонтекстноеМеню" id="18"/>
 							<ExtendedTooltip name="ЗаполнятьДекларациюРасширеннаяПодсказка" id="19"/>
 							<Events>
 								<Event name="OnChange">ЗаполнятьДекларациюПриИзменении</Event>
 							</Events>
 						</CheckBoxField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаПараметры" id="33">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа параметры</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа параметры</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>Vertical</Group>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПараметрыРасширеннаяПодсказка" id="34"/>
-					<ChildItems>
-						<InputField name="СтранаПроизводства" id="12">
-							<DataPath>СтранаПроизводства</DataPath>
+						<InputField name="РегистрационныйНомерДекларации" id="23">
+							<DataPath>РегистрационныйНомерДекларации</DataPath>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<ContextMenu name="СтранаПроизводстваКонтекстноеМеню" id="13"/>
-							<ExtendedTooltip name="СтранаПроизводстваРасширеннаяПодсказка" id="14"/>
+							<Width>10</Width>
+							<ContextMenu name="РегистрационныйНомерДекларацииКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="РегистрационныйНомерДекларацииРасширеннаяПодсказка" id="25"/>
 						</InputField>
-						<UsualGroup name="ГруппаПараметрыДекларация" id="35">
+						<InputField name="ДатаДекларации" id="20">
+							<DataPath>ДатаДекларации</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа параметры декларация</v8:content>
+									<v8:content>от</v8:content>
 								</v8:item>
 							</Title>
-							<Group>AlwaysHorizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаПараметрыДекларацияРасширеннаяПодсказка" id="36"/>
-							<ChildItems>
-								<InputField name="РегистрационныйНомерДекларации" id="23">
-									<DataPath>РегистрационныйНомерДекларации</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Номер</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>20</Width>
-									<ContextMenu name="РегистрационныйНомерДекларацииКонтекстноеМеню" id="24"/>
-									<ExtendedTooltip name="РегистрационныйНомерДекларацииРасширеннаяПодсказка" id="25"/>
-								</InputField>
-								<InputField name="ДатаДекларации" id="20">
-									<DataPath>ДатаДекларации</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Дата</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>20</Width>
-									<ContextMenu name="ДатаДекларацииКонтекстноеМеню" id="21"/>
-									<ExtendedTooltip name="ДатаДекларацииРасширеннаяПодсказка" id="22"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
+							<ContextMenu name="ДатаДекларацииКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ДатаДекларацииРасширеннаяПодсказка" id="22"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -224,7 +184,6 @@
 				</v8:item>
 			</Title>
 			<Action>Заполнить</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

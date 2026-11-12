@@ -819,6 +819,16 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЛичныеДанные.ФИО.ФамилияИИнициалы</dataPath>
+			<field>ФамилияИО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фамилия и инициалы</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>Информационная база</dataSource>
 		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	Сотрудники.Ссылка КАК Сотрудник,
@@ -919,7 +929,8 @@
 	"" КАК ДокументПредставление,
 	ИСТИНА КАК Инвалидность,
 	ДАТАВРЕМЯ(1, 1, 1) КАК ИнвалидностьДатаВыдачи,
-	ДАТАВРЕМЯ(1, 1, 1) КАК ИнвалидностьСрокДействияСправки
+	ДАТАВРЕМЯ(1, 1, 1) КАК ИнвалидностьСрокДействияСправки,
+	ВЫРАЗИТЬ("" КАК СТРОКА) КАК ФамилияИО
 ПОМЕСТИТЬ Представления_КадровыеДанныеСотрудников
 ИЗ
 	ВТСотрудники КАК ВТСотрудники
@@ -1027,7 +1038,8 @@
 	Представления_КадровыеДанныеСотрудников.ДокументПредставление КАК ДокументПредставление,
 	Представления_КадровыеДанныеСотрудников.Инвалидность КАК Инвалидность,
 	Представления_КадровыеДанныеСотрудников.ИнвалидностьДатаВыдачи КАК ИнвалидностьДатаВыдачи,
-	Представления_КадровыеДанныеСотрудников.ИнвалидностьСрокДействияСправки КАК ИнвалидностьСрокДействияСправки
+	Представления_КадровыеДанныеСотрудников.ИнвалидностьСрокДействияСправки КАК ИнвалидностьСрокДействияСправки,
+	Представления_КадровыеДанныеСотрудников.ФамилияИО КАК ФамилияИО
 ИЗ
 	Представления_КадровыеДанныеСотрудников КАК Представления_КадровыеДанныеСотрудников</query>
 	</dataSet>
@@ -2403,6 +2415,86 @@
 						<dcscor:value xsi:type="dcsset:DataCompositionGroupTemplateType">Vertical</dcscor:value>
 					</dcscor:item>
 				</dcsset:outputParameters>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ШаблонВариантаДокумента</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Шаблон варианта документа</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПараметрыДанных.Период</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РабочееМесто.Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РабочееМесто.Организация.НаименованиеПолное</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РабочееМесто.Организация.НаименованиеСокращенное</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РабочееМесто.Подразделение.Наименование</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РабочееМесто.Должность.Наименование</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РабочееМесто.Сотрудник</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЛичныеДанные.ФизическоеЛицо</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЛичныеДанные.ФИОПолные</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЛичныеДанные.ФИО.ФамилияИИнициалы</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КлючВарианта</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ШаблонВариантаДокумента</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>РабочееМесто.Организация</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
 				<dcsset:item xsi:type="dcsset:StructureItemGroup">
 					<dcsset:order>
 						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>

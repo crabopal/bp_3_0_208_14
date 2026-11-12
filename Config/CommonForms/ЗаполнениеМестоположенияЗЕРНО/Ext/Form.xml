@@ -9,22 +9,8 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="Готово" id="15">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Готово</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="16"/>
-			</Button>
-			<Button name="Отмена" id="17">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="18"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -45,8 +31,8 @@
 			<ChildItems>
 				<InputField name="Местоположение" id="1">
 					<DataPath>МестоположениеСтрокой</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>32</MaxWidth>
 					<DropListButton>true</DropListButton>
 					<ChoiceButton>true</ChoiceButton>
 					<ContextMenu name="МестоположениеКонтекстноеМеню" id="2"/>
@@ -62,14 +48,36 @@
 				<LabelField name="СкладКонтрагент" id="4">
 					<DataPath>СкладКонтрагент</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Hiperlink>true</Hiperlink>
 					<ContextMenu name="СкладКонтрагентКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="СкладКонтрагентРасширеннаяПодсказка" id="6"/>
 				</LabelField>
 			</ChildItems>
 		</UsualGroup>
+		<CommandBar name="ГруппаКоманднаяПанель" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="14"/>
+			<ChildItems>
+				<Button name="Готово" id="15">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Готово</CommandName>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="16"/>
+				</Button>
+				<Button name="Отмена" id="17">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Отмена</CommandName>
+					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="18"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Местоположение" id="1">
@@ -147,7 +155,6 @@
 				</v8:item>
 			</Title>
 			<Action>Готово</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>
@@ -157,7 +164,6 @@
 				</v8:item>
 			</Title>
 			<Action>Отмена</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

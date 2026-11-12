@@ -10,17 +10,8 @@
 	<SaveDataInSettings>UseList</SaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаВыбрать" id="56">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Выбрать</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="57"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
@@ -31,42 +22,37 @@
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
+			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>ТаблицаОрганизации</DataPath>
-			<AutoMaxCardHeight>false</AutoMaxCardHeight>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="ТаблицаОрганизацииКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="ТаблицаОрганизацииКоманднаяПанель" id="3">
 				<ChildItems>
 					<Button name="Применить" id="44">
 						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
 						<CommandName>Form.Command.Выбрать</CommandName>
+						<ButtonImportance>Main</ButtonImportance>
 						<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="45"/>
 					</Button>
 					<Button name="ТаблицаОрганизацииВыбратьВсе" id="28">
 						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
 						<CommandName>Form.Command.ВыбратьВсе</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
 						<ExtendedTooltip name="ТаблицаОрганизацииВыбратьВсеРасширеннаяПодсказка" id="29"/>
 					</Button>
 					<Button name="ТаблицаОрганизацииИсключитьВсе" id="24">
 						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
 						<CommandName>Form.Command.ИсключитьВсе</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
 						<ExtendedTooltip name="ТаблицаОрганизацииИсключитьВсеРасширеннаяПодсказка" id="25"/>
 					</Button>
 					<Button name="ТаблицаОрганизацииИзменитьФорму" id="46">
 						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
 						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
 						<ExtendedTooltip name="ТаблицаОрганизацииИзменитьФормуРасширеннаяПодсказка" id="47"/>
 					</Button>
 					<Button name="ТаблицаОрганизацииСправка" id="26">
@@ -120,9 +106,19 @@
 						</v8:item>
 					</ToolTip>
 					<Group>InCell</Group>
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ТаблицаОрганизацииГруппаРасширеннаяПодсказка" id="43"/>
 					<ChildItems>
+						<CheckBoxField name="ТаблицаОрганизацииВыбрана" id="17">
+							<DataPath>ТаблицаОрганизации.Выбрана</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ShowInHeader>false</ShowInHeader>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ТаблицаОрганизацииВыбранаКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="ТаблицаОрганизацииВыбранаРасширеннаяПодсказка" id="19"/>
+							<Events>
+								<Event name="OnChange">ТаблицаОрганизацииВыбранаПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
 						<InputField name="ТаблицаОрганизацииОрганизация" id="14">
 							<DataPath>ТаблицаОрганизации.Организация</DataPath>
 							<ReadOnly>true</ReadOnly>
@@ -133,33 +129,14 @@
 								</v8:item>
 							</Title>
 							<EditMode>EnterOnInput</EditMode>
-							<TextSize>Enlarged</TextSize>
+							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ТаблицаОрганизацииОрганизацияКонтекстноеМеню" id="15"/>
 							<ExtendedTooltip name="ТаблицаОрганизацииОрганизацияРасширеннаяПодсказка" id="16"/>
 						</InputField>
 					</ChildItems>
 				</ColumnGroup>
-				<CheckBoxField name="ТаблицаОрганизацииВыбрана" id="17">
-					<DataPath>ТаблицаОрганизации.Выбрана</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Загрузить товарные группы</v8:content>
-						</v8:item>
-					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
-					<ContextMenu name="ТаблицаОрганизацииВыбранаКонтекстноеМеню" id="18"/>
-					<ExtendedTooltip name="ТаблицаОрганизацииВыбранаРасширеннаяПодсказка" id="19"/>
-					<Events>
-						<Event name="OnChange">ТаблицаОрганизацииВыбранаПриИзменении</Event>
-					</Events>
-				</CheckBoxField>
 				<CheckBoxField name="ТаблицаОрганизацииЗагрузитьНоменклатуру" id="48">
 					<DataPath>ТаблицаОрганизации.ЗагрузитьНоменклатуру</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<AutoWidthInTable>None</AutoWidthInTable>
 					<ContextMenu name="ТаблицаОрганизацииЗагрузитьНоменклатуруКонтекстноеМеню" id="49"/>
 					<ExtendedTooltip name="ТаблицаОрганизацииЗагрузитьНоменклатуруРасширеннаяПодсказка" id="50"/>
 					<Events>
@@ -270,7 +247,6 @@
 			</Picture>
 			<Action>ВыбратьВсе</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="ИсключитьВсе" id="2">
 			<Title>
@@ -291,7 +267,6 @@
 			</Picture>
 			<Action>ИсключитьВсе</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="Выбрать" id="3">
 			<Title>
@@ -308,8 +283,6 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 	<Parameters>

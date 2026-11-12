@@ -9,7 +9,6 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="Готово" id="82">
@@ -19,6 +18,22 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="83"/>
 			</Button>
+			<ButtonGroup name="Стандартные" id="84">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Стандартные</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Стандартные</v8:content>
+					</v8:item>
+				</ToolTip>
+				<CommandSource>Item.Упаковки</CommandSource>
+				<ExtendedTooltip name="СтандартныеРасширеннаяПодсказка" id="85"/>
+			</ButtonGroup>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -27,238 +42,218 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаОсновное" id="110">
+		<UsualGroup name="ГруппаУпаковки" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа основное</v8:content>
+					<v8:content>Упаковки</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа основное</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Group>AutoScreenTypeSensitive</Group>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="111"/>
+			<ExtendedTooltip name="ГруппаУпаковкиРасширеннаяПодсказка" id="4"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаУпаковки" id="3">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Упаковки</v8:content>
-						</v8:item>
-					</Title>
-					<Width>60</Width>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаУпаковкиРасширеннаяПодсказка" id="4"/>
+				<LabelField name="НадписьУпаковки" id="86">
+					<DataPath>НадписьУпаковки</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<TextColor>style:ГруппаВариантовОтчетовЦвет</TextColor>
+					<Font ref="style:NormalTextFont" height="12" kind="StyleItem"/>
+					<ContextMenu name="НадписьУпаковкиКонтекстноеМеню" id="87"/>
+					<ExtendedTooltip name="НадписьУпаковкиРасширеннаяПодсказка" id="88"/>
+				</LabelField>
+				<Table name="Упаковки" id="32">
+					<Representation>List</Representation>
+					<RowSelectionMode>Cell</RowSelectionMode>
+					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Упаковки</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="УпаковкиКонтекстноеМеню" id="33"/>
+					<AutoCommandBar name="УпаковкиКоманднаяПанель" id="34">
+						<Autofill>false</Autofill>
+						<ChildItems>
+							<Button name="УпаковкиЗаполнитьКоличествоУпаковок" id="95">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ЗаполнитьКоличествоУпаковок</CommandName>
+								<ExtendedTooltip name="УпаковкиЗаполнитьКоличествоУпаковокРасширеннаяПодсказка" id="96"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="УпаковкиРасширеннаяПодсказка" id="35"/>
+					<SearchStringAddition name="УпаковкиСтрокаПоиска" id="36">
+						<AdditionSource>
+							<Item>Упаковки</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="УпаковкиСтрокаПоискаКонтекстноеМеню" id="37"/>
+						<ExtendedTooltip name="УпаковкиСтрокаПоискаРасширеннаяПодсказка" id="38"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="УпаковкиСостояниеПросмотра" id="39">
+						<AdditionSource>
+							<Item>Упаковки</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<HorizontalLocation>Left</HorizontalLocation>
+						<ContextMenu name="УпаковкиСостояниеПросмотраКонтекстноеМеню" id="40"/>
+						<ExtendedTooltip name="УпаковкиСостояниеПросмотраРасширеннаяПодсказка" id="41"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="УпаковкиУправлениеПоиском" id="42">
+						<AdditionSource>
+							<Item>Упаковки</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="УпаковкиУправлениеПоискомКонтекстноеМеню" id="43"/>
+						<ExtendedTooltip name="УпаковкиУправлениеПоискомРасширеннаяПодсказка" id="44"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnEditEnd">УпаковкиПриОкончанииРедактирования</Event>
+						<Event name="BeforeDeleteRow">УпаковкиПередУдалением</Event>
+						<Event name="OnActivateRow">УпаковкиПриАктивизацииСтроки</Event>
+						<Event name="OnStartEdit">УпаковкиПриНачалеРедактирования</Event>
+						<Event name="OnChange">УпаковкиПриИзменении</Event>
+					</Events>
 					<ChildItems>
-						<LabelField name="НадписьУпаковки" id="86">
-							<DataPath>НадписьУпаковки</DataPath>
-							<TitleLocation>None</TitleLocation>
+						<InputField name="УпаковкиНомерСтроки" id="45">
+							<DataPath>Упаковки.НомерСтроки</DataPath>
+							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<Font ref="style:TitleLevel3" kind="StyleItem"/>
-							<ContextMenu name="НадписьУпаковкиКонтекстноеМеню" id="87"/>
-							<ExtendedTooltip name="НадписьУпаковкиРасширеннаяПодсказка" id="88"/>
-						</LabelField>
-						<Table name="Упаковки" id="32">
-							<Representation>List</Representation>
-							<SelectionMode>SingleRow</SelectionMode>
-							<RowSelectionMode>Cell</RowSelectionMode>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-							<InitialRowActivation>Activate</InitialRowActivation>
-							<EnableStartDrag>true</EnableStartDrag>
-							<EnableDrag>true</EnableDrag>
-							<FileDragMode>AsFile</FileDragMode>
-							<DataPath>Упаковки</DataPath>
-							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="УпаковкиКонтекстноеМеню" id="33"/>
-							<AutoCommandBar name="УпаковкиКоманднаяПанель" id="34">
-								<ChildItems>
-									<Button name="УпаковкиЗаполнитьКоличествоУпаковок" id="95">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Command.ЗаполнитьКоличествоУпаковок</CommandName>
-										<ExtendedTooltip name="УпаковкиЗаполнитьКоличествоУпаковокРасширеннаяПодсказка" id="96"/>
-									</Button>
-								</ChildItems>
-							</AutoCommandBar>
-							<ExtendedTooltip name="УпаковкиРасширеннаяПодсказка" id="35"/>
-							<SearchStringAddition name="УпаковкиСтрокаПоиска" id="36">
-								<AdditionSource>
-									<Item>Упаковки</Item>
-									<Type>SearchStringRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="УпаковкиСтрокаПоискаКонтекстноеМеню" id="37"/>
-								<ExtendedTooltip name="УпаковкиСтрокаПоискаРасширеннаяПодсказка" id="38"/>
-							</SearchStringAddition>
-							<ViewStatusAddition name="УпаковкиСостояниеПросмотра" id="39">
-								<AdditionSource>
-									<Item>Упаковки</Item>
-									<Type>ViewStatusRepresentation</Type>
-								</AdditionSource>
-								<HorizontalLocation>Left</HorizontalLocation>
-								<ContextMenu name="УпаковкиСостояниеПросмотраКонтекстноеМеню" id="40"/>
-								<ExtendedTooltip name="УпаковкиСостояниеПросмотраРасширеннаяПодсказка" id="41"/>
-							</ViewStatusAddition>
-							<SearchControlAddition name="УпаковкиУправлениеПоиском" id="42">
-								<AdditionSource>
-									<Item>Упаковки</Item>
-									<Type>SearchControl</Type>
-								</AdditionSource>
-								<ContextMenu name="УпаковкиУправлениеПоискомКонтекстноеМеню" id="43"/>
-								<ExtendedTooltip name="УпаковкиУправлениеПоискомРасширеннаяПодсказка" id="44"/>
-							</SearchControlAddition>
-							<Events>
-								<Event name="OnEditEnd">УпаковкиПриОкончанииРедактирования</Event>
-								<Event name="BeforeDeleteRow">УпаковкиПередУдалением</Event>
-								<Event name="OnActivateRow">УпаковкиПриАктивизацииСтроки</Event>
-								<Event name="OnStartEdit">УпаковкиПриНачалеРедактирования</Event>
-								<Event name="OnChange">УпаковкиПриИзменении</Event>
-							</Events>
-							<ChildItems>
-								<InputField name="УпаковкиНомерСтроки" id="45">
-									<DataPath>Упаковки.НомерСтроки</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<Width>4</Width>
-									<ContextMenu name="УпаковкиНомерСтрокиКонтекстноеМеню" id="46"/>
-									<ExtendedTooltip name="УпаковкиНомерСтрокиРасширеннаяПодсказка" id="47"/>
-								</InputField>
-								<InputField name="УпаковкиКоличествоУпаковокВЕТИС" id="57">
-									<DataPath>Упаковки.КоличествоУпаковокВЕТИС</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Количество</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<ContextMenu name="УпаковкиКоличествоУпаковокВЕТИСКонтекстноеМеню" id="58"/>
-									<ExtendedTooltip name="УпаковкиКоличествоУпаковокВЕТИСРасширеннаяПодсказка" id="59"/>
-								</InputField>
-								<InputField name="УпаковкиУпаковкаВЕТИС" id="54">
-									<DataPath>Упаковки.УпаковкаВЕТИС</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<ChoiceForm>Catalog.УпаковкиВЕТИС.Form.ФормаСписка</ChoiceForm>
-									<ContextMenu name="УпаковкиУпаковкаВЕТИСКонтекстноеМеню" id="55"/>
-									<ExtendedTooltip name="УпаковкиУпаковкаВЕТИСРасширеннаяПодсказка" id="56"/>
-								</InputField>
-								<InputField name="УпаковкиУровеньУпаковки" id="51">
-									<DataPath>Упаковки.УровеньУпаковки</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<ContextMenu name="УпаковкиУровеньУпаковкиКонтекстноеМеню" id="52"/>
-									<ExtendedTooltip name="УпаковкиУровеньУпаковкиРасширеннаяПодсказка" id="53"/>
-								</InputField>
-							</ChildItems>
-						</Table>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаШтрихкодыУпаковок" id="30">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Штрихкоды упаковки</v8:content>
-						</v8:item>
-					</Title>
-					<Width>40</Width>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаШтрихкодыУпаковокРасширеннаяПодсказка" id="31"/>
-					<ChildItems>
-						<LabelField name="НадписьШтрихкодыУпаковок" id="89">
-							<DataPath>НадписьШтрихкодыУпаковок</DataPath>
-							<TitleLocation>None</TitleLocation>
+							<Width>4</Width>
+							<ContextMenu name="УпаковкиНомерСтрокиКонтекстноеМеню" id="46"/>
+							<ExtendedTooltip name="УпаковкиНомерСтрокиРасширеннаяПодсказка" id="47"/>
+						</InputField>
+						<InputField name="УпаковкиКоличествоУпаковокВЕТИС" id="57">
+							<DataPath>Упаковки.КоличествоУпаковокВЕТИС</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Количество</v8:content>
+								</v8:item>
+							</Title>
 							<EditMode>EnterOnInput</EditMode>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
 							<AutoEditMode>true</AutoEditMode>
-							<Font ref="style:TitleLevel3" kind="StyleItem"/>
-							<ContextMenu name="НадписьШтрихкодыУпаковокКонтекстноеМеню" id="90"/>
-							<ExtendedTooltip name="НадписьШтрихкодыУпаковокРасширеннаяПодсказка" id="91"/>
-						</LabelField>
-						<Table name="ШтрихкодыУпаковок" id="60">
-							<Representation>List</Representation>
-							<SelectionMode>SingleRow</SelectionMode>
-							<RowSelectionMode>Cell</RowSelectionMode>
-							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-							<EnableStartDrag>true</EnableStartDrag>
-							<EnableDrag>true</EnableDrag>
-							<FileDragMode>AsFile</FileDragMode>
-							<DataPath>ШтрихкодыУпаковок</DataPath>
-							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="ШтрихкодыУпаковокКонтекстноеМеню" id="61"/>
-							<AutoCommandBar name="ШтрихкодыУпаковокКоманднаяПанель" id="62"/>
-							<ExtendedTooltip name="ШтрихкодыУпаковокРасширеннаяПодсказка" id="63"/>
-							<SearchStringAddition name="ШтрихкодыУпаковокСтрокаПоиска" id="64">
-								<AdditionSource>
-									<Item>ШтрихкодыУпаковок</Item>
-									<Type>SearchStringRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="ШтрихкодыУпаковокСтрокаПоискаКонтекстноеМеню" id="65"/>
-								<ExtendedTooltip name="ШтрихкодыУпаковокСтрокаПоискаРасширеннаяПодсказка" id="66"/>
-							</SearchStringAddition>
-							<ViewStatusAddition name="ШтрихкодыУпаковокСостояниеПросмотра" id="67">
-								<AdditionSource>
-									<Item>ШтрихкодыУпаковок</Item>
-									<Type>ViewStatusRepresentation</Type>
-								</AdditionSource>
-								<HorizontalLocation>Left</HorizontalLocation>
-								<ContextMenu name="ШтрихкодыУпаковокСостояниеПросмотраКонтекстноеМеню" id="68"/>
-								<ExtendedTooltip name="ШтрихкодыУпаковокСостояниеПросмотраРасширеннаяПодсказка" id="69"/>
-							</ViewStatusAddition>
-							<SearchControlAddition name="ШтрихкодыУпаковокУправлениеПоиском" id="70">
-								<AdditionSource>
-									<Item>ШтрихкодыУпаковок</Item>
-									<Type>SearchControl</Type>
-								</AdditionSource>
-								<ContextMenu name="ШтрихкодыУпаковокУправлениеПоискомКонтекстноеМеню" id="71"/>
-								<ExtendedTooltip name="ШтрихкодыУпаковокУправлениеПоискомРасширеннаяПодсказка" id="72"/>
-							</SearchControlAddition>
-							<Events>
-								<Event name="OnEditEnd">ШтрихкодыУпаковокПриОкончанииРедактирования</Event>
-								<Event name="BeforeAddRow">ШтрихкодыУпаковокПередНачаломДобавления</Event>
-								<Event name="OnStartEdit">ШтрихкодыУпаковокПриНачалеРедактирования</Event>
-								<Event name="AfterDeleteRow">ШтрихкодыУпаковокПослеУдаления</Event>
-								<Event name="OnChange">ШтрихкодыУпаковокПриИзменении</Event>
-							</Events>
-							<ChildItems>
-								<InputField name="ШтрихкодыУпаковокШтрихкод" id="79">
-									<DataPath>ШтрихкодыУпаковок.Штрихкод</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<ContextMenu name="ШтрихкодыУпаковокШтрихкодКонтекстноеМеню" id="80"/>
-									<ExtendedTooltip name="ШтрихкодыУпаковокШтрихкодРасширеннаяПодсказка" id="81"/>
-								</InputField>
-								<InputField name="ШтрихкодыУпаковокТипМаркировки" id="92">
-									<DataPath>ШтрихкодыУпаковок.ТипМаркировки</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<AutoMarkIncomplete>true</AutoMarkIncomplete>
-									<ContextMenu name="ШтрихкодыУпаковокТипМаркировкиКонтекстноеМеню" id="93"/>
-									<ExtendedTooltip name="ШтрихкодыУпаковокТипМаркировкиРасширеннаяПодсказка" id="94"/>
-								</InputField>
-							</ChildItems>
-						</Table>
+							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="УпаковкиКоличествоУпаковокВЕТИСКонтекстноеМеню" id="58"/>
+							<ExtendedTooltip name="УпаковкиКоличествоУпаковокВЕТИСРасширеннаяПодсказка" id="59"/>
+						</InputField>
+						<InputField name="УпаковкиУпаковкаВЕТИС" id="54">
+							<DataPath>Упаковки.УпаковкаВЕТИС</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ChoiceForm>Catalog.УпаковкиВЕТИС.Form.ФормаСписка</ChoiceForm>
+							<ContextMenu name="УпаковкиУпаковкаВЕТИСКонтекстноеМеню" id="55"/>
+							<ExtendedTooltip name="УпаковкиУпаковкаВЕТИСРасширеннаяПодсказка" id="56"/>
+						</InputField>
+						<InputField name="УпаковкиУровеньУпаковки" id="51">
+							<DataPath>Упаковки.УровеньУпаковки</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="УпаковкиУровеньУпаковкиКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="УпаковкиУровеньУпаковкиРасширеннаяПодсказка" id="53"/>
+						</InputField>
 					</ChildItems>
-				</UsualGroup>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаШтрихкодыУпаковок" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Штрихкоды упаковки</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШтрихкодыУпаковокРасширеннаяПодсказка" id="31"/>
+			<ChildItems>
+				<LabelField name="НадписьШтрихкодыУпаковок" id="89">
+					<DataPath>НадписьШтрихкодыУпаковок</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<TextColor>style:ГруппаВариантовОтчетовЦвет</TextColor>
+					<Font ref="style:NormalTextFont" height="12" kind="StyleItem"/>
+					<ContextMenu name="НадписьШтрихкодыУпаковокКонтекстноеМеню" id="90"/>
+					<ExtendedTooltip name="НадписьШтрихкодыУпаковокРасширеннаяПодсказка" id="91"/>
+				</LabelField>
+				<Table name="ШтрихкодыУпаковок" id="60">
+					<Representation>List</Representation>
+					<RowSelectionMode>Cell</RowSelectionMode>
+					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ШтрихкодыУпаковок</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ШтрихкодыУпаковокКонтекстноеМеню" id="61"/>
+					<AutoCommandBar name="ШтрихкодыУпаковокКоманднаяПанель" id="62"/>
+					<ExtendedTooltip name="ШтрихкодыУпаковокРасширеннаяПодсказка" id="63"/>
+					<SearchStringAddition name="ШтрихкодыУпаковокСтрокаПоиска" id="64">
+						<AdditionSource>
+							<Item>ШтрихкодыУпаковок</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ШтрихкодыУпаковокСтрокаПоискаКонтекстноеМеню" id="65"/>
+						<ExtendedTooltip name="ШтрихкодыУпаковокСтрокаПоискаРасширеннаяПодсказка" id="66"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ШтрихкодыУпаковокСостояниеПросмотра" id="67">
+						<AdditionSource>
+							<Item>ШтрихкодыУпаковок</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<HorizontalLocation>Left</HorizontalLocation>
+						<ContextMenu name="ШтрихкодыУпаковокСостояниеПросмотраКонтекстноеМеню" id="68"/>
+						<ExtendedTooltip name="ШтрихкодыУпаковокСостояниеПросмотраРасширеннаяПодсказка" id="69"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ШтрихкодыУпаковокУправлениеПоиском" id="70">
+						<AdditionSource>
+							<Item>ШтрихкодыУпаковок</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ШтрихкодыУпаковокУправлениеПоискомКонтекстноеМеню" id="71"/>
+						<ExtendedTooltip name="ШтрихкодыУпаковокУправлениеПоискомРасширеннаяПодсказка" id="72"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnEditEnd">ШтрихкодыУпаковокПриОкончанииРедактирования</Event>
+						<Event name="BeforeAddRow">ШтрихкодыУпаковокПередНачаломДобавления</Event>
+						<Event name="OnStartEdit">ШтрихкодыУпаковокПриНачалеРедактирования</Event>
+						<Event name="AfterDeleteRow">ШтрихкодыУпаковокПослеУдаления</Event>
+						<Event name="OnChange">ШтрихкодыУпаковокПриИзменении</Event>
+					</Events>
+					<ChildItems>
+						<InputField name="ШтрихкодыУпаковокШтрихкод" id="79">
+							<DataPath>ШтрихкодыУпаковок.Штрихкод</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ШтрихкодыУпаковокШтрихкодКонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="ШтрихкодыУпаковокШтрихкодРасширеннаяПодсказка" id="81"/>
+						</InputField>
+						<InputField name="ШтрихкодыУпаковокТипМаркировки" id="92">
+							<DataPath>ШтрихкодыУпаковок.ТипМаркировки</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<MarkRequiredComplete>true</MarkRequiredComplete>
+							<AutoEditMode>true</AutoEditMode>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ШтрихкодыУпаковокТипМаркировкиКонтекстноеМеню" id="93"/>
+							<ExtendedTooltip name="ШтрихкодыУпаковокТипМаркировкиРасширеннаяПодсказка" id="94"/>
+						</InputField>
+					</ChildItems>
+				</Table>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -486,21 +481,14 @@
 			<Action>Готово</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ЗаполнитьКоличествоУпаковок" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнить</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
 					<v8:content>Заполнить количество упаковок</v8:content>
 				</v8:item>
-			</ToolTip>
+			</Title>
 			<Action>ЗаполнитьКоличествоУпаковок</Action>
 		</Command>
 	</Commands>

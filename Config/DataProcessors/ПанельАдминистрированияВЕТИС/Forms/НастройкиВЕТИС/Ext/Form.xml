@@ -9,18 +9,58 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandSet>
-		<ExcludedCommand>ChangeHistory</ExcludedCommand>
-		<ExcludedCommand>Write</ExcludedCommand>
-		<ExcludedCommand>WriteAndClose</ExcludedCommand>
-	</CommandSet>
-	<ShowTitle>true</ShowTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 		<Event name="OnClose">ПриЗакрытии</Event>
 	</Events>
 	<ChildItems>
+		<UsualGroup name="ГруппаЗаголовок" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<Group>Horizontal</Group>
+			<HorizontalAlign>Right</HorizontalAlign>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЗаголовокРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<LabelDecoration name="ОписаниеРаздела" id="3">
+					<Visible>false</Visible>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки интеграции с ФГИС Меркурий (ВетИС)</v8:content>
+						</v8:item>
+					</Title>
+					<VerticalAlign>Top</VerticalAlign>
+					<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ОписаниеРазделаРасширеннаяПодсказка" id="5"/>
+				</LabelDecoration>
+				<Button name="ИзменитьФорму" id="112">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+					<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="113"/>
+				</Button>
+				<Button name="Справка" id="11">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="12"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 		<Pages name="СтраницыНастройки" id="104">
 			<Title>
 				<v8:item>
@@ -40,8 +80,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаОсновноеРасширеннаяПодсказка" id="107"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаНастройки" id="15">
@@ -64,6 +103,7 @@
 											<v8:content>Левая панель</v8:content>
 										</v8:item>
 									</Title>
+									<Width>41</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
@@ -88,12 +128,9 @@
 													<v8:content>Отключаться от ФГИС Меркурий (ВетИС) после начала работы с системой не рекомендуется</v8:content>
 												</v8:item>
 											</WarningOnEdit>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<CheckBoxType>Switcher</CheckBoxType>
 											<ContextMenu name="ВестиУчетПодконтрольныхТоваровВЕТИСКонтекстноеМеню" id="18"/>
 											<ExtendedTooltip name="ВестиУчетПодконтрольныхТоваровВЕТИСРасширеннаяПодсказка" id="19">
-												<Height>3</Height>
+												<Height>4</Height>
 												<Title formatted="false">
 													<v8:item>
 														<v8:lang>ru</v8:lang>
@@ -107,6 +144,7 @@
 										</CheckBoxField>
 										<Button name="ПараметрыПодключенияВЕТИС" id="49">
 											<Type>Hyperlink</Type>
+											<Width>64</Width>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<HorizontalStretch>true</HorizontalStretch>
 											<CommandName>Form.Command.ПараметрыПодключенияВЕТИС</CommandName>
@@ -148,8 +186,6 @@
 														</v8:item>
 													</Title>
 													<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="ДатаЗапретаИспользованияПродукцииТретьегоУровняВЕТИСКонтекстноеМеню" id="84"/>
 													<ExtendedTooltip name="ДатаЗапретаИспользованияПродукцииТретьегоУровняВЕТИСРасширеннаяПодсказка" id="85"/>
 													<Events>
@@ -167,6 +203,7 @@
 											<v8:content>Правая панель</v8:content>
 										</v8:item>
 									</Title>
+									<Width>41</Width>
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
@@ -183,12 +220,9 @@
 											</Title>
 											<TitleLocation>Right</TitleLocation>
 											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<CheckBoxType>Switcher</CheckBoxType>
 											<ContextMenu name="РежимРаботыСТестовымКонтуромВЕТИСКонтекстноеМеню" id="62"/>
 											<ExtendedTooltip name="РежимРаботыСТестовымКонтуромВЕТИСРасширеннаяПодсказка" id="63">
-												<Height>3</Height>
+												<Height>4</Height>
 												<Title formatted="false">
 													<v8:item>
 														<v8:lang>ru</v8:lang>
@@ -228,8 +262,6 @@
 											</Title>
 											<TitleLocation>Right</TitleLocation>
 											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ОтключитьОчередьПередачиЗаписейСкладскогоЖурналаВЕТИСКонтекстноеМеню" id="72"/>
 											<ExtendedTooltip name="ОтключитьОчередьПередачиЗаписейСкладскогоЖурналаВЕТИСРасширеннаяПодсказка" id="73">
 												<Title formatted="false">
@@ -257,7 +289,6 @@
 						</v8:item>
 					</Title>
 					<Group>AlwaysHorizontal</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаСправочникиРасширеннаяПодсказка" id="109"/>
 					<ChildItems>
@@ -351,8 +382,7 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
-					<ScrollOnCompress>true</ScrollOnCompress>
+					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаРегламентныеЗаданияРасширеннаяПодсказка" id="111"/>
 					<ChildItems>
 						<Button name="НастройкиРегламентныхЗаданийДляОбменаСВЕТИС" id="102">
@@ -391,9 +421,6 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>Right</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<CheckBoxType>Switcher</CheckBoxType>
 											<ContextMenu name="ИспользоватьСверткуРегистраСоответствиеНоменклатурыКонтекстноеМеню" id="93"/>
 											<ExtendedTooltip name="ИспользоватьСверткуРегистраСоответствиеНоменклатурыРасширеннаяПодсказка" id="94"/>
 											<Events>
@@ -433,9 +460,15 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
+				<Field>НаборКонстант.ВалютаРегламентированногоУчета</Field>
 				<Field>НаборКонстант.ВестиУчетПодконтрольныхТоваровВЕТИС</Field>
 				<Field>НаборКонстант.ИспользоватьАвтоматическуюОтправкуПолучениеДанныхВЕТИС</Field>
+				<Field>НаборКонстант.ОтключитьКонтрольОтрицательныхОстатков</Field>
 				<Field>НаборКонстант.РежимРаботыСТестовымКонтуромВЕТИС</Field>
+				<Field>НаборКонстант.СрокОплатыПокупателей</Field>
+				<Field>НаборКонстант.СрокОплатыПоставщикам</Field>
+				<Field>НаборКонстант.ТипЦенПлановойСебестоимостиНоменклатуры</Field>
+				<Field>НаборКонстант.УдалитьНастройкиКолонтитулов</Field>
 			</UseAlways>
 		</Attribute>
 		<Attribute name="РасписаниеОтправкиПолученияВЕТИС" id="1">

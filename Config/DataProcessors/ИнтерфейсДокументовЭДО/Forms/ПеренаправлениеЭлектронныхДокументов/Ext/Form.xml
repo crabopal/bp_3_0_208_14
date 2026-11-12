@@ -9,38 +9,9 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ОК" id="8">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ОК</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Перенаправить</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="15"/>
-			</Button>
-			<Button name="Отмена" id="9">
-				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
-				<CommandName>Form.Command.Отмена</CommandName>
-				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="16"/>
-			</Button>
-			<Button name="Справка" id="10">
-				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="17"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -51,7 +22,7 @@
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<Hiperlink>true</Hiperlink>
 			<ContextMenu name="ОбъектыДляОбработкиКонтекстноеМеню" id="6"/>
-			<ExtendedTooltip name="ОбъектыДляОбработкиРасширеннаяПодсказка" id="11"/>
+			<ExtendedTooltip name="ОбъектыДляОбработкиExtendedTooltip" id="11"/>
 			<Events>
 				<Event name="Click">ОбъектыДляОбработкиНажатие</Event>
 			</Events>
@@ -60,7 +31,7 @@
 			<DataPath>Пользователь</DataPath>
 			<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
 			<ContextMenu name="ПользовательКонтекстноеМеню" id="4"/>
-			<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="12"/>
+			<ExtendedTooltip name="ПользовательExtendedTooltip" id="12"/>
 		</InputField>
 		<InputField name="Комментарий" id="1">
 			<DataPath>Комментарий</DataPath>
@@ -71,10 +42,9 @@
 				</v8:item>
 			</Title>
 			<ToolTipRepresentation>Button</ToolTipRepresentation>
-			<AutoMaxWidth>false</AutoMaxWidth>
 			<MultiLine>true</MultiLine>
 			<ContextMenu name="КомментарийКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="13">
+			<ExtendedTooltip name="КомментарийExtendedTooltip" id="13">
 				<Title formatted="false">
 					<v8:item>
 						<v8:lang>ru</v8:lang>
@@ -91,7 +61,32 @@
 				</v8:item>
 			</Title>
 			<HorizontalLocation>Right</HorizontalLocation>
-			<ExtendedTooltip name="ГруппаКнопкиРасширеннаяПодсказка" id="14"/>
+			<ExtendedTooltip name="ГруппаКнопкиExtendedTooltip" id="14"/>
+			<ChildItems>
+				<Button name="ОК" id="8">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.ОК</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Перенаправить</v8:content>
+						</v8:item>
+					</Title>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ОКExtendedTooltip" id="15"/>
+				</Button>
+				<Button name="Отмена" id="9">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Отмена</CommandName>
+					<ExtendedTooltip name="ОтменаExtendedTooltip" id="16"/>
+				</Button>
+				<Button name="Справка" id="10">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<ExtendedTooltip name="СправкаExtendedTooltip" id="17"/>
+				</Button>
+			</ChildItems>
 		</CommandBar>
 		<UsualGroup name="ГруппаМК" id="18">
 			<Visible>false</Visible>
@@ -178,9 +173,14 @@
 					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Action>ОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>
@@ -197,7 +197,6 @@
 			</ToolTip>
 			<Action>Отмена</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

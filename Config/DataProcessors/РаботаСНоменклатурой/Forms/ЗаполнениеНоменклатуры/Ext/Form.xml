@@ -13,22 +13,6 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ОбновитьНоменклатуру" id="37">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<Width>10</Width>
-				<CommandName>Form.Command.ОбновитьНоменклатуру</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Обновить</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ОбновитьНоменклатуруРасширеннаяПодсказка" id="38"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -48,6 +32,20 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКнопкиФормыРасширеннаяПодсказка" id="40"/>
 			<ChildItems>
+				<Button name="ОбновитьНоменклатуру" id="37">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<Width>10</Width>
+					<CommandName>Form.Command.ОбновитьНоменклатуру</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обновить</v8:content>
+						</v8:item>
+					</Title>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="ОбновитьНоменклатуруРасширеннаяПодсказка" id="38"/>
+				</Button>
 				<Button name="ОбновлятьВсеАвтоматически" id="35">
 					<Type>UsualButton</Type>
 					<Representation>PictureAndText</Representation>
@@ -72,10 +70,21 @@
 					<ContextMenu name="ПредупреждениеОСозданииХарактеристикКонтекстноеМеню" id="81"/>
 					<ExtendedTooltip name="ПредупреждениеОСозданииХарактеристикРасширеннаяПодсказка" id="82"/>
 				</LabelDecoration>
+				<CommandBar name="ГруппаКоманднаяПанель" id="56">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="57"/>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<LabelDecoration name="ПояснениеКФорме" id="45">
 			<AutoMaxWidth>false</AutoMaxWidth>
+			<TextColor>style:ПоясняющийТекст</TextColor>
 			<Title formatted="true">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -144,7 +153,7 @@
 							<v8:content>Группа выбрать существующий вид номенклатуры</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AlwaysHorizontal</Group>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -184,7 +193,6 @@
 						<InputField name="ВидНоменклатурыДляСопоставления" id="71">
 							<DataPath>ВидНоменклатурыДляСопоставления</DataPath>
 							<TitleLocation>None</TitleLocation>
-							<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
 							<Width>25</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<HorizontalStretch>false</HorizontalStretch>
@@ -196,26 +204,15 @@
 								</v8:item>
 							</InputHint>
 							<ContextMenu name="ВидНоменклатурыДляСопоставленияКонтекстноеМеню" id="72"/>
-							<ExtendedTooltip name="ВидНоменклатурыДляСопоставленияРасширеннаяПодсказка" id="73">
-								<Title formatted="false">
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Пояснение к виду номенклатуры</v8:content>
-									</v8:item>
-								</Title>
-								<Events>
-									<Event name="Click">ВидНоменклатурыДляСопоставленияРасширеннаяПодсказкаНажатие</Event>
-									<Event name="URLProcessing">ВидНоменклатурыДляСопоставленияРасширеннаяПодсказкаОбработкаНавигационнойСсылки</Event>
-								</Events>
-							</ExtendedTooltip>
+							<ExtendedTooltip name="ВидНоменклатурыДляСопоставленияРасширеннаяПодсказка" id="73"/>
 							<Events>
 								<Event name="OnChange">ВидНоменклатурыДляСопоставленияПриИзменении</Event>
 							</Events>
 						</InputField>
 						<LabelDecoration name="ПояснениеКВидуНоменклатуры" id="77">
-							<Visible>false</Visible>
 							<AutoMaxWidth>false</AutoMaxWidth>
-							<Font ref="style:SubtitleLevel1" height="0" bold="false" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Font ref="style:SmallTextFont" height="8" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -259,7 +256,6 @@
 							<Representation>List</Representation>
 							<ChangeRowSet>false</ChangeRowSet>
 							<ChangeRowOrder>false</ChangeRowOrder>
-							<SelectionMode>SingleRow</SelectionMode>
 							<RowSelectionMode>Cell</RowSelectionMode>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -285,12 +281,16 @@
 								<ExcludedCommand>MoveDown</ExcludedCommand>
 								<ExcludedCommand>MoveUp</ExcludedCommand>
 								<ExcludedCommand>OutputList</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
+								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 								<ExcludedCommand>SortListAsc</ExcludedCommand>
 								<ExcludedCommand>SortListDesc</ExcludedCommand>
 							</CommandSet>
 							<RowFilter xsi:nil="true"/>
-							<ContextMenu name="ОбновляемыеРеквизитыКонтекстноеМеню" id="96">
+							<ContextMenu name="ОбновляемыеРеквизитыКонтекстноеМеню" id="96"/>
+							<AutoCommandBar name="ОбновляемыеРеквизитыКоманднаяПанель" id="97">
+								<Autofill>false</Autofill>
 								<ChildItems>
 									<Button name="ОбновляемыеРеквизитыУстановитьФлажки" id="123">
 										<Type>CommandBarButton</Type>
@@ -303,9 +303,6 @@
 										<ExtendedTooltip name="ОбновляемыеРеквизитыСнятьФлажкиРасширеннаяПодсказка" id="126"/>
 									</Button>
 								</ChildItems>
-							</ContextMenu>
-							<AutoCommandBar name="ОбновляемыеРеквизитыКоманднаяПанель" id="97">
-								<Autofill>false</Autofill>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ОбновляемыеРеквизитыРасширеннаяПодсказка" id="98"/>
 							<SearchStringAddition name="ОбновляемыеРеквизитыСтрокаПоиска" id="99">
@@ -346,20 +343,20 @@
 											<v8:content>Реквизит</v8:content>
 										</v8:item>
 									</Title>
-									<AutoWidthInTable>None</AutoWidthInTable>
-									<Width>20</Width>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ОбновляемыеРеквизитыПредставлениеРеквизитаКонтекстноеМеню" id="109"/>
 									<ExtendedTooltip name="ОбновляемыеРеквизитыПредставлениеРеквизитаРасширеннаяПодсказка" id="110"/>
 								</InputField>
 								<CheckBoxField name="ОбновляемыеРеквизитыПометка" id="111">
 									<DataPath>ОбновляемыеРеквизиты.Пометка</DataPath>
 									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
 									<HeaderPicture>
 										<xr:Ref>StdPicture.Change</xr:Ref>
 										<xr:LoadTransparent>true</xr:LoadTransparent>
 									</HeaderPicture>
-									<AutoWidthInTable>None</AutoWidthInTable>
-									<CheckBoxType>CheckBox</CheckBoxType>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ОбновляемыеРеквизитыПометкаКонтекстноеМеню" id="112"/>
 									<ExtendedTooltip name="ОбновляемыеРеквизитыПометкаРасширеннаяПодсказка" id="113"/>
 									<Events>
@@ -374,25 +371,26 @@
 											<v8:content>Новое значение</v8:content>
 										</v8:item>
 									</Title>
-									<AutoWidthInTable>None</AutoWidthInTable>
-									<Width>30</Width>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ОбновляемыеРеквизитыНовоеЗначениеКонтекстноеМеню" id="115"/>
 									<ExtendedTooltip name="ОбновляемыеРеквизитыНовоеЗначениеРасширеннаяПодсказка" id="116"/>
 								</InputField>
 								<InputField name="ОбновляемыеРеквизитыТекущееЗначение" id="117">
 									<DataPath>ОбновляемыеРеквизиты.ТекущееЗначение</DataPath>
 									<HorizontalAlign>Left</HorizontalAlign>
-									<AutoWidthInTable>None</AutoWidthInTable>
-									<Width>30</Width>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ОбновляемыеРеквизитыТекущееЗначениеКонтекстноеМеню" id="118"/>
 									<ExtendedTooltip name="ОбновляемыеРеквизитыТекущееЗначениеРасширеннаяПодсказка" id="119"/>
 								</InputField>
 								<InputField name="ОбновляемыеРеквизитыГиперссылкаСтроки" id="120">
 									<DataPath>ОбновляемыеРеквизиты.ГиперссылкаСтроки</DataPath>
 									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
 									<CellHyperlink>true</CellHyperlink>
 									<ShowInHeader>false</ShowInHeader>
-									<AutoWidthInTable>None</AutoWidthInTable>
+									<AutoEditMode>true</AutoEditMode>
 									<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 									<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 									<TextColor>style:ГиперссылкаЦвет</TextColor>
@@ -473,6 +471,7 @@
 							<ExtendedTooltip name="КартинкаОтсутствияИзмененийРасширеннаяПодсказка" id="139"/>
 						</PictureDecoration>
 						<LabelDecoration name="НадписьОтсутствияИзменений" id="140">
+							<TextColor>style:ПоясняющийТекст</TextColor>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -486,6 +485,98 @@
 				</Page>
 			</ChildItems>
 		</Pages>
+		<UsualGroup name="ГруппаРеквизитыЗаблокированы" id="83">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты заблокированы</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ЦветФонаПоясненияОшибкиБИП</BackColor>
+			<ExtendedTooltip name="ГруппаРеквизитыЗаблокированыРасширеннаяПодсказка" id="84"/>
+			<ChildItems>
+				<PictureDecoration name="КартинкаИнформацияРеквизитыЗаблокированы" id="85">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка предупреждение</v8:content>
+						</v8:item>
+					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<Picture>
+						<xr:Ref>CommonPicture.УдалитьИнформация</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="КартинкаИнформацияРеквизитыЗаблокированыКонтекстноеМеню" id="86"/>
+					<ExtendedTooltip name="КартинкаИнформацияРеквизитыЗаблокированыРасширеннаяПодсказка" id="87"/>
+				</PictureDecoration>
+				<LabelDecoration name="НадписьРеквизитыЗаблокированы" id="88">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Некоторые измененные реквизиты являются ключевыми и были заблокированы для редактирования. &lt;link РазблокироватьРеквизиты&gt;Разблокировать реквизиты&lt;/&gt;</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьРеквизитыЗаблокированыКонтекстноеМеню" id="89"/>
+					<ExtendedTooltip name="НадписьРеквизитыЗаблокированыРасширеннаяПодсказка" id="90"/>
+					<Events>
+						<Event name="URLProcessing">НадписьРеквизитыЗаблокированыОбработкаНавигационнойСсылки</Event>
+					</Events>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНеСопоставленВидНоменклатуры" id="51">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не сопоставлен вид номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<Group>HorizontalIfPossible</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНеСопоставленВидНоменклатурыРасширеннаяПодсказка" id="52"/>
+			<ChildItems>
+				<PictureDecoration name="КартинкаПредупреждение" id="53">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка предупреждение</v8:content>
+						</v8:item>
+					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<Picture>
+						<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="КартинкаПредупреждениеКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="КартинкаПредупреждениеРасширеннаяПодсказка" id="55"/>
+				</PictureDecoration>
+				<LabelDecoration name="НадписьНеСопоставленВидНоменклатуры" id="48">
+					<Width>80</Width>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид номенклатуры &lt;link v8config://498ce97d-6689-44e1-a350-7d98de25218c/Молочная продукция/&gt;Молочная продукция&lt;/&gt; не сопоставлен с категорией 1С:Номенклатуры &lt;link v8config://498ce97d-6689-44e1-a350-7d98de25218c/Молочная продукция/&gt;Молочная продукция &lt;/&gt;. Для возможности обновления дополнительных реквизитов необходимо &lt;link v8config://498ce97d-6689-44e1-a350-7d98de25218c/сопоставить вид с категорией/&gt;сопоставить вид номенклатуры с категорией&lt;/&gt;.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьНеСопоставленВидНоменклатурыКонтекстноеМеню" id="49"/>
+					<ExtendedTooltip name="НадписьНеСопоставленВидНоменклатурыРасширеннаяПодсказка" id="50"/>
+					<Events>
+						<Event name="URLProcessing">НадписьНеСопоставленВидНоменклатурыОбработкаНавигационнойСсылки</Event>
+					</Events>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -1201,7 +1292,6 @@
 			</ToolTip>
 			<Action>ОбновитьНоменклатуру</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="УстановитьФлажки" id="3">
 			<Title>

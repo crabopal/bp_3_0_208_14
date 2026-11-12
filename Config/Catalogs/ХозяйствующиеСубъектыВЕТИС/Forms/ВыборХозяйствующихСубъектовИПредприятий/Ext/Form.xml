@@ -6,24 +6,15 @@
 			<v8:content>Выбор хозяйствующих субъектов и предприятий ВетИС</v8:content>
 		</v8:item>
 	</Title>
-	<Width>70</Width>
-	<Height>50</Height>
+	<Width>50</Width>
+	<Height>25</Height>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<SaveDataInSettings>UseList</SaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="Применить" id="44">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Выбрать</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="45"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnSaveDataInSettingsAtServer">ПриСохраненииДанныхВНастройкахНаСервере</Event>
@@ -53,10 +44,7 @@
 							<v8:content>Показать хозяйствующие субъекты, соответствующие</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<RadioButtonType>RadioButtons</RadioButtonType>
-					<ColumnsCount>1</ColumnsCount>
+					<RadioButtonType>Auto</RadioButtonType>
 					<ChoiceList>
 						<xr:Item>
 							<xr:Presentation/>
@@ -120,9 +108,6 @@
 				<CheckBoxField name="ОтображатьТолькоДоступныеПользователюВЕТИС" id="66">
 					<DataPath>ОтображатьТолькоДоступныеПользователюВЕТИС</DataPath>
 					<TitleLocation>Right</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<CheckBoxType>Switcher</CheckBoxType>
 					<ContextMenu name="ОтображатьТолькоДоступныеПользователюВЕТИСКонтекстноеМеню" id="67"/>
 					<ExtendedTooltip name="ОтображатьТолькоДоступныеПользователюВЕТИСРасширеннаяПодсказка" id="68"/>
 					<Events>
@@ -135,7 +120,6 @@
 			<Representation>Tree</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -149,6 +133,13 @@
 			</ContextMenu>
 			<AutoCommandBar name="ДеревоХозяйствующихСубъектовПредприятийВЕТИСКоманднаяПанель" id="3">
 				<ChildItems>
+					<Button name="Применить" id="44">
+						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.Command.Выбрать</CommandName>
+						<ButtonImportance>Main</ButtonImportance>
+						<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="45"/>
+					</Button>
 					<Button name="ТаблицаОрганизацииВЕТИСВыбратьВсе" id="28">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.ВыбратьВсе</CommandName>
@@ -158,6 +149,28 @@
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.ИсключитьВсе</CommandName>
 						<ExtendedTooltip name="ТаблицаОрганизацииВЕТИСИсключитьВсеРасширеннаяПодсказка" id="25"/>
+					</Button>
+					<Button name="ТаблицаОрганизацииВЕТИССохранитьЗначения" id="38">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<CommandName>Form.StandardCommand.SaveValues</CommandName>
+						<ExtendedTooltip name="ТаблицаОрганизацииВЕТИССохранитьЗначенияРасширеннаяПодсказка" id="39"/>
+					</Button>
+					<Button name="ТаблицаОрганизацииВЕТИСВосстановитьЗначения" id="40">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<CommandName>Form.StandardCommand.RestoreValues</CommandName>
+						<ExtendedTooltip name="ТаблицаОрганизацииВЕТИСВосстановитьЗначенияРасширеннаяПодсказка" id="41"/>
+					</Button>
+					<Button name="ТаблицаОрганизацииВЕТИСИзменитьФорму" id="46">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+						<ExtendedTooltip name="ТаблицаОрганизацииВЕТИСИзменитьФормуРасширеннаяПодсказка" id="47"/>
+					</Button>
+					<Button name="ТаблицаОрганизацииВЕТИССправка" id="26">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<ExtendedTooltip name="ТаблицаОрганизацииВЕТИССправкаРасширеннаяПодсказка" id="27"/>
 					</Button>
 				</ChildItems>
 			</AutoCommandBar>
@@ -208,7 +221,6 @@
 						</v8:item>
 					</ToolTip>
 					<Group>InCell</Group>
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ТаблицаОрганизацииВЕТИСГруппаРасширеннаяПодсказка" id="43"/>
 					<ChildItems>
 						<CheckBoxField name="ТаблицаОрганизацииВЕТИСВыбрана" id="17">
@@ -472,7 +484,6 @@
 			</ToolTip>
 			<Action>Выбрать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

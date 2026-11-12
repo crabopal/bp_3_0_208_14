@@ -6,13 +6,6 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Справка" id="1958">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="1959"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -38,114 +31,93 @@
 				<LabelDecoration name="ОписаниеРаздела" id="1909">
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>true</HorizontalStretch>
-					<Title formatted="true">
+					<Title formatted="false">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Настройка параметров работы с сервисом &lt;link https://portal.1c.ru/applications/1C-Nomenclature&gt;1С:Номенклатура&lt;/&gt;, облачные классификаторы.</v8:content>
+							<v8:content>Настройка параметров работы с сервисом 1С:Номенклатура.</v8:content>
 						</v8:item>
 					</Title>
 					<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="1910"/>
 					<ExtendedTooltip name="ОписаниеРазделаРасширеннаяПодсказка" id="1911"/>
 				</LabelDecoration>
+				<CommandBar name="ГруппаСправка" id="1956">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Справка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content> </v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаСправкаРасширеннаяПодсказка" id="1957"/>
+					<ChildItems>
+						<Button name="Справка" id="1958">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.Help</CommandName>
+							<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="1959"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаРаботаСНоменклатурой" id="2068">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Сервис 1С:Номенклатура</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Vertical</Group>
+			<Group>Horizontal</Group>
+			<Behavior>Collapsible</Behavior>
 			<ControlRepresentation>Button</ControlRepresentation>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаРаботаСНоменклатуройРасширеннаяПодсказка" id="2069"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаРаботаСНоменклатуройСтрока1" id="2287">
+				<UsualGroup name="ГруппаРаботаСНоменклатуройОбщиеНастройки" id="2070">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Сервис 1С:Номенклатура (строка 1)</v8:content>
+							<v8:content>Работа с номенклатурой общие настройки</v8:content>
 						</v8:item>
 					</Title>
-					<HorizontalStretch>true</HorizontalStretch>
-					<Group>AlwaysHorizontal</Group>
+					<Width>43</Width>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаРаботаСНоменклатуройСтрока1РасширеннаяПодсказка" id="2288"/>
+					<ExtendedTooltip name="ГруппаРаботаСНоменклатуройОбщиеНастройкиРасширеннаяПодсказка" id="2071"/>
 					<ChildItems>
-						<UsualGroup name="КолонкаЛево" id="2293">
-							<Group>Vertical</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="КолонкаЛевоРасширеннаяПодсказка" id="2294"/>
-							<ChildItems>
-								<UsualGroup name="ГруппаИспользованиеСервиса" id="2244">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа использование сервиса</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-									<Width>50</Width>
-									<Group>Vertical</Group>
-									<Behavior>Usual</Behavior>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаИспользованиеСервисаРасширеннаяПодсказка" id="2245">
-										<Title formatted="false">
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Поиск, загрузка и обновление номенклатуры и видов номенклатуры из сервиса 1С:Номенклатура.</v8:content>
-											</v8:item>
-										</Title>
-									</ExtendedTooltip>
-									<ChildItems>
-										<CheckBoxField name="ИспользоватьСервисРаботаСНоменклатурой" id="2246">
-											<DataPath>Константа_ИспользоватьСервисРаботаСНоменклатурой</DataPath>
-											<TitleLocation>Right</TitleLocation>
-											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-											<CheckBoxType>Switcher</CheckBoxType>
-											<ContextMenu name="ИспользоватьСервисРаботаСНоменклатуройКонтекстноеМеню" id="2247"/>
-											<ExtendedTooltip name="ИспользоватьСервисРаботаСНоменклатуройРасширеннаяПодсказка" id="2248"/>
-											<Events>
-												<Event name="OnChange">ИспользоватьСервисРаботаСНоменклатуройПриИзменении</Event>
-											</Events>
-										</CheckBoxField>
-									</ChildItems>
-								</UsualGroup>
-							</ChildItems>
-						</UsualGroup>
-						<LabelDecoration name="ЛичныйКабинет" id="2120">
-							<Width>50</Width>
-							<Title formatted="true">
+						<UsualGroup name="ГруппаИспользованиеСервиса" id="2244">
+							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>&lt;link https://catalog-api.1c.ru/lk&gt;Личный кабинет&lt;/&gt;</v8:content>
+									<v8:content>Группа использование сервиса</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Информация о подключенных пакетах, количестве доступных для покупки и уже купленных карточках 1С:Номенклатуры.</v8:content>
-								</v8:item>
-							</ToolTip>
-							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-							<ContextMenu name="ЛичныйКабинетКонтекстноеМеню" id="2121"/>
-							<ExtendedTooltip name="ЛичныйКабинетРасширеннаяПодсказка" id="2122"/>
-						</LabelDecoration>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаРаботаСНоменклатуройСтрока3" id="2291">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Сервис 1С:Номенклатура (строка 3)</v8:content>
-						</v8:item>
-					</Title>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаРаботаСНоменклатуройСтрока3РасширеннаяПодсказка" id="2292"/>
-					<ChildItems>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИспользованиеСервисаРасширеннаяПодсказка" id="2245"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьСервисРаботаСНоменклатурой" id="2246">
+									<DataPath>Константа_ИспользоватьСервисРаботаСНоменклатурой</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Поиск, загрузка и обновление номенклатуры и видов номенклатуры из сервиса 1С:Номенклатура.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<ContextMenu name="ИспользоватьСервисРаботаСНоменклатуройКонтекстноеМеню" id="2247"/>
+									<ExtendedTooltip name="ИспользоватьСервисРаботаСНоменклатуройРасширеннаяПодсказка" id="2248"/>
+									<Events>
+										<Event name="OnChange">ИспользоватьСервисРаботаСНоменклатуройПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
 						<UsualGroup name="ГруппаРаботаСНоменклатуройАвтоматическоеОбновление" id="2089">
 							<Title>
 								<v8:item>
@@ -153,20 +125,11 @@
 									<v8:content>Работа с номенклатурой автоматическое обновление</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 							<Group>Vertical</Group>
-							<VerticalSpacing>None</VerticalSpacing>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаРаботаСНоменклатуройАвтоматическоеОбновлениеРасширеннаяПодсказка" id="2090">
-								<Title formatted="false">
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Обновление номенклатуры и видов номенклатуры, для которых установлен режим автоматического обновления</v8:content>
-									</v8:item>
-								</Title>
-							</ExtendedTooltip>
+							<ExtendedTooltip name="ГруппаРаботаСНоменклатуройАвтоматическоеОбновлениеРасширеннаяПодсказка" id="2090"/>
 							<ChildItems>
 								<CheckBoxField name="ИспользоватьАвтоматическоеОбновлениеНоменклатуры" id="2086">
 									<DataPath>ИспользоватьАвтоматическоеОбновлениеНоменклатуры</DataPath>
@@ -178,8 +141,13 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Обновление номенклатуры и видов номенклатуры, для которых установлен режим автоматического обновления</v8:content>
+										</v8:item>
+									</ToolTip>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-									<CheckBoxType>Switcher</CheckBoxType>
 									<ContextMenu name="ИспользоватьАвтоматическоеОбновлениеНоменклатурыКонтекстноеМеню" id="2087"/>
 									<ExtendedTooltip name="ИспользоватьАвтоматическоеОбновлениеНоменклатурыРасширеннаяПодсказка" id="2088"/>
 									<Events>
@@ -201,6 +169,167 @@
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
+				<UsualGroup name="ГруппаРаботаСНоменклатуройБиллинг" id="2081">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Работа с номенклатурой биллинг</v8:content>
+						</v8:item>
+					</Title>
+					<Width>43</Width>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРаботаСНоменклатуройБиллингРасширеннаяПодсказка" id="2082"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаУведомленияСервиса" id="2174">
+							<Visible>false</Visible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Уведомления сервиса</v8:content>
+								</v8:item>
+							</Title>
+							<Width>43</Width>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<BackColor>style:ToolTipBackColor</BackColor>
+							<ExtendedTooltip name="ГруппаУведомленияСервисаРасширеннаяПодсказка" id="2175"/>
+							<ChildItems>
+								<PictureDecoration name="ГруппаУведомленияСервисаИзображение" id="2176">
+									<Width>3</Width>
+									<Height>2</Height>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа уведомления сервиса изображение</v8:content>
+										</v8:item>
+									</Title>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ГруппаУведомленияСервисаИзображениеКонтекстноеМеню" id="2177"/>
+									<ExtendedTooltip name="ГруппаУведомленияСервисаИзображениеРасширеннаяПодсказка" id="2178"/>
+								</PictureDecoration>
+								<UsualGroup name="ГруппаУведомленияСервисаКонтекст" id="2179">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Уведомления сервиса контекст</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаУведомленияСервисаКонтекстРасширеннаяПодсказка" id="2180"/>
+									<ChildItems>
+										<LabelDecoration name="ГруппаУведомленияСервисаКонтекстЗаголовок" id="2181">
+											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
+											<ContextMenu name="ГруппаУведомленияСервисаКонтекстЗаголовокКонтекстноеМеню" id="2182"/>
+											<ExtendedTooltip name="ГруппаУведомленияСервисаКонтекстЗаголовокРасширеннаяПодсказка" id="2183"/>
+										</LabelDecoration>
+										<LabelDecoration name="ГруппаУведомленияСервисаКонтекстИнформация" id="2184">
+											<Title formatted="true"/>
+											<ContextMenu name="ГруппаУведомленияСервисаКонтекстИнформацияКонтекстноеМеню" id="2185"/>
+											<ExtendedTooltip name="ГруппаУведомленияСервисаКонтекстИнформацияРасширеннаяПодсказка" id="2186"/>
+										</LabelDecoration>
+										<LabelDecoration name="ГруппаУведомленияСервисаКонтекстКоманда" id="2187">
+											<Height>1</Height>
+											<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ГруппаУведомленияСервисаКонтекстКомандаКонтекстноеМеню" id="2188"/>
+											<ExtendedTooltip name="ГруппаУведомленияСервисаКонтекстКомандаРасширеннаяПодсказка" id="2189">
+												<Font ref="style:SmallTextFont" kind="StyleItem"/>
+											</ExtendedTooltip>
+											<Events>
+												<Event name="Click">ГруппаУведомленияСервисаКонтекстКомандаНажатие</Event>
+											</Events>
+										</LabelDecoration>
+										<LabelDecoration name="ГруппаУведомленияСервисаУсловияИспользованияСервиса" id="2190">
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Font ref="style:SmallTextFont" kind="StyleItem"/>
+											<Title formatted="true"/>
+											<ContextMenu name="ГруппаУведомленияСервисаУсловияИспользованияСервисаКонтекстноеМеню" id="2191"/>
+											<ExtendedTooltip name="ГруппаУведомленияСервисаУсловияИспользованияСервисаРасширеннаяПодсказка" id="2192"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПодключениеПакета" id="2147">
+							<Visible>false</Visible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подключение пакета</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПодключениеПакетаРасширеннаяПодсказка" id="2148"/>
+							<ChildItems>
+								<PictureDecoration name="ИзображениеПодключение" id="2149">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Изображение подключение</v8:content>
+										</v8:item>
+									</Title>
+									<Picture>
+										<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ИзображениеПодключениеКонтекстноеМеню" id="2150"/>
+									<ExtendedTooltip name="ИзображениеПодключениеРасширеннаяПодсказка" id="2151"/>
+								</PictureDecoration>
+								<LabelDecoration name="НадписьПодключениеСтартовогоПакета" id="2154">
+									<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Подключение стартового пакета...</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
+									<ContextMenu name="НадписьПодключениеСтартовогоПакетаКонтекстноеМеню" id="2155"/>
+									<ExtendedTooltip name="НадписьПодключениеСтартовогоПакетаРасширеннаяПодсказка" id="2156">
+										<Font ref="style:SmallTextFont" kind="StyleItem"/>
+										<Title formatted="false">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Подождите пожалуйста</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<LabelDecoration name="ЛичныйКабинет" id="2120">
+							<Title formatted="true">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&lt;link https://catalog-api.1c.ru/lk&gt;Личный кабинет&lt;/&gt;</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Информация о подключенных пакетах, количестве доступных для покупки и уже купленных карточках 1С:Номенклатуры.</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<ContextMenu name="ЛичныйКабинетКонтекстноеМеню" id="2121"/>
+							<ExtendedTooltip name="ЛичныйКабинетРасширеннаяПодсказка" id="2122"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаВыгрузка" id="2232">
@@ -213,13 +342,14 @@
 			<Width>43</Width>
 			<HorizontalStretch>false</HorizontalStretch>
 			<Group>HorizontalIfPossible</Group>
-			<ControlRepresentation>Button</ControlRepresentation>
+			<Behavior>Usual</Behavior>
+			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаВыгрузкаРасширеннаяПодсказка" id="2233"/>
 			<ChildItems>
 				<Button name="ВыгрузитьНоменклатуру" id="2234">
 					<Type>Hyperlink</Type>
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<CommandName>Form.Command.ВыгрузитьНоменклатуру</CommandName>
+					<CommandName>DataProcessor.РаботаСНоменклатурой.Command.ВыгрузитьНоменклатуру</CommandName>
 					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 					<ExtendedTooltip name="ВыгрузитьНоменклатуруРасширеннаяПодсказка" id="2235">
 						<Width>43</Width>
@@ -241,7 +371,8 @@
 				</v8:item>
 			</Title>
 			<Group>Vertical</Group>
-			<ControlRepresentation>Button</ControlRepresentation>
+			<Behavior>Usual</Behavior>
+			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаРаботаСОблачнымиКлассификаторамиРасширеннаяПодсказка" id="2194"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаОбновитьТНВЭД" id="2206">
@@ -254,9 +385,10 @@
 					<ExtendedTooltip name="ГруппаОбновитьТНВЭДРасширеннаяПодсказка" id="2207"/>
 					<ChildItems>
 						<LabelDecoration name="ДекорацияКлассификаторТНВЭД" id="2214">
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>16</MaxWidth>
 							<Height>1</Height>
-							<HorizontalStretch>false</HorizontalStretch>
+							<HorizontalStretch>true</HorizontalStretch>
 							<Title formatted="true">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -303,40 +435,49 @@
 					</Title>
 					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
 					<Group>HorizontalIfPossible</Group>
-					<VerticalAlign>Center</VerticalAlign>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаОбновитьОКПД2РасширеннаяПодсказка" id="2218"/>
 					<ChildItems>
-						<LabelDecoration name="ДекорацияКлассификаторОКПД2" id="2221">
-							<MaxWidth>16</MaxWidth>
-							<Height>1</Height>
-							<HorizontalStretch>false</HorizontalStretch>
-							<Title formatted="true">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Классификатор ОКПД 2</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="ДекорацияКлассификаторОКПД2КонтекстноеМеню" id="2222"/>
-							<ExtendedTooltip name="ДекорацияКлассификаторОКПД2РасширеннаяПодсказка" id="2223"/>
-						</LabelDecoration>
-						<Button name="ОбновитьОКПД2" id="2224">
-							<Type>UsualButton</Type>
-							<CommandName>Form.Command.ОбновитьОКПД2</CommandName>
-							<ExtendedTooltip name="ОбновитьОКПД2РасширеннаяПодсказка" id="2225"/>
-						</Button>
-						<PictureDecoration name="ДлительнаяОперацияОбновлениеОКПД2" id="2226">
-							<Visible>false</Visible>
-							<Picture>
-								<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
-								<xr:LoadTransparent>false</xr:LoadTransparent>
-							</Picture>
-							<FileDragMode>AsFile</FileDragMode>
-							<ContextMenu name="ДлительнаяОперацияОбновлениеОКПД2КонтекстноеМеню" id="2227"/>
-							<ExtendedTooltip name="ДлительнаяОперацияОбновлениеОКПД2РасширеннаяПодсказка" id="2228"/>
-						</PictureDecoration>
+						<UsualGroup name="ГруппаОбновитьОКПД2Команда" id="2219">
+							<Group>HorizontalIfPossible</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОбновитьОКПД2КомандаРасширеннаяПодсказка" id="2220"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияКлассификаторОКПД2" id="2221">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>16</MaxWidth>
+									<Height>1</Height>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="true">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Классификатор ОКПД 2</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияКлассификаторОКПД2КонтекстноеМеню" id="2222"/>
+									<ExtendedTooltip name="ДекорацияКлассификаторОКПД2РасширеннаяПодсказка" id="2223"/>
+								</LabelDecoration>
+								<Button name="ОбновитьОКПД2" id="2224">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ОбновитьОКПД2</CommandName>
+									<ExtendedTooltip name="ОбновитьОКПД2РасширеннаяПодсказка" id="2225"/>
+								</Button>
+								<PictureDecoration name="ДлительнаяОперацияОбновлениеОКПД2" id="2226">
+									<Visible>false</Visible>
+									<Picture>
+										<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ДлительнаяОперацияОбновлениеОКПД2КонтекстноеМеню" id="2227"/>
+									<ExtendedTooltip name="ДлительнаяОперацияОбновлениеОКПД2РасширеннаяПодсказка" id="2228"/>
+								</PictureDecoration>
+							</ChildItems>
+						</UsualGroup>
 						<LabelDecoration name="СостояниеОбновленияОКПД2" id="2229">
 							<TextColor>style:ПоясняющийТекст</TextColor>
 							<Title formatted="false">
@@ -370,7 +511,7 @@
 				<LabelDecoration name="ДекорацияСлужбаПоддержки" id="2238">
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<TextColor>style:ПоясняющийТекст</TextColor>
-					<Font ref="style:SubtitleLevel1" kind="StyleItem"/>
+					<Font ref="style:SmallTextFont" kind="StyleItem"/>
 					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -385,11 +526,11 @@
 				<LabelDecoration name="СогласиеСУсловиямиИспользования" id="2241">
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<TextColor>style:ПоясняющийТекст</TextColor>
-					<Font ref="style:SubtitleLevel1" kind="StyleItem"/>
+					<Font ref="style:SmallTextFont" kind="StyleItem"/>
 					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Использование сервиса &lt;link https://portal.1c.ru/applications/1C-Nomenclature&gt;1С:Номенклатура&lt;/&gt; означает согласие с &lt;link https://catalog-api.1c.ru/agreement&gt;Условиями использования сервиса&lt;/&gt;.</v8:content>
+							<v8:content>Использование сервиса 1С:Номенклатура означает согласие с &lt;link https://1cbn.ru/agreement/&gt;Условиями использования сервиса&lt;/&gt;</v8:content>
 						</v8:item>
 					</Title>
 					<GroupVerticalAlign>Bottom</GroupVerticalAlign>
@@ -416,7 +557,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Использовать сервис 1С:Номенклатура</v8:content>
+					<v8:content>Сервис 1С:Номенклатура</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -531,32 +672,6 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ПроверкаВыполнена" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Проверка выполнена</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="ИдентификаторВажногоСообщения" id="22">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Идентификатор важного сообщения</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>30</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
-			</Type>
-		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="НастроитьРасписаниеОбновленияНоменклатуры" id="13">
@@ -604,51 +719,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОбновитьОКПД2</Action>
-		</Command>
-		<Command name="ПодключитьИПП" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подключить Интернет-поддержку пользователей</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подключить ИПП</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ПодключитьИПП</Action>
-		</Command>
-		<Command name="ПодключитьСтартовыйПакет" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подключить бесплатный стартовый пакет</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Подключить стартовый пакет</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ПодключитьСтартовыйПакет</Action>
-		</Command>
-		<Command name="ВыгрузитьНоменклатуру" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выгрузить номенклатуру</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выгрузить номенклатуру</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ВыгрузитьНоменклатуру</Action>
 		</Command>
 	</Commands>
 </Form>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandBarLocation>None</CommandBarLocation>
 	<CommandSet>
@@ -8,7 +9,6 @@
 		<ExcludedCommand>Create</ExcludedCommand>
 		<ExcludedCommand>Delete</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>false</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
@@ -51,7 +51,6 @@
 							<v8:content>Владелец</v8:content>
 						</v8:item>
 					</InputHint>
-					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="ВладелецСтрокойКонтекстноеМеню" id="46"/>
 					<ExtendedTooltip name="ВладелецСтрокойРасширеннаяПодсказка" id="47"/>
 					<Events>
@@ -73,7 +72,6 @@
 							<v8:content>Товарная группа</v8:content>
 						</v8:item>
 					</InputHint>
-					<TextSize>Enlarged</TextSize>
 					<ContextMenu name="ТоварнаяГруппаСтрокойКонтекстноеМеню" id="41"/>
 					<ExtendedTooltip name="ТоварнаяГруппаСтрокойРасширеннаяПодсказка" id="42"/>
 					<Events>
@@ -88,7 +86,6 @@
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
 			<DefaultItem>true</DefaultItem>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -100,7 +97,6 @@
 				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
-			<AutoMaxCardHeight>false</AutoMaxCardHeight>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -197,16 +193,21 @@
 					<ContextMenu name="ПредставлениеАдресаКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ПредставлениеАдресаРасширеннаяПодсказка" id="30"/>
 				</LabelField>
-				<LabelField name="КодФИАС" id="25">
-					<DataPath>Список.КодФИАС</DataPath>
-					<ContextMenu name="КодФИАСКонтекстноеМеню" id="26"/>
-					<ExtendedTooltip name="КодФИАСРасширеннаяПодсказка" id="27"/>
+				<LabelField name="КПП" id="22">
+					<DataPath>Список.КПП</DataPath>
+					<ContextMenu name="КППКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="КППРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="ИдентификаторВетИС" id="34">
 					<DataPath>Список.ИдентификаторВетИС</DataPath>
 					<Visible>false</Visible>
 					<ContextMenu name="ИдентификаторВетИСКонтекстноеМеню" id="35"/>
 					<ExtendedTooltip name="ИдентификаторВетИСРасширеннаяПодсказка" id="36"/>
+				</LabelField>
+				<LabelField name="КодФИАС" id="25">
+					<DataPath>Список.КодФИАС</DataPath>
+					<ContextMenu name="КодФИАСКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="КодФИАСРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 				<LabelField name="ДатаПоследнегоОбновления" id="31">
 					<DataPath>Список.ДатаПоследнегоОбновления</DataPath>
@@ -223,14 +224,9 @@
 					<DataPath>Список.ДанныеАдреса</DataPath>
 					<Visible>false</Visible>
 					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ДанныеАдресаКонтекстноеМеню" id="53"/>
 					<ExtendedTooltip name="ДанныеАдресаРасширеннаяПодсказка" id="54"/>
-				</LabelField>
-				<LabelField name="КПП" id="22">
-					<DataPath>Список.КПП</DataPath>
-					<Visible>false</Visible>
-					<ContextMenu name="КППКонтекстноеМеню" id="23"/>
-					<ExtendedTooltip name="КППРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<CheckBoxField name="НаличиеПодконтрольныхОбъектовВетИС" id="37">
 					<DataPath>Список.НаличиеПодконтрольныхОбъектовВетИС</DataPath>
@@ -240,6 +236,7 @@
 				<LabelField name="ИдентификаторМОД" id="62">
 					<DataPath>Список.ИдентификаторМОД</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ИдентификаторМОДКонтекстноеМеню" id="63"/>
 					<ExtendedTooltip name="ИдентификаторМОДРасширеннаяПодсказка" id="64"/>
 				</LabelField>
@@ -387,9 +384,6 @@
 				</v8:item>
 			</Title>
 			<Action>АктуализироватьСписок</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ЗарегистрироватьМОД" id="2">
 			<Title>
@@ -399,9 +393,6 @@
 				</v8:item>
 			</Title>
 			<Action>ЗарегистрироватьМОД</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 		<Command name="ВыбратьМОД" id="4">
 			<Title>
@@ -411,7 +402,6 @@
 				</v8:item>
 			</Title>
 			<Action>ВыбратьМОД</Action>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="УдалитьМОД" id="5">
 			<Title>
@@ -421,7 +411,6 @@
 				</v8:item>
 			</Title>
 			<Action>УдалитьМОД</Action>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 	</Commands>
 </Form>

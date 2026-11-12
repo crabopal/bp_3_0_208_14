@@ -2,49 +2,30 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<VerticalScroll>useIfNecessary</VerticalScroll>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<Button name="ФормаПодобратьИзКлассификатора" id="8">
+			<Button name="ФормаПодобратьИзМакета" id="17">
 				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ПодобратьИзКлассификатора</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Создать из классификатора</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ФормаПодобратьИзКлассификатораРасширеннаяПодсказка" id="9"/>
+				<CommandName>Form.Command.ПодобратьИзМакета</CommandName>
+				<ExtendedTooltip name="ФормаПодобратьИзМакетаExtendedTooltip" id="18"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
-		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
-			<SkipOnInput>false</SkipOnInput>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<ChoiceMode>true</ChoiceMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
-			<InitialRowActivation>Activate</InitialRowActivation>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Список</v8:content>
-				</v8:item>
-			</Title>
-			<SearchStringLocation>CommandBar</SearchStringLocation>
-			<ViewStatusLocation>Top</ViewStatusLocation>
-			<SearchControlLocation>CommandBar</SearchControlLocation>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -55,70 +36,69 @@
 			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 			<RestoreCurrentRow>false</RestoreCurrentRow>
 			<TopLevelParent xsi:nil="true"/>
-			<ShowRoot>false</ShowRoot>
+			<ShowRoot>true</ShowRoot>
 			<AllowRootChoice>false</AllowRootChoice>
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
-				<ChildItems>
-					<Button name="СписокПодобратьИзКлассификатора" id="30">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ПодобратьИзКлассификатора</CommandName>
-						<ExtendedTooltip name="СписокПодобратьИзКлассификатораРасширеннаяПодсказка" id="31"/>
-					</Button>
-				</ChildItems>
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
-			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="10"/>
-			<SearchStringAddition name="СписокСтрокаПоиска" id="13">
+			<ExtendedTooltip name="СписокExtendedTooltip" id="19"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="24">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchStringRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="14"/>
-				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="15"/>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="25"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="26"/>
 			</SearchStringAddition>
-			<ViewStatusAddition name="СписокСостояниеПросмотра" id="16">
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="27">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>ViewStatusRepresentation</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="17"/>
-				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="18"/>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="28"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="29"/>
 			</ViewStatusAddition>
-			<SearchControlAddition name="СписокУправлениеПоиском" id="19">
+			<SearchControlAddition name="СписокУправлениеПоиском" id="30">
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchControl</Type>
 				</AdditionSource>
-				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="20"/>
-				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="21"/>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="31"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="32"/>
 			</SearchControlAddition>
 			<Events>
 				<Event name="BeforeAddRow">СписокПередНачаломДобавления</Event>
 			</Events>
 			<ChildItems>
-				<LabelField name="СписокНаименование" id="4">
+				<LabelField name="Наименование" id="4">
 					<DataPath>Список.Description</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ContextMenu name="СписокНаименованиеКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="СписокНаименованиеРасширеннаяПодсказка" id="12"/>
+					<Width>22</Width>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="20"/>
 				</LabelField>
-				<LabelField name="СписокКод" id="6">
+				<LabelField name="Код" id="6">
 					<DataPath>Список.Code</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Код</v8:content>
-						</v8:item>
-					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<Width>10</Width>
-					<ContextMenu name="СписокКодКонтекстноеМеню" id="7"/>
-					<ExtendedTooltip name="СписокКодРасширеннаяПодсказка" id="11"/>
+					<Width>5</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="КодКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="КодExtendedTooltip" id="21"/>
+				</LabelField>
+				<LabelField name="НаименованиеПолное" id="13">
+					<DataPath>Список.НаименованиеПолное</DataPath>
+					<ContextMenu name="НаименованиеПолноеКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="НаименованиеПолноеExtendedTooltip" id="22"/>
+				</LabelField>
+				<LabelField name="Ссылка" id="15">
+					<DataPath>Список.Ref</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="16"/>
+					<ExtendedTooltip name="СсылкаExtendedTooltip" id="23"/>
 				</LabelField>
 			</ChildItems>
 		</Table>
@@ -129,6 +109,9 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.Ref</Field>
+			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>false</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
@@ -153,20 +136,20 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ПодобратьИзКлассификатора" id="1">
+		<Command name="ПодобратьИзМакета" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Подобрать из классификатора</v8:content>
+					<v8:content>Подбор из ОКЕИ</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Подобрать из классификатора</v8:content>
+					<v8:content>Подобрать из макета</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ПодобратьИзКлассификатора</Action>
+			<Action>ПодобратьИзМакета</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>

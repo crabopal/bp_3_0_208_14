@@ -3,7 +3,6 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
-	<CommandBarLocation>Top</CommandBarLocation>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
@@ -18,16 +17,8 @@
 		<ExcludedCommand>WriteAndClose</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Справка" id="1578">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="1636"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -60,14 +51,22 @@
 					<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="1576"/>
 					<ExtendedTooltip name="ОписаниеРазделаРасширеннаяПодсказка" id="1633"/>
 				</LabelDecoration>
-				<CommandBar name="ГруппаСправкаТакси" id="2305">
+				<CommandBar name="ГруппаСправка" id="1577">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Справка</v8:content>
 						</v8:item>
 					</Title>
-					<ExtendedTooltip name="ГруппаСправкаТаксиРасширеннаяПодсказка" id="2306"/>
+					<HorizontalLocation>Right</HorizontalLocation>
+					<ExtendedTooltip name="ГруппаСправкаРасширеннаяПодсказка" id="1635"/>
+					<ChildItems>
+						<Button name="Справка" id="1578">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.Help</CommandName>
+							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="1636"/>
+						</Button>
+					</ChildItems>
 				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
@@ -78,7 +77,7 @@
 					<v8:content>Частотный сервис</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AutoScreenTypeSensitive</Group>
+			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -116,6 +115,7 @@
 			<Group>Vertical</Group>
 			<Behavior>Collapsible</Behavior>
 			<ControlRepresentation>Button</ControlRepresentation>
+			<Representation>NormalSeparation</Representation>
 			<ChildItemsWidth>Equal</ChildItemsWidth>
 			<ExtendedTooltip name="ГруппаОтчетыИОбработкиРасширеннаяПодсказка" id="1713"/>
 			<ChildItems>
@@ -151,7 +151,7 @@
 							<v8:content>Дополнительные отчеты и обработки</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AutoScreenTypeSensitive</Group>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -245,6 +245,7 @@
 			<Behavior>Collapsible</Behavior>
 			<Collapsed>true</Collapsed>
 			<ControlRepresentation>Button</ControlRepresentation>
+			<Representation>NormalSeparation</Representation>
 			<ChildItemsWidth>Equal</ChildItemsWidth>
 			<ExtendedTooltip name="ГруппаРегламентныеОперацииРасширеннаяПодсказка" id="1642"/>
 			<ChildItems>
@@ -255,7 +256,7 @@
 							<v8:content>Регламентные задания</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AutoScreenTypeSensitive</Group>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -316,8 +317,6 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-									<ShapeRepresentation>None</ShapeRepresentation>
-									<ButtonImportance>Supplementary</ButtonImportance>
 									<ExtendedTooltip name="РазблокироватьРаботуСВнешнимиРесурсамиРасширеннаяПодсказка" id="2026">
 										<AutoMaxWidth>false</AutoMaxWidth>
 										<Title formatted="false">
@@ -376,6 +375,7 @@
 			<Behavior>Collapsible</Behavior>
 			<Collapsed>true</Collapsed>
 			<ControlRepresentation>Button</ControlRepresentation>
+			<Representation>NormalSeparation</Representation>
 			<ChildItemsWidth>Equal</ChildItemsWidth>
 			<ExtendedTooltip name="ГруппаРезервноеКопированиеИВосстановлениеРасширеннаяПодсказка" id="1657"/>
 			<ChildItems>
@@ -387,7 +387,7 @@
 						</v8:item>
 					</Title>
 					<HorizontalStretch>true</HorizontalStretch>
-					<Group>AutoScreenTypeSensitive</Group>
+					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -402,8 +402,6 @@
 									<v8:content>Хранение резервных копий</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ListChoiceMode>true</ListChoiceMode>
 							<ContextMenu name="ХранениеРезервныхКопийКонтекстноеМеню" id="2248"/>
 							<ExtendedTooltip name="ХранениеРезервныхКопийРасширеннаяПодсказка" id="2249"/>
@@ -442,7 +440,7 @@
 											<v8:content>На локальном компьютере</v8:content>
 										</v8:item>
 									</Title>
-									<Group>AutoScreenTypeSensitive</Group>
+									<Group>HorizontalIfPossible</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
@@ -538,7 +536,7 @@
 										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
-								<UsualGroup name="ГруппаОблачныйАрхивРаботает" id="2307">
+								<UsualGroup name="ГруппаОблачныйАрхивРаботает" id="2283">
 									<Visible>false</Visible>
 									<Title>
 										<v8:item>
@@ -546,11 +544,44 @@
 											<v8:content>Облачный архив работает</v8:content>
 										</v8:item>
 									</Title>
-									<Width>43</Width>
+									<Width>86</Width>
 									<HorizontalStretch>false</HorizontalStretch>
-									<Representation>None</Representation>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>NormalSeparation</Representation>
 									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаОблачныйАрхивРаботаетРасширеннаяПодсказка" id="2308"/>
+									<ExtendedTooltip name="ГруппаОблачныйАрхивРаботаетРасширеннаяПодсказка" id="2284"/>
+									<ChildItems>
+										<PictureDecoration name="ИконкаОблачныйАрхивРаботает" id="2285">
+											<Width>2</Width>
+											<Height>1</Height>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Иконка облачный архив работает</v8:content>
+												</v8:item>
+											</Title>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="ИконкаОблачныйАрхивРаботаетКонтекстноеМеню" id="2286"/>
+											<ExtendedTooltip name="ИконкаОблачныйАрхивРаботаетРасширеннаяПодсказка" id="2287"/>
+										</PictureDecoration>
+										<LabelDecoration name="ПояснениеОблачныйАрхивРаботает" id="2288">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<AutoMaxHeight>false</AutoMaxHeight>
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="true">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Выгрузка &lt;link setting&gt;резервных копий&lt;/&gt; в облако Фирмы "1C" включена.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ПояснениеОблачныйАрхивРаботаетКонтекстноеМеню" id="2289"/>
+											<ExtendedTooltip name="ПояснениеОблачныйАрхивРаботаетРасширеннаяПодсказка" id="2290"/>
+											<Events>
+												<Event name="URLProcessing">ПояснениеОблачныйАрхивРаботаетОбработкаНавигационнойСсылки</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
 						</Page>
@@ -584,7 +615,7 @@
 												</v8:item>
 											</Title>
 											<HorizontalStretch>true</HorizontalStretch>
-											<Group>AutoScreenTypeSensitive</Group>
+											<Group>HorizontalIfPossible</Group>
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаОблачныйАрхивРаботаетРасширеннаяПодсказка" id="2255"/>
 											<ChildItems>
@@ -801,10 +832,11 @@
 					<v8:content>Корректировка данных</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AutoScreenTypeSensitive</Group>
+			<Group>HorizontalIfPossible</Group>
 			<Behavior>Collapsible</Behavior>
 			<Collapsed>true</Collapsed>
 			<ControlRepresentation>Button</ControlRepresentation>
+			<Representation>NormalSeparation</Representation>
 			<ChildItemsWidth>Equal</ChildItemsWidth>
 			<ExtendedTooltip name="ГруппаКорректировкаДанныхРасширеннаяПодсказка" id="1756"/>
 			<ChildItems>
@@ -903,6 +935,7 @@
 			<Behavior>Collapsible</Behavior>
 			<Collapsed>true</Collapsed>
 			<ControlRepresentation>Button</ControlRepresentation>
+			<Representation>NormalSeparation</Representation>
 			<ChildItemsWidth>Equal</ChildItemsWidth>
 			<ExtendedTooltip name="ГруппаРезультатыОбновленияПрограммыРасширеннаяПодсказка" id="2042"/>
 			<ChildItems>
@@ -913,7 +946,7 @@
 							<v8:content>Обновление и описание изменений первая строка</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AutoScreenTypeSensitive</Group>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -928,7 +961,7 @@
 							</Title>
 							<Width>43</Width>
 							<HorizontalStretch>false</HorizontalStretch>
-							<Group>Vertical</Group>
+							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -999,7 +1032,7 @@
 							<v8:content>Обновление и описание изменений вторая строка</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AutoScreenTypeSensitive</Group>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -1081,7 +1114,7 @@
 							<v8:content>Результаты обновления приложения третья строка</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AutoScreenTypeSensitive</Group>
+					<Group>HorizontalIfPossible</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -1110,7 +1143,7 @@
 								</Title>
 							</ExtendedTooltip>
 							<ChildItems>
-								<RadioButtonField name="ПриоритетОбработкаДанных" id="2239">
+								<RadioButtonField name="ПриоритетРаботаПользователей" id="2242">
 									<DataPath>ПриоритетОбработкиДанных</DataPath>
 									<Title>
 										<v8:item>
@@ -1118,10 +1151,8 @@
 											<v8:content>Приоритет обработки данных</v8:content>
 										</v8:item>
 									</Title>
-									<GroupVerticalAlign>Center</GroupVerticalAlign>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<RadioButtonType>Tumbler</RadioButtonType>
+									<TitleLocation>Top</TitleLocation>
+									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
 											<xr:Presentation/>
@@ -1136,44 +1167,76 @@
 												<Value xsi:type="xs:string">РаботаПользователей</Value>
 											</xr:Value>
 										</xr:Item>
-										<xr:Item>
-											<xr:Presentation/>
-											<xr:CheckState>0</xr:CheckState>
-											<xr:Value xsi:type="FormChoiceListDesTimeValue">
-												<Presentation>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Обработка данных</v8:content>
-													</v8:item>
-												</Presentation>
-												<Value xsi:type="xs:string">ОбработкаДанных</Value>
-											</xr:Value>
-										</xr:Item>
 									</ChoiceList>
-									<ContextMenu name="ПриоритетОбработкаДанныхКонтекстноеМеню" id="2240"/>
-									<ExtendedTooltip name="ПриоритетОбработкаДанныхРасширеннаяПодсказка" id="2241"/>
+									<ContextMenu name="ПриоритетРаботаПользователейКонтекстноеМеню" id="2243"/>
+									<ExtendedTooltip name="ПриоритетРаботаПользователейРасширеннаяПодсказка" id="2244"/>
 									<Events>
 										<Event name="OnChange">ПриоритетОтложеннойОбработкиДанныхПриИзменении</Event>
 									</Events>
 								</RadioButtonField>
-								<InputField name="КоличествоПотоковОбновления" id="2234">
-									<DataPath>КоличествоПотоковОбновления</DataPath>
+								<UsualGroup name="ГруппаПриоритет" id="2237">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Количество потоков</v8:content>
+											<v8:content>Приоритет</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Right</TitleLocation>
-									<GroupVerticalAlign>Bottom</GroupVerticalAlign>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="КоличествоПотоковОбновленияКонтекстноеМеню" id="2235"/>
-									<ExtendedTooltip name="КоличествоПотоковОбновленияРасширеннаяПодсказка" id="2236"/>
-									<Events>
-										<Event name="OnChange">КоличествоПотоковОбновленияИнформационнойБазыПриИзменении</Event>
-									</Events>
-								</InputField>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПриоритетРасширеннаяПодсказка" id="2238"/>
+									<ChildItems>
+										<RadioButtonField name="ПриоритетОбработкаДанных" id="2239">
+											<DataPath>ПриоритетОбработкиДанных</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Приоритет обработки данных</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
+											<RadioButtonType>Auto</RadioButtonType>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Обработка данных:</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">ОбработкаДанных</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="ПриоритетОбработкаДанныхКонтекстноеМеню" id="2240"/>
+											<ExtendedTooltip name="ПриоритетОбработкаДанныхРасширеннаяПодсказка" id="2241"/>
+											<Events>
+												<Event name="OnChange">ПриоритетОтложеннойОбработкиДанныхПриИзменении</Event>
+											</Events>
+										</RadioButtonField>
+										<InputField name="КоличествоПотоковОбновления" id="2234">
+											<DataPath>КоличествоПотоковОбновления</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>потоками</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>Right</TitleLocation>
+											<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+											<ContextMenu name="КоличествоПотоковОбновленияКонтекстноеМеню" id="2235"/>
+											<ExtendedTooltip name="КоличествоПотоковОбновленияРасширеннаяПодсказка" id="2236"/>
+											<Events>
+												<Event name="OnChange">КоличествоПотоковОбновленияИнформационнойБазыПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаДетализироватьОбновлениеИБВЖурналеРегистрации" id="2061">
@@ -1201,9 +1264,6 @@
 									</Title>
 									<TitleLocation>Right</TitleLocation>
 									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<CheckBoxType>Switcher</CheckBoxType>
 									<ContextMenu name="ДетализироватьОбновлениеИБВЖурналеРегистрацииКонтекстноеМеню" id="2064"/>
 									<ExtendedTooltip name="ДетализироватьОбновлениеИБВЖурналеРегистрацииРасширеннаяПодсказка" id="2065">
 										<AutoMaxWidth>false</AutoMaxWidth>
@@ -1218,6 +1278,26 @@
 										<Event name="OnChange">ДетализироватьОбновлениеИБВЖурналеРегистрацииПриИзменении</Event>
 									</Events>
 								</CheckBoxField>
+								<Button name="ОчисткаУстаревшихДанных" id="2297">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.ОчисткаУстаревшихДанных</CommandName>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Очистка устаревших данных</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<ExtendedTooltip name="ОчисткаУстаревшихДанныхРасширеннаяПодсказка" id="2298">
+										<AutoMaxWidth>false</AutoMaxWidth>
+										<Title formatted="false">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Очистка данных вручную, когда при реструктуризации произошла ошибка «Записи регистра стали неуникальными»</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
+								</Button>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
@@ -1231,10 +1311,11 @@
 					<v8:content>Оценка производительности</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AutoScreenTypeSensitive</Group>
+			<Group>HorizontalIfPossible</Group>
 			<Behavior>Collapsible</Behavior>
 			<Collapsed>true</Collapsed>
 			<ControlRepresentation>Button</ControlRepresentation>
+			<Representation>NormalSeparation</Representation>
 			<ChildItemsWidth>Equal</ChildItemsWidth>
 			<ExtendedTooltip name="ГруппаОценкаПроизводительностиРасширеннаяПодсказка" id="1672"/>
 			<ChildItems>
@@ -1263,9 +1344,6 @@
 							</Title>
 							<TitleLocation>Right</TitleLocation>
 							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ВыполнятьЗамерыПроизводительностиКонтекстноеМеню" id="1591"/>
 							<ExtendedTooltip name="ВыполнятьЗамерыПроизводительностиРасширеннаяПодсказка" id="1674">
 								<AutoMaxWidth>false</AutoMaxWidth>
@@ -1379,8 +1457,14 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
+				<Field>НаборКонстант.ВалютаРегламентированногоУчета</Field>
 				<Field>НаборКонстант.ИспользоватьДополнительныеОтчетыИОбработки</Field>
 				<Field>НаборКонстант.ИспользоватьРазделениеПоОбластямДанных</Field>
+				<Field>НаборКонстант.ОтключитьКонтрольОтрицательныхОстатков</Field>
+				<Field>НаборКонстант.СрокОплатыПокупателей</Field>
+				<Field>НаборКонстант.СрокОплатыПоставщикам</Field>
+				<Field>НаборКонстант.ТипЦенПлановойСебестоимостиНоменклатуры</Field>
+				<Field>НаборКонстант.УдалитьНастройкиКолонтитулов</Field>
 			</UseAlways>
 		</Attribute>
 		<Attribute name="УдалениеПомеченныхИдентификатор" id="2">
@@ -1507,6 +1591,21 @@
 				</v8:item>
 			</Title>
 			<Action>ОблачныйАрхивНастройкаРезервногоКопирования</Action>
+		</Command>
+		<Command name="ОчисткаУстаревшихДанных" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистка устаревших данных</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистка устаревших данных перед обновление конфигурации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОчисткаУстаревшихДанных</Action>
 		</Command>
 	</Commands>
 </Form>

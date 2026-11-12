@@ -6,59 +6,12 @@
 			<v8:content>Загрузка категорий 1С:Номенклатуры</v8:content>
 		</v8:item>
 	</Title>
+	<Width>180</Width>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<ButtonGroup name="ГруппаОсновныеКнопкиФормы" id="156">
-				<ToolTip>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Группа основные кнопки формы</v8:content>
-					</v8:item>
-				</ToolTip>
-				<ExtendedTooltip name="ГруппаОсновныеКнопкиФормыРасширеннаяПодсказка" id="157"/>
-				<ChildItems>
-					<Button name="ПеречитатьКатегории" id="119">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ПеречитатьКатегории</CommandName>
-						<Picture>
-							<xr:Ref>StdPicture.Reread</xr:Ref>
-							<xr:LoadTransparent>true</xr:LoadTransparent>
-						</Picture>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Перечитать</v8:content>
-							</v8:item>
-						</Title>
-						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-						<ExtendedTooltip name="ПеречитатьКатегорииРасширеннаяПодсказка" id="120"/>
-					</Button>
-					<Button name="ЗагрузитьКатегории" id="47">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.ЗагрузитьКатегории</CommandName>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ЗагрузитьКатегорииРасширеннаяПодсказка" id="48"/>
-					</Button>
-					<Button name="ВыбратьКатегорию" id="88">
-						<Type>CommandBarButton</Type>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.ВыбратьКатегорию</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выбрать</v8:content>
-							</v8:item>
-						</Title>
-						<ButtonImportance>Main</ButtonImportance>
-						<ExtendedTooltip name="ВыбратьКатегориюРасширеннаяПодсказка" id="89"/>
-					</Button>
-				</ChildItems>
-			</ButtonGroup>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -66,486 +19,587 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ПодсказкаКФорме" id="138">
+		<Pages name="Страницы" id="90">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Подсказка к форме</v8:content>
+					<v8:content>Страницы</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
-			<VerticalAlign>Center</VerticalAlign>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ПодсказкаКФормеРасширеннаяПодсказка" id="139"/>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="91"/>
 			<ChildItems>
-				<PictureDecoration name="ПодсказкаКФормеКартинка" id="140">
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Подсказка к форме картинка</v8:content>
-						</v8:item>
-					</Title>
-					<Picture>
-						<xr:Ref>StdPicture.DialogExclamation</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<ContextMenu name="ПодсказкаКФормеКартинкаКонтекстноеМеню" id="141"/>
-					<ExtendedTooltip name="ПодсказкаКФормеКартинкаРасширеннаяПодсказка" id="142"/>
-				</PictureDecoration>
-				<LabelDecoration name="ПодсказкаКФормеТекст" id="44">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Выберите интересующие категории сервиса 1С:Номенклатура и загрузите их в базу, нажав кнопку Загрузить категории</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ПодсказкаКФормеТекстКонтекстноеМеню" id="45"/>
-					<ExtendedTooltip name="ПодсказкаКФормеТекстРасширеннаяПодсказка" id="46"/>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаПоиск" id="178">
-			<Group>AlwaysHorizontal</Group>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПоискРасширеннаяПодсказка" id="179"/>
-			<ChildItems>
-				<UsualGroup name="ГруппаКнопкиПоиск" id="82">
+				<Page name="СтраницаКатегорий" id="97">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Кнопки поиска</v8:content>
+							<v8:content>Страница категорий</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<VerticalAlign>Center</VerticalAlign>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаКнопкиПоискРасширеннаяПодсказка" id="83"/>
-					<ChildItems>
-						<InputField name="СтрокаПоиска" id="33">
-							<DataPath>СтрокаПоиска</DataPath>
-							<TitleLocation>None</TitleLocation>
-							<Shortcut>Alt+F</Shortcut>
-							<ClearButton>true</ClearButton>
-							<InputHint>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Поиск (Alt + F)</v8:content>
-								</v8:item>
-							</InputHint>
-							<Picture>
-								<xr:Ref>StdPicture.SearchControl</xr:Ref>
-								<xr:LoadTransparent>true</xr:LoadTransparent>
-							</Picture>
-							<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="34">
-								<Autofill>false</Autofill>
-							</ContextMenu>
-							<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="35"/>
-							<Events>
-								<Event name="OnChange">СтрокаПоискаПриИзменении</Event>
-								<Event name="Clearing">СтрокаПоискаОчистка</Event>
-							</Events>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="УправлениеОтборами" id="133">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Управление отборами</v8:content>
-						</v8:item>
-					</Title>
-					<Group>HorizontalIfPossible</Group>
-					<VerticalAlign>Center</VerticalAlign>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="УправлениеОтборамиРасширеннаяПодсказка" id="134"/>
-					<ChildItems>
-						<CheckBoxField name="ТолькоВыбранныеЭлементы" id="159">
-							<DataPath>ТолькоВыбранныеЭлементы</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Показывать только выбранные</v8:content>
-								</v8:item>
-							</Title>
-							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="ТолькоВыбранныеЭлементыКонтекстноеМеню" id="160"/>
-							<ExtendedTooltip name="ТолькоВыбранныеЭлементыРасширеннаяПодсказка" id="161"/>
-							<Events>
-								<Event name="OnChange">ТолькоВыбранныеЭлементыПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-						<CheckBoxField name="ТолькоКатегорииНациональногоКаталога" id="130">
-							<DataPath>ТолькоКатегорииНациональногоКаталога</DataPath>
-							<TitleTextColor>style:ПоясняющийТекст</TitleTextColor>
-							<TitleLocation>Right</TitleLocation>
-							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="ТолькоКатегорииНациональногоКаталогаКонтекстноеМеню" id="131"/>
-							<ExtendedTooltip name="ТолькоКатегорииНациональногоКаталогаРасширеннаяПодсказка" id="132"/>
-							<Events>
-								<Event name="OnChange">ТолькоКатегорииНациональногоКаталогаПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-						<CheckBoxField name="ТолькоКатегорииТоварнойГруппы" id="135">
-							<DataPath>ТолькоКатегорииТоварнойГруппы</DataPath>
-							<Visible>false</Visible>
-							<TitleTextColor>style:ПоясняющийТекст</TitleTextColor>
-							<TitleLocation>Right</TitleLocation>
-							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="ТолькоКатегорииТоварнойГруппыКонтекстноеМеню" id="136"/>
-							<ExtendedTooltip name="ТолькоКатегорииТоварнойГруппыРасширеннаяПодсказка" id="137"/>
-							<Events>
-								<Event name="OnChange">ТолькоКатегорииТоварнойГруппыПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-					</ChildItems>
-				</UsualGroup>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаКатегории" id="26">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Категории</v8:content>
-				</v8:item>
-			</Title>
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаКатегорииРасширеннаяПодсказка" id="27"/>
-			<ChildItems>
-				<UsualGroup name="ГруппаДеревоКатегорий" id="38">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Дерево категорий</v8:content>
-						</v8:item>
-					</Title>
-					<Width>50</Width>
 					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаДеревоКатегорийРасширеннаяПодсказка" id="39"/>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаКатегорийРасширеннаяПодсказка" id="98"/>
 					<ChildItems>
-						<Pages name="ГруппаСтраницКатегорий" id="121">
+						<UsualGroup name="ГруппаОсновныеКнопкиФормы" id="86">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа страниц категорий</v8:content>
-								</v8:item>
-							</Title>
-							<PagesRepresentation>None</PagesRepresentation>
-							<ExtendedTooltip name="ГруппаСтраницКатегорийРасширеннаяПодсказка" id="122"/>
-							<ChildItems>
-								<Page name="ГруппаСтраницаКатегорий" id="123">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа страница категорий</v8:content>
-										</v8:item>
-									</Title>
-									<Group>Vertical</Group>
-									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="ГруппаСтраницаКатегорийРасширеннаяПодсказка" id="124"/>
-									<ChildItems>
-										<Table name="Категории" id="49">
-											<Representation>Tree</Representation>
-											<ChangeRowSet>false</ChangeRowSet>
-											<ChangeRowOrder>false</ChangeRowOrder>
-											<AutoMaxHeight>false</AutoMaxHeight>
-											<SelectionMode>SingleRow</SelectionMode>
-											<RowSelectionMode>Cell</RowSelectionMode>
-											<Header>false</Header>
-											<HorizontalLinesBWA>false</HorizontalLinesBWA>
-											<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-											<AutoInsertNewRow>true</AutoInsertNewRow>
-											<InitialTreeView>ExpandTopLevel</InitialTreeView>
-											<FileDragMode>AsFile</FileDragMode>
-											<DataPath>Категории</DataPath>
-											<RowPictureDataPath>Категории.ИндексКартинки</RowPictureDataPath>
-											<RowsPicture>
-												<xr:Ref>CommonPicture.ВидыКонтактнойИнформации</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
-											</RowsPicture>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Категории</v8:content>
-												</v8:item>
-											</Title>
-											<CommandSet>
-												<ExcludedCommand>Add</ExcludedCommand>
-												<ExcludedCommand>Change</ExcludedCommand>
-												<ExcludedCommand>Copy</ExcludedCommand>
-												<ExcludedCommand>CopyToClipboard</ExcludedCommand>
-												<ExcludedCommand>Delete</ExcludedCommand>
-												<ExcludedCommand>EndEdit</ExcludedCommand>
-												<ExcludedCommand>HierarchicalList</ExcludedCommand>
-												<ExcludedCommand>List</ExcludedCommand>
-												<ExcludedCommand>MoveDown</ExcludedCommand>
-												<ExcludedCommand>MoveUp</ExcludedCommand>
-												<ExcludedCommand>OutputList</ExcludedCommand>
-												<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
-												<ExcludedCommand>SortListAsc</ExcludedCommand>
-												<ExcludedCommand>SortListDesc</ExcludedCommand>
-												<ExcludedCommand>Tree</ExcludedCommand>
-											</CommandSet>
-											<ContextMenu name="КатегорииКонтекстноеМеню" id="50">
-												<Autofill>false</Autofill>
-												<ChildItems>
-													<ButtonGroup name="КоманднаяПанельКатегорий" id="163">
-														<ExtendedTooltip name="КоманднаяПанельКатегорийРасширеннаяПодсказка" id="164"/>
-														<ChildItems>
-															<Button name="УстановитьФлажки" id="40">
-																<Type>CommandBarButton</Type>
-																<Representation>Picture</Representation>
-																<CommandName>Form.Command.УстановитьФлажки</CommandName>
-																<Picture>
-																	<xr:Ref>StdPicture.CheckAll</xr:Ref>
-																	<xr:LoadTransparent>true</xr:LoadTransparent>
-																</Picture>
-																<ExtendedTooltip name="УстановитьФлажкиРасширеннаяПодсказка" id="41"/>
-															</Button>
-															<Button name="СнятьФлажки" id="42">
-																<Type>CommandBarButton</Type>
-																<Representation>Picture</Representation>
-																<CommandName>Form.Command.СнятьФлажки</CommandName>
-																<Picture>
-																	<xr:Ref>StdPicture.UncheckAll</xr:Ref>
-																	<xr:LoadTransparent>true</xr:LoadTransparent>
-																</Picture>
-																<ExtendedTooltip name="СнятьФлажкиРасширеннаяПодсказка" id="43"/>
-															</Button>
-														</ChildItems>
-													</ButtonGroup>
-												</ChildItems>
-											</ContextMenu>
-											<AutoCommandBar name="КатегорииКоманднаяПанель" id="51">
-												<Autofill>false</Autofill>
-											</AutoCommandBar>
-											<ExtendedTooltip name="КатегорииРасширеннаяПодсказка" id="52"/>
-											<SearchStringAddition name="КатегорииСтрокаПоиска" id="53">
-												<AdditionSource>
-													<Item>Категории</Item>
-													<Type>SearchStringRepresentation</Type>
-												</AdditionSource>
-												<ContextMenu name="КатегорииСтрокаПоискаКонтекстноеМеню" id="54"/>
-												<ExtendedTooltip name="КатегорииСтрокаПоискаРасширеннаяПодсказка" id="55"/>
-											</SearchStringAddition>
-											<ViewStatusAddition name="КатегорииСостояниеПросмотра" id="56">
-												<AdditionSource>
-													<Item>Категории</Item>
-													<Type>ViewStatusRepresentation</Type>
-												</AdditionSource>
-												<ContextMenu name="КатегорииСостояниеПросмотраКонтекстноеМеню" id="57"/>
-												<ExtendedTooltip name="КатегорииСостояниеПросмотраРасширеннаяПодсказка" id="58"/>
-											</ViewStatusAddition>
-											<SearchControlAddition name="КатегорииУправлениеПоиском" id="59">
-												<AdditionSource>
-													<Item>Категории</Item>
-													<Type>SearchControl</Type>
-												</AdditionSource>
-												<ContextMenu name="КатегорииУправлениеПоискомКонтекстноеМеню" id="60"/>
-												<ExtendedTooltip name="КатегорииУправлениеПоискомРасширеннаяПодсказка" id="61"/>
-											</SearchControlAddition>
-											<Events>
-												<Event name="Selection">КатегорииВыбор</Event>
-												<Event name="BeforeAddRow">КатегорииПередНачаломДобавления</Event>
-												<Event name="BeforeDeleteRow">КатегорииПередУдалением</Event>
-												<Event name="OnActivateRow">КатегорииПриАктивизацииСтроки</Event>
-												<Event name="BeforeExpand">КатегорииПередРазворачиванием</Event>
-											</Events>
-											<ChildItems>
-												<ColumnGroup name="ГруппаПометкаКатегория" id="84">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Пометка категория</v8:content>
-														</v8:item>
-													</Title>
-													<Group>InCell</Group>
-													<ExtendedTooltip name="ГруппаПометкаКатегорияРасширеннаяПодсказка" id="85"/>
-													<ChildItems>
-														<CheckBoxField name="КатегорииПометка" id="71">
-															<DataPath>Категории.Пометка</DataPath>
-															<TitleLocation>None</TitleLocation>
-															<ThreeState>true</ThreeState>
-															<ContextMenu name="КатегорииПометкаКонтекстноеМеню" id="72"/>
-															<ExtendedTooltip name="КатегорииПометкаРасширеннаяПодсказка" id="73"/>
-															<Events>
-																<Event name="OnChange">КатегорииПометкаПриИзменении</Event>
-															</Events>
-														</CheckBoxField>
-														<InputField name="КатегорииНаименование" id="62">
-															<DataPath>Категории.Наименование</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Категория</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="КатегорииНаименованиеКонтекстноеМеню" id="63"/>
-															<ExtendedTooltip name="КатегорииНаименованиеРасширеннаяПодсказка" id="64"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<CheckBoxField name="КатегорииЗагружена" id="74">
-													<DataPath>Категории.Загружена</DataPath>
-													<Visible>false</Visible>
-													<ContextMenu name="КатегорииЗагруженаКонтекстноеМеню" id="75"/>
-													<ExtendedTooltip name="КатегорииЗагруженаРасширеннаяПодсказка" id="76"/>
-												</CheckBoxField>
-												<InputField name="КатегорииИдентификаторКатегории" id="65">
-													<DataPath>Категории.Идентификатор</DataPath>
-													<Visible>false</Visible>
-													<ContextMenu name="КатегорииИдентификаторКатегорииКонтекстноеМеню" id="66"/>
-													<ExtendedTooltip name="КатегорииИдентификаторКатегорииРасширеннаяПодсказка" id="67"/>
-												</InputField>
-												<InputField name="КатегорииИндексКартинки" id="68">
-													<DataPath>Категории.ИндексКартинки</DataPath>
-													<Visible>false</Visible>
-													<ContextMenu name="КатегорииИндексКартинкиКонтекстноеМеню" id="69"/>
-													<ExtendedTooltip name="КатегорииИндексКартинкиРасширеннаяПодсказка" id="70"/>
-												</InputField>
-											</ChildItems>
-										</Table>
-									</ChildItems>
-								</Page>
-								<Page name="ГруппаСтраницаПустыхКатегорий" id="125">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа страница пустых категорий</v8:content>
-										</v8:item>
-									</Title>
-									<Group>Vertical</Group>
-									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="ГруппаСтраницаПустыхКатегорийРасширеннаяПодсказка" id="126"/>
-									<ChildItems>
-										<PictureDecoration name="ДекорацияПустойРубрикатор" id="127">
-											<HorizontalStretch>true</HorizontalStretch>
-											<VerticalStretch>true</VerticalStretch>
-											<TextColor>style:НедоступныеДанныеЭДЦвет</TextColor>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Декорация пустой рубрикатор</v8:content>
-												</v8:item>
-											</Title>
-											<NonselectedPictureText>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Категории не найдены</v8:content>
-												</v8:item>
-											</NonselectedPictureText>
-											<Border width="1">
-												<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
-											</Border>
-											<FileDragMode>AsFile</FileDragMode>
-											<PictureColor>style:НедоступныеДанныеЭДЦвет</PictureColor>
-											<ContextMenu name="ДекорацияПустойРубрикаторКонтекстноеМеню" id="128"/>
-											<ExtendedTooltip name="ДекорацияПустойРубрикаторРасширеннаяПодсказка" id="129"/>
-										</PictureDecoration>
-									</ChildItems>
-								</Page>
-							</ChildItems>
-						</Pages>
-						<LabelDecoration name="НадписьКоличествоКатегорийПриПоиске" id="109">
-							<Visible>false</Visible>
-							<TextColor>style:ПоясняющийТекст</TextColor>
-							<Title formatted="false">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Отображаются первые 100 категорий</v8:content>
-								</v8:item>
-							</Title>
-							<ContextMenu name="НадписьКоличествоКатегорийПриПоискеКонтекстноеМеню" id="110"/>
-							<ExtendedTooltip name="НадписьКоличествоКатегорийПриПоискеРасширеннаяПодсказка" id="111"/>
-						</LabelDecoration>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаДанныеКатегорий" id="102">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Данные категорий</v8:content>
-						</v8:item>
-					</Title>
-					<Width>50</Width>
-					<Group>Vertical</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаДанныеКатегорийРасширеннаяПодсказка" id="103"/>
-					<ChildItems>
-						<UsualGroup name="ГруппаДанныеПоКатегории" id="176">
-							<VerticalStretch>true</VerticalStretch>
-							<ShowTitle>false</ShowTitle>
-							<ShowAsCard>true</ShowAsCard>
-							<ExtendedTooltip name="ГруппаДанныеПоКатегорииРасширеннаяПодсказка" id="177"/>
-							<ChildItems>
-								<SpreadSheetDocumentField name="ДанныеПоКатегории" id="23">
-									<DataPath>ДанныеПоКатегории</DataPath>
-									<TitleLocation>None</TitleLocation>
-									<Width>1</Width>
-									<Height>1</Height>
-									<AutoMaxHeight>false</AutoMaxHeight>
-									<SelectionShowMode>DontShow</SelectionShowMode>
-									<ShowGroups>false</ShowGroups>
-									<BorderColor>style:FormBackColor</BorderColor>
-									<ContextMenu name="ДанныеПоКатегорииКонтекстноеМеню" id="24"/>
-									<ExtendedTooltip name="ДанныеПоКатегорииРасширеннаяПодсказка" id="25"/>
-									<Events>
-										<Event name="DetailProcessing">ДанныеПоКатегорииОбработкаРасшифровки</Event>
-									</Events>
-								</SpreadSheetDocumentField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаБаннер" id="104">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Баннер</v8:content>
+									<v8:content>Основные кнопки формы</v8:content>
 								</v8:item>
 							</Title>
 							<Group>HorizontalIfPossible</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаБаннерРасширеннаяПодсказка" id="105"/>
+							<ExtendedTooltip name="ГруппаОсновныеКнопкиФормыРасширеннаяПодсказка" id="87"/>
 							<ChildItems>
-								<PictureField name="Баннер" id="106">
-									<DataPath>Баннер</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<TitleLocation>None</TitleLocation>
+								<Button name="ЗагрузитьКатегории" id="47">
+									<Type>UsualButton</Type>
+									<DefaultButton>true</DefaultButton>
+									<CommandName>Form.Command.ЗагрузитьКатегории</CommandName>
+									<ButtonImportance>Main</ButtonImportance>
+									<ExtendedTooltip name="ЗагрузитьКатегорииРасширеннаяПодсказка" id="48"/>
+								</Button>
+								<Button name="ВыбратьКатегорию" id="88">
+									<Type>UsualButton</Type>
+									<Width>9</Width>
+									<CommandName>Form.Command.ВыбратьКатегорию</CommandName>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Выбрать</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="ВыбратьКатегориюРасширеннаяПодсказка" id="89"/>
+								</Button>
+								<CommandBar name="ГруппаКоманднаяПанель" id="117">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Командная панель</v8:content>
+										</v8:item>
+									</Title>
+									<CommandSource>Form</CommandSource>
+									<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="118"/>
+									<ChildItems>
+										<Button name="ПеречитатьКатегории" id="119">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ПеречитатьКатегории</CommandName>
+											<Picture>
+												<xr:Ref>StdPicture.Reread</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</Picture>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Перечитать</v8:content>
+												</v8:item>
+											</Title>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ПеречитатьКатегорииРасширеннаяПодсказка" id="120"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ПодсказкаКФорме" id="138">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подсказка к форме</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<VerticalAlign>Center</VerticalAlign>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ПодсказкаКФормеРасширеннаяПодсказка" id="139"/>
+							<ChildItems>
+								<PictureDecoration name="ПодсказкаКФормеКартинка" id="140">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Подсказка к форме картинка</v8:content>
+										</v8:item>
+									</Title>
+									<Picture>
+										<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="ПодсказкаКФормеКартинкаКонтекстноеМеню" id="141"/>
+									<ExtendedTooltip name="ПодсказкаКФормеКартинкаРасширеннаяПодсказка" id="142"/>
+								</PictureDecoration>
+								<LabelDecoration name="ПодсказкаКФормеТекст" id="44">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Выберите интересующие категории сервиса 1С:Номенклатура и загрузите их в базу, нажав кнопку Загрузить категории</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПодсказкаКФормеТекстКонтекстноеМеню" id="45"/>
+									<ExtendedTooltip name="ПодсказкаКФормеТекстРасширеннаяПодсказка" id="46"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаКатегории" id="26">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Категории</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКатегорииРасширеннаяПодсказка" id="27"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаДеревоКатегорий" id="38">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дерево категорий</v8:content>
+										</v8:item>
+									</Title>
+									<Width>65</Width>
 									<HorizontalStretch>false</HorizontalStretch>
-									<VerticalStretch>false</VerticalStretch>
-									<PictureSize>AutoSizeIgnoreScale</PictureSize>
-									<Hyperlink>true</Hyperlink>
-									<Border width="1">
-										<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
-									</Border>
-									<FileDragMode>AsFile</FileDragMode>
-									<ContextMenu name="БаннерКонтекстноеМеню" id="107"/>
-									<ExtendedTooltip name="БаннерРасширеннаяПодсказка" id="108"/>
-									<Events>
-										<Event name="Click">БаннерНажатие</Event>
-									</Events>
-								</PictureField>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДеревоКатегорийРасширеннаяПодсказка" id="39"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаКнопкиПоиск" id="82">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Кнопки поиска</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Horizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаКнопкиПоискРасширеннаяПодсказка" id="83"/>
+											<ChildItems>
+												<CommandBar name="КоманднаяПанельКатегорий" id="80">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Командная панель категорий</v8:content>
+														</v8:item>
+													</Title>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ExtendedTooltip name="КоманднаяПанельКатегорийРасширеннаяПодсказка" id="81"/>
+													<ChildItems>
+														<Button name="ТолькоВыбранные" id="31">
+															<Type>CommandBarButton</Type>
+															<Representation>PictureAndText</Representation>
+															<Width>16</Width>
+															<CommandName>Form.Command.ТолькоВыбранные</CommandName>
+															<Picture>
+																<xr:Ref>CommonPicture.ПоказатьТолькоВыбранныеРоли</xr:Ref>
+																<xr:LoadTransparent>false</xr:LoadTransparent>
+															</Picture>
+															<ExtendedTooltip name="ТолькоВыбранныеРасширеннаяПодсказка" id="32"/>
+														</Button>
+														<Button name="УстановитьФлажки" id="40">
+															<Type>CommandBarButton</Type>
+															<Representation>Picture</Representation>
+															<Width>3</Width>
+															<CommandName>Form.Command.УстановитьФлажки</CommandName>
+															<Picture>
+																<xr:Ref>StdPicture.CheckAll</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</Picture>
+															<ExtendedTooltip name="УстановитьФлажкиРасширеннаяПодсказка" id="41"/>
+														</Button>
+														<Button name="СнятьФлажки" id="42">
+															<Type>CommandBarButton</Type>
+															<Representation>Picture</Representation>
+															<Width>3</Width>
+															<CommandName>Form.Command.СнятьФлажки</CommandName>
+															<Picture>
+																<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</Picture>
+															<ExtendedTooltip name="СнятьФлажкиРасширеннаяПодсказка" id="43"/>
+														</Button>
+													</ChildItems>
+												</CommandBar>
+												<InputField name="СтрокаПоиска" id="33">
+													<DataPath>СтрокаПоиска</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<Shortcut>Alt+F</Shortcut>
+													<ChoiceButton>true</ChoiceButton>
+													<ClearButton>true</ClearButton>
+													<ChoiceButtonPicture>
+														<xr:Ref>StdPicture.SearchControl</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</ChoiceButtonPicture>
+													<InputHint>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Поиск (Alt + F)</v8:content>
+														</v8:item>
+													</InputHint>
+													<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="34">
+														<Autofill>false</Autofill>
+													</ContextMenu>
+													<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="35"/>
+													<Events>
+														<Event name="OnChange">СтрокаПоискаПриИзменении</Event>
+														<Event name="StartChoice">СтрокаПоискаНачалоВыбора</Event>
+														<Event name="Clearing">СтрокаПоискаОчистка</Event>
+													</Events>
+												</InputField>
+												<PictureDecoration name="ДекорацияДлительнаяОперация" id="112">
+													<Visible>false</Visible>
+													<Width>2</Width>
+													<Height>1</Height>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Декорация длительная операция</v8:content>
+														</v8:item>
+													</Title>
+													<GroupVerticalAlign>Center</GroupVerticalAlign>
+													<Picture>
+														<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
+														<xr:LoadTransparent>false</xr:LoadTransparent>
+													</Picture>
+													<FileDragMode>AsFile</FileDragMode>
+													<ContextMenu name="ДекорацияДлительнаяОперацияКонтекстноеМеню" id="113"/>
+													<ExtendedTooltip name="ДекорацияДлительнаяОперацияРасширеннаяПодсказка" id="114"/>
+												</PictureDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="УправлениеОтборами" id="133">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Управление отборами</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="УправлениеОтборамиРасширеннаяПодсказка" id="134"/>
+											<ChildItems>
+												<CheckBoxField name="ТолькоКатегорииНациональногоКаталога" id="130">
+													<DataPath>ТолькоКатегорииНациональногоКаталога</DataPath>
+													<TitleTextColor>style:ПоясняющийТекст</TitleTextColor>
+													<TitleLocation>Right</TitleLocation>
+													<ContextMenu name="ТолькоКатегорииНациональногоКаталогаКонтекстноеМеню" id="131"/>
+													<ExtendedTooltip name="ТолькоКатегорииНациональногоКаталогаРасширеннаяПодсказка" id="132"/>
+													<Events>
+														<Event name="OnChange">ТолькоКатегорииНациональногоКаталогаПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<CheckBoxField name="ТолькоКатегорииТоварнойГруппы" id="135">
+													<DataPath>ТолькоКатегорииТоварнойГруппы</DataPath>
+													<Visible>false</Visible>
+													<TitleTextColor>style:ПоясняющийТекст</TitleTextColor>
+													<TitleLocation>Right</TitleLocation>
+													<ContextMenu name="ТолькоКатегорииТоварнойГруппыКонтекстноеМеню" id="136"/>
+													<ExtendedTooltip name="ТолькоКатегорииТоварнойГруппыРасширеннаяПодсказка" id="137"/>
+													<Events>
+														<Event name="OnChange">ТолькоКатегорииТоварнойГруппыПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+											</ChildItems>
+										</UsualGroup>
+										<Pages name="ГруппаСтраницКатегорий" id="121">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа страниц категорий</v8:content>
+												</v8:item>
+											</Title>
+											<PagesRepresentation>None</PagesRepresentation>
+											<ExtendedTooltip name="ГруппаСтраницКатегорийРасширеннаяПодсказка" id="122"/>
+											<ChildItems>
+												<Page name="ГруппаСтраницаКатегорий" id="123">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа страница категорий</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<ScrollOnCompress>false</ScrollOnCompress>
+													<ExtendedTooltip name="ГруппаСтраницаКатегорийРасширеннаяПодсказка" id="124"/>
+													<ChildItems>
+														<Table name="Категории" id="49">
+															<Representation>Tree</Representation>
+															<AutoMaxHeight>false</AutoMaxHeight>
+															<RowSelectionMode>Cell</RowSelectionMode>
+															<Header>false</Header>
+															<HorizontalLinesBWA>false</HorizontalLinesBWA>
+															<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+															<AutoInsertNewRow>true</AutoInsertNewRow>
+															<InitialTreeView>ExpandTopLevel</InitialTreeView>
+															<FileDragMode>AsFile</FileDragMode>
+															<DataPath>Категории</DataPath>
+															<RowPictureDataPath>Категории.ИндексКартинки</RowPictureDataPath>
+															<RowsPicture>
+																<xr:Ref>CommonPicture.ВидыКонтактнойИнформации</xr:Ref>
+																<xr:LoadTransparent>false</xr:LoadTransparent>
+															</RowsPicture>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Категории</v8:content>
+																</v8:item>
+															</Title>
+															<CommandSet>
+																<ExcludedCommand>Add</ExcludedCommand>
+																<ExcludedCommand>Change</ExcludedCommand>
+																<ExcludedCommand>Copy</ExcludedCommand>
+																<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+																<ExcludedCommand>Delete</ExcludedCommand>
+																<ExcludedCommand>EndEdit</ExcludedCommand>
+																<ExcludedCommand>HierarchicalList</ExcludedCommand>
+																<ExcludedCommand>List</ExcludedCommand>
+																<ExcludedCommand>MoveDown</ExcludedCommand>
+																<ExcludedCommand>MoveUp</ExcludedCommand>
+																<ExcludedCommand>OutputList</ExcludedCommand>
+																<ExcludedCommand>SelectAll</ExcludedCommand>
+																<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+																<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+																<ExcludedCommand>SortListAsc</ExcludedCommand>
+																<ExcludedCommand>SortListDesc</ExcludedCommand>
+																<ExcludedCommand>Tree</ExcludedCommand>
+															</CommandSet>
+															<ContextMenu name="КатегорииКонтекстноеМеню" id="50">
+																<Autofill>false</Autofill>
+															</ContextMenu>
+															<AutoCommandBar name="КатегорииКоманднаяПанель" id="51">
+																<Autofill>false</Autofill>
+															</AutoCommandBar>
+															<ExtendedTooltip name="КатегорииРасширеннаяПодсказка" id="52"/>
+															<SearchStringAddition name="КатегорииСтрокаПоиска" id="53">
+																<AdditionSource>
+																	<Item>Категории</Item>
+																	<Type>SearchStringRepresentation</Type>
+																</AdditionSource>
+																<ContextMenu name="КатегорииСтрокаПоискаКонтекстноеМеню" id="54"/>
+																<ExtendedTooltip name="КатегорииСтрокаПоискаРасширеннаяПодсказка" id="55"/>
+															</SearchStringAddition>
+															<ViewStatusAddition name="КатегорииСостояниеПросмотра" id="56">
+																<AdditionSource>
+																	<Item>Категории</Item>
+																	<Type>ViewStatusRepresentation</Type>
+																</AdditionSource>
+																<ContextMenu name="КатегорииСостояниеПросмотраКонтекстноеМеню" id="57"/>
+																<ExtendedTooltip name="КатегорииСостояниеПросмотраРасширеннаяПодсказка" id="58"/>
+															</ViewStatusAddition>
+															<SearchControlAddition name="КатегорииУправлениеПоиском" id="59">
+																<AdditionSource>
+																	<Item>Категории</Item>
+																	<Type>SearchControl</Type>
+																</AdditionSource>
+																<ContextMenu name="КатегорииУправлениеПоискомКонтекстноеМеню" id="60"/>
+																<ExtendedTooltip name="КатегорииУправлениеПоискомРасширеннаяПодсказка" id="61"/>
+															</SearchControlAddition>
+															<Events>
+																<Event name="Selection">КатегорииВыбор</Event>
+																<Event name="BeforeAddRow">КатегорииПередНачаломДобавления</Event>
+																<Event name="BeforeDeleteRow">КатегорииПередУдалением</Event>
+																<Event name="OnActivateRow">КатегорииПриАктивизацииСтроки</Event>
+																<Event name="BeforeExpand">КатегорииПередРазворачиванием</Event>
+															</Events>
+															<ChildItems>
+																<ColumnGroup name="ГруппаПометкаКатегория" id="84">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Пометка категория</v8:content>
+																		</v8:item>
+																	</Title>
+																	<Group>InCell</Group>
+																	<ExtendedTooltip name="ГруппаПометкаКатегорияРасширеннаяПодсказка" id="85"/>
+																	<ChildItems>
+																		<CheckBoxField name="КатегорииПометка" id="71">
+																			<DataPath>Категории.Пометка</DataPath>
+																			<TitleLocation>None</TitleLocation>
+																			<EditMode>EnterOnInput</EditMode>
+																			<AutoEditMode>true</AutoEditMode>
+																			<ThreeState>true</ThreeState>
+																			<ContextMenu name="КатегорииПометкаКонтекстноеМеню" id="72"/>
+																			<ExtendedTooltip name="КатегорииПометкаРасширеннаяПодсказка" id="73"/>
+																			<Events>
+																				<Event name="OnChange">КатегорииПометкаПриИзменении</Event>
+																			</Events>
+																		</CheckBoxField>
+																		<InputField name="КатегорииНаименование" id="62">
+																			<DataPath>Категории.Наименование</DataPath>
+																			<ReadOnly>true</ReadOnly>
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Категория</v8:content>
+																				</v8:item>
+																			</Title>
+																			<EditMode>EnterOnInput</EditMode>
+																			<AutoEditMode>true</AutoEditMode>
+																			<ContextMenu name="КатегорииНаименованиеКонтекстноеМеню" id="63"/>
+																			<ExtendedTooltip name="КатегорииНаименованиеРасширеннаяПодсказка" id="64"/>
+																		</InputField>
+																	</ChildItems>
+																</ColumnGroup>
+																<CheckBoxField name="КатегорииЗагружена" id="74">
+																	<DataPath>Категории.Загружена</DataPath>
+																	<Visible>false</Visible>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
+																	<ContextMenu name="КатегорииЗагруженаКонтекстноеМеню" id="75"/>
+																	<ExtendedTooltip name="КатегорииЗагруженаРасширеннаяПодсказка" id="76"/>
+																</CheckBoxField>
+																<InputField name="КатегорииИдентификаторКатегории" id="65">
+																	<DataPath>Категории.Идентификатор</DataPath>
+																	<Visible>false</Visible>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
+																	<ContextMenu name="КатегорииИдентификаторКатегорииКонтекстноеМеню" id="66"/>
+																	<ExtendedTooltip name="КатегорииИдентификаторКатегорииРасширеннаяПодсказка" id="67"/>
+																</InputField>
+																<InputField name="КатегорииИндексКартинки" id="68">
+																	<DataPath>Категории.ИндексКартинки</DataPath>
+																	<Visible>false</Visible>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoEditMode>true</AutoEditMode>
+																	<ContextMenu name="КатегорииИндексКартинкиКонтекстноеМеню" id="69"/>
+																	<ExtendedTooltip name="КатегорииИндексКартинкиРасширеннаяПодсказка" id="70"/>
+																</InputField>
+															</ChildItems>
+														</Table>
+													</ChildItems>
+												</Page>
+												<Page name="ГруппаСтраницаПустыхКатегорий" id="125">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа страница пустых категорий</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<ScrollOnCompress>false</ScrollOnCompress>
+													<ExtendedTooltip name="ГруппаСтраницаПустыхКатегорийРасширеннаяПодсказка" id="126"/>
+													<ChildItems>
+														<PictureDecoration name="ДекорацияПустойРубрикатор" id="127">
+															<HorizontalStretch>true</HorizontalStretch>
+															<VerticalStretch>true</VerticalStretch>
+															<TextColor>style:НедоступныеДанныеЭДЦвет</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Декорация пустой рубрикатор</v8:content>
+																</v8:item>
+															</Title>
+															<NonselectedPictureText>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Категории не найдены</v8:content>
+																</v8:item>
+															</NonselectedPictureText>
+															<Border width="1">
+																<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+															</Border>
+															<FileDragMode>AsFile</FileDragMode>
+															<PictureColor>style:НедоступныеДанныеЭДЦвет</PictureColor>
+															<ContextMenu name="ДекорацияПустойРубрикаторКонтекстноеМеню" id="128"/>
+															<ExtendedTooltip name="ДекорацияПустойРубрикаторРасширеннаяПодсказка" id="129"/>
+														</PictureDecoration>
+													</ChildItems>
+												</Page>
+											</ChildItems>
+										</Pages>
+										<LabelDecoration name="НадписьКоличествоКатегорийПриПоиске" id="109">
+											<Visible>false</Visible>
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Отображаются первые 100 категорий</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="НадписьКоличествоКатегорийПриПоискеКонтекстноеМеню" id="110"/>
+											<ExtendedTooltip name="НадписьКоличествоКатегорийПриПоискеРасширеннаяПодсказка" id="111"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаДанныеКатегорий" id="102">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Данные категорий</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДанныеКатегорийРасширеннаяПодсказка" id="103"/>
+									<ChildItems>
+										<SpreadSheetDocumentField name="ДанныеПоКатегории" id="23">
+											<DataPath>ДанныеПоКатегории</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<SelectionShowMode>DontShow</SelectionShowMode>
+											<BorderColor>style:FormBackColor</BorderColor>
+											<ContextMenu name="ДанныеПоКатегорииКонтекстноеМеню" id="24"/>
+											<ExtendedTooltip name="ДанныеПоКатегорииРасширеннаяПодсказка" id="25"/>
+											<Events>
+												<Event name="DetailProcessing">ДанныеПоКатегорииОбработкаРасшифровки</Event>
+											</Events>
+										</SpreadSheetDocumentField>
+										<UsualGroup name="ГруппаБаннер" id="104">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Баннер</v8:content>
+												</v8:item>
+											</Title>
+											<Group>HorizontalIfPossible</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаБаннерРасширеннаяПодсказка" id="105"/>
+											<ChildItems>
+												<PictureField name="Баннер" id="106">
+													<DataPath>Баннер</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<TitleLocation>None</TitleLocation>
+													<Width>47</Width>
+													<Height>3</Height>
+													<HorizontalStretch>false</HorizontalStretch>
+													<VerticalStretch>false</VerticalStretch>
+													<PictureSize>AutoSizeIgnoreScale</PictureSize>
+													<Hyperlink>true</Hyperlink>
+													<Border width="1">
+														<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+													</Border>
+													<FileDragMode>AsFile</FileDragMode>
+													<ContextMenu name="БаннерКонтекстноеМеню" id="107"/>
+													<ExtendedTooltip name="БаннерРасширеннаяПодсказка" id="108"/>
+													<Events>
+														<Event name="Click">БаннерНажатие</Event>
+													</Events>
+												</PictureField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
-				</UsualGroup>
+				</Page>
 			</ChildItems>
-		</UsualGroup>
+		</Pages>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -1236,17 +1290,6 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ТолькоВыбранныеЭлементы" id="38">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Только выбранные элементы</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="ТолькоВыбранные" id="1">
@@ -1312,7 +1355,6 @@
 			</ToolTip>
 			<Action>ЗагрузитьКатегории</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВыбратьКатегорию" id="5">
 			<Title>
@@ -1329,8 +1371,6 @@
 			</ToolTip>
 			<Action>ВыбратьКатегорию</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Категории</AssociatedTableElementId>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПеречитатьКатегории" id="6">
 			<Title>

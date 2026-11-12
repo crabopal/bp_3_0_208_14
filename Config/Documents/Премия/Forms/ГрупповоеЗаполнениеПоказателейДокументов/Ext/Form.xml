@@ -3,10 +3,10 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Значение показателя</v8:content>
+			<v8:content>Значение для заполнения</v8:content>
 		</v8:item>
 	</Title>
-	<Width>35</Width>
+	<Width>37</Width>
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
@@ -32,6 +32,7 @@
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаОбщиеПоказатели" id="15">
@@ -59,24 +60,18 @@
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаПроцентПремииРасширеннаяПодсказка" id="86">
+						<AutoMaxWidth>false</AutoMaxWidth>
 						<Title formatted="false">
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Размер премии каждого сотрудника будет рассчитан
-как % от суммы заработка за период премирования.</v8:content>
+								<v8:content>Сумма премии рассчитывается как процент от суммы заработка за период премирования</v8:content>
 							</v8:item>
 						</Title>
 					</ExtendedTooltip>
 					<ChildItems>
 						<InputField name="ПроцентПремии" id="76">
 							<DataPath>ПроцентПремии</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>% премии</v8:content>
-								</v8:item>
-							</Title>
-							<Width>12</Width>
+							<Width>11</Width>
 							<ContextMenu name="ПроцентПремииКонтекстноеМеню" id="77"/>
 							<ExtendedTooltip name="ПроцентПремииРасширеннаяПодсказка" id="78"/>
 						</InputField>
@@ -97,46 +92,17 @@
 						<Title formatted="false">
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Сумма указанной премии должна учитывать результат
-выполненной работы за период премирования.</v8:content>
+								<v8:content>Начисляется фиксированной суммой</v8:content>
 							</v8:item>
 						</Title>
 					</ExtendedTooltip>
 					<ChildItems>
 						<InputField name="СуммаПремии" id="79">
 							<DataPath>СуммаПремии</DataPath>
+							<Width>11</Width>
 							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 							<ContextMenu name="СуммаПремииКонтекстноеМеню" id="80"/>
 							<ExtendedTooltip name="СуммаПремииРасширеннаяПодсказка" id="81"/>
-						</InputField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаСуммаПремииФиксированная" id="89">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа сумма премии фиксированная</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-					<Group>Vertical</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаСуммаПремииФиксированнаяРасширеннаяПодсказка" id="90">
-						<Title formatted="false">
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Сумма указанной премии не учитывает результат
-выполненной работы за период премирования.</v8:content>
-							</v8:item>
-						</Title>
-					</ExtendedTooltip>
-					<ChildItems>
-						<InputField name="СуммаПремии1" id="91">
-							<DataPath>СуммаПремии</DataPath>
-							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-							<ContextMenu name="СуммаПремии1КонтекстноеМеню" id="92"/>
-							<ExtendedTooltip name="СуммаПремии1РасширеннаяПодсказка" id="93"/>
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
@@ -163,7 +129,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Процент</v8:content>
+					<v8:content>% премии</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -174,6 +140,7 @@
 					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
 				</v8:NumberQualifiers>
 			</Type>
+			<FillCheck>ShowError</FillCheck>
 		</Attribute>
 		<Attribute name="СуммаПремии" id="2">
 			<Title>
@@ -190,6 +157,7 @@
 					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
 				</v8:NumberQualifiers>
 			</Type>
+			<FillCheck>ShowError</FillCheck>
 		</Attribute>
 		<Attribute name="ИмяПоказателя" id="3">
 			<Title>
@@ -204,6 +172,17 @@
 					<v8:Length>0</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПремияПроцентом" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Премия процентом</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
 	</Attributes>
@@ -263,6 +242,16 @@
 		<Parameter name="ФиксированноеЗначение">
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ЗначениеПоказателя">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
 			</Type>
 		</Parameter>
 	</Parameters>

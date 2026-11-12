@@ -5,18 +5,34 @@
 	<CommandSet>
 		<ExcludedCommand>Abort</ExcludedCommand>
 		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>CancelSearch</ExcludedCommand>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>ChangeHistory</ExcludedCommand>
 		<ExcludedCommand>Close</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
 		<ExcludedCommand>Create</ExcludedCommand>
 		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>DynamicListStandardSettings</ExcludedCommand>
+		<ExcludedCommand>Find</ExcludedCommand>
+		<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+		<ExcludedCommand>GetURL</ExcludedCommand>
 		<ExcludedCommand>Help</ExcludedCommand>
 		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>ListSettings</ExcludedCommand>
+		<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
 		<ExcludedCommand>No</ExcludedCommand>
 		<ExcludedCommand>OK</ExcludedCommand>
 		<ExcludedCommand>OpenFromMainServer</ExcludedCommand>
 		<ExcludedCommand>OpenFromStandaloneServer</ExcludedCommand>
+		<ExcludedCommand>OutputList</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
 		<ExcludedCommand>RestoreValues</ExcludedCommand>
 		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
 		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+		<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 		<ExcludedCommand>Yes</ExcludedCommand>
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
@@ -26,17 +42,6 @@
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.Создать</CommandName>
 				<ExtendedTooltip name="СозданиеНастройкиРасширеннаяПодсказка" id="26"/>
-			</Button>
-			<Button name="ПроблемаСЗаказом" id="30">
-				<Type>CommandBarHyperlink</Type>
-				<Representation>PictureAndText</Representation>
-				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-				<CommandName>Form.Command.ПроблемаСЗаказом</CommandName>
-				<Picture>
-					<xr:Ref>StdPicture.FormHelp</xr:Ref>
-					<xr:LoadTransparent>true</xr:LoadTransparent>
-				</Picture>
-				<ExtendedTooltip name="ПроблемаСЗаказомРасширеннаяПодсказка" id="31"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -59,8 +64,8 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -90,8 +95,8 @@
 				<ExcludedCommand>SearchEverywhere</ExcludedCommand>
 				<ExcludedCommand>SearchHistory</ExcludedCommand>
 				<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -110,7 +115,9 @@
 			<ContextMenu name="СписокКонтекстноеМеню" id="4">
 				<Autofill>false</Autofill>
 			</ContextMenu>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -140,12 +147,6 @@
 				<Event name="BeforeAddRow">СписокПередНачаломДобавления</Event>
 			</Events>
 			<ChildItems>
-				<CheckBoxField name="Используется" id="22">
-					<DataPath>Список.Используется</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<ContextMenu name="ИспользуетсяКонтекстноеМеню" id="23"/>
-					<ExtendedTooltip name="ИспользуетсяРасширеннаяПодсказка" id="24"/>
-				</CheckBoxField>
 				<LabelField name="Наименование" id="16">
 					<DataPath>Список.Description</DataPath>
 					<DefaultItem>true</DefaultItem>
@@ -164,6 +165,11 @@
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="21"/>
 				</LabelField>
+				<CheckBoxField name="Используется" id="22">
+					<DataPath>Список.Используется</DataPath>
+					<ContextMenu name="ИспользуетсяКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ИспользуетсяРасширеннаяПодсказка" id="24"/>
+				</CheckBoxField>
 				<LabelField name="Ссылка" id="27">
 					<DataPath>Список.Ref</DataPath>
 					<UserVisible>
@@ -174,6 +180,12 @@
 				</LabelField>
 			</ChildItems>
 		</Table>
+		<Button name="ПроблемаСЗаказом" id="30">
+			<Type>Hyperlink</Type>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<CommandName>Form.Command.ПроблемаСЗаказом</CommandName>
+			<ExtendedTooltip name="ПроблемаСЗаказомРасширеннаяПодсказка" id="31"/>
+		</Button>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Список" id="1">
@@ -233,7 +245,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Создать</Action>
-			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="ПроблемаСЗаказом" id="2">
 			<Title>

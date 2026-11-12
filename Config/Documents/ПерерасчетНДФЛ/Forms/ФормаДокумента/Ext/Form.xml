@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ScalingMode>Compact</ScalingMode>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
@@ -26,12 +25,12 @@
 					<v8:content>Шапка</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
+			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ChildItemsWidth>LeftWide</ChildItemsWidth>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ШапкаРасширеннаяПодсказка" id="98"/>
+			<ExtendedTooltip name="ШапкаExtendedTooltip" id="98"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаШапкаЛевая" id="76">
 					<Title>
@@ -44,23 +43,57 @@
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаШапкаЛеваяРасширеннаяПодсказка" id="99"/>
+					<ExtendedTooltip name="ГруппаШапкаЛеваяExtendedTooltip" id="99"/>
 					<ChildItems>
 						<InputField name="Организация" id="9">
 							<DataPath>Объект.Организация</DataPath>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="10"/>
-							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="100"/>
+							<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="100"/>
 						</InputField>
-						<InputField name="НалоговыйПериод" id="5">
-							<DataPath>Объект.НалоговыйПериод</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<SpinButton>true</SpinButton>
-							<ContextMenu name="НалоговыйПериодКонтекстноеМеню" id="6"/>
-							<ExtendedTooltip name="НалоговыйПериодРасширеннаяПодсказка" id="101"/>
-						</InputField>
+						<UsualGroup name="ШапкаПериодГруппа" id="143">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Шапка период группа</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ШапкаПериодГруппаРасширеннаяПодсказка" id="144"/>
+							<ChildItems>
+								<InputField name="НалоговыйПериод" id="5">
+									<DataPath>Объект.НалоговыйПериод</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="НалоговыйПериодКонтекстноеМеню" id="6"/>
+									<ExtendedTooltip name="НалоговыйПериодExtendedTooltip" id="101"/>
+								</InputField>
+								<InputField name="МесяцПерерасчетаСтрокой" id="63">
+									<DataPath>МесяцПерерасчетаСтрокой</DataPath>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ChoiceButton>true</ChoiceButton>
+									<SpinButton>true</SpinButton>
+									<ChoiceButtonPicture>
+										<xr:Ref>StdPicture.InputFieldCalendar</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</ChoiceButtonPicture>
+									<ContextMenu name="МесяцПерерасчетаСтрокойКонтекстноеМеню" id="64"/>
+									<ExtendedTooltip name="МесяцПерерасчетаСтрокойExtendedTooltip" id="102"/>
+									<Events>
+										<Event name="OnChange">МесяцПерерасчетаСтрокойПриИзменении</Event>
+										<Event name="AutoComplete">МесяцПерерасчетаСтрокойАвтоПодбор</Event>
+										<Event name="StartChoice">МесяцПерерасчетаСтрокойНачалоВыбора</Event>
+										<Event name="Tuning">МесяцПерерасчетаСтрокойРегулирование</Event>
+										<Event name="TextEditEnd">МесяцПерерасчетаСтрокойОкончаниеВводаТекста</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="Авторизация" id="93">
@@ -74,7 +107,7 @@
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="АвторизацияРасширеннаяПодсказка" id="103"/>
+					<ExtendedTooltip name="АвторизацияExtendedTooltip" id="103"/>
 					<ChildItems>
 						<UsualGroup name="ДатаНомер" id="77">
 							<Title>
@@ -87,48 +120,26 @@
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ДатаНомерРасширеннаяПодсказка" id="104"/>
+							<ExtendedTooltip name="ДатаНомерExtendedTooltip" id="104"/>
 							<ChildItems>
+								<InputField name="Дата" id="3">
+									<DataPath>Объект.Date</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<Width>10</Width>
+									<ContextMenu name="ДатаКонтекстноеМеню" id="4"/>
+									<ExtendedTooltip name="ДатаExtendedTooltip" id="105"/>
+								</InputField>
 								<InputField name="Номер" id="1">
 									<DataPath>Объект.Number</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
-									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="106"/>
-								</InputField>
-								<InputField name="Дата" id="3">
-									<DataPath>Объект.Date</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>от</v8:content>
-										</v8:item>
-									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ДатаКонтекстноеМеню" id="4"/>
-									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="105"/>
+									<ExtendedTooltip name="НомерExtendedTooltip" id="106"/>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
-						<InputField name="МесяцПерерасчетаСтрокой" id="63">
-							<DataPath>МесяцПерерасчетаСтрокой</DataPath>
-							<ChoiceButton>true</ChoiceButton>
-							<SpinButton>true</SpinButton>
-							<ChoiceButtonPicture>
-								<xr:Ref>StdPicture.InputFieldCalendar</xr:Ref>
-								<xr:LoadTransparent>true</xr:LoadTransparent>
-							</ChoiceButtonPicture>
-							<ContextMenu name="МесяцПерерасчетаСтрокойКонтекстноеМеню" id="64"/>
-							<ExtendedTooltip name="МесяцПерерасчетаСтрокойРасширеннаяПодсказка" id="102"/>
-							<Events>
-								<Event name="OnChange">МесяцПерерасчетаСтрокойПриИзменении</Event>
-								<Event name="AutoComplete">МесяцПерерасчетаСтрокойАвтоПодбор</Event>
-								<Event name="StartChoice">МесяцПерерасчетаСтрокойНачалоВыбора</Event>
-								<Event name="Tuning">МесяцПерерасчетаСтрокойРегулирование</Event>
-								<Event name="TextEditEnd">МесяцПерерасчетаСтрокойОкончаниеВводаТекста</Event>
-							</Events>
-						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -140,12 +151,12 @@
 					<v8:content>НДФЛ группа</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
+			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ChildItemsWidth>LeftWide</ChildItemsWidth>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="НДФЛГруппаРасширеннаяПодсказка" id="108"/>
+			<ExtendedTooltip name="НДФЛГруппаExtendedTooltip" id="108"/>
 			<ChildItems>
 				<UsualGroup name="НДФЛГруппаГоризонтальная" id="95">
 					<Title>
@@ -158,8 +169,15 @@
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="НДФЛГруппаГоризонтальнаяРасширеннаяПодсказка" id="109"/>
+					<ExtendedTooltip name="НДФЛГруппаГоризонтальнаяExtendedTooltip" id="109"/>
 					<ChildItems>
+						<Button name="Заполнить" id="91">
+							<Type>UsualButton</Type>
+							<Height>1</Height>
+							<CommandName>Form.Command.Заполнить</CommandName>
+							<Font ref="style:LargeTextFont" kind="StyleItem"/>
+							<ExtendedTooltip name="ЗаполнитьExtendedTooltip" id="110"/>
+						</Button>
 						<Pages name="ГруппаСтраницы" id="159">
 							<Title>
 								<v8:item>
@@ -192,8 +210,13 @@
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ВсеКомандыРасширеннаяПодсказка" id="111"/>
+											<ExtendedTooltip name="ВсеКомандыExtendedTooltip" id="111"/>
 											<ChildItems>
+												<Button name="СотрудникиПодборСотрудников" id="65">
+													<Type>UsualButton</Type>
+													<CommandName>Form.Command.ПодборСотрудников</CommandName>
+													<ExtendedTooltip name="СотрудникиПодборСотрудниковExtendedTooltip" id="112"/>
+												</Button>
 												<CommandBar name="КомандыНачисления" id="97">
 													<Title>
 														<v8:item>
@@ -202,21 +225,7 @@
 														</v8:item>
 													</Title>
 													<CommandSource>Item.Сотрудники</CommandSource>
-													<ExtendedTooltip name="КомандыНачисленияРасширеннаяПодсказка" id="113"/>
-													<ChildItems>
-														<Button name="Заполнить" id="91">
-															<Type>CommandBarButton</Type>
-															<Height>1</Height>
-															<CommandName>Form.Command.Заполнить</CommandName>
-															<Font ref="style:LargeTextFont" kind="StyleItem"/>
-															<ExtendedTooltip name="ЗаполнитьРасширеннаяПодсказка" id="110"/>
-														</Button>
-														<Button name="СотрудникиПодборСотрудников" id="65">
-															<Type>CommandBarButton</Type>
-															<CommandName>Form.Command.ПодборСотрудников</CommandName>
-															<ExtendedTooltip name="СотрудникиПодборСотрудниковРасширеннаяПодсказка" id="112"/>
-														</Button>
-													</ChildItems>
+													<ExtendedTooltip name="КомандыНачисленияExtendedTooltip" id="113"/>
 												</CommandBar>
 											</ChildItems>
 										</UsualGroup>
@@ -244,7 +253,7 @@
 											<RowFilter xsi:nil="true"/>
 											<ContextMenu name="СотрудникиКонтекстноеМеню" id="18"/>
 											<AutoCommandBar name="СотрудникиКоманднаяПанель" id="19"/>
-											<ExtendedTooltip name="СотрудникиРасширеннаяПодсказка" id="114"/>
+											<ExtendedTooltip name="СотрудникиExtendedTooltip" id="114"/>
 											<SearchStringAddition name="СотрудникиСтрокаПоиска" id="134">
 												<AdditionSource>
 													<Item>Сотрудники</Item>
@@ -283,14 +292,14 @@
 													<EditMode>EnterOnInput</EditMode>
 													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="СотрудникиНомерСтрокиКонтекстноеМеню" id="21"/>
-													<ExtendedTooltip name="СотрудникиНомерСтрокиРасширеннаяПодсказка" id="115"/>
+													<ExtendedTooltip name="СотрудникиНомерСтрокиExtendedTooltip" id="115"/>
 												</LabelField>
 												<InputField name="СотрудникиФизическоеЛицо" id="24">
 													<DataPath>Объект.Сотрудники.Сотрудник</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="СотрудникиФизическоеЛицоКонтекстноеМеню" id="25"/>
-													<ExtendedTooltip name="СотрудникиФизическоеЛицоРасширеннаяПодсказка" id="116"/>
+													<ExtendedTooltip name="СотрудникиФизическоеЛицоExtendedTooltip" id="116"/>
 												</InputField>
 												<InputField name="СотрудникиМесяцНалоговогоПериода" id="156">
 													<DataPath>Объект.Сотрудники.МесяцНалоговогоПериода</DataPath>
@@ -304,7 +313,7 @@
 													<EditMode>EnterOnInput</EditMode>
 													<AutoEditMode>true</AutoEditMode>
 													<ContextMenu name="СотрудникиПодразделениеКонтекстноеМеню" id="23"/>
-													<ExtendedTooltip name="СотрудникиПодразделениеРасширеннаяПодсказка" id="117"/>
+													<ExtendedTooltip name="СотрудникиПодразделениеExtendedTooltip" id="117"/>
 												</InputField>
 												<InputField name="СотрудникиКатегорияДохода" id="190">
 													<DataPath>Объект.Сотрудники.КатегорияДохода</DataPath>
@@ -322,21 +331,15 @@
 													</Title>
 													<Group>Horizontal</Group>
 													<ShowInHeader>true</ShowInHeader>
-													<ExtendedTooltip name="НалогПоСтавкамРасширеннаяПодсказка" id="118"/>
+													<ExtendedTooltip name="НалогПоСтавкамExtendedTooltip" id="118"/>
 													<ChildItems>
 														<InputField name="СотрудникиНалогПоСтавке13" id="28">
 															<DataPath>Объект.Сотрудники.НалогПоСтавке13</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>13% (30%)</v8:content>
-																</v8:item>
-															</Title>
 															<EditMode>EnterOnInput</EditMode>
 															<FooterDataPath>Объект.Сотрудники.TotalНалогПоСтавке13</FooterDataPath>
 															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="СотрудникиНалогПоСтавке13КонтекстноеМеню" id="29"/>
-															<ExtendedTooltip name="СотрудникиНалогПоСтавке13РасширеннаяПодсказка" id="119"/>
+															<ExtendedTooltip name="СотрудникиНалогПоСтавке13ExtendedTooltip" id="119"/>
 														</InputField>
 														<InputField name="СотрудникиНалогСПревышенияПоСтавке13" id="195">
 															<DataPath>Объект.Сотрудники.НалогСПревышения</DataPath>
@@ -431,7 +434,7 @@
 															<FooterDataPath>Объект.Сотрудники.TotalНалогПоСтавке09</FooterDataPath>
 															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="СотрудникиНалогПоСтавке09КонтекстноеМеню" id="27"/>
-															<ExtendedTooltip name="СотрудникиНалогПоСтавке09РасширеннаяПодсказка" id="120"/>
+															<ExtendedTooltip name="СотрудникиНалогПоСтавке09ExtendedTooltip" id="120"/>
 														</InputField>
 														<InputField name="СотрудникиНалогПоСтавке35" id="30">
 															<DataPath>Объект.Сотрудники.НалогПоСтавке35</DataPath>
@@ -439,7 +442,7 @@
 															<FooterDataPath>Объект.Сотрудники.TotalНалогПоСтавке35</FooterDataPath>
 															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="СотрудникиНалогПоСтавке35КонтекстноеМеню" id="31"/>
-															<ExtendedTooltip name="СотрудникиНалогПоСтавке35РасширеннаяПодсказка" id="121"/>
+															<ExtendedTooltip name="СотрудникиНалогПоСтавке35ExtendedTooltip" id="121"/>
 														</InputField>
 													</ChildItems>
 												</ColumnGroup>
@@ -456,18 +459,6 @@
 													<ChildItems>
 														<InputField name="СотрудникиЗачтеноАвансовыхПлатежейПоСтавке13" id="147">
 															<DataPath>Объект.Сотрудники.ЗачтеноАвансовыхПлатежейПоСтавке13</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>13% (30%)</v8:content>
-																</v8:item>
-															</Title>
-															<ToolTip>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Зачтено авансовых платежей по ставке 13% (30%)</v8:content>
-																</v8:item>
-															</ToolTip>
 															<EditMode>EnterOnInput</EditMode>
 															<FooterDataPath>Объект.Сотрудники.TotalЗачтеноАвансовыхПлатежейПоСтавке13</FooterDataPath>
 															<AutoEditMode>true</AutoEditMode>
@@ -665,9 +656,10 @@
 													<ContextMenu name="КорректировкиВыплатыНалогКЗачетуВозвратуКонтекстноеМеню" id="188"/>
 													<ExtendedTooltip name="КорректировкиВыплатыНалогКЗачетуВозвратуРасширеннаяПодсказка" id="189"/>
 												</InputField>
-												<InputField name="КорректировкиВыплатыНалоговаяБаза" id="291">
+												<InputField name="КорректировкиВыплатыНалоговаяБаза" id="229">
 													<DataPath>Объект.КорректировкиВыплаты.НалоговаяБаза</DataPath>
 													<EditMode>EnterOnInput</EditMode>
+													<AutoEditMode>true</AutoEditMode>
 													<ListChoiceMode>true</ListChoiceMode>
 													<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 													<ChoiceList>
@@ -704,70 +696,11 @@
 															</xr:Value>
 														</xr:Item>
 													</ChoiceList>
-													<ContextMenu name="КорректировкиВыплатыНалоговаяБазаКонтекстноеМеню" id="292"/>
-													<ExtendedTooltip name="КорректировкиВыплатыНалоговаяБазаРасширеннаяПодсказка" id="293"/>
+													<ContextMenu name="КорректировкиВыплатыНалоговаяБазаКонтекстноеМеню" id="230"/>
+													<ExtendedTooltip name="КорректировкиВыплатыНалоговаяБазаРасширеннаяПодсказка" id="231"/>
 												</InputField>
 											</ChildItems>
 										</Table>
-									</ChildItems>
-								</Page>
-								<Page name="ГруппаДополнительно" id="271">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Дополнительно</v8:content>
-										</v8:item>
-									</Title>
-									<Group>Vertical</Group>
-									<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="272"/>
-									<ChildItems>
-										<UsualGroup name="ГруппаКомментарийОтветственный" id="73">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Комментарий ответственный</v8:content>
-												</v8:item>
-											</Title>
-											<Group>Vertical</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ChildItemsWidth>LeftWide</ChildItemsWidth>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаКомментарийОтветственныйРасширеннаяПодсказка" id="126"/>
-											<ChildItems>
-												<InputField name="Комментарий" id="15">
-													<DataPath>Объект.Комментарий</DataPath>
-													<TitleLocation>Top</TitleLocation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<Height>1</Height>
-													<VerticalStretch>false</VerticalStretch>
-													<MultiLine>true</MultiLine>
-													<ExtendedEdit>true</ExtendedEdit>
-													<ContextMenu name="КомментарийКонтекстноеМеню" id="16"/>
-													<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="127"/>
-												</InputField>
-												<InputField name="Ответственный" id="74">
-													<DataPath>Объект.Ответственный</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<ContextMenu name="ОтветственныйКонтекстноеМеню" id="75"/>
-													<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="107"/>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
-										<UsualGroup name="ГруппаДополнительныеРеквизиты" id="193">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Дополнительно</v8:content>
-												</v8:item>
-											</Title>
-											<Group>Vertical</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ExtendedTooltip name="ГруппаДополнительныеРеквизитыРасширеннаяПодсказка" id="194"/>
-										</UsualGroup>
 									</ChildItems>
 								</Page>
 							</ChildItems>
@@ -787,9 +720,9 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ControlRepresentation>Button</ControlRepresentation>
+					<Behavior>Usual</Behavior>
 					<Representation>WeakSeparation</Representation>
-					<ExtendedTooltip name="ГруппаКарточкаРасширеннаяПодсказка" id="125"/>
+					<ExtendedTooltip name="ГруппаКарточкаExtendedTooltip" id="125"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаКарточкаГруппаВычетыНаДетейИИмущественные" id="128">
 							<Title>
@@ -800,8 +733,6 @@
 							</Title>
 							<Group>Vertical</Group>
 							<Behavior>Collapsible</Behavior>
-							<Collapsed>true</Collapsed>
-							<ControlRepresentation>Button</ControlRepresentation>
 							<Representation>None</Representation>
 							<ExtendedTooltip name="ГруппаКарточкаГруппаВычетыНаДетейИИмущественныеРасширеннаяПодсказка" id="129"/>
 						</UsualGroup>
@@ -815,12 +746,58 @@
 							<Group>Horizontal</Group>
 							<Behavior>Collapsible</Behavior>
 							<Collapsed>true</Collapsed>
-							<ControlRepresentation>Button</ControlRepresentation>
 							<Representation>None</Representation>
 							<ExtendedTooltip name="ГруппаКарточкаГруппаВычетыЛичныеРасширеннаяПодсказка" id="131"/>
 						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДополнительныеРеквизиты" id="193">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительно</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаДополнительныеРеквизитыExtendedTooltip" id="194"/>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКомментарийОтветственный" id="73">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий ответственный</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ChildItemsWidth>LeftWide</ChildItemsWidth>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомментарийОтветственныйРасширеннаяПодсказка" id="126"/>
+			<ChildItems>
+				<InputField name="Комментарий" id="15">
+					<DataPath>Объект.Комментарий</DataPath>
+					<TitleLocation>Left</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<Height>1</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<MultiLine>true</MultiLine>
+					<ExtendedEdit>true</ExtendedEdit>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="16"/>
+					<ExtendedTooltip name="КомментарийExtendedTooltip" id="127"/>
+				</InputField>
+				<InputField name="Ответственный" id="74">
+					<DataPath>Объект.Ответственный</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="75"/>
+					<ExtendedTooltip name="ОтветственныйExtendedTooltip" id="107"/>
+				</InputField>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -934,7 +911,7 @@
 		</NavigationPanel>
 		<CommandBar>
 			<Item>
-				<Command>CommonCommand.ОтчетПоДвижениям</Command>
+				<Command>0:2baf6d7a-12ed-4f22-ad96-92bb31b747ff</Command>
 				<Type>Auto</Type>
 				<DefaultVisible>false</DefaultVisible>
 				<Visible>

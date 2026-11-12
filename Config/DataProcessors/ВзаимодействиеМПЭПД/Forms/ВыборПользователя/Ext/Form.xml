@@ -10,17 +10,7 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаВыбратьПользователя" id="50">
-				<Type>CommandBarButton</Type>
-				<Representation>Text</Representation>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ВыбратьПользователя</CommandName>
-				<RepresentationInContextMenu>None</RepresentationInContextMenu>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаВыбратьПользователяРасширеннаяПодсказка" id="51"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -29,11 +19,10 @@
 	<ChildItems>
 		<Table name="ТаблицаМобильныхУстройств" id="1">
 			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
 			<ChangeRowSet>false</ChangeRowSet>
 			<ChangeRowOrder>false</ChangeRowOrder>
 			<Width>70</Width>
-			<SelectionMode>SingleRow</SelectionMode>
+			<ChoiceMode>true</ChoiceMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -48,23 +37,17 @@
 				<ExcludedCommand>MoveDown</ExcludedCommand>
 				<ExcludedCommand>MoveUp</ExcludedCommand>
 				<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
 			</CommandSet>
 			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
-			<ShowCommandBar>true</ShowCommandBar>
 			<RowFilter xsi:nil="true"/>
 			<ContextMenu name="ТаблицаМобильныхУстройствКонтекстноеМеню" id="2"/>
 			<AutoCommandBar name="ТаблицаМобильныхУстройствКоманднаяПанель" id="3">
 				<ChildItems>
-					<Button name="ТаблицаМобильныхУстройствВыбратьПользователя" id="46">
-						<Type>CommandBarButton</Type>
-						<Representation>Text</Representation>
-						<CommandName>Form.Command.ВыбратьПользователя</CommandName>
-						<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
-						<ExtendedTooltip name="ТаблицаМобильныхУстройствВыбратьПользователяРасширеннаяПодсказка" id="47"/>
-					</Button>
 					<Button name="ПодключитьПользователя" id="32">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.ПодключитьПользователя</CommandName>
@@ -109,19 +92,22 @@
 			<ChildItems>
 				<LabelField name="ТаблицаМобильныхУстройствНаименование" id="26">
 					<DataPath>ТаблицаМобильныхУстройств.Наименование</DataPath>
-					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТаблицаМобильныхУстройствНаименованиеКонтекстноеМеню" id="27"/>
 					<ExtendedTooltip name="ТаблицаМобильныхУстройствНаименованиеРасширеннаяПодсказка" id="28"/>
 				</LabelField>
 				<LabelField name="ТаблицаМобильныхУстройствОрганизация" id="20">
 					<DataPath>ТаблицаМобильныхУстройств.Организация</DataPath>
-					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТаблицаМобильныхУстройствОрганизацияКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="ТаблицаМобильныхУстройствОрганизацияРасширеннаяПодсказка" id="22"/>
 				</LabelField>
 				<InputField name="ТаблицаМобильныхУстройствПредставлениеРоли" id="29">
 					<DataPath>ТаблицаМобильныхУстройств.ПредставлениеРоли</DataPath>
-					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoEditMode>true</AutoEditMode>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="ТаблицаМобильныхУстройствПредставлениеРолиКонтекстноеМеню" id="30"/>
 					<ExtendedTooltip name="ТаблицаМобильныхУстройствПредставлениеРолиРасширеннаяПодсказка" id="31"/>
@@ -352,26 +338,6 @@
 			</Picture>
 			<Action>ОбновитьМобильныеПриложения</Action>
 			<Representation>Picture</Representation>
-		</Command>
-		<Command name="ВыбратьПользователя" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать пользователя</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
-			<Action>ВыбратьПользователя</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

@@ -3,15 +3,21 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<CommandSet>
+		<ExcludedCommand>Copy</ExcludedCommand>
 		<ExcludedCommand>Create</ExcludedCommand>
 	</CommandSet>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
-			<Button name="СписокОбновить" id="52">
+			<Button name="ФормаСохранить" id="40">
 				<Type>CommandBarButton</Type>
-				<Representation>PictureAndText</Representation>
-				<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
-				<ExtendedTooltip name="СписокОбновитьРасширеннаяПодсказка" id="53"/>
+				<CommandName>Form.Command.Сохранить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сохранить</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаСохранитьРасширеннаяПодсказка" id="41"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -32,9 +38,8 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<TitleLocation>Auto</TitleLocation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -49,9 +54,7 @@
 			<CommandSet>
 				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
-				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -70,24 +73,9 @@
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
 				<Autofill>false</Autofill>
-				<ChildItems>
-					<Button name="СписокСохранитьСообщениеВФайл" id="55">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.СохранитьСообщениеВФайл</CommandName>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Сохранить сообщение в файл</v8:content>
-							</v8:item>
-						</Title>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-						<ExtendedTooltip name="СписокСохранитьСообщениеВФайлРасширеннаяПодсказка" id="56"/>
-					</Button>
-				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
-				<Enabled>false</Enabled>
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchStringRepresentation</Type>
@@ -96,7 +84,6 @@
 				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>
 			</SearchStringAddition>
 			<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">
-				<Enabled>false</Enabled>
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>ViewStatusRepresentation</Type>
@@ -105,7 +92,6 @@
 				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
 			</ViewStatusAddition>
 			<SearchControlAddition name="СписокУправлениеПоиском" id="13">
-				<Enabled>false</Enabled>
 				<AdditionSource>
 					<Item>Список</Item>
 					<Type>SearchControl</Type>
@@ -127,87 +113,34 @@
 				</LabelField>
 				<LabelField name="ПолноеИмяФайла" id="22">
 					<DataPath>Список.ПолноеИмяФайла</DataPath>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Путь</v8:content>
-						</v8:item>
-					</Title>
 					<ContextMenu name="ПолноеИмяФайлаКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ПолноеИмяФайлаРасширеннаяПодсказка" id="24"/>
 				</LabelField>
 				<LabelField name="НомерПринятогоСообщения" id="25">
 					<DataPath>Список.НомерПринятогоСообщения</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Сообщение (№)</v8:content>
-						</v8:item>
-					</Title>
 					<ContextMenu name="НомерПринятогоСообщенияКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="НомерПринятогоСообщенияРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 				<LabelField name="ИмяФайла" id="28">
 					<DataPath>Список.ИмяФайла</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Файл</v8:content>
-						</v8:item>
-					</Title>
 					<ContextMenu name="ИмяФайлаКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ИмяФайлаРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<LabelField name="РасширениеФайла" id="31">
 					<DataPath>Список.РасширениеФайла</DataPath>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Расширение</v8:content>
-						</v8:item>
-					</Title>
 					<ContextMenu name="РасширениеФайлаКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="РасширениеФайлаРасширеннаяПодсказка" id="33"/>
 				</LabelField>
 				<LabelField name="РазмерФайла" id="34">
 					<DataPath>Список.РазмерФайла</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Мб</v8:content>
-						</v8:item>
-					</Title>
 					<ContextMenu name="РазмерФайлаКонтекстноеМеню" id="35"/>
 					<ExtendedTooltip name="РазмерФайлаРасширеннаяПодсказка" id="36"/>
 				</LabelField>
 				<CheckBoxField name="ФайлБольше100Мб" id="37">
 					<DataPath>Список.ФайлБольше100Мб</DataPath>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Больше 100 Мб</v8:content>
-						</v8:item>
-					</Title>
 					<ContextMenu name="ФайлБольше100МбКонтекстноеМеню" id="38"/>
 					<ExtendedTooltip name="ФайлБольше100МбРасширеннаяПодсказка" id="39"/>
 				</CheckBoxField>
-				<LabelField name="ХешСуммаФайла" id="61">
-					<DataPath>Список.ХешСуммаФайла</DataPath>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<ContextMenu name="ХешСуммаФайлаКонтекстноеМеню" id="62"/>
-					<ExtendedTooltip name="ХешСуммаФайлаРасширеннаяПодсказка" id="63"/>
-				</LabelField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -261,17 +194,17 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="СохранитьСообщениеВФайл" id="1">
+		<Command name="Сохранить" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить сообщение в файл</v8:content>
+					<v8:content>Сохранить</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сохранить сообщение в файл</v8:content>
+					<v8:content>Сохранить</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Picture>
@@ -280,9 +213,6 @@
 			</Picture>
 			<Action>Сохранить</Action>
 			<Representation>TextPicture</Representation>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
 		</Command>
 	</Commands>
 </Form>

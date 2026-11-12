@@ -205,8 +205,6 @@
 		<enumeration>НаТовар</enumeration>
 		<enumeration>ПодарочнаяКарта</enumeration>
 		<enumeration>Дисконтная</enumeration>
-		<enumeration xsi:type="xs:string">Бонус</enumeration>
-		<enumeration xsi:type="xs:string">Подарок</enumeration>
 	</valueType>
 	<valueType name="ВидыСобытийОС" base="xs:string" variety="Atomic">
 		<enumeration xsi:type="xs:string">ПринятиеКУчету</enumeration>
@@ -1338,9 +1336,6 @@
 		<property name="Штрихкод" lowerBound="0">
 			<typeDef xsi:type="ValueType" base="xs:string" maxLength="200"/>
 		</property>
-		<property name="SKU" lowerBound="0">
-			<typeDef xsi:type="ValueType" base="xs:string" maxLength="9"/>
-		</property>
 	</objectType>
 	<objectType name="ОбщиеСвойстваДанныеПодарочногоСертификата" open="true" sequenced="true">
 		<property name="СерийныйНомер" type="xs:string"/>
@@ -1420,7 +1415,7 @@
 			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="18"/>
 		</property>
 		<property name="ПоказательДаты" lowerBound="0" nillable="true">
-			<typeDef xsi:type="ValueType" variety="Union" memberTypes="{http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10}ТипДатаФНС {http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10}ТипНоль"/>
+			<typeDef xmlns:d4p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10" xsi:type="ValueType" variety="Union" memberTypes="{http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10}ТипДатаФНС {http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10}ТипНоль"/>
 		</property>
 		<property name="ПоказательТипа" lowerBound="0" nillable="true">
 			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2"/>
@@ -1446,7 +1441,7 @@
 			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="18"/>
 		</property>
 		<property name="ПоказательДаты" nillable="true">
-			<typeDef xsi:type="ValueType" variety="Union" memberTypes="{http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10}ТипДатаФНС {http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10}ТипНоль"/>
+			<typeDef xmlns:d4p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10" xsi:type="ValueType" variety="Union" memberTypes="{http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10}ТипДатаФНС {http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10}ТипНоль"/>
 		</property>
 		<property name="ПоказательТипа" nillable="true">
 			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2"/>
@@ -3409,7 +3404,6 @@
 		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10" name="ВидПродукцииИС" type="d3p1:ВидыПродукцииИС" lowerBound="0"/>
 		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10" name="СистемаНалогообложения" type="d3p1:СистемыНалогообложения" lowerBound="0"/>
 		<property name="ПрослеживаемыйТовар" type="xs:boolean" lowerBound="0"/>
-		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10" name="ОрганизацияПродажи" type="d3p1:КлючевыеСвойстваОрганизация" lowerBound="0"/>
 	</objectType>
 	<objectType xmlns:d2p1="http://www.1c.ru/SSL/Exchange/Message" name="Справочник.НоменклатураГруппа" base="d2p1:Object" open="true" sequenced="true">
 		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10" name="КлючевыеСвойства" type="d3p1:КлючевыеСвойстваНоменклатураГруппа"/>
@@ -6932,7 +6926,7 @@
 		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10" name="КоличествоУпаковок" type="d3p1:ТипКоличество" lowerBound="0"/>
 		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10" name="ДокументПоступления" type="d3p1:СоставнойДокументПоступления" lowerBound="0"/>
 		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10" name="ТипЗапасов" type="d3p1:ТипыЗапасов" lowerBound="0"/>
-		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10" name="Товары" type="d3p1:Документ.СборкаТоваров.Товары" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10" name="Товары" type="d3p1:Документ.СборкаТоваров.Товары" lowerBound="1"/>
 		<property name="СчетУчета" type="xs:string" lowerBound="0"/>
 		<property name="СчетСписанияНДС" type="xs:string" lowerBound="0"/>
 		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.10" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>

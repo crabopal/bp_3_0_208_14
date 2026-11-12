@@ -10,7 +10,6 @@
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаЗаполнить" id="34">
@@ -20,69 +19,77 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ФормаЗаполнитьРасширеннаяПодсказка" id="35"/>
 			</Button>
+			<Button name="ФормаСправка" id="1">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="2"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ЗаполнятьПолноеОписаниеОстатков" id="91">
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Заполнять полное описание остатков</v8:content>
-				</v8:item>
-			</ToolTip>
+		<UsualGroup name="ГруппаПолноеОписаниеОстатков" id="91">
 			<Group>AlwaysHorizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ЗаполнятьПолноеОписаниеОстатковРасширеннаяПодсказка" id="92"/>
+			<ExtendedTooltip name="ГруппаПолноеОписаниеОстатковРасширеннаяПодсказка" id="92"/>
 			<ChildItems>
-				<CheckBoxField name="ПолноеОписаниеОстатков" id="36">
+				<InputField name="ПолноеОписаниеОстатков" id="36">
 					<DataPath>ПолноеОписаниеОстатков</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Полное описание</v8:content>
-						</v8:item>
-					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<CheckBoxType>Switcher</CheckBoxType>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Упрощенное</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:boolean">false</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Полное</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:boolean">true</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
 					<ContextMenu name="ПолноеОписаниеОстатковКонтекстноеМеню" id="37"/>
 					<ExtendedTooltip name="ПолноеОписаниеОстатковРасширеннаяПодсказка" id="38"/>
 					<Events>
 						<Event name="OnChange">ПолноеОписаниеОстатковПриИзменении</Event>
 					</Events>
-				</CheckBoxField>
+				</InputField>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаУпрощенноеОписаниеОстатков" id="50">
-			<Group>AlwaysHorizontal</Group>
+			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
-			<United>false</United>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаУпрощенноеОписаниеОстатковРасширеннаяПодсказка" id="51"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаПереключатели" id="110">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа переключатели</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа переключатели</v8:content>
-						</v8:item>
-					</ToolTip>
+				<UsualGroup name="ГруппаКодТНВЭД" id="75">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
-					<United>false</United>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПереключателиРасширеннаяПодсказка" id="111"/>
+					<ExtendedTooltip name="ГруппаКодТНВЭДРасширеннаяПодсказка" id="76"/>
 					<ChildItems>
 						<CheckBoxField name="ЗаполнятьКодТНВЭД" id="77">
 							<DataPath>ЗаполнятьКодТНВЭД</DataPath>
@@ -92,160 +99,16 @@
 									<v8:content>Код ТНВЭД</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
 							<ContextMenu name="ЗаполнятьКодТНВЭДКонтекстноеМеню" id="78"/>
 							<ExtendedTooltip name="ЗаполнятьКодТНВЭДРасширеннаяПодсказка" id="79"/>
 							<Events>
 								<Event name="OnChange">ЗаполнятьКодТНВЭДПриИзменении</Event>
 							</Events>
 						</CheckBoxField>
-						<CheckBoxField name="ЗаполнятьНаименование" id="69">
-							<DataPath>ЗаполнятьНаименование</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Наименование</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="ЗаполнятьНаименованиеКонтекстноеМеню" id="70"/>
-							<ExtendedTooltip name="ЗаполнятьНаименованиеРасширеннаяПодсказка" id="71"/>
-							<Events>
-								<Event name="OnChange">ЗаполнятьНаименованиеПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-						<CheckBoxField name="ЗаполнятьЦелевойПол" id="3">
-							<DataPath>ЗаполнятьЦелевойПол</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Целевой пол</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="ЗаполнятьЦелевойПолКонтекстноеМеню" id="4"/>
-							<ExtendedTooltip name="ЗаполнятьЦелевойПолРасширеннаяПодсказка" id="5"/>
-							<Events>
-								<Event name="OnChange">ЗаполнятьЦелевойПолПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-						<CheckBoxField name="ЗаполнятьВозрастнаяКатегория" id="44">
-							<DataPath>ЗаполнятьВозрастнаяКатегория</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Возрастная категория</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="ЗаполнятьВозрастнаяКатегорияКонтекстноеМеню" id="45"/>
-							<ExtendedTooltip name="ЗаполнятьВозрастнаяКатегорияРасширеннаяПодсказка" id="46"/>
-							<Events>
-								<Event name="OnChange">ЗаполнятьВозрастнуюКатегориюПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-						<CheckBoxField name="ЗаполнятьСпособВводаВОборот" id="9">
-							<DataPath>ЗаполнятьСпособВводаВОборот</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Способ ввода в оборот</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="ЗаполнятьСпособВводаВОборотКонтекстноеМеню" id="10"/>
-							<ExtendedTooltip name="ЗаполнятьСпособВводаВОборотРасширеннаяПодсказка" id="11"/>
-							<Events>
-								<Event name="OnChange">ЗаполнятьСпособВводаВОборотПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-						<CheckBoxField name="ЗаполнятьМодель" id="52">
-							<DataPath>ЗаполнятьМодель</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Модель</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="ЗаполнятьМодельКонтекстноеМеню" id="53"/>
-							<ExtendedTooltip name="ЗаполнятьМодельРасширеннаяПодсказка" id="54"/>
-							<Events>
-								<Event name="OnChange">ЗаполнятьМодельПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-						<CheckBoxField name="ЗаполнятьТоварныйЗнак" id="58">
-							<DataPath>ЗаполнятьТоварныйЗнак</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Товарный знак</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="ЗаполнятьТоварныйЗнакКонтекстноеМеню" id="59"/>
-							<ExtendedTooltip name="ЗаполнятьТоварныйЗнакРасширеннаяПодсказка" id="60"/>
-							<Events>
-								<Event name="OnChange">ЗаполнятьТоварныйЗнакПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-						<CheckBoxField name="ЗаполнятьШаблон" id="85">
-							<DataPath>ЗаполнятьШаблон</DataPath>
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Вид упаковки</v8:content>
-								</v8:item>
-							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="ЗаполнятьШаблонКонтекстноеМеню" id="86"/>
-							<ExtendedTooltip name="ЗаполнятьШаблонРасширеннаяПодсказка" id="87"/>
-							<Events>
-								<Event name="OnChange">ЗаполнятьШаблонПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаПоляОписанияОстатков" id="112">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа поля описания остатков</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа поля описания остатков</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Representation>None</Representation>
-					<United>false</United>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПоляОписанияОстатковРасширеннаяПодсказка" id="113"/>
-					<ChildItems>
 						<InputField name="КодТНВЭД" id="80">
 							<DataPath>КодТНВЭД</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ChoiceButton>true</ChoiceButton>
 							<ContextMenu name="КодТНВЭДКонтекстноеМеню" id="81"/>
 							<ExtendedTooltip name="КодТНВЭДРасширеннаяПодсказка" id="82"/>
@@ -254,41 +117,125 @@
 								<Event name="StartChoice">КодТНВЭДНачалоВыбора</Event>
 							</Events>
 						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНаименование" id="67">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНаименованиеРасширеннаяПодсказка" id="68"/>
+					<ChildItems>
+						<CheckBoxField name="ЗаполнятьНаименование" id="69">
+							<DataPath>ЗаполнятьНаименование</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаполнятьНаименованиеКонтекстноеМеню" id="70"/>
+							<ExtendedTooltip name="ЗаполнятьНаименованиеРасширеннаяПодсказка" id="71"/>
+							<Events>
+								<Event name="OnChange">ЗаполнятьНаименованиеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
 						<InputField name="Наименование" id="72">
 							<DataPath>Наименование</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="НаименованиеКонтекстноеМеню" id="73"/>
 							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="74"/>
 						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаЦелевойПол" id="24">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЦелевойПолРасширеннаяПодсказка" id="25"/>
+					<ChildItems>
+						<CheckBoxField name="ЗаполнятьЦелевойПол" id="3">
+							<DataPath>ЗаполнятьЦелевойПол</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Целевой пол</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаполнятьЦелевойПолКонтекстноеМеню" id="4"/>
+							<ExtendedTooltip name="ЗаполнятьЦелевойПолРасширеннаяПодсказка" id="5"/>
+							<Events>
+								<Event name="OnChange">ЗаполнятьЦелевойПолПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
 						<InputField name="ЦелевойПол" id="21">
 							<DataPath>ЦелевойПол</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<ContextMenu name="ЦелевойПолКонтекстноеМеню" id="22"/>
 							<ExtendedTooltip name="ЦелевойПолРасширеннаяПодсказка" id="23"/>
 						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВозрастнаяКатегория" id="42">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВозрастнаяКатегорияРасширеннаяПодсказка" id="43"/>
+					<ChildItems>
+						<CheckBoxField name="ЗаполнятьВозрастнаяКатегория" id="44">
+							<DataPath>ЗаполнятьВозрастнаяКатегория</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Возрастная категория</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаполнятьВозрастнаяКатегорияКонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="ЗаполнятьВозрастнаяКатегорияРасширеннаяПодсказка" id="46"/>
+							<Events>
+								<Event name="OnChange">ЗаполнятьВозрастнуюКатегориюПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
 						<InputField name="ВозрастнаяКатегория" id="47">
 							<DataPath>ВозрастнаяКатегория</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ВозрастнаяКатегорияКонтекстноеМеню" id="48"/>
 							<ExtendedTooltip name="ВозрастнаяКатегорияРасширеннаяПодсказка" id="49"/>
 						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаСпособВводаВОборот" id="26">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаСпособВводаВОборотРасширеннаяПодсказка" id="27"/>
+					<ChildItems>
+						<CheckBoxField name="ЗаполнятьСпособВводаВОборот" id="9">
+							<DataPath>ЗаполнятьСпособВводаВОборот</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Способ ввода в оборот</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаполнятьСпособВводаВОборотКонтекстноеМеню" id="10"/>
+							<ExtendedTooltip name="ЗаполнятьСпособВводаВОборотРасширеннаяПодсказка" id="11"/>
+							<Events>
+								<Event name="OnChange">ЗаполнятьСпособВводаВОборотПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
 						<InputField name="СпособВводаВОборот" id="15">
 							<DataPath>СпособВводаВОборот</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<TitleLocation>None</TitleLocation>
 							<Shortcut>Ctrl+S</Shortcut>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ListChoiceMode>true</ListChoiceMode>
 							<ChoiceList>
 								<xr:Item>
@@ -312,37 +259,100 @@
 							<ContextMenu name="СпособВводаВОборотКонтекстноеМеню" id="16"/>
 							<ExtendedTooltip name="СпособВводаВОборотРасширеннаяПодсказка" id="17"/>
 						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаМодель" id="64">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаМодельРасширеннаяПодсказка" id="66"/>
+					<ChildItems>
+						<CheckBoxField name="ЗаполнятьМодель" id="52">
+							<DataPath>ЗаполнятьМодель</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Модель</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаполнятьМодельКонтекстноеМеню" id="53"/>
+							<ExtendedTooltip name="ЗаполнятьМодельРасширеннаяПодсказка" id="54"/>
+							<Events>
+								<Event name="OnChange">ЗаполнятьМодельПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
 						<InputField name="Модель" id="55">
 							<DataPath>Модель</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<DropListWidth>39</DropListWidth>
 							<ContextMenu name="МодельКонтекстноеМеню" id="56"/>
 							<ExtendedTooltip name="МодельРасширеннаяПодсказка" id="57"/>
 						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаТоварныйЗнак" id="65">
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаТоварныйЗнакРасширеннаяПодсказка" id="39"/>
+					<ChildItems>
+						<CheckBoxField name="ЗаполнятьТоварныйЗнак" id="58">
+							<DataPath>ЗаполнятьТоварныйЗнак</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Товарный знак</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаполнятьТоварныйЗнакКонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="ЗаполнятьТоварныйЗнакРасширеннаяПодсказка" id="60"/>
+							<Events>
+								<Event name="OnChange">ЗаполнятьТоварныйЗнакПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
 						<InputField name="ТоварныйЗнак" id="61">
 							<DataPath>ТоварныйЗнак</DataPath>
 							<ReadOnly>true</ReadOnly>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ТоварныйЗнакКонтекстноеМеню" id="62"/>
 							<ExtendedTooltip name="ТоварныйЗнакРасширеннаяПодсказка" id="63"/>
 						</InputField>
-						<InputField name="Шаблон" id="88">
-							<DataPath>Шаблон</DataPath>
-							<ReadOnly>true</ReadOnly>
-							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<ListChoiceMode>true</ListChoiceMode>
-							<ContextMenu name="ШаблонКонтекстноеМеню" id="89"/>
-							<ExtendedTooltip name="ШаблонРасширеннаяПодсказка" id="90"/>
-						</InputField>
 					</ChildItems>
 				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаШаблон" id="83">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШаблонРасширеннаяПодсказка" id="84"/>
+			<ChildItems>
+				<CheckBoxField name="ЗаполнятьШаблон" id="85">
+					<DataPath>ЗаполнятьШаблон</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид упаковки</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ЗаполнятьШаблонКонтекстноеМеню" id="86"/>
+					<ExtendedTooltip name="ЗаполнятьШаблонРасширеннаяПодсказка" id="87"/>
+					<Events>
+						<Event name="OnChange">ЗаполнятьШаблонПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="Шаблон" id="88">
+					<DataPath>Шаблон</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleLocation>None</TitleLocation>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ContextMenu name="ШаблонКонтекстноеМеню" id="89"/>
+					<ExtendedTooltip name="ШаблонРасширеннаяПодсказка" id="90"/>
+				</InputField>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -582,7 +592,6 @@
 				</v8:item>
 			</Title>
 			<Action>Заполнить</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

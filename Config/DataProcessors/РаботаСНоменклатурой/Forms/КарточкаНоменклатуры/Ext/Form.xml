@@ -11,36 +11,6 @@
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="СоздатьНоменклатуру" id="4">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-				<CommandName>Form.Command.СоздатьНоменклатуру</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Загрузить номенклатуру</v8:content>
-					</v8:item>
-				</Title>
-				<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="СоздатьНоменклатуруРасширеннаяПодсказка" id="5"/>
-			</Button>
-			<Button name="Выбрать" id="15">
-				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
-				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-				<CommandName>Form.StandardCommand.OK</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Выбрать</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="16"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -49,51 +19,173 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="ГруппаПредложениеПокупки" id="55">
-			<Visible>false</Visible>
+		<UsualGroup name="ГруппаОсновныеКнопкиФормы" id="17">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Предложение покупки</v8:content>
+					<v8:content>Основные кнопки формы</v8:content>
 				</v8:item>
 			</Title>
 			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<BackColor>pal:LightBlue</BackColor>
-			<ExtendedTooltip name="ГруппаПредложениеПокупкиРасширеннаяПодсказка" id="56"/>
+			<ExtendedTooltip name="ГруппаОсновныеКнопкиФормыРасширеннаяПодсказка" id="18"/>
 			<ChildItems>
-				<PictureDecoration name="ДекорацияИнформация" id="52">
-					<Title formatted="false">
+				<Button name="СоздатьНоменклатуру" id="4">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<Width>20</Width>
+					<CommandName>Form.Command.СоздатьНоменклатуру</CommandName>
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Декорация информация</v8:content>
+							<v8:content>Загрузить номенклатуру</v8:content>
+						</v8:item>
+					</Title>
+					<ButtonImportance>Main</ButtonImportance>
+					<ExtendedTooltip name="СоздатьНоменклатуруРасширеннаяПодсказка" id="5"/>
+				</Button>
+				<Button name="Выбрать" id="15">
+					<Type>UsualButton</Type>
+					<Visible>false</Visible>
+					<Width>9</Width>
+					<CommandName>Form.StandardCommand.OK</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбрать</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="16"/>
+				</Button>
+				<UsualGroup name="ГруппаПредложениеПокупки" id="55">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предложение покупки</v8:content>
 						</v8:item>
 					</Title>
 					<GroupVerticalAlign>Center</GroupVerticalAlign>
-					<Picture>
-						<xr:Ref>CommonPicture.ВажноеСообщениеИнформация</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<FileDragMode>AsFile</FileDragMode>
-					<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="53"/>
-					<ExtendedTooltip name="ДекорацияИнформацияРасширеннаяПодсказка" id="54"/>
-				</PictureDecoration>
-				<LabelDecoration name="ПредложениеПокупки" id="49">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<HorizontalStretch>true</HorizontalStretch>
-					<Title formatted="true">
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПредложениеПокупкиРасширеннаяПодсказка" id="56"/>
+					<ChildItems>
+						<PictureDecoration name="ДекорацияИнформация" id="52">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Декорация информация</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Picture>
+								<xr:Ref>CommonPicture.УдалитьИнформация</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="53"/>
+							<ExtendedTooltip name="ДекорацияИнформацияРасширеннаяПодсказка" id="54"/>
+						</PictureDecoration>
+						<LabelDecoration name="ПредложениеПокупки" id="49">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Title formatted="true">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Более подробная информация будет доступна, если &lt;link КупитьКарточку&gt;Купить карточку&lt;/&gt;</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПредложениеПокупкиКонтекстноеМеню" id="50"/>
+							<ExtendedTooltip name="ПредложениеПокупкиРасширеннаяПодсказка" id="51"/>
+							<Events>
+								<Event name="URLProcessing">ПредложениеПокупкиОбработкаНавигационнойСсылки</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаДекорацииДлительнойОперации" id="62">
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Более подробная информация будет доступна, если &lt;link КупитьКарточку&gt;Купить карточку&lt;/&gt;</v8:content>
+							<v8:content>Группа декорации длительной операции</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ПредложениеПокупкиКонтекстноеМеню" id="50"/>
-					<ExtendedTooltip name="ПредложениеПокупкиРасширеннаяПодсказка" id="51"/>
-					<Events>
-						<Event name="URLProcessing">ПредложениеПокупкиОбработкаНавигационнойСсылки</Event>
-					</Events>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДекорацииДлительнойОперацииРасширеннаяПодсказка" id="63"/>
+					<ChildItems>
+						<PictureDecoration name="КартинкаДлительнойОперации" id="64">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка длительной операции</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Picture>
+								<xr:Ref>CommonPicture.ДлительнаяОперация16</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КартинкаДлительнойОперацииКонтекстноеМеню" id="65"/>
+							<ExtendedTooltip name="КартинкаДлительнойОперацииРасширеннаяПодсказка" id="66"/>
+						</PictureDecoration>
+						<LabelDecoration name="НадписьДлительнойОперации" id="67">
+							<TextColor>style:ЦветПустойГиперссылки</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Загрузка номенклатуры</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьДлительнойОперацииКонтекстноеМеню" id="68"/>
+							<ExtendedTooltip name="НадписьДлительнойОперацииРасширеннаяПодсказка" id="69"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<CommandBar name="ГруппаКоманднаяПанель" id="39">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="40"/>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПодсказки" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подсказки</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПодсказкиРасширеннаяПодсказка" id="23"/>
+			<ChildItems>
+				<LabelDecoration name="ПодсказкаКФорме" id="19">
+					<Width>70</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>По штрихкоду %1 найдена карточка в сервисе 1С:Номенклатура.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ПодсказкаКФормеКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ПодсказкаКФормеРасширеннаяПодсказка" id="21"/>
 				</LabelDecoration>
 			</ChildItems>
 		</UsualGroup>
@@ -104,13 +196,70 @@
 					<v8:content>Кнопки навигации по ширине</v8:content>
 				</v8:item>
 			</Title>
-			<HorizontalStretch>true</HorizontalStretch>
+			<Width>70</Width>
 			<Group>HorizontalIfPossible</Group>
 			<HorizontalAlign>Center</HorizontalAlign>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКнопкиНавигацииПоШиринеРасширеннаяПодсказка" id="28"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаКнопкиНавигации" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кнопки навигации</v8:content>
+						</v8:item>
+					</Title>
+					<Width>25</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<Group>Horizontal</Group>
+					<HorizontalAlign>Center</HorizontalAlign>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКнопкиНавигацииРасширеннаяПодсказка" id="7"/>
+					<ChildItems>
+						<Button name="ЛистатьНазад" id="8">
+							<Type>UsualButton</Type>
+							<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+							<CommandName>Form.Command.ЛистатьНазад</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&lt;</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ЛистатьНазадРасширеннаяПодсказка" id="9"/>
+						</Button>
+						<LabelField name="ТекущаяПозиция" id="12">
+							<DataPath>НадписьТекущаяПозиция</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+							<Width>7</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<Font ref="style:NormalTextFont" kind="StyleItem"/>
+							<ContextMenu name="ТекущаяПозицияКонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="ТекущаяПозицияРасширеннаяПодсказка" id="14"/>
+						</LabelField>
+						<Button name="ЛистатьВперед" id="10">
+							<Type>UsualButton</Type>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<CommandName>Form.Command.ЛистатьВперед</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&gt;</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ЛистатьВпередРасширеннаяПодсказка" id="11"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
 		</UsualGroup>
 		<SpreadSheetDocumentField name="КарточкаНоменклатуры" id="1">
 			<DataPath>КарточкаНоменклатуры</DataPath>
@@ -118,7 +267,6 @@
 			<Protection>true</Protection>
 			<SelectionShowMode>WhenActive</SelectionShowMode>
 			<Output>Disable</Output>
-			<ShowGroups>false</ShowGroups>
 			<EnableStartDrag>false</EnableStartDrag>
 			<EnableDrag>false</EnableDrag>
 			<BorderColor>style:FormBackColor</BorderColor>
@@ -164,56 +312,6 @@
 				</PictureField>
 			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаДоступноДляПокупки" id="57">
-			<Visible>false</Visible>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Доступно для покупки</v8:content>
-				</v8:item>
-			</Title>
-			<Group>HorizontalIfPossible</Group>
-			<VerticalAlign>Center</VerticalAlign>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаДоступноДляПокупкиРасширеннаяПодсказка" id="58"/>
-			<ChildItems>
-				<PictureDecoration name="ДекорацияТележка" id="59">
-					<HorizontalStretch>false</HorizontalStretch>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Декорация тележка</v8:content>
-						</v8:item>
-					</Title>
-					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<Picture>
-						<xr:Ref>CommonPicture.ТележкаРаботаСНоменклатурой</xr:Ref>
-						<xr:LoadTransparent>false</xr:LoadTransparent>
-					</Picture>
-					<FileDragMode>AsFile</FileDragMode>
-					<ContextMenu name="ДекорацияТележкаКонтекстноеМеню" id="60"/>
-					<ExtendedTooltip name="ДекорацияТележкаРасширеннаяПодсказка" id="61"/>
-				</PictureDecoration>
-				<LabelDecoration name="ДекорацияДоступноДляПокупки" id="46">
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<HorizontalStretch>false</HorizontalStretch>
-					<TextColor>style:ПоясняющийТекст</TextColor>
-					<Font ref="style:SmallTextFont" kind="StyleItem"/>
-					<Title formatted="true">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>&lt;link ДоступноДляПокупки&gt;Доступно для покупки&lt;/&gt;</v8:content>
-						</v8:item>
-					</Title>
-					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-					<HorizontalAlign>Right</HorizontalAlign>
-					<ContextMenu name="ДекорацияДоступноДляПокупкиКонтекстноеМеню" id="47"/>
-					<ExtendedTooltip name="ДекорацияДоступноДляПокупкиРасширеннаяПодсказка" id="48"/>
-				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
 		<UsualGroup name="ГруппаПодвал" id="41">
 			<Title>
 				<v8:item>
@@ -222,8 +320,7 @@
 				</v8:item>
 			</Title>
 			<HorizontalStretch>true</HorizontalStretch>
-			<GroupVerticalAlign>Bottom</GroupVerticalAlign>
-			<Group>AlwaysHorizontal</Group>
+			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -231,30 +328,83 @@
 			<ChildItems>
 				<LabelDecoration name="ДекорацияСлужбаПоддержки" id="43">
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<HorizontalStretch>false</HorizontalStretch>
 					<TextColor>style:ПоясняющийТекст</TextColor>
 					<Font ref="style:SmallTextFont" kind="StyleItem"/>
 					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Служба поддержки &lt;link mailto:webits-info@1c.ru&gt;webits-info@1c.ru&lt;/&gt;. Нажатие "Загрузить номенклатуру" означает согласие с &lt;link https://catalog-api.1c.ru/agreement&gt;Условиями использования сервиса&lt;/&gt;</v8:content>
-						</v8:item>
-					</Title>
-					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-					<ContextMenu name="ДекорацияСлужбаПоддержкиКонтекстноеМеню" id="44"/>
-					<ExtendedTooltip name="ДекорацияСлужбаПоддержкиРасширеннаяПодсказка" id="45"/>
-				</LabelDecoration>
-				<UsualGroup name="ГруппаПагинация" id="73">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Пагинация</v8:content>
+							<v8:content>Служба поддержки &lt;link mailto:webits-info@1c.ru&gt;webits-info@1c.ru&lt;/&gt;</v8:content>
 						</v8:item>
 					</Title>
 					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<HorizontalAlign>Right</HorizontalAlign>
+					<ContextMenu name="ДекорацияСлужбаПоддержкиКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ДекорацияСлужбаПоддержкиРасширеннаяПодсказка" id="45"/>
+				</LabelDecoration>
+				<LabelDecoration name="ДекорацияУсловияИспользованияСервиса" id="31">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<Font ref="style:SmallTextFont" kind="StyleItem"/>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нажатие "Загрузить номенклатуру" означает согласие с &lt;link https://1cbn.ru/agreement/&gt;Условиями использования сервиса&lt;/&gt;</v8:content>
+						</v8:item>
+					</Title>
+					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+					<HorizontalAlign>Right</HorizontalAlign>
+					<ContextMenu name="ДекорацияУсловияИспользованияСервисаКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ДекорацияУсловияИспользованияСервисаРасширеннаяПодсказка" id="33"/>
+				</LabelDecoration>
+				<UsualGroup name="ГруппаДоступноДляПокупки" id="57">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доступно для покупки</v8:content>
+						</v8:item>
+					</Title>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<Group>HorizontalIfPossible</Group>
+					<HorizontalAlign>Right</HorizontalAlign>
+					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПагинацияРасширеннаяПодсказка" id="74"/>
+					<ExtendedTooltip name="ГруппаДоступноДляПокупкиРасширеннаяПодсказка" id="58"/>
+					<ChildItems>
+						<PictureDecoration name="ДекорацияТележка" id="59">
+							<HorizontalStretch>false</HorizontalStretch>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Декорация тележка</v8:content>
+								</v8:item>
+							</Title>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<Picture>
+								<xr:Ref>CommonPicture.ТележкаРаботаСНоменклатурой</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ДекорацияТележкаКонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="ДекорацияТележкаРасширеннаяПодсказка" id="61"/>
+						</PictureDecoration>
+						<LabelDecoration name="ДекорацияДоступноДляПокупки" id="46">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Font ref="style:SmallTextFont" kind="StyleItem"/>
+							<Title formatted="true">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&lt;link ДоступноДляПокупки&gt;Доступно для покупки&lt;/&gt;</v8:content>
+								</v8:item>
+							</Title>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<HorizontalAlign>Right</HorizontalAlign>
+							<ContextMenu name="ДекорацияДоступноДляПокупкиКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="ДекорацияДоступноДляПокупкиРасширеннаяПодсказка" id="48"/>
+						</LabelDecoration>
+					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
@@ -620,7 +770,38 @@
 			</ToolTip>
 			<Action>СоздатьНоменклатуру</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
+		</Command>
+		<Command name="ЛистатьВперед" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Листать вперед</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Листать вперед</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЛистатьВперед</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЛистатьНазад" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Листать назад</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Листать назад</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЛистатьНазад</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 </Form>

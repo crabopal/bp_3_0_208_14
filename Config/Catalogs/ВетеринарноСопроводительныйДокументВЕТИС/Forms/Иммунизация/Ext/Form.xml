@@ -9,7 +9,6 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="Готово" id="34">
@@ -19,6 +18,16 @@
 				<ButtonImportance>Main</ButtonImportance>
 				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="35"/>
 			</Button>
+			<ButtonGroup name="Стандартные" id="36">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Стандартные</v8:content>
+					</v8:item>
+				</Title>
+				<CommandSource>Item.Иммунизация</CommandSource>
+				<ExtendedTooltip name="СтандартныеРасширеннаяПодсказка" id="37"/>
+			</ButtonGroup>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -28,215 +37,158 @@
 	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаИммунизация" id="1">
-			<Group>Vertical</Group>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>WeakSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаИммунизацияРасширеннаяПодсказка" id="2"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаИммунизацияДетализация" id="63">
+				<Table name="Иммунизация" id="3">
+					<Representation>List</Representation>
+					<RowSelectionMode>Cell</RowSelectionMode>
+					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Иммунизация</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ИммунизацияКонтекстноеМеню" id="4"/>
+					<AutoCommandBar name="ИммунизацияКоманднаяПанель" id="5">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ИммунизацияРасширеннаяПодсказка" id="6"/>
+					<SearchStringAddition name="ИммунизацияСтрокаПоиска" id="7">
+						<AdditionSource>
+							<Item>Иммунизация</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ИммунизацияСтрокаПоискаКонтекстноеМеню" id="8"/>
+						<ExtendedTooltip name="ИммунизацияСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ИммунизацияСостояниеПросмотра" id="10">
+						<AdditionSource>
+							<Item>Иммунизация</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<HorizontalLocation>Left</HorizontalLocation>
+						<ContextMenu name="ИммунизацияСостояниеПросмотраКонтекстноеМеню" id="11"/>
+						<ExtendedTooltip name="ИммунизацияСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ИммунизацияУправлениеПоиском" id="13">
+						<AdditionSource>
+							<Item>Иммунизация</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ИммунизацияУправлениеПоискомКонтекстноеМеню" id="14"/>
+						<ExtendedTooltip name="ИммунизацияУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnEditEnd">ИммунизацияПриОкончанииРедактирования</Event>
+						<Event name="AfterDeleteRow">ИммунизацияПослеУдаления</Event>
+						<Event name="OnChange">ИммунизацияПриИзменении</Event>
+					</Events>
+					<ChildItems>
+						<InputField name="ИммунизацияНомерСтроки" id="40">
+							<DataPath>Иммунизация.НомерСтроки</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>N</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<Width>4</Width>
+							<ContextMenu name="ИммунизацияНомерСтрокиКонтекстноеМеню" id="41"/>
+							<ExtendedTooltip name="ИммунизацияНомерСтрокиРасширеннаяПодсказка" id="42"/>
+						</InputField>
+						<InputField name="ИммунизацияТипИммунизации" id="16">
+							<DataPath>Иммунизация.ТипИммунизации</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Тип</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ИммунизацияТипИммунизацииКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ИммунизацияТипИммунизацииРасширеннаяПодсказка" id="18"/>
+						</InputField>
+						<InputField name="ИммунизацияДатаПроведенияИммунизацииОбработки" id="22">
+							<DataPath>Иммунизация.ДатаПроведенияИммунизацииОбработки</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата проведения</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ИммунизацияДатаПроведенияИммунизацииОбработкиКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="ИммунизацияДатаПроведенияИммунизацииОбработкиРасширеннаяПодсказка" id="24"/>
+							<Events>
+								<Event name="OnChange">ИммунизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ИммунизацияНаименованиеБолезниПаразита" id="19">
+							<DataPath>Иммунизация.НаименованиеБолезниПаразита</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование болезни / паразита</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ИммунизацияНаименованиеБолезниПаразитаКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ИммунизацияНаименованиеБолезниПаразитаРасширеннаяПодсказка" id="21"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<UsualGroup name="ГруппаПанель" id="38">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа иммунизация детализация</v8:content>
+							<v8:content>Информация об исследовании</v8:content>
 						</v8:item>
 					</Title>
-					<Group>AlwaysHorizontal</Group>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаИммунизацияДетализацияРасширеннаяПодсказка" id="64"/>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>WeakSeparation</Representation>
+					<ExtendedTooltip name="ГруппаПанельРасширеннаяПодсказка" id="39"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаИммунизацияСписок" id="53">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Исследования</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа иммунизация список</v8:content>
-								</v8:item>
-							</ToolTip>
-							<ShowTitle>true</ShowTitle>
-							<ExtendedTooltip name="ГруппаИммунизацияСписокРасширеннаяПодсказка" id="54"/>
-							<ChildItems>
-								<Table name="Иммунизация" id="3">
-									<Representation>List</Representation>
-									<TitleLocation>Auto</TitleLocation>
-									<SelectionMode>SingleRow</SelectionMode>
-									<RowSelectionMode>Cell</RowSelectionMode>
-									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
-									<InitialRowActivation>Activate</InitialRowActivation>
-									<EnableStartDrag>true</EnableStartDrag>
-									<EnableDrag>true</EnableDrag>
-									<FileDragMode>AsFile</FileDragMode>
-									<DataPath>Иммунизация</DataPath>
-									<RowFilter xsi:nil="true"/>
-									<ContextMenu name="ИммунизацияКонтекстноеМеню" id="4"/>
-									<AutoCommandBar name="ИммунизацияКоманднаяПанель" id="5">
-										<Autofill>false</Autofill>
-										<ChildItems>
-											<Button name="ИммунизацияГотово" id="56">
-												<Type>CommandBarButton</Type>
-												<CommandName>Form.Command.Готово</CommandName>
-												<ExtendedTooltip name="ИммунизацияГотовоРасширеннаяПодсказка" id="57"/>
-											</Button>
-											<ButtonGroup name="ИммунизацияСтандартные" id="58">
-												<Title>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Иммунизация стандартные</v8:content>
-													</v8:item>
-												</Title>
-												<ToolTip>
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Иммунизация стандартные</v8:content>
-													</v8:item>
-												</ToolTip>
-												<CommandSource>Item.Иммунизация</CommandSource>
-												<ExtendedTooltip name="ИммунизацияСтандартныеРасширеннаяПодсказка" id="59"/>
-											</ButtonGroup>
-										</ChildItems>
-									</AutoCommandBar>
-									<ExtendedTooltip name="ИммунизацияРасширеннаяПодсказка" id="6"/>
-									<SearchStringAddition name="ИммунизацияСтрокаПоиска" id="7">
-										<AdditionSource>
-											<Item>Иммунизация</Item>
-											<Type>SearchStringRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ИммунизацияСтрокаПоискаКонтекстноеМеню" id="8"/>
-										<ExtendedTooltip name="ИммунизацияСтрокаПоискаРасширеннаяПодсказка" id="9"/>
-									</SearchStringAddition>
-									<ViewStatusAddition name="ИммунизацияСостояниеПросмотра" id="10">
-										<AdditionSource>
-											<Item>Иммунизация</Item>
-											<Type>ViewStatusRepresentation</Type>
-										</AdditionSource>
-										<HorizontalLocation>Left</HorizontalLocation>
-										<ContextMenu name="ИммунизацияСостояниеПросмотраКонтекстноеМеню" id="11"/>
-										<ExtendedTooltip name="ИммунизацияСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
-									</ViewStatusAddition>
-									<SearchControlAddition name="ИммунизацияУправлениеПоиском" id="13">
-										<AdditionSource>
-											<Item>Иммунизация</Item>
-											<Type>SearchControl</Type>
-										</AdditionSource>
-										<ContextMenu name="ИммунизацияУправлениеПоискомКонтекстноеМеню" id="14"/>
-										<ExtendedTooltip name="ИммунизацияУправлениеПоискомРасширеннаяПодсказка" id="15"/>
-									</SearchControlAddition>
-									<Events>
-										<Event name="OnEditEnd">ИммунизацияПриОкончанииРедактирования</Event>
-										<Event name="AfterDeleteRow">ИммунизацияПослеУдаления</Event>
-										<Event name="OnChange">ИммунизацияПриИзменении</Event>
-									</Events>
-									<ChildItems>
-										<InputField name="ИммунизацияНомерСтроки" id="40">
-											<DataPath>Иммунизация.НомерСтроки</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>N</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<Width>4</Width>
-											<ContextMenu name="ИммунизацияНомерСтрокиКонтекстноеМеню" id="41"/>
-											<ExtendedTooltip name="ИммунизацияНомерСтрокиРасширеннаяПодсказка" id="42"/>
-										</InputField>
-										<InputField name="ИммунизацияТипИммунизации" id="16">
-											<DataPath>Иммунизация.ТипИммунизации</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Тип</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="ИммунизацияТипИммунизацииКонтекстноеМеню" id="17"/>
-											<ExtendedTooltip name="ИммунизацияТипИммунизацииРасширеннаяПодсказка" id="18"/>
-										</InputField>
-										<InputField name="ИммунизацияДатаПроведенияИммунизацииОбработки" id="22">
-											<DataPath>Иммунизация.ДатаПроведенияИммунизацииОбработки</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Дата</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="ИммунизацияДатаПроведенияИммунизацииОбработкиКонтекстноеМеню" id="23"/>
-											<ExtendedTooltip name="ИммунизацияДатаПроведенияИммунизацииОбработкиРасширеннаяПодсказка" id="24"/>
-											<Events>
-												<Event name="OnChange">ИммунизацияПриИзменении</Event>
-											</Events>
-										</InputField>
-										<InputField name="ИммунизацияНаименованиеБолезниПаразита" id="19">
-											<DataPath>Иммунизация.НаименованиеБолезниПаразита</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Наименование болезни / паразита</v8:content>
-												</v8:item>
-											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<ContextMenu name="ИммунизацияНаименованиеБолезниПаразитаКонтекстноеМеню" id="20"/>
-											<ExtendedTooltip name="ИммунизацияНаименованиеБолезниПаразитаРасширеннаяПодсказка" id="21"/>
-										</InputField>
-									</ChildItems>
-								</Table>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаПанель" id="38">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Информация об исследовании</v8:content>
-								</v8:item>
-							</Title>
-							<VerticalStretch>true</VerticalStretch>
-							<Group>HorizontalIfPossible</Group>
-							<ShowTitle>true</ShowTitle>
-							<ShowAsCard>true</ShowAsCard>
-							<ExtendedTooltip name="ГруппаПанельРасширеннаяПодсказка" id="39"/>
-							<ChildItems>
-								<InputField name="ИммунизацияНазваниеИПроизводительВакциныПрепарата" id="25">
-									<DataPath>Items.Иммунизация.CurrentData.НазваниеИПроизводительВакциныПрепарата</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ИммунизацияНазваниеИПроизводительВакциныПрепаратаКонтекстноеМеню" id="26"/>
-									<ExtendedTooltip name="ИммунизацияНазваниеИПроизводительВакциныПрепаратаРасширеннаяПодсказка" id="27"/>
-									<Events>
-										<Event name="OnChange">ИммунизацияПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ИммунизацияНомерСерииВакциныПрепарата" id="28">
-									<DataPath>Items.Иммунизация.CurrentData.НомерСерииВакциныПрепарата</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ИммунизацияНомерСерииВакциныПрепаратаКонтекстноеМеню" id="29"/>
-									<ExtendedTooltip name="ИммунизацияНомерСерииВакциныПрепаратаРасширеннаяПодсказка" id="30"/>
-									<Events>
-										<Event name="OnChange">ИммунизацияПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ИммунизацияДатаОкончанияДействияВакциныПрепарата" id="31">
-									<DataPath>Items.Иммунизация.CurrentData.ДатаОкончанияДействияВакциныПрепарата</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
-									<ContextMenu name="ИммунизацияДатаОкончанияДействияВакциныПрепаратаКонтекстноеМеню" id="32"/>
-									<ExtendedTooltip name="ИммунизацияДатаОкончанияДействияВакциныПрепаратаРасширеннаяПодсказка" id="33"/>
-									<Events>
-										<Event name="OnChange">ИммунизацияПриИзменении</Event>
-									</Events>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
+						<InputField name="ИммунизацияНазваниеИПроизводительВакциныПрепарата" id="25">
+							<DataPath>Items.Иммунизация.CurrentData.НазваниеИПроизводительВакциныПрепарата</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ИммунизацияНазваниеИПроизводительВакциныПрепаратаКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="ИммунизацияНазваниеИПроизводительВакциныПрепаратаРасширеннаяПодсказка" id="27"/>
+							<Events>
+								<Event name="OnChange">ИммунизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ИммунизацияНомерСерииВакциныПрепарата" id="28">
+							<DataPath>Items.Иммунизация.CurrentData.НомерСерииВакциныПрепарата</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ИммунизацияНомерСерииВакциныПрепаратаКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="ИммунизацияНомерСерииВакциныПрепаратаРасширеннаяПодсказка" id="30"/>
+							<Events>
+								<Event name="OnChange">ИммунизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ИммунизацияДатаОкончанияДействияВакциныПрепарата" id="31">
+							<DataPath>Items.Иммунизация.CurrentData.ДатаОкончанияДействияВакциныПрепарата</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoEditMode>true</AutoEditMode>
+							<ContextMenu name="ИммунизацияДатаОкончанияДействияВакциныПрепаратаКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="ИммунизацияДатаОкончанияДействияВакциныПрепаратаРасширеннаяПодсказка" id="33"/>
+							<Events>
+								<Event name="OnChange">ИммунизацияПриИзменении</Event>
+							</Events>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -363,7 +315,6 @@
 			<Action>Готово</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

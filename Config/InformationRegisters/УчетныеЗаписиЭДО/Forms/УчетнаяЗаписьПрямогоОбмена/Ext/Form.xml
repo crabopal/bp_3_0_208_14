@@ -24,6 +24,7 @@
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
 		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
@@ -144,6 +145,7 @@
 											<v8:content>Каталог обмена</v8:content>
 										</v8:item>
 									</Title>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<ChoiceButton>true</ChoiceButton>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="КаталогОбменаКонтекстноеМеню" id="11"/>
@@ -177,6 +179,7 @@
 электронной почты</v8:content>
 										</v8:item>
 									</Title>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="УчетнаяЗаписьЭлектроннойПочтыКонтекстноеМеню" id="26"/>
 									<ExtendedTooltip name="УчетнаяЗаписьЭлектроннойПочтыРасширеннаяПодсказка" id="27"/>
@@ -204,6 +207,7 @@
 											<v8:content>Путь к каталогу</v8:content>
 										</v8:item>
 									</Title>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="ПутьFTPКонтекстноеМеню" id="23"/>
 									<ExtendedTooltip name="ПутьFTPРасширеннаяПодсказка" id="24"/>
@@ -329,9 +333,10 @@
 								<ExtendedTooltip name="СписокСертификатовУправлениеПоискомРасширеннаяПодсказка" id="54"/>
 							</SearchControlAddition>
 							<Events>
+								<Event name="Selection">СписокСертификатовВыбор</Event>
 								<Event name="BeforeAddRow">СписокСертификатовПередНачаломДобавления</Event>
 								<Event name="BeforeDeleteRow">СписокСертификатовПередУдалением</Event>
-								<Event name="BeforeRowChange">СписокСертификатовПередНачаломИзменения</Event>
+								<Event name="OnActivateCell">СписокСертификатовПриАктивизацииЯчейки</Event>
 							</Events>
 							<ChildItems>
 								<LabelField name="СписокСертификатовСертификат" id="55">
@@ -380,6 +385,22 @@
 										</LabelField>
 									</ChildItems>
 								</ColumnGroup>
+								<InputField name="СписокСертификатовДолжность" id="110">
+									<DataPath>СписокСертификатов.Должность</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Должность (Для документов)</v8:content>
+										</v8:item>
+									</Title>
+									<Width>25</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<ContextMenu name="СписокСертификатовДолжностьКонтекстноеМеню" id="111"/>
+									<ExtendedTooltip name="СписокСертификатовДолжностьРасширеннаяПодсказка" id="112"/>
+									<Events>
+										<Event name="OnChange">СписокСертификатовДолжностьПриИзменении</Event>
+									</Events>
+								</InputField>
 								<LabelField name="СписокСертификатовКемВыдан" id="66">
 									<DataPath>СписокСертификатов.КемВыдан</DataPath>
 									<ContextMenu name="СписокСертификатовКемВыданКонтекстноеМеню" id="67"/>
@@ -525,6 +546,47 @@
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Сертификат действителен</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Должность" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Должность (Для документов)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДолжностьПоСертификату" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Должность по сертификату</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТребуетсяЗаполнитьДолжность" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Требуется заполнить должность</v8:content>
 						</v8:item>
 					</Title>
 					<Type>

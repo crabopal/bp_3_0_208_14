@@ -9,26 +9,11 @@
 		<ExcludedCommand>Create</ExcludedCommand>
 		<ExcludedCommand>Delete</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаВыбратьИзТекущегоСписка" id="265">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ВыбратьИзТекущегоСписка</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаВыбратьИзТекущегоСпискаРасширеннаяПодсказка" id="266"/>
-			</Button>
-			<Button name="ФормаСоздать" id="267">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Создать</CommandName>
-				<ExtendedTooltip name="ФормаСоздатьРасширеннаяПодсказка" id="268"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
-		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -53,7 +38,6 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаЗагруженныеРасширеннаяПодсказка" id="61"/>
 					<ChildItems>
@@ -84,10 +68,18 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаПанельСписокРасширеннаяПодсказка" id="205"/>
 							<ChildItems>
+								<Button name="СписокВыбрать" id="200">
+									<Type>UsualButton</Type>
+									<DefaultButton>true</DefaultButton>
+									<CommandName>Form.Command.ВыбратьИзЗагруженных</CommandName>
+									<ButtonImportance>Main</ButtonImportance>
+									<ExtendedTooltip name="СписокВыбратьРасширеннаяПодсказка" id="201"/>
+								</Button>
 								<InputField name="ОтборНеСопоставлено" id="214">
 									<DataPath>ОтборНеСопоставлено</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>23</MaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ListChoiceMode>true</ListChoiceMode>
 									<ChooseType>false</ChooseType>
 									<TextEdit>false</TextEdit>
@@ -167,8 +159,9 @@
 								</InputField>
 								<InputField name="ОтборСоответствует" id="217">
 									<DataPath>ОтборСоответствует</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>20</MaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
 									<ListChoiceMode>true</ListChoiceMode>
 									<ChooseType>false</ChooseType>
 									<TextEdit>false</TextEdit>
@@ -222,10 +215,7 @@
 								</InputField>
 								<CheckBoxField name="ОтборНастроеноПодключение" id="220">
 									<DataPath>ОтборНастроеноПодключение</DataPath>
-									<Visible>false</Visible>
 									<TitleLocation>Right</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ОтборНастроеноПодключениеКонтекстноеМеню" id="221"/>
 									<ExtendedTooltip name="ОтборНастроеноПодключениеРасширеннаяПодсказка" id="222"/>
 									<Events>
@@ -241,8 +231,6 @@
 											<v8:content>ИНН</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>17</MaxWidth>
 									<ClearButton>true</ClearButton>
@@ -267,8 +255,6 @@
 											<v8:content>КПП</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>9</MaxWidth>
 									<ClearButton>true</ClearButton>
@@ -284,6 +270,24 @@
 										<Event name="OnChange">КППОтборПриИзменении</Event>
 									</Events>
 								</InputField>
+								<CommandBar name="КоманднаяПанельСписок" id="206">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Командная панель список</v8:content>
+										</v8:item>
+									</Title>
+									<CommandSource>Item.Список</CommandSource>
+									<ExtendedTooltip name="КоманднаяПанельСписокРасширеннаяПодсказка" id="207"/>
+									<ChildItems>
+										<Button name="ФормаСправка" id="48">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Help</CommandName>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="49"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
 							</ChildItems>
 						</UsualGroup>
 						<Table name="Список" id="3">
@@ -301,7 +305,6 @@
 								<ExcludedCommand>Delete</ExcludedCommand>
 							</CommandSet>
 							<SearchStringLocation>CommandBar</SearchStringLocation>
-							<ShowCommandBar>true</ShowCommandBar>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -327,25 +330,7 @@
 								</ChildItems>
 							</ContextMenu>
 							<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-								<ChildItems>
-									<Button name="СписокВыбрать" id="200">
-										<Type>CommandBarButton</Type>
-										<DefaultButton>true</DefaultButton>
-										<CommandName>Form.Command.ВыбратьИзЗагруженных</CommandName>
-										<ButtonImportance>Main</ButtonImportance>
-										<ExtendedTooltip name="СписокВыбратьРасширеннаяПодсказка" id="201"/>
-									</Button>
-									<Button name="СписокИзменитьФорму" id="269">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-										<ExtendedTooltip name="СписокИзменитьФормуРасширеннаяПодсказка" id="270"/>
-									</Button>
-									<Button name="СписокСправка" id="271">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.StandardCommand.Help</CommandName>
-										<ExtendedTooltip name="СписокСправкаРасширеннаяПодсказка" id="272"/>
-									</Button>
-								</ChildItems>
+								<Autofill>false</Autofill>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 							<SearchStringAddition name="СписокСтрокаПоиска" id="7">
@@ -376,13 +361,10 @@
 							<Events>
 								<Event name="Selection">СписокВыбор</Event>
 								<Event name="BeforeAddRow">СписокПередНачаломДобавления</Event>
-								<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
 							</Events>
 							<ChildItems>
 								<LabelField name="Наименование" id="24">
 									<DataPath>Список.Наименование</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>40</MaxWidth>
 									<ContextMenu name="НаименованиеКонтекстноеМеню" id="25"/>
@@ -390,15 +372,11 @@
 								</LabelField>
 								<LabelField name="Тип" id="39">
 									<DataPath>Список.Тип</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ТипКонтекстноеМеню" id="40"/>
 									<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="41"/>
 								</LabelField>
 								<LabelField name="Контрагент" id="45">
 									<DataPath>Список.Контрагент</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="КонтрагентКонтекстноеМеню" id="46"/>
 									<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="47"/>
 								</LabelField>
@@ -416,7 +394,6 @@
 										</v8:item>
 									</ToolTip>
 									<Group>InCell</Group>
-									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="ГруппаПредприятияРасширеннаяПодсказка" id="51"/>
 									<ChildItems>
 										<LabelField name="КоличествоПредприятий" id="52">
@@ -427,8 +404,6 @@
 													<v8:content>Предприятия</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<Width>5</Width>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<HorizontalStretch>false</HorizontalStretch>
@@ -444,9 +419,7 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
-											<AutoEditMode>true</AutoEditMode>
 											<Width>15</Width>
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<HorizontalStretch>false</HorizontalStretch>
@@ -457,8 +430,6 @@
 								</ColumnGroup>
 								<LabelField name="ИНН" id="30">
 									<DataPath>Список.ИНН</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>12</MaxWidth>
 									<ContextMenu name="ИННКонтекстноеМеню" id="31"/>
@@ -466,8 +437,6 @@
 								</LabelField>
 								<LabelField name="КПП" id="33">
 									<DataPath>Список.КПП</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>10</MaxWidth>
 									<ContextMenu name="КППКонтекстноеМеню" id="34"/>
@@ -481,8 +450,6 @@
 											<v8:content>Идентификатор ВетИС</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>35</MaxWidth>
 									<ContextMenu name="ИдентификаторКонтекстноеМеню" id="28"/>
@@ -499,8 +466,6 @@
 											<v8:content>Адрес</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>30</MaxWidth>
 									<ContextMenu name="АдресПредставлениеКонтекстноеМеню" id="43"/>
@@ -511,8 +476,6 @@
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СсылкаКонтекстноеМеню" id="37"/>
 									<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="38"/>
 								</LabelField>
@@ -528,105 +491,89 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаПоискВКлассификатореРасширеннаяПодсказка" id="63"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаИнформация" id="277">
+						<UsualGroup name="ХозяйствующиеСубъектыНавигацияОтбор" id="126">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа информация</v8:content>
+									<v8:content>Хозяйствующие субъекты навигация отбор</v8:content>
 								</v8:item>
 							</Title>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа информация</v8:content>
+									<v8:content>отбор</v8:content>
 								</v8:item>
 							</ToolTip>
-							<Group>Vertical</Group>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаИнформацияРасширеннаяПодсказка" id="278"/>
+							<ExtendedTooltip name="ХозяйствующиеСубъектыНавигацияОтборРасширеннаяПодсказка" id="127"/>
 							<ChildItems>
-								<UsualGroup name="ХозяйствующиеСубъектыНавигацияОтбор" id="126">
-									<Title>
+								<PictureDecoration name="КартинкаИнформацияНеНастроенПоиск" id="128">
+									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Хозяйствующие субъекты навигация отбор</v8:content>
+											<v8:content>Картинка информация не настроен поиск</v8:content>
 										</v8:item>
 									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>отбор</v8:content>
-										</v8:item>
-									</ToolTip>
-									<Group>Horizontal</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ХозяйствующиеСубъектыНавигацияОтборРасширеннаяПодсказка" id="127"/>
-									<ChildItems>
-										<PictureDecoration name="КартинкаИнформацияНеНастроенПоиск" id="128">
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Картинка информация не настроен поиск</v8:content>
-												</v8:item>
-											</Title>
-											<GroupVerticalAlign>Center</GroupVerticalAlign>
-											<Picture>
-												<xr:Ref>CommonPicture.ИнформацияГосИС</xr:Ref>
-												<xr:LoadTransparent>false</xr:LoadTransparent>
-											</Picture>
-											<FileDragMode>AsFile</FileDragMode>
-											<ContextMenu name="КартинкаИнформацияНеНастроенПоискКонтекстноеМеню" id="129"/>
-											<ExtendedTooltip name="КартинкаИнформацияНеНастроенПоискРасширеннаяПодсказка" id="130"/>
-										</PictureDecoration>
-										<LabelField name="ПредставлениеПараметровПоискаВКлассификаторе" id="131">
-											<DataPath>ПредставлениеПараметровПоиска</DataPath>
-											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<HorizontalStretch>true</HorizontalStretch>
-											<ContextMenu name="ПредставлениеПараметровПоискаВКлассификатореКонтекстноеМеню" id="132"/>
-											<ExtendedTooltip name="ПредставлениеПараметровПоискаВКлассификатореРасширеннаяПодсказка" id="133"/>
-											<Events>
-												<Event name="URLProcessing">ПредставлениеПараметровПоискаВКлассификатореОбработкаНавигационнойСсылки</Event>
-											</Events>
-										</LabelField>
-									</ChildItems>
-								</UsualGroup>
-								<UsualGroup name="ГруппаИнформацияОНеКорректномЗапросе" id="223">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа информация о не корректном запросе</v8:content>
-										</v8:item>
-									</Title>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
+									<Picture>
+										<xr:Ref>CommonPicture.ИнформацияГосИС</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="КартинкаИнформацияНеНастроенПоискКонтекстноеМеню" id="129"/>
+									<ExtendedTooltip name="КартинкаИнформацияНеНастроенПоискРасширеннаяПодсказка" id="130"/>
+								</PictureDecoration>
+								<Button name="ВыбратьИзКлассификатора" id="194">
+									<Type>UsualButton</Type>
+									<Width>9</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<CommandName>Form.Command.ВыбратьИзКлассификатора</CommandName>
+									<BackColor>style:ВысокийПриоритетДокумента</BackColor>
+									<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+									<ExtendedTooltip name="ВыбратьИзКлассификатораРасширеннаяПодсказка" id="195"/>
+								</Button>
+								<Button name="Создать" id="182">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.Создать</CommandName>
+									<ExtendedTooltip name="СоздатьРасширеннаяПодсказка" id="183"/>
+								</Button>
+								<LabelField name="ПредставлениеПараметровПоискаВКлассификаторе" id="131">
+									<DataPath>ПредставлениеПараметровПоиска</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
 									<HorizontalStretch>true</HorizontalStretch>
-									<Group>Vertical</Group>
-									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаИнформацияОНеКорректномЗапросеРасширеннаяПодсказка" id="224"/>
+									<ContextMenu name="ПредставлениеПараметровПоискаВКлассификатореКонтекстноеМеню" id="132"/>
+									<ExtendedTooltip name="ПредставлениеПараметровПоискаВКлассификатореРасширеннаяПодсказка" id="133"/>
+									<Events>
+										<Event name="URLProcessing">ПредставлениеПараметровПоискаВКлассификатореОбработкаНавигационнойСсылки</Event>
+									</Events>
+								</LabelField>
+								<CommandBar name="ПоискВКлассификатореКоманднаяПанель" id="184">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Поиск в классификаторе командная панель</v8:content>
+										</v8:item>
+									</Title>
+									<Width>11</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<CommandSource>Item.ХозяйствующиеСубъекты</CommandSource>
+									<ExtendedTooltip name="ПоискВКлассификатореКоманднаяПанельРасширеннаяПодсказка" id="185"/>
 									<ChildItems>
-										<LabelDecoration name="ИнформацияОНеКорректномЗапросе" id="225">
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<Title formatted="false">
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Заданные условия поиска дали слишком много результатов. Уточните реквизиты отбора и выполните поиск.</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ИнформацияОНеКорректномЗапросеКонтекстноеМеню" id="226"/>
-											<ExtendedTooltip name="ИнформацияОНеКорректномЗапросеРасширеннаяПодсказка" id="227"/>
-										</LabelDecoration>
+										<Button name="ХозяйствующиеСубъектыСправка" id="186">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.StandardCommand.Help</CommandName>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ХозяйствующиеСубъектыСправкаРасширеннаяПодсказка" id="187"/>
+										</Button>
 									</ChildItems>
-								</UsualGroup>
+								</CommandBar>
 							</ChildItems>
 						</UsualGroup>
 						<Pages name="СтраницыХозяйствующиеСубъекты" id="64">
@@ -653,10 +600,36 @@
 										</v8:item>
 									</ToolTip>
 									<Group>Vertical</Group>
-									<ShowTitle>true</ShowTitle>
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="СтраницаХозяйствующиеСубъектыЭлементыРасширеннаяПодсказка" id="67"/>
 									<ChildItems>
+										<UsualGroup name="ГруппаИнформацияОНеКорректномЗапросе" id="223">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа информация о не корректном запросе</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаИнформацияОНеКорректномЗапросеРасширеннаяПодсказка" id="224"/>
+											<ChildItems>
+												<LabelDecoration name="ИнформацияОНеКорректномЗапросе" id="225">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<TextColor>style:ЦветТекстаТребуетВниманияГосИС</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Заданные условия поиска дали слишком много результатов. Уточните реквизиты отбора и выполните поиск.</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ИнформацияОНеКорректномЗапросеКонтекстноеМеню" id="226"/>
+													<ExtendedTooltip name="ИнформацияОНеКорректномЗапросеРасширеннаяПодсказка" id="227"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
 										<Table name="ХозяйствующиеСубъекты" id="70">
 											<Representation>List</Representation>
 											<ChangeRowSet>false</ChangeRowSet>
@@ -709,22 +682,7 @@
 												</ChildItems>
 											</ContextMenu>
 											<AutoCommandBar name="ХозяйствующиеСубъектыКоманднаяПанель" id="72">
-												<ChildItems>
-													<Button name="ВыбратьИзКлассификатора" id="194">
-														<Type>CommandBarButton</Type>
-														<Width>9</Width>
-														<AutoMaxWidth>false</AutoMaxWidth>
-														<CommandName>Form.Command.ВыбратьИзКлассификатора</CommandName>
-														<BackColor>style:ВысокийПриоритетДокумента</BackColor>
-														<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-														<ExtendedTooltip name="ВыбратьИзКлассификатораРасширеннаяПодсказка" id="195"/>
-													</Button>
-													<Button name="Создать" id="182">
-														<Type>CommandBarButton</Type>
-														<CommandName>Form.Command.Создать</CommandName>
-														<ExtendedTooltip name="СоздатьРасширеннаяПодсказка" id="183"/>
-													</Button>
-												</ChildItems>
+												<Autofill>false</Autofill>
 											</AutoCommandBar>
 											<ExtendedTooltip name="ХозяйствующиеСубъектыРасширеннаяПодсказка" id="73"/>
 											<SearchStringAddition name="ХозяйствующиеСубъектыСтрокаПоиска" id="74">
@@ -754,7 +712,6 @@
 											</SearchControlAddition>
 											<Events>
 												<Event name="Selection">ХозяйствующиеСубъектыВыбор</Event>
-												<Event name="OnActivateRow">ХозяйствующиеСубъектыПриАктивизацииСтроки</Event>
 											</Events>
 											<ChildItems>
 												<PictureField name="ХозяйствующиеСубъектыИндексКартинкиЕстьВБазе" id="146">
@@ -931,15 +888,12 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<ShowTitle>true</ShowTitle>
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="СтраницаХозяйствующиеСубъектыПоискНеВыполненРасширеннаяПодсказка" id="122"/>
 									<ChildItems>
 										<SpreadSheetDocumentField name="ПоискНеНастроен" id="123">
 											<DataPath>ПоискНеНастроен</DataPath>
 											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="ПоискНеНастроенКонтекстноеМеню" id="124"/>
 											<ExtendedTooltip name="ПоискНеНастроенРасширеннаяПодсказка" id="125"/>
 										</SpreadSheetDocumentField>
@@ -1507,17 +1461,6 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
-		<Attribute name="ЭтоИнтерфейс85" id="22">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Это интерфейс85</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
-		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="Создать" id="6">
@@ -1535,7 +1478,6 @@
 			</ToolTip>
 			<Action>Создать</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 		<Command name="ДанныеКлассификатора" id="7">
 			<Title>
@@ -1555,9 +1497,7 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ДанныеКлассификатора</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ХозяйствующиеСубъекты</AssociatedTableElementId>
-			<SelectedRowsUse>DontUse</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ВыбратьИзКлассификатора" id="8">
 			<Title>
@@ -1590,22 +1530,6 @@
 			</ToolTip>
 			<Action>ВыбратьИзЗагруженных</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="ВыбратьИзТекущегоСписка" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Выбрать из текущего списка</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ВыбратьИзТекущегоСписка</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

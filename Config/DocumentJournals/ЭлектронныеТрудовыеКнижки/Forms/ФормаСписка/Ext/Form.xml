@@ -1,43 +1,153 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<UsualGroup name="СписокКритерииОтбора" id="40">
+		<UsualGroup name="ПредупреждениеОПревышенииЛимитаТарифа" id="70">
+			<Visible>false</Visible>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Список критерии отбора</v8:content>
+					<v8:content>Предупреждение о превышении лимита тарифа</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ЦветФонаПредупреждения</BackColor>
+			<ExtendedTooltip name="ПредупреждениеОПревышенииЛимитаТарифаРасширеннаяПодсказка" id="71"/>
+			<ChildItems>
+				<LabelDecoration name="ТекстПредупрежденияЛимитТарифа" id="72">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество сотрудников превысило ограничение тарифа (26 из 25)</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ТекстПредупрежденияЛимитТарифаКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="ТекстПредупрежденияЛимитТарифаРасширеннаяПодсказка" id="74"/>
+				</LabelDecoration>
+				<LabelDecoration name="ПодробнееОТарифах" id="77">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Больше возможностей доступно на других тарифах</v8:content>
+						</v8:item>
+					</Title>
+					<Hyperlink>true</Hyperlink>
+					<ContextMenu name="ПодробнееОТарифахКонтекстноеМеню" id="78"/>
+					<ExtendedTooltip name="ПодробнееОТарифахРасширеннаяПодсказка" id="79"/>
+					<Events>
+						<Event name="Click">ПодробнееОТарифах</Event>
+					</Events>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаБыстрыеОтборы" id="68">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Быстрые отборы</v8:content>
 				</v8:item>
 			</Title>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="СписокКритерииОтбораРасширеннаяПодсказка" id="41"/>
-		</UsualGroup>
-		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа пользовательских настроек</v8:content>
-				</v8:item>
-			</Title>
-			<VerticalStretch>false</VerticalStretch>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>WeakSeparation</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+			<ExtendedTooltip name="ГруппаБыстрыеОтборыРасширеннаяПодсказка" id="69"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаОтборОрганизацияСотрудник" id="54">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор по организации и сотруднику</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОтборОрганизацияСотрудникРасширеннаяПодсказка" id="55"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаОтборОрганизация" id="56">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отбор по организации</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтборОрганизацияРасширеннаяПодсказка" id="57"/>
+							<ChildItems>
+								<CheckBoxField name="ОтборОрганизацияИспользование" id="58">
+									<DataPath>ОтборОрганизацияИспользование</DataPath>
+									<SkipOnInput>true</SkipOnInput>
+									<ContextMenu name="ОтборОрганизацияИспользованиеКонтекстноеМеню" id="59"/>
+									<ExtendedTooltip name="ОтборОрганизацияИспользованиеРасширеннаяПодсказка" id="60"/>
+									<Events>
+										<Event name="OnChange">ОтборОрганизацияИспользованиеПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="ОтборОрганизация" id="61">
+									<DataPath>ОтборОрганизация</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<OpenButton>false</OpenButton>
+									<ContextMenu name="ОтборОрганизацияКонтекстноеМеню" id="62"/>
+									<ExtendedTooltip name="ОтборОрганизацияExtendedTooltip" id="63"/>
+									<Events>
+										<Event name="OnChange">ОтборОрганизацияПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="СписокКритерииОтбора" id="40">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Список критерии отбора</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="СписокКритерииОтбораРасширеннаяПодсказка" id="41"/>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаДополнительныеОтборы" id="66">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительные отборы</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДополнительныеОтборыРасширеннаяПодсказка" id="67"/>
+				</UsualGroup>
+			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="СписокНастройкиОтбора" id="42">
+			<Visible>false</Visible>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -60,11 +170,51 @@
 			<CommandSource>Form</CommandSource>
 			<ExtendedTooltip name="КоманднаяПанельФормыРасширеннаяПодсказка" id="45"/>
 			<ChildItems>
-				<Button name="ФормаОбщаяКомандаПрисоединенныеФайлыБЗК" id="49">
+				<Button name="ФормаПоказатьКонтекстныеНовости" id="52">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.ПоказатьКонтекстныеНовости</CommandName>
+					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="ФормаПоказатьКонтекстныеНовостиРасширеннаяПодсказка" id="53"/>
+				</Button>
+				<Button name="ФормаОбщаяКомандаПрисоединенныеФайлыБЗК" id="82">
 					<Type>CommandBarButton</Type>
 					<CommandName>CommonCommand.ПрисоединенныеФайлыБЗК</CommandName>
 					<DataPath>Items.Список.CurrentData.Ссылка</DataPath>
-					<ExtendedTooltip name="ФормаОбщаяКомандаПрисоединенныеФайлыБЗКРасширеннаяПодсказка" id="50"/>
+					<ExtendedTooltip name="ФормаОбщаяКомандаПрисоединенныеФайлыБЗКРасширеннаяПодсказка" id="83"/>
+				</Button>
+				<SearchStringAddition name="ДополнениеСтрокаПоиска" id="86">
+					<AdditionSource>
+						<Item>Список</Item>
+						<Type>SearchStringRepresentation</Type>
+					</AdditionSource>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Строка поиска</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДополнениеСтрокаПоискаКонтекстноеМеню" id="87"/>
+					<ExtendedTooltip name="ДополнениеСтрокаПоискаРасширеннаяПодсказка" id="88"/>
+				</SearchStringAddition>
+				<SearchControlAddition name="ДополнениеУправлениеПоиском" id="89">
+					<AdditionSource>
+						<Item>Список</Item>
+						<Type>SearchControl</Type>
+					</AdditionSource>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Управление поиском</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДополнениеУправлениеПоискомКонтекстноеМеню" id="90"/>
+					<ExtendedTooltip name="ДополнениеУправлениеПоискомРасширеннаяПодсказка" id="91"/>
+				</SearchControlAddition>
+				<Button name="ФормаОбщаяКомандаОткрытьНовоеОкно" id="84">
+					<Type>CommandBarButton</Type>
+					<CommandName>CommonCommand.ОткрытьНовоеОкно</CommandName>
+					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="ФормаОбщаяКомандаОткрытьНовоеОкноРасширеннаяПодсказка" id="85"/>
 				</Button>
 			</ChildItems>
 		</CommandBar>
@@ -84,6 +234,8 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
+			<SearchStringLocation>None</SearchStringLocation>
+			<SearchControlLocation>None</SearchControlLocation>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -97,7 +249,7 @@
 			<ShowRoot>true</ShowRoot>
 			<AllowRootChoice>false</AllowRootChoice>
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
-			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<UserSettingsGroup>ГруппаДополнительныеОтборы</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
@@ -129,23 +281,20 @@
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
 			</SearchControlAddition>
 			<Events>
-				<Event name="BeforeAddRow">СписокПередНачаломДобавления</Event>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
 				<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
 				<Event name="BeforeLoadUserSettingsAtServer">СписокПередЗагрузкойПользовательскихНастроекНаСервере</Event>
-				<Event name="OnUpdateUserSettingSetAtServer">СписокПриОбновленииСоставаПользовательскихНастроекНаСервере</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="Дата" id="16">
 					<DataPath>Список.Дата</DataPath>
-					<Width>9</Width>
+					<Width>7</Width>
+					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="Номер" id="19">
 					<DataPath>Список.Номер</DataPath>
-					<Width>11</Width>
-					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="НомерКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="21"/>
 				</LabelField>
@@ -155,12 +304,7 @@
 					<ContextMenu name="ТипКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="24"/>
 				</LabelField>
-				<LabelField name="Организация" id="25">
-					<DataPath>Список.Организация</DataPath>
-					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="26"/>
-					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="27"/>
-				</LabelField>
-				<LabelField name="ОтчетныйПериод" id="28">
+				<LabelField name="ОтчетныйПериод" id="49">
 					<DataPath>Список.ОтчетныйПериод</DataPath>
 					<Title>
 						<v8:item>
@@ -174,13 +318,18 @@
 							<v8:content>ДФ='ММММ гггг'</v8:content>
 						</v8:item>
 					</Format>
-					<ContextMenu name="ОтчетныйПериодКонтекстноеМеню" id="29"/>
-					<ExtendedTooltip name="ОтчетныйПериодРасширеннаяПодсказка" id="30"/>
+					<ContextMenu name="ОтчетныйПериодКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="ОтчетныйПериодРасширеннаяПодсказка" id="51"/>
 				</LabelField>
 				<LabelField name="Сотрудники" id="31">
 					<DataPath>Список.Сотрудники</DataPath>
 					<ContextMenu name="СотрудникиКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="СотрудникиРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+				<LabelField name="Организация" id="25">
+					<DataPath>Список.Организация</DataPath>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 				<LabelField name="Ответственный" id="34">
 					<DataPath>Список.Ответственный</DataPath>
@@ -260,5 +409,86 @@
 		<Attribute name="ПараметрыПодключаемыхКоманд" id="2">
 			<Type/>
 		</Attribute>
+		<Attribute name="Новости" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новости</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ОтборОрганизацияИспользование" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборОрганизацияИспользование</Field>
+			</Save>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьНесколькоОрганизацийЗарплатаКадрыБазовая</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="ОтборОрганизация" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтборОрганизация</Field>
+			</Save>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьНесколькоОрганизацийЗарплатаКадрыБазовая</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="ОсновнаяОрганизация" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основная организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="ПоказатьКонтекстныеНовости" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новости</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список контекстных новостей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Use>
+				<xr:Common>false</xr:Common>
+				<xr:Value name="Role.АдминистраторСистемы">true</xr:Value>
+				<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+				<xr:Value name="Role.ЧтениеНовостей">true</xr:Value>
+			</Use>
+			<Action>ПоказатьКонтекстныеНовости</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.РазрешенаРаботаСНовостями</Item>
+			</FunctionalOptions>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
 </Form>

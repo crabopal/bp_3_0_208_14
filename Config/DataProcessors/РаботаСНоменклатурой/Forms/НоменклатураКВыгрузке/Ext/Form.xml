@@ -3,7 +3,7 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Выбор номенклатуры к выгрузке</v8:content>
+			<v8:content>Выгружаемая номенклатура</v8:content>
 		</v8:item>
 	</Title>
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
@@ -13,6 +13,7 @@
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="Готово" id="101">
 				<Type>CommandBarButton</Type>
@@ -47,8 +48,50 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="78"/>
 			<ChildItems>
+				<UsualGroup name="ГруппаПояснениеКФорме" id="23">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пояснение к форме</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<VerticalAlign>Center</VerticalAlign>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПояснениеКФормеРасширеннаяПодсказка" id="24"/>
+					<ChildItems>
+						<PictureDecoration name="КартинкаИнформация" id="25">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка информация</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.Информация32</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КартинкаИнформацияКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="КартинкаИнформацияРасширеннаяПодсказка" id="27"/>
+						</PictureDecoration>
+						<LabelDecoration name="ПояснениеКФорме" id="28">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Выберите номенклатуру для выгрузки в каталоги</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеКФормеКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="ПояснениеКФормеРасширеннаяПодсказка" id="30"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
 				<CommandBar name="КоманднаяПанельФормы" id="79">
-					<Visible>false</Visible>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -175,12 +218,6 @@
 										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 										<ExtendedTooltip name="СписокСкопироватьРасширеннаяПодсказка" id="128"/>
 									</Button>
-									<Button name="СписокОбновить" id="140">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
-										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-										<ExtendedTooltip name="СписокОбновитьРасширеннаяПодсказка" id="141"/>
-									</Button>
 									<Button name="СписокИзменить" id="129">
 										<Type>CommandBarButton</Type>
 										<UserVisible>
@@ -268,11 +305,14 @@
 								</v8:item>
 							</Title>
 							<Group>AlwaysHorizontal</Group>
+							<VerticalAlign>Center</VerticalAlign>
 							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаПояснениеИсключенияРасширеннаяПодсказка" id="67"/>
 							<ChildItems>
 								<PictureDecoration name="КартинкаИнформацияИсключения" id="68">
+									<Visible>false</Visible>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -280,7 +320,7 @@
 										</v8:item>
 									</Title>
 									<Picture>
-										<xr:Ref>CommonPicture.ВажноеСообщениеИнформация</xr:Ref>
+										<xr:Ref>CommonPicture.Информация32</xr:Ref>
 										<xr:LoadTransparent>false</xr:LoadTransparent>
 									</Picture>
 									<FileDragMode>AsFile</FileDragMode>
@@ -289,13 +329,13 @@
 								</PictureDecoration>
 								<LabelDecoration name="ПояснениеИсключения" id="71">
 									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextColor>style:ПоясняющийТекст</TextColor>
 									<Title formatted="false">
 										<v8:item>
 											<v8:lang>ru</v8:lang>
 											<v8:content>Исключенная номенклатура не будет выгружаться и попадать в уведомления</v8:content>
 										</v8:item>
 									</Title>
-									<HorizontalAlign>Auto</HorizontalAlign>
 									<ContextMenu name="ПояснениеИсключенияКонтекстноеМеню" id="72"/>
 									<ExtendedTooltip name="ПояснениеИсключенияРасширеннаяПодсказка" id="73"/>
 								</LabelDecoration>
@@ -373,11 +413,6 @@
 										<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 										<ExtendedTooltip name="СписокВыгрузкаЗапрещенаУдалитьИсключениеРасширеннаяПодсказка" id="110"/>
 									</Button>
-									<Button name="СписокВыгрузкаЗапрещенаОбновить" id="164">
-										<Type>CommandBarButton</Type>
-										<CommandName>Form.Item.СписокВыгрузкаЗапрещена.StandardCommand.Refresh</CommandName>
-										<ExtendedTooltip name="СписокВыгрузкаЗапрещенаОбновитьРасширеннаяПодсказка" id="165"/>
-									</Button>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="СписокВыгрузкаЗапрещенаРасширеннаяПодсказка" id="46"/>
@@ -445,15 +480,7 @@
 					<v8:content>Группа оповещение</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>При установленном флажке система будет генерировать оповещения о появлении товарных позиций, удовлетворяющих условиям отбора, но не участвующих в выгрузке</v8:content>
-				</v8:item>
-			</ToolTip>
-			<ToolTipRepresentation>Button</ToolTipRepresentation>
 			<Group>Vertical</Group>
-			<HorizontalSpacing>Double</HorizontalSpacing>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -469,24 +496,56 @@
 						</v8:item>
 					</Title>
 					<TitleLocation>Right</TitleLocation>
-					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>При установленном флажке система будет генерировать оповещения о появлении товарных позиций, удовлетворяющих условиям отбора, но не участвующих в выгрузке</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
 					<ContextMenu name="ОповещатьОНовыхКонтекстноеМеню" id="75"/>
-					<ExtendedTooltip name="ОповещатьОНовыхРасширеннаяПодсказка" id="76">
-						<AutoMaxWidth>false</AutoMaxWidth>
-						<Title formatted="true">
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Условия отбора: Изменить</v8:content>
-							</v8:item>
-						</Title>
-						<Events>
-							<Event name="URLProcessing">ОповещатьОНовыхРасширеннаяПодсказкаОбработкаНавигационнойСсылки</Event>
-						</Events>
-					</ExtendedTooltip>
+					<ExtendedTooltip name="ОповещатьОНовыхРасширеннаяПодсказка" id="76"/>
 					<Events>
 						<Event name="OnChange">ОповещатьОНовыхПриИзменении</Event>
 					</Events>
 				</CheckBoxField>
+				<UsualGroup name="ГруппаУсловияОтбора" id="96">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа условия отбора</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаУсловияОтбораРасширеннаяПодсказка" id="97"/>
+					<ChildItems>
+						<PictureDecoration name="ДекорацияОтступ" id="98">
+							<Picture>
+								<xr:Ref>CommonPicture.Пустая</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="99"/>
+							<ExtendedTooltip name="ДекорацияОтступРасширеннаяПодсказка" id="100"/>
+						</PictureDecoration>
+						<LabelDecoration name="ДекорацияОтбор" id="63">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Условия отбора новой номенклатуры: &lt;не установлены&gt; Изменить</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияОтборКонтекстноеМеню" id="64"/>
+							<ExtendedTooltip name="ДекорацияОтборРасширеннаяПодсказка" id="65"/>
+							<Events>
+								<Event name="URLProcessing">ДекорацияОтборОбработкаНавигационнойСсылки</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<Button name="ВыбратьВыгружаемыеРеквизиты" id="113">
@@ -757,6 +816,7 @@
 			</Picture>
 			<Action>Добавить</Action>
 			<Representation>TextPicture</Representation>
+			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
 		</Command>
 		<Command name="ЗаполнитьПоУсловию" id="9">
 			<Title>
@@ -812,6 +872,7 @@
 			</Picture>
 			<Action>ДобавитьИсключение</Action>
 			<Representation>TextPicture</Representation>
+			<AssociatedTableElementId xsi:type="xs:string">СписокВыгрузкаЗапрещена</AssociatedTableElementId>
 		</Command>
 		<Command name="Готово" id="3">
 			<Title>
@@ -827,7 +888,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Готово</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ВыбратьВыгружаемыеРеквизиты" id="13">
 			<Title>

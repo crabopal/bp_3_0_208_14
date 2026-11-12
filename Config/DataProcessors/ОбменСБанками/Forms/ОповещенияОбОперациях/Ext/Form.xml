@@ -4,9 +4,32 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<Customizable>false</Customizable>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаПродолжитьОжиданиеСменыСтатуса" id="33">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ПродолжитьОжиданиеСменыСтатуса</CommandName>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ФормаПродолжитьОжиданиеСменыСтатусаРасширеннаяПодсказка" id="34"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="1">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отмена</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="2"/>
+			</Button>
+		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -140,6 +163,23 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ОшибкаРасширеннаяПодсказка" id="26"/>
 					<ChildItems>
+						<PictureDecoration name="ДекорацияПредупреждение" id="35">
+							<Visible>false</Visible>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Декорация предупреждение</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Picture>
+								<xr:Ref>CommonPicture.Предупреждение32</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ДекорацияПредупреждениеКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ДекорацияПредупреждениеРасширеннаяПодсказка" id="37"/>
+						</PictureDecoration>
 						<PictureDecoration name="ДекорацияОшибка" id="27">
 							<Title formatted="false">
 								<v8:item>
@@ -210,6 +250,17 @@
 			</Type>
 		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="ПродолжитьОжиданиеСменыСтатуса" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Продолжить</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ПродолжитьОжиданиеСменыСтатуса</Action>
+		</Command>
+	</Commands>
 	<Parameters>
 		<Parameter name="ТекстСообщения">
 			<Type>

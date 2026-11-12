@@ -2,8 +2,21 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗапроситьВСДПоИдентификатору" id="79">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗапроситьВСДПоИдентификатору</CommandName>
+				<ExtendedTooltip name="ФормаЗапроситьВСДПоИдентификаторуРасширеннаяПодсказка" id="80"/>
+			</Button>
+			<Button name="ФормаАннулировать" id="81">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Аннулировать</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаАннулироватьРасширеннаяПодсказка" id="82"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -16,7 +29,7 @@
 					<v8:content>Группа быстрые отборы</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
+			<Group>HorizontalIfPossible</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -46,7 +59,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацииВЕТИСРасширеннаяПодсказка" id="24"/>
 							<ChildItems>
@@ -59,11 +71,10 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
+									<ChoiceButton>true</ChoiceButton>
 									<ClearButton>true</ClearButton>
 									<QuickChoice>false</QuickChoice>
 									<ChooseType>false</ChooseType>
@@ -108,7 +119,6 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Vertical</Group>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="СтраницаОтборОрганизацияВЕТИСРасширеннаяПодсказка" id="29"/>
 							<ChildItems>
@@ -121,11 +131,10 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>28</MaxWidth>
 									<DropListButton>true</DropListButton>
+									<ChoiceButton>true</ChoiceButton>
 									<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 									<ClearButton>true</ClearButton>
 									<OpenButton>false</OpenButton>
@@ -162,8 +171,6 @@
 				<InputField name="ОтборСтатус" id="48">
 					<DataPath>Статус</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>28</MaxWidth>
 					<ClearButton>true</ClearButton>
@@ -209,8 +216,6 @@
 				<InputField name="ОтборТип" id="39">
 					<DataPath>Тип</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>28</MaxWidth>
 					<ClearButton>true</ClearButton>
@@ -256,8 +261,6 @@
 				<LabelField name="ОписаниеПродукции" id="76">
 					<DataPath>ОписаниеПродукции</DataPath>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<ContextMenu name="ОписаниеПродукцииКонтекстноеМеню" id="77"/>
 					<ExtendedTooltip name="ОписаниеПродукцииРасширеннаяПодсказка" id="78"/>
@@ -283,7 +286,7 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -291,7 +294,6 @@
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>true</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -309,29 +311,7 @@
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
-				<ChildItems>
-					<Button name="ФормаАннулировать" id="81">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Аннулировать</CommandName>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-						<ExtendedTooltip name="ФормаАннулироватьРасширеннаяПодсказка" id="82"/>
-					</Button>
-					<Button name="СписокЗапроситьВСДПоИдентификатору" id="102">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ЗапроситьВСДПоИдентификатору</CommandName>
-						<ExtendedTooltip name="СписокЗапроситьВСДПоИдентификаторуРасширеннаяПодсказка" id="103"/>
-					</Button>
-					<Button name="СписокИзменитьФорму" id="104">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ExtendedTooltip name="СписокИзменитьФормуРасширеннаяПодсказка" id="105"/>
-					</Button>
-					<Button name="СписокСправка" id="106">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="СписокСправкаРасширеннаяПодсказка" id="107"/>
-					</Button>
-				</ChildItems>
+				<Autofill>false</Autofill>
 			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
@@ -362,13 +342,10 @@
 			<Events>
 				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
 				<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
-				<Event name="OnHover">СписокПриНаведении</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="Дата" id="33">
 					<DataPath>Список.Дата</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>8</MaxWidth>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="34"/>
@@ -376,29 +353,21 @@
 				</LabelField>
 				<LabelField name="ФормаВетеринарногоДокумента" id="36">
 					<DataPath>Список.Форма</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ФормаВетеринарногоДокументаКонтекстноеМеню" id="37"/>
 					<ExtendedTooltip name="ФормаВетеринарногоДокументаРасширеннаяПодсказка" id="38"/>
 				</LabelField>
 				<LabelField name="Тип" id="42">
 					<DataPath>Список.Тип</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТипКонтекстноеМеню" id="43"/>
 					<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="44"/>
 				</LabelField>
 				<LabelField name="Статус" id="45">
 					<DataPath>Список.Статус</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СтатусКонтекстноеМеню" id="46"/>
 					<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="47"/>
 				</LabelField>
 				<LabelField name="Продукция" id="67">
 					<DataPath>Список.Продукция</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ПродукцияКонтекстноеМеню" id="68"/>
 					<ExtendedTooltip name="ПродукцияРасширеннаяПодсказка" id="69"/>
 				</LabelField>
@@ -410,7 +379,6 @@
 						</v8:item>
 					</Title>
 					<Group>Horizontal</Group>
-					<ShowTitle>true</ShowTitle>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="ГрузоотправительРасширеннаяПодсказка" id="52"/>
 					<ChildItems>
@@ -422,8 +390,6 @@
 									<v8:content>Хозяйствующий субъект</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ГрузоотправительХозяйствующийСубъектКонтекстноеМеню" id="56"/>
 							<ExtendedTooltip name="ГрузоотправительХозяйствующийСубъектРасширеннаяПодсказка" id="57"/>
 						</LabelField>
@@ -435,8 +401,6 @@
 									<v8:content>Предприятие</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ГрузоотправительПредприятиеКонтекстноеМеню" id="59"/>
 							<ExtendedTooltip name="ГрузоотправительПредприятиеРасширеннаяПодсказка" id="60"/>
 						</LabelField>
@@ -450,7 +414,6 @@
 						</v8:item>
 					</Title>
 					<Group>Horizontal</Group>
-					<ShowTitle>true</ShowTitle>
 					<ShowInHeader>true</ShowInHeader>
 					<ExtendedTooltip name="ГрузополучательРасширеннаяПодсказка" id="54"/>
 					<ChildItems>
@@ -462,8 +425,6 @@
 									<v8:content>Хозяйствующий субъект</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ГрузополучательХозяйствующийСубъектКонтекстноеМеню" id="62"/>
 							<ExtendedTooltip name="ГрузополучательХозяйствующийСубъектРасширеннаяПодсказка" id="63"/>
 						</LabelField>
@@ -475,8 +436,6 @@
 									<v8:content>Предприятие</v8:content>
 								</v8:item>
 							</Title>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<ContextMenu name="ГрузополучательПредприятиеКонтекстноеМеню" id="65"/>
 							<ExtendedTooltip name="ГрузополучательПредприятиеРасширеннаяПодсказка" id="66"/>
 						</LabelField>
@@ -490,8 +449,6 @@
 							<v8:content>Дата производства</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>15</MaxWidth>
 					<ContextMenu name="ДатаПроизводстваКонтекстноеМеню" id="74"/>
@@ -505,8 +462,6 @@
 							<v8:content>Срок годности</v8:content>
 						</v8:item>
 					</Title>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<MaxWidth>15</MaxWidth>
 					<ContextMenu name="СрокГодностиКонтекстноеМеню" id="71"/>
@@ -518,8 +473,6 @@
 						<xr:Common>false</xr:Common>
 					</UserVisible>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="СсылкаКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="18"/>
 				</LabelField>
@@ -778,8 +731,7 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Аннулировать</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Список</AssociatedTableElementId>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 </Form>

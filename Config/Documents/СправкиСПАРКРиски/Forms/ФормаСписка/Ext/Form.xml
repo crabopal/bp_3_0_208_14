@@ -9,22 +9,55 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Top</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="ВсеПолученныеСправки" id="48">
-				<Type>CommandBarHyperlink</Type>
-				<CommandName>Form.Command.ВсеПолученныеСправки</CommandName>
-				<ExtendedTooltip name="ВсеПолученныеСправкиРасширеннаяПодсказка" id="49"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<UsualGroup name="ГруппаУведомлениеСервиса" id="94">
+			<Visible>false</Visible>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа уведомление сервиса</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ЦветФонаВниманиеБИП</BackColor>
+			<ExtendedTooltip name="ГруппаУведомлениеСервисаРасширеннаяПодсказка" id="95"/>
+			<ChildItems>
+				<LabelDecoration name="ДекорацияТекстУведомления" id="96">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Срок действия 1СПАРК Риски заканчивается &lt;b&gt;&lt;&lt;ДатаСервиса&gt;&gt;&lt;/&gt; года.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияТекстУведомленияКонтекстноеМеню" id="97"/>
+					<ExtendedTooltip name="ДекорацияТекстУведомленияРасширеннаяПодсказка" id="98"/>
+				</LabelDecoration>
+				<LabelDecoration name="ДекорацияУведомлениеПодробнее" id="99">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подробнее</v8:content>
+						</v8:item>
+					</Title>
+					<Hyperlink>true</Hyperlink>
+					<ContextMenu name="ДекорацияУведомлениеПодробнееКонтекстноеМеню" id="100"/>
+					<ExtendedTooltip name="ДекорацияУведомлениеПодробнееРасширеннаяПодсказка" id="101"/>
+					<Events>
+						<Event name="Click">ДекорацияУведомлениеПодробнееНажатие</Event>
+					</Events>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
 		<UsualGroup name="ГруппаПанель" id="39">
 			<Title>
 				<v8:item>
@@ -32,7 +65,7 @@
 					<v8:content>Группа панель</v8:content>
 				</v8:item>
 			</Title>
-			<Group>AlwaysHorizontal</Group>
+			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -45,7 +78,7 @@
 							<v8:content>Группа контрагент отбор</v8:content>
 						</v8:item>
 					</Title>
-					<Group>Vertical</Group>
+					<Group>Horizontal</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
@@ -72,30 +105,26 @@
 								<Event name="OnChange">КонтрагентОтборПриИзменении</Event>
 							</Events>
 						</InputField>
-						<LabelField name="КонтрагентОтборГиперссылка" id="79">
-							<DataPath>Контрагент</DataPath>
-							<AutoMaxWidth>false</AutoMaxWidth>
-							<Hiperlink>true</Hiperlink>
-							<ContextMenu name="КонтрагентОтборГиперссылкаКонтекстноеМеню" id="80"/>
-							<ExtendedTooltip name="КонтрагентОтборГиперссылкаРасширеннаяПодсказка" id="81"/>
-						</LabelField>
 					</ChildItems>
 				</UsualGroup>
 				<Button name="ЗапроситьСправку" id="44">
 					<Type>UsualButton</Type>
-					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
 					<CommandName>Form.Command.ЗапроситьСправку</CommandName>
 					<ExtendedTooltip name="ЗапроситьСправкуРасширеннаяПодсказка" id="45"/>
 				</Button>
-				<LabelDecoration name="ДекорацияРазделитель" id="50">
+				<LabelDecoration name="Декорация1" id="50">
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<AutoMaxHeight>false</AutoMaxHeight>
 					<HorizontalStretch>true</HorizontalStretch>
-					<ContextMenu name="ДекорацияРазделительКонтекстноеМеню" id="51"/>
-					<ExtendedTooltip name="ДекорацияРазделительРасширеннаяПодсказка" id="52"/>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="52"/>
 				</LabelDecoration>
-				<CommandBar name="ГруппаКоманднаяПанельСправки" id="121">
-					<Visible>false</Visible>
+				<Button name="ВсеПолученныеСправки" id="48">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.ВсеПолученныеСправки</CommandName>
+					<ExtendedTooltip name="ВсеПолученныеСправкиРасширеннаяПодсказка" id="49"/>
+				</Button>
+				<CommandBar name="ГруппаКоманднаяПанельСправки" id="53">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -103,96 +132,101 @@
 						</v8:item>
 					</Title>
 					<HorizontalStretch>false</HorizontalStretch>
-					<ExtendedTooltip name="ГруппаКоманднаяПанельСправкиРасширеннаяПодсказка" id="122"/>
+					<ExtendedTooltip name="ГруппаКоманднаяПанельСправкиРасширеннаяПодсказка" id="54"/>
 					<ChildItems>
-						<Button name="Найти" id="123">
+						<Button name="Найти" id="59">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.Item.Список.StandardCommand.Find</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="НайтиРасширеннаяПодсказка" id="124"/>
+							<ExtendedTooltip name="НайтиРасширеннаяПодсказка" id="60"/>
 						</Button>
-						<Button name="ОтменитьПоиск" id="125">
+						<Button name="ОтменитьПоиск" id="61">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.Item.Список.StandardCommand.CancelSearch</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ОтменитьПоискРасширеннаяПодсказка" id="126"/>
+							<ExtendedTooltip name="ОтменитьПоискРасширеннаяПодсказка" id="62"/>
 						</Button>
-						<Button name="ПоискПоТекущемуЗначению" id="127">
+						<Button name="ПоискПоТекущемуЗначению" id="63">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.Item.Список.StandardCommand.FindByCurrentValue</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ПоискПоТекущемуЗначениюРасширеннаяПодсказка" id="128"/>
+							<ExtendedTooltip name="ПоискПоТекущемуЗначениюРасширеннаяПодсказка" id="64"/>
 						</Button>
-						<Button name="НастройкаСписка" id="129">
+						<Button name="НастройкаСписка" id="65">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.Item.Список.StandardCommand.ListSettings</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="НастройкаСпискаРасширеннаяПодсказка" id="130"/>
+							<ExtendedTooltip name="НастройкаСпискаРасширеннаяПодсказка" id="66"/>
 						</Button>
-						<Button name="СохранитьНастройкиДинамическогоСписка" id="131">
+						<Button name="СохранитьНастройкиДинамическогоСписка" id="67">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.Item.Список.StandardCommand.SaveDynamicListSettings</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="СохранитьНастройкиДинамическогоСпискаРасширеннаяПодсказка" id="132"/>
+							<ExtendedTooltip name="СохранитьНастройкиДинамическогоСпискаРасширеннаяПодсказка" id="68"/>
 						</Button>
-						<Button name="ЗагрузитьНастройкиДинамическогоСписка" id="133">
+						<Button name="ЗагрузитьНастройкиДинамическогоСписка" id="69">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.Item.Список.StandardCommand.LoadDynamicListSettings</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ЗагрузитьНастройкиДинамическогоСпискаРасширеннаяПодсказка" id="134"/>
+							<ExtendedTooltip name="ЗагрузитьНастройкиДинамическогоСпискаРасширеннаяПодсказка" id="70"/>
 						</Button>
-						<Button name="СтандартныеНастройкиДинамическогоСписка" id="135">
+						<Button name="СтандартныеНастройкиДинамическогоСписка" id="71">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.Item.Список.StandardCommand.DynamicListStandardSettings</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="СтандартныеНастройкиДинамическогоСпискаРасширеннаяПодсказка" id="136"/>
+							<ExtendedTooltip name="СтандартныеНастройкиДинамическогоСпискаРасширеннаяПодсказка" id="72"/>
 						</Button>
-						<Button name="ВывестиСписок" id="137">
+						<Button name="ВывестиСписок" id="73">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.Item.Список.StandardCommand.OutputList</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ВывестиСписокРасширеннаяПодсказка" id="138"/>
+							<ExtendedTooltip name="ВывестиСписокРасширеннаяПодсказка" id="74"/>
 						</Button>
-						<Button name="Обновить" id="139">
+						<Button name="Обновить" id="75">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="140"/>
+							<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="76"/>
 						</Button>
-						<Button name="КопироватьВБуферОбмена" id="141">
+						<Button name="КопироватьВБуферОбмена" id="77">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.Item.Список.StandardCommand.CopyToClipboard</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="КопироватьВБуферОбменаРасширеннаяПодсказка" id="142"/>
+							<ExtendedTooltip name="КопироватьВБуферОбменаРасширеннаяПодсказка" id="78"/>
 						</Button>
-						<Button name="УстановитьПометкуУдаления" id="143">
+						<Button name="УстановитьПометкуУдаления" id="82">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.Item.Список.StandardCommand.SetDeletionMark</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="УстановитьПометкуУдаленияРасширеннаяПодсказка" id="144"/>
+							<ExtendedTooltip name="УстановитьПометкуУдаленияРасширеннаяПодсказка" id="83"/>
 						</Button>
-						<Button name="ИзменитьФорму" id="145">
+						<Button name="ИзменитьФорму" id="57">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="146"/>
+							<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="58"/>
 						</Button>
-						<Button name="Справка" id="147">
+						<Button name="Справка" id="55">
 							<Type>CommandBarButton</Type>
 							<CommandName>Form.StandardCommand.Help</CommandName>
 							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="148"/>
+							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="56"/>
 						</Button>
 					</ChildItems>
 				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
+		<LabelField name="КонтрагентОтборГиперссылка" id="79">
+			<DataPath>Контрагент</DataPath>
+			<Hiperlink>true</Hiperlink>
+			<ContextMenu name="КонтрагентОтборГиперссылкаКонтекстноеМеню" id="80"/>
+			<ExtendedTooltip name="КонтрагентОтборГиперссылкаРасширеннаяПодсказка" id="81"/>
+		</LabelField>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
-			<CommandBarLocation>Top</CommandBarLocation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<Height>10</Height>
-			<SelectionMode>SingleRow</SelectionMode>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
 			<EnableStartDrag>true</EnableStartDrag>
@@ -212,8 +246,9 @@
 				<ExcludedCommand>Delete</ExcludedCommand>
 				<ExcludedCommand>SearchHistory</ExcludedCommand>
 				<ExcludedCommand>SetDateInterval</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>true</ShowCommandBar>
+			<SearchStringLocation>None</SearchStringLocation>
 			<AutoRefresh>true</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -229,7 +264,9 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -279,18 +316,11 @@
 				</LabelField>
 				<LabelField name="ВидКонтрагента" id="91">
 					<DataPath>Список.ВидКонтрагента</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Вид контрагента</v8:content>
-						</v8:item>
-					</Title>
 					<ContextMenu name="ВидКонтрагентаКонтекстноеМеню" id="92"/>
 					<ExtendedTooltip name="ВидКонтрагентаРасширеннаяПодсказка" id="93"/>
 				</LabelField>
 				<LabelField name="Состояние" id="22">
 					<DataPath>Список.Состояние</DataPath>
-					<CellMark>ShapeUnderTextOval</CellMark>
 					<ContextMenu name="СостояниеКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="СостояниеРасширеннаяПодсказка" id="24"/>
 				</LabelField>
@@ -317,7 +347,6 @@
 				</v8:item>
 			</Title>
 			<Group>AlwaysHorizontal</Group>
-			<HorizontalSpacing>Half</HorizontalSpacing>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -328,20 +357,8 @@
 					<CommandName>Form.Command.КакПользоватьсяСправкой</CommandName>
 					<ExtendedTooltip name="КакПользоватьсяСправкойРасширеннаяПодсказка" id="87"/>
 				</Button>
-				<LabelDecoration name="ДекорацияРазделительСсылок" id="117">
-					<TextColor>pal:Blue</TextColor>
-					<Title formatted="false">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>•</v8:content>
-						</v8:item>
-					</Title>
-					<ContextMenu name="ДекорацияРазделительСсылокКонтекстноеМеню" id="118"/>
-					<ExtendedTooltip name="ДекорацияРазделительСсылокРасширеннаяПодсказка" id="119"/>
-				</LabelDecoration>
 				<Button name="КакНастроитьAdobeReader" id="34">
 					<Type>Hyperlink</Type>
-					<AutoMaxWidth>false</AutoMaxWidth>
 					<CommandName>Form.Command.КакНастроитьAdobeReader</CommandName>
 					<ExtendedTooltip name="КакНастроитьAdobeReaderРасширеннаяПодсказка" id="35"/>
 				</Button>
@@ -353,7 +370,6 @@
 			<Type>
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
-			<MainAttribute>true</MainAttribute>
 			<UseAlways>
 				<Field>Список.Ref</Field>
 				<Field>Список.Идентификатор</Field>
@@ -448,7 +464,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Показать справки на Портале 1С:ИТС</v8:content>
+					<v8:content>Все справки в личном кабинете на Портале 1С:ИТС</v8:content>
 				</v8:item>
 			</Title>
 			<Action>ВсеПолученныеСправки</Action>

@@ -3,7 +3,6 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
@@ -94,6 +93,16 @@
 											<CommandName>Form.Command.КомандаСоздатьДокумент</CommandName>
 											<ExtendedTooltip name="КомандаСоздатьДокументРасширеннаяПодсказка" id="315"/>
 										</Button>
+										<Button name="СоздатьПлатежноеПоручение" id="598">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.СоздатьПлатежноеПоручение</CommandName>
+											<ExtendedTooltip name="СоздатьПлатежноеПоручениеРасширеннаяПодсказка" id="599"/>
+										</Button>
+										<Button name="СоздатьСчетИПлатежноеПоручение" id="600">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.СоздатьСчетИПлатежноеПоручение</CommandName>
+											<ExtendedTooltip name="СоздатьСчетИПлатежноеПоручениеРасширеннаяПодсказка" id="601"/>
+										</Button>
 									</ChildItems>
 								</ButtonGroup>
 							</ChildItems>
@@ -143,7 +152,6 @@
 					<Group>Vertical</Group>
 					<Behavior>PopUp</Behavior>
 					<Representation>None</Representation>
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ГруппаВсплывающаяСвязанныеДокументыРасширеннаяПодсказка" id="445"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаСвязанныйДокумент" id="530">
@@ -170,8 +178,6 @@
 											<DataPath>ДокументыКомплектные[0].СтатусРаспознавания</DataPath>
 											<TitleLocation>None</TitleLocation>
 											<GroupVerticalAlign>Center</GroupVerticalAlign>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<Width>2</Width>
 											<Height>1</Height>
 											<HorizontalStretch>false</HorizontalStretch>
@@ -247,8 +253,6 @@
 															<DataPath>ДокументыДубли[0].СтатусРаспознавания</DataPath>
 															<TitleLocation>None</TitleLocation>
 															<GroupVerticalAlign>Center</GroupVerticalAlign>
-															<EditMode>EnterOnInput</EditMode>
-															<AutoEditMode>true</AutoEditMode>
 															<Width>2</Width>
 															<Height>1</Height>
 															<HorizontalStretch>false</HorizontalStretch>
@@ -323,10 +327,9 @@
 				</UsualGroup>
 				<LabelField name="ОсталосьОшибок" id="382">
 					<DataPath>ОсталосьОшибок</DataPath>
+					<Visible>false</Visible>
 					<HorizontalAlign>Left</HorizontalAlign>
 					<GroupVerticalAlign>Center</GroupVerticalAlign>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>3</Width>
 					<Format>
 						<v8:item>
@@ -338,6 +341,119 @@
 					<ContextMenu name="ОсталосьОшибокКонтекстноеМеню" id="383"/>
 					<ExtendedTooltip name="ОсталосьОшибокРасширеннаяПодсказка" id="384"/>
 				</LabelField>
+				<UsualGroup name="ГруппаВсплывающаяОсталосьОшибок" id="602">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Осталось ошибок</v8:content>
+						</v8:item>
+					</Title>
+					<TitleTextColor>#FF0000</TitleTextColor>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<Group>Vertical</Group>
+					<Behavior>PopUp</Behavior>
+					<Representation>None</Representation>
+					<ExtendedTooltip name="ГруппаВсплывающаяОсталосьОшибокРасширеннаяПодсказка" id="603"/>
+					<ChildItems>
+						<Table name="ПроблемныеЭлементы" id="604">
+							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<Width>65</Width>
+							<RowSelectionMode>Cell</RowSelectionMode>
+							<Header>false</Header>
+							<HorizontalLinesBWA>false</HorizontalLinesBWA>
+							<VerticalLinesBWA>false</VerticalLinesBWA>
+							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<HorizontalStretch>false</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>ПроблемныеЭлементы</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПроблемныеЭлементыКонтекстноеМеню" id="605"/>
+							<AutoCommandBar name="ПроблемныеЭлементыКоманднаяПанель" id="606"/>
+							<ExtendedTooltip name="ПроблемныеЭлементыРасширеннаяПодсказка" id="607"/>
+							<SearchStringAddition name="ПроблемныеЭлементыСтрокаПоиска" id="608">
+								<AdditionSource>
+									<Item>ПроблемныеЭлементы</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПроблемныеЭлементыСтрокаПоискаКонтекстноеМеню" id="609"/>
+								<ExtendedTooltip name="ПроблемныеЭлементыСтрокаПоискаРасширеннаяПодсказка" id="610"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПроблемныеЭлементыСостояниеПросмотра" id="611">
+								<AdditionSource>
+									<Item>ПроблемныеЭлементы</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПроблемныеЭлементыСостояниеПросмотраКонтекстноеМеню" id="612"/>
+								<ExtendedTooltip name="ПроблемныеЭлементыСостояниеПросмотраРасширеннаяПодсказка" id="613"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПроблемныеЭлементыУправлениеПоиском" id="614">
+								<AdditionSource>
+									<Item>ПроблемныеЭлементы</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПроблемныеЭлементыУправлениеПоискомКонтекстноеМеню" id="615"/>
+								<ExtendedTooltip name="ПроблемныеЭлементыУправлениеПоискомРасширеннаяПодсказка" id="616"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ПроблемныеЭлементыНомерСтроки" id="617">
+									<DataPath>ПроблемныеЭлементы.НомерСтроки</DataPath>
+									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>№</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<Width>2</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MaxWidth>2</MaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ПроблемныеЭлементыНомерСтрокиКонтекстноеМеню" id="618"/>
+									<ExtendedTooltip name="ПроблемныеЭлементыНомерСтрокиРасширеннаяПодсказка" id="619"/>
+								</InputField>
+								<InputField name="ТекстОшибкиДляПользователя" id="620">
+									<DataPath>ПроблемныеЭлементы.ТекстОшибкиДляПользователя</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<HorizontalStretch>true</HorizontalStretch>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТекстОшибкиДляПользователяКонтекстноеМеню" id="621"/>
+									<ExtendedTooltip name="ТекстОшибкиДляПользователяРасширеннаяПодсказка" id="622"/>
+								</InputField>
+								<InputField name="ПроблемныеЭлементыТекстПодсказки" id="623">
+									<DataPath>ПроблемныеЭлементы.ТекстПодсказки</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoEditMode>true</AutoEditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ПроблемныеЭлементыТекстПодсказкиКонтекстноеМеню" id="624"/>
+									<ExtendedTooltip name="ПроблемныеЭлементыТекстПодсказкиРасширеннаяПодсказка" id="625"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<Button name="ПерейтиКОшибке" id="626">
+							<Type>UsualButton</Type>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<CommandName>Form.Command.ПерейтиКОшибке</CommandName>
+							<BackColor>style:ImportantColor</BackColor>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Перейти</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ПерейтиКОшибкеРасширеннаяПодсказка" id="627"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
 				<LabelDecoration name="ДекорацияРаздвижнаяВерх" id="299">
 					<AutoMaxWidth>false</AutoMaxWidth>
 					<HorizontalStretch>true</HorizontalStretch>
@@ -355,8 +471,6 @@
 						</v8:item>
 					</Title>
 					<GroupVerticalAlign>Center</GroupVerticalAlign>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ОбъектНомерКонтекстноеМеню" id="377"/>
 					<ExtendedTooltip name="ОбъектНомерРасширеннаяПодсказка" id="378"/>
 				</InputField>
@@ -453,7 +567,6 @@
 									</Title>
 									<Height>4</Height>
 									<Group>HorizontalIfPossible</Group>
-									<ShowTitle>true</ShowTitle>
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="ГруппаЗагрузкаРасширеннаяПодсказка" id="581"/>
 									<ChildItems>
@@ -466,12 +579,12 @@
 											</Title>
 											<GroupVerticalAlign>Center</GroupVerticalAlign>
 											<Picture>
-												<xr:Ref>CommonPicture.ДлительнаяОперация48</xr:Ref>
+												<xr:Ref>CommonPicture.ДлительнаяОперация48БП</xr:Ref>
 												<xr:LoadTransparent>false</xr:LoadTransparent>
 											</Picture>
 											<FileDragMode>AsFile</FileDragMode>
 											<ContextMenu name="ДекорацияДлительнаяОперацияКонтекстноеМеню" id="583"/>
-											<ExtendedTooltip name="ДекорацияДлительнаяОперацияРасширеннаяПодсказка" id="584"/>
+											<ExtendedTooltip name="ДекорацияДлительнаяОперацияExtendedTooltip" id="584"/>
 										</PictureDecoration>
 										<LabelDecoration name="ДекорацияПоясняющийТекстДлительнойОперации" id="585">
 											<HorizontalStretch>true</HorizontalStretch>
@@ -484,7 +597,7 @@
 											<GroupVerticalAlign>Center</GroupVerticalAlign>
 											<VerticalAlign>Center</VerticalAlign>
 											<ContextMenu name="ДекорацияПоясняющийТекстДлительнойОперацииКонтекстноеМеню" id="586"/>
-											<ExtendedTooltip name="ДекорацияПоясняющийТекстДлительнойОперацииРасширеннаяПодсказка" id="587"/>
+											<ExtendedTooltip name="ДекорацияПоясняющийТекстДлительнойОперацииExtendedTooltip" id="587"/>
 										</LabelDecoration>
 									</ChildItems>
 								</Page>
@@ -496,14 +609,11 @@
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
-									<ShowTitle>true</ShowTitle>
 									<ScrollOnCompress>false</ScrollOnCompress>
 									<ExtendedTooltip name="ГруппаТипИНаправлениеДокументаРасширеннаяПодсказка" id="589"/>
 									<ChildItems>
 										<InputField name="ТипДокумента" id="430">
 											<DataPath>Объект.ТипДокумента</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<TextEdit>false</TextEdit>
 											<BackColor>style:ФонУправляющегоПоля</BackColor>
 											<InputHint>
@@ -523,8 +633,6 @@
 										</InputField>
 										<RadioButtonField name="Направление" id="138">
 											<DataPath>Объект.Направление</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<RadioButtonType>Tumbler</RadioButtonType>
 											<ChoiceList>
 												<xr:Item>
@@ -562,8 +670,6 @@
 										</RadioButtonField>
 										<InputField name="ВариантОбработки" id="590">
 											<DataPath>Объект.ВариантОбработки</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<BackColor>style:ФонУправляющегоПоля</BackColor>
 											<InputHint>
 												<v8:item>
@@ -630,8 +736,6 @@
 															<v8:content>Номер</v8:content>
 														</v8:item>
 													</Title>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
 													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>8</MaxWidth>
 													<HorizontalStretch>false</HorizontalStretch>
@@ -662,8 +766,7 @@
 															<v8:content>от</v8:content>
 														</v8:item>
 													</Title>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
+													<MarkRequiredComplete>true</MarkRequiredComplete>
 													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>10</MaxWidth>
 													<HorizontalStretch>false</HorizontalStretch>
@@ -701,8 +804,6 @@
 															<v8:content>Оплата до</v8:content>
 														</v8:item>
 													</Title>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
 													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>10</MaxWidth>
 													<HorizontalStretch>false</HorizontalStretch>
@@ -741,8 +842,7 @@
 													<v8:content>Контрагент</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<DropListButton>true</DropListButton>
 											<CreateButton>false</CreateButton>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -773,8 +873,7 @@
 													<v8:content>Контрагент</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<DropListButton>true</DropListButton>
 											<CreateButton>false</CreateButton>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -805,8 +904,7 @@
 													<v8:content>Организация</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<DropListButton>true</DropListButton>
 											<CreateButton>false</CreateButton>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -837,8 +935,7 @@
 													<v8:content>Получатель оплаты</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<DropListButton>true</DropListButton>
 											<CreateButton>false</CreateButton>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -870,8 +967,7 @@
 													<v8:content>Банк</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<DropListButton>true</DropListButton>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
 											<ChooseType>false</ChooseType>
@@ -908,8 +1004,7 @@
 													<v8:content>Банковский счет</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<DropListButton>true</DropListButton>
 											<CreateButton>false</CreateButton>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -947,8 +1042,7 @@
 													<v8:content>Банковский счет</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<DropListButton>true</DropListButton>
 											<CreateButton>false</CreateButton>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -986,8 +1080,7 @@
 													<v8:content>Организация</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<DropListButton>true</DropListButton>
 											<CreateButton>false</CreateButton>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -1018,8 +1111,7 @@
 													<v8:content>Договор</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<DropListButton>true</DropListButton>
 											<CreateButton>false</CreateButton>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -1072,8 +1164,6 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>Left</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<Width>15</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ListChoiceMode>true</ListChoiceMode>
@@ -1134,8 +1224,6 @@
 											<v8:content>НДС</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<Width>10</Width>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>1</MaxWidth>
@@ -1171,8 +1259,6 @@
 						<HTMLDocumentField name="ПолеПросмотра" id="24">
 							<DataPath>ПолеПросмотра</DataPath>
 							<TitleLocation>None</TitleLocation>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<ContextMenu name="ПолеПросмотраКонтекстноеМеню" id="25">
 								<Autofill>false</Autofill>
@@ -1208,13 +1294,14 @@
 						</v8:item>
 					</Title>
 					<Group>HorizontalIfPossible</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="ГруппаТабличнаяЧастьРасширеннаяПодсказка" id="32"/>
 					<ChildItems>
 						<Table name="ТаблицаДокумента" id="33">
 							<Representation>List</Representation>
 							<RowSelectionMode>Cell</RowSelectionMode>
+							<HorizontalLinesBWA>false</HorizontalLinesBWA>
+							<VerticalLinesBWA>false</VerticalLinesBWA>
 							<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -1248,6 +1335,7 @@
 								<ExtendedTooltip name="ТаблицаДокументаУправлениеПоискомРасширеннаяПодсказка" id="45"/>
 							</SearchControlAddition>
 							<Events>
+								<Event name="BeforeAddRow">ТаблицаДокументаПередНачаломДобавления</Event>
 								<Event name="BeforeDeleteRow">ТаблицаДокументаПередУдалением</Event>
 								<Event name="OnStartEdit">ТаблицаДокументаПриНачалеРедактирования</Event>
 								<Event name="AfterDeleteRow">ТаблицаДокументаПослеУдаления</Event>
@@ -1272,12 +1360,18 @@
 											<v8:content>Группа номенклатура содержание</v8:content>
 										</v8:item>
 									</Title>
-									<ShowTitle>true</ShowTitle>
 									<ExtendedTooltip name="ГруппаНоменклатураСодержаниеРасширеннаяПодсказка" id="372"/>
 									<ChildItems>
 										<InputField name="Номенклатура" id="282">
 											<DataPath>ТаблицаДокумента.Номенклатура</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Номенклатура</v8:content>
+												</v8:item>
+											</Title>
 											<EditMode>EnterOnInput</EditMode>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<AutoEditMode>true</AutoEditMode>
 											<CreateButton>false</CreateButton>
 											<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
@@ -1287,6 +1381,12 @@
 										</InputField>
 										<InputField name="Содержание" id="373">
 											<DataPath>ТаблицаДокумента.Содержание</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Содержание</v8:content>
+												</v8:item>
+											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<ShowInHeader>false</ShowInHeader>
 											<ShowInFooter>false</ShowInFooter>
@@ -1302,6 +1402,12 @@
 								<InputField name="Характеристика" id="595">
 									<DataPath>ТаблицаДокумента.Характеристика</DataPath>
 									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Характеристика</v8:content>
+										</v8:item>
+									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ХарактеристикаКонтекстноеМеню" id="596"/>
@@ -1310,6 +1416,12 @@
 								<InputField name="ЕдиницаИзмерения" id="288">
 									<DataPath>ТаблицаДокумента.ЕдиницаИзмерения</DataPath>
 									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Единица измерения</v8:content>
+										</v8:item>
+									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="ЕдиницаИзмеренияКонтекстноеМеню" id="289"/>
@@ -1317,7 +1429,14 @@
 								</InputField>
 								<InputField name="Количество" id="285">
 									<DataPath>ТаблицаДокумента.Количество</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Количество</v8:content>
+										</v8:item>
+									</Title>
 									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="КоличествоКонтекстноеМеню" id="286"/>
@@ -1325,7 +1444,14 @@
 								</InputField>
 								<InputField name="Цена" id="267">
 									<DataPath>ТаблицаДокумента.Цена</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Цена</v8:content>
+										</v8:item>
+									</Title>
 									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="ЦенаКонтекстноеМеню" id="268"/>
@@ -1333,6 +1459,12 @@
 								</InputField>
 								<InputField name="СуммаСкидки" id="342">
 									<DataPath>ТаблицаДокумента.СуммаСкидки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Скидка</v8:content>
+										</v8:item>
+									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СуммаСкидкиКонтекстноеМеню" id="343"/>
@@ -1340,7 +1472,14 @@
 								</InputField>
 								<InputField name="Сумма" id="270">
 									<DataPath>ТаблицаДокумента.Сумма</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сумма</v8:content>
+										</v8:item>
+									</Title>
 									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="СуммаКонтекстноеМеню" id="271"/>
@@ -1348,7 +1487,14 @@
 								</InputField>
 								<InputField name="СтавкаНДС" id="273">
 									<DataPath>ТаблицаДокумента.СтавкаНДС</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>% НДС</v8:content>
+										</v8:item>
+									</Title>
 									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="СтавкаНДСКонтекстноеМеню" id="274"/>
@@ -1356,6 +1502,12 @@
 								</InputField>
 								<InputField name="СуммаНДС" id="276">
 									<DataPath>ТаблицаДокумента.СуммаНДС</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сумма НДС</v8:content>
+										</v8:item>
+									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<AutoEditMode>true</AutoEditMode>
 									<ContextMenu name="СуммаНДСКонтекстноеМеню" id="277"/>
@@ -1363,7 +1515,14 @@
 								</InputField>
 								<InputField name="Всего" id="279">
 									<DataPath>ТаблицаДокумента.Всего</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Всего</v8:content>
+										</v8:item>
+									</Title>
 									<EditMode>EnterOnInput</EditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoEditMode>true</AutoEditMode>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="ВсегоКонтекстноеМеню" id="280"/>
@@ -1396,7 +1555,6 @@
 						<xr:LoadTransparent>true</xr:LoadTransparent>
 					</Picture>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаГрупповоеСозданиеРасширеннаяПодсказка" id="386"/>
 					<ChildItems>
@@ -1460,6 +1618,8 @@
 									<ChangeRowSet>false</ChangeRowSet>
 									<ChangeRowOrder>false</ChangeRowOrder>
 									<RowSelectionMode>Cell</RowSelectionMode>
+									<HorizontalLinesBWA>false</HorizontalLinesBWA>
+									<VerticalLinesBWA>false</VerticalLinesBWA>
 									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<EnableStartDrag>true</EnableStartDrag>
@@ -1577,8 +1737,6 @@
 					<DataPath>НадписьОшибкаТЧ</DataPath>
 					<Visible>false</Visible>
 					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<Width>42</Width>
 					<MaxWidth>45</MaxWidth>
 					<HorizontalStretch>false</HorizontalStretch>
@@ -1614,7 +1772,6 @@
 							<Group>Vertical</Group>
 							<HorizontalAlign>Center</HorizontalAlign>
 							<VerticalAlign>Center</VerticalAlign>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="ГруппаИтогСуммаСкидкиБелаяРасширеннаяПодсказка" id="521"/>
 							<ChildItems>
@@ -1627,8 +1784,6 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>None</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>9</MaxWidth>
 									<HorizontalStretch>false</HorizontalStretch>
@@ -1650,7 +1805,6 @@
 							<Group>Vertical</Group>
 							<HorizontalAlign>Center</HorizontalAlign>
 							<VerticalAlign>Center</VerticalAlign>
-							<ShowTitle>true</ShowTitle>
 							<BackColor>style:ЦветФонаПредупреждения</BackColor>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="ГруппаИтогСуммаСкидкиКраснаяРасширеннаяПодсказка" id="526"/>
@@ -1664,8 +1818,6 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>None</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>9</MaxWidth>
 									<HorizontalStretch>false</HorizontalStretch>
@@ -1700,7 +1852,6 @@
 							<Group>Vertical</Group>
 							<HorizontalAlign>Center</HorizontalAlign>
 							<VerticalAlign>Center</VerticalAlign>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="ГруппаИтогСуммаБелаяРасширеннаяПодсказка" id="492"/>
 							<ChildItems>
@@ -1713,8 +1864,6 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>None</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>9</MaxWidth>
 									<HorizontalStretch>false</HorizontalStretch>
@@ -1736,7 +1885,6 @@
 							<Group>Vertical</Group>
 							<HorizontalAlign>Center</HorizontalAlign>
 							<VerticalAlign>Center</VerticalAlign>
-							<ShowTitle>true</ShowTitle>
 							<BackColor>style:ЦветФонаПредупреждения</BackColor>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="ГруппаИтогСуммаКраснаяРасширеннаяПодсказка" id="494"/>
@@ -1750,8 +1898,6 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>None</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>9</MaxWidth>
 									<HorizontalStretch>false</HorizontalStretch>
@@ -1780,7 +1926,6 @@
 							<Group>Vertical</Group>
 							<HorizontalAlign>Center</HorizontalAlign>
 							<VerticalAlign>Center</VerticalAlign>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="ГруппаИтогСуммаНДСБелаяРасширеннаяПодсказка" id="504"/>
 							<ChildItems>
@@ -1793,8 +1938,6 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>None</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>9</MaxWidth>
 									<HorizontalStretch>false</HorizontalStretch>
@@ -1810,7 +1953,6 @@
 							<Group>Vertical</Group>
 							<HorizontalAlign>Center</HorizontalAlign>
 							<VerticalAlign>Center</VerticalAlign>
-							<ShowTitle>true</ShowTitle>
 							<BackColor>style:ЦветФонаПредупреждения</BackColor>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="ГруппаИтогСуммаНДСКраснаяРасширеннаяПодсказка" id="506"/>
@@ -1824,8 +1966,6 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>None</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>9</MaxWidth>
 									<HorizontalStretch>false</HorizontalStretch>
@@ -1860,7 +2000,6 @@
 							<Group>Vertical</Group>
 							<HorizontalAlign>Center</HorizontalAlign>
 							<VerticalAlign>Center</VerticalAlign>
-							<ShowTitle>true</ShowTitle>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="ГруппаИтогВсегоБелаяРасширеннаяПодсказка" id="510"/>
 							<ChildItems>
@@ -1873,8 +2012,6 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>None</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>9</MaxWidth>
 									<HorizontalStretch>false</HorizontalStretch>
@@ -1896,7 +2033,6 @@
 							<Group>Vertical</Group>
 							<HorizontalAlign>Center</HorizontalAlign>
 							<VerticalAlign>Center</VerticalAlign>
-							<ShowTitle>true</ShowTitle>
 							<BackColor>style:ЦветФонаПредупреждения</BackColor>
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="ГруппаИтогВсегоКраснаяРасширеннаяПодсказка" id="512"/>
@@ -1910,8 +2046,6 @@
 										</v8:item>
 									</Title>
 									<ToolTipRepresentation>None</ToolTipRepresentation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<MaxWidth>9</MaxWidth>
 									<HorizontalStretch>false</HorizontalStretch>
@@ -2110,7 +2244,7 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
+						<v8:TypeSet>cfg:DefinedType.ЕдиницаИзмеренияБРД</v8:TypeSet>
 					</Type>
 				</Column>
 				<Column name="КодЕдиницыИзмерения" id="10">
@@ -2252,7 +2386,7 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>cfg:CatalogRef.НомераГТД</v8:Type>
+						<v8:TypeSet>cfg:DefinedType.НомерГТДБРД</v8:TypeSet>
 					</Type>
 				</Column>
 				<Column name="КодСтраныПроисхождения" id="20">
@@ -2377,6 +2511,21 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
+				<Column name="ТекстОшибкиДляПользователя" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текст ошибки для пользователя</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="ИсточникПоляДоговорКонтрагент" id="5">
@@ -2398,7 +2547,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ОрганизацияБРД</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="ИсточникПоляДоговорВидДоговора" id="8">
@@ -2557,7 +2706,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+				<v8:TypeSet>cfg:DefinedType.ОрганизацияБРД</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="ОбъединенныеСпискиВыбора" id="24">
@@ -3088,6 +3237,52 @@
 			</Type>
 			<Settings xsi:type="v8:TypeDescription"/>
 		</Attribute>
+		<Attribute name="ИмяТекущейКомандыСозданияДокумента" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя текущей команды создания документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДоступноСозданиеПлатежныхПоручений" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доступно создание платежных поручений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СозданныйСчетНаОплатуПоставщика" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Созданный счет на оплату поставщика</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.СчетНаОплатуПоставщика</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеЭлементаДляРаспознавания" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные элемента для распознавания</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -3340,6 +3535,51 @@
 			</ToolTip>
 			<Action>ПоказатьИдентификаторДокумента</Action>
 		</Command>
+		<Command name="СоздатьПлатежноеПоручение" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Платежное поручение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать платежное поручение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПлатежноеПоручение</Action>
+		</Command>
+		<Command name="СоздатьСчетИПлатежноеПоручение" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Счет на оплату + Платежное поручение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать счет и платежное поручение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьСчетИПлатежноеПоручение</Action>
+		</Command>
+		<Command name="ПерейтиКОшибке" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перейти к ошибке</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перейти к ошибке</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПерейтиКОшибке</Action>
+		</Command>
 	</Commands>
 	<Parameters>
 		<Parameter name="ОтборИзСписка">
@@ -3353,4 +3593,24 @@
 			<KeyParameter>true</KeyParameter>
 		</Parameter>
 	</Parameters>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
 </Form>

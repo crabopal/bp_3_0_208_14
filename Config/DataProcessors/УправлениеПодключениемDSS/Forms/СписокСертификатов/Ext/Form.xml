@@ -9,38 +9,8 @@
 	<WindowOpeningMode>LockOwner</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Bottom</CommandBarLocation>
-	<CommandSet>
-		<ExcludedCommand>CustomizeForm</ExcludedCommand>
-	</CommandSet>
-	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="Выбрать" id="39">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Выбрать</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Выбрать</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="40"/>
-			</Button>
-			<Button name="ТаблицаСертификатовПродолжить" id="47">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Продолжить</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Продолжить</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ТаблицаСертификатовПродолжитьРасширеннаяПодсказка" id="48"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -68,9 +38,48 @@
 				</v8:item>
 			</Title>
 			<RowFilter xsi:nil="true"/>
-			<ContextMenu name="ТаблицаСертификатовКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="ТаблицаСертификатовКоманднаяПанель" id="3">
+			<ContextMenu name="ТаблицаСертификатовКонтекстноеМеню" id="2">
 				<ChildItems>
+					<Button name="ТаблицаСертификатовКонтекстноеМенюСвойстваСертификата" id="37">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СвойстваСертификата</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Просмотр</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ТаблицаСертификатовКонтекстноеМенюСвойстваСертификатаРасширеннаяПодсказка" id="38"/>
+					</Button>
+				</ChildItems>
+			</ContextMenu>
+			<AutoCommandBar name="ТаблицаСертификатовКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="Выбрать" id="39">
+						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.Command.Выбрать</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выбрать</v8:content>
+							</v8:item>
+						</Title>
+						<ButtonImportance>Main</ButtonImportance>
+						<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="40"/>
+					</Button>
+					<Button name="ТаблицаСертификатовПродолжить" id="47">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Продолжить</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Продолжить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ТаблицаСертификатовПродолжитьРасширеннаяПодсказка" id="48"/>
+					</Button>
 					<Button name="ФормаСвойстваСертификата" id="43">
 						<Type>CommandBarButton</Type>
 						<Representation>PictureAndText</Representation>
@@ -85,7 +94,6 @@
 								<v8:content>Просмотр</v8:content>
 							</v8:item>
 						</Title>
-						<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
 						<ExtendedTooltip name="ФормаСвойстваСертификатаРасширеннаяПодсказка" id="44"/>
 					</Button>
 					<Button name="УдалитьЗапрос" id="45">
@@ -102,7 +110,6 @@
 								<v8:content>Удалить</v8:content>
 							</v8:item>
 						</Title>
-						<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
 						<ExtendedTooltip name="УдалитьЗапросРасширеннаяПодсказка" id="46"/>
 					</Button>
 				</ChildItems>
@@ -313,10 +320,13 @@
 					<v8:content>Просмотр</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свойства сертификата</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Action>СвойстваСертификата</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ТаблицаСертификатов</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="Выбрать" id="2">
 			<Title>
@@ -325,8 +335,13 @@
 					<v8:content>Выбрать</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Action>Выбрать</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Удалить" id="3">
 			<Title>
@@ -335,10 +350,13 @@
 					<v8:content>Удалить</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Action>Удалить</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ТаблицаСертификатов</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
 		</Command>
 		<Command name="Продолжить" id="4">
 			<Title>
@@ -347,8 +365,13 @@
 					<v8:content>Продолжить</v8:content>
 				</v8:item>
 			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Продолжить</v8:content>
+				</v8:item>
+			</ToolTip>
 			<Action>ВыборПродолжения</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

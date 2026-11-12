@@ -15,22 +15,6 @@
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Назад" id="68">
-				<Type>CommandBarButton</Type>
-				<SkipOnInput>true</SkipOnInput>
-				<CommandName>Form.Command.КоманднаяПанельМастерНазад</CommandName>
-				<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="390"/>
-			</Button>
-			<Button name="Далее" id="72">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<DefaultItem>true</DefaultItem>
-				<CommandName>Form.Command.КоманднаяПанельМастерДалее</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ДалееРасширеннаяПодсказка" id="392"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -47,7 +31,7 @@
 			</ToolTip>
 			<VerticalStretch>true</VerticalStretch>
 			<PagesRepresentation>None</PagesRepresentation>
-			<ExtendedTooltip name="ОсновнаяПанельРасширеннаяПодсказка" id="311"/>
+			<ExtendedTooltip name="ОсновнаяПанельExtendedTooltip" id="311"/>
 			<ChildItems>
 				<Page name="СтраницаВыборОрганизации" id="26">
 					<Title>
@@ -65,8 +49,27 @@
 					<Group>Vertical</Group>
 					<ShowTitle>false</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаВыборОрганизацииРасширеннаяПодсказка" id="312"/>
+					<ExtendedTooltip name="СтраницаВыборОрганизацииExtendedTooltip" id="312"/>
 					<ChildItems>
+						<PictureDecoration name="ДекорацияЭтапа1" id="48">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Этап 1</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Abs>Picture.png</xr:Abs>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ДекорацияЭтапа1КонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="ДекорацияЭтапа1ExtendedTooltip" id="313"/>
+						</PictureDecoration>
+						<LabelDecoration name="Отступ1" id="28">
+							<ContextMenu name="Отступ1КонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="Отступ1ExtendedTooltip" id="314"/>
+						</LabelDecoration>
 						<UsualGroup name="ГруппаРеквизиты" id="180">
 							<Title>
 								<v8:item>
@@ -79,7 +82,7 @@
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаРеквизитыРасширеннаяПодсказка" id="346"/>
+							<ExtendedTooltip name="ГруппаРеквизитыExtendedTooltip" id="346"/>
 							<ChildItems>
 								<InputField name="Организация" id="11">
 									<DataPath>Организация</DataPath>
@@ -89,11 +92,12 @@
 											<v8:content>Организация</v8:content>
 										</v8:item>
 									</Title>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<HorizontalStretch>false</HorizontalStretch>
 									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="12"/>
-									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="321"/>
+									<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="321"/>
 								</InputField>
 								<InputField name="ИдентификаторАбонента" id="7">
 									<DataPath>ИдентификаторАбонента</DataPath>
@@ -104,6 +108,7 @@
 										</v8:item>
 									</ToolTip>
 									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<HorizontalStretch>false</HorizontalStretch>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<InputHint>
@@ -113,13 +118,13 @@
 										</v8:item>
 									</InputHint>
 									<ContextMenu name="ИдентификаторАбонентаКонтекстноеМеню" id="8"/>
-									<ExtendedTooltip name="ИдентификаторАбонентаРасширеннаяПодсказка" id="360"/>
+									<ExtendedTooltip name="ИдентификаторАбонентаExtendedTooltip" id="360"/>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
 						<LabelDecoration name="Отступ6" id="219">
 							<ContextMenu name="Отступ6КонтекстноеМеню" id="220"/>
-							<ExtendedTooltip name="Отступ6РасширеннаяПодсказка" id="362"/>
+							<ExtendedTooltip name="Отступ6ExtendedTooltip" id="362"/>
 						</LabelDecoration>
 						<LabelDecoration name="Декорация6" id="217">
 							<VerticalStretch>false</VerticalStretch>
@@ -132,10 +137,11 @@
 							</Title>
 							<VerticalAlign>Bottom</VerticalAlign>
 							<ContextMenu name="Декорация6КонтекстноеМеню" id="218"/>
-							<ExtendedTooltip name="Декорация6РасширеннаяПодсказка" id="363"/>
+							<ExtendedTooltip name="Декорация6ExtendedTooltip" id="363"/>
 						</LabelDecoration>
 						<LabelDecoration name="Декорация3" id="9">
 							<Width>60</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
 							<Title formatted="false">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -144,7 +150,7 @@
 							</Title>
 							<VerticalAlign>Top</VerticalAlign>
 							<ContextMenu name="Декорация3КонтекстноеМеню" id="10"/>
-							<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="364"/>
+							<ExtendedTooltip name="Декорация3ExtendedTooltip" id="364"/>
 						</LabelDecoration>
 						<LabelDecoration name="ПояснениеПоЭПВМоделиСервиса" id="403">
 							<Width>60</Width>
@@ -178,6 +184,21 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаВыборПользователейРасширеннаяПодсказка" id="365"/>
 					<ChildItems>
+						<PictureDecoration name="ДекорацияЭтапа3" id="58">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Этап 1</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Abs>Picture.png</xr:Abs>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ДекорацияЭтапа3КонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="ДекорацияЭтапа3ExtendedTooltip" id="366"/>
+						</PictureDecoration>
 						<Pages name="РежимОтчетности" id="406">
 							<Title>
 								<v8:item>
@@ -220,11 +241,10 @@
 												</v8:item>
 											</Title>
 											<ContextMenu name="ПодсказкаПоРезультатамШаг2КонтекстноеМеню" id="235"/>
-											<ExtendedTooltip name="ПодсказкаПоРезультатамШаг2РасширеннаяПодсказка" id="367"/>
+											<ExtendedTooltip name="ПодсказкаПоРезультатамШаг2ExtendedTooltip" id="367"/>
 										</LabelDecoration>
 										<Table name="Пользователи" id="236">
 											<Representation>List</Representation>
-											<SelectionMode>SingleRow</SelectionMode>
 											<RowSelectionMode>Row</RowSelectionMode>
 											<Header>false</Header>
 											<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -241,7 +261,7 @@
 											<AutoCommandBar name="ПользователиКоманднаяПанель" id="238">
 												<Autofill>false</Autofill>
 											</AutoCommandBar>
-											<ExtendedTooltip name="ПользователиРасширеннаяПодсказка" id="368"/>
+											<ExtendedTooltip name="ПользователиExtendedTooltip" id="368"/>
 											<SearchStringAddition name="ПользователиСтрокаПоиска" id="394">
 												<AdditionSource>
 													<Item>Пользователи</Item>
@@ -271,18 +291,15 @@
 													<DataPath>СписокПользователей.Check</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<AutoEditMode>true</AutoEditMode>
-													<AutoWidthInTable>None</AutoWidthInTable>
-													<CheckBoxType>CheckBox</CheckBoxType>
 													<ContextMenu name="ПользователиПометкаКонтекстноеМеню" id="242"/>
-													<ExtendedTooltip name="ПользователиПометкаРасширеннаяПодсказка" id="369"/>
+													<ExtendedTooltip name="ПользователиПометкаExtendedTooltip" id="369"/>
 												</CheckBoxField>
 												<InputField name="ПользователиЗначение" id="239">
 													<DataPath>СписокПользователей.Value</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<AutoEditMode>true</AutoEditMode>
-													<AutoWidthInTable>None</AutoWidthInTable>
 													<ContextMenu name="ПользователиЗначениеКонтекстноеМеню" id="240"/>
-													<ExtendedTooltip name="ПользователиЗначениеРасширеннаяПодсказка" id="370"/>
+													<ExtendedTooltip name="ПользователиЗначениеExtendedTooltip" id="370"/>
 												</InputField>
 											</ChildItems>
 										</Table>
@@ -318,7 +335,6 @@
 										</LabelDecoration>
 										<Table name="ПользователиМультирежима" id="412">
 											<Representation>List</Representation>
-											<SelectionMode>SingleRow</SelectionMode>
 											<RowSelectionMode>Cell</RowSelectionMode>
 											<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 											<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -361,7 +377,6 @@
 													<ReadOnly>true</ReadOnly>
 													<EditMode>EnterOnInput</EditMode>
 													<AutoEditMode>true</AutoEditMode>
-													<AutoWidthInTable>None</AutoWidthInTable>
 													<ContextMenu name="ПользователиМультирежимаФИОКонтекстноеМеню" id="426"/>
 													<ExtendedTooltip name="ПользователиМультирежимаФИОРасширеннаяПодсказка" id="427"/>
 												</InputField>
@@ -374,7 +389,6 @@
 															<EditMode>EnterOnInput</EditMode>
 															<ShowInHeader>false</ShowInHeader>
 															<AutoEditMode>true</AutoEditMode>
-															<AutoWidthInTable>None</AutoWidthInTable>
 															<ContextMenu name="ПользователиМультирежимаКартинкаКонтекстноеМеню" id="442"/>
 															<ExtendedTooltip name="ПользователиМультирежимаКартинкаРасширеннаяПодсказка" id="443"/>
 														</PictureField>
@@ -382,7 +396,6 @@
 															<DataPath>ПользователиМультирежима.Пользователь</DataPath>
 															<EditMode>EnterOnInput</EditMode>
 															<AutoEditMode>true</AutoEditMode>
-															<AutoWidthInTable>None</AutoWidthInTable>
 															<CreateButton>true</CreateButton>
 															<InputHint>
 																<v8:item>
@@ -423,8 +436,27 @@
 					<HorizontalStretch>true</HorizontalStretch>
 					<Group>Vertical</Group>
 					<ScrollOnCompress>false</ScrollOnCompress>
-					<ExtendedTooltip name="СтраницаРезультатРасширеннаяПодсказка" id="371"/>
+					<ExtendedTooltip name="СтраницаРезультатExtendedTooltip" id="371"/>
 					<ChildItems>
+						<PictureDecoration name="ДекорацияЭтапа4" id="61">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Этап 1</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Abs>Picture.png</xr:Abs>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ДекорацияЭтапа4КонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="ДекорацияЭтапа4ExtendedTooltip" id="372"/>
+						</PictureDecoration>
+						<LabelDecoration name="Отступ7" id="245">
+							<ContextMenu name="Отступ7КонтекстноеМеню" id="246"/>
+							<ExtendedTooltip name="Отступ7ExtendedTooltip" id="373"/>
+						</LabelDecoration>
 						<Pages name="СтраницыРезультата" id="280">
 							<Title>
 								<v8:item>
@@ -439,7 +471,7 @@
 								</v8:item>
 							</ToolTip>
 							<PagesRepresentation>None</PagesRepresentation>
-							<ExtendedTooltip name="СтраницыРезультатаРасширеннаяПодсказка" id="374"/>
+							<ExtendedTooltip name="СтраницыРезультатаExtendedTooltip" id="374"/>
 							<ChildItems>
 								<Page name="СтраницаРезультатОшибка" id="285">
 									<Title>
@@ -457,13 +489,13 @@
 									<HorizontalStretch>true</HorizontalStretch>
 									<Group>Vertical</Group>
 									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="СтраницаРезультатОшибкаРасширеннаяПодсказка" id="375"/>
+									<ExtendedTooltip name="СтраницаРезультатОшибкаExtendedTooltip" id="375"/>
 									<ChildItems>
 										<LabelDecoration name="ПодсказкаПоРезультатуОтклонено3" id="290">
 											<AutoMaxWidth>false</AutoMaxWidth>
 											<Height>2</Height>
 											<TextColor>#B22222</TextColor>
-											<Font ref="style:TextLevel1" kind="StyleItem"/>
+											<Font bold="true" kind="AutoFont"/>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -471,13 +503,13 @@
 												</v8:item>
 											</Title>
 											<ContextMenu name="ПодсказкаПоРезультатуОтклонено3КонтекстноеМеню" id="291"/>
-											<ExtendedTooltip name="ПодсказкаПоРезультатуОтклонено3РасширеннаяПодсказка" id="376"/>
+											<ExtendedTooltip name="ПодсказкаПоРезультатуОтклонено3ExtendedTooltip" id="376"/>
 										</LabelDecoration>
 										<LabelDecoration name="ДекорацияОтступ38" id="292">
 											<Width>10</Width>
 											<Height>1</Height>
 											<ContextMenu name="ДекорацияОтступ38КонтекстноеМеню" id="293"/>
-											<ExtendedTooltip name="ДекорацияОтступ38РасширеннаяПодсказка" id="377"/>
+											<ExtendedTooltip name="ДекорацияОтступ38ExtendedTooltip" id="377"/>
 										</LabelDecoration>
 										<LabelField name="ОписаниеОшибки" id="294">
 											<DataPath>ПодробноеОписаниеОшибки</DataPath>
@@ -487,7 +519,7 @@
 											<HorizontalStretch>true</HorizontalStretch>
 											<VerticalStretch>false</VerticalStretch>
 											<ContextMenu name="ОписаниеОшибкиКонтекстноеМеню" id="295"/>
-											<ExtendedTooltip name="ОписаниеОшибкиРасширеннаяПодсказка" id="378"/>
+											<ExtendedTooltip name="ОписаниеОшибкиExtendedTooltip" id="378"/>
 										</LabelField>
 										<LabelDecoration name="ПодсказкаПоРезультатам9" id="296">
 											<Title formatted="false">
@@ -497,7 +529,7 @@
 												</v8:item>
 											</Title>
 											<ContextMenu name="ПодсказкаПоРезультатам9КонтекстноеМеню" id="297"/>
-											<ExtendedTooltip name="ПодсказкаПоРезультатам9РасширеннаяПодсказка" id="379"/>
+											<ExtendedTooltip name="ПодсказкаПоРезультатам9ExtendedTooltip" id="379"/>
 										</LabelDecoration>
 									</ChildItems>
 								</Page>
@@ -517,7 +549,7 @@
 									<HorizontalStretch>true</HorizontalStretch>
 									<Group>Vertical</Group>
 									<ScrollOnCompress>false</ScrollOnCompress>
-									<ExtendedTooltip name="СтраницаРезультатУспехРасширеннаяПодсказка" id="380"/>
+									<ExtendedTooltip name="СтраницаРезультатУспехExtendedTooltip" id="380"/>
 									<ChildItems>
 										<LabelDecoration name="ПодсказкаКонечныйРезультат" id="307">
 											<AutoMaxWidth>false</AutoMaxWidth>
@@ -531,7 +563,7 @@
 												</v8:item>
 											</Title>
 											<ContextMenu name="ПодсказкаКонечныйРезультатКонтекстноеМеню" id="308"/>
-											<ExtendedTooltip name="ПодсказкаКонечныйРезультатРасширеннаяПодсказка" id="381"/>
+											<ExtendedTooltip name="ПодсказкаКонечныйРезультатExtendedTooltip" id="381"/>
 										</LabelDecoration>
 									</ChildItems>
 								</Page>
@@ -554,7 +586,7 @@
 			<Behavior>Usual</Behavior>
 			<Representation>WeakSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПоддержкаРасширеннаяПодсказка" id="382"/>
+			<ExtendedTooltip name="ГруппаПоддержкаExtendedTooltip" id="382"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаСсылокНаПоддержку" id="78">
 					<HorizontalStretch>false</HorizontalStretch>
@@ -562,14 +594,14 @@
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаСсылокНаПоддержкуРасширеннаяПодсказка" id="383"/>
+					<ExtendedTooltip name="ГруппаСсылокНаПоддержкуExtendedTooltip" id="383"/>
 				</UsualGroup>
 				<LabelDecoration name="ДекорацияОтступ" id="84">
 					<Width>9</Width>
 					<HorizontalStretch>true</HorizontalStretch>
 					<HorizontalAlign>Center</HorizontalAlign>
 					<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="85"/>
-					<ExtendedTooltip name="ДекорацияОтступРасширеннаяПодсказка" id="384"/>
+					<ExtendedTooltip name="ДекорацияОтступExtendedTooltip" id="384"/>
 				</LabelDecoration>
 				<UsualGroup name="ГруппаКонтактовПоддержки" id="87">
 					<Visible>false</Visible>
@@ -577,7 +609,7 @@
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаКонтактовПоддержкиРасширеннаяПодсказка" id="385"/>
+					<ExtendedTooltip name="ГруппаКонтактовПоддержкиExtendedTooltip" id="385"/>
 					<ChildItems>
 						<InputField name="ТелефонСлужбыПоддержки" id="89">
 							<DataPath>ТелефонСлужбыПоддержки</DataPath>
@@ -593,10 +625,10 @@
 							<Width>12</Width>
 							<HorizontalStretch>false</HorizontalStretch>
 							<TextColor>#373737</TextColor>
-							<BorderColor>pal:Gray</BorderColor>
+							<BorderColor>style:FormBackColor</BorderColor>
 							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
 							<ContextMenu name="ТелефонСлужбыПоддержкиКонтекстноеМеню" id="90"/>
-							<ExtendedTooltip name="ТелефонСлужбыПоддержкиРасширеннаяПодсказка" id="386"/>
+							<ExtendedTooltip name="ТелефонСлужбыПоддержкиExtendedTooltip" id="386"/>
 						</InputField>
 						<InputField name="АдресЭлектроннойПочтыСлужбыПоддержки" id="92">
 							<DataPath>АдресЭлектроннойПочтыСлужбыПоддержки</DataPath>
@@ -607,10 +639,10 @@
 							<Width>14</Width>
 							<HorizontalStretch>false</HorizontalStretch>
 							<TextColor>#373737</TextColor>
-							<BorderColor>pal:Gray</BorderColor>
+							<BorderColor>style:FormBackColor</BorderColor>
 							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
 							<ContextMenu name="АдресЭлектроннойПочтыСлужбыПоддержкиКонтекстноеМеню" id="93"/>
-							<ExtendedTooltip name="АдресЭлектроннойПочтыСлужбыПоддержкиРасширеннаяПодсказка" id="387"/>
+							<ExtendedTooltip name="АдресЭлектроннойПочтыСлужбыПоддержкиExtendedTooltip" id="387"/>
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
@@ -621,22 +653,84 @@
 			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>WeakSeparation</Representation>
-			<ExtendedTooltip name="ГруппаНижняяПанельРасширеннаяПодсказка" id="388"/>
+			<ExtendedTooltip name="ГруппаНижняяПанельExtendedTooltip" id="388"/>
 			<ChildItems>
-				<Button name="Закрыть" id="21">
-					<Type>UsualButton</Type>
-					<Visible>false</Visible>
-					<Representation>Text</Representation>
-					<Width>10</Width>
-					<CommandName>Form.StandardCommand.Close</CommandName>
+				<CommandBar name="КоманднаяПанельНазад" id="66">
+					<EnableContentChange>true</EnableContentChange>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Отмена</v8:content>
+							<v8:content>Командная панель назад</v8:content>
 						</v8:item>
 					</Title>
-					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="393"/>
-				</Button>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель назад</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="КоманднаяПанельНазадExtendedTooltip" id="389"/>
+					<ChildItems>
+						<Button name="Назад" id="68">
+							<Type>CommandBarButton</Type>
+							<SkipOnInput>true</SkipOnInput>
+							<CommandName>Form.Command.КоманднаяПанельМастерНазад</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&lt;Назад</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="НазадExtendedTooltip" id="390"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+				<CommandBar name="КоманднаяПанельДалее" id="70">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель далее</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель далее</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalLocation>Right</HorizontalLocation>
+					<ExtendedTooltip name="КоманднаяПанельДалееExtendedTooltip" id="391"/>
+					<ChildItems>
+						<Button name="Далее" id="72">
+							<Type>CommandBarButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<DefaultItem>true</DefaultItem>
+							<CommandName>Form.Command.КоманднаяПанельМастерДалее</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Далее&gt;</v8:content>
+								</v8:item>
+							</Title>
+							<ButtonImportance>Main</ButtonImportance>
+							<ExtendedTooltip name="ДалееExtendedTooltip" id="392"/>
+						</Button>
+						<Button name="Закрыть" id="21">
+							<Type>CommandBarButton</Type>
+							<Representation>Text</Representation>
+							<Width>10</Width>
+							<CommandName>Form.StandardCommand.Close</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отмена</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ЗакрытьExtendedTooltip" id="393"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -701,7 +795,6 @@
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
-			<Settings xsi:type="v8:TypeDescription"/>
 		</Attribute>
 		<Attribute name="ПутьКонтейнерЗакрытогоКлюча" id="18">
 			<Title>
@@ -973,33 +1066,21 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Далее</v8:content>
+					<v8:content>Командная панель мастер далее</v8:content>
 				</v8:item>
 			</Title>
-			<Picture>
-				<xr:Ref>CommonPicture.ГалкаВперед</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
 			<Action>КоманднаяПанельМастерДалее</Action>
-			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="КоманднаяПанельМастерНазад" id="4">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Назад</v8:content>
+					<v8:content>Командная панель мастер назад</v8:content>
 				</v8:item>
 			</Title>
-			<Picture>
-				<xr:Ref>CommonPicture.ГалкаНазад</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
 			<Action>КоманднаяПанельМастерНазад</Action>
-			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>

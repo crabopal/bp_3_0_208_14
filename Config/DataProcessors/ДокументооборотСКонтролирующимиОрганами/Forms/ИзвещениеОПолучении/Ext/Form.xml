@@ -13,15 +13,6 @@
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Печать" id="36">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Печать</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="37"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -32,7 +23,7 @@
 			<DataPath>ДатаВремяПолучения</DataPath>
 			<TextEdit>false</TextEdit>
 			<BackColor>#EEF3FF</BackColor>
-			<BorderColor>pal:Gray</BorderColor>
+			<BorderColor>style:FormBackColor</BorderColor>
 			<ContextMenu name="ДатаВремяПолученияКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="ДатаВремяПолученияРасширеннаяПодсказка" id="11"/>
 			<Events>
@@ -55,14 +46,13 @@
 			</ToolTip>
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
+			<Representation>WeakSeparation</Representation>
 			<ExtendedTooltip name="ГруппаСоставРасширеннаяПодсказка" id="12"/>
 			<ChildItems>
 				<Table name="Файлы" id="4">
 					<Representation>List</Representation>
 					<ReadOnly>true</ReadOnly>
-					<SelectionMode>SingleRow</SelectionMode>
 					<RowSelectionMode>Cell</RowSelectionMode>
-					<Header>false</Header>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
 					<EnableStartDrag>true</EnableStartDrag>
@@ -107,7 +97,6 @@
 							<DataPath>Файлы.ИмяФайла</DataPath>
 							<EditMode>EnterOnInput</EditMode>
 							<AutoEditMode>true</AutoEditMode>
-							<AutoWidthInTable>None</AutoWidthInTable>
 							<ContextMenu name="ФайлыИмяФайлаКонтекстноеМеню" id="8"/>
 							<ExtendedTooltip name="ФайлыИмяФайлаРасширеннаяПодсказка" id="23"/>
 						</InputField>
@@ -115,6 +104,29 @@
 				</Table>
 			</ChildItems>
 		</UsualGroup>
+		<CommandBar name="ГруппаКоманднаяПанель" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа командная панель</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="24"/>
+			<ChildItems>
+				<Button name="Печать" id="36">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Печать</CommandName>
+					<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="37"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -241,7 +253,6 @@
 			<Action>Печать</Action>
 			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

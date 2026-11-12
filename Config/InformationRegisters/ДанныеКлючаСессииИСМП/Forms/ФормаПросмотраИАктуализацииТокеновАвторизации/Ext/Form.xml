@@ -2,22 +2,8 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаДобавить" id="125">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Добавить</CommandName>
-				<ExtendedTooltip name="ФормаДобавитьРасширеннаяПодсказка" id="126"/>
-			</Button>
-			<Button name="ФормаОтложить" id="141">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Отложить</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ФормаОтложитьРасширеннаяПодсказка" id="142"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -27,67 +13,166 @@
 		<Event name="OnClose">ПриЗакрытии</Event>
 	</Events>
 	<ChildItems>
-		<InputField name="СрокПовторногоОповещения" id="3">
-			<DataPath>СрокПовторногоОповещения</DataPath>
+		<UsualGroup name="ПанельКнопок" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Напомнить через</v8:content>
+					<v8:content>Панель кнопок</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Время, через которое нужно напомнить</v8:content>
-				</v8:item>
-			</ToolTip>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
-			<Width>15</Width>
-			<HorizontalStretch>false</HorizontalStretch>
-			<DropListButton>true</DropListButton>
-			<ClearButton>false</ClearButton>
-			<EditTextUpdate>OnValueChange</EditTextUpdate>
-			<ChoiceList>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation/>
-						<Value xsi:type="xs:string">5м</Value>
-					</xr:Value>
-				</xr:Item>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation/>
-						<Value xsi:type="xs:string">10м</Value>
-					</xr:Value>
-				</xr:Item>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation/>
-						<Value xsi:type="xs:string">15м</Value>
-					</xr:Value>
-				</xr:Item>
-				<xr:Item>
-					<xr:Presentation/>
-					<xr:CheckState>0</xr:CheckState>
-					<xr:Value xsi:type="FormChoiceListDesTimeValue">
-						<Presentation/>
-						<Value xsi:type="xs:string">30м</Value>
-					</xr:Value>
-				</xr:Item>
-			</ChoiceList>
-			<ContextMenu name="СрокПовторногоОповещенияКонтекстноеМеню" id="4"/>
-			<ExtendedTooltip name="СрокПовторногоОповещенияРасширеннаяПодсказка" id="5"/>
-			<Events>
-				<Event name="OnChange">СрокПовторногоОповещенияПриИзменении</Event>
-			</Events>
-		</InputField>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ПанельКнопокРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<Button name="Актуализировать" id="8">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Актуализировать</CommandName>
+					<ExtendedTooltip name="АктуализироватьРасширеннаяПодсказка" id="9"/>
+				</Button>
+				<UsualGroup name="ГруппаНапоминание" id="44">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа напоминание</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНапоминаниеРасширеннаяПодсказка" id="45"/>
+					<ChildItems>
+						<PictureDecoration name="Отступ1" id="92">
+							<Width>3</Width>
+							<Height>1</Height>
+							<HorizontalStretch>false</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отступ1</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Отступ1КонтекстноеМеню" id="93"/>
+							<ExtendedTooltip name="Отступ1РасширеннаяПодсказка" id="94"/>
+						</PictureDecoration>
+						<InputField name="СрокПовторногоОповещения" id="3">
+							<DataPath>СрокПовторногоОповещения</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Напомнить через</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Время, через которое нужно напомнить</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<DropListButton>true</DropListButton>
+							<ClearButton>false</ClearButton>
+							<EditTextUpdate>OnValueChange</EditTextUpdate>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xs:string">5м</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xs:string">10м</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xs:string">15м</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xs:string">30м</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="СрокПовторногоОповещенияКонтекстноеМеню" id="4"/>
+							<ExtendedTooltip name="СрокПовторногоОповещенияРасширеннаяПодсказка" id="5"/>
+							<Events>
+								<Event name="OnChange">СрокПовторногоОповещенияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<Button name="ОтложитьВсе" id="6">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ОтложитьВсе</CommandName>
+							<ExtendedTooltip name="ОтложитьВсеРасширеннаяПодсказка" id="7"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<CommandBar name="ГруппаЕще" id="70">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ещё</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаЕщеРасширеннаяПодсказка" id="71"/>
+					<ChildItems>
+						<Button name="Добавить" id="99">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Item.Токены.StandardCommand.Add</CommandName>
+							<ExtendedTooltip name="ДобавитьРасширеннаяПодсказка" id="100"/>
+						</Button>
+						<Button name="Удалить" id="101">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Item.Токены.StandardCommand.Delete</CommandName>
+							<ExtendedTooltip name="УдалитьРасширеннаяПодсказка" id="102"/>
+						</Button>
+						<Button name="ОбновитьТаблицуТокенов" id="58">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.ОбновитьТаблицуТокенов</CommandName>
+							<ExtendedTooltip name="ОбновитьТаблицуТокеновРасширеннаяПодсказка" id="59"/>
+						</Button>
+						<ButtonGroup name="КомандыТаблицы" id="97">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды таблицы</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSource>Item.Токены</CommandSource>
+							<ExtendedTooltip name="КомандыТаблицыРасширеннаяПодсказка" id="98"/>
+						</ButtonGroup>
+						<ButtonGroup name="КомандыФормы" id="95">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды формы</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSource>Form</CommandSource>
+							<ExtendedTooltip name="КомандыФормыРасширеннаяПодсказка" id="96"/>
+						</ButtonGroup>
+					</ChildItems>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
 		<Table name="Токены" id="10">
 			<Representation>List</Representation>
 			<ChangeRowOrder>false</ChangeRowOrder>
@@ -95,7 +180,6 @@
 			<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 			<DataPath>Токены</DataPath>
 			<CommandSet>
-				<ExcludedCommand>Add</ExcludedCommand>
 				<ExcludedCommand>Change</ExcludedCommand>
 				<ExcludedCommand>Copy</ExcludedCommand>
 				<ExcludedCommand>EndEdit</ExcludedCommand>
@@ -104,43 +188,6 @@
 			<ContextMenu name="ТокеныКонтекстноеМеню" id="12"/>
 			<AutoCommandBar name="ТокеныКоманднаяПанель" id="11">
 				<Autofill>false</Autofill>
-				<ChildItems>
-					<Button name="ТокеныДобавить" id="128">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Добавить</CommandName>
-						<ExtendedTooltip name="ТокеныДобавитьРасширеннаяПодсказка" id="129"/>
-					</Button>
-					<Button name="Актуализировать" id="8">
-						<Type>CommandBarButton</Type>
-						<Representation>PictureAndText</Representation>
-						<CommandName>Form.Command.Актуализировать</CommandName>
-						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
-						<ExtendedTooltip name="АктуализироватьРасширеннаяПодсказка" id="9"/>
-					</Button>
-					<Button name="ТокеныОтложить" id="143">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.Отложить</CommandName>
-						<ExtendedTooltip name="ТокеныОтложитьРасширеннаяПодсказка" id="144"/>
-					</Button>
-					<Button name="ОбновитьТаблицуТокенов" id="58">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ОбновитьТаблицуТокенов</CommandName>
-						<ExtendedTooltip name="ОбновитьТаблицуТокеновРасширеннаяПодсказка" id="59"/>
-					</Button>
-					<ButtonGroup name="ГруппаКомандыФормы" id="130">
-						<ExtendedTooltip name="ГруппаКомандыФормыРасширеннаяПодсказка" id="131"/>
-					</ButtonGroup>
-					<Button name="ТокеныИзменитьФорму" id="134">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-						<ExtendedTooltip name="ТокеныИзменитьФормуРасширеннаяПодсказка" id="135"/>
-					</Button>
-					<Button name="ТокеныСправка" id="136">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.StandardCommand.Help</CommandName>
-						<ExtendedTooltip name="ТокеныСправкаРасширеннаяПодсказка" id="137"/>
-					</Button>
-				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ТокеныРасширеннаяПодсказка" id="13"/>
 			<SearchStringAddition name="ТокеныСтрокаПоиска" id="14">
@@ -176,16 +223,12 @@
 				<InputField name="ТокеныОрганизация" id="23">
 					<DataPath>Токены.Организация</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТокеныОрганизацияКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="ТокеныОрганизацияРасширеннаяПодсказка" id="25"/>
 				</InputField>
 				<InputField name="ТокеныПроизводственныйОбъект" id="103">
 					<DataPath>Токены.ПроизводственныйОбъект</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТокеныПроизводственныйОбъектКонтекстноеМеню" id="104"/>
 					<ExtendedTooltip name="ТокеныПроизводственныйОбъектРасширеннаяПодсказка" id="105"/>
 				</InputField>
@@ -204,16 +247,12 @@
 							<v8:content>Тип токена авторизации</v8:content>
 						</v8:item>
 					</ToolTip>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТокеныТипТокенаАвторизацииКонтекстноеМеню" id="107"/>
 					<ExtendedTooltip name="ТокеныТипТокенаАвторизацииРасширеннаяПодсказка" id="108"/>
 				</InputField>
 				<InputField name="ТокеныВремяДействияСтрокой" id="52">
 					<DataPath>Токены.ВремяДействияСтрокой</DataPath>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТокеныВремяДействияСтрокойКонтекстноеМеню" id="53"/>
 					<ExtendedTooltip name="ТокеныВремяДействияСтрокойРасширеннаяПодсказка" id="54"/>
 				</InputField>
@@ -224,8 +263,6 @@
 						<xr:Common>false</xr:Common>
 					</UserVisible>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТокеныТребуетсяАктуализацияКонтекстноеМеню" id="47"/>
 					<ExtendedTooltip name="ТокеныТребуетсяАктуализацияРасширеннаяПодсказка" id="48"/>
 				</CheckBoxField>
@@ -236,8 +273,6 @@
 						<xr:Common>false</xr:Common>
 					</UserVisible>
 					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ТокеныПросроченКонтекстноеМеню" id="56"/>
 					<ExtendedTooltip name="ТокеныПросроченРасширеннаяПодсказка" id="57"/>
 				</CheckBoxField>
@@ -246,8 +281,6 @@
 		<LabelField name="СмТакжеНастройкиИСервис" id="109">
 			<DataPath>СмТакжеНастройкиИСервис</DataPath>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<AutoMaxWidth>false</AutoMaxWidth>
 			<ContextMenu name="СмТакжеНастройкиИСервисКонтекстноеМеню" id="110"/>
 			<ExtendedTooltip name="СмТакжеНастройкиИСервисРасширеннаяПодсказка" id="111"/>
@@ -431,7 +464,7 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Отложить" id="3">
+		<Command name="ОтложитьВсе" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -441,16 +474,11 @@
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Отложить напоминание</v8:content>
+					<v8:content>Отложить все напоминания</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.DontNotify</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>Отложить</Action>
-			<Representation>TextPicture</Representation>
-			<ActionPurpose>Finish</ActionPurpose>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="Актуализировать" id="4">
 			<Title>
@@ -459,19 +487,7 @@
 					<v8:content>Актуализировать</v8:content>
 				</v8:item>
 			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Актуализировать токен</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.ExecuteTask</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>Актуализировать</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">Токены</AssociatedTableElementId>
 		</Command>
 		<Command name="ОбновитьТаблицуТокенов" id="5">
 			<Title>
@@ -493,22 +509,6 @@
 			</Picture>
 			<Action>ОбновитьТаблицуТокенов</Action>
 			<Representation>TextPicture</Representation>
-		</Command>
-		<Command name="Добавить" id="2">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Добавить</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Добавить</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>Добавить</Action>
-			<ActionPurpose>Create</ActionPurpose>
 		</Command>
 	</Commands>
 	<Parameters>

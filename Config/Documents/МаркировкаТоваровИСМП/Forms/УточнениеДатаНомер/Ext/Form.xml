@@ -10,10 +10,10 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="Готово" id="12">
 				<Type>CommandBarButton</Type>
@@ -25,7 +25,6 @@
 			</Button>
 			<Button name="Отмена" id="16">
 				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
 				<CommandName>Form.Command.Отмена</CommandName>
 				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="17"/>
 			</Button>
@@ -36,7 +35,7 @@
 	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаДатаНомер" id="23">
-			<Group>Vertical</Group>
+			<Group>AlwaysHorizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -44,16 +43,22 @@
 			<ChildItems>
 				<InputField name="Номер" id="7">
 					<DataPath>Номер</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>25</MaxWidth>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="НомерКонтекстноеМеню" id="8"/>
 					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="9"/>
 				</InputField>
 				<InputField name="Дата" id="4">
 					<DataPath>Дата</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>от</v8:content>
+						</v8:item>
+					</Title>
+					<MarkRequiredComplete>true</MarkRequiredComplete>
 					<AutoMarkIncomplete>true</AutoMarkIncomplete>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
@@ -103,7 +108,6 @@
 				</v8:item>
 			</Title>
 			<Action>Готово</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Отмена" id="2">
 			<Title>

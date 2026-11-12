@@ -2,7 +2,6 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -24,6 +23,7 @@
 		</UsualGroup>
 		<Table name="Список" id="3">
 			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -31,7 +31,6 @@
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
 			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -47,8 +46,49 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
-			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="СписокКонтекстноеМенюСоздать" id="34">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
+						<ExtendedTooltip name="СписокКонтекстноеМенюСоздатьРасширеннаяПодсказка" id="35"/>
+					</Button>
+					<Button name="СписокКонтекстноеМенюИзменить" id="38">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Список.StandardCommand.Change</CommandName>
+						<ExtendedTooltip name="СписокКонтекстноеМенюИзменитьРасширеннаяПодсказка" id="39"/>
+					</Button>
+					<Button name="СписокКонтекстноеМенюУдалить" id="40">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Список.StandardCommand.Delete</CommandName>
+						<ExtendedTooltip name="СписокКонтекстноеМенюУдалитьРасширеннаяПодсказка" id="41"/>
+					</Button>
+					<Button name="СписокКонтекстноеМенюПоискПоТекущемуЗначению" id="50">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Список.StandardCommand.FindByCurrentValue</CommandName>
+						<ExtendedTooltip name="СписокКонтекстноеМенюПоискПоТекущемуЗначениюРасширеннаяПодсказка" id="51"/>
+					</Button>
+					<Button name="СписокКонтекстноеМенюНайти" id="48">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Список.StandardCommand.Find</CommandName>
+						<ExtendedTooltip name="СписокКонтекстноеМенюНайтиРасширеннаяПодсказка" id="49"/>
+					</Button>
+					<Button name="СписокКонтекстноеМенюОтменитьПоиск" id="52">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Список.StandardCommand.CancelSearch</CommandName>
+						<ExtendedTooltip name="СписокКонтекстноеМенюОтменитьПоискРасширеннаяПодсказка" id="53"/>
+					</Button>
+					<Button name="СписокКонтекстноеМенюКопироватьВБуферОбмена" id="36">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Список.StandardCommand.CopyToClipboard</CommandName>
+						<ExtendedTooltip name="СписокКонтекстноеМенюКопироватьВБуферОбменаРасширеннаяПодсказка" id="37"/>
+					</Button>
+				</ChildItems>
+			</ContextMenu>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -81,30 +121,22 @@
 			<ChildItems>
 				<LabelField name="ХозяйствующийСубъект" id="25">
 					<DataPath>Список.ХозяйствующийСубъект</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ХозяйствующийСубъектКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ХозяйствующийСубъектРасширеннаяПодсказка" id="27"/>
 				</LabelField>
 				<LabelField name="ХозяйствующийСубъектИдентификатор" id="28">
 					<DataPath>Список.ХозяйствующийСубъект.Идентификатор</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ХозяйствующийСубъектИдентификаторКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ХозяйствующийСубъектИдентификаторРасширеннаяПодсказка" id="30"/>
 				</LabelField>
 				<LabelField name="Логин" id="19">
 					<DataPath>Список.Логин</DataPath>
 					<DefaultItem>true</DefaultItem>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="ЛогинКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ЛогинРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="Администратор" id="31">
 					<DataPath>Список.Администратор</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
 					<ContextMenu name="АдминистраторКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="АдминистраторРасширеннаяПодсказка" id="33"/>
 				</LabelField>

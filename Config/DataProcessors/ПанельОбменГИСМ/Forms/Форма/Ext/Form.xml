@@ -10,29 +10,9 @@
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаВыполнитьОбмен" id="5">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ВыполнитьОбмен</CommandName>
-				<ExtendedTooltip name="ФормаВыполнитьОбменРасширеннаяПодсказка" id="6"/>
-			</Button>
-			<Button name="ФормаОбновить" id="7">
-				<Type>CommandBarButton</Type>
-				<Representation>Picture</Representation>
-				<Width>3</Width>
-				<CommandName>Form.Command.Обновить</CommandName>
-				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="8"/>
-			</Button>
-			<Button name="ЛичныйКабинет" id="247">
-				<Type>CommandBarButton</Type>
-				<Representation>PictureAndText</Representation>
-				<CommandName>Form.Command.ЛичныйКабинетГИСМ</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ЛичныйКабинетРасширеннаяПодсказка" id="248"/>
-			</Button>
-		</ChildItems>
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
@@ -50,12 +30,12 @@
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<BackColor>style:ЦветФонаВнимание</BackColor>
 			<ExtendedTooltip name="ГруппаЗавершениеФункциональностиРасширеннаяПодсказка" id="250"/>
 			<ChildItems>
 				<LabelDecoration name="РаботаСГИСМЗавершается" id="257">
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<AutoMaxHeight>false</AutoMaxHeight>
+					<Height>3</Height>
+					<HorizontalStretch>true</HorizontalStretch>
 					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -63,6 +43,7 @@
 </v8:content>
 						</v8:item>
 					</Title>
+					<BackColor>style:ЦветФонаВнимание</BackColor>
 					<ContextMenu name="РаботаСГИСМЗавершаетсяКонтекстноеМеню" id="258"/>
 					<ExtendedTooltip name="РаботаСГИСМЗавершаетсяРасширеннаяПодсказка" id="259"/>
 					<Events>
@@ -70,8 +51,10 @@
 					</Events>
 				</LabelDecoration>
 				<LabelDecoration name="РаботаСГИСМЗавершена" id="254">
+					<Visible>false</Visible>
 					<AutoMaxWidth>false</AutoMaxWidth>
-					<AutoMaxHeight>false</AutoMaxHeight>
+					<Height>3</Height>
+					<HorizontalStretch>true</HorizontalStretch>
 					<Title formatted="true">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -79,65 +62,13 @@
 </v8:content>
 						</v8:item>
 					</Title>
+					<BackColor>style:ЦветФонаВнимание</BackColor>
 					<ContextMenu name="РаботаСГИСМЗавершенаКонтекстноеМеню" id="255"/>
 					<ExtendedTooltip name="РаботаСГИСМЗавершенаРасширеннаяПодсказка" id="256"/>
 					<Events>
 						<Event name="URLProcessing">РаботаСГИСМЗавершенаОбработкаНавигационнойСсылки</Event>
 					</Events>
 				</LabelDecoration>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="Панель" id="24">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Отборы</v8:content>
-				</v8:item>
-			</Title>
-			<Group>Horizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ПанельРасширеннаяПодсказка" id="25"/>
-			<ChildItems>
-				<InputField name="Организация" id="26">
-					<DataPath>Организация</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ClearButton>true</ClearButton>
-					<OpenButton>false</OpenButton>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>&lt;по всем организациям&gt;</v8:content>
-						</v8:item>
-					</InputHint>
-					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="27"/>
-					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="28"/>
-					<Events>
-						<Event name="OnChange">ОрганизацияПриИзменении</Event>
-					</Events>
-				</InputField>
-				<InputField name="Ответственный" id="29">
-					<DataPath>Ответственный</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<EditMode>EnterOnInput</EditMode>
-					<AutoEditMode>true</AutoEditMode>
-					<ClearButton>true</ClearButton>
-					<OpenButton>false</OpenButton>
-					<InputHint>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>&lt;по всем ответственным&gt;</v8:content>
-						</v8:item>
-					</InputHint>
-					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="30"/>
-					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="31"/>
-					<Events>
-						<Event name="OnChange">ОтветственныйПриИзменении</Event>
-					</Events>
-				</InputField>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаИнформация" id="1">
@@ -170,6 +101,18 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаИнформацияЛевоРасширеннаяПодсказка" id="4"/>
 					<ChildItems>
+						<Button name="ФормаВыполнитьОбмен" id="5">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ВыполнитьОбмен</CommandName>
+							<ExtendedTooltip name="ФормаВыполнитьОбменРасширеннаяПодсказка" id="6"/>
+						</Button>
+						<Button name="ФормаОбновить" id="7">
+							<Type>UsualButton</Type>
+							<Representation>Picture</Representation>
+							<Width>3</Width>
+							<CommandName>Form.Command.Обновить</CommandName>
+							<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="8"/>
+						</Button>
 						<PictureDecoration name="ДекорацияДокументыОжидающиеОтправки" id="9">
 							<Width>2</Width>
 							<Height>1</Height>
@@ -201,6 +144,86 @@
 						</LabelDecoration>
 					</ChildItems>
 				</UsualGroup>
+				<CommandBar name="ГруппаИнформацияПраво" id="18">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Команды</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>false</HorizontalStretch>
+					<HorizontalLocation>Right</HorizontalLocation>
+					<ExtendedTooltip name="ГруппаИнформацияПравоРасширеннаяПодсказка" id="19"/>
+					<ChildItems>
+						<Button name="ИзменитьФорму" id="20">
+							<Type>CommandBarButton</Type>
+							<Representation>Picture</Representation>
+							<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+							<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="21"/>
+						</Button>
+						<Button name="Справка" id="22">
+							<Type>CommandBarButton</Type>
+							<Representation>Picture</Representation>
+							<CommandName>Form.StandardCommand.Help</CommandName>
+							<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="23"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Панель" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отборы</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ПанельРасширеннаяПодсказка" id="25"/>
+			<ChildItems>
+				<InputField name="Организация" id="26">
+					<DataPath>Организация</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>25</MaxWidth>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ClearButton>true</ClearButton>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;по всем организациям&gt;</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="28"/>
+					<Events>
+						<Event name="OnChange">ОрганизацияПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Ответственный" id="29">
+					<DataPath>Ответственный</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>25</MaxWidth>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ClearButton>true</ClearButton>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;по всем ответственным&gt;</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="31"/>
+					<Events>
+						<Event name="OnChange">ОтветственныйПриИзменении</Event>
+					</Events>
+				</InputField>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="ГруппаНастройки" id="32">
@@ -215,7 +238,6 @@
 			<Collapsed>true</Collapsed>
 			<ControlRepresentation>Button</ControlRepresentation>
 			<Representation>NormalSeparation</Representation>
-			<ShowTitle>true</ShowTitle>
 			<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="33"/>
 			<ChildItems>
 				<UsualGroup name="ГруппаНастройкиЛево" id="34">
@@ -323,7 +345,6 @@
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>NormalSeparation</Representation>
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ГруппаЗакупкиРасширеннаяПодсказка" id="53"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаЗаявкаНаВыпускКиЗ" id="54">
@@ -761,7 +782,6 @@
 						</UsualGroup>
 						<Button name="ОтчетПоступленияБезДокументовГИСМ" id="127">
 							<Type>Hyperlink</Type>
-							<Representation>Text</Representation>
 							<CommandName>Form.Command.ОтчетПоступленияБезДокументовГИСМ</CommandName>
 							<Picture>
 								<xr:Ref>StdPicture.Report</xr:Ref>
@@ -787,7 +807,6 @@
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>NormalSeparation</Representation>
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ГруппаСкладРасширеннаяПодсказка" id="130"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаМаркировкаТоваров" id="131">
@@ -1127,7 +1146,6 @@
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>NormalSeparation</Representation>
-					<ShowTitle>true</ShowTitle>
 					<ExtendedTooltip name="ГруппаПродажиРасширеннаяПодсказка" id="188"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаУведомлениеОбОтгрузкеМаркированныхТоваров" id="189">
@@ -1468,6 +1486,13 @@
 			<Representation>NormalSeparation</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКабинетРасширеннаяПодсказка" id="246"/>
+			<ChildItems>
+				<Button name="ЛичныйКабинет" id="247">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.ЛичныйКабинетГИСМ</CommandName>
+					<ExtendedTooltip name="ЛичныйКабинетРасширеннаяПодсказка" id="248"/>
+				</Button>
+			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
 	<Attributes>
@@ -2073,7 +2098,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЛичныйКабинет</Action>
-			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ОткрытьНастройкиЭлектроннойПодписиИШифрования" id="45">

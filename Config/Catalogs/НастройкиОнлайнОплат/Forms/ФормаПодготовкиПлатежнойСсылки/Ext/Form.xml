@@ -15,21 +15,6 @@
 	<AutoFillCheck>false</AutoFillCheck>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Справка" id="341">
-				<Type>CommandBarHyperlink</Type>
-				<Representation>Text</Representation>
-				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Как использовать ссылку?</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="342"/>
-			</Button>
-		</ChildItems>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -58,6 +43,23 @@
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаОсновнаяРасширеннаяПодсказка" id="280"/>
 					<ChildItems>
+						<Button name="ОтправитьСсылку" id="378">
+							<Type>UsualButton</Type>
+							<Representation>Text</Representation>
+							<DefaultButton>true</DefaultButton>
+							<Width>11</Width>
+							<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<CommandName>Form.Command.ОтправитьСсылку</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отправить</v8:content>
+								</v8:item>
+							</Title>
+							<ButtonImportance>Main</ButtonImportance>
+							<ExtendedTooltip name="ОтправитьСсылкуРасширеннаяПодсказка" id="379"/>
+						</Button>
 						<UsualGroup name="ГруппаЗаголовокФормыСправка" id="343">
 							<Visible>false</Visible>
 							<Title>
@@ -119,16 +121,18 @@
 									<ExtendedTooltip name="ГруппаПояснениеОбновлениеРасширеннаяПодсказка" id="408"/>
 									<ChildItems>
 										<LabelDecoration name="ДекорацияПояснениеКФорме" id="290">
+											<Width>40</Width>
 											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>40</MaxWidth>
 											<HorizontalStretch>true</HorizontalStretch>
 											<VerticalStretch>false</VerticalStretch>
+											<TextColor>style:ПоясняющийТекст</TextColor>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
 													<v8:content>Выберите способ доставки электронного чека, сформируйте ссылку для оплаты счета и отправьте ее покупателю.</v8:content>
 												</v8:item>
 											</Title>
-											<VerticalAlign>Center</VerticalAlign>
 											<ContextMenu name="ДекорацияПояснениеКФормеКонтекстноеМеню" id="291"/>
 											<ExtendedTooltip name="ДекорацияПояснениеКФормеРасширеннаяПодсказка" id="292"/>
 											<Events>
@@ -183,6 +187,16 @@
 										</Button>
 									</ChildItems>
 								</UsualGroup>
+								<LabelDecoration name="ДекорацияСсылкаНаОплату" id="393">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ссылка на оплату:</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияСсылкаНаОплатуКонтекстноеМеню" id="394"/>
+									<ExtendedTooltip name="ДекорацияСсылкаНаОплатуРасширеннаяПодсказка" id="395"/>
+								</LabelDecoration>
 								<UsualGroup name="ГруппаПолеВводаСсылки" id="316">
 									<Title>
 										<v8:item>
@@ -205,9 +219,10 @@
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Ссылка на оплату:</v8:content>
+													<v8:content>Ссылка на оплату</v8:content>
 												</v8:item>
 											</Title>
+											<TitleLocation>None</TitleLocation>
 											<HorizontalAlign>Left</HorizontalAlign>
 											<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 											<GroupVerticalAlign>Center</GroupVerticalAlign>
@@ -226,7 +241,7 @@
 											<Type>UsualButton</Type>
 											<Representation>Picture</Representation>
 											<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-											<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
 											<CommandName>Form.Command.КопироватьВБуфер</CommandName>
 											<Picture>
 												<xr:Ref>CommonPicture.КатегорииКопировать</xr:Ref>
@@ -237,10 +252,10 @@
 										<Button name="ОтменитьСсылку" id="414">
 											<Type>UsualButton</Type>
 											<Representation>Picture</Representation>
-											<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
 											<CommandName>Form.Command.ОтменитьСсылку</CommandName>
 											<Picture>
-												<xr:Ref>StdPicture.Stop</xr:Ref>
+												<xr:Ref>StdPicture.AppearanceCrossIcon</xr:Ref>
 												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</Picture>
 											<ExtendedTooltip name="ОтменитьСсылкуРасширеннаяПодсказка" id="415"/>
@@ -263,6 +278,16 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаВариантОтправкиРасширеннаяПодсказка" id="417"/>
 							<ChildItems>
+								<LabelDecoration name="ДекорацияОтправкаСсылки" id="418">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отправка ссылки покупателю:</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияОтправкаСсылкиКонтекстноеМеню" id="419"/>
+									<ExtendedTooltip name="ДекорацияОтправкаСсылкиРасширеннаяПодсказка" id="420"/>
+								</LabelDecoration>
 								<UsualGroup name="ГруппаВариантОтправкиПереключатели" id="421">
 									<Title>
 										<v8:item>
@@ -338,6 +363,7 @@
 														</v8:item>
 													</Title>
 													<GroupVerticalAlign>Center</GroupVerticalAlign>
+													<Hyperlink>true</Hyperlink>
 													<Picture>
 														<xr:Ref>CommonPicture.ЭлектронноеПисьмо</xr:Ref>
 														<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -432,7 +458,7 @@
 												<Title formatted="false">
 													<v8:item>
 														<v8:lang>ru</v8:lang>
-														<v8:content>Будет отправлено сообщение в MAX с ссылкой на заказ</v8:content>
+														<v8:content>Будет отправлено сообщение в MAX  с ссылкой на заказ</v8:content>
 													</v8:item>
 												</Title>
 											</ExtendedTooltip>
@@ -472,7 +498,7 @@
 													</Title>
 													<GroupVerticalAlign>Center</GroupVerticalAlign>
 													<Picture>
-														<xr:Ref>CommonPicture.МАКСБИП</xr:Ref>
+														<xr:Ref>CommonPicture.MAXБИП</xr:Ref>
 														<xr:LoadTransparent>false</xr:LoadTransparent>
 													</Picture>
 													<FileDragMode>AsFile</FileDragMode>
@@ -744,6 +770,7 @@
 													</Title>
 													<GroupHorizontalAlign>Left</GroupHorizontalAlign>
 													<GroupVerticalAlign>Center</GroupVerticalAlign>
+													<Hyperlink>true</Hyperlink>
 													<Picture>
 														<xr:Ref>CommonPicture.ЭлектронноеПисьмо</xr:Ref>
 														<xr:LoadTransparent>false</xr:LoadTransparent>
@@ -819,6 +846,7 @@
 									<TitleLocation>None</TitleLocation>
 									<ToolTipRepresentation>ShowLeft</ToolTipRepresentation>
 									<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+									<MarkRequiredComplete>false</MarkRequiredComplete>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<DropListButton>true</DropListButton>
 									<AutoMarkIncomplete>false</AutoMarkIncomplete>
@@ -854,69 +882,69 @@
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
-						<UsualGroup name="ГруппаКоманднаяПанель" id="496">
+						<UsualGroup name="ГруппаПодвал" id="466">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа командная панель</v8:content>
+									<v8:content>Группа подвал</v8:content>
 								</v8:item>
 							</Title>
 							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="497"/>
+							<ExtendedTooltip name="ГруппаПодвалРасширеннаяПодсказка" id="467"/>
 							<ChildItems>
-								<UsualGroup name="ПанельРазделитель" id="512">
+								<CommandBar name="ГруппаПомощь" id="391">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Панель разделитель</v8:content>
-										</v8:item>
-									</Title>
-									<HorizontalStretch>true</HorizontalStretch>
-									<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ПанельРазделительРасширеннаяПодсказка" id="513"/>
-									<ChildItems>
-										<LabelDecoration name="ДекорацияРазделитель" id="503">
-											<HorizontalStretch>true</HorizontalStretch>
-											<ContextMenu name="ДекорацияРазделительКонтекстноеМеню" id="504"/>
-											<ExtendedTooltip name="ДекорацияРазделительРасширеннаяПодсказка" id="505"/>
-										</LabelDecoration>
-									</ChildItems>
-								</UsualGroup>
-								<UsualGroup name="ПанельСправа" id="501">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Панель справа</v8:content>
+											<v8:content>Группа помощь</v8:content>
 										</v8:item>
 									</Title>
 									<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-									<HorizontalAlign>Right</HorizontalAlign>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ПанельСправаРасширеннаяПодсказка" id="502"/>
+									<ExtendedTooltip name="ГруппаПомощьРасширеннаяПодсказка" id="392"/>
 									<ChildItems>
-										<Button name="ОтправитьСсылку" id="378">
-											<Type>UsualButton</Type>
+										<Button name="Справка" id="341">
+											<Type>CommandBarHyperlink</Type>
 											<Representation>Text</Representation>
-											<DefaultButton>true</DefaultButton>
 											<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-											<CommandName>Form.Command.ОтправитьСсылку</CommandName>
+											<CommandName>Form.StandardCommand.Help</CommandName>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Отправить</v8:content>
+													<v8:content>Как использовать ссылку?</v8:content>
 												</v8:item>
 											</Title>
-											<ButtonImportance>Main</ButtonImportance>
-											<ExtendedTooltip name="ОтправитьСсылкуРасширеннаяПодсказка" id="379"/>
+											<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="342"/>
 										</Button>
 									</ChildItems>
-								</UsualGroup>
+								</CommandBar>
 							</ChildItems>
 						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаБуфер" id="281">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница буфер</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<ScrollOnCompress>false</ScrollOnCompress>
+					<ExtendedTooltip name="СтраницаБуферРасширеннаяПодсказка" id="282"/>
+					<ChildItems>
+						<HTMLDocumentField name="БуферОбмена" id="274">
+							<DataPath>БуферОбмена</DataPath>
+							<Width>37</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>5</Height>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<HorizontalStretch>false</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="БуферОбменаКонтекстноеМеню" id="275"/>
+							<ExtendedTooltip name="БуферОбменаРасширеннаяПодсказка" id="276"/>
+						</HTMLDocumentField>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -1173,7 +1201,6 @@
 			</ToolTip>
 			<Action>ОтправитьСсылку</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ОбновитьСсылку" id="1">
 			<Title>

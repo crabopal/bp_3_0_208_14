@@ -6,8 +6,9 @@
 	<CommandSet>
 		<ExcludedCommand>CustomizeForm</ExcludedCommand>
 	</CommandSet>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -15,12 +16,28 @@
 		<LabelField name="ПредставлениеОтборы" id="24">
 			<DataPath>ПредставлениеОтборы</DataPath>
 			<TitleLocation>None</TitleLocation>
-			<EditMode>EnterOnInput</EditMode>
-			<AutoEditMode>true</AutoEditMode>
 			<TextColor>style:ЦветГиперссылкиГосИС</TextColor>
 			<ContextMenu name="ПредставлениеОтборыКонтекстноеМеню" id="25"/>
 			<ExtendedTooltip name="ПредставлениеОтборыРасширеннаяПодсказка" id="26"/>
 		</LabelField>
+		<CommandBar name="ГруппаКоманднаяПанель" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="28"/>
+			<ChildItems>
+				<Button name="ФормаСправка" id="20">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="21"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 		<Table name="ТаблицаДокументов" id="1">
 			<Representation>List</Representation>
 			<ChangeRowSet>false</ChangeRowSet>
@@ -81,7 +98,7 @@
 					<AutoEditMode>true</AutoEditMode>
 					<Hiperlink>true</Hiperlink>
 					<TextColor>style:ЦветГиперссылкиГосИС</TextColor>
-					<Font ref="style:SubtitleLevel1" kind="StyleItem"/>
+					<Font ref="style:NormalTextFont" bold="false" italic="false" underline="true" strikeout="false" kind="StyleItem"/>
 					<ContextMenu name="ТаблицаДокументовДокументПоступленияКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="ТаблицаДокументовДокументПоступленияРасширеннаяПодсказка" id="16"/>
 				</LabelField>
@@ -91,7 +108,7 @@
 					<AutoEditMode>true</AutoEditMode>
 					<Hiperlink>true</Hiperlink>
 					<TextColor>style:ЦветГиперссылкиГосИС</TextColor>
-					<Font ref="style:SubtitleLevel1" kind="StyleItem"/>
+					<Font ref="style:NormalTextFont" bold="false" italic="false" underline="true" strikeout="false" kind="StyleItem"/>
 					<ContextMenu name="ТаблицаДокументовДокументГИСМКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="ТаблицаДокументовДокументГИСМРасширеннаяПодсказка" id="19"/>
 				</LabelField>

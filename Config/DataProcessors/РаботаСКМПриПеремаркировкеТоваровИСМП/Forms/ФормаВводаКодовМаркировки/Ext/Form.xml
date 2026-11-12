@@ -4,25 +4,11 @@
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
 	<CommandBarLocation>Bottom</CommandBarLocation>
-	<ShowTitle>true</ShowTitle>
 	<ShowCommandBar>true</ShowCommandBar>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="Готово" id="34">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<SkipOnInput>false</SkipOnInput>
-				<CommandName>Form.Command.Далее</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Готово</v8:content>
-					</v8:item>
-				</Title>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="35"/>
-			</Button>
 			<Button name="Закрыть" id="74">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.StandardCommand.Close</CommandName>
@@ -43,6 +29,26 @@
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.РаспечататьНовыйКодМаркировки</CommandName>
 				<ExtendedTooltip name="РаспечататьНовыйКодМаркировкиРасширеннаяПодсказка" id="133"/>
+			</Button>
+			<Button name="Готово" id="34">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.Далее</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Готово</v8:content>
+					</v8:item>
+				</Title>
+				<ButtonImportance>Main</ButtonImportance>
+				<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="35"/>
+			</Button>
+			<Button name="ФормаСправка" id="203">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="204"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -95,7 +101,6 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаКодМаркировкиРасширеннаяПодсказка" id="45"/>
 					<ChildItems>
@@ -123,9 +128,6 @@
 											<v8:content>Номенклатура</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Left</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<ContextMenu name="ПредставлениеКонтекстноеМеню" id="198"/>
 									<ExtendedTooltip name="ПредставлениеРасширеннаяПодсказка" id="199"/>
@@ -145,8 +147,6 @@
 								<InputField name="КодМаркировки" id="48">
 									<DataPath>Объект.КодМаркировки</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<InputHint>
 										<v8:item>
@@ -190,8 +190,6 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>Top</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -217,8 +215,6 @@
 								<RadioButtonField name="ПричинаПеремаркировкиИспорченоУтраченоГруппа" id="209">
 									<DataPath>ПричинаПеремаркировкиИспорченоУтраченоГруппа</DataPath>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -279,8 +275,6 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<RadioButtonType>Auto</RadioButtonType>
 											<ColumnsCount>1</ColumnsCount>
 											<ChoiceList>
@@ -367,8 +361,6 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<RadioButtonType>Auto</RadioButtonType>
 									<ChoiceList>
 										<xr:Item>
@@ -398,40 +390,24 @@
 							<TitleLocation>None</TitleLocation>
 							<GroupHorizontalAlign>Center</GroupHorizontalAlign>
 							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<Height>4</Height>
 							<VerticalStretch>false</VerticalStretch>
 							<PictureSize>AutoSize</PictureSize>
 							<ContextMenu name="КартинкаСканированияКонтекстноеМеню" id="286"/>
 							<ExtendedTooltip name="КартинкаСканированияРасширеннаяПодсказка" id="287"/>
 						</PictureField>
-						<UsualGroup name="ГруппаДекорацияПодсказкаСтарыйКод" id="312">
-							<Title>
+						<LabelDecoration name="ДекорацияПодсказка" id="101">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>55</MaxWidth>
+							<Title formatted="true">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа декорация подсказка старый код</v8:content>
+									<v8:content>Если код маркировки не читается или отсутствует - &lt;b&gt;выберите&lt;/&gt;&lt;b&gt; номенклатуру и &lt;/&gt;&lt;b&gt;элемент&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;из&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;списка&lt;/&gt;</v8:content>
 								</v8:item>
 							</Title>
 							<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаДекорацияПодсказкаСтарыйКодРасширеннаяПодсказка" id="313"/>
-							<ChildItems>
-								<LabelDecoration name="ДекорацияПодсказка" id="101">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Title formatted="true">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Если код маркировки не читается или отсутствует - &lt;b&gt;выберите&lt;/&gt;&lt;b&gt; номенклатуру и &lt;/&gt;&lt;b&gt;элемент&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;из&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;списка&lt;/&gt;</v8:content>
-										</v8:item>
-									</Title>
-									<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-									<ContextMenu name="ДекорацияПодсказкаКонтекстноеМеню" id="102"/>
-									<ExtendedTooltip name="ДекорацияПодсказкаРасширеннаяПодсказка" id="103"/>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
+							<ContextMenu name="ДекорацияПодсказкаКонтекстноеМеню" id="102"/>
+							<ExtendedTooltip name="ДекорацияПодсказкаРасширеннаяПодсказка" id="103"/>
+						</LabelDecoration>
 					</ChildItems>
 				</Page>
 				<Page name="СтраницаНовыйКодМаркировки" id="46">
@@ -442,7 +418,6 @@
 						</v8:item>
 					</Title>
 					<Group>Vertical</Group>
-					<ShowTitle>true</ShowTitle>
 					<ScrollOnCompress>false</ScrollOnCompress>
 					<ExtendedTooltip name="СтраницаНовыйКодМаркировкиРасширеннаяПодсказка" id="47"/>
 					<ChildItems>
@@ -470,9 +445,6 @@
 											<v8:content>Номенклатура</v8:content>
 										</v8:item>
 									</Title>
-									<TitleLocation>Left</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<ContextMenu name="НовоеПредставлениеКонтекстноеМеню" id="195"/>
 									<ExtendedTooltip name="НовоеПредставлениеРасширеннаяПодсказка" id="196"/>
@@ -493,8 +465,7 @@
 									<DataPath>Объект.НовыйКодМаркировки</DataPath>
 									<ReadOnly>true</ReadOnly>
 									<TitleLocation>None</TitleLocation>
-									<EditMode>EnterOnInput</EditMode>
-									<AutoEditMode>true</AutoEditMode>
+									<MarkRequiredComplete>true</MarkRequiredComplete>
 									<AutoMaxWidth>false</AutoMaxWidth>
 									<AutoMarkIncomplete>true</AutoMarkIncomplete>
 									<InputHint>
@@ -558,8 +529,6 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>Top</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<RadioButtonType>Auto</RadioButtonType>
 											<ChoiceList>
 												<xr:Item>
@@ -585,8 +554,6 @@
 										<RadioButtonField name="НоваяПричинаПеремаркировкиИспорченоУтраченоГруппа" id="226">
 											<DataPath>ПричинаПеремаркировкиИспорченоУтраченоГруппа</DataPath>
 											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<RadioButtonType>Auto</RadioButtonType>
 											<ChoiceList>
 												<xr:Item>
@@ -647,8 +614,6 @@
 														</v8:item>
 													</Title>
 													<TitleLocation>None</TitleLocation>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
 													<RadioButtonType>Auto</RadioButtonType>
 													<ColumnsCount>1</ColumnsCount>
 													<ChoiceList>
@@ -735,8 +700,6 @@
 												</v8:item>
 											</Title>
 											<TitleLocation>None</TitleLocation>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
 											<RadioButtonType>Auto</RadioButtonType>
 											<ChoiceList>
 												<xr:Item>
@@ -777,7 +740,6 @@
 									<ExtendedTooltip name="ГруппаДополнительнаяИнформацияРасширеннаяПодсказка" id="254"/>
 									<ChildItems>
 										<PictureDecoration name="ГруппаДополнительнаяИнформацияРазделитель" id="267">
-											<Visible>false</Visible>
 											<Width>1</Width>
 											<Height>1</Height>
 											<HorizontalStretch>false</HorizontalStretch>
@@ -793,9 +755,7 @@
 													<v8:content>Код ТН ВЭД</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<AutoMaxWidth>false</AutoMaxWidth>
+											<MarkRequiredComplete>true</MarkRequiredComplete>
 											<ChoiceButton>true</ChoiceButton>
 											<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
 											<AutoMarkIncomplete>true</AutoMarkIncomplete>
@@ -807,9 +767,7 @@
 										</InputField>
 										<InputField name="СтранаПроизводства" id="258">
 											<DataPath>Объект.СтранаПроизводства</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<AutoEditMode>true</AutoEditMode>
-											<AutoMaxWidth>false</AutoMaxWidth>
+											<Width>25</Width>
 											<ContextMenu name="СтранаПроизводстваКонтекстноеМеню" id="259"/>
 											<ExtendedTooltip name="СтранаПроизводстваРасширеннаяПодсказка" id="260"/>
 										</InputField>
@@ -834,10 +792,9 @@
 											<ChildItems>
 												<InputField name="Сертификация" id="247">
 													<DataPath>Объект.Сертификация</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<AutoMaxWidth>false</AutoMaxWidth>
+													<Width>25</Width>
 													<DropListButton>true</DropListButton>
+													<ChoiceButton>true</ChoiceButton>
 													<TextEdit>false</TextEdit>
 													<ContextMenu name="СертификацияКонтекстноеМеню" id="248"/>
 													<ExtendedTooltip name="СертификацияРасширеннаяПодсказка" id="249"/>
@@ -848,10 +805,9 @@
 												</InputField>
 												<InputField name="ПредставлениеПервичногоДокумента" id="250">
 													<DataPath>Объект.ПредставлениеПервичногоДокумента</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<AutoMaxWidth>false</AutoMaxWidth>
+													<Width>25</Width>
 													<DropListButton>true</DropListButton>
+													<ChoiceButton>true</ChoiceButton>
 													<TextEdit>false</TextEdit>
 													<ContextMenu name="ПредставлениеПервичногоДокументаКонтекстноеМеню" id="251"/>
 													<ExtendedTooltip name="ПредставлениеПервичногоДокументаРасширеннаяПодсказка" id="252"/>
@@ -862,36 +818,18 @@
 												</InputField>
 											</ChildItems>
 										</UsualGroup>
-										<UsualGroup name="ГруппаДополнительнаяИнформацияЦветРазмер" id="310">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа дополнительная информация цвет размер</v8:content>
-												</v8:item>
-											</Title>
-											<Group>AlwaysHorizontal</Group>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаДополнительнаяИнформацияЦветРазмерРасширеннаяПодсказка" id="311"/>
-											<ChildItems>
-												<InputField name="Цвет" id="261">
-													<DataPath>Объект.Цвет</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<Width>25</Width>
-													<ContextMenu name="ЦветКонтекстноеМеню" id="262"/>
-													<ExtendedTooltip name="ЦветРасширеннаяПодсказка" id="263"/>
-												</InputField>
-												<InputField name="Размер" id="264">
-													<DataPath>Объект.Размер</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<AutoEditMode>true</AutoEditMode>
-													<Width>25</Width>
-													<ContextMenu name="РазмерКонтекстноеМеню" id="265"/>
-													<ExtendedTooltip name="РазмерРасширеннаяПодсказка" id="266"/>
-												</InputField>
-											</ChildItems>
-										</UsualGroup>
+										<InputField name="Цвет" id="261">
+											<DataPath>Объект.Цвет</DataPath>
+											<Width>25</Width>
+											<ContextMenu name="ЦветКонтекстноеМеню" id="262"/>
+											<ExtendedTooltip name="ЦветРасширеннаяПодсказка" id="263"/>
+										</InputField>
+										<InputField name="Размер" id="264">
+											<DataPath>Объект.Размер</DataPath>
+											<Width>25</Width>
+											<ContextMenu name="РазмерКонтекстноеМеню" id="265"/>
+											<ExtendedTooltip name="РазмерРасширеннаяПодсказка" id="266"/>
+										</InputField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -901,40 +839,24 @@
 							<TitleLocation>None</TitleLocation>
 							<GroupHorizontalAlign>Center</GroupHorizontalAlign>
 							<GroupVerticalAlign>Center</GroupVerticalAlign>
-							<EditMode>EnterOnInput</EditMode>
-							<AutoEditMode>true</AutoEditMode>
-							<Height>3</Height>
 							<VerticalStretch>false</VerticalStretch>
 							<PictureSize>Proportionally</PictureSize>
 							<ContextMenu name="КартинкаСканированияНоваяКонтекстноеМеню" id="283"/>
 							<ExtendedTooltip name="КартинкаСканированияНоваяРасширеннаяПодсказка" id="284"/>
 						</PictureField>
-						<UsualGroup name="ГруппаДекорацияНоваяПодсказка" id="314">
-							<Title>
+						<LabelDecoration name="ДекорацияНоваяПодсказка" id="81">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>55</MaxWidth>
+							<Title formatted="true">
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа декорация новая подсказка</v8:content>
+									<v8:content>Если код маркировки не читается или отсутствует - &lt;b&gt;выберите&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;элемент&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;из&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;списка&lt;/&gt;&lt;b&gt; &lt;/&gt;или воспользуйтесь функцией &lt;b&gt;Распечатать новый&lt;/&gt;</v8:content>
 								</v8:item>
 							</Title>
 							<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаДекорацияНоваяПодсказкаРасширеннаяПодсказка" id="315"/>
-							<ChildItems>
-								<LabelDecoration name="ДекорацияНоваяПодсказка" id="81">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Title formatted="true">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Если код маркировки не читается или отсутствует - &lt;b&gt;выберите&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;элемент&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;из&lt;/&gt;&lt;b&gt; &lt;/&gt;&lt;b&gt;списка&lt;/&gt;&lt;b&gt; &lt;/&gt;или воспользуйтесь функцией &lt;b&gt;Распечатать новый&lt;/&gt;</v8:content>
-										</v8:item>
-									</Title>
-									<GroupHorizontalAlign>Center</GroupHorizontalAlign>
-									<ContextMenu name="ДекорацияНоваяПодсказкаКонтекстноеМеню" id="82"/>
-									<ExtendedTooltip name="ДекорацияНоваяПодсказкаРасширеннаяПодсказка" id="83"/>
-								</LabelDecoration>
-							</ChildItems>
-						</UsualGroup>
+							<ContextMenu name="ДекорацияНоваяПодсказкаКонтекстноеМеню" id="82"/>
+							<ExtendedTooltip name="ДекорацияНоваяПодсказкаРасширеннаяПодсказка" id="83"/>
+						</LabelDecoration>
 					</ChildItems>
 				</Page>
 			</ChildItems>
@@ -1342,7 +1264,6 @@
 			</Title>
 			<Action>Далее</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Назад" id="3">
 			<Title>
@@ -1367,10 +1288,6 @@
 					<v8:content>Поиск по штрихкоду</v8:content>
 				</v8:item>
 			</Title>
-			<Picture>
-				<xr:Ref>CommonPicture.НовыйПоШтрихкоду</xr:Ref>
-				<xr:LoadTransparent>false</xr:LoadTransparent>
-			</Picture>
 			<Action>ПоискПоШтрихкоду</Action>
 			<Representation>Picture</Representation>
 		</Command>

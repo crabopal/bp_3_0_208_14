@@ -3,14 +3,7 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаВосстановитьНачальныеЗначения" id="33">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ВосстановитьНачальныеЗначения</CommandName>
-				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
-				<ExtendedTooltip name="ФормаВосстановитьНачальныеЗначенияРасширеннаяПодсказка" id="34"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -40,10 +33,28 @@
 			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="СписокНастройкиОтбораРасширеннаяПодсказка" id="30"/>
 		</UsualGroup>
+		<CommandBar name="КоманднаяПанельФормы" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель формы</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="КоманднаяПанельФормыРасширеннаяПодсказка" id="32"/>
+			<ChildItems>
+				<Button name="ФормаВосстановитьНачальныеЗначения" id="33">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.ВосстановитьНачальныеЗначения</CommandName>
+					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+					<ExtendedTooltip name="ФормаВосстановитьНачальныеЗначенияРасширеннаяПодсказка" id="34"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
 		<Table name="Список" id="3">
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<ChangeRowSet>false</ChangeRowSet>
 			<RowSelectionMode>Cell</RowSelectionMode>
@@ -62,7 +73,6 @@
 				<ExcludedCommand>Change</ExcludedCommand>
 				<ExcludedCommand>ChangeHistory</ExcludedCommand>
 			</CommandSet>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -79,7 +89,9 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -110,47 +122,24 @@
 				<Event name="OnUpdateUserSettingSetAtServer">СписокПриОбновленииСоставаПользовательскихНастроекНаСервере</Event>
 			</Events>
 			<ChildItems>
-				<ColumnGroup name="КодГруппа" id="25">
+				<LabelField name="КодКонтрольноеЧисло" id="44">
+					<DataPath>Список.КодКонтрольноеЧисло</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Код</v8:content>
 						</v8:item>
 					</Title>
-					<Group>InCell</Group>
-					<ShowInHeader>true</ShowInHeader>
-					<ExtendedTooltip name="КодГруппаРасширеннаяПодсказка" id="26"/>
-					<ChildItems>
-						<PictureField name="СтандартнаяКартинка" id="38">
-							<DataPath>Список.DefaultPicture</DataPath>
-							<ShowInHeader>false</ShowInHeader>
-							<Width>2</Width>
-							<ContextMenu name="СтандартнаяКартинкаКонтекстноеМеню" id="39"/>
-							<ExtendedTooltip name="СтандартнаяКартинкаРасширеннаяПодсказка" id="40"/>
-						</PictureField>
-						<LabelField name="Код" id="19">
-							<DataPath>Список.Code</DataPath>
-							<ShowInHeader>false</ShowInHeader>
-							<Width>5</Width>
-							<ContextMenu name="КодКонтекстноеМеню" id="20"/>
-							<ExtendedTooltip name="КодРасширеннаяПодсказка" id="21"/>
-						</LabelField>
-						<LabelField name="КонтрольноеЧисло" id="22">
-							<DataPath>Список.КонтрольноеЧисло</DataPath>
-							<ShowInHeader>false</ShowInHeader>
-							<Width>2</Width>
-							<ContextMenu name="КонтрольноеЧислоКонтекстноеМеню" id="23"/>
-							<ExtendedTooltip name="КонтрольноеЧислоРасширеннаяПодсказка" id="24"/>
-						</LabelField>
-					</ChildItems>
-				</ColumnGroup>
+					<ContextMenu name="КодКонтрольноеЧислоКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="КодКонтрольноеЧислоРасширеннаяПодсказка" id="46"/>
+				</LabelField>
 				<LabelField name="НаименованиеГруппЗанятий" id="35">
 					<DataPath>Список.НаименованиеГруппЗанятий</DataPath>
 					<ContextMenu name="НаименованиеГруппЗанятийКонтекстноеМеню" id="36"/>
 					<ExtendedTooltip name="НаименованиеГруппЗанятийРасширеннаяПодсказка" id="37"/>
 				</LabelField>
 				<LabelField name="Ссылка" id="41">
-					<DataPath>Список.Ref</DataPath>
+					<DataPath>Список.Ссылка</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
@@ -167,11 +156,70 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
-				<Field>Список.Ref</Field>
+				<Field>Список.Ссылка</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>false</ManualQuery>
+				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникКлассификаторЗанятий.Ссылка КАК Ссылка,
+	СправочникКлассификаторЗанятий.ПометкаУдаления КАК ПометкаУдаления,
+	СправочникКлассификаторЗанятий.Родитель КАК Родитель,
+	СправочникКлассификаторЗанятий.ЭтоГруппа КАК ЭтоГруппа,
+	СправочникКлассификаторЗанятий.Код КАК Код,
+	СправочникКлассификаторЗанятий.КонтрольноеЧисло КАК КонтрольноеЧисло,
+	СправочникКлассификаторЗанятий.НаименованиеГруппЗанятий КАК НаименованиеГруппЗанятий,
+	СправочникКлассификаторЗанятий.Предопределенный КАК Предопределенный,
+	СправочникКлассификаторЗанятий.ИмяПредопределенныхДанных КАК ИмяПредопределенныхДанных,
+	СТРОКА(СправочникКлассификаторЗанятий.Код) + "." + СТРОКА(СправочникКлассификаторЗанятий.КонтрольноеЧисло) КАК КодКонтрольноеЧисло
+ИЗ
+	Справочник.КлассификаторЗанятий КАК СправочникКлассификаторЗанятий</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КонтрольноеЧисло</dcssch:dataPath>
+					<dcssch:field>КонтрольноеЧисло</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НаименованиеГруппЗанятий</dcssch:dataPath>
+					<dcssch:field>НаименованиеГруппЗанятий</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Код</dcssch:dataPath>
+					<dcssch:field>Код</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Родитель</dcssch:dataPath>
+					<dcssch:field>Родитель</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтоГруппа</dcssch:dataPath>
+					<dcssch:field>ЭтоГруппа</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КодКонтрольноеЧисло</dcssch:dataPath>
+					<dcssch:field>КодКонтрольноеЧисло</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код контрольное число</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
 				<MainTable>Catalog.КлассификаторЗанятий</MainTable>
 				<ListSettings>
 					<dcsset:filter>

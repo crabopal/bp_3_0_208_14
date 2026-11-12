@@ -2,8 +2,9 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<Group>Vertical</Group>
-	<ShowTitle>true</ShowTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
@@ -35,7 +36,18 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="СписокНастройкиОтбораРасширеннаяПодсказка" id="26"/>
 		</UsualGroup>
+		<CommandBar name="КоманднаяПанельФормы" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель формы</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="КоманднаяПанельФормыРасширеннаяПодсказка" id="28"/>
+		</CommandBar>
 		<Table name="Список" id="3">
+			<CommandBarLocation>None</CommandBarLocation>
 			<DefaultItem>true</DefaultItem>
 			<RowSelectionMode>Cell</RowSelectionMode>
 			<InitialTreeView>ExpandTopLevel</InitialTreeView>
@@ -49,7 +61,6 @@
 					<v8:content>Список</v8:content>
 				</v8:item>
 			</Title>
-			<ShowCommandBar>auto</ShowCommandBar>
 			<AutoRefresh>false</AutoRefresh>
 			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
@@ -66,7 +77,9 @@
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
-			<AutoCommandBar name="СписокКоманднаяПанель" id="5"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
 			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
 			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
 				<AdditionSource>
@@ -97,37 +110,67 @@
 				<Event name="OnUpdateUserSettingSetAtServer">СписокПриОбновленииСоставаПользовательскихНастроекНаСервере</Event>
 			</Events>
 			<ChildItems>
-				<LabelField name="КодПрофессиональнойДеятельности" id="19">
-					<DataPath>Список.КодПрофессиональнойДеятельности</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Код проф. деятельности</v8:content>
-						</v8:item>
-					</Title>
+				<LabelField name="КодДеятельности" id="32">
+					<DataPath>Список.КодДеятельности</DataPath>
 					<HorizontalStretch>false</HorizontalStretch>
-					<ContextMenu name="КодПрофессиональнойДеятельностиКонтекстноеМеню" id="20"/>
-					<ExtendedTooltip name="КодПрофессиональнойДеятельностиРасширеннаяПодсказка" id="21"/>
+					<ContextMenu name="КодДеятельностиКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="КодДеятельностиРасширеннаяПодсказка" id="34"/>
 				</LabelField>
 				<LabelField name="Наименование" id="16">
-					<DataPath>Список.Description</DataPath>
+					<DataPath>Список.Наименование</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="18"/>
 				</LabelField>
-				<LabelField name="КодПоОКЗ" id="51">
-					<DataPath>Список.КодПоОКЗ2026</DataPath>
+				<LabelField name="КодПрофессиональнойДеятельности" id="19">
+					<DataPath>Список.КодПрофессиональнойДеятельности</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ОКЗ</v8:content>
+							<v8:content>Код проф.деятельности</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="КодПоОКЗКонтекстноеМеню" id="52"/>
-					<ExtendedTooltip name="КодПоОКЗРасширеннаяПодсказка" id="53"/>
+					<Width>12</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="КодПрофессиональнойДеятельностиКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="КодПрофессиональнойДеятельностиРасширеннаяПодсказка" id="21"/>
+				</LabelField>
+				<LabelField name="КодПоОКЗ2026" id="35">
+					<DataPath>Список.КодПоОКЗ2026</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код по ОКЗ с 2026 г.</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="КодПоОКЗ2026КонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="КодПоОКЗ2026РасширеннаяПодсказка" id="37"/>
+				</LabelField>
+				<LabelField name="КодПоОКЗ" id="29">
+					<DataPath>Список.КодПоОКЗ</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код по ОКЗ до 2026 г.</v8:content>
+						</v8:item>
+					</Title>
+					<Width>12</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="КодПоОКЗКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="КодПоОКЗРасширеннаяПодсказка" id="31"/>
 				</LabelField>
 				<LabelField name="Ссылка" id="22">
-					<DataPath>Список.Ref</DataPath>
+					<DataPath>Список.Ссылка</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
@@ -136,11 +179,11 @@
 				</LabelField>
 			</ChildItems>
 		</Table>
-		<CheckBoxField name="ПоказыватьУстаревшие" id="47">
+		<CheckBoxField name="ПоказыватьУстаревшие" id="38">
 			<DataPath>ПоказыватьУстаревшие</DataPath>
 			<TitleLocation>Right</TitleLocation>
-			<ContextMenu name="ПоказыватьУстаревшиеКонтекстноеМеню" id="48"/>
-			<ExtendedTooltip name="ПоказыватьУстаревшиеРасширеннаяПодсказка" id="49"/>
+			<ContextMenu name="ПоказыватьУстаревшиеКонтекстноеМеню" id="39"/>
+			<ExtendedTooltip name="ПоказыватьУстаревшиеРасширеннаяПодсказка" id="40"/>
 			<Events>
 				<Event name="OnChange">ПоказыватьУстаревшиеПриИзменении</Event>
 			</Events>
@@ -153,12 +196,118 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
-				<Field>Список.Ref</Field>
-				<Field>Список.ВАрхиве</Field>
+				<Field>Список.Ссылка</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>false</ManualQuery>
-				<DynamicDataRead>true</DynamicDataRead>
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникТрудовыеФункции.Ссылка КАК Ссылка,
+	СправочникТрудовыеФункции.ПометкаУдаления КАК ПометкаУдаления,
+	СправочникТрудовыеФункции.Наименование КАК Наименование,
+	СправочникТрудовыеФункции.КодПрофессиональнойДеятельности КАК КодПрофессиональнойДеятельности,
+	СправочникТрудовыеФункции.Описание КАК Описание,
+	СправочникТрудовыеФункции.КодПоОКЗ КАК КодПоОКЗ,
+	СправочникТрудовыеФункции.Предопределенный КАК Предопределенный,
+	СправочникТрудовыеФункции.ИмяПредопределенныхДанных КАК ИмяПредопределенныхДанных,
+	ВЫБОР
+		КОГДА СправочникТрудовыеФункции.Предопределенный
+			ТОГДА СправочникТрудовыеФункции.КодПрофессиональнойДеятельности
+		ИНАЧЕ ВЫБОР
+				КОГДА &amp;Период &gt;= &amp;Граница
+					ТОГДА СправочникТрудовыеФункции.КодПоОКЗ2026
+				ИНАЧЕ СправочникТрудовыеФункции.КодПоОКЗ
+			КОНЕЦ
+	КОНЕЦ КАК КодДеятельности,
+	СправочникТрудовыеФункции.КодПоОКЗ2026 КАК КодПоОКЗ2026
+ИЗ
+	Справочник.ТрудовыеФункции КАК СправочникТрудовыеФункции</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УдалитьКодПоОКЗ</dcssch:dataPath>
+					<dcssch:field>УдалитьКодПоОКЗ</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Наименование</dcssch:dataPath>
+					<dcssch:field>Наименование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КодПрофессиональнойДеятельности</dcssch:dataPath>
+					<dcssch:field>КодПрофессиональнойДеятельности</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КодПоОКЗ</dcssch:dataPath>
+					<dcssch:field>КодПоОКЗ</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Описание</dcssch:dataPath>
+					<dcssch:field>Описание</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предопределенный</dcssch:dataPath>
+					<dcssch:field>Предопределенный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяПредопределенныхДанных</dcssch:dataPath>
+					<dcssch:field>ИмяПредопределенныхДанных</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КодДеятельности</dcssch:dataPath>
+					<dcssch:field>КодДеятельности</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код деятельности</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КодПоОКЗ2026</dcssch:dataPath>
+					<dcssch:field>КодПоОКЗ2026</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>Период</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+					<dcssch:availableAsField>false</dcssch:availableAsField>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>Граница</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Граница</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcssch:value>
+					<dcssch:useRestriction>false</dcssch:useRestriction>
+					<dcssch:availableAsField>false</dcssch:availableAsField>
+				</Parameter>
 				<MainTable>Catalog.ТрудовыеФункции</MainTable>
 				<ListSettings>
 					<dcsset:filter>

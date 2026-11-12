@@ -9,20 +9,26 @@
 		<HorizontalAlign>Right</HorizontalAlign>
 		<Autofill>false</Autofill>
 		<ChildItems>
-			<Button name="Применить" id="10">
+			<Button name="ОК" id="10">
 				<Type>CommandBarButton</Type>
 				<DefaultButton>true</DefaultButton>
 				<SkipOnInput>false</SkipOnInput>
 				<DefaultItem>true</DefaultItem>
-				<CommandName>Form.Command.Применить</CommandName>
+				<CommandName>Form.Command.ОК</CommandName>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>Применить</v8:content>
+						<v8:content>ОК</v8:content>
 					</v8:item>
 				</Title>
 				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="31"/>
+				<ExtendedTooltip name="ОКРасширеннаяПодсказка" id="31"/>
+			</Button>
+			<Button name="Отмена" id="11">
+				<Type>CommandBarButton</Type>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="32"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -48,6 +54,7 @@
 					<TitleLocation>Top</TitleLocation>
 					<SkipOnInput>false</SkipOnInput>
 					<RowSelectionMode>Cell</RowSelectionMode>
+					<Header>false</Header>
 					<HorizontalLinesBWA>false</HorizontalLinesBWA>
 					<VerticalLinesBWA>false</VerticalLinesBWA>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -76,19 +83,8 @@
 					<RowFilter xsi:nil="true"/>
 					<ContextMenu name="ВсеПользователиКонтекстноеМеню" id="2"/>
 					<AutoCommandBar name="ВсеПользователиКоманднаяПанель" id="3">
+						<Autofill>false</Autofill>
 						<ChildItems>
-							<Button name="ВсеПользователиДобавитьБыстрыйДоступ" id="72">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.ДобавитьБыстрыйДоступ</CommandName>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Добавить в быстрый доступ</v8:content>
-									</v8:item>
-								</Title>
-								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-								<ExtendedTooltip name="ВсеПользователиДобавитьБыстрыйДоступРасширеннаяПодсказка" id="73"/>
-							</Button>
 							<Button name="ПользователиНайти" id="8">
 								<Type>CommandBarButton</Type>
 								<SkipOnInput>false</SkipOnInput>
@@ -149,11 +145,73 @@
 						</InputField>
 					</ChildItems>
 				</Table>
+				<UsualGroup name="КомандыУправленияСписком" id="20">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Команды управления списком</v8:content>
+						</v8:item>
+					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="КомандыУправленияСпискомРасширеннаяПодсказка" id="38"/>
+					<ChildItems>
+						<Button name="УстановитьКомандуДляВыделенныхПользователей" id="28">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.УстановитьКомандуДляВыделенныхПользователей</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&gt;</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="УстановитьКомандуДляВыделенныхПользователейРасширеннаяПодсказка" id="40"/>
+						</Button>
+						<Button name="УстановитьДоступДляВсехПользователей" id="27">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.УстановитьДоступДляВсехПользователей</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&gt;&gt;</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="УстановитьДоступДляВсехПользователейРасширеннаяПодсказка" id="41"/>
+						</Button>
+						<Button name="УбратьДоступККомандеУВсехПользователей" id="29">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.УбратьДоступККомандеУВсехПользователей</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&lt;&lt;</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="УбратьДоступККомандеУВсехПользователейРасширеннаяПодсказка" id="42"/>
+						</Button>
+						<Button name="УбратьДоступККомандеУВыделенныхПользователей" id="30">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.УбратьДоступККомандеУВыделенныхПользователей</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&lt;</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="УбратьДоступККомандеУВыделенныхПользователейРасширеннаяПодсказка" id="43"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
 				<Table name="ПользователиКороткогоСписка" id="13">
 					<Representation>List</Representation>
 					<TitleLocation>Top</TitleLocation>
 					<SkipOnInput>false</SkipOnInput>
 					<RowSelectionMode>Cell</RowSelectionMode>
+					<Header>false</Header>
 					<HorizontalLinesBWA>false</HorizontalLinesBWA>
 					<VerticalLinesBWA>false</VerticalLinesBWA>
 					<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -165,7 +223,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Выбранные пользователи</v8:content>
+							<v8:content>Пользователи, для которых видна команда</v8:content>
 						</v8:item>
 					</Title>
 					<CommandSet>
@@ -182,19 +240,8 @@
 					<RowFilter xsi:nil="true"/>
 					<ContextMenu name="ПользователиКороткогоСпискаКонтекстноеМеню" id="14"/>
 					<AutoCommandBar name="ПользователиКороткогоСпискаКоманднаяПанель" id="15">
+						<Autofill>false</Autofill>
 						<ChildItems>
-							<Button name="ПользователиКороткогоСпискаУбратьБыстрыйДоступ" id="74">
-								<Type>CommandBarButton</Type>
-								<CommandName>Form.Command.УбратьБыстрыйДоступ</CommandName>
-								<Title>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Убрать из быстрого доступа</v8:content>
-									</v8:item>
-								</Title>
-								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
-								<ExtendedTooltip name="ПользователиКороткогоСпискаУбратьБыстрыйДоступРасширеннаяПодсказка" id="75"/>
-							</Button>
 							<Button name="ПользователиКороткогоСпискаНайти" id="18">
 								<Type>CommandBarButton</Type>
 								<SkipOnInput>false</SkipOnInput>
@@ -309,28 +356,43 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="Применить" id="1">
+		<Command name="ОК" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Применить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Применить</v8:content>
+					<v8:content>ОК</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>Применить</Action>
+			<Action>ОК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
-		<Command name="ДобавитьБыстрыйДоступ" id="3">
+		<Command name="УстановитьДоступДляВсехПользователей" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Добавить в быстрый доступ</v8:content>
+					<v8:content>&gt;&gt;</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить всех пользователей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьДоступДляВсехПользователей</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УстановитьКомандуДляВыделенныхПользователей" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>&gt;</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -339,20 +401,30 @@
 					<v8:content>Добавить выделенных пользователей</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.AppearanceCheckBox</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>УстановитьКомандуДляВыделенныхПользователей</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ВсеПользователи</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="УбратьБыстрыйДоступ" id="5">
+		<Command name="УбратьДоступККомандеУВсехПользователей" id="4">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Убрать из быстрого доступа</v8:content>
+					<v8:content>&lt;&lt;</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить всех пользователей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УбратьДоступККомандеУВсехПользователей</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УбратьДоступККомандеУВыделенныхПользователей" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>&lt;</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -361,14 +433,8 @@
 					<v8:content>Удалить выделенных пользователей</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Picture>
-				<xr:Ref>StdPicture.Close</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
 			<Action>УбратьДоступККомандеУВыделенныхПользователей</Action>
-			<CurrentRowUse>Use</CurrentRowUse>
-			<AssociatedTableElementId xsi:type="xs:string">ПользователиКороткогоСписка</AssociatedTableElementId>
-			<SelectedRowsUse>Use</SelectedRowsUse>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 	<Parameters>

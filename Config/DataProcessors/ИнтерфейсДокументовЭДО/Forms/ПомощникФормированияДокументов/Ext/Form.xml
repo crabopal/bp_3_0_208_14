@@ -9,60 +9,9 @@
 	<WindowOpeningMode>DontBlock</WindowOpeningMode>
 	<AutoTitle>false</AutoTitle>
 	<Group>Vertical</Group>
-	<CommandBarLocation>Top</CommandBarLocation>
-	<ShowCommandBar>true</ShowCommandBar>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-		<ChildItems>
-			<Button name="Итоги2Справка" id="101">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.StandardCommand.Help</CommandName>
-				<ExtendedTooltip name="Итоги2СправкаРасширеннаяПодсказка" id="102"/>
-			</Button>
-			<Button name="ПодписатьИОтправить" id="162">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.ПодписатьИОтправить</CommandName>
-				<ButtonImportance>Main</ButtonImportance>
-				<ExtendedTooltip name="ПодписатьИОтправитьРасширеннаяПодсказка" id="163"/>
-			</Button>
-			<Button name="Сформировать" id="43">
-				<Type>CommandBarButton</Type>
-				<Visible>false</Visible>
-				<CommandName>Form.Command.Сформировать</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Сформировать</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="СформироватьРасширеннаяПодсказка" id="44"/>
-			</Button>
-			<Button name="ПомощникДалее" id="136">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ПомощникДалее</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Далее</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="ПомощникДалееРасширеннаяПодсказка" id="137"/>
-			</Button>
-			<Button name="Назад" id="164">
-				<Type>CommandBarButton</Type>
-				<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-				<CommandName>Form.Command.Назад</CommandName>
-				<Title>
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Назад</v8:content>
-					</v8:item>
-				</Title>
-				<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="165"/>
-			</Button>
-		</ChildItems>
-	</AutoCommandBar>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ShowCommandBar>false</ShowCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -104,24 +53,11 @@
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="ГруппаВариантОбщийРасширеннаяПодсказка" id="6"/>
 							<ChildItems>
-								<LabelDecoration name="НадписьСписокПоОрганизациям" id="371">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>true</HorizontalStretch>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>По некоторым из выбранных документов обнаружены предупреждения или не созданы настройки отправки. При необходимости создайте настройки отправки и нажмите "Сформировать"</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="НадписьСписокПоОрганизациямКонтекстноеМеню" id="372"/>
-									<ExtendedTooltip name="НадписьСписокПоОрганизациямРасширеннаяПодсказка" id="373"/>
-								</LabelDecoration>
 								<Table name="СписокПоОрганизациям" id="7">
 									<Representation>List</Representation>
 									<CommandBarLocation>None</CommandBarLocation>
 									<ChangeRowSet>false</ChangeRowSet>
 									<ChangeRowOrder>false</ChangeRowOrder>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -135,7 +71,7 @@
 											<v8:content>Список по организациям</v8:content>
 										</v8:item>
 									</Title>
-									<ToolTipRepresentation>None</ToolTipRepresentation>
+									<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
 									<RowFilter xsi:nil="true"/>
 									<ContextMenu name="СписокПоОрганизациямКонтекстноеМеню" id="8"/>
 									<AutoCommandBar name="СписокПоОрганизациямКоманднаяПанель" id="9"/>
@@ -180,11 +116,12 @@
 										<CheckBoxField name="СписокПоОрганизациямВыбран" id="20">
 											<DataPath>СписокПоОрганизациям.ГотовКОтправке</DataPath>
 											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
 											<HeaderPicture>
-												<xr:Ref>StdPicture.GrayedAll</xr:Ref>
+												<xr:Ref>StdPicture.CheckAll</xr:Ref>
 												<xr:LoadTransparent>true</xr:LoadTransparent>
 											</HeaderPicture>
-											<CheckBoxType>CheckBox</CheckBoxType>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="СписокПоОрганизациямВыбранКонтекстноеМеню" id="21"/>
 											<ExtendedTooltip name="СписокПоОрганизациямВыбранРасширеннаяПодсказка" id="22"/>
 											<Events>
@@ -194,6 +131,8 @@
 										<LabelField name="СписокПоОрганизациямОрганизация" id="23">
 											<DataPath>СписокПоОрганизациям.Организация</DataPath>
 											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<Hiperlink>true</Hiperlink>
 											<ContextMenu name="СписокПоОрганизациямОрганизацияКонтекстноеМеню" id="24"/>
 											<ExtendedTooltip name="СписокПоОрганизациямОрганизацияРасширеннаяПодсказка" id="25"/>
@@ -201,6 +140,8 @@
 										<LabelField name="СписокПоОрганизациямКонтрагент" id="26">
 											<DataPath>СписокПоОрганизациям.Контрагент</DataPath>
 											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<Hiperlink>true</Hiperlink>
 											<ContextMenu name="СписокПоОрганизациямКонтрагентКонтекстноеМеню" id="27"/>
 											<ExtendedTooltip name="СписокПоОрганизациямКонтрагентРасширеннаяПодсказка" id="28"/>
@@ -208,7 +149,9 @@
 										<LabelField name="СписокПоОрганизациямНастройки" id="32">
 											<DataPath>СписокПоОрганизациям.НастройкиОтправки</DataPath>
 											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
 											<CellHyperlink>true</CellHyperlink>
+											<AutoEditMode>true</AutoEditMode>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 											<Hiperlink>true</Hiperlink>
@@ -225,13 +168,17 @@
 												</v8:item>
 											</Title>
 											<HorizontalAlign>Center</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoEditMode>true</AutoEditMode>
 											<ContextMenu name="СписокПоОрганизациямДокументовКОтправкеКонтекстноеМеню" id="39"/>
 											<ExtendedTooltip name="СписокПоОрганизациямДокументовКОтправкеРасширеннаяПодсказка" id="40"/>
 										</LabelField>
 										<LabelField name="СписокПоОрганизациямРезультат" id="35">
 											<DataPath>СписокПоОрганизациям.Предупреждения</DataPath>
 											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
 											<CellHyperlink>true</CellHyperlink>
+											<AutoEditMode>true</AutoEditMode>
 											<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 											<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 											<Hiperlink>true</Hiperlink>
@@ -254,6 +201,7 @@
 									<ExtendedTooltip name="ГруппаИтогПоОрганизациямРасширеннаяПодсказка" id="52"/>
 									<ChildItems>
 										<LabelDecoration name="ГотовоКФормированию" id="53">
+											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 											<Title formatted="true">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -273,18 +221,18 @@
 											<HorizontalLocation>Right</HorizontalLocation>
 											<ExtendedTooltip name="ГруппаИтогПоОрганизациямУправлениеРасширеннаяПодсказка" id="42"/>
 											<ChildItems>
-												<ButtonGroup name="ГруппаКомандаСформировать" id="425">
-													<ExtendedTooltip name="ГруппаКомандаСформироватьРасширеннаяПодсказка" id="426"/>
-												</ButtonGroup>
+												<Button name="Сформировать" id="43">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Command.Сформировать</CommandName>
+													<ExtendedTooltip name="СформироватьРасширеннаяПодсказка" id="44"/>
+												</Button>
 												<Button name="Закрыть" id="45">
 													<Type>CommandBarButton</Type>
-													<Visible>false</Visible>
 													<CommandName>Form.StandardCommand.Close</CommandName>
 													<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="46"/>
 												</Button>
 												<Button name="Справка" id="47">
 													<Type>CommandBarButton</Type>
-													<Visible>false</Visible>
 													<CommandName>Form.StandardCommand.Help</CommandName>
 													<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="48"/>
 												</Button>
@@ -365,7 +313,7 @@
 															<v8:content>При формировании электронных документов обнаружены следующие предупреждения</v8:content>
 														</v8:item>
 													</ToolTip>
-													<ToolTipRepresentation>None</ToolTipRepresentation>
+													<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
 													<Group>Vertical</Group>
 													<Behavior>Usual</Behavior>
 													<Representation>WeakSeparation</Representation>
@@ -382,20 +330,6 @@
 															<Event name="URLProcessing">ГруппаЭлементовПредупрежденийРасширеннаяПодсказкаОбработкаНавигационнойСсылки</Event>
 														</Events>
 													</ExtendedTooltip>
-													<ChildItems>
-														<LabelDecoration name="ГруппаЭлементовПредупрежденийНадпись" id="377">
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<HorizontalStretch>true</HorizontalStretch>
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>При формировании электронных документов обнаружены следующие предупреждения</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="ГруппаЭлементовПредупрежденийНадписьКонтекстноеМеню" id="378"/>
-															<ExtendedTooltip name="ГруппаЭлементовПредупрежденийНадписьРасширеннаяПодсказка" id="379"/>
-														</LabelDecoration>
-													</ChildItems>
 												</UsualGroup>
 											</ChildItems>
 										</Page>
@@ -410,25 +344,11 @@
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаОбщиеОшибкиРасширеннаяПодсказка" id="119"/>
 											<ChildItems>
-												<LabelDecoration name="ОбщиеОшибкиДокументовНадпись" id="374">
-													<AutoMaxWidth>false</AutoMaxWidth>
-													<HorizontalStretch>true</HorizontalStretch>
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>В указанных объектах содержатся некорректные данные, приводящие к ошибкам заполнения электронного документа.
-Откройте объект, чтобы увидеть список ошибок и исправить их.</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="ОбщиеОшибкиДокументовНадписьКонтекстноеМеню" id="375"/>
-													<ExtendedTooltip name="ОбщиеОшибкиДокументовНадписьРасширеннаяПодсказка" id="376"/>
-												</LabelDecoration>
 												<Table name="ОбщиеОшибкиДокументов" id="120">
 													<Representation>List</Representation>
 													<CommandBarLocation>None</CommandBarLocation>
 													<ChangeRowSet>false</ChangeRowSet>
 													<ChangeRowOrder>false</ChangeRowOrder>
-													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<Header>false</Header>
 													<HorizontalLinesBWA>false</HorizontalLinesBWA>
@@ -446,7 +366,7 @@
 															<v8:content>Общие ошибки документов</v8:content>
 														</v8:item>
 													</Title>
-													<ToolTipRepresentation>None</ToolTipRepresentation>
+													<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
 													<RowFilter xsi:nil="true"/>
 													<ContextMenu name="ОбщиеОшибкиДокументовКонтекстноеМеню" id="121"/>
 													<AutoCommandBar name="ОбщиеОшибкиДокументовКоманднаяПанель" id="122"/>
@@ -491,7 +411,9 @@
 													<ChildItems>
 														<LabelField name="ОбщиеОшибкиДокументовПредставление" id="133">
 															<DataPath>ОбщиеОшибкиДокументов.Представление</DataPath>
+															<EditMode>EnterOnInput</EditMode>
 															<CellHyperlink>true</CellHyperlink>
+															<AutoEditMode>true</AutoEditMode>
 															<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 															<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 															<Hiperlink>true</Hiperlink>
@@ -513,38 +435,9 @@
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаДополнительныеПоляРасширеннаяПодсказка" id="173"/>
 											<ChildItems>
-												<UsualGroup name="ГруппаИзмененыНастройки85" id="380">
-													<HorizontalStretch>true</HorizontalStretch>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<BackColor>pal:LightBlue</BackColor>
-													<ExtendedTooltip name="ГруппаИзмененыНастройки85РасширеннаяПодсказка" id="381"/>
-													<ChildItems>
-														<PictureDecoration name="КартинкаИнформация85" id="382">
-															<GroupVerticalAlign>Center</GroupVerticalAlign>
-															<Picture>
-																<xr:Ref>StdPicture.Information</xr:Ref>
-																<xr:LoadTransparent>true</xr:LoadTransparent>
-															</Picture>
-															<ContextMenu name="КартинкаИнформация85КонтекстноеМеню" id="383"/>
-															<ExtendedTooltip name="КартинкаИнформация85РасширеннаяПодсказка" id="384"/>
-														</PictureDecoration>
-														<LabelDecoration name="НадписьИзмененыНастройки85" id="385">
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Изменены настройки заполнения дополнительных полей.
-Для того чтобы сформировать документ с новыми настройками, нажмите "Готово".</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="НадписьИзмененыНастройки85КонтекстноеМеню" id="386"/>
-															<ExtendedTooltip name="НадписьИзмененыНастройки85РасширеннаяПодсказка" id="387"/>
-														</LabelDecoration>
-													</ChildItems>
-												</UsualGroup>
 												<LabelDecoration name="НадписьТребование" id="174">
 													<AutoMaxWidth>false</AutoMaxWidth>
+													<TextColor>style:ПоясняющийТекст</TextColor>
 													<Title formatted="true">
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -559,7 +452,6 @@
 													</Events>
 												</LabelDecoration>
 												<UsualGroup name="ГруппаИзмененыНастройки" id="177">
-													<Visible>false</Visible>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -645,7 +537,6 @@
 													<CommandBarLocation>None</CommandBarLocation>
 													<ChangeRowSet>false</ChangeRowSet>
 													<ChangeRowOrder>false</ChangeRowOrder>
-													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 													<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -700,13 +591,12 @@
 														<CheckBoxField name="ДокументыКОтправкеВыбран" id="153">
 															<DataPath>ДокументыКОтправке.ГотовКОтправке</DataPath>
 															<TitleLocation>None</TitleLocation>
-															<HorizontalAlign>Center</HorizontalAlign>
+															<EditMode>EnterOnInput</EditMode>
 															<HeaderPicture>
-																<xr:Ref>StdPicture.GrayedAll</xr:Ref>
+																<xr:Ref>StdPicture.CheckAll</xr:Ref>
 																<xr:LoadTransparent>true</xr:LoadTransparent>
 															</HeaderPicture>
-															<AutoWidthInTable>ByData</AutoWidthInTable>
-															<CheckBoxType>CheckBox</CheckBoxType>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ДокументыКОтправкеВыбранКонтекстноеМеню" id="154"/>
 															<ExtendedTooltip name="ДокументыКОтправкеВыбранРасширеннаяПодсказка" id="155"/>
 															<Events>
@@ -715,12 +605,16 @@
 														</CheckBoxField>
 														<LabelField name="ДокументыКОтправкеДокумент" id="156">
 															<DataPath>ДокументыКОтправке.Документ</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="ДокументыКОтправкеДокументКонтекстноеМеню" id="157"/>
 															<ExtendedTooltip name="ДокументыКОтправкеДокументРасширеннаяПодсказка" id="158"/>
 														</LabelField>
 														<LabelField name="ДокументыКОтправкеРезультат" id="159">
 															<DataPath>ДокументыКОтправке.Результат</DataPath>
+															<EditMode>EnterOnInput</EditMode>
 															<CellHyperlink>true</CellHyperlink>
+															<AutoEditMode>true</AutoEditMode>
 															<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 															<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 															<Hiperlink>true</Hiperlink>
@@ -744,41 +638,12 @@
 													<v8:content>Необходимо указать список подписантов перед формированием документа.</v8:content>
 												</v8:item>
 											</ToolTip>
-											<ToolTipRepresentation>None</ToolTipRepresentation>
+											<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
 											<HorizontalStretch>true</HorizontalStretch>
 											<Group>Vertical</Group>
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаПодписантыРасширеннаяПодсказка" id="192"/>
 											<ChildItems>
-												<UsualGroup name="ГруппаСообщениеСписокПодписантов85" id="405">
-													<HorizontalStretch>true</HorizontalStretch>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<BackColor>pal:LightBlue</BackColor>
-													<ExtendedTooltip name="ГруппаСообщениеСписокПодписантов85РасширеннаяПодсказка" id="406"/>
-													<ChildItems>
-														<PictureDecoration name="КартинкаИнформацияСписокПодписантов85" id="407">
-															<GroupVerticalAlign>Center</GroupVerticalAlign>
-															<Picture>
-																<xr:Ref>StdPicture.Information</xr:Ref>
-																<xr:LoadTransparent>true</xr:LoadTransparent>
-															</Picture>
-															<ContextMenu name="КартинкаИнформацияСписокПодписантов85КонтекстноеМеню" id="408"/>
-															<ExtendedTooltip name="КартинкаИнформацияСписокПодписантов85РасширеннаяПодсказка" id="409"/>
-														</PictureDecoration>
-														<LabelDecoration name="НадписьИнформацияСписокПодписантов85" id="410">
-															<AutoMaxWidth>false</AutoMaxWidth>
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Необходимо указать список подписантов перед формированием документа.</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="НадписьИнформацияСписокПодписантов85КонтекстноеМеню" id="411"/>
-															<ExtendedTooltip name="НадписьИнформацияСписокПодписантов85РасширеннаяПодсказка" id="412"/>
-														</LabelDecoration>
-													</ChildItems>
-												</UsualGroup>
 												<UsualGroup name="ГруппаСуществующийМаршрут" id="213">
 													<Title>
 														<v8:item>
@@ -875,7 +740,6 @@
 												</RadioButtonField>
 												<Table name="СписокПодписантов" id="193">
 													<Representation>List</Representation>
-													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<Header>false</Header>
 													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -935,6 +799,8 @@
 													<ChildItems>
 														<InputField name="СписокПодписантовПодписант" id="206">
 															<DataPath>СписокПодписантов.Подписант</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<AutoEditMode>true</AutoEditMode>
 															<ContextMenu name="СписокПодписантовПодписантКонтекстноеМеню" id="207"/>
 															<ExtendedTooltip name="СписокПодписантовПодписантРасширеннаяПодсказка" id="208"/>
 														</InputField>
@@ -953,18 +819,6 @@
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаФормированиеЗапрещеноРасширеннаяПодсказка" id="234"/>
 											<ChildItems>
-												<LabelDecoration name="СписокЗапрещенныхКФормированиюНадпись" id="413">
-													<AutoMaxWidth>false</AutoMaxWidth>
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>В указанных объектах содержатся некорректные данные, приводящие к ошибкам заполнения электронного документа.
-Откройте объект, чтобы увидеть список ошибок и исправить их.</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="СписокЗапрещенныхКФормированиюНадписьКонтекстноеМеню" id="414"/>
-													<ExtendedTooltip name="СписокЗапрещенныхКФормированиюНадписьРасширеннаяПодсказка" id="415"/>
-												</LabelDecoration>
 												<Table name="СписокЗапрещенныхКФормированию" id="258">
 													<Representation>List</Representation>
 													<ReadOnly>true</ReadOnly>
@@ -976,7 +830,7 @@
 													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 													<DataPath>СписокЗапрещенныхКФормированию</DataPath>
 													<BorderColor>style:FormBackColor</BorderColor>
-													<ToolTipRepresentation>None</ToolTipRepresentation>
+													<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
 													<RowFilter xsi:nil="true"/>
 													<ContextMenu name="СписокЗапрещенныхКФормированиюКонтекстноеМеню" id="260"/>
 													<AutoCommandBar name="СписокЗапрещенныхКФормированиюКоманднаяПанель" id="259">
@@ -1037,18 +891,6 @@
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаОсновнойВидНеУстановленРасширеннаяПодсказка" id="275"/>
 											<ChildItems>
-												<LabelDecoration name="СписокОсновнойВидНеУстановленНадпись" id="416">
-													<AutoMaxWidth>false</AutoMaxWidth>
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>В указанных объектах содержатся некорректные данные, приводящие к ошибкам заполнения электронного документа.
-Откройте объект, чтобы увидеть список ошибок и исправить их.</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="СписокОсновнойВидНеУстановленНадписьКонтекстноеМеню" id="417"/>
-													<ExtendedTooltip name="СписокОсновнойВидНеУстановленНадписьРасширеннаяПодсказка" id="418"/>
-												</LabelDecoration>
 												<Table name="СписокОсновнойВидНеУстановлен" id="276">
 													<Representation>List</Representation>
 													<ReadOnly>true</ReadOnly>
@@ -1060,7 +902,7 @@
 													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 													<DataPath>СписокОсновнойВидНеУстановлен</DataPath>
 													<BorderColor>style:FormBackColor</BorderColor>
-													<ToolTipRepresentation>None</ToolTipRepresentation>
+													<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
 													<RowFilter xsi:nil="true"/>
 													<ContextMenu name="СписокОсновнойВидНеУстановленКонтекстноеМеню" id="277"/>
 													<AutoCommandBar name="СписокОсновнойВидНеУстановленКоманднаяПанель" id="278">
@@ -1127,23 +969,11 @@
 											<ScrollOnCompress>false</ScrollOnCompress>
 											<ExtendedTooltip name="СтраницаПечатнаяФормаНеУказанаРасширеннаяПодсказка" id="296"/>
 											<ChildItems>
-												<LabelDecoration name="СписокПечатныхФормНадпись" id="419">
-													<AutoMaxWidth>false</AutoMaxWidth>
-													<Title formatted="false">
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Для данного документа доступно несколько печатных форм. Выберете необходимый вариант для формирования электронного документа.</v8:content>
-														</v8:item>
-													</Title>
-													<ContextMenu name="СписокПечатныхФормНадписьКонтекстноеМеню" id="420"/>
-													<ExtendedTooltip name="СписокПечатныхФормНадписьРасширеннаяПодсказка" id="421"/>
-												</LabelDecoration>
 												<Table name="СписокПечатныхФорм" id="297">
 													<Representation>List</Representation>
 													<CommandBarLocation>None</CommandBarLocation>
 													<ChangeRowSet>false</ChangeRowSet>
 													<ChangeRowOrder>false</ChangeRowOrder>
-													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Cell</RowSelectionMode>
 													<Header>false</Header>
 													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
@@ -1154,7 +984,7 @@
 															<v8:content>Для данного документа доступно несколько печатных форм. Выберете необходимый вариант для формирования электронного документа.</v8:content>
 														</v8:item>
 													</ToolTip>
-													<ToolTipRepresentation>None</ToolTipRepresentation>
+													<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
 													<ContextMenu name="СписокПечатныхФормКонтекстноеМеню" id="299"/>
 													<AutoCommandBar name="СписокПечатныхФормКоманднаяПанель" id="298"/>
 													<ExtendedTooltip name="СписокПечатныхФормРасширеннаяПодсказка" id="300">
@@ -1208,56 +1038,56 @@
 										</Page>
 										<Page name="СтраницаПоФайлам" id="341">
 											<Group>Vertical</Group>
-											<ExtendedTooltip name="СтраницаПоФайламРасширеннаяПодсказка" id="389"/>
+											<ScrollOnCompress>false</ScrollOnCompress>
+											<ExtendedTooltip name="СтраницаПоФайламРасширеннаяПодсказка" id="342"/>
 											<ChildItems>
 												<Table name="ОшибкиПриФормированииДокументовПоФайлам" id="343">
 													<Representation>List</Representation>
 													<CommandBarLocation>None</CommandBarLocation>
 													<ChangeRowSet>false</ChangeRowSet>
 													<ChangeRowOrder>false</ChangeRowOrder>
-													<SelectionMode>SingleRow</SelectionMode>
 													<RowSelectionMode>Cell</RowSelectionMode>
+													<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 													<AutoInsertNewRow>true</AutoInsertNewRow>
 													<EnableStartDrag>true</EnableStartDrag>
 													<EnableDrag>true</EnableDrag>
 													<FileDragMode>AsFile</FileDragMode>
 													<DataPath>ОшибкиПриФормированииДокументовПоФайлам</DataPath>
-													<AutoMaxCardHeight>false</AutoMaxCardHeight>
 													<RowFilter xsi:nil="true"/>
 													<ContextMenu name="ОшибкиПриФормированииДокументовПоФайламКонтекстноеМеню" id="345"/>
-													<AutoCommandBar name="ОшибкиПриФормированииДокументовПоФайламКоманднаяПанель" id="390">
+													<AutoCommandBar name="ОшибкиПриФормированииДокументовПоФайламКоманднаяПанель" id="344">
 														<Autofill>false</Autofill>
 													</AutoCommandBar>
 													<ExtendedTooltip name="ОшибкиПриФормированииДокументовПоФайламРасширеннаяПодсказка" id="346"/>
-													<SearchStringAddition name="ОшибкиПриФормированииДокументовПоФайламСтрокаПоиска" id="391">
+													<SearchStringAddition name="ОшибкиПриФормированииДокументовПоФайламСтрокаПоиска" id="347">
 														<AdditionSource>
 															<Item>ОшибкиПриФормированииДокументовПоФайлам</Item>
 															<Type>SearchStringRepresentation</Type>
 														</AdditionSource>
-														<ContextMenu name="ОшибкиПриФормированииДокументовПоФайламСтрокаПоискаКонтекстноеМеню" id="398"/>
-														<ExtendedTooltip name="ОшибкиПриФормированииДокументовПоФайламСтрокаПоискаРасширеннаяПодсказка" id="399"/>
+														<ContextMenu name="ОшибкиПриФормированииДокументовПоФайламСтрокаПоискаКонтекстноеМеню" id="348"/>
+														<ExtendedTooltip name="ОшибкиПриФормированииДокументовПоФайламСтрокаПоискаРасширеннаяПодсказка" id="349"/>
 													</SearchStringAddition>
 													<ViewStatusAddition name="ОшибкиПриФормированииДокументовПоФайламСостояниеПросмотра" id="353">
 														<AdditionSource>
 															<Item>ОшибкиПриФормированииДокументовПоФайлам</Item>
 															<Type>ViewStatusRepresentation</Type>
 														</AdditionSource>
-														<ContextMenu name="ОшибкиПриФормированииДокументовПоФайламСостояниеПросмотраКонтекстноеМеню" id="400"/>
-														<ExtendedTooltip name="ОшибкиПриФормированииДокументовПоФайламСостояниеПросмотраРасширеннаяПодсказка" id="401"/>
+														<ContextMenu name="ОшибкиПриФормированииДокументовПоФайламСостояниеПросмотраКонтекстноеМеню" id="354"/>
+														<ExtendedTooltip name="ОшибкиПриФормированииДокументовПоФайламСостояниеПросмотраРасширеннаяПодсказка" id="355"/>
 													</ViewStatusAddition>
 													<SearchControlAddition name="ОшибкиПриФормированииДокументовПоФайламУправлениеПоиском" id="350">
 														<AdditionSource>
 															<Item>ОшибкиПриФормированииДокументовПоФайлам</Item>
 															<Type>SearchControl</Type>
 														</AdditionSource>
-														<ContextMenu name="ОшибкиПриФормированииДокументовПоФайламУправлениеПоискомКонтекстноеМеню" id="397"/>
+														<ContextMenu name="ОшибкиПриФормированииДокументовПоФайламУправлениеПоискомКонтекстноеМеню" id="351"/>
 														<ExtendedTooltip name="ОшибкиПриФормированииДокументовПоФайламУправлениеПоискомРасширеннаяПодсказка" id="352"/>
 													</SearchControlAddition>
 													<Events>
 														<Event name="Selection">ОшибкиПриФормированииДокументовПоФайламВыбор</Event>
 													</Events>
 													<ChildItems>
-														<LabelField name="ОшибкиПриФормированииДокументовПоФайламИмяФайла" id="392">
+														<LabelField name="ОшибкиПриФормированииДокументовПоФайламИмяФайла" id="356">
 															<DataPath>ОшибкиПриФормированииДокументовПоФайлам.ИмяФайла</DataPath>
 															<Title>
 																<v8:item>
@@ -1265,18 +1095,19 @@
 																	<v8:content>Файл</v8:content>
 																</v8:item>
 															</Title>
-															<ContextMenu name="ОшибкиПриФормированииДокументовПоФайламИмяФайлаКонтекстноеМеню" id="402"/>
+															<ContextMenu name="ОшибкиПриФормированииДокументовПоФайламИмяФайлаКонтекстноеМеню" id="357"/>
 															<ExtendedTooltip name="ОшибкиПриФормированииДокументовПоФайламИмяФайлаРасширеннаяПодсказка" id="358"/>
 														</LabelField>
-														<LabelField name="ОшибкиПриФормированииДокументовПоФайламРезультат" id="393">
+														<LabelField name="ОшибкиПриФормированииДокументовПоФайламРезультат" id="365">
 															<DataPath>ОшибкиПриФормированииДокументовПоФайлам.Результат</DataPath>
 															<EditMode>EnterOnInput</EditMode>
 															<CellHyperlink>true</CellHyperlink>
+															<AutoEditMode>true</AutoEditMode>
 															<CellHyperlinkRepresentation>Show</CellHyperlinkRepresentation>
 															<CellHyperlinkDisplayVariant>Always</CellHyperlinkDisplayVariant>
 															<Hiperlink>true</Hiperlink>
-															<ContextMenu name="ОшибкиПриФормированииДокументовПоФайламРезультатКонтекстноеМеню" id="403"/>
-															<ExtendedTooltip name="ОшибкиПриФормированииДокументовПоФайламРезультатРасширеннаяПодсказка" id="404"/>
+															<ContextMenu name="ОшибкиПриФормированииДокументовПоФайламРезультатКонтекстноеМеню" id="366"/>
+															<ExtendedTooltip name="ОшибкиПриФормированииДокументовПоФайламРезультатРасширеннаяПодсказка" id="367"/>
 														</LabelField>
 													</ChildItems>
 												</Table>
@@ -1299,6 +1130,18 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаИтоги2РасширеннаяПодсказка" id="96"/>
 									<ChildItems>
+										<Button name="Назад" id="164">
+											<Type>UsualButton</Type>
+											<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+											<CommandName>Form.Command.Назад</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>&lt; Назад</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="165"/>
+										</Button>
 										<CommandBar name="ГруппаИтоги2Управление" id="97">
 											<Title>
 												<v8:item>
@@ -1309,11 +1152,27 @@
 											<HorizontalStretch>false</HorizontalStretch>
 											<ExtendedTooltip name="ГруппаИтоги2УправлениеРасширеннаяПодсказка" id="98"/>
 											<ChildItems>
+												<Button name="ПодписатьИОтправить" id="162">
+													<Type>CommandBarButton</Type>
+													<DefaultButton>true</DefaultButton>
+													<CommandName>Form.Command.ПодписатьИОтправить</CommandName>
+													<ButtonImportance>Main</ButtonImportance>
+													<ExtendedTooltip name="ПодписатьИОтправитьРасширеннаяПодсказка" id="163"/>
+												</Button>
+												<Button name="ПомощникДалее" id="136">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Command.ПомощникДалее</CommandName>
+													<ExtendedTooltip name="ПомощникДалееРасширеннаяПодсказка" id="137"/>
+												</Button>
 												<Button name="Итоги2Закрыть" id="99">
 													<Type>CommandBarButton</Type>
-													<Visible>false</Visible>
 													<CommandName>Form.StandardCommand.Close</CommandName>
 													<ExtendedTooltip name="Итоги2ЗакрытьРасширеннаяПодсказка" id="100"/>
+												</Button>
+												<Button name="Итоги2Справка" id="101">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.StandardCommand.Help</CommandName>
+													<ExtendedTooltip name="Итоги2СправкаРасширеннаяПодсказка" id="102"/>
 												</Button>
 											</ChildItems>
 										</CommandBar>
@@ -1367,6 +1226,7 @@
 											<ExtendedTooltip name="ДекорацияКартинкаОжиданиеРасширеннаяПодсказка" id="112"/>
 										</PictureDecoration>
 										<LabelDecoration name="ДекорацияНадписьОжидание" id="113">
+											<TextColor>style:ПоясняющийТекст</TextColor>
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -1392,30 +1252,17 @@
 							<ScrollOnCompress>false</ScrollOnCompress>
 							<ExtendedTooltip name="ГруппаПомощникФормированияОтветногоТитулаРасширеннаяПодсказка" id="319"/>
 							<ChildItems>
-								<LabelDecoration name="СписокДокументовДляФормированияОтветногоТитулаНадпись" id="422">
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>По некоторым из выбранных документов не созданы документы учета. 
-Откройте их, ознакомьтесь и нажмите "Подписать и отправить", чтобы сформировать ответное сообщение.</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="СписокДокументовДляФормированияОтветногоТитулаНадписьКонтекстноеМеню" id="423"/>
-									<ExtendedTooltip name="СписокДокументовДляФормированияОтветногоТитулаНадписьРасширеннаяПодсказка" id="424"/>
-								</LabelDecoration>
 								<Table name="СписокДокументовДляФормированияОтветногоТитула" id="320">
 									<Representation>List</Representation>
 									<CommandBarLocation>None</CommandBarLocation>
 									<ReadOnly>true</ReadOnly>
 									<ChangeRowOrder>false</ChangeRowOrder>
-									<SelectionMode>SingleRow</SelectionMode>
 									<RowSelectionMode>Cell</RowSelectionMode>
 									<Header>false</Header>
 									<UseAlternationRowColorBWA>false</UseAlternationRowColorBWA>
 									<DataPath>СписокДокументовДляФормированияОтветногоТитула</DataPath>
 									<BorderColor>style:FormBackColor</BorderColor>
-									<ToolTipRepresentation>None</ToolTipRepresentation>
+									<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
 									<RowFilter xsi:nil="true"/>
 									<ContextMenu name="СписокДокументовДляФормированияОтветногоТитулаКонтекстноеМеню" id="322"/>
 									<AutoCommandBar name="СписокДокументовДляФормированияОтветногоТитулаКоманднаяПанель" id="321"/>
@@ -2900,6 +2747,12 @@
 	</Attributes>
 	<Commands>
 		<Command name="Сформировать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать &gt;</v8:content>
+				</v8:item>
+			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -2907,11 +2760,15 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Сформировать</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПомощникДалее" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Далее &gt;</v8:content>
+				</v8:item>
+			</Title>
 			<Action>ПомощникДалее</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="ПодписатьИОтправить" id="3">
 			<Title>
@@ -2927,13 +2784,12 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПодписатьИОтправить</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 		<Command name="Назад" id="4">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Назад</v8:content>
+					<v8:content>&lt; Назад</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -2943,7 +2799,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Назад</Action>
-			<ActionPurpose>Finish</ActionPurpose>
 		</Command>
 	</Commands>
 </Form>
